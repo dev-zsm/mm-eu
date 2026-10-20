@@ -1,0 +1,28 @@
+name: boot
+sha1: 881b2a2f0f3cf03c971bf2bfc161f744ea65ca9c
+options:
+  basename: boot
+  target_path: build/boot.bin
+  base_path: ..
+  platform: n64
+  compiler: IDO
+  endianness: big
+  asm_path: asm/boot
+  src_path: src/boot
+  build_path: build/boot
+  ld_script_path: build/boot/boot.ld
+  create_asm_dependencies: True
+  find_file_boundaries: False
+  use_legacy_include_asm: False
+  symbol_addrs_path: config/boot.symbols.txt
+  undefined_funcs_auto_path: build/boot/undefined_funcs_auto.txt
+  undefined_syms_auto_path: build/boot/undefined_syms_auto.txt
+segments:
+  - name: boot
+    type: code
+    start: 0x0
+    vram: 0x80080000
+    subsegments:
+      - [0x0, asm, text]
+      - [0x16B60, data, data]
+  - [0x198D0]
