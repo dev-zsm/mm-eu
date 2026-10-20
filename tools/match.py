@@ -52,7 +52,8 @@ def compiled(cfile: Path, name: str, flags: list[str]):
 def mask(code: bytes, masks: dict) -> list[int]:
     words = list(struct.unpack(f">{len(code) // 4}I", code))
     for off, m in masks.items():
-        words[off // 4] &= ~m
+        if off // 4 < len(words):
+            words[off // 4] &= ~m
     return words
 
 
