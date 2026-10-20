@@ -67,6 +67,8 @@ def main():
     flags = file_flags(cfile)
     want, _ = original(seg, name)
     got, masks = compiled(cfile, name, flags)
+    if len(got) > len(want) and not any(got[len(want):]):  # IDO pads .text to 16 bytes
+        got = got[:len(want)]
     a, b = mask(want, masks), mask(got, masks)
     if len(want) != len(got):
         print(f"{name}: SIZE DIFFERS (rom {len(want):#x}, ours {len(got):#x})"); sys.exit(1)
