@@ -1,0 +1,10 @@
+baserom/
+extracted/
+build/
+*.z64
+# derived from the ROM
+asm/
+decomp/
+# third-party tools, fetched by tools/setup_wsl.sh
+tools/vendor/
+__pycache__/

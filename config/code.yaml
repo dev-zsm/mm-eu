@@ -1,0 +1,28 @@
+name: code
+sha1: 672a3318f011e732b0d2232993f6b51fa4458e90
+options:
+  basename: code
+  target_path: extracted/0049_00C8A000.bin
+  base_path: ..
+  platform: n64
+  compiler: IDO
+  endianness: big
+  asm_path: asm/code
+  src_path: src/code
+  build_path: build/code
+  ld_script_path: build/code/code.ld
+  create_asm_dependencies: True
+  find_file_boundaries: False
+  use_legacy_include_asm: False
+  symbol_addrs_path: config/code.symbols.txt
+  undefined_funcs_auto_path: build/code/undefined_funcs_auto.txt
+  undefined_syms_auto_path: build/code/undefined_syms_auto.txt
+segments:
+  - name: code
+    type: code
+    start: 0x0
+    vram: 0x800A5FE0
+    subsegments:
+      - [0x0, asm, text]
+      - [0x1059A0, data, data]
+  - [0x135850]
