@@ -60,3 +60,23 @@ matches with the normal flags plus `-trapuv`, e.g. `// FLAGS: -O2 -g3 -mips2 -tr
 
 One line per function: `<fn> MATCH` or `<fn> FAIL (<n> instr differ; what you tried)`, then at most 3 lines of
 new lessons (flags/idioms) not listed above.
+
+## Second pass: functions that are already close (read this if your function has an existing draft in src/boot/wip/)
+
+Start from the existing `src/boot/wip/<fn>.c` (move/copy it to `src/boot/<fn>.c` to test with `tools/zmm match`; move it back
+to wip/ if it still fails). Use `tools/zmm diff` and fix ONE difference at a time, re-running match after each edit.
+The remaining differences are almost always register allocation or stack layout. Things that worked on other functions:
+
+- Keep a global's address in a pointer local (`u8 *p = &G;`): IDO then keeps it in a saved register like the ROM does.
+- `register` on locals that live across calls moves them to callee-saved registers (and can flip a stack spill into a register).
+- A local struct that groups several locals pins their stack offsets (`struct { u8 a[0x18]; u8 b[0x20]; s64 c; } l;`);
+  separate locals do not. Unused padding locals/arrays fix a frame that is 8/16 bytes short.
+- Local declaration order decides stack slot and callee-saved register; try every permutation of 2-4 locals.
+- `a->x != b->x` vs `b->x != a->x` flips operand order of a branch. `CONST == x` vs `x == CONST`, `!x` vs `x == 0` too.
+- Splitting or merging an expression into a temp changes scheduling; so does `return G = e;` vs separate store+return.
+- `-O1` keeps one `lui`+`lw` per global access (matches ROMs that reload); `-O2` hoists the address. Try both, with -g0 and -g3.
+- A loop the ROM does NOT unroll but -O2 unrolls: index loop, non-constant bound, or -O1.
+- Unaligned halfword/word store/load (`swl/swr`, `lwl/lwr`): `*(u32 *)0x...1` style or a `u8 b[8]` struct copy.
+- `u8`/`u16` parameters produce the `sw aN` spill + `andi` the ROM shows; `s32` does not.
+- For the ROM's `-trapuv` prologue the register choice (t0/t1 vs t9/t0) follows register pressure of the body.
+- The decomp-permuter is also running over all wip functions in the background (CPU only); do not start your own permuter.

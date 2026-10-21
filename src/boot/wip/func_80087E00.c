@@ -12,12 +12,7 @@ extern s32 func_8008D0B0(Obj *p);
 extern s32 func_8008D184(Obj *p, u16 *buf, s32 zero, u8 i);
 
 s32 func_80087E00(Obj *p, s32 *out) {
-    u16 buf[0x80];
-    s32 n;
-    s32 start;
-    s32 j;
-    s32 err;
-    u8 i;
+    u16 buf[0x80]; s32 n; s32 start; s32 j; s32 err; u8 i;
 
     n = 0;
     if (!(p->flags & 1)) {
@@ -32,11 +27,7 @@ s32 func_80087E00(Obj *p, s32 *out) {
         if (err != 0) {
             return err;
         }
-        if (i <= 0) {
-            start = p->unk60;
-        } else {
-            start = 1;
-        }
+        if (i > 0) { start = 1; } else { start = p->unk60; }
         for (j = start; j < 0x80; j++) {
             if (buf[j] == 3) {
                 n++;

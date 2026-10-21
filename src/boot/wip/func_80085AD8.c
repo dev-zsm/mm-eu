@@ -18,8 +18,7 @@ typedef struct {
 
 void func_80085AD8(Struct *s, u8 a1) {
     Gfx *dl;
-
-
+    u32 t;
 
     if (s->unkF & 8) {
         dl = s->unk4;
@@ -34,16 +33,16 @@ void func_80085AD8(Struct *s, u8 a1) {
             dl->w1 = 0x8000;
             dl = s->unk4;
             s->unk4 = dl + 1;
-            dl->w1 = 0x100000;
             dl->w0 = 0xE3000A01;
+            dl->w1 = 0x100000;
             dl = s->unk4;
             s->unk4 = dl + 1;
             dl->w0 = 0xE200001C;
             dl->w1 = 0x0C184240;
             dl = s->unk4;
             s->unk4 = dl + 1;
-            dl->w1 = -0x1C8;
             dl->w0 = 0xFC1115FF;
+            dl->w1 = -0x1C8;
         } else {
             dl = s->unk4;
             s->unk4 = dl + 1;
@@ -55,12 +54,12 @@ void func_80085AD8(Struct *s, u8 a1) {
             dl->w0 = 0xE3000A01;
             dl = s->unk4;
             s->unk4 = dl + 1;
-            dl->w1 = 0x504240;
             dl->w0 = 0xE200001C;
+            dl->w1 = 0x504240;
             dl = s->unk4;
             s->unk4 = dl + 1;
-            dl->w1 = -0xC07;
             dl->w0 = 0xFC11FE23;
+            dl->w1 = -0xC07;
         }
     }
     if (s->unkF & 4) {
@@ -78,24 +77,25 @@ void func_80085AD8(Struct *s, u8 a1) {
         dl->w1 = ((a1 & 4) << 22) | (((a1 >> 3) << 8) & 0xFFFF);
         dl = s->unk4;
         s->unk4 = dl + 1;
-        dl->w0 = 0xF1000000;
         dl->w1 = 0x04000400;
+        dl->w0 = 0xF1000000;
         dl = s->unk4;
         s->unk4 = dl + 1;
         dl->w0 = 0xFA000000;
         dl->w1 = s->unk10;
     }
+    t = ((a1 & 4) << 22) | (((a1 >> 3) << 8) & 0xFFFF);
     dl = s->unk4;
     s->unk4 = dl + 1;
     dl->w0 = (((s->unk8 + 0x20) & 0xFFF) << 12) | 0xE4000000 | ((s->unkA + 0x20) & 0xFFF);
     dl->w1 = (((a1 * 2) & 7) << 24) | ((s->unk8 & 0xFFF) << 12) | (s->unkA & 0xFFF);
     dl = s->unk4;
     s->unk4 = dl + 1;
-    dl->w1 = ((a1 & 4) << 22) | (((a1 >> 3) << 8) & 0xFFFF);
     dl->w0 = 0xE1000000;
+    dl->w1 = t;
     dl = s->unk4;
     s->unk4 = dl + 1;
-    dl->w1 = 0x04000400;
     dl->w0 = 0xF1000000;
+    dl->w1 = 0x04000400;
     s->unk8 = s->unk8 + 0x20;
 }

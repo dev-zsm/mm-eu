@@ -13,7 +13,7 @@ def dis(code: bytes) -> list[str]:
 
 seg, name, cfile = sys.argv[1], sys.argv[2], Path(sys.argv[3])
 want, _ = match.original(seg, name)
-got, masks = match.compiled(cfile, name, match.file_flags(cfile))
+got, masks = match.compiled(cfile, name, match.file_flags(cfile), len(want))
 w, g = dis(want), dis(got)
 for i in range(max(len(w), len(g))):
     a, b = (w[i] if i < len(w) else ""), (g[i] if i < len(g) else "")

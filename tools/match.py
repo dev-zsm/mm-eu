@@ -32,7 +32,7 @@ def original(seg: str, name: str):
     return path.read_bytes()[off:off + size], off
 
 
-def compiled(cfile: Path, name: str, flags: list[str]):
+def compiled(cfile: Path, name: str, flags: list[str], want_len: int = 0):
     name = NAMES.get(name, name)  # the C file defines the real name; files and the ROM table use the splat name
     with tempfile.TemporaryDirectory() as d:
         obj = Path(d) / "x.o"
@@ -46,6 +46,8 @@ def compiled(cfile: Path, name: str, flags: list[str]):
         # function ends at the next text symbol (or end of section)
         later = sorted(int(m.group(1), 16) for m in re.finditer(r"^([0-9a-f]+) [Tt] ", syms, re.M) if int(m.group(1), 16) > start)
         end = later[0] if later else tsize
+        if want_len and want_len > end - start:  # the ROM 'function' may hold several tiny ones (splat split)
+            end = min(tsize, start + want_len)
         masks = {}
         for m in re.finditer(r"^([0-9a-f]{8})\s+[0-9a-f]+\s+(R_MIPS_\w+)", run("mips-linux-gnu-readelf", "-r", str(obj)), re.M):
             off = int(m.group(1), 16)
@@ -72,7 +74,7 @@ def main():
     seg, name, cfile = sys.argv[1], sys.argv[2], Path(sys.argv[3])
     flags = file_flags(cfile)
     want, _ = original(seg, name)
-    got, masks = compiled(cfile, name, flags)
+    got, masks = compiled(cfile, name, flags, len(want))
     if len(got) > len(want) and not any(got[len(want):]):  # IDO pads .text to 16 bytes
         got = got[:len(want)]
     a, b = mask(want, masks), mask(got, masks)
