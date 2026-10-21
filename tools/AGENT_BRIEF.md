@@ -5,14 +5,14 @@ original machine code. The verifier is the only judge. Work from the project roo
 
 ## Loop, for each function you were given (segment `boot`, or the segment named in your task)
 
-1. `tools/zmm asm <seg> <fn>` : original MIPS assembly. This is the ground truth.
-2. `tools/zmm m2c <seg> <fn>` : automatic draft. **Often wrong** (argument order, types); read the assembly.
+1. `tools/mm asm <seg> <fn>` : original MIPS assembly. This is the ground truth.
+2. `tools/mm m2c <seg> <fn>` : automatic draft. **Often wrong** (argument order, types); read the assembly.
 3. Write `src/<seg>/<fn>.c`. First line `#include "types.h"` (s8/u8/s16/u16/s32/u32/s64/u64/f32/f64).
    Declare callees and globals with the names used in the assembly (`func_800897D0`, `D_80096CE0`),
    as `extern`/prototypes. Use a `typedef struct` with padding for struct accesses (`pad0[4]`, `unk4`, ...).
    C89: variables declared at the top of a block.
-4. `tools/zmm match <seg> <fn> src/<seg>/<fn>.c` : prints MATCH or the number of differing instructions.
-   `tools/zmm diff <seg> <fn> src/<seg>/<fn>.c` : ROM vs ours side by side (`!!` = differs).
+4. `tools/mm match <seg> <fn> src/<seg>/<fn>.c` : prints MATCH or the number of differing instructions.
+   `tools/mm diff <seg> <fn> src/<seg>/<fn>.c` : ROM vs ours side by side (`!!` = differs).
    jal targets and %hi/%lo address parts are ignored.
 5. Iterate until MATCH. Give up on a function after ~12 attempts; keep the best attempt in the file.
 
@@ -63,8 +63,8 @@ new lessons (flags/idioms) not listed above.
 
 ## Second pass: functions that are already close (read this if your function has an existing draft in src/boot/wip/)
 
-Start from the existing `src/boot/wip/<fn>.c` (move/copy it to `src/boot/<fn>.c` to test with `tools/zmm match`; move it back
-to wip/ if it still fails). Use `tools/zmm diff` and fix ONE difference at a time, re-running match after each edit.
+Start from the existing `src/boot/wip/<fn>.c` (move/copy it to `src/boot/<fn>.c` to test with `tools/mm match`; move it back
+to wip/ if it still fails). Use `tools/mm diff` and fix ONE difference at a time, re-running match after each edit.
 The remaining differences are almost always register allocation or stack layout. Things that worked on other functions:
 
 - Keep a global's address in a pointer local (`u8 *p = &G;`): IDO then keeps it in a saved register like the ROM does.

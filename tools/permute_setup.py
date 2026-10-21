@@ -29,7 +29,7 @@ def main():
 set -e
 IN="$(realpath "$1")"; OUT="$(realpath -m "$3")"
 T="$(mktemp -d)"; cp "$IN" "$T/x.c"
-"${{ZMM_CC:-{CC}}}" -c {flags} -G 0 -non_shared -Xcpluscomm -w -o "$T/x.o" "$T/x.c" 2>/dev/null
+"${{MM_CC:-{CC}}}" -c {flags} -G 0 -non_shared -Xcpluscomm -w -o "$T/x.o" "$T/x.c" 2>/dev/null
 cp "$T/x.o" "$OUT"; rm -rf "$T"
 """)
     (d / "compile.sh").chmod(0o755)

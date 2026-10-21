@@ -12,7 +12,7 @@ import names as _names  # noqa: E402
 
 NAMES = {**_names.load("boot"), **_names.load("code")}
 import os  # noqa: E402
-CC = Path(os.environ.get("ZMM_CC") or ROOT / "tools/vendor/ido71/cc")  # ZMM_CC=~/ido71/cc is ~4x faster than /mnt/c
+CC = Path(os.environ.get("MM_CC") or ROOT / "tools/vendor/ido71/cc")  # MM_CC=~/ido71/cc is ~4x faster than /mnt/c
 SEG = {"boot": (ROOT / "build/boot.bin", 0x80080000), "code": (ROOT / "extracted/0049_00C8A000.bin", 0x800A5FE0)}
 DEFAULT_FLAGS = ["-O2", "-g3", "-mips2", "-G", "0", "-non_shared", "-Xcpluscomm", "-w", "-I" + str(ROOT / "include")]
 # relocation type -> mask of bits that the linker rewrites
