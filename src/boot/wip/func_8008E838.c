@@ -38,11 +38,10 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
     s->unk1C = 0;
     s->unk20 = 0;
 
-    switch (c) {
+    switch (c & 0xFF) {
     case 'c':
-        buf[s->count] = VA32(ap);
-        s->count++;
-        return;
+        buf[s->count++] = VA32(ap);
+        break;
     case 'd':
     case 'i':
         if (s->lenmod == 'l') {
@@ -56,19 +55,16 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
             s->n.num = (s16)s->n.num;
         }
         if (s->n.num < 0) {
-            buf[s->count] = '-';
-            s->count++;
+            buf[s->count++] = '-';
         } else if (s->flags & 2) {
-            buf[s->count] = '+';
-            s->count++;
+            buf[s->count++] = '+';
         } else if (s->flags & 1) {
-            buf[s->count] = ' ';
-            s->count++;
+            buf[s->count++] = ' ';
         }
     out:
         s->ptr = buf + s->count;
         func_80095120(s, c);
-        return;
+        break;
     case 'o':
     case 'u':
     case 'x':
@@ -86,16 +82,14 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
             s->n.num = (u32)s->n.num;
         }
         if (s->flags & 8) {
-            buf[s->count] = '0';
-            s->count++;
+            buf[s->count++] = '0';
             if (c == 'x' || c == 'X') {
-                buf[s->count] = c;
-                s->count++;
+                buf[s->count++] = c;
             }
         }
         s->ptr = buf + s->count;
         func_80095120(s, c);
-        return;
+        break;
     case 'E':
     case 'G':
     case 'e':
@@ -127,18 +121,15 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
             }
         }
         if (*(u16*)s & 0x8000) {
-            buf[s->count] = '-';
-            s->count++;
+            buf[s->count++] = '-';
         } else if (s->flags & 2) {
-            buf[s->count] = '+';
-            s->count++;
+            buf[s->count++] = '+';
         } else if (s->flags & 1) {
-            buf[s->count] = ' ';
-            s->count++;
+            buf[s->count++] = ' ';
         }
         s->ptr = buf + s->count;
         func_80094480(s, c);
-        return;
+        break;
     case 'n':
         if (s->lenmod == 'h') {
             *(u16*)VA32(ap) = s->total;
@@ -153,12 +144,12 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
         } else {
             *(s32*)VA32(ap) = s->total;
         }
-        return;
+        break;
     case 'p':
         s->n.num = VA32(ap);
         s->ptr = buf + s->count;
         func_80095120(s, 'x');
-        return;
+        break;
     case 's':
         s->ptr = (char*)VA32(ap);
         s->len = func_8008F380(s->ptr);
@@ -167,14 +158,12 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
                 s->len = s->prec;
             }
         }
-        return;
+        break;
     case '%':
-        buf[s->count] = '%';
-        s->count++;
-        return;
+        buf[s->count++] = '%';
+        break;
     default:
-        buf[s->count] = c;
-        s->count++;
-        return;
+        buf[s->count++] = c;
+        break;
     }
 }

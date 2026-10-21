@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g3 -mips2
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
 typedef struct PrintSpec {
@@ -76,7 +76,8 @@ s32 func_8008E1F0(PrintFn prout, void* arg, const char* fmt, char* ap) {
         while ((c = *s) != 0 && c != '%') {
             s++;
         }
-        PROUT(fmt, s - (const u8*)fmt);
+        i = s - (const u8*)fmt;
+        PROUT(fmt, i);
         if (c == 0) {
             return x.total;
         }
