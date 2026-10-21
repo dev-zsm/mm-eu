@@ -43,9 +43,7 @@ void func_80082CCC(u32 *arg0, u32 arg1, s32 arg2) {
                 func_8008487C(0x18, var_s2, &D_80098BF8, var_s1);
                 var_s0_2 = 0x52;
                 do {
-                    temp_a3 = *var_s1;
-                    var_s1++;
-                    func_8008487C(var_s0_2, var_s2, &D_80098C00, temp_a3);
+                    func_8008487C(var_s0_2, var_s2, &D_80098C00, *var_s1++);
                     var_s0_2 += 0x34;
                 } while (var_s0_2 != 0x122);
                 var_s2 += 9;

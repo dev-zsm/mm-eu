@@ -18,13 +18,21 @@ def sizes(seg):
 
 def main():
     seg = sys.argv[1]
-    budget = int(sys.argv[2]) if len(sys.argv) > 2 else 120
+    budget_default = int(sys.argv[2]) if len(sys.argv) > 2 else 120
     limit = int(sys.argv[3]) if len(sys.argv) > 3 else 10**9
     skip = set((ROOT / "config" / f"{seg}.asm_only.txt").read_text().split()) \
         if (ROOT / "config" / f"{seg}.asm_only.txt").exists() else set()
     sz = sizes(seg)
     todo = sorted((p.stem for p in (ROOT / "src" / seg / "wip").glob("func_*.c") if p.stem not in skip),
                   key=lambda n: sz.get(n, 0))[:limit]
+    rank = ROOT / "build" / f"rank_{seg}.txt"  # from tools/rank_wip.py: closest to a match first
+    status = {}
+    if rank.exists():
+        order = []
+        for l in rank.read_text().splitlines():
+            n, _, st = l.split(" ", 2)
+            order.append(n); status[n] = st
+        todo = sorted(todo, key=lambda n: order.index(n) if n in order else len(order))
     log = (ROOT / "build/perm" / f"log_{seg}.txt")
     log.parent.mkdir(parents=True, exist_ok=True)
     done = {l.split()[1] for l in log.read_text().splitlines() if l[:1].isdigit()} if log.exists() else set()
@@ -34,6 +42,7 @@ def main():
         subprocess.run([sys.executable, str(ROOT / "tools/permute_setup.py"), seg, fn], check=True, capture_output=True)
         d = ROOT / "build/perm" / fn
         t0 = time.time()
+        budget = 300 if "instr differ" in status.get(fn, "") else budget_default  # near misses get more time
         try:
             subprocess.run([sys.executable, str(PERMUTER), str(d), "-j", "6", "--stop-on-zero"],
                            capture_output=True, timeout=budget)

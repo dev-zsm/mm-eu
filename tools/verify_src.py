@@ -11,7 +11,7 @@ for f in sorted((match.ROOT / "src" / seg).glob("func_*.c")):
     name = f.stem
     try:
         want, _ = match.original(seg, name)
-        got, masks = match.compiled(f, name, match.file_flags(f))
+        got, masks = match.compiled(f, name, match.file_flags(f), len(want))
         if len(got) > len(want) and not any(got[len(want):]):
             got = got[:len(want)]
         good = len(want) == len(got) and match.mask(want, masks) == match.mask(got, masks)

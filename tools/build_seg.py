@@ -105,6 +105,13 @@ def main():
     named.mkdir(exist_ok=True)
     for f in ("undefined_syms_auto.txt", "undefined_funcs_auto.txt"):
         (named / f).write_text(_names.apply((out / f).read_text(), NM))
+    al = ROOT / "config" / f"{seg}.aliases.txt"
+    if al.exists():  # alias symbols that only exist to steer IDO while matching
+        with (named / "undefined_syms_auto.txt").open("a") as f:
+            for line in al.read_text().splitlines():
+                if line.strip() and not line.startswith("#"):
+                    a, addr = line.split()[:2]
+                    f.write(f"{a} = {addr};\n")
     dsrc = ROOT / "asm" / seg / "data" / "data.data.s"
     (named / "data.s").write_text(_names.apply(dsrc.read_text(), NM))
     sh(*AS, str(named / "data.s"), "-o", str(named / "data.o"))

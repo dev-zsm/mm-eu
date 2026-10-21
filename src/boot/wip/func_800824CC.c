@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g0 -mips2 -trapuv
+// FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
 extern void func_8008482C();
@@ -54,12 +54,12 @@ void func_800824CC(Arg *arg0) {
     if (var_s0 == 0x1F) {
         var_s0 = 0x11;
     }
+    temp_s0 = &arg0->sub;
     func_80084538();
     func_800843FC(-2, 4);
     func_80084434(0x16, 0x14);
     func_8008482C(D_800988C4, *(s32 *)((u8 *)arg0 + 0x14), (s32) var_s0, D_80096D20[var_s0]);
     func_800843FC(-1, 0);
-    temp_s0 = &arg0->sub;
     func_8008482C(D_800988D8, temp_s0->w[0x3f], temp_s0->w[0x3e], temp_s0->w[0x41]);
     func_8008482C(D_800988F4, temp_s0->w[0x1], temp_s0->w[0x3], temp_s0->w[0x5]);
     func_8008482C(D_80098910, temp_s0->w[0x7], temp_s0->w[0x9], temp_s0->w[0xb]);
