@@ -29,207 +29,102 @@ extern char D_80098134[];
 extern void func_8008E838(PrintSpec* s, char** ap, s32 c, char* buf);
 extern char* func_8008F340(const char* s, s32 c);
 
+#define VA() ((s32*)(ap = (char*)((((u32)ap + 3) & ~3) + 4)))[-1]
+
+#define ATOI(i, a)                                \
+    for (i = 0; *a >= '0' && *a < ':'; a++) {     \
+        if (i < 999) {                            \
+            i = *a + i * 10 - '0';                \
+        }                                         \
+    }
+
+#define PROUT(src, _size)                         \
+    if (_size > 0) {                              \
+        arg = prout(arg, src, _size);             \
+        if (arg != NULL) {                        \
+            x.total += _size;                     \
+        } else {                                  \
+            return x.total;                       \
+        }                                         \
+    }
+
+#define PAD(m, src, extracond)                    \
+    if (extracond && (m > 0)) {                   \
+        for (j = m; j > 0; j -= i) {              \
+            if ((u32)j > 32) {                \
+                i = 32;                       \
+            } else {                          \
+                i = j;                        \
+            }                                 \
+            PROUT(src, i);                        \
+        }                                         \
+    }
+
 s32 func_8008E1F0(PrintFn prout, void* arg, const char* fmt, char* ap) {
-    struct { char pad[0x10]; char buf[0x2C]; PrintSpec spec; } loc;
-    char* s2;
-    s32 c;
-    s32 n;
-    char* p;
-    s32 s1;
-    s32 s0;
-    s32 w;
+    struct { char pad[0x18]; char buf[0x2C]; PrintSpec x; } l;
+    const u8* s;
+    const u8* t;
+    u8 c;
+    s32 i;
+    s32 j;
+#define x l.x
+#define buf l.buf
 
-    loc.spec.total = 0;
-    for (;;) {
-        s2 = fmt;
-        c = *s2;
-        if (c != 0 && '%' != c) {
-            do {
-                s2++;
-                c = *s2;
-            } while (c != 0 && '%' != c);
+    x.total = 0;
+    while (1) {
+        s = (const u8*)fmt;
+        while ((c = *s) != 0 && c != '%') {
+            s++;
         }
-        n = s2 - fmt;
-        if (n > 0) {
-            arg = prout(arg, fmt, n);
-            if (arg == NULL) {
-                return loc.spec.total;
-            }
-            loc.spec.total += n;
-        }
-        s2++;
+        PROUT(fmt, s - (const u8*)fmt);
         if (c == 0) {
-            return loc.spec.total;
+            return x.total;
         }
-
-        loc.spec.flags = 0;
-        c = *s2;
-        p = func_8008F340(D_800996D4, c);
-        while (p != NULL) {
-            loc.spec.flags |= D_800996DC[p - D_800996D4];
-            s2++;
-            p = func_8008F340(D_800996D4, *s2);
+        fmt = (const char*)++s;
+        x.flags = 0;
+        for (; (t = (u8*)func_8008F340(D_800996D4, *s)) != NULL; s++) {
+            x.flags |= D_800996DC[t - (u8*)D_800996D4];
         }
-
-        c = *s2;
-        if ('*' == c) {
-            w = *(s32*)(((u32)ap + 3) & ~3);
-            ap = (char*)((((u32)ap + 3) & ~3) + 4);
-            s2++;
-            loc.spec.width = w;
-            if (w < 0) {
-                loc.spec.width = -w;
-                loc.spec.flags |= 4;
+        if (*s == '*') {
+            x.width = VA();
+            if (x.width < 0) {
+                x.width = -x.width;
+                x.flags |= 4;
             }
-            c = *s2;
+            s++;
         } else {
-            loc.spec.width = 0;
-            if (c >= '0' && c < ':') {
-                do {
-                    if (loc.spec.width < 999) {
-                        loc.spec.width = c + loc.spec.width * 10 - '0';
-                    }
-                    s2++;
-                    c = *s2;
-                } while (c >= '0' && c < ':');
-            }
+            ATOI(x.width, s);
         }
-
-        if ('.' == c) {
-            if (s2[1] == '*') {
-                s2++;
-                w = *(s32*)(((u32)ap + 3) & ~3);
-                ap = (char*)((((u32)ap + 3) & ~3) + 4);
-                loc.spec.prec = w;
-                s2++;
-                c = *s2;
+        if (*s != '.') {
+            x.prec = -1;
+        } else {
+            s++;
+            if (*s == '*') {
+                x.prec = VA();
+                s++;
             } else {
-                s2++;
-                loc.spec.prec = 0;
-                c = *s2;
-                if (c >= '0' && c < ':') {
-                    do {
-                        if (loc.spec.prec < 999) {
-                            loc.spec.prec = c + loc.spec.prec * 10 - '0';
-                        }
-                        s2++;
-                        c = *s2;
-                    } while (c >= '0' && c < ':');
-                }
+                ATOI(x.prec, s);
             }
+        }
+        if (func_8008F340(D_800996D0, *s) != NULL) {
+            x.lenmod = *s++;
         } else {
-            loc.spec.prec = -1;
+            x.lenmod = 0;
         }
-
-        p = func_8008F340(D_800996D0, c);
-        if (p != NULL) {
-            loc.spec.lenmod = *s2;
-            s2++;
-        } else {
-            loc.spec.lenmod = 0;
+        if (x.lenmod == 'l' && *s == 'l') {
+            x.lenmod = 'L';
+            s++;
         }
-        if (loc.spec.lenmod == 'l' && *s2 == 'l') {
-            loc.spec.lenmod = 'L';
-            s2++;
-        }
-
-        func_8008E838(&loc.spec, &ap, *s2, loc.buf);
-
-        loc.spec.width = loc.spec.width - loc.spec.count - loc.spec.unk10 - loc.spec.len - loc.spec.unk18 - loc.spec.unk1C - loc.spec.unk20;
-
-        if (!(loc.spec.flags & 4)) {
-            if (loc.spec.width > 0) {
-                s1 = loc.spec.width;
-                do {
-                    s0 = (s1 < 0x21) ? s1 : 0x20;
-                    arg = prout(arg, D_80098110, s0);
-                    if (arg == NULL) {
-                        return loc.spec.total;
-                    }
-                    loc.spec.total += s0;
-                    s1 -= s0;
-                } while (s1 > 0);
-            }
-        }
-
-        if (loc.spec.count > 0) {
-            arg = prout(arg, loc.buf, loc.spec.count);
-            if (arg == NULL) {
-                return loc.spec.total;
-            }
-            loc.spec.total += loc.spec.count;
-        }
-
-        if (loc.spec.unk10 > 0) {
-            s1 = loc.spec.unk10;
-            do {
-                s0 = (s1 < 0x21) ? s1 : 0x20;
-                arg = prout(arg, D_80098134, s0);
-                if (arg == NULL) {
-                    return loc.spec.total;
-                }
-                loc.spec.total += s0;
-                s1 -= s0;
-            } while (s1 > 0);
-        }
-
-        if (loc.spec.len > 0) {
-            arg = prout(arg, loc.spec.ptr, loc.spec.len);
-            if (arg == NULL) {
-                return loc.spec.total;
-            }
-            loc.spec.total += loc.spec.len;
-        }
-
-        if (loc.spec.unk18 > 0) {
-            s1 = loc.spec.unk18;
-            do {
-                s0 = (s1 < 0x21) ? s1 : 0x20;
-                arg = prout(arg, D_80098134, s0);
-                if (arg == NULL) {
-                    return loc.spec.total;
-                }
-                loc.spec.total += s0;
-                s1 -= s0;
-            } while (s1 > 0);
-        }
-
-        if (loc.spec.unk1C > 0) {
-            arg = prout(arg, loc.spec.ptr + loc.spec.len, loc.spec.unk1C);
-            if (arg == NULL) {
-                return loc.spec.total;
-            }
-            loc.spec.total += loc.spec.unk1C;
-        }
-
-        if (loc.spec.unk20 > 0) {
-            s1 = loc.spec.unk20;
-            do {
-                s0 = (s1 < 0x21) ? s1 : 0x20;
-                arg = prout(arg, D_80098134, s0);
-                if (arg == NULL) {
-                    return loc.spec.total;
-                }
-                loc.spec.total += s0;
-                s1 -= s0;
-            } while (s1 > 0);
-        }
-
-        if (loc.spec.flags & 4) {
-            if (loc.spec.width > 0) {
-                s1 = loc.spec.width;
-                do {
-                    s0 = (s1 < 0x21) ? s1 : 0x20;
-                    arg = prout(arg, D_80098110, s0);
-                    if (arg == NULL) {
-                        return loc.spec.total;
-                    }
-                    loc.spec.total += s0;
-                    s1 -= s0;
-                } while (s1 > 0);
-            }
-        }
-
-        fmt = s2 + 1;
+        func_8008E838(&x, &ap, *s, buf);
+        x.width -= x.count + x.unk10 + x.len + x.unk18 + x.unk1C + x.unk20;
+        PAD(x.width, D_80098110, !(x.flags & 4));
+        PROUT(buf, x.count);
+        PAD(x.unk10, D_80098134, 1);
+        PROUT(x.ptr, x.len);
+        PAD(x.unk18, D_80098134, 1);
+        PROUT(x.ptr + x.len, x.unk1C);
+        PAD(x.unk20, D_80098134, 1);
+        PAD(x.width, D_80098110, x.flags & 4);
+        fmt = (const char*)s + 1;
     }
 }
