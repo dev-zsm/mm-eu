@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g3
+// FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
 extern u64 func_80088B48(u64 a, u64 b);

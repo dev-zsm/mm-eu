@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g3 -mips2
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
 typedef struct {
