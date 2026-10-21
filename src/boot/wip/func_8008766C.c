@@ -10,7 +10,7 @@ typedef struct Block {
 void func_800871FC(s32 a0, u32 a1);
 void func_80087224(s32 a0);
 void *func_80087394(s32 a0, u32 a1);
-void func_80087634(s32 a0, void *a1);
+void free(s32 a0, void *a1);
 void func_80087560(s32 a0, void *a1);
 void func_80091460(void *a0, void *a1, u32 a2);
 void func_80096AD0(void *a0, void *a1, s32 a2, u32 a3);
@@ -28,7 +28,7 @@ void *func_8008766C(s32 a0, void *a1, u32 a2) {
     if (a1 == NULL) {
         a1 = func_80087394(a0, need);
     } else if (need == 0) {
-        func_80087634(a0, a1);
+        free(a0, a1);
         a1 = NULL;
     } else {
         hdr = (Block *)((u8 *)a1 - 0x10);

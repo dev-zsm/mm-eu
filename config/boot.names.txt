@@ -1,0 +1,2 @@
+# old new   # confidence: evidence
+func_80087634 Arena_Free   # inferred: frees a block in a heap passed as first argument (lock, free+merge, unlock); not libc free(), it takes the arena
