@@ -13,9 +13,9 @@ typedef struct Node {
 extern Node *func_800913B0(void);
 
 void *func_80082B18(void) {
-    Node *tmp;
-    Node *v1;
     s32 v0;
+    Node *v1;
+    Node *tmp;
 
     tmp = func_800913B0();
     v1 = tmp;
