@@ -21,9 +21,9 @@ def sh(*a):
     return subprocess.run(a, check=True, capture_output=True, text=True).stdout
 
 
-def trim_text(obj: Path, size: int) -> int:
-    """Cut the .text of an ELF32 big-endian object to at most `size` bytes (alignment 4), return its new size.
-    Both IDO and GNU as pad .text to 16 bytes, but the ROM function is not padded."""
+def trim_text(obj: Path, size: int, section: bytes = b".text") -> int:
+    """Cut a section (.text by default) of an ELF32 big-endian object to at most `size` bytes (alignment 4), return
+    its new size. Both IDO and GNU as pad sections to 16 bytes, but the ROM function or constant pool is not padded."""
     d = bytearray(obj.read_bytes())
     struct.pack_into(">I", d, 0x24, 0x20001101)  # same e_flags as GNU as output, else ld refuses mips2/mips3 mixes
     shoff, = struct.unpack_from(">I", d, 0x20)
@@ -32,7 +32,7 @@ def trim_text(obj: Path, size: int) -> int:
     stroff = struct.unpack_from(">I", d, sec(shstrndx) + 16)[0]
     for i in range(shnum):
         name = struct.unpack_from(">I", d, sec(i))[0]
-        if d[stroff + name:stroff + name + 6] == b".text\0":
+        if d[stroff + name:stroff + name + len(section) + 1] == section + b"\0":
             off, cur = struct.unpack_from(">II", d, sec(i) + 16)
             new = min(cur, size)
             assert not any(d[off + new:off + cur]), f"{obj.name}: non-zero bytes beyond {new:#x}"
@@ -40,7 +40,7 @@ def trim_text(obj: Path, size: int) -> int:
             struct.pack_into(">I", d, sec(i) + 32, 4)
             obj.write_bytes(d)
             return new
-    raise SystemExit(f"no .text in {obj}")
+    raise SystemExit(f"no {section.decode()} in {obj}")
 
 
 def main():
@@ -65,6 +65,11 @@ def main():
     cross = {l for i, ch in enumerate(chunks) for l in set(LBL.findall(ch)) if defs.get(l, i) != i}
     keep_asm = {defs[l] for l in cross}  # a C function cannot provide these labels
 
+    dlines = (ROOT / "asm" / seg / "data" / "data.data.s").read_text().splitlines()
+    dlabel = {m.group(1): i for i, l in enumerate(dlines) if (m := re.match(r"dlabel (\w+)$", l))}
+    dorder = sorted(dlabel, key=dlabel.get)
+    pools = []  # (first data line, end data line, object): C constant pools linked in place of those data lines
+
     script_objs, n_c, data_pending = [], 0, []
     for i, (name, ch) in enumerate(zip(names, chunks)):
         obj = objdir / f"{name}.o"
@@ -76,12 +81,26 @@ def main():
                 subprocess.run([str(CC), "-c", *flags, *CFLAGS, "-o", d + "/x.o", str(cfile)],
                                check=True, stderr=subprocess.DEVNULL)
                 shutil.move(d + "/x.o", obj)
-            # a C function with its own constant pool (.rodata/.data) needs the data migrated to its original
-            # address first; until then the build keeps the original assembly for it
-            if any(int(m.group(1), 16) for m in re.finditer(r"\.(?:rodata|rdata|data|sdata|lit4|lit8)\s+([0-9a-f]+)",
-                                                            sh("mips-linux-gnu-objdump", "-h", str(obj)))):
+            # a C function with its own constant pool: its .rodata takes the place of the data items the original
+            # code references (one contiguous run); any other case stays assembly until its data is migrated
+            secs = {m.group(1): int(m.group(2), 16) for m in re.finditer(
+                r"\s(\.(?:rodata|rdata|data|sdata|lit4|lit8))\s+([0-9a-f]+)", sh("mips-linux-gnu-objdump", "-h", str(obj)))}
+            refs = sorted({dorder.index(r) for r in re.findall(r"%(?:hi|lo)\((\w+)\)", ch) if r in dlabel})
+            if any(v for k, v in secs.items() if k != ".rodata") or (secs.get(".rodata") and (
+                    not refs or refs != list(range(refs[0], refs[-1] + 1)) or refs[-1] + 1 >= len(dorder))):
                 data_pending.append(name)
                 cfile = None
+            elif secs.get(".rodata"):
+                first, nxt = dorder[refs[0]], dorder[refs[-1] + 1]
+                size = int(nxt[-8:], 16) - int(first[-8:], 16)
+                assert trim_text(obj, size, b".rodata") == size, f"{name}: constant pool smaller than {size:#x}"
+                start = dlabel[first]
+                while dlines[start - 1].startswith("nonmatching") or not dlines[start - 1].strip():
+                    start -= 1
+                end = dlabel[nxt]
+                while dlines[end - 1].startswith((".align", "nonmatching")) or not dlines[end - 1].strip():
+                    end -= 1
+                pools.append((start, end, obj))
         if cfile is not None and cfile.exists() and i not in keep_asm:
             n_c += 1
         else:
@@ -112,14 +131,22 @@ def main():
                 if line.strip() and not line.startswith("#"):
                     a, addr = line.split()[:2]
                     f.write(f"{a} = {addr};\n")
-    dsrc = ROOT / "asm" / seg / "data" / "data.data.s"
-    (named / "data.s").write_text(_names.apply(dsrc.read_text(), NM))
-    sh(*AS, str(named / "data.s"), "-o", str(named / "data.o"))
+    # the data file is split around the C constant pools: data_0.o(.data), pool.o(.rodata), data_1.o(.data), ...
+    head = "\n".join(dlines[:next(i for i, l in enumerate(dlines) if l.startswith(".section")) + 1]) + "\n"
+    data_parts, cur = [], 0
+    for k, (a, b, pobj) in enumerate(sorted(pools, key=lambda t: t[0]) + [(len(dlines), len(dlines), None)]):
+        ds = named / f"data_{k}.s"
+        ds.write_text(_names.apply((head if k else "") + "\n".join(dlines[cur:a]) + "\n", NM))
+        sh(*AS, str(ds), "-o", str(ds.with_suffix(".o")))
+        data_parts.append(f"        {ds.with_suffix('.o').relative_to(ROOT)}(.data);")
+        if pobj is not None:
+            data_parts.append(f"        {pobj.relative_to(ROOT)}(.rodata);")
+        cur = b
     ld = (out / f"{seg}.ld").read_text()
     script = []
     for l in ld.splitlines():
         if "data.data.s.o" in l:
-            script.append(f"        {(named / 'data.o').relative_to(ROOT)}(.data);")
+            script += data_parts
         elif "/text.s.o(" not in l:
             script.append(l)
         elif "(.text)" in l:
