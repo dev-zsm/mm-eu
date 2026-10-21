@@ -5,5 +5,4 @@ Généré par `tools/progress.py`. « Fonctions en C vérifié » : compilées avec IDO 
 
 | Segment | Fonctions en C vérifié | Octets en C | Assembleur d'origine | Essais (wip) | Reste | Nommées |
 |---|---|---|---|---|---|---|
-| `boot` | 198 / 429 (46.2 %) | 0x394c / 0x165f4 (16.0 %) | 50 | 205 | 231 | 1 |
-| `code` | 0 / 3576 (0.0 %) | 0x0 / 0x104acc (0.0 %) | 4 | 0 | 3576 | 0 |
+| `boot` | 220 / 429 (51.3 %) | 0x3f90 / 0x165f4 (17.8 %) | 50 | 222 | 209 | 1 |
