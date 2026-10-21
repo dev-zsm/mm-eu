@@ -26,12 +26,12 @@ def main():
     todo = sorted((p.stem for p in (ROOT / "src" / seg / "wip").glob("func_*.c") if p.stem not in skip),
                   key=lambda n: sz.get(n, 0))[:limit]
     rank = ROOT / "build" / f"rank_{seg}.txt"  # from tools/rank_wip.py: closest to a match first
-    status = {}
+    closeness = {}
     if rank.exists():
         order = []
         for l in rank.read_text().splitlines():
             n, _, st = l.split(" ", 2)
-            order.append(n); status[n] = st
+            order.append(n); closeness[n] = st
         todo = sorted(todo, key=lambda n: order.index(n) if n in order else len(order))
     log = (ROOT / "build/perm" / f"log_{seg}.txt")
     log.parent.mkdir(parents=True, exist_ok=True)
@@ -42,7 +42,7 @@ def main():
         subprocess.run([sys.executable, str(ROOT / "tools/permute_setup.py"), seg, fn], check=True, capture_output=True)
         d = ROOT / "build/perm" / fn
         t0 = time.time()
-        budget = 300 if "instr differ" in status.get(fn, "") else budget_default  # near misses get more time
+        budget = 300 if "instr differ" in closeness.get(fn, "") else budget_default  # near misses get more time
         try:
             subprocess.run([sys.executable, str(PERMUTER), str(d), "-j", "6", "--stop-on-zero"],
                            capture_output=True, timeout=budget)

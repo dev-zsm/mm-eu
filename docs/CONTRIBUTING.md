@@ -5,11 +5,11 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
 
 ## Adding or fixing a function
 
-1. Look at the original: `tools/zmm asm boot func_XXXXXXXX`. `tools/zmm m2c boot func_XXXXXXXX` gives a first draft;
+1. Look at the original: `tools/mm asm boot func_XXXXXXXX`. `tools/mm m2c boot func_XXXXXXXX` gives a first draft;
    it is frequently wrong (argument order, types), so read the assembly.
 2. Write `src/boot/func_XXXXXXXX.c`. The optional first line `// FLAGS: ...` sets the compiler flags when the
    default (`-O2 -g3 -mips2`) is not what the function was built with.
-3. `tools/zmm match boot func_XXXXXXXX src/boot/func_XXXXXXXX.c` must print `MATCH`. `tools/zmm diff ...` shows the
+3. `tools/mm match boot func_XXXXXXXX src/boot/func_XXXXXXXX.c` must print `MATCH`. `tools/mm diff ...` shows the
    original and the compiled instructions side by side. Unfinished attempts go to `src/boot/wip/`.
 4. `make verify SEG=boot` must pass before any commit: every C function equals the ROM bytes, and the segment rebuilt
    from the C plus the remaining assembly is byte-identical to the ROM.

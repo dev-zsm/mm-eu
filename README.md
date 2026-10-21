@@ -1,4 +1,6 @@
-# The Legend of Zelda: Majora's Mask (Europe) Rev 1
+# mm-n64-europe
+
+A from-scratch matching decompilation of *The Legend of Zelda: Majora's Mask* (Europe, Rev 1) for the Nintendo 64.
 
 ```
 - WARNING! -
@@ -60,7 +62,7 @@ Main tools:
 | Tool | Purpose |
 |---|---|
 | `tools/extract.py` | decode the ROM file table and extract every file |
-| `tools/zmm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows) |
+| `tools/mm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows) |
 | `tools/match.py` | compile one C function with IDO and compare it to the ROM bytes |
 | `tools/verify_src.py`, `tools/verify_all.sh` | check every C function, then the whole rebuilt segment |
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
@@ -73,7 +75,7 @@ Main tools:
 ### Windows
 
 Install WSL with an Ubuntu distribution ([Microsoft's installation guide](https://learn.microsoft.com/windows/wsl/install)),
-then follow the Linux instructions inside it. Python 3 on Windows is only needed for `tools/extract.py` and `tools/zmm`.
+then follow the Linux instructions inside it. Python 3 on Windows is only needed for `tools/extract.py` and `tools/mm`.
 
 ### Linux (native, WSL or VM)
 

@@ -6,7 +6,7 @@
 set -e
 seg=${1:-boot}
 cd "$(dirname "$0")/.."
-. ~/zmm-venv/bin/activate
+. ~/mm-venv/bin/activate
 case $seg in
   boot) orig=build/boot.bin ;;
   code) orig=extracted/0049_00C8A000.bin ;;
