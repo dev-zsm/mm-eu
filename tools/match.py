@@ -7,6 +7,10 @@ import re, struct, subprocess, sys, tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import names as _names  # noqa: E402
+
+NAMES = {**_names.load("boot"), **_names.load("code")}
 CC = ROOT / "tools/vendor/ido71/cc"
 SEG = {"boot": (ROOT / "build/boot.bin", 0x80080000), "code": (ROOT / "extracted/0049_00C8A000.bin", 0x800A5FE0)}
 DEFAULT_FLAGS = ["-O2", "-g3", "-mips2", "-G", "0", "-non_shared", "-Xcpluscomm", "-w", "-I" + str(ROOT / "include")]
@@ -29,6 +33,7 @@ def original(seg: str, name: str):
 
 
 def compiled(cfile: Path, name: str, flags: list[str]):
+    name = NAMES.get(name, name)  # the C file defines the real name; files and the ROM table use the splat name
     with tempfile.TemporaryDirectory() as d:
         obj = Path(d) / "x.o"
         subprocess.run([str(CC), "-c", *flags, "-o", str(obj), str(cfile)], check=True)

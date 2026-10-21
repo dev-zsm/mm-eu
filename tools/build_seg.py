@@ -11,6 +11,9 @@ DEFAULT_FLAGS = ["-O2", "-g3", "-mips2"]
 CFLAGS = ["-G", "0", "-non_shared", "-Xcpluscomm", "-w", "-I" + str(ROOT / "include")]
 AS = ["mips-linux-gnu-as", "-march=vr4300", "-mabi=32", "-EB", "-I" + str(ROOT / "include"), "-G0"]
 HDR = '.include "macro.inc"\n.set noat\n.set noreorder\n.set gp=64\n.section .text, "ax"\n'
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import names as _names  # noqa: E402
+
 LBL = re.compile(r"\.L[0-9A-Fa-f]{8}")
 
 
@@ -48,6 +51,7 @@ def main():
     cfg = (ROOT / "config" / f"{seg}.yaml").read_text()
     vram = int(re.search(r"vram: (0x[0-9A-Fa-f]+)", cfg).group(1), 16)
     text_end = vram + int(re.search(r"\[(0x[0-9A-Fa-f]+), data", cfg).group(1), 16)
+    NM = _names.load(seg)
     chunks = re.split(r"(?=^nonmatching )", (ROOT / "asm" / seg / "text.s").read_text(), flags=re.M)[1:]
     names = [re.match(r"nonmatching (\w+)", c).group(1) for c in chunks]
     addrs = [int(n[-8:], 16) for n in names]
@@ -75,6 +79,7 @@ def main():
             n_c += 1
         else:
             s = objdir / f"{name}.s"
+            ch = _names.apply(ch, NM)
             body = LBL.sub(lambda m: "LX_" + m.group(0)[2:] if m.group(0) in cross else m.group(0), ch)
             exported = "".join(f".globl LX_{l[2:]}\n" for l in cross if defs[l] == i)
             s.write_text(HDR + exported + body)
@@ -89,18 +94,27 @@ def main():
             script_objs.append(pad)
 
     # reuse splat's linker script, swapping the single text object for the per-function ones
+    named = out / "named"
+    named.mkdir(exist_ok=True)
+    for f in ("undefined_syms_auto.txt", "undefined_funcs_auto.txt"):
+        (named / f).write_text(_names.apply((out / f).read_text(), NM))
+    dsrc = ROOT / "asm" / seg / "data" / "data.data.s"
+    (named / "data.s").write_text(_names.apply(dsrc.read_text(), NM))
+    sh(*AS, str(named / "data.s"), "-o", str(named / "data.o"))
     ld = (out / f"{seg}.ld").read_text()
     script = []
     for l in ld.splitlines():
-        if "/text.s.o(" not in l:
+        if "data.data.s.o" in l:
+            script.append(f"        {(named / 'data.o').relative_to(ROOT)}(.data);")
+        elif "/text.s.o(" not in l:
             script.append(l)
         elif "(.text)" in l:
             script += [f"        {o.relative_to(ROOT)}(.text);" for o in script_objs]
     # splat forces 16-byte alignment on every input section; per-function objects need 4
     (out / f"{seg}.fn.ld").write_text("\n".join(script).replace("SUBALIGN(16)", "SUBALIGN(4)", 1) + "\n")
     elf, binf = out / f"{seg}.fn.elf", out / f"{seg}.fn.bin"
-    sh("mips-linux-gnu-ld", "-EB", "-T", str(out / f"{seg}.fn.ld"), "-T", str(out / "undefined_syms_auto.txt"),
-       "-T", str(out / "undefined_funcs_auto.txt"), "--no-check-sections", "-o", str(elf))
+    sh("mips-linux-gnu-ld", "-EB", "-T", str(out / f"{seg}.fn.ld"), "-T", str(named / "undefined_syms_auto.txt"),
+       "-T", str(named / "undefined_funcs_auto.txt"), "--no-check-sections", "-o", str(elf))
     sh("mips-linux-gnu-objcopy", "-O", "binary", str(elf), str(binf))
     ok = binf.read_bytes() == orig.read_bytes()
     print(f"{seg}: {n_c} C functions + {len(chunks) - n_c} asm -> {'IDENTICAL to ROM' if ok else 'DIFFERENT'} "
