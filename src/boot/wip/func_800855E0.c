@@ -18,11 +18,17 @@ extern u8 D_80096DF0[];
 extern u8 D_80096E90[];
 extern u8 D_80096E70[];
 
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define T(w) MAX(1, (w) / 16)
 #define GFX_NEXT (g = ctx->dl, ctx->dl = g + 1)
 
 void func_800855E0(Ctx *ctx) {
     Gfx *g;
     s32 a1;
+    s32 i;
+    s32 width = 16;
+    s32 height = 256;
     s32 d;
     s32 q;
     s32 s0;
@@ -41,8 +47,8 @@ void func_800855E0(Ctx *ctx) {
     g->w1 = 0x00504244;
 
     GFX_NEXT;
-    g->w1 = 0xFFFCF279;
     g->w0 = 0xFCFFFFFF;
+    g->w1 = 0xFFFCF279;
 
     GFX_NEXT;
     g->w0 = 0xFD500000;
@@ -50,20 +56,15 @@ void func_800855E0(Ctx *ctx) {
 
     GFX_NEXT;
     g->w0 = 0xF5500000;
-    a1 = 1;
-    d = a1 + (ctx->unk10 & 0);
-    q = (a1 + 0x7FF) / d;
     g->w1 = 0x07000000;
 
     GFX_NEXT;
-    g->w1 = 0;
     g->w0 = 0xE6000000;
+    g->w1 = 0;
 
     GFX_NEXT;
-    p6 = g;
+    g->w1 = ((((2047 + T(width)) / T(width)) & 0xFFF) | 0x07000000) | ((MIN((((width * height + 3) >> 2) - 1), 2047) & 0xFFF) << 12);
     g->w0 = 0xF3000000;
-    lrs = 0x3FF;
-    p6->w1 = (q & 0xFFF) | 0x07000000 | ((lrs & 0xFFF) << 12);
 
     a1 = 0xF5400200;
     GFX_NEXT;
@@ -106,37 +107,34 @@ void func_800855E0(Ctx *ctx) {
     g->w1 = 0;
     g->w0 = 0xE7000000;
 
-    do {
-        s1 = (s0 & 7) << 24;
+    for (i = 1; i < 4; i++) {
         GFX_NEXT;
-        g->w1 = s1 | ((t4 & 0xF) << 20);
+        g->w1 = (((i * 2) & 7) << 24) | ((i & 0xF) << 20);
         g->w0 = 0xF5400200;
         GFX_NEXT;
-        g->w1 = (s1 | 0x3C000) | 0x3FC;
+        g->w1 = ((((i * 2) & 7) << 24) | 0x3C000) | 0x3FC;
         g->w0 = 0xF2000000;
-        t4++;
-        s0 += 2;
-    } while (t4 < 4);
+    }
 
     GFX_NEXT;
     g->w0 = 0xFA000000;
     g->w1 = ctx->unk10;
 
     GFX_NEXT;
-    g->w1 = (u32)D_80096E90;
     g->w0 = 0xFD480000;
+    g->w1 = (u32)D_80096E90;
 
     GFX_NEXT;
-    g->w1 = 0x0700C010;
     g->w0 = 0xF5480200;
+    g->w1 = 0x0700C010;
 
     GFX_NEXT;
     g->w1 = 0;
     g->w0 = 0xE6000000;
 
     GFX_NEXT;
-    g->w1 = 0x0700201C;
     g->w0 = 0xF4000000;
+    g->w1 = 0x0700201C;
 
     GFX_NEXT;
     g->w1 = 0;
@@ -163,26 +161,23 @@ void func_800855E0(Ctx *ctx) {
     g->w0 = 0xF5000140;
 
     GFX_NEXT;
-    g->w1 = 0;
     g->w0 = 0xE6000000;
+    g->w1 = 0;
 
     GFX_NEXT;
     g->w1 = 0x0703C000;
     g->w0 = 0xF0000000;
 
     GFX_NEXT;
-    g->w1 = 0;
     g->w0 = 0xE7000000;
+    g->w1 = 0;
 
-    a3 = 3;
-    do {
-        s1 = (a3 & 7) << 24;
+    for (i = 1; i < 4; i++) {
         GFX_NEXT;
-        g->w1 = s1 | 0x40C010;
+        g->w1 = (((i * 2 + 1) & 7) << 24) | 0x40C010;
         g->w0 = 0xF5400200;
         GFX_NEXT;
-        g->w1 = s1 | 0x401C;
+        g->w1 = (((i * 2 + 1) & 7) << 24) | 0x401C;
         g->w0 = 0xF2000000;
-        a3 += 2;
-    } while (a3 != 9);
+    }
 }
