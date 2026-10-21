@@ -35,7 +35,9 @@ matches with the normal flags plus `-trapuv`, e.g. `// FLAGS: -O2 -g3 -mips2 -tr
 - Pointer-walk loops written as `while` with an early `if` give the branch-likely pattern.
 - Signedness (`s32` vs `u32`, `u8` vs `s8`) changes slt/sltu, lb/lbu, shifts. Check the instructions.
 - Statement order and temporaries change register allocation and scheduling.
-- Do NOT use `#pragma intrinsic` or inline asm. Never write a function that matches by embedding raw
+- EXCEPTION for inline `sqrt.s`: declare first, THEN the pragma (the order matters): `float sqrtf(float);` newline
+  `#pragma intrinsic (sqrtf)`, then call `sqrtf(x)`. This matched func_80086C88 (`-O2 -g0 -mips2`).
+- Otherwise do NOT use `#pragma intrinsic` or inline asm. Never write a function that matches by embedding raw
   instruction words; it must be real C.
 
 - Local declaration order decides stack slots and which saved register a local gets: sweep it (cheap).
