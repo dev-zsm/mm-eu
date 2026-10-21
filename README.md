@@ -1,57 +1,143 @@
-# ZMM N64 Europe C
+# The Legend of Zelda: Majora's Mask (Europe) Rev 1
 
-Reconstruction en C de **The Legend of Zelda: Majora's Mask** (Europe, Rev 1, code `NZSP`),
-à partir de la ROM du propriétaire de ce dépôt. Objectif : un code C lisible et modifiable,
-vérifié octet par octet contre la ROM, puis un port PC natif.
+```
+- WARNING! -
 
-> **Ce projet est réalisé en grande majorité par intelligence artificielle.**
-> L'IA écrit le code C, cherche les correspondances avec la ROM et construit les outils ; le résultat n'est jamais
-> accepté sur parole : chaque fonction est recompilée avec le compilateur d'origine et comparée à la ROM par un
-> contrôle automatique (`make verify`).
-
-**Aucune ROM ni donnée extraite de la ROM n'est dans ce dépôt** (`baserom/`, `extracted/`, `asm/`,
-`decomp/` sont ignorés par git). Il faut fournir sa propre ROM :
-`baserom/The Legend of Zelda Majora's Mask (Europe).z64`, SHA-1 `bb4e4757d10727c7584c59c1f2e5f44196e9c293`.
-
-## État
-
-Chiffres à jour : [docs/PROGRESS.md](docs/PROGRESS.md) (`make progress`). Feuille de route : [docs/ROADMAP.md](docs/ROADMAP.md).
-
-| Étape | Résultat |
-|---|---|
-| Extraction des 1573 fichiers de la ROM (`tools/extract.py`) | fait |
-| `boot` et `code` découpés en assembleur et réassemblés à l'identique | fait, identique octet pour octet |
-| `boot` : fonctions réécrites en C et vérifiées contre la ROM | en cours (plus de la moitié des fonctions) |
-| `boot` reconstruit depuis le C + l'assembleur restant | fait, identique à la ROM |
-| `code` : fonctions en C | à faire (la chaîne de construction est prête) |
-| Overlays (acteurs, scènes), reconstruction de la ROM complète | à faire |
-| Port PC (rendu, audio, entrées) | à faire |
-
-## Utilisation
-
-```bash
-# Windows : python tools/extract.py
-# WSL Ubuntu : sudo apt install -y binutils-mips-linux-gnu python3-venv python3-pip && make setup
-. ~/zmm-venv/bin/activate
-make split                 # désassemblage de boot et code
-make verify SEG=boot       # chaque fonction C == octets de la ROM, et le segment reconstruit == ROM
-make progress              # met à jour docs/PROGRESS.md
+This repository is a work in progress. The code base, the file layout and the symbol names
+change often and without notice. Do not build on top of it yet unless you accept that.
 ```
 
-Écrire ou corriger une fonction : voir [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
+This is a work-in-progress, from-scratch **matching decompilation** of *The Legend of Zelda: Majora's Mask* for the
+Nintendo 64, European release, revision 1 (game code `NZSP`, version 1). The goal is to recreate a readable and
+modifiable C code base that the original compiler turns into **exactly the same machine code as the retail game**,
+and, once that is done, to build further tooling on top of it (including a native PC port).
 
-## Crédits
+Most of the work in this repository is carried out by artificial intelligence: the C code, the search for matching
+variants and the tooling are largely AI-written. Nothing is trusted on its word. Every function is recompiled with the
+original compiler and compared to the ROM by an automated check (`make verify`), and a function that does not match is
+not accepted.
 
-Ce projet repose sur le travail de la communauté de décompilation N64. Merci aux auteurs de :
+This repository contains **no assets, no ROM data and no assembly extracted from the game**. A legally obtained copy of
+the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PROGRESS.md) and planned work in
+[docs/ROADMAP.md](docs/ROADMAP.md).
 
-- **[splat](https://github.com/ethteck/splat)** (ethteck) : découpe d'une ROM en assembleur et en segments
-- **[spimdisasm](https://github.com/Decompollaborate/spimdisasm)** et **[rabbitizer](https://github.com/Decompollaborate/rabbitizer)** (Decompollaborate) : désassembleur MIPS utilisé par splat
-- **[ido-static-recomp](https://github.com/decompals/ido-static-recomp)** (decompals) : le compilateur IDO 7.1 d'origine, recompilé pour Linux, indispensable pour vérifier le C à l'octet près
-- **[decomp-permuter](https://github.com/simonlindholm/decomp-permuter)** (Simon Lindholm et contributeurs) : recherche automatique de variantes de C qui correspondent à la ROM
-- **[m2c](https://github.com/matt-kempster/m2c)** (Matt Kempster et contributeurs) : décompilateur MIPS vers C
-- **[asm-differ](https://github.com/simonlindholm/asm-differ)** (Simon Lindholm et contributeurs) : comparaison d'assembleur
-- **[Ghidra](https://github.com/NationalSecurityAgency/ghidra)** (NSA) : analyse et pseudo-C de départ
-- **GNU binutils** : assembleur, éditeur de liens, `objcopy`
+* ROM: `The Legend of Zelda - Majora's Mask (Europe) (En,Fr,De,Es) (Rev 1)`
+* SHA-1: `bb4e4757d10727c7584c59c1f2e5f44196e9c293`
 
-Les noms, les licences et les droits de ces outils restent à leurs auteurs.
-The Legend of Zelda: Majora's Mask est une marque et une œuvre de Nintendo ; ce projet n'est pas affilié à Nintendo.
+## How it works
+
+```
+ROM ──► extract ──► split ──► per-function C ──► per-function objects ──► linked segment ──► compare with ROM
+        (files,      (asm,      (IDO 7.1)           (C where it matches,     (original          (byte-identical
+        Yaz0)        data)                           assembly elsewhere)      addresses)         or rejected)
+```
+
+1. **Extract**: the file table (`dmadata`) of the ROM is decoded and every file is written out, Yaz0-decompressed.
+2. **Split**: the code segments (`boot`, `code`) are disassembled into assembly and data by
+   [splat](https://github.com/ethteck/splat), and are first reassembled to prove the split is lossless.
+3. **Decompile**: each function is rewritten in C and compiled with the original compiler (IDO 7.1, with the flags the
+   game was built with). The result must equal the original bytes of that function, apart from relocated fields.
+4. **Link**: a segment is rebuilt from one object per function, taking the C version where it matches and the original
+   assembly everywhere else, and linked at the original addresses.
+5. **Compare**: the rebuilt segment must be byte-identical to the one in the ROM.
+
+## Repository layout
+
+```
+.
+├── baserom/              your copy of the game (not tracked)
+├── config/               splat configuration, symbol names, aliases, list of hand-written assembly functions
+├── docs/                 PROGRESS.md, ROADMAP.md, CONTRIBUTING.md
+├── include/              types.h and the assembler macros used by the generated assembly
+├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts)
+├── tools/                extraction, matching, verification and build scripts (tools/vendor/ is fetched, not tracked)
+├── asm/  extracted/  build/   generated, not tracked
+└── Makefile
+```
+
+Main tools:
+
+| Tool | Purpose |
+|---|---|
+| `tools/extract.py` | decode the ROM file table and extract every file |
+| `tools/zmm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows) |
+| `tools/match.py` | compile one C function with IDO and compare it to the ROM bytes |
+| `tools/verify_src.py`, `tools/verify_all.sh` | check every C function, then the whole rebuilt segment |
+| `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
+| `tools/names.py` | apply the symbol names of `config/<segment>.names.txt` everywhere |
+| `tools/permute_setup.py`, `tools/permute_all.py`, `tools/flag_sweep.py` | automated search for matching C |
+| `tools/progress.py` | generate `docs/PROGRESS.md` |
+
+## Installation
+
+### Windows
+
+Install WSL with an Ubuntu distribution ([Microsoft's installation guide](https://learn.microsoft.com/windows/wsl/install)),
+then follow the Linux instructions inside it. Python 3 on Windows is only needed for `tools/extract.py` and `tools/zmm`.
+
+### Linux (native, WSL or VM)
+
+1. Install the dependencies:
+
+```
+sudo apt update
+sudo apt install git build-essential binutils-mips-linux-gnu curl python3 python3-pip python3-venv
+```
+
+2. Clone the repository and enter it.
+
+3. Place your ROM at `baserom/The Legend of Zelda Majora's Mask (Europe).z64` (big-endian `.z64`, SHA-1 above).
+
+4. Extract the files and set up the toolchain:
+
+```
+python3 tools/extract.py
+make setup
+```
+
+`make setup` fetches the original compiler build (IDO 7.1), `m2c`, `asm-differ`, and creates a Python environment with
+`splat`.
+
+5. Split the code and verify:
+
+```
+make split
+make verify SEG=boot
+```
+
+If everything is correct, `make verify` reports that every C function matches the ROM and that the rebuilt segment is
+identical to it:
+
+```
+boot: N MATCH, 0 not matching
+boot: N C functions + M asm -> IDENTICAL to ROM
+```
+
+Other targets: `make progress` refreshes `docs/PROGRESS.md`, `make names` applies the symbol names to the sources.
+
+## Contributing
+
+Contributions are welcome. Start with [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md), which explains how to decompile a
+function, how symbols are named and how to run the checks.
+
+This project is built exclusively from the analysis of a legally owned copy of the game. Anyone who wishes to
+contribute must not have accessed leaked source code for the Nintendo 64 SDK, libultra, or any game that shares a
+significant part of its code with this one, and must not contribute material derived from such sources.
+
+## Credits
+
+This project rests on the work of the N64 decompilation community. Thanks to the authors of:
+
+* [splat](https://github.com/ethteck/splat) (ethteck): splits a ROM into assembly and data segments
+* [spimdisasm](https://github.com/Decompollaborate/spimdisasm) and [rabbitizer](https://github.com/Decompollaborate/rabbitizer) (Decompollaborate): the MIPS disassembler used by splat
+* [ido-static-recomp](https://github.com/decompals/ido-static-recomp) (decompals): the original IDO 7.1 compiler, recompiled for Linux
+* [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) (Simon Lindholm and contributors): automated search for matching C
+* [m2c](https://github.com/matt-kempster/m2c) (Matt Kempster and contributors): MIPS to C decompiler
+* [asm-differ](https://github.com/simonlindholm/asm-differ) (Simon Lindholm and contributors): assembly comparison
+* [Ghidra](https://github.com/NationalSecurityAgency/ghidra) (NSA): initial analysis and pseudo-C
+* GNU binutils: assembler, linker and `objcopy`
+
+The names, licences and rights of these tools remain with their authors.
+
+*The Legend of Zelda: Majora's Mask* is a trademark and a work of Nintendo. This project is not affiliated with or
+endorsed by Nintendo.
