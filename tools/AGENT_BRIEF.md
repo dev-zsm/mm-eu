@@ -79,4 +79,7 @@ The remaining differences are almost always register allocation or stack layout.
 - Unaligned halfword/word store/load (`swl/swr`, `lwl/lwr`): `*(u32 *)0x...1` style or a `u8 b[8]` struct copy.
 - `u8`/`u16` parameters produce the `sw aN` spill + `andi` the ROM shows; `s32` does not.
 - For the ROM's `-trapuv` prologue the register choice (t0/t1 vs t9/t0) follows register pressure of the body.
+- Large functions: try `-O2 -g0` first; it can fix the whole prologue ordering that `-g3` gets wrong.
+- One extra/missing instruction shifts every later offset, so `tools/mm match` then reports hundreds of differences:
+  read `tools/mm diff` by instruction content to count the real ones.
 - The decomp-permuter is also running over all wip functions in the background (CPU only); do not start your own permuter.
