@@ -65,7 +65,7 @@ def main():
     cross = {l for i, ch in enumerate(chunks) for l in set(LBL.findall(ch)) if defs.get(l, i) != i}
     keep_asm = {defs[l] for l in cross}  # a C function cannot provide these labels
 
-    script_objs, n_c = [], 0
+    script_objs, n_c, data_pending = [], 0, []
     for i, (name, ch) in enumerate(zip(names, chunks)):
         obj = objdir / f"{name}.o"
         cfile = ROOT / "src" / seg / f"{name}.c"
@@ -76,6 +76,13 @@ def main():
                 subprocess.run([str(CC), "-c", *flags, *CFLAGS, "-o", d + "/x.o", str(cfile)],
                                check=True, stderr=subprocess.DEVNULL)
                 shutil.move(d + "/x.o", obj)
+            # a C function with its own constant pool (.rodata/.data) needs the data migrated to its original
+            # address first; until then the build keeps the original assembly for it
+            if any(int(m.group(1), 16) for m in re.finditer(r"\.(?:rodata|rdata|data|sdata|lit4|lit8)\s+([0-9a-f]+)",
+                                                            sh("mips-linux-gnu-objdump", "-h", str(obj)))):
+                data_pending.append(name)
+                cfile = None
+        if cfile is not None and cfile.exists() and i not in keep_asm:
             n_c += 1
         else:
             s = objdir / f"{name}.s"
@@ -117,6 +124,8 @@ def main():
        "-T", str(named / "undefined_funcs_auto.txt"), "--no-check-sections", "-o", str(elf))
     sh("mips-linux-gnu-objcopy", "-O", "binary", str(elf), str(binf))
     ok = binf.read_bytes() == orig.read_bytes()
+    if data_pending:
+        print(f"note: {len(data_pending)} verified C functions still built from asm (own constant pool): {' '.join(data_pending)}")
     print(f"{seg}: {n_c} C functions + {len(chunks) - n_c} asm -> {'IDENTICAL to ROM' if ok else 'DIFFERENT'} "
           f"({binf.stat().st_size:#x} vs {orig.stat().st_size:#x} bytes)")
     sys.exit(0 if ok else 1)

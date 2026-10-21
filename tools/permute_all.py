@@ -27,13 +27,15 @@ def main():
                   key=lambda n: sz.get(n, 0))[:limit]
     log = (ROOT / "build/perm" / f"log_{seg}.txt")
     log.parent.mkdir(parents=True, exist_ok=True)
+    done = {l.split()[1] for l in log.read_text().splitlines() if l[:1].isdigit()} if log.exists() else set()
+    todo = [f for f in todo if f not in done]  # resume: skip functions already tried
     won = 0
     for n, fn in enumerate(todo, 1):
         subprocess.run([sys.executable, str(ROOT / "tools/permute_setup.py"), seg, fn], check=True, capture_output=True)
         d = ROOT / "build/perm" / fn
         t0 = time.time()
         try:
-            subprocess.run([sys.executable, str(PERMUTER), str(d), "-j", "12", "--stop-on-zero"],
+            subprocess.run([sys.executable, str(PERMUTER), str(d), "-j", "6", "--stop-on-zero"],
                            capture_output=True, timeout=budget)
         except subprocess.TimeoutExpired:
             pass
