@@ -20,7 +20,7 @@ s32 func_80093BA0(Ctx *arg0, Pair p, u8 *arg2) {
     s32 idx;
     s32 v0;
     s32 r;
-    s32 s2;
+    u8 s2;
     u16 *q;
     s32 v;
 
@@ -28,14 +28,14 @@ s32 func_80093BA0(Ctx *arg0, Pair p, u8 *arg2) {
     idx = (p.b.b / 4) + ((p.b.a % 8) << 5);
     s2 = 0;
     if (arg0->unk64 > 0) {
-        v0 = 0;
         do {
+            v0 = s2;
             if (v0 > 0) {
                 s1 = 1;
             } else {
                 s1 = arg0->unk60;
             }
-            if (v0 == p.b.a || ((arg2 + idx)[0x101] & (1 << (v0 % 8)))) {
+            if (p.b.a == v0 || ((arg2 + idx)[0x101] & (1 << (v0 % 8)))) {
                 if (arg2[0x100] != v0) {
                     r = func_8008D184(arg0, arg2, 0, s2);
                     if (r != 0 && r != 3) {
@@ -61,9 +61,7 @@ s32 func_80093BA0(Ctx *arg0, Pair p, u8 *arg2) {
                 }
             }
             s2++;
-            v0 = (u8)s2;
-            s2 = v0;
-        } while (v0 < arg0->unk64);
+        } while (s2 < arg0->unk64);
     }
     return cnt;
 }
