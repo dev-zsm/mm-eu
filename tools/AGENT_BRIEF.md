@@ -90,4 +90,14 @@ The remaining differences are almost always register allocation or stack layout.
 - Case bodies emitted out of order: write the `switch` cases in the ROM's order (e.g. `case 2`, `case 0`, `case 1: default`).
 - Unaligned struct copy (`lwl/lwr` + aligned `sw`): `*(T __unaligned *)p`.
 - Use unique scratch file names (`build/agent_<fn>_N.c`); other agents work in the same folder.
+- Names: if config/<seg>.names.txt gives a real name to a function (check with `grep <fn> config/<seg>.names.txt`),
+  the C file src/<seg>/<fn>.c must DEFINE that real name (callees keep their func_ names); `tools/mm match` still takes
+  the func_ name. Without this it crashes with a NoneType/symbol-not-found error instead of a diff.
+- `addu` operand order: `(u8 *)((s32)p + n)` or `(s32 *)((u32)ctx + i * 12)` flips it versus `p + n`.
+- A float argument in slot 2-4 that the ROM spills (`sw a3` / `mtc1`) is declared `f32`, not `s32`.
+- Several `return`s duplicate the `jr ra` block: a single exit through an `s32 ret` variable can fix the frame size.
+- Stack slot off by 4/8: add `s32 pad;` / `s32 pad[2];` declared AFTER the used local (or before an s16 array).
+- Fields at a large offset that share one `lui`: `*(u16 *)((u8 *)p + 0x1CAC)` breaks the CSE.
+- `x / 12` emits a divide-by-zero check; a pointer difference with a 12-byte struct type does not.
+- abs: `if (t < 0) { x = -t; } else { x = t; }`. Hardware register: literal address `*(s32 *)0xA450000C`.
 - The decomp-permuter is also running over all wip functions in the background (CPU only); do not start your own permuter.
