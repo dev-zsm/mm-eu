@@ -3,6 +3,6 @@
 
 extern s32 D_801F366C;
 
-s32 func_80186660(void) {
+s32 SysFlashrom_IsInit(void) {
     return D_801F366C;
 }

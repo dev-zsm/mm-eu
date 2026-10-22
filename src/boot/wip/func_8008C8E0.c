@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
 #include "types.h"
-u16 func_8008C8E0(u8 *p, s32 n) {
+u16 __osSumcalc(u8 *p, s32 n) {
     u32 sum = 0;
     s32 i = 0;
     s32 rem = n & 3;

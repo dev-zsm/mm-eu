@@ -12,8 +12,8 @@ typedef struct Obj {
 extern Obj *D_80098010;
 extern Obj *D_8009800C;
 
-void *func_80091C00(void);
-void func_80091C70(void *a);
+void *__osDisableInt(void);
+void __osRestoreInt(void *a);
 void func_80089444(void);
 void func_800895D0(Obj *a0, Obj *a1);
 
@@ -22,7 +22,7 @@ void func_80089610(Obj *arg) {
     register Obj *s1;
     register Obj *s2;
 
-    s0 = func_80091C00();
+    s0 = __osDisableInt();
     if (arg == NULL) {
         arg = D_80098010;
     } else if (arg->unk10 != 1) {
@@ -48,5 +48,5 @@ void func_80089610(Obj *arg) {
     if (arg == D_80098010) {
         func_80089444();
     }
-    func_80091C70(s0);
+    __osRestoreInt(s0);
 }

@@ -11,7 +11,7 @@ typedef struct Node {
     s32 unk18;          /* 0x18 */
 } Node;
 
-s32 func_800854D8(Node *arg0) {
+s32 StackCheck_GetState(Node *arg0) {
     u32 p;
     u32 end;
     u32 fill;

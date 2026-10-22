@@ -26,19 +26,19 @@ extern u8 D_8009FC40[];
 extern u8 D_8009FC58[];
 extern u8 D_8009EA60[];
 
-void func_8008F540(void);
-void func_8008F3E0(void *a, void *b, s32 c);
-void func_8008D7E0(s32 a, void *b, void *c);
-s32 func_8008FE80(s32 a);
-s32 func_8008FDA0(s32 a, s32 b);
-s32 func_80091C00(void);
-void func_80089FE0(void *a, s32 b, void *c, Ctx95440 *d, void *e, s32 f);
-void func_80091C90(void);
-void func_80095950(void *a);
-void func_80091C70(s32 a);
-void func_800955C0(s32 a);
+void __osTimerServicesInit(void);
+void osCreateMesgQueue(void *a, void *b, s32 c);
+void osSetEventMesg(s32 a, void *b, void *c);
+s32 osGetThreadPri(s32 a);
+s32 osSetThreadPri(s32 a, s32 b);
+s32 __osDisableInt(void);
+void osCreateThread(void *a, s32 b, void *c, Ctx95440 *d, void *e, s32 f);
+void __osViInit(void);
+void osStartThread(void *a);
+void __osRestoreInt(s32 a);
+void viMgrMain(s32 a);
 
-void func_80095440(s32 n) {
+void osCreateViManager(s32 n) {
     Ctx95440 *s;
     Ent95440 *e1;
     Ent95440 *e2;
@@ -49,9 +49,9 @@ void func_80095440(s32 n) {
     if (s->init != 0) {
         return;
     }
-    func_8008F540();
+    __osTimerServicesInit();
     D_800983BC = 0;
-    func_8008F3E0(D_8009FC10, D_8009FC28, 5);
+    osCreateMesgQueue(D_8009FC10, D_8009FC28, 5);
     e1 = (Ent95440 *)&D_8009FC40;
     e2 = (Ent95440 *)&D_8009FC58;
     e1->kind = 0xD;
@@ -60,13 +60,13 @@ void func_80095440(s32 n) {
     e2->kind = 0xE;
     e2->flag = 0;
     e2->val = 0;
-    func_8008D7E0(7, D_8009FC10, e1);
-    func_8008D7E0(3, D_8009FC10, e2);
+    osSetEventMesg(7, D_8009FC10, e1);
+    osSetEventMesg(3, D_8009FC10, e2);
     ret = -1;
-    if (func_8008FE80(0) < n) {
-        ret = func_8008FDA0(0, n);
+    if (osGetThreadPri(0) < n) {
+        ret = osSetThreadPri(0, n);
     }
-    h = func_80091C00();
+    h = __osDisableInt();
     s->init = 1;
     s->p04 = D_8009EA60;
     s->p08 = D_8009FC10;
@@ -74,11 +74,11 @@ void func_80095440(s32 n) {
     s->p10 = 0;
     s->p14 = 0;
     s->p18 = 0;
-    func_80089FE0(D_8009EA60, 0, func_800955C0, s, D_8009FC10, n);
-    func_80091C90();
-    func_80095950(D_8009EA60);
-    func_80091C70(h);
+    osCreateThread(D_8009EA60, 0, viMgrMain, s, D_8009FC10, n);
+    __osViInit();
+    osStartThread(D_8009EA60);
+    __osRestoreInt(h);
     if (ret != -1) {
-        func_8008FDA0(0, ret);
+        osSetThreadPri(0, ret);
     }
 }

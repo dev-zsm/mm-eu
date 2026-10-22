@@ -13,12 +13,12 @@ typedef struct Owner {
     Node *head;
 } Owner;
 
-extern u32 func_800881B0(u32 mask);
+extern u32 osSetIntMask(u32 mask);
 extern void func_8008198C(void *queue, void *node);
 extern Owner *D_8009C220;
 extern u8 D_8009877C[];
 
-void func_80081B34(Node *node) {
+void Fault_RemoveClient(Node *node) {
     Owner *g;
     Node *prev;
     Node *cur;
@@ -29,7 +29,7 @@ void func_80081B34(Node *node) {
     prev = NULL;
     flag = 0;
     cur = g->head;
-    saved = func_800881B0(1);
+    saved = osSetIntMask(1);
     if (cur != NULL) {
         do {
             if (cur == node) {
@@ -45,7 +45,7 @@ void func_80081B34(Node *node) {
             cur = cur->next;
         } while (cur != NULL);
     }
-    func_800881B0(saved);
+    osSetIntMask(saved);
     if (flag) {
         func_8008198C(D_8009877C, node);
     }

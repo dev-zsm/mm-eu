@@ -26,12 +26,12 @@ typedef struct {
     u16 unk1E;
 } Buf;
 
-s32 func_80092DA0(void *a, s32 b);
-s32 func_80090DE0(s32 a, s32 b, u16 c, void *d);
-s32 func_80093F40(s32 a, s32 b, u16 c, void *d, s32 e);
-void func_8008C954(void *a, u16 *b, u16 *c);
+s32 __osPfsSelectBank(void *a, s32 b);
+s32 __osContRamRead(s32 a, s32 b, u16 c, void *d);
+s32 __osContRamWrite(s32 a, s32 b, u16 c, void *d, s32 e);
+void __osIdCheckSum(void *a, u16 *b, u16 *c);
 
-s32 func_8008CDA0(Ctx *arg0, Buf *arg1) {
+s32 __osCheckPackId(Ctx *arg0, Buf *arg1) {
     u16 sp58[4];
     u32 pad;
     struct { u16 a; u16 b; } pr;
@@ -41,7 +41,7 @@ s32 func_8008CDA0(Ctx *arg0, Buf *arg1) {
     s32 temp_v0;
 
     if (arg0->unk65 != 0) {
-        temp_v0 = func_80092DA0(arg0, 0);
+        temp_v0 = __osPfsSelectBank(arg0, 0);
         if (temp_v0 != 0) {
             return temp_v0;
         }
@@ -53,11 +53,11 @@ s32 func_8008CDA0(Ctx *arg0, Buf *arg1) {
     var_s1 = 1;
     var_s0 = &sp58[1];
     for (;;) {
-        temp_v0 = func_80090DE0(arg0->unk4, arg0->unk8, *var_s0, arg1);
+        temp_v0 = __osContRamRead(arg0->unk4, arg0->unk8, *var_s0, arg1);
         if (temp_v0 != 0) {
             return temp_v0;
         }
-        func_8008C954(arg1, &pr.b, &pr.a);
+        __osIdCheckSum(arg1, &pr.b, &pr.a);
         if (arg1->unk1C == pr.b && arg1->unk1E == pr.a) {
             break;
         }
@@ -72,7 +72,7 @@ s32 func_8008CDA0(Ctx *arg0, Buf *arg1) {
     }
     for (var_s0_2 = 0; var_s0_2 != 4; var_s0_2++) {
         if (var_s0_2 != var_s1) {
-            temp_v0 = func_80093F40(arg0->unk4, arg0->unk8, sp58[var_s0_2], arg1, 1);
+            temp_v0 = __osContRamWrite(arg0->unk4, arg0->unk8, sp58[var_s0_2], arg1, 1);
             if (temp_v0 != 0) {
                 return temp_v0;
             }

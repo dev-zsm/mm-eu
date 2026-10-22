@@ -11,15 +11,15 @@ typedef struct Obj {
     Node *list;
 } Obj;
 
-extern void func_80087CB0(void *a, u32 b, u32 c);
+extern void osSendMesg(void *a, u32 b, u32 c);
 
-void func_800813B8(Obj *arg0, u32 arg1) {
+void IrqMgr_SendMesgToClients(Obj *arg0, u32 arg1) {
     Node *n;
 
     n = arg0->list;
     if (n != NULL) {
         do {
-            func_80087CB0(n->data, arg1, 0);
+            osSendMesg(n->data, arg1, 0);
             n = n->next;
         } while (n != NULL);
     }

@@ -8,7 +8,7 @@ extern f64 D_80099628;
 extern f32 D_80099630;
 extern f32 D_80099820;
 
-f32 func_800884F0(f32 arg0) {
+f32 __sinf(f32 arg0) {
     f64 temp_f0;
     f64 temp_f12;
     f64 temp_f14;

@@ -3,6 +3,6 @@
 
 extern s8 D_801EC6B0;
 
-void func_800FE290(void) {
+void Environment_StartTime(void) {
     D_801EC6B0 = 0;
 }

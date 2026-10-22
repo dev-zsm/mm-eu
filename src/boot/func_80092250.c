@@ -1,15 +1,15 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-extern void func_8008C380(void);
-extern s32 func_8008FEA0(s32, s32, s32);
-extern s32 func_8008C3C4(void);
+extern void __osPiGetAccess(void);
+extern s32 __osEPiRawReadIo(s32, s32, s32);
+extern s32 __osPiRelAccess(void);
 
-s32 func_80092250(s32 a0, s32 a1, s32 a2) {
+s32 osEPiReadIo(s32 a0, s32 a1, s32 a2) {
     volatile s32 sp1C;
 
-    func_8008C380();
-    sp1C = func_8008FEA0(a0, a1, a2);
-    func_8008C3C4();
+    __osPiGetAccess();
+    sp1C = __osEPiRawReadIo(a0, a1, a2);
+    __osPiRelAccess();
     return sp1C;
 }

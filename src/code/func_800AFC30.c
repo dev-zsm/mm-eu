@@ -3,6 +3,6 @@
 
 extern s32 D_801DB840;
 
-s32 func_800AFC30(void) {
+s32 Effect_GetPlayState(void) {
     return D_801DB840;
 }

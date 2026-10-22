@@ -3,6 +3,6 @@
 
 extern s32 D_80098014;
 
-s32 func_80095790(void) {
+s32 __osGetCurrFaultedThread(void) {
     return D_80098014;
 }

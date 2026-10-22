@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
 #include "types.h"
-s32 func_8008C954(u16 *a0, u16 *a1, u16 *a2) {
+s32 __osIdCheckSum(u16 *a0, u16 *a1, u16 *a2) {
     u16 *q;
     s32 v;
     *a2 = 0;

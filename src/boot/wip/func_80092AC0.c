@@ -18,13 +18,13 @@ extern Obj *D_8009807C;
 extern Obj D_8009E9E0;
 extern u8 D_8009E9F4[];
 
-extern void func_8008C380(void);
-extern void func_8008C3C4(void);
-extern void func_800897D0(void *p, s32 n);
-extern u32 func_80091C00(u32 a);
-extern void func_80091C70(u32 a);
+extern void __osPiGetAccess(void);
+extern void __osPiRelAccess(void);
+extern void bzero(void *p, s32 n);
+extern u32 __osDisableInt(u32 a);
+extern void __osRestoreInt(u32 a);
 
-Obj *func_80092AC0(void) {
+Obj *osCartRomInit(void) {
     Obj *s0;
     u32 v;
     u32 old14;
@@ -32,9 +32,9 @@ Obj *func_80092AC0(void) {
     u32 old20;
     u32 old18;
 
-    func_8008C380();
+    __osPiGetAccess();
     if (D_80098310 == 0) {
-        func_8008C3C4();
+        __osPiRelAccess();
         return &D_8009E9E0;
     }
     D_80098310 = 0;
@@ -43,7 +43,7 @@ Obj *func_80092AC0(void) {
     s0->unkC = 0xB0000000;
     s0->unk9 = 0;
     s0->unk10 = 0;
-    func_800897D0(D_8009E9F4, 0x60);
+    bzero(D_8009E9F4, 0x60);
 
     while (*(u32 *)0xA4600010 & 3) {
     }
@@ -64,10 +64,10 @@ Obj *func_80092AC0(void) {
     *(u32 *)0xA460001C = old1c;
     *(u32 *)0xA4600020 = old20;
     *(u32 *)0xA4600018 = old18;
-    v = func_80091C00(old1c);
+    v = __osDisableInt(old1c);
     s0->unk0 = D_8009807C;
     D_8009807C = s0;
-    func_80091C70(v);
-    func_8008C3C4();
+    __osRestoreInt(v);
+    __osPiRelAccess();
     return s0;
 }

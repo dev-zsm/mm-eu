@@ -13,7 +13,7 @@ typedef struct {
 
 #define osTvType D_80000300
 
-extern void func_80095440(s32);
+extern void osCreateViManager(s32);
 extern s32 D_80000300;
 extern s8 D_80096CC0;
 extern s32 D_80096CCC;
@@ -27,7 +27,7 @@ extern TvTable D_8009B610;
 extern s8 D_8009B660;
 
 void func_800803B0(void) {
-    func_80095440(0xFE);
+    osCreateViManager(0xFE);
     D_80096CCC = 0x42;
     D_80096CD0 = 1.0f;
     D_80096CD4 = 1.0f;

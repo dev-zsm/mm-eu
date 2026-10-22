@@ -21,9 +21,9 @@ typedef struct {
 } Mtx;
 
 extern f32 sqrtf(f32 x);
-void func_8008B7A0(void);
+void guMtxIdentF(void);
 
-void func_8008B870(Mtx *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9) {
+void guLookAtF(Mtx *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9) {
     f32 sp68;
     f32 sp58;
     f32 sp54;
@@ -47,7 +47,7 @@ void func_8008B870(Mtx *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, 
     f32 temp_f2_2;
     f32 temp_f2_3;
 
-    func_8008B7A0();
+    guMtxIdentF();
     temp_f2 = arg4 - arg1;
     temp_f12 = arg5 - arg2;
     temp_f14 = arg6 - arg3;

@@ -2,10 +2,10 @@
 #include "types.h"
 
 extern f32 D_80098170;
-f32 func_800884F0(f32);
-f32 func_800920E0(f32);
+f32 __sinf(f32);
+f32 __cosf(f32);
 
-void func_80090050(f32 *m, f32 x, f32 y, f32 z, f32 s, f32 tx, f32 ty, f32 tz) {
+void guPositionF(f32 *m, f32 x, f32 y, f32 z, f32 s, f32 tx, f32 ty, f32 tz) {
     f32 sx;
     f32 cx;
     f32 sy;
@@ -16,12 +16,12 @@ void func_80090050(f32 *m, f32 x, f32 y, f32 z, f32 s, f32 tx, f32 ty, f32 tz) {
     x = x * D_80098170;
     y = y * D_80098170;
     z = z * D_80098170;
-    sx = func_800884F0(x);
-    cx = func_800920E0(x);
-    sy = func_800884F0(y);
-    cy = func_800920E0(y);
-    sz = func_800884F0(z);
-    cz = func_800920E0(z);
+    sx = __sinf(x);
+    cx = __cosf(x);
+    sy = __sinf(y);
+    cy = __cosf(y);
+    sz = __sinf(z);
+    cz = __cosf(z);
 
     m[0] = cy * cz * s;
     m[1] = cy * sz * s;

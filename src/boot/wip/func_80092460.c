@@ -7,15 +7,15 @@ typedef struct {
     s32 unk8;
 } Struct80092460;
 
-s32 func_800928D0(s32, s32, u8 *);
-s32 func_800966E0(s32, s32, s32, s32 *);
-s32 func_80089720(Struct80092460 *, u8 *);
+s32 __osVoiceGetStatus(s32, s32, u8 *);
+s32 __osVoiceContWrite4(s32, s32, s32, s32 *);
+s32 __osVoiceCheckResult(Struct80092460 *, u8 *);
 
-s32 func_80092460(Struct80092460 *arg0) {
+s32 osVoiceStopReadData(Struct80092460 *arg0) {
     struct { s32 sp38; u8 pad[3]; u8 sp3F; s32 i; } l;
     s32 v;
 
-    v = func_800928D0(arg0->unk0, arg0->unk4, &l.sp3F);
+    v = __osVoiceGetStatus(arg0->unk0, arg0->unk4, &l.sp3F);
     if (v != 0) {
         return v;
     }
@@ -26,11 +26,11 @@ s32 func_80092460(Struct80092460 *arg0) {
         return 5;
     }
     l.sp38 = 0x700;
-    v = func_800966E0(arg0->unk0, arg0->unk4, 0, &l.sp38);
+    v = __osVoiceContWrite4(arg0->unk0, arg0->unk4, 0, &l.sp38);
     if (v == 0) {
         l.i = 0;
         do {
-            v = func_80089720(arg0, &l.sp3F);
+            v = __osVoiceCheckResult(arg0, &l.sp3F);
             if (v & 0xFF00) {
                 if ((v & 7) == 0 || (v & 7) == 7) {
                     v = 0;

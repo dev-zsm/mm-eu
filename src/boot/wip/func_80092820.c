@@ -5,7 +5,7 @@ typedef struct { u32 w0; u32 w1; } Ent4;
 typedef struct { u16 unk0; u8 unk2; u8 unk3; } Dst;
 extern u8 D_8009D2E1;
 extern u8 D_8009E9A0[];
-void func_80092820(u8 *arg0, Dst *arg1) {
+void __osPfsGetInitData(u8 *arg0, Dst *arg1) {
     s32 i;
     u8 bits;
     union { Ent4 w; Entry e; } sp;

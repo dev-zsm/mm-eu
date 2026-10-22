@@ -1,13 +1,13 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-extern s32 func_80095410(void);
+extern s32 __osSpGetStatus(void);
 
-s32 func_80090440(s32 *arg0) {
+s32 osSpTaskYielded(s32 *arg0) {
     s32 temp_v0;
     s32 var_v1;
 
-    temp_v0 = func_80095410();
+    temp_v0 = __osSpGetStatus();
     if (temp_v0 & 0x100) {
         var_v1 = 1;
     } else {

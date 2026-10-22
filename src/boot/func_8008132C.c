@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3
 #include "types.h"
 
-s32 func_800881B0(s32);
+s32 osSetIntMask(s32);
 
 typedef struct Node {
     struct Node *next;
@@ -13,14 +13,14 @@ typedef struct Owner {
     Node *list;
 } Owner;
 
-void func_8008132C(Owner *arg0, Node *arg1) {
+void IrqMgr_RemoveClient(Owner *arg0, Node *arg1) {
     Node *cur;
     Node *prev;
     s32 irq;
 
     prev = NULL;
     cur = arg0->list;
-    irq = func_800881B0(1);
+    irq = osSetIntMask(1);
     while (cur != NULL) {
         if (cur == arg1) {
             if (prev != NULL) {
@@ -33,5 +33,5 @@ void func_8008132C(Owner *arg0, Node *arg1) {
         prev = cur;
         cur = cur->next;
     }
-    func_800881B0(irq);
+    osSetIntMask(irq);
 }

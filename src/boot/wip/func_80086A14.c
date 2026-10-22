@@ -5,7 +5,7 @@ extern f32 D_800976C4;
 extern f32 D_80099384;
 extern f32 D_80099388;
 
-f32 func_80086A14(f32 arg0) {
+f32 Math_FAtanContFracF(f32 arg0) {
     s32 v;
     s32 i;
     f32 lo;

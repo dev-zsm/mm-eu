@@ -34,13 +34,13 @@ typedef struct {
     u16 unk1E;
 } Dst;
 
-s32 func_8008D460(void);
-s32 func_80092DA0(Ctx *ctx, s32 x);
-s32 func_80090DE0(void *a0, void *a1, s32 a2, void *a3);
-s32 func_80093F40(void *a0, void *a1, s32 a2, void *a3, s32 a4);
-s32 func_8008C954(void *a0, void *a1, void *a2);
+s32 osGetCount(void);
+s32 __osPfsSelectBank(Ctx *ctx, s32 x);
+s32 __osContRamRead(void *a0, void *a1, s32 a2, void *a3);
+s32 __osContRamWrite(void *a0, void *a1, s32 a2, void *a3, s32 a4);
+s32 __osIdCheckSum(void *a0, void *a1, void *a2);
 
-s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
+s32 __osRepairPackId(Ctx *ctx, Src *src, Dst *dst) {
     u8 sp5C[0x20];
     u8 sp7C[0x20];
     u16 sp48[4];
@@ -51,14 +51,14 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
     u16 *s0;
 
     dst->unk0 = -1;
-    dst->unk4 = func_8008D460();
+    dst->unk4 = osGetCount();
     dst->unk8 = src->unk8;
     dst->unkC = src->unkC;
     dst->unk10 = src->unk10;
     dst->unk14 = src->unk14;
 
     if (ctx->unk65 != 0) {
-        ret = func_80092DA0(ctx, 0);
+        ret = __osPfsSelectBank(ctx, 0);
         if (ret != 0) {
             return ret;
         }
@@ -66,11 +66,11 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
 
     s3 = 0;
     for (;;) {
-        ret = func_80092DA0(ctx, s3 & 0xFF);
+        ret = __osPfsSelectBank(ctx, s3 & 0xFF);
         if (ret != 0) {
             return ret;
         }
-        ret = func_80090DE0(ctx->unk4, ctx->unk8, 0, sp7C);
+        ret = __osContRamRead(ctx->unk4, ctx->unk8, 0, sp7C);
         if (ret != 0) {
             return ret;
         }
@@ -78,11 +78,11 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
         for (i = 1; i < 0x20; i++) {
             sp7C[i] = ~sp7C[i];
         }
-        ret = func_80093F40(ctx->unk4, ctx->unk8, 0, sp7C, 0);
+        ret = __osContRamWrite(ctx->unk4, ctx->unk8, 0, sp7C, 0);
         if (ret != 0) {
             return ret;
         }
-        ret = func_80090DE0(ctx->unk4, ctx->unk8, 0, sp5C);
+        ret = __osContRamRead(ctx->unk4, ctx->unk8, 0, sp5C);
         if (ret != 0) {
             return ret;
         }
@@ -98,11 +98,11 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
         if (s3 <= 0) {
             s3++;
         } else {
-            ret = func_80092DA0(ctx, 0);
+            ret = __osPfsSelectBank(ctx, 0);
             if (ret != 0) {
                 return ret;
             }
-            ret = func_80090DE0(ctx->unk4, ctx->unk8, 0, sp7C);
+            ret = __osContRamRead(ctx->unk4, ctx->unk8, 0, sp7C);
             if (ret != 0) {
                 return ret;
             }
@@ -117,7 +117,7 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
     }
 
     if (ctx->unk65 != 0) {
-        ret = func_80092DA0(ctx, 0);
+        ret = __osPfsSelectBank(ctx, 0);
         if (ret != 0) {
             return ret;
         }
@@ -131,7 +131,7 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
     dst->unk1A = s3;
     dst->unk18 = (src->unk18 & 0xFFFE) | v0;
     dst->unk1B = src->unk1B;
-    func_8008C954(dst, &dst->unk1C, &dst->unk1E);
+    __osIdCheckSum(dst, &dst->unk1C, &dst->unk1E);
 
     sp48[0] = 1;
     sp48[1] = 3;
@@ -139,14 +139,14 @@ s32 func_8008CA50(Ctx *ctx, Src *src, Dst *dst) {
     sp48[3] = 6;
     s0 = sp48;
     do {
-        ret = func_80093F40(ctx->unk4, ctx->unk8, *s0, dst, 1);
+        ret = __osContRamWrite(ctx->unk4, ctx->unk8, *s0, dst, 1);
         if (ret != 0) {
             return ret;
         }
         s0++;
     } while (s0 < sp48 + 4);
 
-    ret = func_80090DE0(ctx->unk4, ctx->unk8, 1, sp7C);
+    ret = __osContRamRead(ctx->unk4, ctx->unk8, 1, sp7C);
     if (ret != 0) {
         return ret;
     }

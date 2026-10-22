@@ -12,9 +12,9 @@ typedef union {
     u16 h;
 } Pair;
 
-s32 func_8008D184(Ctx *a, u8 *b, s32 c, u8 d);
+s32 __osPfsRWInode(Ctx *a, u8 *b, s32 c, u8 d);
 
-s32 func_80093BA0(Ctx *arg0, Pair p, u8 *arg2) {
+s32 corrupted(Ctx *arg0, Pair p, u8 *arg2) {
     s32 cnt;
     s32 s1;
     s32 idx;
@@ -37,7 +37,7 @@ s32 func_80093BA0(Ctx *arg0, Pair p, u8 *arg2) {
             }
             if (p.b.a == v0 || ((arg2 + idx)[0x101] & (1 << (v0 % 8)))) {
                 if (arg2[0x100] != v0) {
-                    r = func_8008D184(arg0, arg2, 0, s2);
+                    r = __osPfsRWInode(arg0, arg2, 0, s2);
                     if (r != 0 && r != 3) {
                         return r;
                     }

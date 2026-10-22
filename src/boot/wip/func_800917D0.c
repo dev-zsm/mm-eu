@@ -12,15 +12,15 @@ typedef struct Obj {
     u8 unk65;
 } Obj;
 
-s32 func_8008D610(Obj *o, u16 a1, u32 a2, u32 a3, u32 a4, u32 *out);
-s32 func_80092DA0(Obj *o, u32 a1);
-s32 func_80090DE0(u32 a0, u32 a1, u16 a2, u8 *a3);
-s32 func_8008D184(Obj *o, u8 *buf, u32 a2, u8 a3);
-s32 func_800919A8(Obj *o, u8 *buf, u8 a2, u8 a3, u16 *out);
-void func_800897D0(void *p, u32 n);
-s32 func_80093F40(u32 a0, u32 a1, u16 a2, u8 *a3, u32 a4);
+s32 osPfsFindFile(Obj *o, u16 a1, u32 a2, u32 a3, u32 a4, u32 *out);
+s32 __osPfsSelectBank(Obj *o, u32 a1);
+s32 __osContRamRead(u32 a0, u32 a1, u16 a2, u8 *a3);
+s32 __osPfsRWInode(Obj *o, u8 *buf, u32 a2, u8 a3);
+s32 __osPfsReleasePages(Obj *o, u8 *buf, u8 a2, u8 a3, u16 *out);
+void bzero(void *p, u32 n);
+s32 __osContRamWrite(u32 a0, u32 a1, u16 a2, u8 *a3, u32 a4);
 
-s32 func_800917D0(Obj *s, u16 a1, u32 a2, u32 a3, u32 a4) {
+s32 osPfsDeleteFile(Obj *s, u16 a1, u32 a2, u32 a3, u32 a4) {
     u32 sp16C;
     u8 sp68[0x104];
     u8 sp48[0x20];
@@ -33,17 +33,17 @@ s32 func_800917D0(Obj *s, u16 a1, u32 a2, u32 a3, u32 a4) {
     if (a1 == 0 || a2 == 0) {
         return 5;
     }
-    r = func_8008D610(s, a1, a2, a3, a4, &sp16C);
+    r = osPfsFindFile(s, a1, a2, a3, a4, &sp16C);
     if (r != 0) {
         return r;
     }
     if (s->unk65 != 0) {
-        r = func_80092DA0(s, 0);
+        r = __osPfsSelectBank(s, 0);
         if (r != 0) {
             return r;
         }
     }
-    r = func_80090DE0(s->unk4, s->unk8, (u16)(s->unk5C + sp16C), sp48);
+    r = __osContRamRead(s->unk4, s->unk8, (u16)(s->unk5C + sp16C), sp48);
     if (r != 0) {
         return r;
     }
@@ -52,11 +52,11 @@ s32 func_800917D0(Obj *s, u16 a1, u32 a2, u32 a3, u32 a4) {
     one = 1;
     if (sp48[6] < s->unk64) {
         for (;;) {
-            r = func_8008D184(s, buf, 0, sp48[6]);
+            r = __osPfsRWInode(s, buf, 0, sp48[6]);
             if (r != 0) return r;
-            r = func_800919A8(s, buf, sp48[7], sp48[6], p44);
+            r = __osPfsReleasePages(s, buf, sp48[7], sp48[6], p44);
             if (r != 0) return r;
-            r = func_8008D184(s, buf, 1, sp48[6]);
+            r = __osPfsRWInode(s, buf, 1, sp48[6]);
             if (r != 0) return r;
             if (one == *p44) break;
             sp48[6] = sp44[0];
@@ -65,8 +65,8 @@ s32 func_800917D0(Obj *s, u16 a1, u32 a2, u32 a3, u32 a4) {
         }
     }
     if (sp48[6] < s->unk64) {
-        func_800897D0(sp48, 0x20);
-        return func_80093F40(s->unk4, s->unk8, (u16)(s->unk5C + sp16C), sp48, 0);
+        bzero(sp48, 0x20);
+        return __osContRamWrite(s->unk4, s->unk8, (u16)(s->unk5C + sp16C), sp48, 0);
     }
     return 3;
 }

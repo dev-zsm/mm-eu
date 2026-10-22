@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 
-void func_80132184(s32 arg0) {
+void Scene_DrawConfigDoNothing(s32 arg0) {
 
 }

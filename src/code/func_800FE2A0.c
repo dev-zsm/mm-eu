@@ -3,6 +3,6 @@
 
 extern u8 D_801EC6B0;
 
-u8 func_800FE2A0(void) {
+u8 Environment_IsTimeStopped(void) {
     return D_801EC6B0;
 }

@@ -3,6 +3,6 @@
 
 extern f32 D_801BE6E0;
 
-f32 func_800FE590(void) {
+f32 Environment_GetSandstormLerpScale(void) {
     return D_801BE6E0;
 }

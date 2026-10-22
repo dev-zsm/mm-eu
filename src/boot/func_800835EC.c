@@ -8,15 +8,15 @@ typedef struct Node800835EC {
     s32 unkC;
 } Node800835EC;
 
-extern void func_80082138(void);
-extern void func_800843FC(s32 a0, s32 a1);
-extern void func_8008482C(void *a0, s32 a1, Node800835EC *a2, s32 a3, s32 sp10);
-extern void func_8008209C(void);
-extern void func_8008352C(void);
+extern void Fault_FillScreenBlack(void);
+extern void FaultDrawer_SetCharPad(s32 a0, s32 a1);
+extern void FaultDrawer_Printf(void *a0, s32 a1, Node800835EC *a2, s32 a3, s32 sp10);
+extern void Fault_WaitForInput(void);
+extern void Fault_DisplayFrameBuffer(void);
 extern u8 D_80098CB0[];
 extern void *D_8009C220;
 
-void func_800835EC(void) {
+void Fault_ProcessClients(void) {
     Node800835EC *node;
     s32 i;
 
@@ -24,13 +24,13 @@ void func_800835EC(void) {
     node = *(Node800835EC **)((u8 *)D_8009C220 + 0x7D8);
     while (node != NULL) {
         if (node->fn != NULL) {
-            func_80082138();
-            func_800843FC(-2, 0);
-            func_8008482C(D_80098CB0, i++, node, node->unk8, node->unkC);
-            func_800843FC(0, 0);
+            Fault_FillScreenBlack();
+            FaultDrawer_SetCharPad(-2, 0);
+            FaultDrawer_Printf(D_80098CB0, i++, node, node->unk8, node->unkC);
+            FaultDrawer_SetCharPad(0, 0);
             node->fn(node->unk8, node->unkC);
-            func_8008209C();
-            func_8008352C();
+            Fault_WaitForInput();
+            Fault_DisplayFrameBuffer();
         }
         node = node->next;
     }

@@ -13,10 +13,10 @@ typedef struct {
 
 extern u32 D_80096CF0;
 extern void *D_80096CE0;
-extern s32 func_8008EFD0(void *a, void *b, s32 c);
-extern void func_80088070(void *a, s32 b, s32 c);
-extern void func_8008F3E0(void *a, void *b, s32 c);
-extern void func_8008F490(u32 a, u32 b);
+extern s32 osEPiStartDma(void *a, void *b, s32 c);
+extern void osRecvMesg(void *a, s32 b, s32 c);
+extern void osCreateMesgQueue(void *a, void *b, s32 c);
+extern void osInvalDCache(u32 a, u32 b);
 
 s32 func_800807E0(u32 dst, u32 src, u32 rem) {
     u32 chunk;
@@ -26,8 +26,8 @@ s32 func_800807E0(u32 dst, u32 src, u32 rem) {
     Func800807E0Ctx ctx;
 
     chunk = D_80096CF0;
-    func_8008F490(src, rem);
-    func_8008F3E0(bufA, &var44, 1);
+    osInvalDCache(src, rem);
+    osCreateMesgQueue(bufA, &var44, 1);
     ret = 0;
     if (chunk != 0 && chunk < rem) {
         do {
@@ -36,11 +36,11 @@ s32 func_800807E0(u32 dst, u32 src, u32 rem) {
             ctx.unk8 = src;
             ctx.unkC = dst;
             ctx.unk10 = chunk;
-            ret = func_8008EFD0(*(void **)&D_80096CE0, &ctx, 0);
+            ret = osEPiStartDma(*(void **)&D_80096CE0, &ctx, 0);
             if (ret != 0) {
                 break;
             }
-            func_80088070(bufA, 0, 1);
+            osRecvMesg(bufA, 0, 1);
             rem -= chunk;
             dst += chunk;
             src += chunk;
@@ -52,10 +52,10 @@ s32 func_800807E0(u32 dst, u32 src, u32 rem) {
         ctx.unk8 = src;
         ctx.unkC = dst;
         ctx.unk10 = rem;
-        ret = func_8008EFD0(*(void **)&D_80096CE0, &ctx, 0);
+        ret = osEPiStartDma(*(void **)&D_80096CE0, &ctx, 0);
         if (ret == 0) {
-            func_80088070(bufA, 0, 1);
-            func_8008F490(src, rem);
+            osRecvMesg(bufA, 0, 1);
+            osInvalDCache(src, rem);
         }
     }
     return ret;

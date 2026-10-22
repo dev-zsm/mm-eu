@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-// One range of the translation table D_8009FC80 (see func_800809A0).
+// One range of the translation table D_8009FC80 (see DmaMgr_TranslateVromToRom).
 // flags == 0: linear mapping. Nonzero: only the exact start address matches (inferred).
 typedef struct {
     u32 start;
@@ -14,7 +14,7 @@ extern MapEntry D_8009FC80[];
 
 // Finds the range containing addr in D_8009FC80, which is terminated by an entry with end == 0.
 // Returns NULL if no range contains addr.
-MapEntry *func_80080944(u32 addr) {
+MapEntry *DmaMgr_FindDmaEntry(u32 addr) {
     MapEntry *p;
     MapEntry *first = D_8009FC80;
     if (first->end != 0) {

@@ -6,7 +6,7 @@ typedef struct {
     s32 unk60;
 } Ctx;
 
-s32 func_800919A8(Ctx *arg0, u16 *arg1, s32 arg2, s32 arg3, u16 *arg4) {
+s32 __osPfsReleasePages(Ctx *arg0, u16 *arg1, s32 arg2, s32 arg3, u16 *arg4) {
     volatile u16 spC;
     volatile u16 sp8;
     s32 temp_v0;

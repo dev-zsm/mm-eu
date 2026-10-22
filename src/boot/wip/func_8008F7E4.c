@@ -10,14 +10,14 @@ typedef struct Node {
 } Node;
 
 extern Node *D_80098160;
-extern void *func_80091C00(void);
-extern void func_80091C70(void *a);
+extern void *__osDisableInt(void);
+extern void __osRestoreInt(void *a);
 
-void func_8008F7E4(Node *p) {
+void __osInsertTimer(Node *p) {
     Node *q;
     u64 rem;
     void *s;
-    s = func_80091C00();
+    s = __osDisableInt();
     rem = p->val;
     q = D_80098160->next;
     if (q != D_80098160 && q->val < rem) {
@@ -34,5 +34,5 @@ void func_8008F7E4(Node *p) {
     p->prev = q->prev;
     q->prev->next = p;
     q->prev = p;
-    func_80091C70(s);
+    __osRestoreInt(s);
 }

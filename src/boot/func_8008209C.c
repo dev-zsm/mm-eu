@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g0 -mips2 -trapuv
 #include "types.h"
 
-extern void func_80081F50(void);
+extern void Fault_WaitForInputImpl(void);
 
-void func_8008209C(void) {
-    func_80081F50();
+void Fault_WaitForInput(void) {
+    Fault_WaitForInputImpl();
 }

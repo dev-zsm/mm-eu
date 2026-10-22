@@ -10,11 +10,11 @@ typedef struct {
 extern u8 *D_8009C220;
 extern u32 D_80098C08;
 
-extern void func_80081E8C();
-extern void func_80081F04();
-extern void func_80082CCC();
+extern void Fault_Sleep();
+extern void Fault_UpdatePadImpl();
+extern void Fault_DrawMemDumpContents();
 
-void func_80082E38(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
+void Fault_DrawMemDump(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
     s32 var_s0;
     s32 var_v1;
     u16 temp_a0;
@@ -32,14 +32,14 @@ loop_1:
         var_s3 = 0x807FFF00;
     }
     var_s3 &= ~0xF;
-    func_80082CCC(&D_80098C08, var_s3, 0);
+    Fault_DrawMemDumpContents(&D_80098C08, var_s3, 0);
     var_s0 = 0x258;
     if (D_8009C220[0x7CF] != 0) {
 loop_6:
         if (var_s0 != 0) {
             var_s0--;
-            func_80081E8C(0x10);
-            func_80081F04();
+            Fault_Sleep(0x10);
+            Fault_UpdatePadImpl();
             if (~(temp_s1->unkC | ~0x20) == 0) {
                 D_8009C220[0x7CF] = 0;
             }
@@ -51,8 +51,8 @@ loop_6:
     } else {
         do {
 loop_10:
-            func_80081E8C(0x10);
-            func_80081F04();
+            Fault_Sleep(0x10);
+            Fault_UpdatePadImpl();
             temp_v0 = temp_s1->unkC;
         } while (temp_v0 == 0);
         if (~(temp_v0 | ~0x1000) != 0) {

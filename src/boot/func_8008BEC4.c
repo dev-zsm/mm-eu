@@ -6,7 +6,7 @@ typedef struct {
     s32 unk60;
 } Obj;
 
-s32 func_8008BEC4(Obj *obj, u16 *tbl, s32 n, s32 *cnt, u8 i, s32 *p1, s32 *p2) {
+s32 __osPfsDeclearPage(Obj *obj, u16 *tbl, s32 n, s32 *cnt, u8 i, s32 *p1, s32 *p2) {
     s32 v;
     s32 idx;
     s32 found;

@@ -1,14 +1,14 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-extern void func_800854D8(void);
-extern void func_80085550(void);
+extern void StackCheck_GetState(void);
+extern void StackCheck_CheckAll(void);
 
-void func_800855A8(s32 arg0) {
+void StackCheck_Check(s32 arg0) {
     if (arg0 == 0) {
-        func_80085550();
+        StackCheck_CheckAll();
     } else {
-        func_800854D8();
+        StackCheck_GetState();
     }
 }
 

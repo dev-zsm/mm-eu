@@ -16,7 +16,7 @@ typedef struct {
 extern Ctx *D_80098080[];
 typedef volatile u32 vu32;
 
-s32 func_8008FEA0(Ctx *src, s32 arg1, u32 *dst) {
+s32 __osEPiRawReadIo(Ctx *src, s32 arg1, u32 *dst) {
     Ctx *ent;
     u32 st;
     vu32 *reg;

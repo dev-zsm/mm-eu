@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-s32 func_8008FBD0(void) {
+s32 __osSiDeviceBusy(void) {
     s32 v;
 
     v = *(s32 *)0xA4800018;

@@ -11,11 +11,11 @@ typedef struct Node {
 } Node;
 
 extern Node *D_80098160;
-extern void *func_80091C00(void);
-extern void func_80091420(s32 a);
-extern void func_80091C70(void *a);
+extern void *__osDisableInt(void);
+extern void __osSetCompare(s32 a);
+extern void __osRestoreInt(void *a);
 
-s32 func_8008C010(Node *p) {
+s32 osStopTimer(Node *p) {
     Node *q;
     u32 *d;
     void *s;
@@ -24,7 +24,7 @@ s32 func_8008C010(Node *p) {
     if (p->next == NULL) {
         return -1;
     }
-    s = func_80091C00();
+    s = __osDisableInt();
     q = p->next;
     if (q != D_80098160) {
         d = &q->hi;
@@ -37,8 +37,8 @@ s32 func_8008C010(Node *p) {
     p->next = NULL;
     p->prev = NULL;
     if (D_80098160->next == D_80098160) {
-        func_80091420(0);
+        __osSetCompare(0);
     }
-    func_80091C70(s);
+    __osRestoreInt(s);
     return 0;
 }

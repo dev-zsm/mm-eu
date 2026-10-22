@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 
-void func_80087AA0(void);
+void vaprintf(void);
 
-void func_80086128(void) {
-    func_80087AA0();
+void GfxPrint_VPrintf(void) {
+    vaprintf();
 }

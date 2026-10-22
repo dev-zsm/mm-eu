@@ -9,7 +9,7 @@ extern s8 D_8009D2E0;
 extern u8 D_8009D2E1;
 extern u8 D_8009E9A0[];
 
-void func_8009276C(u8 arg0) {
+void __osPfsRequestData(u8 arg0) {
     s32 i;
     Entry sp4;
     u8 *p;

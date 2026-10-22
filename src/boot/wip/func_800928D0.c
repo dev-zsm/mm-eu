@@ -7,12 +7,12 @@ typedef struct {
 
 extern u8 D_8009D2A0[];
 extern u8 D_8009D2E0;
-extern void func_80089C90(void);
-extern void func_80089CD4(void);
-extern void func_8008AF10(s32 a, u8 *b);
-extern void func_80088070(s32 a, s32 b, s32 c);
+extern void __osSiGetAccess(void);
+extern void __osSiRelAccess(void);
+extern void __osSiRawStartDma(s32 a, u8 *b);
+extern void osRecvMesg(s32 a, s32 b, s32 c);
 
-s32 func_800928D0(s32 arg0, s32 arg1, u8 *arg2) {
+s32 __osVoiceGetStatus(s32 arg0, s32 arg1, u8 *arg2) {
     u8 *s0;
     u8 *s3;
     u8 *s7;
@@ -28,7 +28,7 @@ s32 func_800928D0(s32 arg0, s32 arg1, u8 *arg2) {
     s7 = s3 + arg1;
     s2 = 2;
     mode = 0;
-    func_80089C90();
+    __osSiGetAccess();
     for (;;) {
         if (mode == 4) {
             goto post;
@@ -62,12 +62,12 @@ s32 func_800928D0(s32 arg0, s32 arg1, u8 *arg2) {
         s0[6] = 0xFE;
         D_8009D2E0 = 0xFE;
         s0 += 6;
-        func_8008AF10(1, s3);
-        func_80088070(arg0, 0, 1);
+        __osSiRawStartDma(1, s3);
+        osRecvMesg(arg0, 0, 1);
     post:
         s0 = s7;
-        func_8008AF10(0, s3);
-        func_80088070(arg0, 0, 1);
+        __osSiRawStartDma(0, s3);
+        osRecvMesg(arg0, 0, 1);
         *(Hdr *)&hdr = *(Hdr *)s7;
         *arg2 = hdr.b[5];
         if (((hdr.b[1] & 0xC0) >> 4) != 0) {
@@ -89,6 +89,6 @@ s32 func_800928D0(s32 arg0, s32 arg1, u8 *arg2) {
         }
         break;
     }
-    func_80089CD4();
+    __osSiRelAccess();
     return mode;
 }

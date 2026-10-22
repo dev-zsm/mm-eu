@@ -10,9 +10,9 @@ typedef struct {
     u8 unkF;
 } Struct;
 
-extern void func_80085AD8(Struct *s, s32 a1);
+extern void GfxPrint_PrintCharImpl(Struct *s, s32 a1);
 
-void func_80085DE4(Struct *s, u8 a1) {
+void GfxPrint_PrintChar(Struct *s, u8 a1) {
     s32 v;
 
     v = a1;
@@ -21,7 +21,7 @@ void func_80085DE4(Struct *s, u8 a1) {
         return;
     }
     if (v >= 0x21 && v < 0x7F) {
-        func_80085AD8(s, v);
+        GfxPrint_PrintCharImpl(s, v);
         return;
     }
     if (v >= 0xA0 && v < 0xE0) {
@@ -32,7 +32,7 @@ void func_80085DE4(Struct *s, u8 a1) {
                 v = (v + 0x20) & 0xFF;
             }
         }
-        func_80085AD8(s, v);
+        GfxPrint_PrintCharImpl(s, v);
         return;
     }
     if (v >= 0xB) {
@@ -61,7 +61,7 @@ void func_80085DE4(Struct *s, u8 a1) {
     } else {
         if (v == 9) {
             do {
-                func_80085AD8(s, 0x20);
+                GfxPrint_PrintCharImpl(s, 0x20);
             } while ((u8)(s->unk8 - s->unkC) != 0);
         } else if (v == 0xA) {
             s->unkA = s->unkA + 0x20;

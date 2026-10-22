@@ -6,7 +6,7 @@ extern u8 D_800988AC[];
 extern u8 D_800988BC[];
 extern s32 D_80096D68[];
 
-void func_80082434(u32 arg0) {
+void Fault_LogFPCSR(u32 arg0) {
     u32 bit;
     s32 i;
 

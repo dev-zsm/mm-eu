@@ -3,6 +3,6 @@
 
 extern s16 D_801ED318;
 
-s16 func_8012B384(void) {
+s16 Distortion_GetTimeLeft(void) {
     return D_801ED318;
 }

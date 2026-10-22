@@ -1,9 +1,9 @@
 // FLAGS: -O2 -g3
 #include "types.h"
 
-extern u32 func_8008A6E0(u32 a);
+extern u32 osVirtualToPhysical(u32 a);
 
-s32 func_8008C810(s32 a0, u32 a1, u32 a2, s32 a3) {
+s32 __osPiRawStartDma(s32 a0, u32 a1, u32 a2, s32 a3) {
     volatile u32 *reg;
     u32 v;
 
@@ -12,7 +12,7 @@ s32 func_8008C810(s32 a0, u32 a1, u32 a2, s32 a3) {
     while (v & 3) {
         v = *reg;
     }
-    *(u32 *)0xA4600000 = func_8008A6E0(a2);
+    *(u32 *)0xA4600000 = osVirtualToPhysical(a2);
     *(u32 *)0xA4600004 = (*(u32 *)0x80000308 | a1) & 0x1FFFFFFF;
     if (a0 == 0) {
         *(u32 *)0xA460000C = a3 - 1;

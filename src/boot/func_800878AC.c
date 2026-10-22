@@ -17,12 +17,12 @@ typedef struct Node
   u32 val;
   struct Node *next;
 } Node;
-extern void func_800871FC(void);
-extern void func_80087224(void);
+extern void ArenaImpl_Lock(void);
+extern void ArenaImpl_Unlock(void);
 void func_800878AC(Node **head, u32 *a1, u32 *a2, u32 *a3)
 {
   Node *node;
-  func_800871FC();
+  ArenaImpl_Lock();
   *a1 = 0;
   *a2 = 0;
   *a3 = 0;
@@ -45,5 +45,5 @@ void func_800878AC(Node **head, u32 *a1, u32 *a2, u32 *a3)
     }
   }
 
-  func_80087224();
+  ArenaImpl_Unlock();
 }

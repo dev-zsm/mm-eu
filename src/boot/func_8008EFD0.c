@@ -10,11 +10,11 @@ typedef struct {
 
 extern s32 D_80098060;
 
-s32 func_800920B0(void *a0, Obj *a1, s32 a2);
-s32 func_8008FC50(s32 a0, Obj *a1, s32 a2);
-s32 func_80087CB0(s32 a0, Obj *a1, s32 a2);
+s32 osPiGetCmdQueue(void *a0, Obj *a1, s32 a2);
+s32 osJamMesg(s32 a0, Obj *a1, s32 a2);
+s32 osSendMesg(s32 a0, Obj *a1, s32 a2);
 
-s32 func_8008EFD0(void *a0, Obj *a1, s32 a2) {
+s32 osEPiStartDma(void *a0, Obj *a1, s32 a2) {
     s32 r;
 
     if (D_80098060 == 0) {
@@ -27,9 +27,9 @@ s32 func_8008EFD0(void *a0, Obj *a1, s32 a2) {
         a1->unk0 = 0x10;
     }
     if (a1->unk2 == 1) {
-        r = func_8008FC50(func_800920B0(a0, a1, a2), a1, 0);
+        r = osJamMesg(osPiGetCmdQueue(a0, a1, a2), a1, 0);
     } else {
-        r = func_80087CB0(func_800920B0(a0, a1, a2), a1, 0);
+        r = osSendMesg(osPiGetCmdQueue(a0, a1, a2), a1, 0);
     }
     return r;
 }

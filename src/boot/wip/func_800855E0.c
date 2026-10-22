@@ -23,7 +23,7 @@ extern u8 D_80096E70[];
 #define T(w) MAX(1, (w) / 16)
 #define GFX_NEXT (g = ctx->dl, ctx->dl = g + 1)
 
-void func_800855E0(Ctx *ctx) {
+void GfxPrint_Setup(Ctx *ctx) {
     Gfx *g;
     s32 a1;
     s32 i;

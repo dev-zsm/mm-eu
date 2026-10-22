@@ -6,12 +6,12 @@ typedef struct Pool {
     u8 pad8[0x19];
     u8 unk21;
 } Pool;
-void func_800897D0(void *a, u32 b);
-void func_800871D0(void *p);
-void func_800872CC(void *p, u32 a, s32 b);
-void func_8008727C(Pool *arg0, u32 arg1, s32 arg2) {
-    func_800897D0(arg0, 0x24);
-    func_800871D0(arg0);
-    func_800872CC(arg0, arg1, arg2);
+void bzero(void *a, u32 b);
+void ArenaImpl_LockInit(void *p);
+void __osMallocAddHeap(void *p, u32 a, s32 b);
+void __osMallocInit(Pool *arg0, u32 arg1, s32 arg2) {
+    bzero(arg0, 0x24);
+    ArenaImpl_LockInit(arg0);
+    __osMallocAddHeap(arg0, arg1, arg2);
     arg0->unk21 = 1;
 }

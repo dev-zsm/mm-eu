@@ -16,7 +16,7 @@ typedef struct {
     s32 unk10;
 } Struct;
 
-void func_80085AD8(Struct *s, u8 a1) {
+void GfxPrint_PrintCharImpl(Struct *s, u8 a1) {
     Gfx *dl;
     u32 t;
 

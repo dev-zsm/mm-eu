@@ -10,7 +10,7 @@ typedef signed long long s64;
 typedef unsigned long long u64;
 typedef float f32;
 typedef double f64;
-void func_800863AC(u32 a0, s32 a1, s32 a2, void (*a3)(u32))
+void SystemHeap_RunBlockFunc(u32 a0, s32 a1, s32 a2, void (*a3)(u32))
 {
   u32 end;
   u32 p = a0;

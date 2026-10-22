@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-u8 func_8008F2A0(u8 *p, u32 n) {
+u8 __osVoiceContDataCrc(u8 *p, u32 n) {
     u32 crc = 0;
     u32 mask;
     u32 s;

@@ -24,26 +24,26 @@ extern s32 D_A4500010;
 extern s32 D_A4500014;
 extern Block16 func_80088CA0;
 
-s32 func_8008A760(void);
-void func_8008A770(s32 a);
+s32 __osGetSR(void);
+void __osSetSR(s32 a);
 void func_8008A780(s32 a, s32 b);
 void func_8008A800(void);
-s32 func_8008B080(s32 a, s32 *b);
-void func_8008EF80(void);
-void func_8008F410(s32 a, s32 b);
-void func_80092E80(s32 a);
-void func_80093DA0(void);
-s32 func_80093F30(void);
-s32 func_800953C0(s32 a, s32 b);
-void func_800969C0(s32 a);
+s32 __osSiRawReadIo(s32 a, s32 *b);
+void osUnmapTLBAll(void);
+void osInvalICache(s32 a, s32 b);
+void __osSetFpcCsr(s32 a);
+void osMapTLBRdb(void);
+s32 __osGetCause(void);
+s32 __osSiRawWriteIo(s32 a, s32 b);
+void __osSetWatchLo(s32 a);
 typedef struct {
     s32 hi;
     s32 lo;
 } Pair8;
 
-Pair8 func_80088B48(s32 a, s32 b, s32 c, s32 d);
-Pair8 func_80088A48(s32 a, s32 b, s32 c, s32 d);
-void func_800897D0(u8 *p, s32 n);
+Pair8 __ll_mul(s32 a, s32 b, s32 c, s32 d);
+Pair8 __ull_div(s32 a, s32 b, s32 c, s32 d);
+void bzero(u8 *p, s32 n);
 
 void func_8008A89C(void) {
     s32 sp2C;
@@ -51,31 +51,31 @@ void func_8008A89C(void) {
     Pair8 sp20;
 
     D_8009D340 = 1;
-    s0 = func_8008A760();
-    func_8008A770(s0 | 0x20000000);
-    func_80092E80(0x01000800);
-    func_800969C0(0x04900000);
-    if (func_8008B080(0x1FC007FC, &sp2C) != 0) {
+    s0 = __osGetSR();
+    __osSetSR(s0 | 0x20000000);
+    __osSetFpcCsr(0x01000800);
+    __osSetWatchLo(0x04900000);
+    if (__osSiRawReadIo(0x1FC007FC, &sp2C) != 0) {
         do {
-        } while (func_8008B080(0x1FC007FC, &sp2C) != 0);
+        } while (__osSiRawReadIo(0x1FC007FC, &sp2C) != 0);
     }
-    if (func_800953C0(0x1FC007FC, sp2C | 8) != 0) {
+    if (__osSiRawWriteIo(0x1FC007FC, sp2C | 8) != 0) {
         do {
-        } while (func_800953C0(0x1FC007FC, sp2C | 8) != 0);
+        } while (__osSiRawWriteIo(0x1FC007FC, sp2C | 8) != 0);
     }
     *(Block16 *)0x80000000 = *(Block16 *)0x80088CA0;
     *(Block16 *)0x80000080 = *(Block16 *)0x80088CA0;
     *(Block16 *)0x80000100 = *(Block16 *)0x80088CA0;
     *(Block16 *)0x80000180 = *(Block16 *)0x80088CA0;
     func_8008A780(0x80000000, 0x190);
-    func_8008F410(0x80000000, 0x190);
+    osInvalICache(0x80000000, 0x190);
     func_8008A800();
-    func_8008EF80();
-    func_80093DA0();
-    sp20 = func_80088B48(D_80098040, D_80098044, 0, 3);
-    *(Pair8 *)&D_80098040 = func_80088A48(sp20.hi, sp20.lo, 0, 4);
+    osUnmapTLBAll();
+    osMapTLBRdb();
+    sp20 = __ll_mul(D_80098040, D_80098044, 0, 3);
+    *(Pair8 *)&D_80098040 = __ull_div(sp20.hi, sp20.lo, 0, 4);
     if (D_8000030C == 0) {
-        func_800897D0(D_8000031C, 0x40);
+        bzero(D_8000031C, 0x40);
     }
     if (D_80000300 == 0) {
         D_80098048 = 0x02F5B2D2;
@@ -84,7 +84,7 @@ void func_8008A89C(void) {
     } else {
         D_80098048 = 0x02E6D354;
     }
-    if (func_80093F30() & 0x1000) {
+    if (__osGetCause() & 0x1000) {
         for (;;) {}
     }
     *(s32 *)0xA4500008 = 1;

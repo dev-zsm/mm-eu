@@ -8,22 +8,22 @@ typedef struct {
     u8 unk64;
 } Obj;
 
-extern s32 func_8008D0B0(Obj *p);
-extern s32 func_8008D184(Obj *p, u16 *buf, s32 zero, u8 i);
+extern s32 __osCheckId(Obj *p);
+extern s32 __osPfsRWInode(Obj *p, u16 *buf, s32 zero, u8 i);
 
-s32 func_80087E00(Obj *p, s32 *out) {
+s32 osPfsFreeBlocks(Obj *p, s32 *out) {
     u16 buf[0x80]; s32 n; s32 start; s32 j; s32 err; u8 i;
 
     n = 0;
     if (!(p->flags & 1)) {
         return 5;
     }
-    err = func_8008D0B0(p);
+    err = __osCheckId(p);
     if (err != 0) {
         return err;
     }
     for (i = 0; i < p->unk64; i++) {
-        err = func_8008D184(p, buf, 0, i);
+        err = __osPfsRWInode(p, buf, 0, i);
         if (err != 0) {
             return err;
         }

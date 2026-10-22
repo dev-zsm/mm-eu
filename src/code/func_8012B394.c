@@ -3,6 +3,6 @@
 
 extern s16 D_801ED316;
 
-s16 func_8012B394(void) {
+s16 Distortion_GetType(void) {
     return D_801ED316;
 }

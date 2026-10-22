@@ -12,20 +12,20 @@ typedef struct {
 
 extern u8 *D_80098010;
 
-s32 func_80091C00(void);
-void func_80091C70(s32);
+s32 __osDisableInt(void);
+void __osRestoreInt(s32);
 void func_800892E4(Func80088070Struct *);
 s32 func_8008942C(s32 *);
-void func_80095950(s32);
+void osStartThread(s32);
 
-s32 func_80088070(Func80088070Struct *arg0, s32 *arg1, s32 arg2) {
+s32 osRecvMesg(Func80088070Struct *arg0, s32 *arg1, s32 arg2) {
     s32 temp_s0;
     s32 temp_s1;
 
-    temp_s0 = func_80091C00();
+    temp_s0 = __osDisableInt();
     while (arg0->unk8 == 0) {
         if (arg2 == 0) {
-            func_80091C70(temp_s0);
+            __osRestoreInt(temp_s0);
             return -1;
         }
         *(s16 *)(D_80098010 + 0x10) = 8;
@@ -38,8 +38,8 @@ s32 func_80088070(Func80088070Struct *arg0, s32 *arg1, s32 arg2) {
     arg0->unk8 -= 1;
     if (*arg0->unk4 != 0) {
         temp_s1 = func_8008942C((s32 *) &arg0->unk4);
-        func_80095950(temp_s1);
+        osStartThread(temp_s1);
     }
-    func_80091C70(temp_s0);
+    __osRestoreInt(temp_s0);
     return 0;
 }

@@ -3,6 +3,6 @@
 
 extern u16 D_801D1774;
 
-u16 func_801A5FD0(void) {
+u16 AudioVoice_GetWord(void) {
     return D_801D1774;
 }

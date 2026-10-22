@@ -3,6 +3,6 @@
 
 extern void func_800819E0(void);
 
-void func_80081E8C(void) {
+void Fault_Sleep(void) {
     func_800819E0();
 }

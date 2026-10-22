@@ -9,14 +9,14 @@ extern u8 D_80098CD4[];
 extern u8 D_80098CF8[];
 
 s32 func_8008ABB0(void);
-void func_80083F10(void);
+void FaultDrawer_SetOsSyncPrintfEnabled(void);
 void func_8008198C(void *a0, s32 a1, s32 a2, s32 a3);
-void func_800820D8(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);
-void func_800843FC(s32 a0, s32 a1);
-void func_800848CC(s32 a0, s32 a1, s32 a2);
-void func_8008487C(s32 a0, s32 a1, void *a2, s32 a3, s32 a4, s32 a5);
+void Fault_DrawRec(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);
+void FaultDrawer_SetCharPad(s32 a0, s32 a1);
+void FaultDrawer_SetDrawerFrameBuffer(s32 a0, s32 a1, s32 a2);
+void FaultDrawer_DrawText(s32 a0, s32 a1, void *a2, s32 a3, s32 a4, s32 a5);
 
-void func_800836D0(void) {
+void Fault_SetOptions(void) {
     u8 *t0;
     u8 *v3;
     s32 s2C;
@@ -37,15 +37,15 @@ void func_800836D0(void) {
     s24 = *(s32 *)(v3 + 0xF4);
     if (~(*(u16 *)t0 | ~0x10) == 0) {
         D_8009C22C = (D_8009C22C == 0);
-        func_80083F10();
+        FaultDrawer_SetOsSyncPrintfEnabled();
     }
     if (~(*(u16 *)t0 | ~0x8000) == 0) {
         func_8008198C(D_80098CD4, s2C, s28, s24);
     }
     if (~(*(u16 *)t0 | ~0x4000) == 0) {
-        func_800848CC(func_8008ABB0(), 0x140, 0xF0);
-        func_800820D8(0, 0xD7, 0x140, 9, 1);
-        func_800843FC(-2, 0);
-        func_8008487C(0x20, 0xD8, D_80098CF8, s2C, s28, s24);
+        FaultDrawer_SetDrawerFrameBuffer(func_8008ABB0(), 0x140, 0xF0);
+        Fault_DrawRec(0, 0xD7, 0x140, 9, 1);
+        FaultDrawer_SetCharPad(-2, 0);
+        FaultDrawer_DrawText(0x20, 0xD8, D_80098CF8, s2C, s28, s24);
     }
 }

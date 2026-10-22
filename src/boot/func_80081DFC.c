@@ -9,7 +9,7 @@ typedef struct BootEntry {
     void *data;
 } BootEntry;
 
-s32 func_80081DFC(s32 arg0) {
+s32 Fault_ConvertAddress(s32 arg0) {
     BootEntry *e = *(BootEntry **)(D_8009C220 + 0x7DC);
     s32 ret;
 

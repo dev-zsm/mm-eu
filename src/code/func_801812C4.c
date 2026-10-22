@@ -3,6 +3,6 @@
 
 extern s32 D_801F3644;
 
-s32 func_801812C4(void) {
+s32 Matrix_GetCurrent(void) {
     return D_801F3644;
 }

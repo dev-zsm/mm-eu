@@ -5,14 +5,14 @@ extern s32 D_800981A0;
 extern u8 D_8009D2E0;
 extern s8 D_8009E9A0;
 
-void func_80089C90(void);
-void func_80089CD4(void);
-void func_80088070(s32 a, s32 b, s32 c);
-void func_8008AF10(s32 a, s8 *b);
-s8 func_80091240(u16 a, u8 b);
-s32 func_800928D0(s32 a, s32 b, u8 *c);
+void __osSiGetAccess(void);
+void __osSiRelAccess(void);
+void osRecvMesg(s32 a, s32 b, s32 c);
+void __osSiRawStartDma(s32 a, s8 *b);
+s8 __osContAddressCrc(u16 a, u8 b);
+s32 __osVoiceGetStatus(s32 a, s32 b, u8 *c);
 
-s32 func_80090AA0(s32 arg0, s32 arg1, u8 arg2) {
+s32 __osVoiceSetADConverter(s32 arg0, s32 arg1, u8 arg2) {
     s32 sp64;
     u8 sp5B;
     s32 sp48;
@@ -28,7 +28,7 @@ s32 func_80090AA0(s32 arg0, s32 arg1, u8 arg2) {
     s32 retry;
 
     var_s3 = 2;
-    func_80089C90();
+    __osSiGetAccess();
     sp48 = (arg2 * 8) & 0xFFFF;
     var_s2 = &D_8009E9A0;
     var_s5 = &D_8009D2E0;
@@ -73,16 +73,16 @@ loop_9:
         var_s0 = var_s2 + arg1;
     }
     var_s0[3] = arg2;
-    var_s0[4] = func_80091240(sp48, arg2);
-    func_8008AF10(1, var_s2);
-    func_80088070(arg0, 0, 1);
-    func_8008AF10(0, var_s2);
-    func_80088070(arg0, 0, 1);
+    var_s0[4] = __osContAddressCrc(sp48, arg2);
+    __osSiRawStartDma(1, var_s2);
+    osRecvMesg(arg0, 0, 1);
+    __osSiRawStartDma(0, var_s2);
+    osRecvMesg(arg0, 0, 1);
     var_v1 = (s32) (var_s0[1] & 0xC0) >> 4;
     if (var_v1 != 0) {
         var_v1 = 1;
     } else if (var_s0[5] & 1) {
-        temp_v0 = func_800928D0(arg0, arg1, &sp5B);
+        temp_v0 = __osVoiceGetStatus(arg0, arg1, &sp5B);
         var_v1 = temp_v0;
         if (temp_v0 == 0) {
             var_v1 = 4;
@@ -97,6 +97,6 @@ loop_9:
         var_s3 -= 1;
     }
     sp64 = var_v1;
-    func_80089CD4();
+    __osSiRelAccess();
     return sp64;
 }

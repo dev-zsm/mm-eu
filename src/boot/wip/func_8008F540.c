@@ -13,7 +13,7 @@ extern u32 D_8009E980;
 extern u32 D_8009E984;
 extern s32 D_8009E988;
 extern s32 D_8009E98C;
-void func_8008F540(void) {
+void __osTimerServicesInit(void) {
     D_8009E984 = 0; D_8009E980 = 0;
     D_8009E988 = 0;
     D_8009E98C = 0;

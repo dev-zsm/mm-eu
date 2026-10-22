@@ -88,8 +88,8 @@ typedef struct
   u32 unk10C;
 } Chan;
 extern void func_8008198C();
-extern void func_800822E0();
-extern void func_80082434();
+extern void Fault_LogFReg();
+extern void Fault_LogFPCSR();
 extern u8 D_80098A40[];
 extern u8 D_80098A44[];
 extern u8 D_80098A5C[];
@@ -114,7 +114,7 @@ extern u8 D_80098BD8[];
 extern u8 D_80098BDC[];
 extern u8 D_80098BE0[];
 extern u32 D_80096D20[];
-void func_8008281C(Boot *arg)
+void Fault_LogThreadContext(Boot *arg)
 {
   s16 v;
   Chan *t;
@@ -145,30 +145,30 @@ void func_8008281C(Boot *arg)
   func_8008198C(&D_80098B7C, t->unkC4, t->unkCC, t->unkD4);
   func_8008198C(&D_80098B9C, t->unkDC, t->unkE4, t->unkEC);
   func_8008198C(&D_80098BBC);
-  func_80082434(t->unk10C);
+  Fault_LogFPCSR(t->unk10C);
   func_8008198C(&D_80098BC0);
-  func_800822E0(0, ((u8 *) t) + 0x114);
-  func_800822E0(2, ((u8 *) t) + 0x11C);
+  Fault_LogFReg(0, ((u8 *) t) + 0x114);
+  Fault_LogFReg(2, ((u8 *) t) + 0x11C);
   func_8008198C(&D_80098BC4);
-  func_800822E0(4, ((u8 *) t) + 0x124);
-  func_800822E0(6, ((u8 *) t) + 0x12C);
+  Fault_LogFReg(4, ((u8 *) t) + 0x124);
+  Fault_LogFReg(6, ((u8 *) t) + 0x12C);
   func_8008198C(&D_80098BC8);
-  func_800822E0(8, ((u8 *) t) + 0x134);
-  func_800822E0(0xA, ((u8 *) t) + 0x13C);
+  Fault_LogFReg(8, ((u8 *) t) + 0x134);
+  Fault_LogFReg(0xA, ((u8 *) t) + 0x13C);
   func_8008198C(&D_80098BCC);
-  func_800822E0(0xC, ((u8 *) t) + 0x144);
-  func_800822E0(0xE, ((u8 *) t) + 0x14C);
+  Fault_LogFReg(0xC, ((u8 *) t) + 0x144);
+  Fault_LogFReg(0xE, ((u8 *) t) + 0x14C);
   func_8008198C(&D_80098BD0);
-  func_800822E0(0x10, ((u8 *) t) + 0x154);
-  func_800822E0(0x12, ((u8 *) t) + 0x15C);
+  Fault_LogFReg(0x10, ((u8 *) t) + 0x154);
+  Fault_LogFReg(0x12, ((u8 *) t) + 0x15C);
   func_8008198C(&D_80098BD4);
-  func_800822E0(0x14, ((u8 *) t) + 0x164);
-  func_800822E0(0x16, ((u8 *) t) + 0x16C);
+  Fault_LogFReg(0x14, ((u8 *) t) + 0x164);
+  Fault_LogFReg(0x16, ((u8 *) t) + 0x16C);
   func_8008198C(&D_80098BD8);
-  func_800822E0(0x18, ((u8 *) t) + 0x174);
-  func_800822E0(0x1A, ((u8 *) t) + 0x17C);
+  Fault_LogFReg(0x18, ((u8 *) t) + 0x174);
+  Fault_LogFReg(0x1A, ((u8 *) t) + 0x17C);
   func_8008198C(&D_80098BDC);
-  func_800822E0(0x1C, ((u8 *) t) + 0x184);
-  func_800822E0(0x1E, ((u8 *) t) + 0x18C);
+  Fault_LogFReg(0x1C, ((u8 *) t) + 0x184);
+  Fault_LogFReg(0x1E, ((u8 *) t) + 0x18C);
   func_8008198C(&D_80098BE0);
 }

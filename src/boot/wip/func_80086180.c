@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0
 #include "types.h"
 
-void func_80086180(s16 *a0, f32 *a1) {
+void MtxConv_F2L(s16 *a0, f32 *a1) {
     f32 *src;
     s16 *dst;
     s32 i;

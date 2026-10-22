@@ -1,9 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-extern s32 func_8008EFD0(void);
+extern s32 osEPiStartDma(void);
 
-// Thin wrapper around func_8008EFD0, return value discarded. SDK name unknown.
+// Thin wrapper around osEPiStartDma, return value discarded. SDK name unknown.
 void func_80080924(void) {
-    func_8008EFD0();
+    osEPiStartDma();
 }

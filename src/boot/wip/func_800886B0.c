@@ -2,7 +2,7 @@
 #include "types.h"
 extern s16 D_80097FCE[];
 extern s16 D_800977D0[];
-s16 func_800886B0(s32 arg0) {
+s16 sins(s32 arg0) {
     s16 var_v1;
     u16 var_v0;
     u32 temp_t8;

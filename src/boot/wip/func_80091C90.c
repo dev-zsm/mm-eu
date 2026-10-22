@@ -18,12 +18,12 @@ extern u8 D_800981B0[];
 extern u8 D_80098200[];
 extern s32 D_80000300;
 
-void func_800897D0(void *arg0, s32 arg1);
-void func_80091DB0(void *arg0, s32 arg1, u32 arg2);
+void bzero(void *arg0, s32 arg1);
+void __osViSwapContext(void *arg0, s32 arg1, u32 arg2);
 
-void func_80091C90(void) {
+void __osViInit(void) {
     s32 t;
-    func_800897D0(&D_80098250, 0x60);
+    bzero(&D_80098250, 0x60);
     D_800982B0 = &D_80098250;
     D_800982B4 = &D_80098280;
     D_800982B4->unk2 = 1;
@@ -44,5 +44,5 @@ void func_80091C90(void) {
         do {} while (*(volatile u32 *) 0xA4400010 >= 0xB);
     }
     *(u32 *) 0xA4400000 = 0;
-    func_80091DB0(&D_800982B4, 1, 0x80000000);
+    __osViSwapContext(&D_800982B4, 1, 0x80000000);
 }

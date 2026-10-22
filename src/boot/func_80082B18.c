@@ -19,14 +19,14 @@ typedef struct Node
   u8 pad10[2];
   u16 unk12;
 } Node;
-extern Node *func_800913B0(void);
-void *func_80082B18(void)
+extern Node *__osGetActiveQueue(void);
+void *Fault_FindFaultedThread(void)
 {
   s32 v0;
   Node *tmp;
   s32 *new_var;
  if (0) { }
-  tmp = func_800913B0();
+  tmp = __osGetActiveQueue();
   tmp = tmp;
   if (tmp->unk4 != (-1))
   {

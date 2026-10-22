@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void func_8008D480(f32 *arg0, u32 *arg1) {
+void guMtxL2F(f32 *arg0, u32 *arg1) {
     u32 *var_a1;
     f32 *var_a0;
     u32 hi;

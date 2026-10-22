@@ -8,7 +8,7 @@ typedef struct Entry {
 
 extern s32 D_800976A0;
 
-void func_800865F8(void) {
+void SystemHeap_RunInits(void) {
     Entry *s0;
     Entry *s1;
     s32 off;

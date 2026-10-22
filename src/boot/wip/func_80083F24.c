@@ -9,9 +9,9 @@ typedef struct {
 
 extern Fb *D_80096D80;
 
-extern void func_80095760(void);
+extern void osWritebackDCacheAll(void);
 
-void func_80083F24(s32 x0, s32 y0, s32 x1, s32 y1, u16 color) {
+void FaultDrawer_DrawRecImpl(s32 x0, s32 y0, s32 x1, s32 y1, u16 color) {
     s32 cw;
     s32 ch;
     s32 i;
@@ -48,5 +48,5 @@ void func_80083F24(s32 x0, s32 y0, s32 x1, s32 y1, u16 color) {
             }
         }
         v += D_80096D80->w - cw;
-    }    func_80095760();
+    }    osWritebackDCacheAll();
 }

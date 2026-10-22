@@ -13,17 +13,17 @@ typedef struct {
     s16 unk10;
 } Ctl;
 
-extern u32 func_80091C00(void);
-extern void func_80091C70(u32 irq);
+extern u32 __osDisableInt(void);
+extern void __osRestoreInt(u32 irq);
 extern void func_800892E4(s32 a);
 extern void func_800895D0(s32 a, Obj *p);
 extern Ctl *D_80098010;
 
-void func_80087FB0(Obj *p) {
+void osStopThread(Obj *p) {
     u32 irq;
     u16 mode;
     s32 k;
-    irq = func_80091C00();
+    irq = __osDisableInt();
     mode = 4;
     if (p != NULL) {
         mode = p->unk10;
@@ -39,5 +39,5 @@ void func_80087FB0(Obj *p) {
         p->unk10 = 1;
         func_800895D0(p->unk8, p);
     }
-    func_80091C70(irq);
+    __osRestoreInt(irq);
 }

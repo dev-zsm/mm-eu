@@ -6,7 +6,7 @@ typedef struct {
     s32 rem;
 } DivResult;
 
-DivResult func_80094F90(s32 num, s32 den) {
+DivResult ldiv(s32 num, s32 den) {
     DivResult r;
 
     r.quot = num / den;

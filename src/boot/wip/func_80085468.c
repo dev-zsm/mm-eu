@@ -4,7 +4,7 @@ typedef struct Node { struct Node *next; struct Node *prev; u32 start; u32 end; 
 extern s32 D_80096DE0;
 extern s32 D_80096DE4;
 
-void func_80085468(Node *arg0) {
+void StackCheck_Cleanup(Node *arg0) {
     if (arg0->prev == NULL) {
         if (arg0 == *(Node **)&D_80096DE0) {
             *(Node **)&D_80096DE0 = arg0->next;

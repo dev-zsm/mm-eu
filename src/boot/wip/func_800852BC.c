@@ -1,18 +1,18 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 
-s32 func_80085250(s32);
-s32 func_80085258(s32);
-void func_80085260(s32, s32, s32);
+s32 PadUtils_GetCurX(s32);
+s32 PadUtils_GetCurY(s32);
+void PadUtils_SetRelXY(s32, s32, s32);
 
-void func_800852BC(s32 arg0) {
+void PadUtils_UpdateRelXY(s32 arg0) {
     s32 sp1C;
     s32 temp_v0;
     s32 var_a1;
     s32 var_a2;
 
-    sp1C = func_80085250(arg0);
-    temp_v0 = func_80085258(arg0);
+    sp1C = PadUtils_GetCurX(arg0);
+    temp_v0 = PadUtils_GetCurY(arg0);
     if (sp1C >= 8) {
         if (sp1C < 0x43) {
             var_a1 = sp1C - 7;
@@ -45,5 +45,5 @@ void func_800852BC(s32 arg0) {
             }
         }
     }
-    func_80085260(arg0, var_a1, var_a2);
+    PadUtils_SetRelXY(arg0, var_a1, var_a2);
 }

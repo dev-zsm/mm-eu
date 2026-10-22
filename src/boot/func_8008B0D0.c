@@ -8,7 +8,7 @@ typedef struct {
     s32 unk14;
 } Obj14;
 
-s32 func_8008B0D0(Obj14 *arg0) {
+s32 osGetThreadId(Obj14 *arg0) {
     if (arg0 == NULL) {
         arg0 = (Obj14 *)D_80098010;
     }

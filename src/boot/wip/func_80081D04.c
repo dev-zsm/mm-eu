@@ -8,10 +8,10 @@ typedef struct BootCtx {
 
 extern BootCtx *D_8009C220;
 extern u8 D_800987FC[];
-extern s32 func_800881B0(s32 a0, void *a1, void *a2, void **a3);
+extern s32 osSetIntMask(s32 a0, void *a1, void *a2, void **a3);
 extern void func_8008198C(void *a0, void *a1, void *a2);
 
-void func_80081D04(void *arg0, void *unused) {
+void Fault_RemoveAddrConvClient(void *arg0, void *unused) {
     void *prev;
     void *cur;
     s32 flag;
@@ -20,7 +20,7 @@ void func_80081D04(void *arg0, void *unused) {
     flag = 0;
     prev = 0;
     cur = D_8009C220->head;
-    saved = func_800881B0(1, unused, arg0, 0);
+    saved = osSetIntMask(1, unused, arg0, 0);
     if (cur != 0) {
         do {
             if (cur == arg0) {
@@ -40,7 +40,7 @@ void func_80081D04(void *arg0, void *unused) {
             cur = *(void **)cur;
         } while (cur != 0);
     }
-    func_800881B0(saved, prev, arg0, (void **)&D_8009C220);
+    osSetIntMask(saved, prev, arg0, (void **)&D_8009C220);
     if (flag != 0) {
         func_8008198C(D_800987FC, arg0, arg0);
     }
