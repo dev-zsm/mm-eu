@@ -82,4 +82,7 @@ The remaining differences are almost always register allocation or stack layout.
 - Large functions: try `-O2 -g0` first; it can fix the whole prologue ordering that `-g3` gets wrong.
 - One extra/missing instruction shifts every later offset, so `tools/mm match` then reports hundreds of differences:
   read `tools/mm diff` by instruction content to count the real ones.
+- Two arguments at the same address that the ROM loads separately (own lui/addiu) are usually a thread stack and
+  its top: declare `extern u8 STACK[size];` and pass `STACK + sizeof(STACK)` (size = next symbol - STACK). Never add
+  a second symbol name for the same address.
 - The decomp-permuter is also running over all wip functions in the background (CPU only); do not start your own permuter.
