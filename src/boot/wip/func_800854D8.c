@@ -31,12 +31,7 @@ s32 func_800854D8(Node *arg0) {
         } while (p < end);
     }
     len = p - arg0->start;
-    if (len == 0) {
-        return 2;
-    }
-    ret = 0;
-    if (len < (u32)arg0->limit && -1 != arg0->limit) {
-        ret = 1;
-    }
+    if (len == 0) return 2;
+    if (len < (u32)arg0->limit && arg0->limit != -1) { ret = 1; } else { ret = 0; }
     return ret;
 }

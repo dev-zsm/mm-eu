@@ -1,3 +1,2 @@
 # Extra symbol names at the same address as an existing symbol (used only to steer IDO register allocation while matching).
 # Technical debt: each entry is a hack to remove once the real expression is found. `alias address`
-D_8009A7C0b 0x8009A7C0
