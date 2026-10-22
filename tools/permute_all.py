@@ -2,7 +2,7 @@
 """Run decomp-permuter over every unmatched function of a segment, smallest first, and keep what matches.
 Run in WSL.  usage: permute_all.py <seg> [seconds_per_function=120] [first_n]
 A function is only promoted to src/<seg>/ if tools/match.py says MATCH. Log: build/perm/log_<seg>.txt"""
-import re, subprocess, sys, time
+import os, re, signal, subprocess, sys, time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,12 +42,15 @@ def main():
         subprocess.run([sys.executable, str(ROOT / "tools/permute_setup.py"), seg, fn], check=True, capture_output=True)
         d = ROOT / "build/perm" / fn
         t0 = time.time()
-        budget = 300 if "instr differ" in closeness.get(fn, "") else budget_default  # near misses get more time
+        budget = max(300, budget_default) if "instr differ" in closeness.get(fn, "") else budget_default  # near misses get more time
+        # own process group: on timeout the worker processes must die too, or they pile up and eat WSL's RAM
+        p = subprocess.Popen([sys.executable, str(PERMUTER), str(d), "-j", "6", "--stop-on-zero"],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
         try:
-            subprocess.run([sys.executable, str(PERMUTER), str(d), "-j", "6", "--stop-on-zero"],
-                           capture_output=True, timeout=budget)
+            p.wait(timeout=budget)
         except subprocess.TimeoutExpired:
-            pass
+            os.killpg(p.pid, signal.SIGKILL)
+            p.wait()
         best = sorted(d.glob("output-0-*/source.c"))
         status = "no match"
         if best:
