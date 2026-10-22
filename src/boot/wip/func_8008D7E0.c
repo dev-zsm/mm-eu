@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g3 -mips2
+// FLAGS: -O1 -g3 -mips2
 #include "types.h"
 
 typedef struct {
@@ -16,7 +16,7 @@ extern s32 D_80098100;
 
 void func_8008D7E0(s32 a0, s32 a1, s32 a2) {
     BootEntry *entry;
-    s32 v;
+    register s32 v;
 
     v = func_80091C00();
     entry = &D_8009E8E0[a0];

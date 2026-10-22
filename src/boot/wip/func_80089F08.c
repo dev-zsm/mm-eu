@@ -1,45 +1,46 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 
-extern u32 D_8009D2A0[];
-extern u32 D_8009D2DC;
-extern u8 D_8009D2E1;
+typedef struct {
+    u32 ramarray[15];
+    u32 pifstatus;
+} PifRam;
 
 typedef struct {
-    u8 b[8];
-} Ent8;
+    u8 dummy;
+    u8 txsize;
+    u8 rxsize;
+    u8 cmd;
+    u8 typeh;
+    u8 typel;
+    u8 status;
+    u8 dummy1;
+} ReqFmt;
 
-void func_80089F08(s32 arg0) {
-    Ent8 buf;
-    u32 *p;
-    u32 *end;
+extern PifRam D_8009D2A0;
+extern u8 D_8009D2E1;
+
+void func_80089F08(u8 cmd) {
+    u8 *ptr;
+    ReqFmt req;
     s32 i;
 
-    end = &D_8009D2DC;
-    p = D_8009D2A0;
-    do {
-        p++;
-        p[-1] = 0;
-    } while (p < end);
-
-    D_8009D2A0[15] = 1;
-    buf.b[0] = 0xFF;
-    buf.b[1] = 1;
-    buf.b[2] = 3;
-    buf.b[3] = arg0 & 0xFF;
-    buf.b[4] = 0xFF;
-    buf.b[5] = 0xFF;
-    buf.b[6] = 0xFF;
-    buf.b[7] = 0xFF;
-
-    p = D_8009D2A0;
-    i = 0;
-    if (D_8009D2E1 > 0) {
-        do {
-            i++;
-            p += 2;
-            *(Ent8 *)(p - 2) = buf;
-        } while (i < D_8009D2E1);
+    for (i = 0; i < 15; i++) {
+        D_8009D2A0.ramarray[i] = 0;
     }
-    *(u8 *)p = 0xFE;
+    D_8009D2A0.pifstatus = 1;
+    ptr = (u8 *)D_8009D2A0.ramarray;
+    req.dummy = 0xFF;
+    req.txsize = 1;
+    req.rxsize = 3;
+    req.cmd = cmd;
+    req.typeh = 0xFF;
+    req.typel = 0xFF;
+    req.status = 0xFF;
+    req.dummy1 = 0xFF;
+    for (i = 0; i < D_8009D2E1; i++) {
+        *(ReqFmt *)ptr = req;
+        ptr += sizeof(ReqFmt);
+    }
+    *ptr = 0xFE;
 }
