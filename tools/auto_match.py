@@ -35,7 +35,8 @@ def attempt(job):
                            capture_output=True, text=True)
         if r.returncode or "M2C_ERROR" in r.stdout or f" {fn}(" not in r.stdout:
             return fn, "m2c failed", None
-        src = '#include "types.h"\n#include "m2c_macros.h"\n\n' + r.stdout
+        # IDO rejects arithmetic on void *: use u8 * (same scaling)
+        src = '#include "types.h"\n#include "m2c_macros.h"\n\n' + r.stdout.replace("void *", "u8 *")
         c = Path(d) / f"{fn}.c"
         c.write_text(src)
         for flags in FLAG_SETS:

@@ -9,3 +9,4 @@ decomp/
 tools/vendor/
 __pycache__/
 NEXT_SESSION_PROMPT.md
+src/code/wip/
