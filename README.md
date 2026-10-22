@@ -26,6 +26,20 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 * ROM: `The Legend of Zelda - Majora's Mask (Europe) (En,Fr,De,Es) (Rev 1)`
 * SHA-1: `bb4e4757d10727c7584c59c1f2e5f44196e9c293`
 
+## Progress
+
+<!-- progress:start -->
+Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-22):
+
+```
+boot  functions ███████████████████░░░░░░░░░░░  62.0 %  (264 / 426)
+boot  code size ████████░░░░░░░░░░░░░░░░░░░░░░  27.8 %  (0x63b0 / 0x165f4 bytes)
+code  functions ████████░░░░░░░░░░░░░░░░░░░░░░  26.0 %  (929 / 3576)
+code  code size █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   4.9 %  (0xce4c / 0x104acc bytes)
+overlays   (actors, scenes, menus): not started
+```
+<!-- progress:end -->
+
 ## How it works
 
 ```
@@ -129,6 +143,12 @@ significant part of its code with this one, and must not contribute material der
 Public decompilation projects are not leaked sources. This repository uses the symbol names they publish as research
 (see Credits), after checking them against our own assembly, but never their C code: every function here is written
 independently and verified against the European ROM.
+
+## License
+
+The tooling and documentation are MIT-licensed. The reconstructed game code in `src/` is not licensed by this
+repository: it describes a work that belongs to Nintendo and is shared for study and interoperability only. See
+[LICENSE](LICENSE) for the exact scope.
 
 ## Credits
 
