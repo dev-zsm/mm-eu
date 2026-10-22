@@ -126,6 +126,10 @@ This project is built exclusively from the analysis of a legally owned copy of t
 contribute must not have accessed leaked source code for the Nintendo 64 SDK, libultra, or any game that shares a
 significant part of its code with this one, and must not contribute material derived from such sources.
 
+Public decompilation projects are not leaked sources. This repository uses the symbol names they publish as research
+(see Credits), after checking them against our own assembly, but never their C code: every function here is written
+independently and verified against the European ROM.
+
 ## Credits
 
 This project rests on the work of the N64 decompilation community. Thanks to the authors of:
@@ -137,6 +141,9 @@ This project rests on the work of the N64 decompilation community. Thanks to the
 * [m2c](https://github.com/matt-kempster/m2c) (Matt Kempster and contributors): MIPS to C decompiler
 * [asm-differ](https://github.com/simonlindholm/asm-differ) (Simon Lindholm and contributors): assembly comparison
 * [Ghidra](https://github.com/NationalSecurityAgency/ghidra) (NSA): initial analysis and pseudo-C
+* [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): decompilation of the
+  US version, whose published function names (`tools/ref_align.py` aligns them with ours, entries tagged `ref:` in
+  `config/*.names.txt`) and research on the game's structure are an invaluable reference. No code is taken from it.
 * GNU binutils: assembler, linker and `objcopy`
 
 The names, licences and rights of these tools remain with their authors.
