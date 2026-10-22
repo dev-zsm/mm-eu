@@ -2,6 +2,6 @@
 #include "types.h"
 extern u32 D_800976D0;
 
-u32 func_80087010(void) {
+u32 Rand_Next(void) {
     return D_800976D0 = D_800976D0 * 0x19660D + 0x3C6EF35F;
 }

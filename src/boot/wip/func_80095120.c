@@ -24,12 +24,12 @@ typedef struct {
 extern u8 D_80098370[];
 extern u8 D_80098384[];
 
-s64 func_80088A0C(s64 num, s64 den);
-s64 func_80088A48(s64 num, s64 den);
-void func_8008F3A8(void *out, u8 *buf, s32 len);
-DivResult64 func_80095014(s64 num, s64 den);
+s64 __ull_rem(s64 num, s64 den);
+s64 __ull_div(s64 num, s64 den);
+void memcpy(void *out, u8 *buf, s32 len);
+DivResult64 lldiv(s64 num, s64 den);
 
-void func_80095120(FmtCtx *s, s32 a1) {
+void _Litob(FmtCtx *s, s32 a1) {
     DivResult64 dr;
     s64 bs;
     s64 dd;
@@ -53,13 +53,13 @@ void func_80095120(FmtCtx *s, s32 a1) {
     bs = base;
     if (v != 0 || s->width != 0) {
         pos = 0x17;
-        buf[pos] = digits[(u32)func_80088A0C(v, bs)];
+        buf[pos] = digits[(u32)__ull_rem(v, bs)];
     }
-    v = func_80088A48(v, bs);
+    v = __ull_div(v, bs);
     s->value = v;
     if (v > 0 && pos > 0) {
         do {
-            dr = func_80095014(v, bs);
+            dr = lldiv(v, bs);
             s->value = dr.quot;
             pos--;
             buf[pos] = digits[(u32)dr.rem];
@@ -68,7 +68,7 @@ void func_80095120(FmtCtx *s, s32 a1) {
     }
     len = 0x18 - pos;
     s->len14 = len;
-    func_8008F3A8(s->out, buf + pos, len);
+    memcpy(s->out, buf + pos, len);
     if (len < s->width) {
         s->pad10 = s->width - len;
     }

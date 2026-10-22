@@ -10,11 +10,11 @@ typedef struct {
     s32 unk11C;
 } Obj800831A4;
 
-extern void func_80082138(void);
-extern void func_8008487C(s32 a0, s32 a1, void *a2, ...);
-extern s32 func_80081DFC(s32 a0);
-extern void func_8008482C(void *a0, ...);
-extern void func_80083030(void *a0, void *a1, void *a2);
+extern void Fault_FillScreenBlack(void);
+extern void FaultDrawer_DrawText(s32 a0, s32 a1, void *a2, ...);
+extern s32 Fault_ConvertAddress(s32 a0);
+extern void FaultDrawer_Printf(void *a0, ...);
+extern void Fault_WalkStack(void *a0, void *a1, void *a2);
 extern u8 D_80098C10[];
 extern u8 D_80098C1C[];
 extern u8 D_80098C34[];
@@ -22,7 +22,7 @@ extern u8 D_80098C40[];
 extern u8 D_80098C4C[];
 extern u8 D_800895C0[];
 
-s32 func_800831A4(Obj800831A4 *arg0, s32 arg1) {
+s32 Fault_DrawStackTrace(Obj800831A4 *arg0, s32 arg1) {
     s32 ret;
     s32 sp68;
     s32 sp64;
@@ -34,9 +34,9 @@ s32 func_800831A4(Obj800831A4 *arg0, s32 arg1) {
     sp68 = arg0->unkF4;
     sp64 = arg0->unk104;
     sp60 = arg0->unk11C;
-    func_80082138();
-    func_8008487C(0x78, 0x10, D_80098C10);
-    func_8008487C(0x24, 0x18, D_80098C1C);
+    Fault_FillScreenBlack();
+    FaultDrawer_DrawText(0x78, 0x10, D_80098C10);
+    FaultDrawer_DrawText(0x24, 0x18, D_80098C1C);
     if (sp64 == 0 && sp68 == 0) {
         return ret;
     }
@@ -46,16 +46,16 @@ s32 func_800831A4(Obj800831A4 *arg0, s32 arg1) {
     s3 = arg1 & 1;
     s0 = (ret << 3) + 0x18;
     do {
-        func_8008487C(0x24, s0, D_80098C34, sp68, sp60);
+        FaultDrawer_DrawText(0x24, s0, D_80098C34, sp68, sp60);
         if (s3 != 0) {
-            s32 v = func_80081DFC(sp60);
+            s32 v = Fault_ConvertAddress(sp60);
             if (v != 0) {
-                func_8008482C(D_80098C40, v);
+                FaultDrawer_Printf(D_80098C40, v);
             }
         } else {
-            func_8008482C(D_80098C4C);
+            FaultDrawer_Printf(D_80098C4C);
         }
-        func_80083030(&sp68, &sp60, &sp64);
+        Fault_WalkStack(&sp68, &sp60, &sp64);
         s0 += 8;
         if (s0 >= 0xC8) {
             break;

@@ -3,6 +3,6 @@
 
 extern s32 D_801CF024;
 
-void func_801A3310(void) {
+void Audio_ClearSariaBgm2(void) {
     D_801CF024 = 0;
 }

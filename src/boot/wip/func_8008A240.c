@@ -13,7 +13,7 @@ typedef union {
 extern u32 D_8009D2A0[16];
 extern u8 D_8009D2E1;
 
-void func_8008A240(void) {
+void __osPackReadData(void) {
     u8 n; Entry *dst; u32 *p; s32 i; Tpl tpl;
     p = D_8009D2A0;
     do {

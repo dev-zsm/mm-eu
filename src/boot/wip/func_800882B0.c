@@ -6,12 +6,12 @@ typedef struct {
     /* 0x04 */ s32 unk4;
 } Func800882B0Struct;
 
-s32 func_800928D0(s32, s32, u8 *, void *);
-s32 func_80089720(void *, u8 *);
-void func_800897D0(void *, s32, s32, u8 *);
-s32 func_80091010(s32, s32, s32, void *);
+s32 __osVoiceGetStatus(s32, s32, u8 *, void *);
+s32 __osVoiceCheckResult(void *, u8 *);
+void bzero(void *, s32, s32, u8 *);
+s32 __osVoiceContWrite20(s32, s32, s32, void *);
 
-s32 func_800882B0(Func800882B0Struct *arg0, u8 *arg1) {
+s32 osVoiceSetWord(Func800882B0Struct *arg0, u8 *arg1) {
     u8 sp4B;
     u8 sp34[0x14];
     u8 sp20[0x14];
@@ -23,7 +23,7 @@ s32 func_800882B0(Func800882B0Struct *arg0, u8 *arg1) {
     u8 *src;
     u8 tmp;
 
-    r = func_800928D0(arg0->unk0, arg0->unk4, &sp4B, arg0);
+    r = __osVoiceGetStatus(arg0->unk0, arg0->unk4, &sp4B, arg0);
     if (r != 0) {
         return r;
     }
@@ -41,7 +41,7 @@ s32 func_800882B0(Func800882B0Struct *arg0, u8 *arg1) {
     }
     sp50 = n;
 
-    func_800897D0(sp20, 0x28, n, arg1);
+    bzero(sp20, 0x28, n, arg1);
 
     i = 0;
     if (sp50 > 0) {
@@ -59,16 +59,16 @@ s32 func_800882B0(Func800882B0Struct *arg0, u8 *arg1) {
     *(sp34 + 0x0E - i) = 3;
 
     if (sp50 >= 0xF) {
-        r = func_80091010(arg0->unk0, arg0->unk4, 0, sp20);
+        r = __osVoiceContWrite20(arg0->unk0, arg0->unk4, 0, sp20);
         if (r != 0) {
             return r;
         }
     }
-    r = func_80091010(arg0->unk0, arg0->unk4, 0, sp34);
+    r = __osVoiceContWrite20(arg0->unk0, arg0->unk4, 0, sp34);
     if (r != 0) {
         return r;
     }
-    r = func_80089720(arg0, &sp4B);
+    r = __osVoiceCheckResult(arg0, &sp4B);
     if (r != 0) {
         if (r & 0x100) {
             return 0xD;

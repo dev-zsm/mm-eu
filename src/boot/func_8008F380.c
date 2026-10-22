@@ -10,7 +10,7 @@ typedef signed long long s64;
 typedef unsigned long long u64;
 typedef float f32;
 typedef double f64;
-int func_8008F380(u8 *s)
+int strlen(u8 *s)
 {
   int new_var;
   u8 *p = s;

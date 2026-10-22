@@ -20,7 +20,7 @@ typedef struct {
 
 extern Ctx *D_80096D80;
 
-void func_80084044(u8 m) {
+void FaultDrawer_DrawChar(u8 m) {
     Ctx *p;
     u16 *base;
     u32 *t;

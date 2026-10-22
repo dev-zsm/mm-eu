@@ -1,13 +1,13 @@
 // FLAGS: -O2 -g0 -mips2 -trapuv
 #include "types.h"
 
-extern void func_8008431C(s32 a);
-extern void func_80084368(s32 a);
-extern void func_80084538(void);
+extern void FaultDrawer_SetForeColor(s32 a);
+extern void FaultDrawer_SetBackColor(s32 a);
+extern void FaultDrawer_FillScreen(void);
 
-void func_8008218C(void) {
-    func_8008431C(0xFFFF);
-    func_80084368(0xF001);
-    func_80084538();
-    func_80084368(0);
+void Fault_FillScreenRed(void) {
+    FaultDrawer_SetForeColor(0xFFFF);
+    FaultDrawer_SetBackColor(0xF001);
+    FaultDrawer_FillScreen();
+    FaultDrawer_SetBackColor(0);
 }

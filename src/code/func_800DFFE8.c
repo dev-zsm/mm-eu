@@ -3,6 +3,6 @@
 
 extern s32 D_801BA944;
 
-s32 func_800DFFE8(void) {
+s32 Camera_GetNegOne(void) {
     return D_801BA944;
 }

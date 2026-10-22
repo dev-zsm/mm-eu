@@ -7,22 +7,22 @@ typedef struct {
     u16 unkC;
 } Hw;
 
-extern void func_8008431C(s32);
-extern void func_80084368(s32);
-extern void func_80081E8C(s32);
-extern void func_80081F04(void);
+extern void FaultDrawer_SetForeColor(s32);
+extern void FaultDrawer_SetBackColor(s32);
+extern void Fault_Sleep(s32);
+extern void Fault_UpdatePadImpl(void);
 extern u8 *D_8009C220;
 
-void func_80082C30(void) {
+void Fault_WaitForButtonCombo(void) {
     Hw *s0;
 
     s0 = (Hw *)(D_8009C220 + 0x7E4);
-    func_8008431C(0xFFFF);
-    func_80084368(1);
+    FaultDrawer_SetForeColor(0xFFFF);
+    FaultDrawer_SetBackColor(1);
     do {
 loop:
-        func_80081E8C(0x10);
-        func_80081F04();
+        Fault_Sleep(0x10);
+        Fault_UpdatePadImpl();
         if (~(s0->unkC | -0x81) != 0) {
             goto loop;
         }

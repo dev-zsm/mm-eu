@@ -11,15 +11,15 @@ typedef struct {
 
 extern Struct800982B4 *D_800982B4;
 
-s32 func_80091C00(void);
-void func_80091C70(s32 a);
+s32 __osDisableInt(void);
+void __osRestoreInt(s32 a);
 
-void func_80092580(s32 arg0, s32 arg1, s32 arg2) {
+void osViSetEvent(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_a0;
 
-    temp_a0 = func_80091C00();
+    temp_a0 = __osDisableInt();
     D_800982B4->unk10 = arg0;
     D_800982B4->unk14 = arg1;
     D_800982B4->unk2 = arg2;
-    func_80091C70(temp_a0);
+    __osRestoreInt(temp_a0);
 }

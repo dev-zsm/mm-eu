@@ -20,7 +20,7 @@ typedef struct {
     s32 unk3C;
 } Func80093E60;
 
-void func_80093E60(Func80093E60 *arg0, f32 arg1, f32 arg2, f32 arg3) {
+void guTranslate(Func80093E60 *arg0, f32 arg1, f32 arg2, f32 arg3) {
     s32 temp_f10;
     s32 temp_f10_2;
     s32 temp_f10_3;

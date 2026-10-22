@@ -12,7 +12,7 @@ typedef struct {
     s32 unk10;
 } Obj;
 
-s32 func_80086110(Obj *arg0) {
+s32 GfxPrint_Close(Obj *arg0) {
     s32 temp_v0;
 
     temp_v0 = arg0->unk4;

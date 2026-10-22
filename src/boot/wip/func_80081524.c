@@ -7,12 +7,12 @@ typedef struct Obj {
 } Obj;
 
 extern s32 D_80096D00;
-extern void func_800813B8(Obj *a, u8 *b);
-extern void func_800942F0(void *a, u64 b, s32 c, s32 d, void *e, s32 f);
+extern void IrqMgr_SendMesgToClients(Obj *a, u8 *b);
+extern void osSetTimer(void *a, u64 b, s32 c, s32 d, void *e, s32 f);
 
-void func_80081524(Obj *arg0) {
+void IrqMgr_HandlePRENMI450(Obj *arg0) {
     D_80096D00 = 2;
     arg0->unk24C = 2;
-    func_800942F0((u8 *)arg0 + 0x258, 0x15752A, 0, 0, (u8 *)arg0 + 0x60, 0x2A0);
-    func_800813B8(arg0, (u8 *)arg0 + 0x40);
+    osSetTimer((u8 *)arg0 + 0x258, 0x15752A, 0, 0, (u8 *)arg0 + 0x60, 0x2A0);
+    IrqMgr_SendMesgToClients(arg0, (u8 *)arg0 + 0x40);
 }

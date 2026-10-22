@@ -7,7 +7,7 @@ typedef struct {
     u8 unkE;
 } Struct;
 
-void func_80085AC4(Struct *s, s32 a1, s32 a2) {
+void GfxPrint_SetBasePosPx(Struct *s, s32 a1, s32 a2) {
     s->unkC = a1 << 2;
     s->unkE = a2 << 2;
 }

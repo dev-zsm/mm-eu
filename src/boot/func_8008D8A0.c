@@ -4,6 +4,6 @@
 float sqrtf(float);
 #pragma intrinsic (sqrtf)
 
-f32 func_8008D8A0(f32 x) {
+f32 sqrtf(f32 x) {
     return sqrtf(x);
 }

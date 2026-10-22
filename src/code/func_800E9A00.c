@@ -3,6 +3,6 @@
 
 extern s32 D_801BBBC0;
 
-void func_800E9A00(void) {
+void Debug_ClearTextDrawFlags(void) {
     D_801BBBC0 = 0;
 }

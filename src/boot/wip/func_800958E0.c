@@ -1,7 +1,7 @@
 // FLAGS: -O1 -g0 -mips2
 #include "types.h"
 
-void func_800958E0(f32 *src, u32 *dst) {
+void guMtxF2L(f32 *src, u32 *dst) {
     u32 *end = dst + 8;
     do {
         s32 hi = src[0] * 65536.0f;

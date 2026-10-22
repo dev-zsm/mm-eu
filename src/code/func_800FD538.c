@@ -3,6 +3,6 @@
 
 extern s32 D_801E6F08;
 
-s32 func_800FD538(void) {
+s32 Environment_GetTotalDays(void) {
     return D_801E6F08;
 }

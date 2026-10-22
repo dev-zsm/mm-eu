@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void func_80085274(void);
+void PadUtils_GetRelYImpl(void);
 
-void func_8008529C(void) {
-    func_80085274();
+void PadUtils_GetRelY(void) {
+    PadUtils_GetRelYImpl();
 }

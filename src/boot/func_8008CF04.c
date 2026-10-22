@@ -29,14 +29,14 @@ typedef struct {
     u16 inverted_checksum;
 } PackId;
 
-s32 func_80092DA0(void *a, s32 b);
-s32 func_80090DE0(s32 a, s32 b, u16 c, void *d);
-void func_8008C954(void *a, u16 *b, u16 *c);
-s32 func_8008CA50(void *a, void *b, void *c);
-s32 func_8008CDA0(void *a, void *b);
-void func_80091460(void *a, void *b, s32 c);
+s32 __osPfsSelectBank(void *a, s32 b);
+s32 __osContRamRead(s32 a, s32 b, u16 c, void *d);
+void __osIdCheckSum(void *a, u16 *b, u16 *c);
+s32 __osRepairPackId(void *a, void *b, void *c);
+s32 __osCheckPackId(void *a, void *b);
+void bcopy(void *a, void *b, s32 c);
 
-s32 func_8008CF04(Ctx *arg0) {
+s32 __osGetId(Ctx *arg0) {
     u16 sum;
     u16 isum;
     u8 temp[32];
@@ -45,21 +45,21 @@ s32 func_8008CF04(Ctx *arg0) {
     s32 ret;
 
     if (arg0->unk65 != 0) {
-        ret = func_80092DA0(arg0, 0);
+        ret = __osPfsSelectBank(arg0, 0);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_80090DE0(arg0->unk4, arg0->unk8, 1, temp);
+    ret = __osContRamRead(arg0->unk4, arg0->unk8, 1, temp);
     if (ret != 0) {
         return ret;
     }
-    func_8008C954(temp, &sum, &isum);
+    __osIdCheckSum(temp, &sum, &isum);
     id = (PackId *)temp;
     if (id->checksum != sum || id->inverted_checksum != isum) {
-        ret = func_8008CDA0(arg0, id);
+        ret = __osCheckPackId(arg0, id);
         if (ret == 0xA) {
-            ret = func_8008CA50(arg0, id, &newid);
+            ret = __osRepairPackId(arg0, id, &newid);
             if (ret != 0) {
                 return ret;
             }
@@ -69,7 +69,7 @@ s32 func_8008CF04(Ctx *arg0) {
         }
     }
     if (!(id->deviceid & 1)) {
-        ret = func_8008CA50(arg0, id, &newid);
+        ret = __osRepairPackId(arg0, id, &newid);
         if (ret != 0) {
             return ret;
         }
@@ -78,7 +78,7 @@ s32 func_8008CF04(Ctx *arg0) {
             return 0xB;
         }
     }
-    func_80091460(id, arg0->unkC, 0x20);
+    bcopy(id, arg0->unkC, 0x20);
     arg0->unk4C = id->version;
     arg0->unk64 = id->banks;
     arg0->unk60 = arg0->unk64 * 2 + 3;
@@ -86,7 +86,7 @@ s32 func_8008CF04(Ctx *arg0) {
     arg0->unk54 = 8;
     arg0->unk58 = arg0->unk54 + arg0->unk64 * 8;
     arg0->unk5C = arg0->unk58 + arg0->unk64 * 8;
-    ret = func_80090DE0(arg0->unk4, arg0->unk8, 7, arg0->unk2C);
+    ret = __osContRamRead(arg0->unk4, arg0->unk8, 7, arg0->unk2C);
     if (ret != 0) {
         return ret;
     }

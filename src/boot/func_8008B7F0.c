@@ -15,15 +15,15 @@ typedef struct Obj {
 
 extern Obj *D_800982B4;
 
-void *func_80091C00(void *a0);
-void func_80091C70(void *a0);
+void *__osDisableInt(void *a0);
+void __osRestoreInt(void *a0);
 
-void func_8008B7F0(Sub *a0) {
+void osViSetMode(Sub *a0) {
     void *v;
 
-    v = func_80091C00(a0);
+    v = __osDisableInt(a0);
     D_800982B4->unk8 = a0;
     D_800982B4->unk0 = 1;
     D_800982B4->unkC = D_800982B4->unk8->unk4;
-    func_80091C70(v);
+    __osRestoreInt(v);
 }

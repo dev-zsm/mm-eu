@@ -7,12 +7,12 @@ typedef struct Block {
     struct Block *next;
     struct Block *prev;
 } Block;
-void func_800871FC(s32 a0, u32 a1);
-void func_80087224(s32 a0);
+void ArenaImpl_Lock(s32 a0, u32 a1);
+void ArenaImpl_Unlock(s32 a0);
 void *func_80087394(s32 a0, u32 a1);
 void free(s32 a0, void *a1);
 void func_80087560(s32 a0, void *a1);
-void func_80091460(void *a0, void *a1, u32 a2);
+void bcopy(void *a0, void *a1, u32 a2);
 void func_80096AD0(void *a0, void *a1, s32 a2, u32 a3);
 void *func_8008766C(s32 a0, void *a1, u32 a2) {
     Block *hdr;
@@ -24,7 +24,7 @@ void *func_8008766C(s32 a0, void *a1, u32 a2) {
     u32 oldsz;
     u32 diff;
     need = (a2 + 0xF) & ~0xF;
-    func_800871FC(a0, need);
+    ArenaImpl_Lock(a0, need);
     if (a1 == NULL) {
         a1 = func_80087394(a0, need);
     } else if (need == 0) {
@@ -50,7 +50,7 @@ void *func_8008766C(s32 a0, void *a1, u32 a2) {
                 } else {
                     nb = func_80087394(a0, need);
                     if (nb != NULL) {
-                        func_80091460(nb, a1, hdr->size);
+                        bcopy(nb, a1, hdr->size);
                         func_80087560(a0, a1);
                     }
                     a1 = nb;
@@ -85,6 +85,6 @@ void *func_8008766C(s32 a0, void *a1, u32 a2) {
             }
         }
     }
-    func_80087224(a0);
+    ArenaImpl_Unlock(a0);
     return a1;
 }

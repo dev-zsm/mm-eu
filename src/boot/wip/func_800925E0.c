@@ -10,14 +10,14 @@ typedef struct {
 extern u8 D_8009D2E1;
 extern s32 D_8009E9A0;
 
-void func_80089C90(void);
-void func_80089CD4(void);
-void func_8009276C(s32 a0);
-s32 func_8008AF10(s32 a0, void *a1);
-void func_80088070(s32 a0, void *a1, s32 a2);
-void func_80092820(u8 *a0, Struct800925E0 *a1);
+void __osSiGetAccess(void);
+void __osSiRelAccess(void);
+void __osPfsRequestData(s32 a0);
+s32 __osSiRawStartDma(s32 a0, void *a1);
+void osRecvMesg(s32 a0, void *a1, s32 a2);
+void __osPfsGetInitData(u8 *a0, Struct800925E0 *a1);
 
-s32 func_800925E0(s32 arg0, u8 *arg1) {
+s32 osPfsIsPlug(s32 arg0, u8 *arg1) {
     s32 sp6C;
     u8 sp68[4];
     u8 sp67;
@@ -29,15 +29,15 @@ s32 func_800925E0(s32 arg0, u8 *arg1) {
 
     var_s5 = 0;
     var_s1 = 3;
-    func_80089C90();
+    __osSiGetAccess();
     var_s0 = 0;
     do {
-        func_8009276C(0);
-        func_8008AF10(1, &D_8009E9A0);
-        func_80088070(arg0, sp68, 1);
-        sp6C = func_8008AF10(0, &D_8009E9A0);
-        func_80088070(arg0, sp68, 1);
-        func_80092820(&sp67, sp54);
+        __osPfsRequestData(0);
+        __osSiRawStartDma(1, &D_8009E9A0);
+        osRecvMesg(arg0, sp68, 1);
+        sp6C = __osSiRawStartDma(0, &D_8009E9A0);
+        osRecvMesg(arg0, sp68, 1);
+        __osPfsGetInitData(&sp67, sp54);
         p = sp54;
         if (*(u8 *)&D_8009D2E1 > 0) {
             do {
@@ -64,7 +64,7 @@ s32 func_800925E0(s32 arg0, u8 *arg1) {
             p++;
         } while (var_s0 < *(u8 *)&D_8009D2E1);
     }
-    func_80089CD4();
+    __osSiRelAccess();
     *arg1 = var_s5;
     return sp6C;
 }

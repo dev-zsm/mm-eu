@@ -1,26 +1,26 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void func_80089C90(s32 a0);
-void func_80089F08(s32 a0);
-s32 func_8008AF10(s32 a0, u8 *a1);
-void func_80088070(s32 a0, s32 a1, s32 a2);
-void func_80089CD4(void);
+void __osSiGetAccess(s32 a0);
+void __osPackRequestData(s32 a0);
+s32 __osSiRawStartDma(s32 a0, u8 *a1);
+void osRecvMesg(s32 a0, s32 a1, s32 a2);
+void __osSiRelAccess(void);
 
 extern u8 D_8009D2E0;
 extern u8 D_8009D2A0[];
 
-s32 func_8008D8D0(s32 a0) {
+s32 osContStartQuery(s32 a0) {
     s32 ret;
 
-    func_80089C90(a0);
+    __osSiGetAccess(a0);
     if (D_8009D2E0 != 0) {
-        func_80089F08(0);
-        func_8008AF10(1, D_8009D2A0);
-        func_80088070(a0, 0, 1);
+        __osPackRequestData(0);
+        __osSiRawStartDma(1, D_8009D2A0);
+        osRecvMesg(a0, 0, 1);
     }
-    ret = func_8008AF10(0, D_8009D2A0);
+    ret = __osSiRawStartDma(0, D_8009D2A0);
     D_8009D2E0 = 0;
-    func_80089CD4();
+    __osSiRelAccess();
     return ret;
 }

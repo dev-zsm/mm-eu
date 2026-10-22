@@ -1,17 +1,17 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-void func_80089C90(void);
-void func_80089CD4(void);
-void func_8008AF10(s32 a0, u8 *a1);
-s32 func_8008F2A0(s32 a0, s32 a1);
-s32 func_80091240(s32 a0, u16 a1);
-void func_80091460(s32 a0, u8 *a1, s32 a2);
-void func_80088070(s32 a0, s32 a1, s32 a2);
-s32 func_800928D0(s32 a0, s32 a1, u8 *a2);
+void __osSiGetAccess(void);
+void __osSiRelAccess(void);
+void __osSiRawStartDma(s32 a0, u8 *a1);
+s32 __osVoiceContDataCrc(s32 a0, s32 a1);
+s32 __osContAddressCrc(s32 a0, u16 a1);
+void bcopy(s32 a0, u8 *a1, s32 a2);
+void osRecvMesg(s32 a0, s32 a1, s32 a2);
+s32 __osVoiceGetStatus(s32 a0, s32 a1, u8 *a2);
 extern s32 D_800981A0;
 extern u8 D_8009D2E0;
 extern u8 D_8009E9A0[];
-s32 func_800966E0(s32 arg0, s32 arg1, u16 arg2, s32 arg3) {
+s32 __osVoiceContWrite4(s32 arg0, s32 arg1, u16 arg2, s32 arg3) {
     s32 sp6C;
     u8 sp6B;
     s32 sp4C;
@@ -27,7 +27,7 @@ s32 func_800966E0(s32 arg0, s32 arg1, u16 arg2, s32 arg3) {
     s32 *p1A0;
 
     var_s4 = 2;
-    func_80089C90();
+    __osSiGetAccess();
     sp48 = arg2 << 5;
     sp4C = (s32) arg2 >> 3;
 loop_1:
@@ -72,17 +72,17 @@ loop_9:
         var_s0 = D_8009E9A0 + arg1;
     }
     var_s0[4] = (u8) sp4C;
-    var_s0[5] = (u8) (func_80091240(arg2 & 0xFFFF, arg2) | sp48);
-    func_80091460(arg3, var_s0 + 6, 4);
-    func_8008AF10(1, D_8009E9A0);
-    temp_s2 = func_8008F2A0(arg3, 4) & 0xFF;
-    func_80088070(arg0, 0, 1);
-    func_8008AF10(0, D_8009E9A0);
-    func_80088070(arg0, 0, 1);
+    var_s0[5] = (u8) (__osContAddressCrc(arg2 & 0xFFFF, arg2) | sp48);
+    bcopy(arg3, var_s0 + 6, 4);
+    __osSiRawStartDma(1, D_8009E9A0);
+    temp_s2 = __osVoiceContDataCrc(arg3, 4) & 0xFF;
+    osRecvMesg(arg0, 0, 1);
+    __osSiRawStartDma(0, D_8009E9A0);
+    osRecvMesg(arg0, 0, 1);
     var_v1 = (var_s0[2] & 0xC0) >> 4;
     if (var_v1 == 0) {
         if (var_s0[0xA] != temp_s2) {
-            temp_v0 = func_800928D0(arg0, arg1, &sp6B);
+            temp_v0 = __osVoiceGetStatus(arg0, arg1, &sp6B);
             var_v1 = temp_v0;
             if (temp_v0 == 0) {
                 var_v1 = 4;
@@ -101,6 +101,6 @@ block_17:
         }
     }
     sp6C = var_v1;
-    func_80089CD4();
+    __osSiRelAccess();
     return sp6C;
 }

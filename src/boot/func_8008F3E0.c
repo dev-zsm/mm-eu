@@ -12,7 +12,7 @@ typedef struct {
     s32 unk14;
 } Buf;
 
-void func_8008F3E0(Buf *a0, s32 a1, s32 a2) {
+void osCreateMesgQueue(Buf *a0, s32 a1, s32 a2) {
     a0->begin = D_80098000;
     a0->end = D_80098000;
     a0->unk8 = 0;

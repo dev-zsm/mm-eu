@@ -20,14 +20,14 @@ typedef struct PrintSpec {
     /* 0x34 */ u8 lenmod;
 } PrintSpec;
 
-extern void func_80095120(PrintSpec* s, u8 c);
-extern void func_80094480(PrintSpec* s, u8 c);
-extern s32 func_8008F380(char* s);
+extern void _Litob(PrintSpec* s, u8 c);
+extern void _Ldtob(PrintSpec* s, u8 c);
+extern s32 strlen(char* s);
 
 #define VA32(ap) (*(s32*)((*(ap) = (char*)((((u32)*(ap)) + 3 & ~3) + 4)) - 4))
 #define VA64(ap) (*(s64*)((*(ap) = (char*)((((u32)*(ap)) + 7 & ~7) + 8)) - 8))
 
-void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
+void _Putfld(PrintSpec* s, char** ap, u8 c, char* buf) {
     s32 v;
     char* p;
 
@@ -63,7 +63,7 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
         }
     out:
         s->ptr = buf + s->count;
-        func_80095120(s, c);
+        _Litob(s, c);
         break;
     case 'o':
     case 'u':
@@ -88,7 +88,7 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
             }
         }
         s->ptr = buf + s->count;
-        func_80095120(s, c);
+        _Litob(s, c);
         break;
     case 'E':
     case 'G':
@@ -128,7 +128,7 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
             buf[s->count++] = ' ';
         }
         s->ptr = buf + s->count;
-        func_80094480(s, c);
+        _Ldtob(s, c);
         break;
     case 'n':
         if (s->lenmod == 'h') {
@@ -148,11 +148,11 @@ void func_8008E838(PrintSpec* s, char** ap, u8 c, char* buf) {
     case 'p':
         s->n.num = VA32(ap);
         s->ptr = buf + s->count;
-        func_80095120(s, 'x');
+        _Litob(s, 'x');
         break;
     case 's':
         s->ptr = (char*)VA32(ap);
-        s->len = func_8008F380(s->ptr);
+        s->len = strlen(s->ptr);
         if (s->prec >= 0) {
             if (s->prec < s->len) {
                 s->len = s->prec;

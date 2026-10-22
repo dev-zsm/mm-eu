@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void func_800897D0(u8 *a0, s32 a1) {
+void bzero(u8 *a0, s32 a1) {
     u32 *p;
     s32 n;
 

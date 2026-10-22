@@ -15,7 +15,7 @@ typedef struct PiTiming {
 
 extern PiTiming *D_80098080[];
 
-s32 func_80094190(PiTiming *a0, PiTiming *a1, u32 a2) {
+s32 __osEPiRawWriteIo(PiTiming *a0, PiTiming *a1, u32 a2) {
     u32 off;
     u8 idx;
     u32 st;

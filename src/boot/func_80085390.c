@@ -22,7 +22,7 @@ typedef struct Node
 } Node;
 extern s32 D_80096DE0;
 extern s32 D_80096DE4;
-void func_80085390(Node *arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4, s32 arg5)
+void StackCheck_Init(Node *arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4, s32 arg5)
 {
   char new_var;
   Node *v0;

@@ -7,16 +7,16 @@ typedef struct Ctx {
     u8 unk64;
 } Ctx;
 
-s32 func_8008D184(void *a0, void *a1, s32 a2, u8 a3);
+s32 __osPfsRWInode(void *a0, void *a1, s32 a2, u8 a3);
 
-s32 func_8008B110(Ctx *a0, u8 *a1, u16 *a2, u8 *a3) {
+s32 __osPfsGetNextPage(Ctx *a0, u8 *a1, u16 *a2, u8 *a3) {
     s32 r;
     s32 v;
     u8 b;
 
     if (*a1 != a3[0]) {
         *a1 = a3[0];
-        r = func_8008D184(a0, a2, 0, a3[0]);
+        r = __osPfsRWInode(a0, a2, 0, a3[0]);
         if (r != 0) {
             return r;
         }

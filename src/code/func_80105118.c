@@ -3,6 +3,6 @@
 
 extern s16 D_801BF760;
 
-s16 func_80105118(void) {
+s16 MapDisp_GetBossRoomStorey(void) {
     return D_801BF760;
 }

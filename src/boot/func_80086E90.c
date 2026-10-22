@@ -3,6 +3,6 @@
 extern s32 D_8009D0F0;
 void func_8008766C(s32 *p, s32 a, s32 b);
 
-void func_80086E90(s32 arg0, s32 arg1) {
+void realloc(s32 arg0, s32 arg1) {
     func_8008766C(&D_8009D0F0, arg0, arg1);
 }

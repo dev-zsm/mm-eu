@@ -3,6 +3,6 @@
 
 extern s32 D_801AF260;
 
-s32 func_800B0720(void) {
+s32 EffectSs_GetTable(void) {
     return D_801AF260;
 }

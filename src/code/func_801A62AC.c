@@ -3,6 +3,6 @@
 
 extern s32 D_801F4DE0;
 
-s32 func_801A62AC(void) {
+s32 AudioVoice_GetVoiceDict(void) {
     return D_801F4DE0;
 }

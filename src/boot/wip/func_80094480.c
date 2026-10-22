@@ -18,12 +18,12 @@ extern f64 D_80099888;
 extern char D_80099878[];
 extern char D_8009987C[];
 
-s32 func_80094910(s16 *exp, FmtCtx *p);
-void func_80094F90(u32 *out, u32 n, u32 base);
-s32 func_8008F3A8(u8 *out, char *s, s32 n);
-s32 func_800949C8(FmtCtx *p, u8 c, u8 *s, s32 cnt, s32 exp);
+s32 _Ldunscale(s16 *exp, FmtCtx *p);
+void ldiv(u32 *out, u32 n, u32 base);
+s32 memcpy(u8 *out, char *s, s32 n);
+s32 _Genld(FmtCtx *p, u8 c, u8 *s, s32 cnt, s32 exp);
 
-s32 func_80094480(FmtCtx *p, u8 type) {
+s32 _Ldtob(FmtCtx *p, u8 type) {
     u8 buff[0x20];
     u8 *ptr;
     f64 val;
@@ -44,9 +44,9 @@ s32 func_80094480(FmtCtx *p, u8 type) {
     } else if (p->unk24 == 0 && (type == 'g' || type == 'G')) {
         p->unk24 = 1;
     }
-    err = func_80094910(&exp, p);
+    err = _Ldunscale(&exp, p);
     if (err > 0) {
-        return func_8008F3A8(p->out, (err == 2) ? D_80099878 : D_8009987C, p->unk14 = 3);
+        return memcpy(p->out, (err == 2) ? D_80099878 : D_8009987C, p->unk14 = 3);
     }
     if (err == 0) {
         nsig = 0;
@@ -85,7 +85,7 @@ s32 func_80094480(FmtCtx *p, u8 type) {
                 val = (val - lo) * D_80099888;
             }
             for (ptr += 8, j = 8; lo > 0 && --j >= 0;) {
-                func_80094F90(qr, lo, 10);
+                ldiv(qr, lo, 10);
                 *--ptr = qr[1] + '0';
                 lo = qr[0];
             }
@@ -118,5 +118,5 @@ s32 func_80094480(FmtCtx *p, u8 type) {
             }
         }
     }
-    return func_800949C8(p, type, ptr, nsig, exp);
+    return _Genld(p, type, ptr, nsig, exp);
 }

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void *func_8008F3A8(void *dst, void *src, s32 n) {
+void *memcpy(void *dst, void *src, s32 n) {
     u8 *d = dst;
     u8 *s = src;
     u8 c;

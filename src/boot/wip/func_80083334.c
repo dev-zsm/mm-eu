@@ -11,8 +11,8 @@ typedef struct {
 } Obj80083334;
 
 extern void func_8008198C(void *a0, ...);
-extern s32 func_80081DFC(s32 a0);
-extern void func_80083030(void *a0, void *a1, void *a2);
+extern s32 Fault_ConvertAddress(s32 a0);
+extern void Fault_WalkStack(void *a0, void *a1, void *a2);
 extern u8 D_80098C5C[];
 extern u8 D_80098C68[];
 extern u8 D_80098C84[];
@@ -21,7 +21,7 @@ extern u8 D_80098C9C[];
 extern u8 D_80098CAC[];
 extern u8 D_800895C0[];
 
-void func_80083334(Obj80083334 *arg0, s32 arg1) {
+void Fault_LogStackTrace(Obj80083334 *arg0, s32 arg1) {
     s32 sp50;
     s32 sp58;
     s32 sp54;
@@ -40,7 +40,7 @@ void func_80083334(Obj80083334 *arg0, s32 arg1) {
             do {
                 func_8008198C(D_80098C84, sp58);
                 if (s1 != 0) {
-                    s32 v = func_80081DFC(sp50);
+                    s32 v = Fault_ConvertAddress(sp50);
                     if (v != 0) {
                         func_8008198C(D_80098C90, v);
                     }
@@ -48,7 +48,7 @@ void func_80083334(Obj80083334 *arg0, s32 arg1) {
                     func_8008198C(D_80098C9C);
                 }
                 func_8008198C(D_80098CAC);
-                func_80083030(&sp58, &sp50, &sp54);
+                Fault_WalkStack(&sp58, &sp50, &sp54);
                 s0++;
                 if (s0 >= 0x16) {
                     break;

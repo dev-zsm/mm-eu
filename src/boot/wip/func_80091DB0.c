@@ -36,12 +36,12 @@ typedef struct {
     u32 unk38;
 } BootDesc;
 
-extern s32 func_8008A6E0(u32, void *);
+extern s32 osVirtualToPhysical(u32, void *);
 extern BootState *D_800982B4;
 extern void *D_800982B0;
 extern s32 D_800983BC;
 
-void func_80091DB0(void) {
+void __osViSwapContext(void) {
     BootState *st;
     BootDesc *d;
     BootDesc *e;
@@ -58,7 +58,7 @@ void func_80091DB0(void) {
     st = D_800982B4;
     idx = *(u32 *)0xA4400010 & 1;
     d = st->unk8;
-    a0 = func_8008A6E0(st->unk4, d);
+    a0 = osVirtualToPhysical(st->unk4, d);
     e = (BootDesc *)((u8 *)d + idx * 20);
     a0 = e->unk28 + a0;
     if (st->unk0 & 2) {
@@ -87,12 +87,12 @@ void func_80091DB0(void) {
     }
     if (v3 & 0x40) {
         st->unk2C = 0;
-        a0 = func_8008A6E0(st->unk4, d);
+        a0 = osVirtualToPhysical(st->unk4, d);
     }
     v3 = st->unk0;
     if (v3 & 0x80) {
         st->unk2C = (u32)((st->unk28 << 16) & 0x3FF0000);
-        a0 = func_8008A6E0(st->unk4, d);
+        a0 = osVirtualToPhysical(st->unk4, d);
     }
     *(s32 *)0xA4400004 = a0;
     *(u32 *)0xA4400008 = d->unk8;

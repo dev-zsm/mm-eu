@@ -3,9 +3,9 @@
 
 extern u8 *D_80096D80;
 
-void func_80084270(void);
+void FaultDrawer_UpdatePrintColor(void);
 
-void func_8008431C(u16 a0) {
+void FaultDrawer_SetForeColor(u16 a0) {
     *(u16 *)(D_80096D80 + 0x10) = a0;
-    func_80084270();
+    FaultDrawer_UpdatePrintColor();
 }

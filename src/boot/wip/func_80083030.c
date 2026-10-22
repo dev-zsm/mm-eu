@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
-void func_80083030(u32 *arg0, u32 *arg1, u32 *arg2) {
+void Fault_WalkStack(u32 *arg0, u32 *arg1, u32 *arg2) {
     u32 v0 = *arg0;
     u32 v1 = *arg1;
     u32 a3 = *arg2;

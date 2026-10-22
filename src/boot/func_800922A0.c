@@ -15,13 +15,13 @@ typedef struct {
 
 extern Struct800982B4 *D_800982B4;
 
-s32 func_80091C00(void);
-void func_80091C70(s32 a);
+s32 __osDisableInt(void);
+void __osRestoreInt(s32 a);
 
-void func_800922A0(s32 arg0) {
+void osViSetSpecialFeatures(s32 arg0) {
     s32 temp_a1;
 
-    temp_a1 = func_80091C00();
+    temp_a1 = __osDisableInt();
     if (arg0 & 1) {
         D_800982B4->unk0C |= 8;
     }
@@ -49,5 +49,5 @@ void func_800922A0(s32 arg0) {
         D_800982B4->unk0C |= D_800982B4->unk8->unk4 & 0x300;
     }
     D_800982B4->unk0 |= 8;
-    func_80091C70(temp_a1);
+    __osRestoreInt(temp_a1);
 }

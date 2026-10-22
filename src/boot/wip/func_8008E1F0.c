@@ -26,8 +26,8 @@ extern u32 D_800996DC[];
 extern char D_80098110[];
 extern char D_80098134[];
 
-extern void func_8008E838(PrintSpec* s, char** ap, s32 c, char* buf);
-extern char* func_8008F340(const char* s, s32 c);
+extern void _Putfld(PrintSpec* s, char** ap, s32 c, char* buf);
+extern char* strchr(const char* s, s32 c);
 
 #define VA() ((s32*)(ap = (char*)((((u32)ap + 3) & ~3) + 4)))[-1]
 
@@ -60,7 +60,7 @@ extern char* func_8008F340(const char* s, s32 c);
         }                                         \
     }
 
-s32 func_8008E1F0(PrintFn prout, void* arg, const char* fmt, char* ap) {
+s32 _Printf(PrintFn prout, void* arg, const char* fmt, char* ap) {
     struct { char pad[0x18]; char buf[0x2C]; PrintSpec x; } l;
     const u8* s;
     const u8* t;
@@ -83,7 +83,7 @@ s32 func_8008E1F0(PrintFn prout, void* arg, const char* fmt, char* ap) {
         }
         fmt = (const char*)++s;
         x.flags = 0;
-        for (; (t = (u8*)func_8008F340(D_800996D4, *s)) != NULL; s++) {
+        for (; (t = (u8*)strchr(D_800996D4, *s)) != NULL; s++) {
             x.flags |= D_800996DC[t - (u8*)D_800996D4];
         }
         if (*s == '*') {
@@ -107,7 +107,7 @@ s32 func_8008E1F0(PrintFn prout, void* arg, const char* fmt, char* ap) {
                 ATOI(x.prec, s);
             }
         }
-        if (func_8008F340(D_800996D0, *s) != NULL) {
+        if (strchr(D_800996D0, *s) != NULL) {
             x.lenmod = *s++;
         } else {
             x.lenmod = 0;
@@ -116,7 +116,7 @@ s32 func_8008E1F0(PrintFn prout, void* arg, const char* fmt, char* ap) {
             x.lenmod = 'L';
             s++;
         }
-        func_8008E838(&x, &ap, *s, buf);
+        _Putfld(&x, &ap, *s, buf);
         x.width -= x.count + x.unk10 + x.len + x.unk18 + x.unk1C + x.unk20;
         PAD(x.width, D_80098110, !(x.flags & 4));
         PROUT(buf, x.count);

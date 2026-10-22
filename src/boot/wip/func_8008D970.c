@@ -1,17 +1,17 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 #include "types.h"
 
-void func_8008B7A0(void);
+void guMtxIdentF(void);
 float sqrtf(float);
 #pragma intrinsic (sqrtf)
 
 #define FTOFRAC8(x) ((s32)((((x) * 128.0f) < 127.0f) ? ((x) * 128.0f) : 127.0f))
 
-void func_8008D970(f32 (*mf)[4], u8 *l, s32 *h, f32 xEye, f32 yEye, f32 zEye, f32 xAt, f32 yAt, f32 zAt, f32 xUp, f32 yUp, f32 zUp, f32 xl1, f32 yl1, f32 zl1, f32 xl2, f32 yl2, f32 zl2, s32 twidth, s32 theight) {
+void guLookAtHiliteF(f32 (*mf)[4], u8 *l, s32 *h, f32 xEye, f32 yEye, f32 zEye, f32 xAt, f32 yAt, f32 zAt, f32 xUp, f32 yUp, f32 zUp, f32 xl1, f32 yl1, f32 zl1, f32 xl2, f32 yl2, f32 zl2, s32 twidth, s32 theight) {
     f32 len, xLook, yLook, zLook, xRight, yRight, zRight;
     f32 xHilite, yHilite, zHilite;
 
-    func_8008B7A0();
+    guMtxIdentF();
 
     xLook = xAt - xEye;
     yLook = yAt - yEye;

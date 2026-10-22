@@ -1,20 +1,20 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void func_80089C90(s32);
-void func_80089CD4(void);
-void func_8008AF10(s32, u8 *);
-void func_80088070(s32, s32, s32);
-s32 func_8008B560(s32, s32);
-s32 func_80091240(u16);
-s32 func_80091310(s32);
-void func_80091460(s32, u8 *, s32);
+void __osSiGetAccess(s32);
+void __osSiRelAccess(void);
+void __osSiRawStartDma(s32, u8 *);
+void osRecvMesg(s32, s32, s32);
+s32 __osPfsGetStatus(s32, s32);
+s32 __osContAddressCrc(u16);
+s32 __osContDataCrc(s32);
+void bcopy(s32, u8 *, s32);
 
 extern s32 D_800981A0;
 extern u8 D_8009D2E0;
 extern u8 D_8009E9A0[];
 
-s32 func_80093F40(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
+s32 __osContRamWrite(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
     u8 *s0;
     u8 *s3;
     u8 *pf;
@@ -33,7 +33,7 @@ s32 func_80093F40(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
         return 0;
     }
     s4 = 2;
-    func_80089C90(arg0);
+    __osSiGetAccess(arg0);
     sp44 = x >> 3;
     sp40 = x << 5;
     s3 = D_8009E9A0;
@@ -65,13 +65,13 @@ s32 func_80093F40(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
         }
 
         s0[4] = (u8) sp44;
-        s0[5] = (u8) (func_80091240(x) | sp40);
-        func_80091460(arg3, s0 + 6, 0x20);
-        func_8008AF10(1, s3);
-        s2 = (u8) func_80091310(arg3);
-        func_80088070(arg0, 0, 1);
-        func_8008AF10(0, s3);
-        func_80088070(arg0, 0, 1);
+        s0[5] = (u8) (__osContAddressCrc(x) | sp40);
+        bcopy(arg3, s0 + 6, 0x20);
+        __osSiRawStartDma(1, s3);
+        s2 = (u8) __osContDataCrc(arg3);
+        osRecvMesg(arg0, 0, 1);
+        __osSiRawStartDma(0, s3);
+        osRecvMesg(arg0, 0, 1);
 
         v1 = (s0[2] & 0xC0) >> 4;
         if (v1 != 0) {
@@ -81,7 +81,7 @@ s32 func_80093F40(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
         if (s0[0x26] == s2) {
             break;
         }
-        v1 = func_8008B560(arg0, arg1);
+        v1 = __osPfsGetStatus(arg0, arg1);
         if (v1 != 0) {
             break;
         }
@@ -93,6 +93,6 @@ s32 func_80093F40(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
         }
     }
 
-    func_80089CD4();
+    __osSiRelAccess();
     return v1;
 }

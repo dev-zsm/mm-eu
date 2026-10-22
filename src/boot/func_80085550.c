@@ -13,9 +13,9 @@ typedef struct Node {
 
 extern Node *D_80096DE0;
 
-s32 func_800854D8(Node *arg0);
+s32 StackCheck_GetState(Node *arg0);
 
-s32 func_80085550(void) {
+s32 StackCheck_CheckAll(void) {
     Node *n;
     s32 found;
 
@@ -23,7 +23,7 @@ s32 func_80085550(void) {
     found = 0;
     if (n != NULL) {
         do {
-            if (func_800854D8(n) != 0) {
+            if (StackCheck_GetState(n) != 0) {
                 found = 1;
             }
             n = n->next;

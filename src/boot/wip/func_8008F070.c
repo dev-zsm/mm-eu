@@ -5,16 +5,16 @@ extern u8 D_8009D2E0[];
 extern u8 D_8009E9A0[];
 extern s32 D_800981A0;
 
-void func_80089C90(void);
-void func_80089CD4(void);
-s32 func_80091240(s32 a0);
-void func_8008AF10(s32 a0, u8 *a1);
-void func_80088070(void *a0, s32 a1, s32 a2);
-s32 func_8008F2A0(u8 *a0, s32 a1);
-s32 func_800928D0(void *a0, s32 a1, u8 *a2);
-void func_80091460(u8 *a0, void *a1, s32 a2);
+void __osSiGetAccess(void);
+void __osSiRelAccess(void);
+s32 __osContAddressCrc(s32 a0);
+void __osSiRawStartDma(s32 a0, u8 *a1);
+void osRecvMesg(void *a0, s32 a1, s32 a2);
+s32 __osVoiceContDataCrc(u8 *a0, s32 a1);
+s32 __osVoiceGetStatus(void *a0, s32 a1, u8 *a2);
+void bcopy(u8 *a0, void *a1, s32 a2);
 
-s32 func_8008F070(void *a0, s32 a1, u16 a2, void *a3) {
+s32 __osVoiceContRead2(void *a0, s32 a1, u16 a2, void *a3) {
     u8 *s0;
     u8 *s2;
     u8 *s4;
@@ -28,7 +28,7 @@ s32 func_8008F070(void *a0, s32 a1, u16 a2, void *a3) {
     s4 = D_8009E9A0;
     s7 = D_8009D2E0;
     s8 = &D_800981A0;
-    func_80089C90();
+    __osSiGetAccess();
     s5 = 2;
     do {
         s0 = s4;
@@ -49,21 +49,21 @@ s32 func_8008F070(void *a0, s32 a1, u16 a2, void *a3) {
             s0[9] = 0xFE;
         }
         s0[4] = a2 >> 3;
-        s0[5] = func_80091240(a2) | (a2 << 5);
-        func_8008AF10(1, s4);
-        func_80088070(a0, 0, 1);
-        func_8008AF10(0, s4);
-        func_80088070(a0, 0, 1);
+        s0[5] = __osContAddressCrc(a2) | (a2 << 5);
+        __osSiRawStartDma(1, s4);
+        osRecvMesg(a0, 0, 1);
+        __osSiRawStartDma(0, s4);
+        osRecvMesg(a0, 0, 1);
         s2 = s0 + 6;
         s3 = (s0[2] & 0xC0) >> 4;
         if (s3 != 0) {
             s3 = 1;
         } else {
-            if (s0[8] == func_8008F2A0(s2, 2)) {
-                func_80091460(s2, a3, 2);
+            if (s0[8] == __osVoiceContDataCrc(s2, 2)) {
+                bcopy(s2, a3, 2);
                 s3 = 0;
             } else {
-                s3 = func_800928D0(a0, a1, &sp63);
+                s3 = __osVoiceGetStatus(a0, a1, &sp63);
                 if (s3 != 0) {
                     break;
                 }
@@ -74,6 +74,6 @@ s32 func_8008F070(void *a0, s32 a1, u16 a2, void *a3) {
             break;
         }
     } while (s5-- >= 0);
-    func_80089CD4();
+    __osSiRelAccess();
     return s3;
 }

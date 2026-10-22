@@ -5,7 +5,7 @@ extern void func_8008198C();
 extern u8 D_8009886C[];
 extern u8 D_8009887C[];
 
-void func_800822E0(s32 arg0, f32 *arg1) {
+void Fault_LogFReg(s32 arg0, f32 *arg1) {
     s32 bits;
     s32 exp;
 

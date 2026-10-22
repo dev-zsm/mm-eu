@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-u32 func_80091240(u32 a) {
+u32 __osContAddressCrc(u32 a) {
     u32 x;
     u32 v;
     u32 m;

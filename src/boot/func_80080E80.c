@@ -9,7 +9,7 @@ extern s32 D_8009C1F4;
 
 void func_800807E0(s32 a, void *b, u32 c, u32 *d);
 
-void *func_80080E80(void) {
+void *Yaz0_FirstDMA(void) {
     u32 temp_v1;
     u32 var_a2;
 

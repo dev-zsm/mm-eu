@@ -20,7 +20,7 @@ typedef struct {
     /* 0x3C */ s32 unk3C;
 } Func80088440Struct;
 
-void func_80088440(Func80088440Struct *arg0, f32 arg1, f32 arg2, f32 arg3) {
+void guScale(Func80088440Struct *arg0, f32 arg1, f32 arg2, f32 arg3) {
     s32 temp_f10;
     s32 temp_f10_2;
     s32 temp_f10_3;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-s32 func_800966B0(s32 arg0) {
+s32 __osSpSetPc(s32 arg0) {
     s32 temp_v0;
     temp_v0 = *(u32 *)0xA4040010;
     if (!(temp_v0 & 1)) {

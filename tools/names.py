@@ -2,8 +2,10 @@
 """Symbol renaming layer. config/<seg>.names.txt maps the splat names (func_8008XXXX, D_8009XXXX) to real names:
     func_80087634 free        # sdk: heap free (libc)
     func_80080150 osInvalDCache2   # inferred: ...
-Columns: old new, then a comment starting with `sdk:` (official SDK/game name, high confidence) or
-`inferred:` (project name chosen from what the code does). Files and addresses keep the old names; only symbols change."""
+Columns: old new, then a comment starting with `sdk:` (official SDK/game name, high confidence),
+`ref:` (name taken from the public research of the reference decompilation, found by tools/ref_align.py and
+spot-checked against our verified C; research only, never code) or `inferred:` (project name chosen from what the
+code does). Files and addresses keep the old names; only symbols change."""
 import re
 from pathlib import Path
 

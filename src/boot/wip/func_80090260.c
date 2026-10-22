@@ -14,9 +14,9 @@ typedef struct {
 } PiHandle;
 
 extern PiHandle *D_80098080[];
-extern u32 func_8008A6E0(void *a0);
+extern u32 osVirtualToPhysical(void *a0);
 
-s32 func_80090260(PiHandle *arg0, s32 arg1, u32 arg2, void *arg3, u32 arg4) {
+s32 __osEPiRawStartDma(PiHandle *arg0, s32 arg1, u32 arg2, void *arg3, u32 arg4) {
     PiHandle *temp_v1;
     u32 temp_v0;
     s32 idx;
@@ -61,7 +61,7 @@ s32 func_80090260(PiHandle *arg0, s32 arg1, u32 arg2, void *arg3, u32 arg4) {
         temp_v1->unk8 = arg0->unk8;
     }
 
-    temp_v0 = func_8008A6E0(arg3);
+    temp_v0 = osVirtualToPhysical(arg3);
     *(u32 *)0xA4600000 = temp_v0;
     *(u32 *)0xA4600004 = (arg0->unkC | arg2) & 0x1FFFFFFF;
 

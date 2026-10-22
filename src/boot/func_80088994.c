@@ -1,13 +1,13 @@
 // FLAGS: -O1 -g0 -mips2
 #include "types.h"
 
-s32 func_8008FBA0(void);
-void func_80095420(s32 arg0);
+s32 __osSpDeviceBusy(void);
+void __osSpSetStatus(s32 arg0);
 
-void func_80088994(s32 arg0) {
-    if (func_8008FBA0() != 0) {
+void osSpTaskStartGo(s32 arg0) {
+    if (__osSpDeviceBusy() != 0) {
         do {
-        } while (func_8008FBA0() != 0);
+        } while (__osSpDeviceBusy() != 0);
     }
-    func_80095420(0x125);
+    __osSpSetStatus(0x125);
 }

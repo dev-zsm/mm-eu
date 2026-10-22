@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g0
 #include "types.h"
 
-extern void func_8008D480(void);
+extern void guMtxL2F(void);
 
-void func_800862C8(void) {
-    func_8008D480();
+void MtxConv_L2F(void) {
+    guMtxL2F();
 }

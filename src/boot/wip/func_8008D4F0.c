@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-u32 func_8008D4F0(void) {
+u32 osGetMemSize(void) {
     u32 *p;
     u32 sp8;
     u32 sp4;

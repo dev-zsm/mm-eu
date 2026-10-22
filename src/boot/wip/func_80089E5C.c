@@ -14,7 +14,7 @@ typedef struct {
     u8 b3;
 } Out4;
 
-void func_80089E5C(u8 *arg0, Out4 *arg1) {
+void __osContGetInitData(u8 *arg0, Out4 *arg1) {
     Ent8 buf;
     Ent8 *src;
     Out4 *out;

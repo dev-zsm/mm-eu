@@ -8,15 +8,15 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-extern void func_800871FC(void);
-extern void func_80087224(void);
+extern void ArenaImpl_Lock(void);
+extern void ArenaImpl_Unlock(void);
 
 s32 func_8008795C(Node **head) {
     Node *node;
     s32 ret;
 
     ret = 0;
-    func_800871FC();
+    ArenaImpl_Lock();
     node = *head;
     if (node != NULL) {
         do {
@@ -27,6 +27,6 @@ s32 func_8008795C(Node **head) {
             node = node->next;
         } while (node != NULL);
     }
-    func_80087224();
+    ArenaImpl_Unlock();
     return ret;
 }

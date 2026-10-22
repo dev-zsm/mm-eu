@@ -20,7 +20,7 @@ typedef struct {
 extern PifRam D_8009D2A0;
 extern u8 D_8009D2E1;
 
-void func_80089F08(u8 cmd) {
+void __osPackRequestData(u8 cmd) {
     u8 *ptr;
     ReqFmt req;
     s32 i;

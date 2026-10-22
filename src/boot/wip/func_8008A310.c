@@ -11,10 +11,10 @@ typedef struct {
 
 extern u8 D_8009D330;
 
-s32 func_800928D0(s32 a, s32 b, u8 *flag);
-s32 func_8008F070(s32 a, s32 b, s32 c, u8 *out);
-s32 func_800966E0(s32 a, s32 b, s32 c, u32 *out);
-s32 func_8008F970(s32 a, s32 b, s32 c, u8 *out);
+s32 __osVoiceGetStatus(s32 a, s32 b, u8 *flag);
+s32 __osVoiceContRead2(s32 a, s32 b, s32 c, u8 *out);
+s32 __osVoiceContWrite4(s32 a, s32 b, s32 c, u32 *out);
+s32 __osVoiceContRead36(s32 a, s32 b, s32 c, u8 *out);
 
 static void unpack(u16 *o, u8 *b) {
     o[0] = (b[1] << 8) | b[0];
@@ -25,7 +25,7 @@ static void unpack(u16 *o, u8 *b) {
     o[5] = (b[11] << 8) | b[10];
 }
 
-s32 func_8008A310(Ctl *s, u16 *out) {
+s32 osVoiceGetReadData(Ctl *s, u16 *out) {
     u8 buf[0x20];
     u8 flag;
     u8 bits;
@@ -36,14 +36,14 @@ s32 func_8008A310(Ctl *s, u16 *out) {
     r = 0;
     switch (s->mode) {
     case 1:
-        err = func_800928D0(s->p0, s->p4, &flag);
+        err = __osVoiceGetStatus(s->p0, s->p4, &flag);
         if (err != 0) {
             return err;
         }
         if (flag & 1) {
             return 0xC;
         }
-        err = func_8008F070(s->p0, s->p4, 0, buf);
+        err = __osVoiceContRead2(s->p0, s->p4, 0, buf);
         if (err != 0) {
             return err;
         }
@@ -62,7 +62,7 @@ s32 func_8008A310(Ctl *s, u16 *out) {
     case 2:
     mode2:
         s->mode = 2;
-        err = func_800928D0(s->p0, s->p4, &flag);
+        err = __osVoiceGetStatus(s->p0, s->p4, &flag);
         if (err != 0) {
             return err;
         }
@@ -70,7 +70,7 @@ s32 func_8008A310(Ctl *s, u16 *out) {
             return 0xF;
         }
         word = 0x600;
-        err = func_800966E0(s->p0, s->p4, 0, &word);
+        err = __osVoiceContWrite4(s->p0, s->p4, 0, &word);
         if (err != 0) {
             return err;
         }
@@ -79,14 +79,14 @@ s32 func_8008A310(Ctl *s, u16 *out) {
     case 3:
     mode3:
         s->mode = 3;
-        err = func_800928D0(s->p0, s->p4, &flag);
+        err = __osVoiceGetStatus(s->p0, s->p4, &flag);
         if (err != 0) {
             return err;
         }
         if (flag & 1) {
             return 0xF;
         }
-        err = func_8008F970(s->p0, s->p4, 0, buf);
+        err = __osVoiceContRead36(s->p0, s->p4, 0, buf);
         if (err != 0) {
             return err;
         }
@@ -103,14 +103,14 @@ s32 func_8008A310(Ctl *s, u16 *out) {
     default:
         if (s->mode == 4) {
             s->mode = 4;
-            err = func_800928D0(s->p0, s->p4, &flag);
+            err = __osVoiceGetStatus(s->p0, s->p4, &flag);
             if (err != 0) {
                 return err;
             }
             if (flag & 1) {
                 return 0xC;
             }
-            err = func_8008F070(s->p0, s->p4, 0, buf);
+            err = __osVoiceContRead2(s->p0, s->p4, 0, buf);
             if (err != 0) {
                 return err;
             }

@@ -3,7 +3,7 @@
 
 extern s32 D_80098060;
 
-s32 func_800920B0(void) {
+s32 osPiGetCmdQueue(void) {
     if (*(s32 *)&D_80098060 == 0) {
         return 0;
     }

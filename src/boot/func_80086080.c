@@ -21,11 +21,11 @@ typedef struct
   u8 unkF;
   s32 unk10;
 } Obj;
-s32 func_80086054(s32 arg0, u8 *arg1, s32 arg2);
-void func_80086080(Obj *arg0)
+s32 GfxPrint_Callback(s32 arg0, u8 *arg1, s32 arg2);
+void GfxPrint_Init(Obj *arg0)
 {
   arg0->unkF &= ~0x80;
-  arg0->unk0 = (void *) func_80086054;
+  arg0->unk0 = (void *) GfxPrint_Callback;
   arg0->unkF &= ~1;
   arg0->unkF &= ~2;
   arg0->unkF |= 4;

@@ -3,6 +3,6 @@
 
 extern s32 D_801EE3D4;
 
-void func_80161E44(void) {
+void ShrinkWindow_Destroy(void) {
     D_801EE3D4 = 0;
 }

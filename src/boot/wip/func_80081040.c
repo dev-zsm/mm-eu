@@ -1,13 +1,13 @@
 // FLAGS: -O2 -g0
 #include "types.h"
 
-u8 *func_80080F20(u32);
+u8 *Yaz0_NextDMA(u32);
 
 extern s32 D_8009BDE0;
 extern s32 D_8009C1F0;
 extern u32 D_8009C1F4;
 
-s32 func_80081040(u8 *arg0, u8 *arg1) {
+s32 Yaz0_DecompressImpl(u8 *arg0, u8 *arg1) {
     u8 *cur;
     u8 *dst;
     u8 *end;
@@ -31,7 +31,7 @@ s32 func_80081040(u8 *arg0, u8 *arg1) {
     do {
         if (count == 0) {
             if (D_8009C1F4 < (u32)cur && D_8009C1F0 != 0) {
-                cur = func_80080F20((u32)cur);
+                cur = Yaz0_NextDMA((u32)cur);
             }
             code = *cur;
             cur++;

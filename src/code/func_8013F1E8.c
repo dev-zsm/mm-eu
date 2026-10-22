@@ -3,6 +3,6 @@
 
 extern s8 D_801EE354;
 
-void func_8013F1E8(void) {
+void Rumble_StateWipeRequests(void) {
     D_801EE354 = 0;
 }

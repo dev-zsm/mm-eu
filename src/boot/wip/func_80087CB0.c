@@ -15,22 +15,22 @@ typedef struct {
     s16 unk10;
 } Ctl;
 
-extern u32 func_80091C00(void);
-extern void func_80091C70(u32 irq);
+extern u32 __osDisableInt(void);
+extern void __osRestoreInt(u32 irq);
 extern void func_800892E4(void *p);
 extern u32 func_8008942C(Ring *p);
-extern void func_80095950(u32 a);
+extern void osStartThread(u32 a);
 extern Ctl *D_80098010;
 
-s32 func_80087CB0(Ring *p, u32 v, s32 mode) {
+s32 osSendMesg(Ring *p, u32 v, s32 mode) {
     u32 irq;
     s32 idx;
     u32 r;
-    irq = func_80091C00();
+    irq = __osDisableInt();
     if (p->unk8 >= p->unk10) {
         do {
             if (mode != 1) {
-                func_80091C70(irq);
+                __osRestoreInt(irq);
                 return -1;
             }
             D_80098010->unk10 = 8;
@@ -42,8 +42,8 @@ s32 func_80087CB0(Ring *p, u32 v, s32 mode) {
     p->unk8++;
     if (*p->unk0 != 0) {
         r = func_8008942C(p);
-        func_80095950(r);
+        osStartThread(r);
     }
-    func_80091C70(irq);
+    __osRestoreInt(irq);
     return 0;
 }

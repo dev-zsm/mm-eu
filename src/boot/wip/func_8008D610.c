@@ -19,11 +19,11 @@ typedef struct {
     u8 b60[0x10];
 } Buf;
 
-s32 func_8008D0B0(Ctx *ctx);
-s32 func_80090DE0(s32 a0, s32 a1, u16 a2, Buf *a3);
-s32 func_8008B560(s32 a0, s32 a1);
+s32 __osCheckId(Ctx *ctx);
+s32 __osContRamRead(s32 a0, s32 a1, u16 a2, Buf *a3);
+s32 __osPfsGetStatus(s32 a0, s32 a1);
 
-s32 func_8008D610(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
+s32 osPfsFindFile(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
     s32 i;
     s32 ret;
     s32 mismatch;
@@ -32,16 +32,16 @@ s32 func_8008D610(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
     if (!(ctx->flags & 1)) {
         return 5;
     }
-    ret = func_8008D0B0(ctx);
+    ret = __osCheckId(ctx);
     if (ret != 0) {
         return ret;
     }
     for (i = 0; i < ctx->count; i++) {
-        ret = func_80090DE0(ctx->unk4, ctx->unk8, (u16)(ctx->base + i), &buf);
+        ret = __osContRamRead(ctx->unk4, ctx->unk8, (u16)(ctx->base + i), &buf);
         if (ret != 0) {
             return ret;
         }
-        ret = func_8008B560(ctx->unk4, ctx->unk8);
+        ret = __osPfsGetStatus(ctx->unk4, ctx->unk8);
         if (ret == 0) {
             if (buf.h4 == key && buf.w0 == fe) {
                 mismatch = 0;

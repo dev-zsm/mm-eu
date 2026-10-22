@@ -4,8 +4,8 @@
 extern u8 D_800895C0[];
 extern void *D_8009800C;
 
-void *func_80091C00(void);
-void func_80091C70(void *a0);
+void *__osDisableInt(void);
+void __osRestoreInt(void *a0);
 
 typedef struct {
     u32 unk00;
@@ -31,7 +31,7 @@ typedef struct {
     u32 unk12C;
 } Obj;
 
-void func_80089FE0(Obj *p, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5) {
+void osCreateThread(Obj *p, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5) {
     void *s0;
     u32 local;
 
@@ -50,8 +50,8 @@ void func_80089FE0(Obj *p, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5) {
     p->unk18 = 0;
     p->unk10 = 1;
     p->unk12 = 0;
-    s0 = func_80091C00();
+    s0 = __osDisableInt();
     p->unk0C = (u32)D_8009800C;
     D_8009800C = p;
-    func_80091C70(s0);
+    __osRestoreInt(s0);
 }

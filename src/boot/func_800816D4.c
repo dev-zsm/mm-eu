@@ -15,12 +15,12 @@ typedef struct
   u8 pad0[0x60];
   u8 unk60[0x18];
 } Obj;
-extern void func_80088070(void *a, s32 *b, s32 c);
-extern void func_8008161C(Obj *this);
-extern void func_8008146C(Obj *this);
-extern void func_80081524(Obj *this);
-extern void func_800815A0(Obj *this);
-extern void func_800815F8(Obj *this);
+extern void osRecvMesg(void *a, s32 *b, s32 c);
+extern void IrqMgr_HandleRetrace(Obj *this);
+extern void IrqMgr_HandlePreNMI(Obj *this);
+extern void IrqMgr_HandlePRENMI450(Obj *this);
+extern void IrqMgr_HandlePRENMI480(Obj *this);
+extern void IrqMgr_HandlePRENMI500(Obj *this);
 void func_800816D4(Obj *this)
 {
   s32 cmd;
@@ -30,28 +30,28 @@ void func_800816D4(Obj *this)
   p = this->unk60;
   while (done == 0)
   {
-    func_80088070(p, &cmd, 1);
+    osRecvMesg(p, &cmd, 1);
     switch (cmd)
     {
       case 0x29A:
-        func_8008161C(this);
+        IrqMgr_HandleRetrace(this);
         break;
 
       case 0x29D:
-        func_8008146C(this);
+        IrqMgr_HandlePreNMI(this);
  do { } while (0);
         break;
 
       case 0x29F:
-        func_80081524(this);
+        IrqMgr_HandlePRENMI450(this);
         break;
 
       case 0x2A0:
-        func_800815A0(this);
+        IrqMgr_HandlePRENMI480(this);
         break;
 
       case 0x2A1:
-        func_800815F8(this);
+        IrqMgr_HandlePRENMI500(this);
         break;
 
     }

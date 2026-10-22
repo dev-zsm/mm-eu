@@ -14,9 +14,9 @@ typedef struct {
 extern s32 D_80096D00;
 extern u8 D_8009B690[];
 
-void func_80087CB0(void *a, void *b, s32 c);
+void osSendMesg(void *a, void *b, s32 c);
 
-s32 func_80080C54(Node *p, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6) {
+s32 DmaMgr_RequestAsync(Node *p, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     if (D_80096D00 >= 2) {
         p->unk0 = a2;
         return -2;
@@ -27,6 +27,6 @@ s32 func_80080C54(Node *p, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     p->unk14 = 0;
     p->unk18 = a5;
     p->unk1C = a6;
-    func_80087CB0(D_8009B690, p, 1);
+    osSendMesg(D_8009B690, p, 1);
     return 0;
 }

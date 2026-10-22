@@ -7,9 +7,9 @@ typedef struct {
     u8 unk64;
 } Ctx;
 
-s32 func_8008D184(Ctx *a, u16 *b, s32 c, s32 d);
+s32 __osPfsRWInode(Ctx *a, u16 *b, s32 c, s32 d);
 
-s32 func_800938C8(Ctx *arg0, u8 *arg1) {
+s32 corrupted_init(Ctx *arg0, u8 *arg1) {
     u16 tbl[0x80];
     u16 sp158;
     s32 r;
@@ -41,7 +41,7 @@ s32 func_800938C8(Ctx *arg0, u8 *arg1) {
             } else {
                 s1 = arg0->unk60;
             }
-            r = func_8008D184(arg0, tbl, 0, s7);
+            r = __osPfsRWInode(arg0, tbl, 0, s7);
             if (r != 0 && r != 3) {
                 return r;
             }

@@ -3,6 +3,6 @@
 
 extern void *D_800982B0;
 
-void *func_80095750(void) {
+void *__osViGetCurrentContext(void) {
     return D_800982B0;
 }

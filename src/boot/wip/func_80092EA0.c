@@ -32,13 +32,13 @@ typedef struct {
     U16B c;
     s32 pad;
 } Res;
-s32 func_8008D0B0(SomeStruct *a0);
-s32 func_8008D184(SomeStruct *a0, u16 *a1, s32 a2, s32 a3);
-s32 func_80090DE0(s32 a0, s32 a1, u16 a2, void *a3);
-void func_80091460(void *a0, void *a1, s32 a2);
-s32 func_8008B560(s32 a0, s32 a1);
-s32 func_80092DA0(SomeStruct *a0, u8 a1);
-s32 func_80092EA0(SomeStruct *a0, s32 a1, Packet *a2) {
+s32 __osCheckId(SomeStruct *a0);
+s32 __osPfsRWInode(SomeStruct *a0, u16 *a1, s32 a2, s32 a3);
+s32 __osContRamRead(s32 a0, s32 a1, u16 a2, void *a3);
+void bcopy(void *a0, void *a1, s32 a2);
+s32 __osPfsGetStatus(s32 a0, s32 a1);
+s32 __osPfsSelectBank(SomeStruct *a0, u8 a1);
+s32 osPfsFileState(SomeStruct *a0, s32 a1, Packet *a2) {
     u16 sp58[0x80];
     u8 sp48[0x10];
     u8 sp44[0x4];
@@ -54,17 +54,17 @@ s32 func_80092EA0(SomeStruct *a0, s32 a1, Packet *a2) {
     if (!(a0->unk0 & 1)) {
         return 5;
     }
-    ret = func_8008D0B0(a0);
+    ret = __osCheckId(a0);
     if (ret != 0) {
         return ret;
     }
     if (a0->unk65 != 0) {
-        ret = func_80092DA0(a0, 0);
+        ret = __osPfsSelectBank(a0, 0);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_80090DE0(a0->unk4, a0->unk8, a0->unk5C + a1, &r);
+    ret = __osContRamRead(a0->unk4, a0->unk8, a0->unk5C + a1, &r);
     if (ret != 0) {
         return ret;
     }
@@ -80,7 +80,7 @@ s32 func_80092EA0(SomeStruct *a0, s32 a1, Packet *a2) {
         }
         if (s0 != cur.b.hi) {
             s0 = cur.b.hi;
-            ret = func_8008D184(a0, sp58, 0, s0);
+            ret = __osPfsRWInode(a0, sp58, 0, s0);
             if (ret != 0) {
                 return ret;
             }
@@ -94,7 +94,7 @@ s32 func_80092EA0(SomeStruct *a0, s32 a1, Packet *a2) {
     a2->unk0 = s2 << 8;
     a2->unk8 = r.b;
     a2->unk4 = r.a;
-    func_80091460(sp48, a2->unkE, 0x10);
-    func_80091460(sp44, &a2->unk8 + 1, 4);
-    return func_8008B560(a0->unk4, a0->unk8);
+    bcopy(sp48, a2->unkE, 0x10);
+    bcopy(sp44, &a2->unk8 + 1, 4);
+    return __osPfsGetStatus(a0->unk4, a0->unk8);
 }

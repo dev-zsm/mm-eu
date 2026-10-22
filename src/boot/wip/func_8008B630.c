@@ -8,7 +8,7 @@ typedef struct Q4 {
     u8 b[4];
 } Q4;
 
-void func_8008B630(s32 n, u8 val) {
+void __osPfsRequestOneChannel(s32 n, u8 val) {
     u8 buf[6];
     u8 *p;
     s32 i;

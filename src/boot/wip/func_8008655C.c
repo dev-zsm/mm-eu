@@ -1,9 +1,9 @@
 // FLAGS: -O2 -g0
 #include "types.h"
 
-extern void func_80086380(u32 a0);
+extern void SystemHeap_Free(u32 a0);
 
-void func_8008655C(u32 a0, s32 a1, s32 a2, void (*a3)(u32, s32), s32 a4) {
+void SystemHeap_RunBlockFunc1Reverse(u32 a0, s32 a1, s32 a2, void (*a3)(u32, s32), s32 a4) {
     u32 base;
     u32 end;
     u32 p;
@@ -21,7 +21,7 @@ void func_8008655C(u32 a0, s32 a1, s32 a2, void (*a3)(u32, s32), s32 a4) {
             }
         }
         if (a4 != 0) {
-            func_80086380(base);
+            SystemHeap_Free(base);
         }
     }
 }

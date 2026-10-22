@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-u8 func_80091310(u8 *p) {
+u8 __osContDataCrc(u8 *p) {
     u32 v;
     u32 c;
     u32 m;

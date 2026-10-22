@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-void func_8008B7A0(u32 *p) {
+void guMtxIdentF(u32 *p) {
     p[0] = 0x3F800000;
     p[1] = 0;
     p[2] = 0;

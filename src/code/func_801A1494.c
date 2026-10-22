@@ -3,6 +3,6 @@
 
 extern s8 D_801CEF9C;
 
-void func_801A1494(void) {
+void Audio_ResetIncreasingTranspose(void) {
     D_801CEF9C = 0;
 }

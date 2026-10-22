@@ -16,7 +16,7 @@ extern f64 D_80099808;
 extern f32 D_80099810;
 extern f32 D_80099820;
 
-f32 func_800920E0(f32 arg0) {
+f32 __cosf(f32 arg0) {
     f32 ax;
     f64 t12;
     f64 t14;

@@ -5,7 +5,7 @@ struct Node {
     struct Node *next;
 };
 
-void *func_8008724C(struct Node **head) {
+void *ArenaImpl_GetLastBlock(struct Node **head) {
     struct Node *p = *head;
     struct Node *q;
     if (p != NULL) {

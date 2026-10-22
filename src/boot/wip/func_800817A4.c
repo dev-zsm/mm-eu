@@ -18,11 +18,11 @@ typedef struct {
     s32 unk254;
 } Obj;
 
-extern void func_8008F3E0(void *a, void *b, s32 c);
-extern void func_8008D7E0(s32 a, void *b, s32 c);
-extern void func_80092580(void *a, s32 b, u8 c);
-extern void func_80089FE0(void *a, s32 b, void (*c)(Obj *), Obj *d, s32 e, s32 f);
-extern void func_80095950(void *a);
+extern void osCreateMesgQueue(void *a, void *b, s32 c);
+extern void osSetEventMesg(s32 a, void *b, s32 c);
+extern void osViSetEvent(void *a, s32 b, u8 c);
+extern void osCreateThread(void *a, s32 b, void (*c)(Obj *), Obj *d, s32 e, s32 f);
+extern void osStartThread(void *a);
 extern void func_800816D4(Obj *this);
 
 void func_800817A4(Obj *this, s32 a1, s32 a2, u8 a3) {
@@ -33,9 +33,9 @@ void func_800817A4(Obj *this, s32 a1, s32 a2, u8 a3) {
     this->unk24C = 0;
     this->unk254 = 0;
     this->unk250 = 0;
-    func_8008F3E0(this->unk60, this->unk78, 8);
-    func_8008D7E0(0xE, this->unk60, 0x29D);
-    func_80092580(this->unk60, 0x29A, a3);
-    func_80089FE0(this->unk98, 0x13, func_800816D4, this, a1, a2);
-    func_80095950(this->unk98);
+    osCreateMesgQueue(this->unk60, this->unk78, 8);
+    osSetEventMesg(0xE, this->unk60, 0x29D);
+    osViSetEvent(this->unk60, 0x29A, a3);
+    osCreateThread(this->unk98, 0x13, func_800816D4, this, a1, a2);
+    osStartThread(this->unk98);
 }

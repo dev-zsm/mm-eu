@@ -13,7 +13,7 @@ typedef struct Owner {
     Node *head;
 } Owner;
 
-extern u32 func_800881B0(u32 mask);
+extern u32 osSetIntMask(u32 mask);
 extern void func_8008198C(void *queue, void *node);
 extern Owner *D_8009C220;
 extern u8 D_80098744[];
@@ -24,7 +24,7 @@ void func_80081A50(Node *node, u32 a1, u32 a2, u32 a3) {
     Node *p;
 
     found = 0;
-    saved = func_800881B0(1);
+    saved = osSetIntMask(1);
     p = D_8009C220->head;
     if (p != NULL) {
         do {
@@ -42,7 +42,7 @@ void func_80081A50(Node *node, u32 a1, u32 a2, u32 a3) {
         node->next = D_8009C220->head;
         D_8009C220->head = node;
     }
-    func_800881B0(saved);
+    osSetIntMask(saved);
     if (found) {
         func_8008198C(D_80098744, node);
     }

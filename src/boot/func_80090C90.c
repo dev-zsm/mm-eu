@@ -3,7 +3,7 @@
 
 extern s32 D_80098048[];
 
-s32 func_80090C90(u32 arg0) {
+s32 osAiSetFrequency(u32 arg0) {
     s32 var_a0;
     u32 temp_lo;
     u32 temp_v1;
