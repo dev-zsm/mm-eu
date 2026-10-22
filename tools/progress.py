@@ -76,7 +76,8 @@ def main():
            "* **Drafts to clean up**: verified, but still written with raw field offsets (`M2C_FIELD`) from the automatic draft; they become real struct accesses once the types are known.\n"
            "* **C bytes**: share of the segment's code bytes covered by verified C.\n"
            "* **Original assembly**: hand-written in the original game or impossible in C; not counted in the denominator.\n"
-           "* **Attempts (wip)**: unfinished drafts in `src/<segment>/wip/`.\n\n" + "\n".join(rows) + "\n")
+           "* **Attempts (wip)**: unfinished drafts in `src/<segment>/wip/`.\n\n" + "\n".join(rows) + "\n\n"
+           "Naming, file layout and readability work is planned for after all the C matches: see [ROADMAP.md](ROADMAP.md).\n")
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs" / "PROGRESS.md").write_text(out, encoding="utf-8")
     if {"boot", "code"} <= set(results):  # a partial run (one segment) must not rewrite the README bars
