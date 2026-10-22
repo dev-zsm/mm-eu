@@ -30,3 +30,21 @@ Byte-identical recompression of the compressed files and rebuilding of the file 
 ## 5. PC port
 
 Rendering, audio and input layers on top of the C code base.
+
+## Later: names, layout and readability (after all the C matches)
+
+These are deliberately postponed until every function is written in C and verified: with the whole code base in
+hand, how each variable and structure field is used across the game is visible, and the work is easier and more
+reliable. Matching comes first.
+
+- [ ] **Remaining function names.** About 750 functions still carry their address name (`func_8009XXXX`). Names are
+      added only with evidence (`sdk:`, `ref:` or `inferred:` in `config/*.names.txt`).
+- [ ] **Variable names.** No data symbol (`D_XXXXXXXX`) is named yet. They can be aligned with the reference
+      research the same way functions were (`tools/ref_align.py`), then confirmed from their use in the code.
+- [ ] **Source files named after their function** instead of their address, then grouped into modules
+      (one file per module, in the original order of the code).
+- [ ] **Structure types.** Replace the local `typedef struct` with padding (`unk1C`, `pad0`) by shared types in
+      `include/`, with named fields.
+- [ ] **Drafts to clean up.** Rewrite the verified drafts that still use raw field offsets (`M2C_FIELD`) once the
+      structures are known (the count is in [PROGRESS.md](PROGRESS.md)).
+- [ ] Data (`.data`, `.rodata`, strings, jump tables) expressed in C with proper types.

@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PERMUTER = ROOT / "tools/vendor/decomp-permuter/permuter.py"
 sys.path.insert(0, str(ROOT / "tools"))
 import match  # noqa: E402
+import names  # noqa: E402
 
 
 def sizes(seg):
@@ -58,7 +59,7 @@ def main():
             flags = wip.read_text().splitlines()[0]
             dst = ROOT / "src" / seg / f"{fn}.c"
             body = best[0].read_text()
-            dst.write_text((flags + "\n" if flags.startswith("// FLAGS") else "") + body)
+            dst.write_text((flags + "\n" if flags.startswith("// FLAGS") else "") + names.apply(body, names.load(seg)))
             r = subprocess.run([sys.executable, str(ROOT / "tools/match.py"), seg, fn, str(dst)], capture_output=True, text=True)
             if "MATCH" in r.stdout and "differ" not in r.stdout:
                 wip.unlink()

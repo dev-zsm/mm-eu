@@ -2,12 +2,8 @@
 
 A from-scratch matching decompilation of *The Legend of Zelda: Majora's Mask* (Europe, Rev 1) for the Nintendo 64.
 
-```
-- WARNING! -
-
-This repository is a work in progress. The code base, the file layout and the symbol names
-change often and without notice. Do not build on top of it yet unless you accept that.
-```
+> **Status: early stage.** Most of the game is not decompiled yet, and file names, folders and symbol names are
+> still being reorganised from one commit to the next. Treat everything here as unstable for now.
 
 This is a work-in-progress, from-scratch **matching decompilation** of *The Legend of Zelda: Majora's Mask* for the
 Nintendo 64, European release, revision 1 (game code `NZSP`, version 1). The goal is to recreate a readable and
@@ -32,10 +28,10 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-22):
 
 ```
-boot  functions ███████████████████░░░░░░░░░░░  62.0 %  (264 / 426)
-boot  code size ████████░░░░░░░░░░░░░░░░░░░░░░  27.8 %  (0x63b0 / 0x165f4 bytes)
-code  functions ████████░░░░░░░░░░░░░░░░░░░░░░  26.0 %  (929 / 3576)
-code  code size █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   4.9 %  (0xce4c / 0x104acc bytes)
+boot  functions ███████████████████░░░░░░░░░░░  62.2 %  (265 / 426)
+boot  code size ████████░░░░░░░░░░░░░░░░░░░░░░  28.0 %  (0x6418 / 0x165f4 bytes)
+code  functions ████████░░░░░░░░░░░░░░░░░░░░░░  27.4 %  (980 / 3576)
+code  code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.3 %  (0xdc5c / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
