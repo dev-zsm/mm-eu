@@ -4,7 +4,7 @@
 typedef struct Node {
     u16 unk0;
     u16 unk2;
-    s32 unk4;
+    u32 unk4;
     void *unk8;
     s32 unkC;
 } Node;
@@ -22,16 +22,18 @@ void func_800897D0(void *arg0, s32 arg1);
 void func_80091DB0(void *arg0, s32 arg1, u32 arg2);
 
 void func_80091C90(void) {
+    s32 t;
     func_800897D0(&D_80098250, 0x60);
     D_800982B0 = &D_80098250;
     D_800982B4 = &D_80098280;
-    D_80098280.unk2 = 1;
+    D_800982B4->unk2 = 1;
     D_800982B0->unk2 = 1;
     D_800982B4->unk4 = 0x80000000;
     D_800982B0->unk4 = 0x80000000;
-    if (D_80000300 == 0) {
+    t = D_80000300;
+    if (t == 0) {
         D_800982B4->unk8 = D_80097780;
-    } else if (D_80000300 == 2) {
+    } else if (t == 2) {
         D_800982B4->unk8 = D_80098200;
     } else {
         D_800982B4->unk8 = D_800981B0;

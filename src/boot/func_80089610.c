@@ -1,4 +1,4 @@
-// FLAGS: -O1 -g3 -mips2
+// FLAGS: -O1 -g0 -mips2
 #include "types.h"
 
 typedef struct Obj {
@@ -18,9 +18,9 @@ void func_80089444(void);
 void func_800895D0(Obj *a0, Obj *a1);
 
 void func_80089610(Obj *arg) {
-    void *s0;
-    Obj *s1;
-    Obj *s2;
+    register void *s0;
+    register Obj *s1;
+    register Obj *s2;
 
     s0 = func_80091C00();
     if (arg == NULL) {
@@ -30,7 +30,7 @@ void func_80089610(Obj *arg) {
     }
 
     if (D_8009800C == arg) {
-        D_8009800C = arg->unkC;
+        D_8009800C = D_8009800C->unkC;
     } else {
         s1 = D_8009800C;
         if (s1->unk4 != -1) {

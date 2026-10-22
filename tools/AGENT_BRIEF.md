@@ -85,4 +85,9 @@ The remaining differences are almost always register allocation or stack layout.
 - Two arguments at the same address that the ROM loads separately (own lui/addiu) are usually a thread stack and
   its top: declare `extern u8 STACK[size];` and pass `STACK + sizeof(STACK)` (size = next symbol - STACK). Never add
   a second symbol name for the same address.
+- libultra thread/queue code (unfilled `nop` delay slots, tiny frames): `-O1 -g0` with `register` locals.
+- A copy/fill loop that `-O2` unrolls: unsigned counter and `while (n > 0) { n -= 4; ... }`.
+- Case bodies emitted out of order: write the `switch` cases in the ROM's order (e.g. `case 2`, `case 0`, `case 1: default`).
+- Unaligned struct copy (`lwl/lwr` + aligned `sw`): `*(T __unaligned *)p`.
+- Use unique scratch file names (`build/agent_<fn>_N.c`); other agents work in the same folder.
 - The decomp-permuter is also running over all wip functions in the background (CPU only); do not start your own permuter.
