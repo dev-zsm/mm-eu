@@ -1,31 +1,24 @@
-// FLAGS: -O2 -g3
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
 extern f32 D_80099350;
 
+// best attempt: ~4 real diffs (missing nop before loop at +0x14; next-sum temp is f18 instead of f16)
 f32 func_800868A4(f32 arg0) {
-    f32 *var_v0;
-    f32 temp_f0;
-    f32 temp_f4;
-    f32 temp_f12;
-    f32 temp_f16;
-    f32 var_f14;
-    f32 var_f2;
+    f32 sq, cube, sum, t, nx;
+    f32 *p;
 
-    temp_f0 = arg0 * arg0;
-    var_f2 = arg0;
-    var_v0 = &D_80099350;
-    var_f14 = arg0 * temp_f0;
+    sq = arg0 * arg0;
+    sum = arg0;
+    p = &D_80099350;
+    cube = arg0 * sq;
     for (;;) {
-        temp_f4 = *var_v0;
-        var_v0 += 1;
-        temp_f12 = temp_f4 * var_f14;
-        temp_f16 = var_f2 + temp_f12;
-        if (var_f2 == temp_f16) {
-            break;
-        }
-        var_f14 *= temp_f0;
-        var_f2 = temp_f16;
+        t = *p * cube;
+        p++;
+        nx = sum + t;
+        if (sum == nx) break;
+        cube *= sq;
+        sum = nx;
     }
-    return var_f2;
+    return sum;
 }
