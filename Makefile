@@ -12,7 +12,7 @@ split:            ## disassemble boot and code into asm/ with splat
 verify:           ## every C function == ROM bytes, and the segment rebuilt from C + asm == ROM
 	bash tools/verify_all.sh $(SEG)
 
-progress:         ## refresh docs/PROGRESS.md
+progress:         ## refresh docs/PROGRESS.md and the progress bars in README.md
 	python3 tools/progress.py boot code
 
 names:            ## check config/*.names.txt and apply names to the sources

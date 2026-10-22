@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Progress report for a segment: how much of the original code is C verified against the ROM.
-usage: progress.py [boot code ...]   (writes docs/PROGRESS.md and prints it)"""
-import re, sys
+usage: progress.py [boot code ...]   (writes docs/PROGRESS.md, refreshes the progress bars in README.md, prints the report)"""
+import datetime, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -34,12 +34,39 @@ def segment(seg: str) -> dict:
     }
 
 
+def bar(pct: float, width: int = 30) -> str:
+    n = round(width * pct / 100)
+    return "█" * n + "░" * (width - n)
+
+
+def update_readme(results: dict):
+    """Rewrite the block between the progress markers of README.md (no-op when the markers are missing)."""
+    readme = ROOT / "README.md"
+    text = readme.read_text(encoding="utf-8")
+    a, b = "<!-- progress:start -->", "<!-- progress:end -->"
+    if a not in text or b not in text:
+        return
+    lines = []
+    for s, r in results.items():
+        denom = r["total"] - r["asm_original"]
+        for label, pct, extra in (("functions", 100 * r["c"] / max(1, denom), f"{r['c']} / {denom}"),
+                                  ("code size", 100 * r["c_bytes"] / max(1, r["bytes"]), f"{r['c_bytes']:#x} / {r['bytes']:#x} bytes")):
+            lines.append(f"{s:<5} {label:<9} {bar(pct)} {pct:5.1f} %  ({extra})")
+    lines.append("overlays   (actors, scenes, menus): not started")
+    block = (f"{a}\nMatching C verified byte-for-byte against the ROM (refreshed by `make progress`, "
+             f"last update {datetime.date.today()}):\n\n```\n" + "\n".join(lines) + f"\n```\n{b}")
+    head, rest = text.split(a, 1)
+    readme.write_text(head + block + rest.split(b, 1)[1], encoding="utf-8")
+
+
 def main():
     segs = sys.argv[1:] or ["boot", "code"]
     rows = ["| Segment | C functions (verified) | of which drafts to clean up | C bytes | Original assembly | Attempts (wip) | Remaining | Named |",
-            "|---|---|---|---|---|---|---|"]
+            "|---|---|---|---|---|---|---|---|"]
+    results = {}
     for s in segs:
         r = segment(s)
+        results[s] = r
         pct = 100 * r["c"] / max(1, r["total"] - r["asm_original"])
         pcb = 100 * r["c_bytes"] / max(1, r["bytes"])
         rows.append(f"| `{s}` | {r['c']} / {r['total'] - r['asm_original']} ({pct:.1f} %) | {r['drafts']} | {r['c_bytes']:#x} / {r['bytes']:#x} ({pcb:.1f} %) "
@@ -52,6 +79,8 @@ def main():
            "* **Attempts (wip)**: unfinished drafts in `src/<segment>/wip/`.\n\n" + "\n".join(rows) + "\n")
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs" / "PROGRESS.md").write_text(out, encoding="utf-8")
+    if {"boot", "code"} <= set(results):  # a partial run (one segment) must not rewrite the README bars
+        update_readme(results)
     print(out)
 
 
