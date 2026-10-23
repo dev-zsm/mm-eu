@@ -1,38 +1,36 @@
 // FLAGS: -O2 -g0 -mips2
+// Best attempt: structure/instruction count match; scratch registers differ (ROM keeps shifted value in t6, mask in a2/a1).
 #include "types.h"
 
-u8 __osContDataCrc(u8 *p) {
-    u32 v;
-    u32 c;
-    u32 m;
-    u32 s;
-    u32 n;
+u8 __osContDataCrc(u8 *data) {
+    u32 ret;
+    u32 mask;
+    u32 i;
 
-    v = 0;
-    for (n = 0x20; n != 0; n--) {
-        c = *p;
-        m = 0x80;
-        do {
-            s = v << 1;
-            if (c & m) {
-                if (s & 0x100) {
-                    v = s ^ 0x84;
+    ret = 0;
+    for (i = 0x20; i != 0; i--) {
+        for (mask = 0x80; mask != 0; mask >>= 1) {
+            u32 t = ret << 1;
+            ret = t;
+            if (*data & mask) {
+                if (t & 0x100) {
+                    ret = t ^ 0x84;
                 } else {
-                    v = s + 1;
+                    ret++;
                 }
-            } else {
-                v = s;
-                if (s & 0x100) {
-                    v = s ^ 0x85;
-                }
+            } else if (ret & 0x100) {
+                ret ^= 0x85;
             }
-            m >>= 1;
-        } while (m != 0);
-        p++;
+        }
+        data++;
     }
-
-    s = v << 1;
-    for (n = 0; n != 8; n++) { if (s & 0x100) { v = s ^ 0x85; } else { v = s; } s = v << 1; }
-
-    return v & 0xFF;
+    do {
+        u32 t = ret << 1;
+        ret = t;
+        if (t & 0x100) {
+            ret = t ^ 0x85;
+        }
+        i++;
+    } while (i < 8);
+    return ret;
 }

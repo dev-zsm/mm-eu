@@ -1,57 +1,52 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
-void Fault_WalkStack(u32 *arg0, u32 *arg1, u32 *arg2) {
-    u32 v0 = *arg0;
-    u32 v1 = *arg1;
-    u32 a3 = *arg2;
-    u32 t0 = 0;
-    u32 t2;
-    u32 t6;
-    u32 t4;
-    u32 jr = 0x03E00008;
-    u32 two = 2;
-    u32 addiu_sp = 0x27BD;
-    u32 eret = 0x42000018;
+void Fault_WalkStack(u32 *spPtr, u32 *pcPtr, u32 *raPtr) {
+    u32 sp = *spPtr;
+    u32 pc = *pcPtr;
+    u32 ra = *raPtr;
+    u32 lastInstruction;
+    u32 instruction;
+    u16 opcode;
     s16 imm;
 
-    if ((v0 & 3) || v0 < 0x80000000 || v0 >= 0xC0000000 || (a3 & 3) || a3 < 0x80000000 || a3 >= 0xC0000000) {
-        *arg0 = 0;
-        *arg1 = 0;
-        *arg2 = 0;
+    if ((sp & 3) || sp < 0x80000000 || sp >= 0xC0000000 || (ra & 3) || ra < 0x80000000 || ra >= 0xC0000000) {
+        *spPtr = 0;
+        *pcPtr = 0;
+        *raPtr = 0;
         return;
     }
-    if ((v1 & 3) || v1 < 0x80000000 || v1 >= 0xC0000000) {
-        *arg1 = a3;
+    if ((pc & 3) || pc < 0x80000000 || pc >= 0xC0000000) {
+        *pcPtr = ra;
         return;
     }
-    for (;;) {
-        t2 = *(u32 *)v1;
-        t6 = t0 >> 26;
-        t4 = (t2 >> 16) & 0xFFFF;
-        imm = (s16)t2;
-        if (t4 == 0x8FBF) {
-            a3 = *(u32 *)(v0 + imm);
-        } else if (t4 == addiu_sp) {
-            v0 += imm;
-        } else if (t2 == eret) {
-            v0 = 0;
-            v1 = 0;
-            a3 = 0;
+    lastInstruction = 0;
+    while (1) {
+        instruction = *(u32 *)pc;
+        opcode = instruction >> 16;
+        imm = instruction;
+        if (opcode == 0x8FBF) {
+            ra = *(u32 *)(sp + imm);
+        } else if (opcode == 0x27BD) {
+            sp += imm;
+        } else if (instruction == 0x42000018) {
+            sp = 0;
+            pc = 0;
+            ra = 0;
             break;
         }
-        if (t0 == jr) {
-            v1 = a3;
+        if (lastInstruction == 0x03E00008) {
+            pc = ra;
             break;
         }
-        if (t6 == two) {
-            v1 = ((v1 >> 28) << 28) | ((t0 << 6) >> 4);
+        if ((lastInstruction >> 26) == 2) {
+            pc = (pc & 0xF0000000) | ((lastInstruction << 6) >> 4);
             break;
         }
-        t0 = t2;
-        v1 += 4;
+        lastInstruction = instruction;
+        pc += 4;
     }
-    *arg0 = v0;
-    *arg1 = v1;
-    *arg2 = a3;
+    *spPtr = sp;
+    *pcPtr = pc;
+    *raPtr = ra;
 }

@@ -3,76 +3,67 @@
 
 typedef struct {
     u8 pad0[2];
-    u16 f2;
+    u16 retraceCount;
     u8 pad4[0xC];
-    void *f10;
-    s32 f14;
-} Hdr800955C0;
+    void *msgq;
+    void *msg;
+} ViContext;
+
+typedef struct {
+    u16 type;
+} ViMsg;
 
 typedef struct {
     u8 pad0[0xC];
-    void *pC;
-} Arg800955C0;
+    void *evtQueue;
+} DevMgr;
 
 extern u16 D_8009FC70;
-extern u32 D_8009E980;
+extern u64 D_8009E980;
 extern u32 D_8009E988;
-extern s32 D_8009E98C;
+extern u32 D_8009E98C;
 
-Hdr800955C0 *__osViGetCurrentContext(void);
-s32 osRecvMesg(void *a, void **b, s32 c);
+ViContext *__osViGetCurrentContext(void);
+s32 osRecvMesg(void *a, void *b, s32 c);
 void __osTimerInterrupt(void);
 void __osViSwapContext(void);
-void osSendMesg(void *a, s32 b, s32 c);
+void osSendMesg(void *a, void *b, s32 c);
 u32 osGetCount(void);
 
-void viMgrMain(Arg800955C0 *arg) {
-    void *p;
-    Hdr800955C0 *h;
-    u32 *s1;
-    u32 *s2;
-    s32 *s3;
-    u32 prev;
-    u32 now;
-    u32 diff;
-    u32 lo;
+void viMgrMain(DevMgr *dm) {
+    ViContext *vc;
+    ViMsg *mb;
+    u32 count;
+    u32 elapsed;
 
-    p = 0;
-    h = __osViGetCurrentContext();
-    D_8009FC70 = h->f2;
-    if (h->f2 == 0) {
+    mb = 0;
+    vc = __osViGetCurrentContext();
+    D_8009FC70 = vc->retraceCount;
+    if (D_8009FC70 == 0) {
         D_8009FC70 = 1;
     }
-    s1 = (u32 *)&D_8009E980;
-    s2 = (u32 *)&D_8009E988;
-    s3 = (s32 *)&D_8009E98C;
-
     while (1) {
-        while (1) {
-            osRecvMesg(arg->pC, &p, 1);
-            if (*(u16 *)p == 0xD) {
+        osRecvMesg(dm->evtQueue, &mb, 1);
+        switch (mb->type) {
+            case 13:
+                __osViSwapContext();
+                D_8009FC70--;
+                if (D_8009FC70 == 0) {
+                    vc = __osViGetCurrentContext();
+                    if (vc->msgq != 0) {
+                        osSendMesg(vc->msgq, vc->msg, 0);
+                    }
+                    D_8009FC70 = vc->retraceCount;
+                }
+                D_8009E98C++;
+                count = osGetCount();
+                elapsed = count - D_8009E988;
+                D_8009E988 = count;
+                D_8009E980 += elapsed;
                 break;
-            }
-            if (*(u16 *)p == 0xE) {
+            case 14:
                 __osTimerInterrupt();
-            }
+                break;
         }
-        __osViSwapContext();
-        D_8009FC70 = D_8009FC70 - 1;
-        if (D_8009FC70 == 0) {
-            h = __osViGetCurrentContext();
-            if (h->f10 != 0) {
-                osSendMesg(h->f10, h->f14, 0);
-            }
-            D_8009FC70 = h->f2;
-        }
-        *s3 = *s3 + 1;
-        prev = *s2;
-        now = osGetCount();
-        diff = now - prev;
-        lo = s1[1] + diff;
-        s1[0] = s1[0] + (lo < s1[1]);
-        *s2 = now;
-        s1[1] = lo;
     }
 }
