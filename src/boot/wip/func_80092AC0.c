@@ -1,36 +1,37 @@
-// FLAGS: -O2 -g3 -mips2
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-typedef struct {
-    void *unk0;
-    u8 unk4;
-    u8 unk5;
-    u8 unk6;
-    u8 unk7;
-    u8 unk8;
-    u8 unk9;
-    u32 unkC;
-    u32 unk10;
-} Obj;
+typedef volatile u32 vu32;
+typedef struct PiHandle {
+    struct PiHandle *next;
+    u8 type;
+    u8 latency;
+    u8 pageSize;
+    u8 relDuration;
+    u8 pulse;
+    u8 domain;
+    u32 baseAddress;
+    u32 speed;
+} PiHandle;
 
 extern s32 D_80098310;
-extern Obj *D_8009807C;
-extern Obj D_8009E9E0;
+extern PiHandle *D_8009807C;
+extern PiHandle D_8009E9E0;
 extern u8 D_8009E9F4[];
 
 extern void __osPiGetAccess(void);
 extern void __osPiRelAccess(void);
 extern void bzero(void *p, s32 n);
-extern u32 __osDisableInt(u32 a);
+extern u32 __osDisableInt(void);
 extern void __osRestoreInt(u32 a);
 
-Obj *osCartRomInit(void) {
-    Obj *s0;
-    u32 v;
-    u32 old14;
-    u32 old1c;
-    u32 old20;
-    u32 old18;
+PiHandle *osCartRomInit(void) {
+    u32 latency;
+    u32 pageSize;
+    u32 relDuration;
+    u32 pulse;
+    u32 value;
+    u32 prevInt;
 
     __osPiGetAccess();
     if (D_80098310 == 0) {
@@ -38,36 +39,35 @@ Obj *osCartRomInit(void) {
         return &D_8009E9E0;
     }
     D_80098310 = 0;
-    s0 = &D_8009E9E0;
-    s0->unk4 = 0;
-    s0->unkC = 0xB0000000;
-    s0->unk9 = 0;
-    s0->unk10 = 0;
+    D_8009E9E0.type = 0;
+    D_8009E9E0.baseAddress = 0xB0000000;
+    D_8009E9E0.domain = 0;
+    D_8009E9E0.speed = 0;
     bzero(D_8009E9F4, 0x60);
 
-    while (*(u32 *)0xA4600010 & 3) {
+    while ((value = *(vu32 *)0xA4600010) & 3) {
     }
-    old14 = *(u32 *)0xA4600014;
-    old1c = *(u32 *)0xA460001C;
-    old20 = *(u32 *)0xA4600020;
-    old18 = *(u32 *)0xA4600018;
-    *(u32 *)0xA4600014 = 0xFF;
-    *(u32 *)0xA460001C = 0;
-    *(u32 *)0xA4600020 = 3;
-    *(u32 *)0xA4600018 = 0xFF;
-    v = *(u32 *)(s0->unkC | 0xA0000000);
-    s0->unk6 = (v >> 16) & 0xF;
-    s0->unk7 = (v >> 20) & 0xF;
-    s0->unk8 = v >> 8;
-    s0->unk5 = v;
-    *(u32 *)0xA4600014 = old14;
-    *(u32 *)0xA460001C = old1c;
-    *(u32 *)0xA4600020 = old20;
-    *(u32 *)0xA4600018 = old18;
-    v = __osDisableInt(old1c);
-    s0->unk0 = D_8009807C;
-    D_8009807C = s0;
-    __osRestoreInt(v);
+    latency = *(vu32 *)0xA4600014;
+    pageSize = *(vu32 *)0xA460001C;
+    relDuration = *(vu32 *)0xA4600020;
+    pulse = *(vu32 *)0xA4600018;
+    *(vu32 *)0xA4600014 = 0xFF;
+    *(vu32 *)0xA460001C = 0;
+    *(vu32 *)0xA4600020 = 3;
+    *(vu32 *)0xA4600018 = 0xFF;
+    value = *(vu32 *)(D_8009E9E0.baseAddress | 0xA0000000);
+    D_8009E9E0.pageSize = (value >> 16) & 0xF;
+    D_8009E9E0.relDuration = (value >> 20) & 0xF;
+    D_8009E9E0.pulse = value >> 8;
+    D_8009E9E0.latency = value;
+    *(vu32 *)0xA4600014 = latency;
+    *(vu32 *)0xA460001C = pageSize;
+    *(vu32 *)0xA4600020 = relDuration;
+    *(vu32 *)0xA4600018 = pulse;
+    prevInt = __osDisableInt();
+    D_8009E9E0.next = D_8009807C;
+    D_8009807C = &D_8009E9E0;
+    __osRestoreInt(prevInt);
     __osPiRelAccess();
-    return s0;
+    return &D_8009E9E0;
 }

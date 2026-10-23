@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
 typedef struct {
@@ -28,6 +29,7 @@ s32 osPfsFindFile(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
     s32 ret;
     s32 mismatch;
     Buf buf;
+    s32 j;
 
     if (!(ctx->flags & 1)) {
         return 5;
@@ -42,34 +44,31 @@ s32 osPfsFindFile(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
             return ret;
         }
         ret = __osPfsGetStatus(ctx->unk4, ctx->unk8);
-        if (ret == 0) {
-            if (buf.h4 == key && buf.w0 == fe) {
-                mismatch = 0;
-                if (a3 != NULL) {
-                    s32 j;
-                    for (j = 0; j < 0x10; j++) {
-                        if (buf.b60[j] != a3[j]) {
-                            mismatch = 1;
-                            break;
-                        }
+        if (ret != 0) {
+            return ret;
+        }
+        if (buf.h4 == key && buf.w0 == fe) {
+            mismatch = 0;
+            if (a3 != NULL) {
+                for (j = 0; j < 0x10; j++) {
+                    if (buf.b60[j] != a3[j]) {
+                        mismatch = 1;
+                        break;
                     }
-                }
-                if (a4 != NULL && mismatch == 0) {
-                    s32 j;
-                    for (j = 0; j < 4; j++) {
-                        if (buf.b5C[j] != a4[j]) {
-                            mismatch = 1;
-                            break;
-                        }
-                    }
-                }
-                if (mismatch == 0) {
-                    *out = i;
-                    return ret;
                 }
             }
-        } else {
-            return ret;
+            if (a4 != NULL && mismatch == 0) {
+                for (j = 0; j < 4; j++) {
+                    if (buf.b5C[j] != a4[j]) {
+                        mismatch = 1;
+                        break;
+                    }
+                }
+            }
+            if (mismatch == 0) {
+                *out = i;
+                return ret;
+            }
         }
     }
     *out = -1;

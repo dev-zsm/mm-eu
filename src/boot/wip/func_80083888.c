@@ -1,7 +1,18 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
-extern u8 *D_8009C220;
+typedef struct {
+    u8 pad0[0x7B0];
+    u8 queue[0x18];
+    s32 msg;
+    u8 exit;
+    u8 msgId;
+    u8 faultHandlerEnabled;
+    u8 autoScroll;
+    u8 *faultedThread;
+} FaultMgr;
+
+extern FaultMgr *D_8009C220;
 extern u8 D_80098DF8[];
 extern u8 D_80098DDC[];
 extern u8 D_80098DB8[];
@@ -38,66 +49,63 @@ void Fault_FillScreenRed(void);
 void FaultDrawer_DrawText(s32 a0, s32 a1, void *a2, ...);
 void Fault_ResumeThread(u8 *a0);
 
-void Fault_ThreadEntry(s32 a0) {
-    u8 **s1;
-    u8 *s0;
-    s32 sp54;
+void Fault_ThreadEntry(s32 arg) {
+    void *msg;
+    u8 *faultedThread;
 
-    s1 = &D_8009C220;
-    osSetEventMesg(0xA, *s1 + 0x7B0, 1);
-    osSetEventMesg(0xC, *s1 + 0x7B0, 2);
-    do {
+    osSetEventMesg(0xA, D_8009C220->queue, 1);
+    osSetEventMesg(0xC, D_8009C220->queue, 2);
+    while (1) {
         do {
-            osRecvMesg(*s1 + 0x7B0, &sp54, 1);
-            if (sp54 == 3) {
-                s0 = NULL;
+            osRecvMesg(D_8009C220->queue, &msg, 1);
+            if (msg == (void *)1) {
+                D_8009C220->msgId = 1;
+                func_8008198C(D_80098D18);
+            } else if (msg == (void *)2) {
+                D_8009C220->msgId = 2;
+                func_8008198C(D_80098D50);
+            } else if (msg == (void *)3) {
                 Fault_UpdatePad();
+                faultedThread = NULL;
+                continue;
             } else {
-                if (sp54 == 1) {
-                    (*s1)[0x7CD] = 1;
-                    func_8008198C(D_80098D18);
-                } else if (sp54 == 2) {
-                    (*s1)[0x7CD] = 2;
-                    func_8008198C(D_80098D50);
-                } else {
-                    (*s1)[0x7CD] = 3;
-                    func_8008198C(D_80098D84);
-                }
-                s0 = (u8 *)__osGetCurrFaultedThread();
-                func_8008198C(D_80098DB8, s0);
-                if (s0 == NULL) {
-                    s0 = (u8 *)Fault_FindFaultedThread();
-                    func_8008198C(D_80098DDC, s0);
-                }
+                D_8009C220->msgId = 3;
+                func_8008198C(D_80098D84);
             }
-        } while (s0 == NULL);
+            faultedThread = (u8 *)__osGetCurrFaultedThread();
+            func_8008198C(D_80098DB8, faultedThread);
+            if (faultedThread == NULL) {
+                faultedThread = (u8 *)Fault_FindFaultedThread();
+                func_8008198C(D_80098DDC, faultedThread);
+            }
+        } while (faultedThread == NULL);
         __osSetFpcCsr(__osGetFpcCsr() & ~0xF80);
-        *(s32 *)(*s1 + 0x7D0) = (s32)s0;
-        while ((*s1)[0x7CE] == 0) {
-            Fault_Sleep(0x3E8);
+        D_8009C220->faultedThread = faultedThread;
+        while (!D_8009C220->faultHandlerEnabled) {
+            Fault_Sleep(1000);
         }
-        Fault_Sleep(0x1F4);
+        Fault_Sleep(500);
         Fault_DisplayFrameBuffer();
-        if ((*s1)[0x7CF] != 0) {
+        if (D_8009C220->autoScroll) {
             Fault_Wait5Seconds();
         } else {
             Fault_DrawCornerRec(0xF801);
             Fault_WaitForButtonCombo();
         }
-        (*s1)[0x7CF] = 1;
+        D_8009C220->autoScroll = 1;
         FaultDrawer_SetForeColor(0xFFFF);
         FaultDrawer_SetBackColor(0);
         do {
-            Fault_PrintThreadContext(s0);
-            Fault_LogThreadContext(s0);
+            Fault_PrintThreadContext(faultedThread);
+            Fault_LogThreadContext(faultedThread);
             Fault_WaitForInput();
-            Fault_DrawStackTrace(s0, 0);
-            Fault_LogStackTrace(s0, 0);
+            Fault_DrawStackTrace(faultedThread, 0);
+            Fault_LogStackTrace(faultedThread, 0);
             Fault_WaitForInput();
             Fault_ProcessClients();
-            Fault_DrawMemDump(*(s32 *)(s0 + 0x11C) - 0x100, *(s32 *)(s0 + 0xF4), 0, 0);
-            Fault_DrawStackTrace(s0, 1);
-            Fault_LogStackTrace(s0, 1);
+            Fault_DrawMemDump(*(s32 *)(faultedThread + 0x11C) - 0x100, *(s32 *)(faultedThread + 0xF4), 0, 0);
+            Fault_DrawStackTrace(faultedThread, 1);
+            Fault_LogStackTrace(faultedThread, 1);
             Fault_WaitForInput();
             Fault_FillScreenRed();
             FaultDrawer_DrawText(0x40, 0x50, D_80098DF8);
@@ -105,7 +113,9 @@ void Fault_ThreadEntry(s32 a0) {
             FaultDrawer_DrawText(0x40, 0x64, D_80098E30);
             FaultDrawer_DrawText(0x40, 0x6E, D_80098E4C);
             Fault_WaitForInput();
-        } while ((*s1)[0x7CC] == 0);
-        Fault_ResumeThread(s0);
-    } while (1);
+        } while (!D_8009C220->exit);
+        while (!D_8009C220->exit) {
+        }
+        Fault_ResumeThread(faultedThread);
+    }
 }

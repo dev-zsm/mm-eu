@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
+// best attempt: 13 instr differ (delay-slot/scheduling of 'lui at' / 'lui a1' around the entry-count loop; ROM keeps 'or v0,a0' before the branch)
 #include "types.h"
 
 extern u8 D_1A8D0[];
@@ -21,7 +22,7 @@ typedef struct {
 
 extern BootEntry D_8009FC80[];
 
-void func_800807E0(void *a, void *b, u32 c);
+void func_800807E0(u32 a, void *b, u32 c);
 void osCreateMesgQueue(void *a, void *b, u32 c);
 void StackCheck_Init(void *a, void *b, void *c, s32 d, s32 e, void *f);
 void osCreateThread(void *a, s32 b, void *c, s32 d, void *e, s32 f);
@@ -32,7 +33,7 @@ void DmaMgr_Init(void) {
     BootEntry *p;
     s32 i;
 
-    func_800807E0(D_1A8D0, D_8009FC80, D_20C20 - D_1A8D0);
+    func_800807E0((u32)D_1A8D0, D_8009FC80, (u32)D_20C20 - (u32)D_1A8D0);
     e = D_8009FC80;
     i = 0;
     if (e->unk4 != 0) {
