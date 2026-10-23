@@ -30,8 +30,8 @@ Matching C verified byte-for-byte against the ROM (refreshed by `make progress`,
 ```
 boot  functions █████████████████████████░░░░░  84.7 %  (360 / 425)
 boot  code size █████████████████░░░░░░░░░░░░░  57.5 %  (0xcde4 / 0x165f4 bytes)
-code  functions ████████░░░░░░░░░░░░░░░░░░░░░░  28.3 %  (1013 / 3576)
-code  code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.5 %  (0xe60c / 0x104acc bytes)
+code  functions █████████░░░░░░░░░░░░░░░░░░░░░  30.6 %  (1094 / 3576)
+code  code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.7 %  (0xee84 / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
