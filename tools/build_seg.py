@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CC = ROOT / "tools/vendor/ido71/cc"
+CC53 = ROOT / "tools/vendor/ido53/cc"  # files marked `// COMPILER: ido53` in their first lines
 DEFAULT_FLAGS = ["-O2", "-g3", "-mips2"]
 CFLAGS = ["-G", "0", "-non_shared", "-Xcpluscomm", "-w", "-I" + str(ROOT / "include")]
 AS = ["mips-linux-gnu-as", "-march=vr4300", "-mabi=32", "-EB", "-I" + str(ROOT / "include"), "-G0"]
@@ -78,7 +79,7 @@ def main():
             m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
             flags = m.group(1).split() if m else DEFAULT_FLAGS
             with tempfile.TemporaryDirectory() as d:  # IDO cc mishandles -o paths containing spaces
-                subprocess.run([str(CC), "-c", *flags, *CFLAGS, "-o", d + "/x.o", str(cfile)],
+                subprocess.run([str(CC53 if any(l.strip() == "// COMPILER: ido53" for l in cfile.read_text().splitlines()[:3]) else CC), "-c", *flags, *CFLAGS, "-o", d + "/x.o", str(cfile)],
                                check=True, stderr=subprocess.DEVNULL)
                 shutil.move(d + "/x.o", obj)
             # a C function with its own constant pool: its .rodata takes the place of the data items the original

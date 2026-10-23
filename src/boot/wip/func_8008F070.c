@@ -1,79 +1,73 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
-extern u8 D_8009D2E0[];
-extern u8 D_8009E9A0[];
+typedef struct {
+    u8 ramarray[0x3C];
+    s32 pifstatus;
+} PifRam;
+
 extern s32 D_800981A0;
+extern u8 D_8009D2E0;
+extern PifRam D_8009E9A0;
 
 void __osSiGetAccess(void);
 void __osSiRelAccess(void);
-s32 __osContAddressCrc(s32 a0);
-void __osSiRawStartDma(s32 a0, u8 *a1);
-void osRecvMesg(void *a0, s32 a1, s32 a2);
-s32 __osVoiceContDataCrc(u8 *a0, s32 a1);
-s32 __osVoiceGetStatus(void *a0, s32 a1, u8 *a2);
-void bcopy(u8 *a0, void *a1, s32 a2);
+void osRecvMesg(s32 mq, s32 msg, s32 flag);
+s32 __osSiRawStartDma(s32 dir, void *data);
+u8 __osContAddressCrc(u16 addr);
+u8 __osVoiceContDataCrc(u8 *data, u32 n);
+s32 __osVoiceGetStatus(s32 mq, s32 channel, u8 *status);
+void bcopy(void *src, void *dst, u32 n);
 
-s32 __osVoiceContRead2(void *a0, s32 a1, u16 a2, void *a3) {
-    u8 *s0;
-    u8 *s2;
-    u8 *s4;
-    u8 *s7;
-    s32 *s8;
-    s32 s3;
-    s32 s5;
+s32 __osVoiceContRead2(s32 mq, s32 channel, u16 address, u8 *buffer) {
+    s32 ret;
+    u8 status;
+    u8 *ptr;
+    u8 *data;
     s32 i;
-    u8 sp63;
+    s32 retry = 2;
 
-    s4 = D_8009E9A0;
-    s7 = D_8009D2E0;
-    s8 = &D_800981A0;
     __osSiGetAccess();
-    s5 = 2;
     do {
-        s0 = s4;
-        if (*s7 == 0xB && a1 == *s8) {
-            s0 = s4 + a1;
-        } else {
-            *s7 = 0xB;
-            *s8 = a1;
-            for (i = 0, s0 = s4; i < a1; i++) {
-                *s0++ = 0;
+        ptr = (u8 *)&D_8009E9A0;
+        if (D_8009D2E0 != 0xB || D_800981A0 != channel) {
+            D_8009D2E0 = 0xB;
+            D_800981A0 = channel;
+            i = 0;
+            while (i < channel) {
+                *ptr++ = 0;
+                i++;
             }
-            s0 = s4 + a1;
-            s0[0] = 0xFF;
-            s0[1] = 3;
-            s0[2] = 3;
-            s0[3] = 0xB;
-            s0[8] = 0xFF;
-            s0[9] = 0xFE;
-        }
-        s0[4] = a2 >> 3;
-        s0[5] = __osContAddressCrc(a2) | (a2 << 5);
-        __osSiRawStartDma(1, s4);
-        osRecvMesg(a0, 0, 1);
-        __osSiRawStartDma(0, s4);
-        osRecvMesg(a0, 0, 1);
-        s2 = s0 + 6;
-        s3 = (s0[2] & 0xC0) >> 4;
-        if (s3 != 0) {
-            s3 = 1;
+            D_8009E9A0.pifstatus = 1;
+            ptr[0] = 0xFF;
+            ptr[1] = 3;
+            ptr[2] = 3;
+            ptr[3] = 0xB;
+            ptr[8] = 0xFF;
+            ptr[9] = 0xFE;
         } else {
-            if (s0[8] == __osVoiceContDataCrc(s2, 2)) {
-                bcopy(s2, a3, 2);
-                s3 = 0;
-            } else {
-                s3 = __osVoiceGetStatus(a0, a1, &sp63);
-                if (s3 != 0) {
-                    break;
-                }
-                s3 = 4;
+            ptr += channel;
+        }
+        ptr[4] = address >> 3;
+        ptr[5] = __osContAddressCrc(address) | (address << 5);
+        __osSiRawStartDma(1, &D_8009E9A0);
+        osRecvMesg(mq, 0, 1);
+        __osSiRawStartDma(0, &D_8009E9A0);
+        osRecvMesg(mq, 0, 1);
+        data = ptr + 6;
+        ret = (ptr[2] & 0xC0) >> 4;
+        if (ret != 0) {
+            ret = 1;
+        } else if (ptr[8] == __osVoiceContDataCrc(data, 2)) {
+            bcopy(data, buffer, 2);
+        } else {
+            ret = __osVoiceGetStatus(mq, channel, &status);
+            if (ret == 0) {
+                ret = 4;
             }
         }
-        if (s3 != 4) {
-            break;
-        }
-    } while (s5-- >= 0);
+    } while (ret == 4 && retry-- >= 0);
     __osSiRelAccess();
-    return s3;
+    return ret;
 }

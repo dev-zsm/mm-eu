@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g0 -mips2
+// FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 #include "types.h"
 
 extern f64 D_800995F0[];
@@ -8,40 +8,47 @@ extern f64 D_80099628;
 extern f32 D_80099630;
 extern f32 D_80099820;
 
-f32 __sinf(f32 arg0) {
-    f64 temp_f0;
-    f64 temp_f12;
-    f64 temp_f14;
-    f64 temp_f2;
-    s32 temp_t6;
-    s32 var_v0;
+f32 __sinf(f32 x) {
+    f64 dx;
+    f64 xSq;
+    f64 poly;
+    f64 dn;
+    f64 result;
+    s32 n;
+    s32 ix;
+    s32 xpt;
 
-    temp_t6 = ((*(s32 *)&arg0) >> 0x16) & 0x1FF;
-    if (temp_t6 < 0xFF) {
-        temp_f2 = (f64) arg0;
-        if (temp_t6 >= 0xE6) {
-            temp_f12 = temp_f2 * temp_f2;
-            return (f32) ((temp_f2 * temp_f12 * (D_800995F0[1] + (((((D_800995F0[4] * temp_f12) + D_800995F0[3]) * temp_f12) + D_800995F0[2]) * temp_f12))) + temp_f2);
+    ix = *(s32 *)&x;
+    xpt = (ix >> 0x16) & 0x1FF;
+    if (xpt < 0xFF) {
+        dx = x;
+        if (xpt >= 0xE6) {
+            xSq = dx * dx;
+            poly = D_800995F0[1] + (((((D_800995F0[4] * xSq) + D_800995F0[3]) * xSq) + D_800995F0[2]) * xSq);
+            result = (dx * xSq * poly) + dx;
+            return result;
         }
-        return arg0;
+        return x;
     }
-    if (temp_t6 < 0x136) {
-        temp_f0 = temp_f2 * D_80099618;
-        if (temp_f0 >= 0.0) {
-            var_v0 = (s32) (temp_f0 + 0.5);
+    if (xpt < 0x136) {
+        dx = x;
+        dn = dx * D_80099618;
+        if (dn >= 0.0) {
+            n = dn + 0.5;
         } else {
-            var_v0 = (s32) (temp_f0 - 0.5);
+            n = dn - 0.5;
         }
-        temp_f0 = (f64) var_v0;
-        temp_f2 = (temp_f2 - (temp_f0 * D_80099620)) - (temp_f0 * D_80099628);
-        temp_f12 = temp_f2 * temp_f2;
-        temp_f14 = D_800995F0[1] + (((((D_800995F0[4] * temp_f12) + D_800995F0[3]) * temp_f12) + D_800995F0[2]) * temp_f12);
-        if (!(var_v0 & 1)) {
-            return (f32) ((temp_f2 * temp_f12 * temp_f14) + temp_f2);
+        dn = n;
+        dx = (dx - (dn * D_80099620)) - (dn * D_80099628);
+        xSq = dx * dx;
+        poly = D_800995F0[1] + (((((D_800995F0[4] * xSq) + D_800995F0[3]) * xSq) + D_800995F0[2]) * xSq);
+        result = (dx * xSq * poly) + dx;
+        if (!(n & 1)) {
+            return result;
         }
-        return -(f32) ((temp_f2 * temp_f12 * temp_f14) + temp_f2);
+        return -(f32)result;
     }
-    if (arg0 != arg0) {
+    if (x != x) {
         return D_80099820;
     }
     return D_80099630;

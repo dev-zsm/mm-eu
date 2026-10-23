@@ -8,6 +8,8 @@ ROM = ROOT / "baserom" / "The Legend of Zelda Majora's Mask (Europe).z64"
 OUT = ROOT / "extracted"
 SHA1 = "bb4e4757d10727c7584c59c1f2e5f44196e9c293"
 DMADATA = 0x1A8D0
+BOOT = ROOT / "build" / "boot.bin"  # ROM[0x1000:0x1A8D0]: the boot segment (SHA-1 checked by config/boot.yaml)
+BOOT_START, BOOT_SIZE = 0x1000, 0x198D0
 
 
 def yaz0(src: bytes) -> bytes:
@@ -42,6 +44,8 @@ def main():
     assert yaz0(b"Yaz0" + struct.pack(">I", 3) + bytes(8) + b"\xE0abc") == b"abc"  # self-check
 
     OUT.mkdir(exist_ok=True)
+    BOOT.parent.mkdir(exist_ok=True)
+    BOOT.write_bytes(rom[BOOT_START:BOOT_START + BOOT_SIZE])  # the `boot` segment as splat and the verifier expect it
     rows = []
     for i in range(0x10000):
         vs, ve, ps, pe = struct.unpack_from(">4I", rom, DMADATA + i * 16)

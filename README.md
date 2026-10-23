@@ -28,8 +28,8 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-23):
 
 ```
-boot  functions ██████████████████████░░░░░░░░  73.0 %  (311 / 426)
-boot  code size ████████████░░░░░░░░░░░░░░░░░░  38.5 %  (0x89e0 / 0x165f4 bytes)
+boot  functions █████████████████████████░░░░░  84.5 %  (360 / 426)
+boot  code size █████████████████░░░░░░░░░░░░░  57.5 %  (0xcde4 / 0x165f4 bytes)
 code  functions ████████░░░░░░░░░░░░░░░░░░░░░░  28.3 %  (1013 / 3576)
 code  code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.5 %  (0xe60c / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
@@ -47,8 +47,8 @@ ROM ──► extract ──► split ──► per-function C ──► per-fun
 1. **Extract**: the file table (`dmadata`) of the ROM is decoded and every file is written out, Yaz0-decompressed.
 2. **Split**: the code segments (`boot`, `code`) are disassembled into assembly and data by
    [splat](https://github.com/ethteck/splat), and are first reassembled to prove the split is lossless.
-3. **Decompile**: each function is rewritten in C and compiled with the original compiler (IDO 7.1, with the flags the
-   game was built with). The result must equal the original bytes of that function, apart from relocated fields.
+3. **Decompile**: each function is rewritten in C and compiled with the original compiler (IDO 7.1, or IDO 5.3 for the files
+   that were built with the older compiler, with the flags the game was built with). The result must equal the original bytes of that function, apart from relocated fields.
 4. **Link**: a segment is rebuilt from one object per function, taking the C version where it matches and the original
    assembly everywhere else, and linked at the original addresses.
 5. **Compare**: the rebuilt segment must be byte-identical to the one in the ROM.
@@ -71,9 +71,9 @@ Main tools:
 
 | Tool | Purpose |
 |---|---|
-| `tools/extract.py` | decode the ROM file table and extract every file |
+| `tools/extract.py` | decode the ROM file table, extract every file, and write `build/boot.bin` |
 | `tools/mm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows) |
-| `tools/match.py` | compile one C function with IDO and compare it to the ROM bytes |
+| `tools/match.py` | compile one C function with IDO (7.1, or 5.3 if the file asks for it) and compare it to the ROM bytes |
 | `tools/verify_src.py`, `tools/verify_all.sh` | check every C function, then the whole rebuilt segment |
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/names.py` | apply the symbol names of `config/<segment>.names.txt` everywhere |
@@ -107,8 +107,11 @@ python3 tools/extract.py
 make setup
 ```
 
-`make setup` fetches the original compiler build (IDO 7.1), `m2c`, `asm-differ`, and creates a Python environment with
-`splat`.
+`tools/extract.py` also writes `build/boot.bin`, the `boot` segment cut out of the ROM (bytes `0x1000` to `0x1A8D0`),
+which `make split` and `make verify` need.
+
+`make setup` fetches the original compilers (IDO 7.1 and IDO 5.3, see [Compilers](#compilers)), `m2c`, `asm-differ`,
+and creates a Python environment with `splat`.
 
 5. Split the code and verify:
 
@@ -126,6 +129,28 @@ boot: N C functions + M asm -> IDENTICAL to ROM
 ```
 
 Other targets: `make progress` refreshes `docs/PROGRESS.md`, `make names` applies the symbol names to the sources.
+
+## Compilers
+
+The game was not built with a single compiler version. Two builds of the original SGI IDO compiler are used, both
+fetched by `make setup` into `tools/vendor/` (not tracked):
+
+| Compiler | Folder | Used for |
+|---|---|---|
+| IDO 7.1 | `tools/vendor/ido71` | everything, by default |
+| IDO 5.3 | `tools/vendor/ido53` | the files marked `// COMPILER: ido53` (part of libultra, e.g. the controller / Controller Pak routines and `ldiv`), which only match with the older compiler |
+
+A source file picks its compiler and flags in its first lines:
+
+```c
+// FLAGS: -O2 -g0 -mips2        optional, first line: optimisation flags (default -O2 -g3 -mips2)
+// COMPILER: ido53              optional, within the first three lines: build this file with IDO 5.3
+```
+
+Without the second line a file is built with IDO 7.1. `tools/match.py`, `tools/verify_src.py` and
+`tools/build_seg.py` all read these two lines, so a file is compiled the same way by every tool. Never switch a file to
+IDO 5.3 to make it match: use it only when the original really was built with it, which shows as a function that
+matches with 5.3 and not with 7.1 (typically struct copies going through `$at`).
 
 ## Contributing
 
@@ -152,7 +177,7 @@ This project rests on the work of the N64 decompilation community. Thanks to the
 
 * [splat](https://github.com/ethteck/splat) (ethteck): splits a ROM into assembly and data segments
 * [spimdisasm](https://github.com/Decompollaborate/spimdisasm) and [rabbitizer](https://github.com/Decompollaborate/rabbitizer) (Decompollaborate): the MIPS disassembler used by splat
-* [ido-static-recomp](https://github.com/decompals/ido-static-recomp) (decompals): the original IDO 7.1 compiler, recompiled for Linux
+* [ido-static-recomp](https://github.com/decompals/ido-static-recomp) (decompals): the original IDO 7.1 and 5.3 compilers, recompiled for Linux
 * [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) (Simon Lindholm and contributors): automated search for matching C
 * [m2c](https://github.com/matt-kempster/m2c) (Matt Kempster and contributors): MIPS to C decompiler
 * [asm-differ](https://github.com/simonlindholm/asm-differ) (Simon Lindholm and contributors): assembly comparison

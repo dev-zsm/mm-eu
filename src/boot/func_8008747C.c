@@ -7,7 +7,7 @@ typedef struct Block {
     struct Block *next;
     struct Block *prev;
 } Block;
-void ArenaImpl_Lock(s32 a0, u32 a1);
+void ArenaImpl_Lock(s32 a0);
 void ArenaImpl_Unlock(s32 a0);
 Block *ArenaImpl_GetLastBlock(s32 a0);
 void *func_8008747C(s32 a0, u32 a1) {
@@ -18,7 +18,7 @@ void *func_8008747C(s32 a0, u32 a1) {
 
     a1 = (a1 + 0xF) & ~0xF;
     ret = NULL;
-    ArenaImpl_Lock(a0, a1);
+    ArenaImpl_Lock(a0);
     b = ArenaImpl_GetLastBlock(a0);
     while (b != NULL) {
         if (b->free != 0 && b->size >= a1) {

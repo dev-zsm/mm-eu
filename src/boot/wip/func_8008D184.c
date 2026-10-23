@@ -1,93 +1,92 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
 typedef struct {
-    s32 unk0;
-    void *unk4;
-    u32 unk8;
-    u8 padC[0x48];
-    s32 unk54;
-    s32 unk58;
-    s32 pad5C;
-    s32 unk60;
-    u8 pad64;
-    u8 unk65;
-} Arg0;
+    s32 status;
+    void *queue;
+    s32 channel;
+    u8 pad0[0x48];
+    s32 inodeTable;
+    s32 minodeTable;
+    s32 dirTable;
+    s32 inodeStartPage;
+    u8 banks;
+    u8 activeBank;
+} Pfs;
 
 extern s32 D_800980F0;
 extern u8 D_800980F4;
 extern u8 D_8009E7E0[];
 
-u8 __osSumcalc(void *p, s32 v);
-void bcopy(void *dst, void *src, s32 n);
-s32 __osPfsSelectBank(Arg0 *p, s32 x);
-s32 __osContRamWrite(void *a0, u32 a1, u32 a2, void *a3, s32 a4);
-s32 __osContRamRead(void *a0, u32 a1, u32 a2, void *a3);
+u32 __osSumcalc(u8 *ptr, s32 length);
+void bcopy(void *src, void *dst, s32 n);
+s32 __osPfsSelectBank(Pfs *pfs, u8 bank);
+s32 __osContRamWrite(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
 
-s32 __osPfsRWInode(Arg0 *arg0, u8 *arg1, s32 arg2, u8 arg3) {
-    s32 mode;
-    s32 sp48;
+s32 __osPfsRWInode(Pfs *pfs, u8 *inode, u8 flag, u8 bank) {
+    u8 sum;
     s32 ret;
-    s32 i;
-    u8 *p;
-    u8 *p2;
-    s32 s3;
+    s32 j;
+    u8 *addr;
+    s32 offset;
+    u8 *ptr;
 
-    mode = arg2 & 0xFF;
-    if (mode == 0 && D_800980F4 == arg3 && D_800980F0 == arg0->unk8) {
-        bcopy(D_8009E7E0, arg1, 0x100);
+    if (flag == 0 && D_800980F4 == bank && D_800980F0 == pfs->channel) {
+        bcopy(D_8009E7E0, inode, 0x100);
         return 0;
     }
-    if (arg0->unk65 != 0) {
-        ret = __osPfsSelectBank(arg0, 0);
+    if (pfs->activeBank != 0) {
+        ret = __osPfsSelectBank(pfs, 0);
         if (ret != 0) {
             return ret;
         }
     }
-    if ((s32)arg3 > 0) {
-        sp48 = 1;
+    if (bank > 0) {
+        offset = 1;
     } else {
-        sp48 = arg0->unk60;
+        offset = pfs->inodeStartPage;
     }
-    if (mode == 1) {
-        p2 = arg1 + sp48 * 2;
-        arg1[1] = __osSumcalc(p2, 0x100 - sp48 * 2);
+    if (flag == 1) {
+        addr = inode + offset * 2;
+        inode[1] = __osSumcalc(addr, -offset * 2 + 0x100);
     }
-    s3 = arg3 * 8;
-    p = arg1;
-    for (i = 0; i < 8; i++) {
-        if (mode == 1) {
-            __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk54 + s3 + i) & 0xFFFF, p, 0);
-            ret = __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk58 + s3 + i) & 0xFFFF, p, 0);
+    ptr = inode;
+    for (j = 0; j < 8; j++) {
+        if (flag == 1) {
+            __osContRamWrite(pfs->queue, pfs->channel, pfs->inodeTable + bank * 8 + j, ptr, 0);
+            ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->minodeTable + bank * 8 + j, ptr, 0);
         } else {
-            ret = __osContRamRead(arg0->unk4, arg0->unk8, (arg0->unk54 + s3 + i) & 0xFFFF, p);
+            ret = __osContRamRead(pfs->queue, pfs->channel, pfs->inodeTable + bank * 8 + j, ptr);
         }
         if (ret != 0) {
             return ret;
         }
-        p += 0x20;
+        ptr += 0x20;
     }
-    if (mode == 0) {
-        if ((__osSumcalc(arg1 + sp48 * 2, 0x100 - sp48 * 2) & 0xFF) != arg1[1]) {
-            s3 = arg3 * 8;
-    p = arg1;
-            for (i = 0; i < 8; i++) {
-                __osContRamRead(arg0->unk4, arg0->unk8, (arg0->unk58 + s3 + i) & 0xFFFF, p);
-                p += 0x20;
+    if (flag == 0) {
+        addr = inode + offset * 2;
+        sum = __osSumcalc(addr, -offset * 2 + 0x100);
+        if (sum != inode[1]) {
+            ptr = inode;
+            for (j = 0; j < 8; j++) {
+                __osContRamRead(pfs->queue, pfs->channel, pfs->minodeTable + bank * 8 + j, ptr);
+                ptr += 0x20;
             }
-            if ((__osSumcalc(arg1 + sp48 * 2, 0x100 - sp48 * 2) & 0xFF) != arg1[1]) {
+            sum = __osSumcalc(addr, -offset * 2 + 0x100);
+            if (sum != inode[1]) {
                 return 3;
             }
-            s3 = arg3 * 8;
-    p = arg1;
-            for (i = 0; i < 8; i++) {
-                __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk54 + s3 + i) & 0xFFFF, p, 0);
-                p += 0x20;
+            ptr = inode;
+            for (j = 0; j < 8; j++) {
+                __osContRamWrite(pfs->queue, pfs->channel, pfs->inodeTable + bank * 8 + j, ptr, 0);
+                ptr += 0x20;
             }
         }
     }
-    D_800980F4 = arg3;
-    bcopy(arg1, D_8009E7E0, 0x100);
-    D_800980F0 = arg0->unk8;
+    D_800980F4 = bank;
+    bcopy(inode, D_8009E7E0, 0x100);
+    D_800980F0 = pfs->channel;
     return 0;
 }
