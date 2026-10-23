@@ -11,8 +11,20 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
    default (`-O2 -g3 -mips2`) is not what the function was built with.
 3. `tools/mm match boot func_XXXXXXXX src/boot/func_XXXXXXXX.c` must print `MATCH`. `tools/mm diff ...` shows the
    original and the compiled instructions side by side. Unfinished attempts go to `src/boot/wip/`.
-4. `make verify SEG=boot` must pass before any commit: every C function equals the ROM bytes, and the segment rebuilt
+   On Linux, without the Windows wrapper, run the underlying tools directly (after `. ~/mm-venv/bin/activate`):
+   `awk '/^glabel FN$/{p=1} p{print} /^endlabel FN$/{exit}' asm/boot/text.s` (assembly),
+   `python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f FN asm/boot/text.s` (draft),
+   `python3 tools/match.py boot FN src/boot/FN.c` and `python3 tools/disasm_diff.py boot FN src/boot/FN.c`.
+4. Call functions that have a name in `config/boot.names.txt` by that name, and every other function by its `func_`
+   address name; never invent a name. `make names SEG=boot` rewrites the sources with the registered names, and
+   `tools/match.py` ignores `jal` targets, so a wrong callee is only caught by step 5.
+5. `make verify SEG=boot` must pass before any commit: every C function equals the ROM bytes, and the segment rebuilt
    from the C plus the remaining assembly is byte-identical to the ROM.
+
+Compiler: IDO 7.1 by default. A function that only differs by the scratch register of struct copies (`$at` in the ROM,
+`t`-registers in ours), or that no source form can match with 7.1, may have been built with IDO 5.3: add
+`// COMPILER: ido53` in the first three lines (after the `// FLAGS:` line) and run `tools/match.py` again. See the
+Compilers section of the README. Do not use 5.3 just to get a match: it must match as plain, natural C.
 
 Techniques that make the compiler produce the original code are collected in `tools/AGENT_BRIEF.md`. For register
 allocation and stack layout problems, use the automated tools: `tools/permute_all.py` (decomp-permuter) and
@@ -39,6 +51,8 @@ the address.
 * Anything that exists only to make the compiler match (padding locals, `volatile`, an unusual declaration order, an
   alias symbol from `config/<segment>.aliases.txt`) gets a one-line comment saying why.
 * Structures keep their exact offsets. Name the fields you understand; keep `unkXX` / `padXX` for the others.
+* `config/<segment>.aliases.txt` (an extra symbol at a known address, only to steer IDO) is technical debt: each entry
+  has a comment saying why and is removed once the real expression is found.
 * Keep generated and ROM-derived content out of git (`baserom/`, `extracted/`, `asm/`, `decomp/`, `build/`).
 
 ## Legal
