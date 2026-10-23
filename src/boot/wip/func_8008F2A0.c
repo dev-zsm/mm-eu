@@ -1,41 +1,38 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-u8 __osVoiceContDataCrc(u8 *p, u32 n) {
-    u32 crc = 0;
+u8 __osVoiceContDataCrc(u8 *data, u32 n) {
+    u32 ret;
     u32 mask;
-    u32 s;
-    u8 byte;
+    u32 i;
 
-    if (n != 0) {
+    ret = 0;
+    i = n;
+    if (i != 0) {
         do {
-            byte = *p;
-            mask = 0x80;
-            do {
-                s = crc << 1;
-                crc = s;
-                if (byte & mask) {
-                    if (s & 0x100) {
-                        crc = s ^ 0x84;
+            for (mask = 0x80; mask != 0; mask >>= 1) {
+                u32 t = ret << 1;
+                ret = t;
+                if (*data & mask) {
+                    if (t & 0x100) {
+                        ret = t ^ 0x84;
                     } else {
-                        crc = s + 1;
+                        ret++;
                     }
-                } else if (s & 0x100) {
-                    crc = s ^ 0x85;
+                } else if (ret & 0x100) {
+                    ret ^= 0x85;
                 }
-                mask >>= 1;
-            } while (mask != 0);
-            p++;
-            n--;
-        } while (n != 0);
+            }
+            data++;
+        } while (--i != 0);
     }
     do {
-        s = crc << 1;
-        crc = s;
-        if (s & 0x100) {
-            crc = s ^ 0x85;
+        u32 t = ret << 1;
+        ret = t;
+        if (t & 0x100) {
+            ret = t ^ 0x85;
         }
-        n++;
-    } while (n < 8);
-    return crc;
+        i++;
+    } while (i < 8);
+    return ret;
 }

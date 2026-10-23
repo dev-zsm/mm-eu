@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g3
+// FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
 typedef struct Node {
@@ -18,9 +18,9 @@ extern Owner *D_8009C220;
 extern u8 D_800987B4[];
 
 void Fault_AddAddrConvClient(Node *node, u32 a1, u32 a2) {
+    Node *p;
     s32 found;
     u32 saved;
-    Node *p;
 
     found = 0;
     saved = osSetIntMask(1);
@@ -29,17 +29,16 @@ void Fault_AddAddrConvClient(Node *node, u32 a1, u32 a2) {
         do {
             if (p == node) {
                 found = 1;
-                break;
+                goto done;
             }
             p = p->next;
         } while (p != NULL);
     }
-    if (!found) {
-        node->unk4 = a1;
-        node->unk8 = a2;
-        node->next = D_8009C220->head;
-        D_8009C220->head = node;
-    }
+    node->unk4 = a1;
+    node->unk8 = a2;
+    node->next = D_8009C220->head;
+    D_8009C220->head = node;
+done:
     osSetIntMask(saved);
     if (found) {
         func_8008198C(D_800987B4, node);

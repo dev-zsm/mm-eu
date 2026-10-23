@@ -15,7 +15,7 @@ void __osPfsRequestData(u8 arg0) {
     u8 *p;
 
     p = D_8009E9A0;
-    D_8009D2E0 = arg0;
+    D_8009D2E0 = arg0 & 0xFF;
     *(s32 *)(p + 0x3C) = 1;
     sp4.b[0] = 0xFF;
     sp4.b[1] = 1;

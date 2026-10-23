@@ -1,45 +1,30 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
-u32 __osContAddressCrc(u32 a) {
-    u32 x;
-    u32 v;
-    u32 m;
-    u32 s;
-    u32 t;
+u8 __osContAddressCrc(u16 addr) {
+    u32 temp = 0;
+    u32 mask = 0x400;
+    s32 i;
 
-    x = a & 0xFFFF;
-    v = 0;
-    m = 0x400;
     do {
-        s = v << 1;
-        if (x & m) {
-            if (s & 0x20) {
-                v = s ^ 0x14;
+        temp <<= 1;
+        if (addr & mask) {
+            if (temp & 0x20) {
+                temp ^= 0x14;
             } else {
-                v = s + 1;
+                temp++;
             }
-        } else {
-            v = s; if (s & 0x20) { t = s ^ 0x15; v = t; }
+        } else if (temp & 0x20) {
+            temp ^= 0x15;
         }
-        m >>= 1;
-    } while (m != 0);
+        mask >>= 1;
+    } while (mask != 0);
 
-    s = v << 1;
-    v = s;
-    if (s & 0x20) v = s ^ 0x15;
-    s = v << 1;
-    v = s;
-    if (s & 0x20) v = s ^ 0x15;
-    s = v << 1;
-    v = s;
-    if (s & 0x20) v = s ^ 0x15;
-    s = v << 1;
-    v = s;
-    if (s & 0x20) v = s ^ 0x15;
-    s = v << 1;
-    v = s;
-    if (s & 0x20) v = s ^ 0x15;
-
-    return v & 0x1F;
+    for (i = 0; i < 5; i++) {
+        temp <<= 1;
+        if (temp & 0x20) {
+            temp ^= 0x15;
+        }
+    }
+    return temp & 0x1F;
 }

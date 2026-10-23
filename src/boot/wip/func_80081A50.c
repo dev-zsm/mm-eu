@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g3
+// FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
 typedef struct Node {
@@ -18,32 +18,29 @@ extern void func_8008198C(void *queue, void *node);
 extern Owner *D_8009C220;
 extern u8 D_80098744[];
 
-void func_80081A50(Node *node, u32 a1, u32 a2, u32 a3) {
-    s32 found;
-    u32 saved;
-    Node *p;
+void func_80081A50(Node *client, u32 a1, u32 a2, u32 a3) {
+    u32 mask;
+    s32 isRegistered;
+    Node *iter;
 
-    found = 0;
-    saved = osSetIntMask(1);
-    p = D_8009C220->head;
-    if (p != NULL) {
-        do {
-            if (p == node) {
-                found = 1;
-                break;
-            }
-            p = p->next;
-        } while (p != NULL);
+    isRegistered = 0;
+    mask = osSetIntMask(1);
+    iter = D_8009C220->head;
+    while (iter != NULL) {
+        if (iter == client) {
+            isRegistered = 1;
+            goto end;
+        }
+        iter = iter->next;
     }
-    if (!found) {
-        node->unk4 = a1;
-        node->unk8 = a2;
-        node->unkC = a3;
-        node->next = D_8009C220->head;
-        D_8009C220->head = node;
-    }
-    osSetIntMask(saved);
-    if (found) {
-        func_8008198C(D_80098744, node);
+    client->unk4 = a1;
+    client->unk8 = a2;
+    client->unkC = a3;
+    client->next = D_8009C220->head;
+    D_8009C220->head = client;
+end:
+    osSetIntMask(mask);
+    if (isRegistered) {
+        func_8008198C(D_80098744, client);
     }
 }

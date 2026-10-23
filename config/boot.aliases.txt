@@ -1,2 +1,3 @@
 # Extra symbol names at the same address as an existing symbol (used only to steer IDO register allocation while matching).
 # Technical debt: each entry is a hack to remove once the real expression is found. `alias address`
+D_8009EC10 0x8009EC10   # viMgr thread stack (0x1000 bytes, ends at D_8009FC10), needed so IDO loads the stack top separately like the ROM

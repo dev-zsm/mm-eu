@@ -1,44 +1,41 @@
 // FLAGS: -O2 -g0
 #include "types.h"
 typedef struct Block {
-    u16 magic;
+    s16 magic;
     s16 used;
-    s32 size;
+    u32 size;
     struct Block *next;
     struct Block *prev;
 } Block;
-typedef struct Pool {
-    Block *head;
-    u32 start;
-} Pool;
-void *func_80087394(void **arg0, u32 arg1) {
-    u32 v0;
-    Block *nb;
-    Block *b;
-    b = *arg0;
-    arg1 = (arg1 + 0xF) & ~0xF;
-    while (b != NULL) {
-        if (b->used != 0) {
-            if ((u32)b->size >= arg1) {
-                v0 = ((arg1 + 0xF) & ~0xF) + 0x10;
-                if (v0 < (u32)b->size) {
-                    nb = (Block *)((u8 *)b + v0);
-                    nb->prev = b;
-                    nb->next = b->next;
-                    nb->used = 1;
-                    nb->size = b->size - v0;
-                    nb->magic = 0x7373;
-                    b->next = nb;
-                    b->size = arg1;
-                    if (nb->next != NULL) {
-                        nb->next->prev = nb;
-                    }
+void *func_80087394(Block **arg0, u32 size) {
+    Block *node;
+    Block *newNode;
+    void *alloc = NULL;
+    u32 blockSize;
+
+    size = (size + 0xF) & ~0xF;
+    node = *arg0;
+    while (node != NULL) {
+        if (node->used && node->size >= size) {
+            blockSize = ((size + 0xF) & ~0xF) + 0x10;
+            if (blockSize < node->size) {
+                newNode = (Block *)((u32)node + blockSize);
+                newNode->next = node->next;
+                newNode->prev = node;
+                newNode->size = node->size - blockSize;
+                newNode->used = 1;
+                newNode->magic = 0x7373;
+                node->next = newNode;
+                node->size = size;
+                if (newNode->next != NULL) {
+                    newNode->next->prev = newNode;
                 }
-                b->used = 0;
-                return (u8 *)b + 0x10;
             }
+            node->used = 0;
+            alloc = (u8 *)node + 0x10;
+            break;
         }
-        b = b->next;
+        node = node->next;
     }
-    return NULL;
+    return alloc;
 }
