@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
 extern u8 D_8009D2E1;

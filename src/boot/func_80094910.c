@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
 s16 _Ldunscale(s16 *pex, u16 *ps) {

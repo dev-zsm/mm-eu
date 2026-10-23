@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 typedef struct { u8 dummy; u8 txsize; u8 rxsize; u8 cmd; u16 button; s8 stick_x; s8 stick_y; } Fmt;
 typedef struct { u16 button; s8 stick_x; s8 stick_y; u8 errno; } Pad;
