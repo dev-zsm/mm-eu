@@ -2,43 +2,38 @@
 #include "types.h"
 
 typedef struct {
-    u8 unk0; u8 unk1; u8 unk2; u8 unk3; u8 unk4; u8 unk5; u8 unk6; u8 unk7;
-} Entry;
-
-typedef union {
-    Entry e;
-    s32 w[2];
-} Tpl;
+    u8 dummy;
+    u8 txsize;
+    u8 rxsize;
+    u8 cmd;
+    u16 button;
+    s8 rawStickX;
+    s8 rawStickY;
+} ReadFormat;
 
 extern u32 D_8009D2A0[16];
 extern u8 D_8009D2E1;
 
 void __osPackReadData(void) {
-    u8 n; Entry *dst; u32 *p; s32 i; Tpl tpl;
-    p = D_8009D2A0;
-    do {
-        p++;
-        p[-1] = 0;
-    } while (p < &D_8009D2A0[15]);
-    D_8009D2A0[15] = 1;
+    u8 *ptr;
+    ReadFormat readformat;
+    s32 i;
 
-    n = D_8009D2E1;
-    tpl.e.unk0 = 0xFF;
-    tpl.e.unk1 = 1;
-    tpl.e.unk2 = 4;
-    tpl.e.unk3 = 1;
-    *(u16 *)&tpl.e.unk4 = 0xFFFF;
-    tpl.e.unk6 = 0xFF;
-    tpl.e.unk7 = 0xFF;
-
-    dst = (Entry *) D_8009D2A0;
-    i = 0;
-    if ((s32) n > 0) {
-        do {
-            i++;
-            *dst = tpl.e;
-            dst++;
-        } while (i < (s32) n);
+    for (i = 0; i < 15; i++) {
+        D_8009D2A0[i] = 0;
     }
-    ((u8 *) dst)[0] = 0xFE;
+    D_8009D2A0[15] = 1;
+    ptr = (u8 *)D_8009D2A0;
+    readformat.dummy = 0xFF;
+    readformat.txsize = 1;
+    readformat.rxsize = 4;
+    readformat.cmd = 1;
+    readformat.button = -1;
+    readformat.rawStickX = -1;
+    readformat.rawStickY = -1;
+    for (i = 0; i < D_8009D2E1; i++) {
+        *(ReadFormat *)ptr = readformat;
+        ptr += sizeof(ReadFormat);
+    }
+    *ptr = 0xFE;
 }

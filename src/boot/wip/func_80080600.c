@@ -14,7 +14,7 @@ extern u8 D_8009B610[];
 extern void osViSetMode(void *p);
 extern void osViSetSpecialFeatures(s32 a);
 extern void osViSetYScale(f32 a);
-extern void osViSetXScale(void);
+extern void osViSetXScale(f32 a);
 extern void osViExtendVStart(u8 a);
 
 void func_80080600(s32 arg0) {
@@ -48,7 +48,7 @@ void func_80080600(s32 arg0) {
                 osViSetSpecialFeatures(D_80096CCC);
             }
             if (D_80096CD0 != 1.0f) {
-                osViSetXScale();
+                osViSetXScale(D_80096CD0);
             }
             if (D_80096CD4 != 1.0f) {
                 osViSetYScale(D_80096CD4);

@@ -12,25 +12,27 @@ s32 __osVoiceContWrite4(s32, s32, s32, s32 *);
 s32 __osVoiceCheckResult(Struct80092460 *, u8 *);
 
 s32 osVoiceStopReadData(Struct80092460 *arg0) {
-    struct { s32 sp38; u8 pad[3]; u8 sp3F; s32 i; } l;
+    s32 data;
+    u8 status;
+    s32 i;
     s32 v;
 
-    v = __osVoiceGetStatus(arg0->unk0, arg0->unk4, &l.sp3F);
+    v = __osVoiceGetStatus(arg0->unk0, arg0->unk4, &status);
     if (v != 0) {
         return v;
     }
-    if (l.sp3F & 2) {
+    if (status & 2) {
         return 0xF;
     }
     if (arg0->unk8 == 0) {
         return 5;
     }
-    l.sp38 = 0x700;
-    v = __osVoiceContWrite4(arg0->unk0, arg0->unk4, 0, &l.sp38);
+    data = 0x700;
+    v = __osVoiceContWrite4(arg0->unk0, arg0->unk4, 0, &data);
     if (v == 0) {
-        l.i = 0;
+        i = 0;
         do {
-            v = __osVoiceCheckResult(arg0, &l.sp3F);
+            v = __osVoiceCheckResult(arg0, &status);
             if (v & 0xFF00) {
                 if ((v & 7) == 0 || (v & 7) == 7) {
                     v = 0;
@@ -41,11 +43,11 @@ s32 osVoiceStopReadData(Struct80092460 *arg0) {
             } else {
                 arg0->unk8 = 0;
             }
-            l.i++;
+            i++;
             if (v != 0xF) {
                 break;
             }
-        } while (l.i != 0x14);
+        } while (i != 0x14);
     }
     return v;
 }

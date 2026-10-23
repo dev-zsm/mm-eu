@@ -2,81 +2,73 @@
 #include "types.h"
 
 typedef struct {
-    /* 0x00 */ s32 unk0;
-    /* 0x04 */ s32 unk4;
-} Func800882B0Struct;
+    s32 unk0;
+    s32 unk4;
+} H;
 
-s32 __osVoiceGetStatus(s32, s32, u8 *, void *);
-s32 __osVoiceCheckResult(void *, u8 *);
-void bzero(void *, s32, s32, u8 *);
-s32 __osVoiceContWrite20(s32, s32, s32, void *);
+s32 __osVoiceGetStatus(s32, s32, u8 *);
+s32 __osVoiceCheckResult(H *, u8 *);
+void bzero(void *, s32);
+s32 __osVoiceContWrite20(s32, s32, s32, u8 *);
 
-s32 osVoiceSetWord(Func800882B0Struct *arg0, u8 *arg1) {
-    u8 sp4B;
-    u8 sp34[0x14];
-    u8 sp20[0x14];
-    s32 sp50;
+s32 osVoiceSetWord(H *hd, u8 *word) {
+    s32 errorCode;
     s32 n;
     s32 i;
-    s32 r;
     u8 *dst;
-    u8 *src;
-    u8 tmp;
+    u8 *p;
+    u8 status;
+    u8 buf2[0x14];
+    u8 buf1[0x14];
 
-    r = __osVoiceGetStatus(arg0->unk0, arg0->unk4, &sp4B, arg0);
-    if (r != 0) {
-        return r;
+    errorCode = __osVoiceGetStatus(hd->unk0, hd->unk4, &status);
+    if (errorCode != 0) {
+        return errorCode;
     }
-    if (sp4B & 2) {
+    if (status & 2) {
         return 0xF;
     }
-
     n = 0;
-    src = arg1;
-    if (*src != 0) {
+    p = word;
+    if (*p != 0) {
         do {
             n += 2;
-            src += 2;
-        } while (*src != 0);
+            p += 2;
+        } while (*p != 0);
     }
-    sp50 = n;
-
-    bzero(sp20, 0x28, n, arg1);
-
+    bzero(buf1, 0x28);
     i = 0;
-    if (sp50 > 0) {
-        dst = sp34 + 0x13 - n;
-        src = arg1;
+    if (n > 0) {
+        dst = &buf2[0x13 - n];
+        p = word;
         do {
             i += 2;
-            *dst = src[0];
-            tmp = src[1];
+            *dst = p[0];
             dst += 2;
-            src += 2;
-            dst[-3] = tmp;
-        } while (i < sp50);
+            p += 2;
+            dst[-3] = p[-1];
+        } while (i < n);
     }
-    *(sp34 + 0x0E - i) = 3;
-
-    if (sp50 >= 0xF) {
-        r = __osVoiceContWrite20(arg0->unk0, arg0->unk4, 0, sp20);
-        if (r != 0) {
-            return r;
+    buf2[0xE - i] = 3;
+    if (n >= 0xF) {
+        errorCode = __osVoiceContWrite20(hd->unk0, hd->unk4, 0, buf1);
+        if (errorCode != 0) {
+            return errorCode;
         }
     }
-    r = __osVoiceContWrite20(arg0->unk0, arg0->unk4, 0, sp34);
-    if (r != 0) {
-        return r;
+    errorCode = __osVoiceContWrite20(hd->unk0, hd->unk4, 0, buf2);
+    if (errorCode != 0) {
+        return errorCode;
     }
-    r = __osVoiceCheckResult(arg0, &sp4B);
-    if (r != 0) {
-        if (r & 0x100) {
-            return 0xD;
-        } else if (r & 0x200) {
-            return 0xE;
-        } else if (r & 0xFF00) {
-            return 5;
+    errorCode = __osVoiceCheckResult(hd, &status);
+    if (errorCode != 0) {
+        if (errorCode & 0x100) {
+            errorCode = 0xD;
+        } else if (errorCode & 0x200) {
+            errorCode = 0xE;
+        } else if (errorCode & 0xFF00) {
+            errorCode = 5;
         }
     }
-    return r;
+    return errorCode;
 }
