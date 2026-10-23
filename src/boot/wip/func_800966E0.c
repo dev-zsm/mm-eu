@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
+// best attempt: 1 instr differs (beql operand order t3,s2 in ROM vs s2,t3 for the crc != ptr[0xA] compare)
 #include "types.h"
 
 void __osSiGetAccess(void);
@@ -30,8 +31,10 @@ s32 __osVoiceContWrite4(s32 mq, s32 channel, u16 address, u8 *buffer) {
         if (D_8009D2E0 != 0xC || channel != D_800981A0) {
             D_8009D2E0 = 0xC;
             D_800981A0 = channel;
-            for (i = 0; i < channel; i++) {
+            i = 0;
+            while (i < channel) {
                 *ptr++ = 0;
+                i++;
             }
             *(s32 *)(D_8009E9A0 + 0x3C) = 1;
             ptr[0] = 0xFF;

@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
+// best attempt: 6 instr differ (switch var in a0 ok; esc-branch temp is v1 instead of a1, beq vs beql at first case)
 #include "types.h"
 
 typedef struct {
@@ -31,7 +32,7 @@ extern u8 D_8009930C[];
 
 void func_8008198C(void *fmt, ...);
 void FaultDrawer_SetForeColor(u16 color);
-void FaultDrawer_DrawChar(s32 c);
+void FaultDrawer_DrawChar(u8 c);
 void FaultDrawer_FillScreen(void);
 void osWritebackDCacheAll(void);
 

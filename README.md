@@ -28,7 +28,7 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-23):
 
 ```
-boot  functions █████████████████████████░░░░░  84.5 %  (360 / 426)
+boot  functions █████████████████████████░░░░░  84.7 %  (360 / 425)
 boot  code size █████████████████░░░░░░░░░░░░░  57.5 %  (0xcde4 / 0x165f4 bytes)
 code  functions ████████░░░░░░░░░░░░░░░░░░░░░░  28.3 %  (1013 / 3576)
 code  code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.5 %  (0xe60c / 0x104acc bytes)
