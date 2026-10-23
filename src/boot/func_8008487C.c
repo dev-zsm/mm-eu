@@ -6,7 +6,6 @@ void FaultDrawer_VPrintf(s32 fmt, s32 *args);
 
 void FaultDrawer_DrawText(s32 x, s32 y, s32 fmt, ...) {
     s32 *args;
-    s32 pad[2]; // pads the frame to 0x20 like the ROM (the original va_list local)
 
     args = &fmt + 1;
     FaultDrawer_SetCursor(x, y);

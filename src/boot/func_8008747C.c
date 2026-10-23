@@ -15,7 +15,6 @@ void *func_8008747C(s32 a0, u32 a1) {
     Block *nb;
     u32 need;
     void *ret;
-    s32 pad[2];
 
     a1 = (a1 + 0xF) & ~0xF;
     ret = NULL;
