@@ -172,9 +172,19 @@ This project is built exclusively from the analysis of a legally owned copy of t
 contribute must not have accessed leaked source code for the Nintendo 64 SDK, libultra, or any game that shares a
 significant part of its code with this one, and must not contribute material derived from such sources.
 
-Public decompilation projects are not leaked sources. This repository uses the symbol names they publish as research
-(see Credits), after checking them against our own assembly, but never their C code: every function here is written
-independently and verified against the European ROM.
+### Sources of the code (rule for everyone, humans and AI agents)
+
+The C code of this repository is derived from **one source only: our own European ROM** (its machine code, analysed and
+verified byte for byte with the tools above).
+
+The **only** thing taken from another project is **names**: the function names published by the US-version
+decompilation, [zeldaret/mm](https://github.com/zeldaret/mm), which we register in `config/*.names.txt` (entries tagged
+`ref:`) after checking that they fit our own assembly. Nothing else is taken from it or from any other project:
+no C code, no function bodies, no structure layouts, no algorithms, no comments. Do not copy, paraphrase or reproduce
+from memory the source of another decompilation project, of the Nintendo 64 SDK, of libultra, or of any other game, and
+do not use any of it as a guide to how a function should be written. Every function must be written from the assembly of
+our ROM and accepted only if it recompiles to the exact bytes. A function that cannot be written without such help stays
+unfinished.
 
 ## License
 
@@ -195,7 +205,7 @@ This project rests on the work of the N64 decompilation community. Thanks to the
 * [Ghidra](https://github.com/NationalSecurityAgency/ghidra) (NSA): initial analysis and pseudo-C
 * [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): decompilation of the
   US version, whose published function names (`tools/ref_align.py` aligns them with ours, entries tagged `ref:` in
-  `config/*.names.txt`) and research on the game's structure are an invaluable reference. No code is taken from it.
+  `config/*.names.txt`) are the only thing we take from it. No code, structure or other material is taken from it.
 * GNU binutils: assembler, linker and `objcopy`
 
 The names, licences and rights of these tools remain with their authors.

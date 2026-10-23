@@ -3,6 +3,18 @@
 Goal: write C for Zelda: Majora's Mask (N64) functions that the IDO 7.1 compiler turns into **exactly** the
 original machine code. The verifier is the only judge. Work from the project root with the Bash tool.
 
+## Sources: what you may use (strict rule)
+
+Your only source for the C code is **the assembly of our ROM** (`asm/<seg>/text.s`) and the compiler's feedback
+(`tools/match.py`, `tools/disasm_diff.py`). The only thing that comes from another project is **names**: the function
+names of the US decompilation (zeldaret/mm), already registered in `config/<seg>.names.txt` (entries tagged `ref:`).
+
+Never copy, paraphrase or recall from memory the C source of zeldaret/mm, of any other decompilation project, of the
+Nintendo 64 SDK or libultra, or of any other game, and never use it as a guide for a function's structure, algorithm,
+variable names or comments. If a function only seems to match when you "remember" how it is written elsewhere, stop:
+leave it unfinished in `src/<seg>/wip/` and say so in your report. Do not invent names either: use the names of
+`config/<seg>.names.txt`, else the `func_XXXXXXXX` name.
+
 ## Loop, for each function you were given (segment `boot`, or the segment named in your task)
 
 1. `tools/mm asm <seg> <fn>` : original MIPS assembly. This is the ground truth.
