@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-// best attempt: 13 instr differ (delay-slot/scheduling of 'lui at' / 'lui a1' around the entry-count loop; ROM keeps 'or v0,a0' before the branch)
+// best attempt: 12 instr differ (delay-slot/scheduling of 'lui at' / 'lui a1' around the entry-count loop; ROM keeps 'or v0,a0' before the branch)
 #include "types.h"
 
 extern u8 D_1A8D0[];
@@ -39,8 +39,8 @@ void DmaMgr_Init(void) {
     if (e->unk4 != 0) {
         p = e;
         do {
-            p++;
             i++;
+            p++;
         } while (p->unk4 != 0);
     }
     D_8009B68C = i;

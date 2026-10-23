@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g0 -mips2
+// FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 #include "types.h"
 
 float sqrtf(float);
