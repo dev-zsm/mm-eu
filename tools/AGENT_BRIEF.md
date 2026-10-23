@@ -16,6 +16,12 @@ original machine code. The verifier is the only judge. Work from the project roo
    jal targets and %hi/%lo address parts are ignored.
 5. Iterate until MATCH. Give up on a function after ~12 attempts; keep the best attempt in the file.
 
+## Compiler version
+
+Default is IDO 7.1. If a function differs only by `$at` vs `t`-register scratch in struct copies (or no source form
+matches with 7.1), try IDO 5.3: add `// COMPILER: ido53` as the 2nd line (right after `// FLAGS:` if any) of the .c file
+and run match again. Report in your final line which functions needed it. Never use it just to force a match.
+
 ## Compiler flags (first line of the .c file: `// FLAGS: <flags>`; default `-O2 -g3 -mips2`)
 
 Allowed: `-O1`/`-O2`, `-g0`/`-g3`, `-mips2`, `-mips3 -32` (only for functions with ld/sd/dmtc1/cvt.*.l), and
@@ -101,3 +107,22 @@ The remaining differences are almost always register allocation or stack layout.
 - `x / 12` emits a divide-by-zero check; a pointer difference with a 12-byte struct type does not.
 - abs: `if (t < 0) { x = -t; } else { x = t; }`. Hardware register: literal address `*(s32 *)0xA450000C`.
 - The decomp-permuter is also running over all wip functions in the background (CPU only); do not start your own permuter.
+
+## Linux commands (no `tools/mm`, which needs WSL)
+
+After `. ~/mm-venv/bin/activate` from the project root: assembly `awk '/^glabel FN$/{p=1} p{print} /^endlabel FN$/{exit}' asm/boot/text.s`;
+draft `python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f FN asm/boot/text.s`; match `python3 tools/match.py boot FN src/boot/FN.c`;
+diff `python3 tools/disasm_diff.py boot FN src/boot/FN.c`.
+
+## Lessons of the fifth wave
+
+- Call a function that has a name in `config/boot.names.txt` by that name, any other by its `func_` name. Never invent an
+  SDK name (`tools/match.py` ignores `jal` targets; only the full rebuild, `make verify`, catches a wrong callee).
+- libultra `os*` routines (`osSendMesg`, `osStartThread`, `osCreateThread`, `__osInsertTimer`...): `-O1 -g0 -mips2` with
+  `register` on the locals that live across calls.
+- libgu float code (`guRotateF`, `guOrthoF`): add `-Wab,-r4300_mul` to the FLAGS line (it gives the `nop` after `mul.s`).
+- A global the ROM reads or writes through `lui`+`addiu` then `0(reg)` is declared `volatile` (e.g. the IrqMgr reset status).
+- Two statements `x = a - b; x &= ~0xF;` can match where `x = (a - b) & ~0xF;` does not. `while (n--)` on the parameter itself
+  for copy/fill loops; the simplest form wins (`memset`, `strchr`, `bzero` wrappers).
+- `Fault_RemoveClient`-style list code: keep the original odd logic, do not "simplify" it.
+- Unaligned / `$at` struct copies: try `// COMPILER: ido53` (see above).

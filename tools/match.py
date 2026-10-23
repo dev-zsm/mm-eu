@@ -14,6 +14,7 @@ NAMES = {**_names.load("boot"), **_names.load("code")}
 import os  # noqa: E402
 CC = Path(os.environ.get("MM_CC") or ROOT / "tools/vendor/ido71/cc")  # MM_CC=~/ido71/cc is ~4x faster than /mnt/c
 SEG = {"boot": (ROOT / "build/boot.bin", 0x80080000), "code": (ROOT / "extracted/0049_00C8A000.bin", 0x800A5FE0)}
+CC53 = ROOT / "tools/vendor/ido53/cc"  # libultra/libc files built with the older IDO 5.3: `// COMPILER: ido53` in their first lines
 DEFAULT_FLAGS = ["-O2", "-g3", "-mips2", "-G", "0", "-non_shared", "-Xcpluscomm", "-w", "-I" + str(ROOT / "include")]
 # relocation type -> mask of bits that the linker rewrites
 MASKS = {"R_MIPS_26": 0x03FFFFFF, "R_MIPS_HI16": 0xFFFF, "R_MIPS_LO16": 0xFFFF,
@@ -33,11 +34,17 @@ def original(seg: str, name: str):
     return path.read_bytes()[off:off + size], off
 
 
+def compiler_for(cfile: Path) -> Path:
+    """IDO 5.3 when one of the first lines of the file says `// COMPILER: ido53`, else IDO 7.1."""
+    head = cfile.read_text().splitlines()[:3]
+    return CC53 if any(re.match(r"// COMPILER: ido53\s*$", l) for l in head) else CC
+
+
 def compiled(cfile: Path, name: str, flags: list[str], want_len: int = 0):
     name = NAMES.get(name, name)  # the C file defines the real name; files and the ROM table use the splat name
     with tempfile.TemporaryDirectory() as d:
         obj = Path(d) / "x.o"
-        subprocess.run([str(CC), "-c", *flags, "-o", str(obj), str(cfile)], check=True)
+        subprocess.run([str(compiler_for(cfile)), "-c", *flags, "-o", str(obj), str(cfile)], check=True)
         syms = run("mips-linux-gnu-nm", str(obj))
         start = int(re.search(rf"^([0-9a-f]+) T {name}$", syms, re.M).group(1), 16)
         sec = run("mips-linux-gnu-objdump", "-h", str(obj))

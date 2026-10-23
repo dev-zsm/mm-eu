@@ -2,46 +2,31 @@
 #include "types.h"
 
 typedef struct {
-    /* 0x00 */ s32 unk0;
-    /* 0x04 */ s32 unk4;
-    /* 0x08 */ s32 unk8;
-    /* 0x0C */ s32 unkC;
-    /* 0x10 */ s32 unk10;
-    /* 0x14 */ s32 unk14;
-    /* 0x18 */ s32 unk18;
-    /* 0x1C */ s32 unk1C;
-    /* 0x20 */ s32 unk20;
-    /* 0x24 */ s32 unk24;
-    /* 0x28 */ s32 unk28;
-    /* 0x2C */ s32 unk2C;
-    /* 0x30 */ s32 unk30;
-    /* 0x34 */ s32 unk34;
-    /* 0x38 */ s32 unk38;
-    /* 0x3C */ s32 unk3C;
-} Func80088440Struct;
+    s32 m[16];
+} Mtx_;
 
-void guScale(Func80088440Struct *arg0, f32 arg1, f32 arg2, f32 arg3) {
-    s32 temp_f10;
-    s32 temp_f10_2;
-    s32 temp_f10_3;
+void guScale(Mtx_ *m, f32 x, f32 y, f32 z) {
+    s32 e1;
+    s32 e2;
+    s32 e3;
 
-    arg0->unk4 = 0;
-    arg0->unkC = 0;
-    arg0->unk10 = 0;
-    arg0->unk18 = 0;
-    arg0->unk24 = 0;
-    arg0->unk2C = 0;
-    arg0->unk30 = 0;
-    temp_f10 = (s32) (arg1 * 65536.0f);
-    arg0->unk38 = 0;
-    arg0->unk3C = 0;
-    temp_f10_2 = (s32) (arg2 * 65536.0f);
-    arg0->unk0 = (s32) (((u32) temp_f10 >> 0x10) << 0x10);
-    arg0->unk20 = (s32) (temp_f10 << 0x10);
-    temp_f10_3 = (s32) (arg3 * 65536.0f);
-    arg0->unk28 = (s32) (temp_f10_2 & 0xFFFF);
-    arg0->unk8 = (u32) ((u32) temp_f10_2 >> 0x10);
-    arg0->unk14 = (s32) (((u32) temp_f10_3 >> 0x10) << 0x10);
-    arg0->unk34 = (s32) (temp_f10_3 << 0x10);
-    arg0->unk1C = 1;
+    m->m[1] = 0;
+    m->m[3] = 0;
+    m->m[4] = 0;
+    m->m[6] = 0;
+    m->m[9] = 0;
+    m->m[11] = 0;
+    m->m[12] = 0;
+    m->m[14] = 0;
+    m->m[15] = 0;
+    e1 = x * 65536.0f;
+    e2 = y * 65536.0f;
+    e3 = z * 65536.0f;
+    m->m[0] = (u32)e1 >> 16 << 16;
+    m->m[8] = e1 << 16;
+    m->m[10] = e2 & 0xFFFF;
+    m->m[2] = (u32)e2 >> 16;
+    m->m[5] = (u32)e3 >> 16 << 16;
+    m->m[13] = e3 << 16;
+    m->m[7] = 1;
 }

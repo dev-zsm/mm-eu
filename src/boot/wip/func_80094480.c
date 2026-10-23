@@ -1,4 +1,6 @@
-// FLAGS: -O2 -g0 -mips2
+// best attempt: 50 instr differ (final trim loop delay-slot order, temp numbering); ido53 + -Wab,-r4300_mul
+// FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
+// COMPILER: ido53
 #include "types.h"
 
 typedef struct FmtCtx {

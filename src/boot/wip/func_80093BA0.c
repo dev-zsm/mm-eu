@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
 typedef struct {
@@ -35,7 +36,7 @@ s32 corrupted(Ctx *arg0, Pair p, u8 *arg2) {
             } else {
                 s1 = arg0->unk60;
             }
-            if (p.b.a == v0 || ((arg2 + idx)[0x101] & (1 << (v0 % 8)))) {
+            if (s2 == p.b.a || ((arg2 + idx)[0x101] & (1 << (v0 % 8)))) {
                 if (arg2[0x100] != v0) {
                     r = __osPfsRWInode(arg0, arg2, 0, s2);
                     if (r != 0 && r != 3) {

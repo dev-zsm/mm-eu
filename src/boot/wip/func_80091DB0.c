@@ -2,122 +2,100 @@
 #include "types.h"
 
 typedef struct {
-    u16 unk0;
-    u16 pad2;
-    u32 unk4;
-    void *unk8;
-    u32 unkC;
-    u32 unk10;
-    u32 unk14;
-    u32 unk18;
-    u32 unk1C;
-    u32 unk20;
-    f32 unk24;
-    u16 unk28;
-    u16 pad2A;
-    u32 unk2C;
-    u32 unk30;
-} BootState;
+    f32 factor;
+    u16 offset;
+    u32 scale;
+} ViScale;
 
 typedef struct {
-    u8 pad0[0x8];
-    u32 unk8;
-    u32 unkC;
-    u32 unk10;
-    u32 unk14;
-    u32 unk18;
-    u32 unk1C;
-    u32 unk20;
-    u32 unk24;
-    u32 unk28;
-    u32 unk2C;
-    u32 unk30;
-    u32 unk34;
-    u32 unk38;
-} BootDesc;
+    u16 state;
+    u16 retraceCount;
+    void *framep;
+    struct ViMode *modep;
+    u32 features;
+    void *mq;
+    void *msg;
+    ViScale x;
+    ViScale y;
+} ViContext;
 
-extern s32 osVirtualToPhysical(u32, void *);
-extern BootState *D_800982B4;
-extern void *D_800982B0;
-extern s32 D_800983BC;
+typedef struct {
+    u32 origin;
+    u32 yScale;
+    u32 vStart;
+    u32 vBurst;
+    u32 vIntr;
+} ViFieldRegs;
+
+typedef struct ViMode {
+    u8 type;
+    u32 ctrl;
+    u32 width;
+    u32 burst;
+    u32 vSync;
+    u32 hSync;
+    u32 leap;
+    u32 hStart;
+    u32 xScale;
+    u32 vCurrent;
+    ViFieldRegs fldRegs[2];
+} ViMode;
+
+extern ViContext *D_800982B4;
+extern ViContext *D_800982B0;
+extern u32 D_800983BC;
+extern u32 osVirtualToPhysical(void *);
 
 void __osViSwapContext(void) {
-    BootState *st;
-    BootDesc *d;
-    BootDesc *e;
-    u32 idx;
-    s32 a0;
-    u32 a3;
-    s32 sp34;
-    s32 v3;
-    u32 *old;
-    u32 *p;
-    u32 *q;
-    u32 *end;
+    register ViMode *vm;
+    register ViContext *vc;
+    u32 origin;
+    u32 hStart;
+    u32 field;
+    u32 vStart;
 
-    st = D_800982B4;
-    idx = *(u32 *)0xA4400010 & 1;
-    d = st->unk8;
-    a0 = osVirtualToPhysical(st->unk4, d);
-    e = (BootDesc *)((u8 *)d + idx * 20);
-    a0 = e->unk28 + a0;
-    if (st->unk0 & 2) {
-        st->unk20 = st->unk20 | (d->unk20 & ~0xFFF);
+    vc = D_800982B4;
+    vm = vc->modep;
+    field = *(u32 *)0xA4400010 & 1;
+    origin = osVirtualToPhysical(vc->framep) + vm->fldRegs[field].origin;
+    if (vc->state & 2) {
+        vc->x.scale |= vm->xScale & ~0xFFF;
     } else {
-        st->unk20 = d->unk20;
+        vc->x.scale = vm->xScale;
     }
-    if (st->unk0 & 4) {
-        f32 f;
-        s32 t;
-        t = e->unk2C & 0xFFF;
-        f = (f32)t;
-        if (t < 0) {
-            f += 4294967296.0f;
-        }
-        st->unk2C = (u32)(st->unk24 * f);
-        st->unk2C = (u32)(st->unk2C | (e->unk2C & ~0xFFF));
+    if (vc->state & 4) {
+        vc->y.scale = vc->y.factor * (vm->fldRegs[field].yScale & 0xFFF);
+        vc->y.scale |= vm->fldRegs[field].yScale & ~0xFFF;
     } else {
-        st->unk2C = e->unk2C;
+        vc->y.scale = vm->fldRegs[field].yScale;
     }
-    sp34 = (e->unk30 - (D_800983BC << 16)) + D_800983BC;
-    a3 = d->unk1C;
-    v3 = st->unk0;
-    if (v3 & 0x20) {
-        a3 = 0;
+    vStart = (vm->fldRegs[field].vStart - (D_800983BC << 16)) + D_800983BC;
+    hStart = vm->hStart;
+    if (vc->state & 0x20) {
+        hStart = 0;
     }
-    if (v3 & 0x40) {
-        st->unk2C = 0;
-        a0 = osVirtualToPhysical(st->unk4, d);
+    if (vc->state & 0x40) {
+        vc->y.scale = 0;
+        origin = osVirtualToPhysical(vc->framep);
     }
-    v3 = st->unk0;
-    if (v3 & 0x80) {
-        st->unk2C = (u32)((st->unk28 << 16) & 0x3FF0000);
-        a0 = osVirtualToPhysical(st->unk4, d);
+    if (vc->state & 0x80) {
+        vc->y.scale = (vc->y.offset << 16) & 0x3FF0000;
+        origin = osVirtualToPhysical(vc->framep);
     }
-    *(s32 *)0xA4400004 = a0;
-    *(u32 *)0xA4400008 = d->unk8;
-    *(u32 *)0xA4400014 = d->unkC;
-    *(u32 *)0xA4400018 = d->unk10;
-    *(u32 *)0xA440001C = d->unk14;
-    *(u32 *)0xA4400020 = d->unk18;
-    *(u32 *)0xA4400024 = a3;
-    *(s32 *)0xA4400028 = sp34;
-    *(u32 *)0xA440002C = e->unk34;
-    *(u32 *)0xA440000C = e->unk38;
-    *(u32 *)0xA4400030 = st->unk20;
-    *(u32 *)0xA4400034 = st->unk2C;
-    *(u32 *)0xA4400000 = st->unkC;
-    old = (u32 *)D_800982B0;
-    D_800982B0 = st;
-    D_800982B4 = (BootState *)old;
-    p = (u32 *)st;
-    q = old;
-    end = (u32 *)((u8 *)st + 0x30);
-    do {
-        q[0] = p[0];
-        q[1] = p[1];
-        q[2] = p[2];
-        p += 3;
-        q += 3;
-    } while (p != end);
+    *(u32 *)0xA4400004 = origin;
+    *(u32 *)0xA4400008 = vm->width;
+    *(u32 *)0xA4400014 = vm->burst;
+    *(u32 *)0xA4400018 = vm->vSync;
+    *(u32 *)0xA440001C = vm->hSync;
+    *(u32 *)0xA4400020 = vm->leap;
+    *(u32 *)0xA4400024 = hStart;
+    *(u32 *)0xA4400028 = vStart;
+    *(u32 *)0xA440002C = vm->fldRegs[field].vBurst;
+    *(u32 *)0xA440000C = vm->fldRegs[field].vIntr;
+    *(u32 *)0xA4400030 = vc->x.scale;
+    *(u32 *)0xA4400034 = vc->y.scale;
+    *(u32 *)0xA4400000 = vc->features;
+    D_800982B4 = D_800982B0;
+    D_800982B0 = vc;
+    *D_800982B4 = *D_800982B0;
 }
