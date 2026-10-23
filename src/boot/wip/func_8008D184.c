@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
+// best attempt: 33/181 instr differ (locals stack slots 4 bytes lower than ROM, register naming in sum compare)
 #include "types.h"
 
 typedef struct {
@@ -26,14 +27,14 @@ s32 __osContRamWrite(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
 s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
 
 s32 __osPfsRWInode(Pfs *pfs, u8 *inode, u8 flag, u8 bank) {
-    u8 sum;
-    s32 ret;
     s32 j;
+    s32 ret;
     u8 *addr;
     s32 offset;
     u8 *ptr;
+    u8 sum;
 
-    if (flag == 0 && D_800980F4 == bank && D_800980F0 == pfs->channel) {
+    if (flag == 0 && bank == D_800980F4 && pfs->channel == D_800980F0) {
         bcopy(D_8009E7E0, inode, 0x100);
         return 0;
     }
