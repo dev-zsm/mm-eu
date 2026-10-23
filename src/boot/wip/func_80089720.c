@@ -11,28 +11,25 @@ typedef struct Thing {
 s32 __osVoiceGetStatus(void *a, s32 b, void *c);
 s32 __osVoiceContRead2(void *a, s32 b, s32 c, u8 *d);
 
-s32 __osVoiceCheckResult(Thing *s0, u8 *a1) {
-    u8 sp20[2];
+s32 __osVoiceCheckResult(Thing *hd, u8 *status) {
     s32 ret;
+    u8 buf[2];
 
-    ret = __osVoiceGetStatus(s0->ptr, s0->size, a1);
-    if (ret != 0) {
-        goto done;
+    ret = __osVoiceGetStatus(hd->ptr, hd->size, status);
+    if (ret == 0) {
+        if (*status & 1) {
+            ret = 0xF;
+        } else {
+            ret = __osVoiceContRead2(hd->ptr, hd->size, 0, buf);
+            if (ret == 0) {
+                hd->flags = buf[0] & 7;
+                if (buf[0] & 0x40) {
+                    ret = 0xF;
+                } else {
+                    ret = (u16)(buf[1] << 8);
+                }
+            }
+        }
     }
-    if (a1[0] & 1) {
-        ret = 0xF;
-        goto done;
-    }
-    ret = __osVoiceContRead2(s0->ptr, s0->size, 0, sp20);
-    if (ret != 0) {
-        goto done;
-    }
-    s0->flags = sp20[0] & 7;
-    if (sp20[0] & 0x40) {
-        ret = 0xF;
-    } else {
-        ret = sp20[1] << 8;
-    }
-done:
     return ret;
 }

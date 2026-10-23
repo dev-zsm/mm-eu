@@ -1,24 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
+// best attempt: ~4 diffs (reg v1 vs v0 for table ptr, f18 vs f16, missing nop before loop)
 #include "types.h"
-
-extern f32 D_80099350;
-
-// best attempt: ~4 real diffs (missing nop before loop at +0x14; next-sum temp is f18 instead of f16)
-f32 Math_FAtanTaylorQF(f32 arg0) {
-    f32 sq, cube, sum, t, nx;
-    f32 *p;
-
-    sq = arg0 * arg0;
-    sum = arg0;
-    p = &D_80099350;
-    cube = arg0 * sq;
-    for (;;) {
-        t = *p * cube;
-        p++;
-        nx = sum + t;
-        if (sum == nx) break;
-        cube *= sq;
-        sum = nx;
-    }
-    return sum;
-}
+extern f32 D_80099350[];
+f32 Math_FAtanTaylorQF(f32 x) { f32 poly = x; f32 sq = x * x; f32 exp = x * sq; f32 term, nx; s32 i; for (i = 0; ; i++) { term = exp * D_80099350[i]; nx = poly + term; if (poly == nx) break; exp *= sq; poly = nx; } return poly; }

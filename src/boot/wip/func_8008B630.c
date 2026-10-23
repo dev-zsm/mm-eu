@@ -4,45 +4,33 @@
 extern u8 D_8009D2E0;
 extern u8 D_8009E9A0[];
 
-typedef struct Q4 {
-    u8 b[4];
-} Q4;
+typedef struct {
+    u8 txsize;
+    u8 rxsize;
+    u8 cmd;
+    u8 typeh;
+    u8 typel;
+    u8 status;
+} Req6;
 
-void __osPfsRequestOneChannel(s32 n, u8 val) {
-    u8 buf[6];
-    u8 *p;
+void __osPfsRequestOneChannel(s32 channel, u8 poll) {
+    u8 *ptr;
+    Req6 fmt;
     s32 i;
 
-    p = D_8009E9A0;
     D_8009D2E0 = 0xFE;
-    *(s32 *)(p + 0x3C) = 1;
-    buf[0] = 1;
-    buf[1] = 3;
-    buf[2] = val;
-    buf[3] = 0xFF;
-    buf[4] = 0xFF;
-    buf[5] = 0xFF;
-    i = 0;
-    if (n > 0) {
-        if (n & 3) {
-            do {
-                i++;
-                *p++ = 0;
-            } while (i != (n & 3));
-        }
-        if (i != n) {
-            do {
-                i += 4;
-                p[0] = 0;
-                p[1] = 0;
-                p[2] = 0;
-                p[3] = 0;
-                p += 4;
-            } while (i != n);
-        }
+    *(s32 *)(D_8009E9A0 + 0x3C) = 1;
+    ptr = D_8009E9A0;
+    fmt.txsize = 1;
+    fmt.rxsize = 3;
+    fmt.cmd = poll & 0xFF;
+    fmt.typeh = 0xFF;
+    fmt.typel = 0xFF;
+    fmt.status = 0xFF;
+    for (i = 0; i < channel; i++) {
+        *ptr++ = 0;
     }
-    *(Q4 *)p = *(Q4 *)buf;
-    p[4] = buf[4];
-    p[5] = buf[5];
-    p[6] = 0xFE;
+    *(Req6 *)ptr = fmt;
+    ptr += sizeof(Req6);
+    ptr[0] = 0xFE;
 }

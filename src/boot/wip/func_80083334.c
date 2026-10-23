@@ -23,8 +23,8 @@ extern u8 D_800895C0[];
 
 void Fault_LogStackTrace(Obj80083334 *arg0, s32 arg1) {
     s32 sp50;
-    s32 sp58;
     s32 sp54;
+    s32 sp58;
     s32 s0;
     s32 s1;
 

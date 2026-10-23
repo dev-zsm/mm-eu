@@ -1,8 +1,22 @@
-// FLAGS: -O2 -g0
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
-typedef struct { u8 unk0; u8 unk1; u8 unk2; u8 unk3; u8 unk4; u8 unk5; s8 unk6; s8 unk7; } Entry;
-typedef struct { u8 unk0; u8 unk1; u8 unk2; u8 unk3; u8 unk4; u8 unk5; } Out;
-extern Entry D_8009D2A0[];
+typedef struct { u8 dummy; u8 txsize; u8 rxsize; u8 cmd; u16 button; s8 stick_x; s8 stick_y; } Fmt;
+typedef struct { u16 button; s8 stick_x; s8 stick_y; u8 errno; } Pad;
+extern u8 D_8009D2A0[];
 extern u8 D_8009D2E1;
 
-void osContGetReadData(Out *out) { s32 i; Entry tmp; Entry *src; src = D_8009D2A0; i = 0; while (i < D_8009D2E1) { tmp = *src; out->unk4 = (tmp.unk2 & 0xC0) >> 4; if (out->unk4 == 0) { *(u16 *)&out->unk0 = *(u16 *)&tmp.unk4; out->unk2 = tmp.unk6; out->unk3 = tmp.unk7; } src++; out++; i++; } }
+void osContGetReadData(Pad *data) {
+    register u8 *ptr = D_8009D2A0;
+    Fmt readformat;
+    register s32 i;
+
+    for (i = 0; i < D_8009D2E1; i++, ptr += sizeof(Fmt), data++) {
+        readformat = *(Fmt *)ptr;
+        data->errno = (readformat.rxsize & 0xC0) >> 4;
+        if (data->errno == 0) {
+            data->button = readformat.button;
+            data->stick_x = readformat.stick_x;
+            data->stick_y = readformat.stick_y;
+        }
+    }
+}

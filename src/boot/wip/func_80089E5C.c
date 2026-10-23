@@ -5,41 +5,38 @@ extern u8 D_8009D2E1;
 extern u8 D_8009D2A0[];
 
 typedef struct {
-    u8 b[8];
-} Ent8;
+    u8 dummy;
+    u8 txsize;
+    u8 rxsize;
+    u8 cmd;
+    u8 typeh;
+    u8 typel;
+    u8 status;
+    u8 dummy1;
+} Req;
 
 typedef struct {
-    u16 h0;
-    u8 b2;
-    u8 b3;
-} Out4;
+    u16 type;
+    u8 status;
+    u8 errno;
+} Status;
 
-void __osContGetInitData(u8 *arg0, Out4 *arg1) {
-    Ent8 buf;
-    Ent8 *src;
-    Out4 *out;
+void __osContGetInitData(u8 *pattern, Status *data) {
+    u8 *ptr;
+    Req header;
     s32 i;
-    s32 flags;
-    s32 t;
+    u8 bits;
 
-    flags = 0;
-    i = 0;
-    src = (Ent8 *)D_8009D2A0;
-    out = arg1;
-    if (D_8009D2E1 > 0) {
-        do {
-            buf = *src;
-            src++;
-            t = (buf.b[2] & 0xC0) >> 4;
-            out->b3 = t;
-            if ((t & 0xFF) == 0) {
-                out->h0 = (buf.b[5] << 8) | buf.b[4];
-                flags = (flags | (1 << i)) & 0xFF;
-                out->b2 = buf.b[6];
-            }
-            i++;
-            out++;
-        } while (i < D_8009D2E1);
+    bits = 0;
+    ptr = D_8009D2A0;
+    for (i = 0; i < D_8009D2E1; i++, ptr += sizeof(header), data++) {
+        header = *(Req *)ptr;
+        data->errno = (header.rxsize & 0xC0) >> 4;
+        if (data->errno == 0) {
+            data->type = header.typel << 8 | header.typeh;
+            data->status = header.status;
+            bits |= 1 << i;
+        }
     }
-    *arg0 = flags;
+    *pattern = bits;
 }

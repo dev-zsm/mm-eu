@@ -28,10 +28,19 @@ void osCreateThread(void *a, s32 b, void *c, s32 d, void *e, s32 f);
 void osStartThread(void *a);
 void DmaMgr_ThreadEntry(void);
 void DmaMgr_Init(void) {
+    BootEntry *e;
+    BootEntry *p;
     s32 i;
 
     func_800807E0(D_1A8D0, D_8009FC80, D_20C20 - D_1A8D0);
-    for (i = 0; D_8009FC80[i].unk4 != 0; i++) {
+    e = D_8009FC80;
+    i = 0;
+    if (e->unk4 != 0) {
+        p = e;
+        do {
+            p++;
+            i++;
+        } while (p->unk4 != 0);
     }
     D_8009B68C = i;
     osCreateMesgQueue(D_8009B690, D_8009B6A8, 0x20);
