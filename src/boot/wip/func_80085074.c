@@ -1,30 +1,36 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 
-s32 DmaMgr_RequestSync(void *a0, s32 a1, s32 a2);
-void func_80084E40(void *a0, void *a1, s32 a2);
-void bzero(void *a0, s32 a1);
-void func_8008A780(void *a0, s32 a1);
-void osInvalICache(void *a0, s32 a1);
+typedef struct {
+    u32 textSize;
+    u32 dataSize;
+    u32 rodataSize;
+    u32 bssSize;
+    u32 nRelocations;
+    u32 relocations[1];
+} OverlayRelocationSection;
 
-s32 func_80085074(s32 a0, s32 a1, s32 a2, s32 a3, u8 *a4) {
-    u8 sp28[0x10];
-    s32 len;
-    u8 *p;
-    u8 *q;
-    s32 ret;
+s32 DmaMgr_RequestSync(void *a0, u32 a1, u32 a2);
+void func_80084E40(void *a0, void *a1, u32 a2);
+void bzero(void *a0, u32 a1);
+void func_8008A780(void *a0, u32 a1);
+void osInvalICache(void *a0, u32 a1);
 
-    len = a1 - a0;
-    DmaMgr_RequestSync(a4, a0, len);
-    p = a4 + len;
-    q = p - *(s32 *)(p - 4);
-    func_80084E40(a4, q, a2);
-    if (*(s32 *)(q + 0xC) != 0) {
-        bzero(p, *(s32 *)(q + 0xC));
+u32 func_80085074(u32 vromStart, u32 vromEnd, u32 vramStart, u32 vramEnd, void *allocatedRamAddr) {
+    u32 size = vromEnd - vromStart;
+    void *end;
+    OverlayRelocationSection *ovl;
+
+    DmaMgr_RequestSync(allocatedRamAddr, vromStart, size);
+    end = (void *)((u32)allocatedRamAddr + size);
+    ovl = (OverlayRelocationSection *)((u32)end - ((u32 *)end)[-1]);
+    func_80084E40(allocatedRamAddr, ovl, vramStart);
+    if (ovl->bssSize != 0) {
+        bzero(end, ovl->bssSize);
     }
-    bzero(q, (*(s32 *)(q + 0x10) << 2) + 0x14);
-    ret = a3 - a2;
-    func_8008A780(a4, ret);
-    osInvalICache(a4, ret);
-    return ret;
+    bzero(ovl, (u32)&ovl->relocations[ovl->nRelocations] - (u32)ovl);
+    size = vramEnd - vramStart;
+    func_8008A780(allocatedRamAddr, size);
+    osInvalICache(allocatedRamAddr, size);
+    return size;
 }

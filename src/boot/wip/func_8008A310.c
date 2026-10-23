@@ -2,122 +2,117 @@
 #include "types.h"
 
 typedef struct {
-    s32 p0;
-    s32 p4;
+    s32 mq;
+    s32 channel;
     s32 mode;
-    s32 pad;
-    u8 bits;
-} Ctl;
+    u8 cmdStatus;
+} VoiceHandle;
+
+typedef struct {
+    u16 warning;
+    u16 answerNum;
+    u16 voiceLevel;
+    u16 voiceSn;
+    u16 voiceTime;
+    u16 answer[5];
+    u16 distance[5];
+} VoiceData;
 
 extern u8 D_8009D330;
 
-s32 __osVoiceGetStatus(s32 a, s32 b, u8 *flag);
-s32 __osVoiceContRead2(s32 a, s32 b, s32 c, u8 *out);
-s32 __osVoiceContWrite4(s32 a, s32 b, s32 c, u32 *out);
-s32 __osVoiceContRead36(s32 a, s32 b, s32 c, u8 *out);
+s32 __osVoiceGetStatus(s32 mq, s32 channel, u8 *status);
+s32 __osVoiceContRead2(s32 mq, s32 channel, s32 address, u8 *buffer);
+s32 __osVoiceContWrite4(s32 mq, s32 channel, s32 address, u8 *buffer);
+s32 __osVoiceContRead36(s32 mq, s32 channel, s32 address, u8 *buffer);
 
-static void unpack(u16 *o, u8 *b) {
-    o[0] = (b[1] << 8) | b[0];
-    o[1] = b[2];
-    o[2] = (b[5] << 8) | b[4];
-    o[3] = (b[7] << 8) | b[6];
-    o[4] = (b[9] << 8) | b[8];
-    o[5] = (b[11] << 8) | b[10];
-}
+s32 osVoiceGetReadData(VoiceHandle *hd, VoiceData *result) {
+    s32 errorCode;
+    u8 data[36];
+    u8 status;
+    s32 i;
 
-s32 osVoiceGetReadData(Ctl *s, u16 *out) {
-    u8 buf[0x20];
-    u8 flag;
-    u8 bits;
-    s32 err;
-    u32 word;
-    s32 r;
-
-    r = 0;
-    switch (s->mode) {
-    case 1:
-        err = __osVoiceGetStatus(s->p0, s->p4, &flag);
-        if (err != 0) {
-            return err;
-        }
-        if (flag & 1) {
-            return 0xC;
-        }
-        err = __osVoiceContRead2(s->p0, s->p4, 0, buf);
-        if (err != 0) {
-            return err;
-        }
-        bits = buf[0] & 7;
-        s->bits = bits;
-        D_8009D330 = bits;
-        if (bits == 0) {
-            s->mode = 2;
-            goto mode2;
-        }
-        if (bits == 7) {
-            s->mode = 2;
-            goto mode2;
-        }
-        return 0xC;
-    case 2:
-    mode2:
-        s->mode = 2;
-        err = __osVoiceGetStatus(s->p0, s->p4, &flag);
-        if (err != 0) {
-            return err;
-        }
-        if (flag & 2) {
-            return 0xF;
-        }
-        word = 0x600;
-        err = __osVoiceContWrite4(s->p0, s->p4, 0, &word);
-        if (err != 0) {
-            return err;
-        }
-        s->mode = 3;
-        goto mode3;
-    case 3:
-    mode3:
-        s->mode = 3;
-        err = __osVoiceGetStatus(s->p0, s->p4, &flag);
-        if (err != 0) {
-            return err;
-        }
-        if (flag & 1) {
-            return 0xF;
-        }
-        err = __osVoiceContRead36(s->p0, s->p4, 0, buf);
-        if (err != 0) {
-            return err;
-        }
-        unpack(out, buf);
-        bits = buf[0x12] & 7;
-        s->bits = bits;
-        if (bits != 0) {
-            s->mode = 4;
-        } else {
-            s->mode = 0;
-        }
-        return r;
-    case 4:
-    default:
-        if (s->mode == 4) {
-            s->mode = 4;
-            err = __osVoiceGetStatus(s->p0, s->p4, &flag);
-            if (err != 0) {
-                return err;
+    switch (hd->mode) {
+        case 1:
+            errorCode = __osVoiceGetStatus(hd->mq, hd->channel, &status);
+            if (errorCode != 0) {
+                return errorCode;
             }
-            if (flag & 1) {
+            if (status & 1) {
                 return 0xC;
             }
-            err = __osVoiceContRead2(s->p0, s->p4, 0, buf);
-            if (err != 0) {
-                return err;
+            errorCode = __osVoiceContRead2(hd->mq, hd->channel, 0, data);
+            if (errorCode != 0) {
+                return errorCode;
             }
-            s->bits = buf[0] & 7;
-            s->mode = 0;
-            return r;
-        }
-        return 5;
+            hd->cmdStatus = data[0] & 7;
+            D_8009D330 = hd->cmdStatus;
+            if (hd->cmdStatus != 0 && hd->cmdStatus != 7) {
+                return 0xC;
+            }
+        case 2:
+            hd->mode = 2;
+            errorCode = __osVoiceGetStatus(hd->mq, hd->channel, &status);
+            if (errorCode != 0) {
+                return errorCode;
+            }
+            if (status & 2) {
+                return 0xF;
+            }
+            *(u32 *)data = 0x600;
+            errorCode = __osVoiceContWrite4(hd->mq, hd->channel, 0, data);
+            if (errorCode != 0) {
+                return errorCode;
+            }
+        case 3:
+            hd->mode = 3;
+            errorCode = __osVoiceGetStatus(hd->mq, hd->channel, &status);
+            if (errorCode != 0) {
+                return errorCode;
+            }
+            if (status & 1) {
+                return 0xF;
+            }
+            errorCode = __osVoiceContRead36(hd->mq, hd->channel, 0, data);
+            if (errorCode != 0) {
+                return errorCode;
+            }
+            result->warning = (data[5] << 8) + data[4];
+            result->answerNum = data[6];
+            result->voiceLevel = (data[9] << 8) + data[8];
+            result->voiceSn = (data[11] << 8) + data[10];
+            result->voiceTime = (data[13] << 8) + data[12];
+            for (i = 0; i < 5; i++) {
+                result->answer[i] = (data[15 + i * 4] << 8) + data[14 + i * 4];
+                result->distance[i] = (data[17 + i * 4] << 8) + data[16 + i * 4];
+            }
+            if (result->answer[0] == 0x7FFF) {
+                result->answerNum = 0;
+            }
+            hd->cmdStatus = data[0x22] & 7;
+            if (D_8009D330 == 0 || hd->cmdStatus == 0) {
+                hd->mode = 0;
+                return errorCode;
+            }
+        case 4:
+            hd->mode = 4;
+            errorCode = __osVoiceGetStatus(hd->mq, hd->channel, &status);
+            if (errorCode != 0) {
+                return errorCode;
+            }
+            if (status & 1) {
+                return 0xF;
+            }
+            errorCode = __osVoiceContRead2(hd->mq, hd->channel, 0, data);
+            if (errorCode != 0) {
+                return errorCode;
+            }
+            hd->cmdStatus = data[0] & 7;
+            if (hd->cmdStatus == 0) {
+                hd->mode = 0;
+                return errorCode;
+            }
+            return 0xF;
+        default:
+            return 5;
     }
 }

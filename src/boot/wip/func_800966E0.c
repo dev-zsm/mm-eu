@@ -1,106 +1,69 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
+
 void __osSiGetAccess(void);
 void __osSiRelAccess(void);
-void __osSiRawStartDma(s32 a0, u8 *a1);
-s32 __osVoiceContDataCrc(s32 a0, s32 a1);
-s32 __osContAddressCrc(s32 a0, u16 a1);
-void bcopy(s32 a0, u8 *a1, s32 a2);
-void osRecvMesg(s32 a0, s32 a1, s32 a2);
-s32 __osVoiceGetStatus(s32 a0, s32 a1, u8 *a2);
+void __osSiRawStartDma(s32 dir, u8 *pifRam);
+u32 __osVoiceContDataCrc(u8 *data, s32 size);
+u32 __osContAddressCrc(u16 address);
+void bcopy(u8 *src, u8 *dst, s32 size);
+void osRecvMesg(s32 mq, s32 msg, s32 flag);
+s32 __osVoiceGetStatus(s32 mq, s32 channel, u8 *status);
+
 extern s32 D_800981A0;
 extern u8 D_8009D2E0;
 extern u8 D_8009E9A0[];
-s32 __osVoiceContWrite4(s32 arg0, s32 arg1, u16 arg2, s32 arg3) {
-    s32 sp6C;
-    u8 sp6B;
-    s32 sp4C;
-    s32 sp48;
-    s32 temp_a0;
-    s32 temp_s2;
-    s32 temp_v0;
-    s32 var_s4;
-    s32 var_v0;
-    s32 var_v1;
-    u8 *var_s0;
-    u8 *p2E0;
-    s32 *p1A0;
 
-    var_s4 = 2;
+s32 __osVoiceContWrite4(s32 mq, s32 channel, u16 address, u8 *buffer) {
+    s32 ret;
+    u8 status;
+    s32 i;
+    u8 *ptr;
+    u32 crc;
+    s32 retry;
+
+    retry = 2;
     __osSiGetAccess();
-    sp48 = arg2 << 5;
-    sp4C = (s32) arg2 >> 3;
-loop_1:
-    p2E0 = &D_8009D2E0;
-    p1A0 = &D_800981A0;
-    var_s0 = D_8009E9A0;
-    if (*p2E0 != 0xC || arg1 != *p1A0) {
-        *p2E0 = 0xC;
-        *p1A0 = arg1;
-        var_v0 = 0;
-        if (arg1 > 0) {
-            temp_a0 = arg1 & 3;
-            if (temp_a0 != 0) {
-                do {
-                    var_v0 += 1;
-                    *var_s0 = 0;
-                    var_s0 += 1;
-                } while (temp_a0 != var_v0);
-                if (var_v0 != arg1) {
-                    goto loop_9;
-                }
-            } else {
-                do {
-loop_9:
-                    var_v0 += 4;
-                    var_s0[0] = 0;
-                    var_s0[1] = 0;
-                    var_s0[2] = 0;
-                    var_s0[3] = 0;
-                    var_s0 += 4;
-                } while (var_v0 != arg1);
+    do {
+        ptr = D_8009E9A0;
+        if (D_8009D2E0 != 0xC || channel != D_800981A0) {
+            D_8009D2E0 = 0xC;
+            D_800981A0 = channel;
+            for (i = 0; i < channel; i++) {
+                *ptr++ = 0;
             }
+            *(s32 *)(D_8009E9A0 + 0x3C) = 1;
+            ptr[0] = 0xFF;
+            ptr[1] = 7;
+            ptr[2] = 1;
+            ptr[3] = 0xC;
+            ptr[0xA] = 0xFF;
+            ptr[0xB] = 0xFE;
+        } else {
+            ptr = D_8009E9A0 + channel;
         }
-        *(s32 *)(D_8009E9A0 + 0x3C) = 1;
-        var_s0[0] = 0xFF;
-        var_s0[1] = 7;
-        var_s0[2] = 1;
-        var_s0[3] = 0xC;
-        var_s0[0xA] = 0xFF;
-        var_s0[0xB] = 0xFE;
-    } else {
-        var_s0 = D_8009E9A0 + arg1;
-    }
-    var_s0[4] = (u8) sp4C;
-    var_s0[5] = (u8) (__osContAddressCrc(arg2 & 0xFFFF, arg2) | sp48);
-    bcopy(arg3, var_s0 + 6, 4);
-    __osSiRawStartDma(1, D_8009E9A0);
-    temp_s2 = __osVoiceContDataCrc(arg3, 4) & 0xFF;
-    osRecvMesg(arg0, 0, 1);
-    __osSiRawStartDma(0, D_8009E9A0);
-    osRecvMesg(arg0, 0, 1);
-    var_v1 = (var_s0[2] & 0xC0) >> 4;
-    if (var_v1 == 0) {
-        if (var_s0[0xA] != temp_s2) {
-            temp_v0 = __osVoiceGetStatus(arg0, arg1, &sp6B);
-            var_v1 = temp_v0;
-            if (temp_v0 == 0) {
-                var_v1 = 4;
-                goto block_17;
+        ptr[4] = address >> 3;
+        ptr[5] = __osContAddressCrc(address) | (address << 5);
+        bcopy(buffer, ptr + 6, 4);
+        __osSiRawStartDma(1, D_8009E9A0);
+        crc = __osVoiceContDataCrc(buffer, 4) & 0xFF;
+        osRecvMesg(mq, 0, 1);
+        __osSiRawStartDma(0, D_8009E9A0);
+        osRecvMesg(mq, 0, 1);
+        ret = (ptr[2] & 0xC0) >> 4;
+        if (ret == 0) {
+            if (crc != ptr[0xA]) {
+                ret = __osVoiceGetStatus(mq, channel, &status);
+                if (ret != 0) {
+                    break;
+                }
+                ret = 4;
             }
         } else {
-            goto block_17;
+            ret = 1;
         }
-    } else {
-        var_v1 = 1;
-block_17:
-        if (var_v1 == 4) {
-            if (var_s4-- >= 0) {
-                goto loop_1;
-            }
-        }
-    }
-    sp6C = var_v1;
+    } while (ret == 4 && retry-- >= 0);
     __osSiRelAccess();
-    return sp6C;
+    return ret;
 }

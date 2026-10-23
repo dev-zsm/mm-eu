@@ -1,4 +1,6 @@
-// FLAGS: -O2 -g3 -mips2
+// FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
+// best attempt: same instructions as the ROM (mnemonic-identical) but 278 words differ only by register numbers: the ROM puts 'ap' in s0 and 's' in s1 (we do the reverse), and its temporaries are never reused
 #include "types.h"
 
 typedef struct PrintSpec {
@@ -38,7 +40,7 @@ void _Putfld(PrintSpec* s, char** ap, u8 c, char* buf) {
     s->unk1C = 0;
     s->unk20 = 0;
 
-    switch (c & 0xFF) {
+    switch (c) {
     case 'c':
         buf[s->count++] = VA32(ap);
         break;
@@ -96,29 +98,15 @@ void _Putfld(PrintSpec* s, char** ap, u8 c, char* buf) {
     case 'f':
     case 'g':
         if (s->lenmod == 'L') {
-            v = (s32)*ap;
-            if (v & 1) {
-                *ap = (char*)(v + 7);
-                *(f64*)s = *(f64*)(v - 23);
-            } else if (v & 2) {
-                *ap = (char*)(v + 10);
-                *(f64*)s = *(f64*)(v - 38);
-            } else {
-                *ap = (char*)(((v + 7) & ~7) + 8);
-                *(f64*)s = *(f64*)(((v + 7) & ~7));
-            }
+            p = *ap;
+            v = (s32)p;
+            p = ((v & 1) ? (*ap = (char*)(v + 7)) - 22 : ((v & 2) ? (*ap = (char*)(v + 10)) - 40 : (*ap = (char*)(((v + 7) & ~7) + 8))));
+            *(f64*)s = *(f64*)(p - 8);
         } else {
-            v = (s32)*ap;
-            if (v & 1) {
-                *ap = (char*)(v + 7);
-                *(f64*)s = *(f64*)(v - 23);
-            } else if (v & 2) {
-                *ap = (char*)(v + 10);
-                *(f64*)s = *(f64*)(v - 38);
-            } else {
-                *ap = (char*)(((v + 7) & ~7) + 8);
-                *(f64*)s = *(f64*)(((v + 7) & ~7));
-            }
+            p = *ap;
+            v = (s32)p;
+            p = ((v & 1) ? (*ap = (char*)(v + 7)) - 22 : ((v & 2) ? (*ap = (char*)(v + 10)) - 40 : (*ap = (char*)(((v + 7) & ~7) + 8))));
+            *(f64*)s = *(f64*)(p - 8);
         }
         if (*(u16*)s & 0x8000) {
             buf[s->count++] = '-';
@@ -136,11 +124,7 @@ void _Putfld(PrintSpec* s, char** ap, u8 c, char* buf) {
         } else if (s->lenmod == 'l') {
             *(s32*)VA32(ap) = s->total;
         } else if (s->lenmod == 'L') {
-            {
-                s32* a = (s32*)VA32(ap);
-                a[0] = 0;
-                a[1] = s->total;
-            }
+            *(u64*)VA32(ap) = (u32)s->total;
         } else {
             *(s32*)VA32(ap) = s->total;
         }

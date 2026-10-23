@@ -1,4 +1,4 @@
-// FLAGS: -O2 -g0
+// FLAGS: -O2 -g3
 #include "types.h"
 
 void usleep(s32);
@@ -14,18 +14,16 @@ extern u8 D_800984B0[];
 extern u8 D_800984CC[];
 
 void Yaz0_Decompress(s32 arg0, s32 arg1, s32 arg2) {
-    void *lock;
     u8 sp80[0x50];
     u8 sp30[0x50];
     s32 temp_v0;
 
-    if ((D_8009C1E8 != NULL) && (D_8009C1E8 != NULL)) {
-        do {
+    if (D_8009C1E8 != NULL) {
+        while (D_8009C1E8 != NULL) {
             usleep(0xA);
-        } while (D_8009C1E8 != NULL);
+        }
     }
-    lock = &D_8009C1E8;
-    D_8009C1E8 = lock;
+    D_8009C1E8 = &D_8009C1E8;
     D_8009C1EC = arg0;
     D_8009C1F0 = arg2;
     temp_v0 = Yaz0_DecompressImpl(Yaz0_FirstDMA(), arg1);

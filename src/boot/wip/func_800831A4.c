@@ -3,9 +3,9 @@
 
 typedef struct {
     u8 pad0[0xF4];
-    u32 ra;
-    u8 pad1[0x104 - 0xF8];
     u32 sp;
+    u8 pad1[0x104 - 0xF8];
+    u32 ra;
     u8 pad2[0x11C - 0x108];
     u32 pc;
 } Thread;
@@ -24,8 +24,8 @@ extern u8 D_800895C0[];
 
 void Fault_DrawStackTrace(Thread *thread, u32 flags) {
     s32 line;
-    u32 sp = thread->ra;
-    u32 ra = thread->sp;
+    u32 sp = thread->sp;
+    u32 ra = thread->ra;
     u32 pc = thread->pc;
     u32 addr;
     s32 pad[2];

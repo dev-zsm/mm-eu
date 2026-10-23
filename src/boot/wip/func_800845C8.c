@@ -1,68 +1,79 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
 #include "types.h"
 
-extern u8 *D_80096D80;
+typedef struct {
+    void *fb;
+    u16 w;
+    u16 h;
+    u16 yStart;
+    u16 yEnd;
+    u16 xStart;
+    u16 xEnd;
+    u16 foreColor;
+    u16 backColor;
+    u16 cursorX;
+    u16 cursorY;
+    void *font;
+    u8 charW;
+    u8 charH;
+    s8 charWPad;
+    s8 charHPad;
+    u16 printColors[10];
+    u8 escCode;
+    u8 osSyncPrintfEnabled;
+    u8 pad36[2];
+    void (*inputCallback)(void);
+} FaultDrawer;
+
+extern FaultDrawer *D_80096D80;
 extern u8 D_80099308[];
 extern u8 D_8009930C[];
 
 void func_8008198C(void *fmt, ...);
-void FaultDrawer_SetForeColor(u16 a0);
-void FaultDrawer_DrawChar(s32 a0);
+void FaultDrawer_SetForeColor(u16 color);
+void FaultDrawer_DrawChar(s32 c);
 void FaultDrawer_FillScreen(void);
 void osWritebackDCacheAll(void);
 
-s32 FaultDrawer_FormatStringFunc(s32 a0, u8 *s, s32 n) {
-    u8 *ctx;
-    u8 d;
-    void (*fn)(void);
-
-    for (; n != 0; s++) {
-        ctx = D_80096D80;
-        if (ctx[0x34] != 0) {
-            ctx[0x34] = 0;
-            d = *s;
-            if (d >= 0x31 && d < 0x3A) {
-                FaultDrawer_SetForeColor(*(u16 *)(ctx + (d << 1) - 0x40));
+s32 FaultDrawer_FormatStringFunc(s32 arg, u8 *str, s32 count) {
+    for (; count != 0; count--, str++) {
+        if (D_80096D80->escCode) {
+            D_80096D80->escCode = 0;
+            if (*str >= '1' && *str <= '9') {
+                FaultDrawer_SetForeColor(D_80096D80->printColors[*str - '0']);
             }
         } else {
-            ctx = D_80096D80;
-            if (*s == 10) {
-                if (ctx[0x35] != 0) {
-                    func_8008198C(D_80099308);
-                }
-                ctx = D_80096D80;
-                *(u16 *)(ctx + 0x14) = *(u16 *)(ctx + 0x4);
-            } else if (*s == 0x1A) {
-                ctx[0x34] = 1;
-            } else {
-                if (ctx[0x35] != 0) {
-                    func_8008198C(D_8009930C);
-                }
-                FaultDrawer_DrawChar(*s);
-                ctx = D_80096D80;
-                *(u16 *)(ctx + 0x14) = *(u16 *)(ctx + 0x14) + ctx[0x1C] + *(s8 *)(ctx + 0x1E);
+            switch (*str) {
+                case '\n':
+                    if (D_80096D80->osSyncPrintfEnabled) {
+                        func_8008198C(D_80099308);
+                    }
+                    D_80096D80->cursorX = D_80096D80->w;
+                    break;
+                case 0x1A:
+                    D_80096D80->escCode = 1;
+                    break;
+                default:
+                    if (D_80096D80->osSyncPrintfEnabled) {
+                        func_8008198C(D_8009930C);
+                    }
+                    FaultDrawer_DrawChar(*str);
+                    D_80096D80->cursorX += D_80096D80->charW + D_80096D80->charWPad;
+                    break;
             }
         }
-        ctx = D_80096D80;
-        if (*(u16 *)(ctx + 0x14) < *(u16 *)(ctx + 0xE) - ctx[0x1C]) {
-            n--;
-            continue;
+        if (D_80096D80->cursorX >= (D_80096D80->xEnd - D_80096D80->charW)) {
+            D_80096D80->cursorX = D_80096D80->xStart;
+            D_80096D80->cursorY += D_80096D80->charH + D_80096D80->charHPad;
+            if (D_80096D80->cursorY >= (D_80096D80->yEnd - D_80096D80->charH)) {
+                if (D_80096D80->inputCallback != NULL) {
+                    D_80096D80->inputCallback();
+                    FaultDrawer_FillScreen();
+                }
+                D_80096D80->cursorY = D_80096D80->yStart;
+            }
         }
-        *(u16 *)(ctx + 0x14) = *(u16 *)(ctx + 0xC);
-        *(u16 *)(ctx + 0x16) = *(u16 *)(ctx + 0x16) + ctx[0x1D] + *(s8 *)(ctx + 0x1F);
-        if (*(u16 *)(ctx + 0x16) < *(u16 *)(ctx + 0xA) - ctx[0x1D]) {
-            n--;
-            continue;
-        }
-        fn = *(void (**)(void))(ctx + 0x38);
-        if (fn != NULL) {
-            fn();
-            FaultDrawer_FillScreen();
-            ctx = D_80096D80;
-        }
-        *(u16 *)(ctx + 0x16) = *(u16 *)(ctx + 0x8);
-        n--;
     }
     osWritebackDCacheAll();
-    return a0;
+    return arg;
 }

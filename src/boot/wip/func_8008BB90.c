@@ -1,123 +1,133 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
+typedef union {
+    struct {
+        u8 bank;
+        u8 page;
+    } t;
+    u16 ipage;
+} InodeUnit;
+
 typedef struct {
-    u32 flags;
-    s32 unk4;
-    s32 unk8;
-    u8 padC[0x50];
-    s32 unk5C;
-    s32 unk60;
-    u8 unk64;
-} Obj;
+    InodeUnit inodePage[128];
+} Inode;
 
-s32 __osPfsDeclearPage(Obj *obj, u16 *tbl, s32 n, s32 *cnt, u8 i, s32 *p1, s32 *p2);
-s32 __osPfsRWInode(Obj *obj, void *buf, s32 zero, u8 i);
-s32 osPfsFindFile(Obj *obj, u16 val, s32 a2, void *a3, void *p5, s32 *p7);
-s32 osPfsFreeBlocks(Obj *obj, s32 *out);
-void bcopy(void *a0, void *a1, s32 size);
-s32 __osContRamWrite(s32 a0, s32 a1, u16 a2, void *a3, s32 a4);
+typedef struct {
+    u32 gameCode;
+    u16 companyCode;
+    InodeUnit startPage;
+    u8 status;
+    s8 reserved;
+    u16 dataSum;
+    u8 extName[4];
+    u8 gameName[16];
+} Dir;
 
-s32 osPfsAllocateFile(Obj *obj, s32 a1, s32 a2, void *a3, void *p5, s32 n, s32 *p7) {
-    u8 buf[0x100];
-    u16 tbl[0x80];
-    u8 pair[2];
-    u8 blk70[0x10];
-    u8 blk60[0x0C];
-    s32 sp6C;
-    s32 p1;
-    s32 p2;
-    s32 cnt;
-    s32 v54;
-    s32 total;
-    s32 nsub;
-    s32 prev;
-    u8 cur;
-    s32 r;
-    s32 count;
-    u8 i;
-    u16 val;
+typedef struct {
+    s32 status;
+    void *queue;
+    s32 channel;
+    u8 pad0[0x50];
+    s32 dirTable;
+    s32 inodeStartPage;
+    u8 banks;
+} Pfs;
 
-    val = (u16)a1;
-    if (val == 0 || a2 == 0) {
+s32 __osPfsDeclearPage(Pfs *pfs, Inode *inode, s32 fileSizeInPages, s32 *startPage, s32 bank, s32 *declPage, s32 *lastPage);
+s32 __osPfsRWInode(Pfs *pfs, Inode *inode, u8 flag, u8 bank);
+s32 osPfsFindFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName, s32 *fileNo);
+s32 osPfsFreeBlocks(Pfs *pfs, s32 *bytesNotUsed);
+void bcopy(void *src, void *dst, s32 n);
+s32 __osContRamWrite(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
+
+s32 osPfsAllocateFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName, s32 fileSizeInBytes, s32 *fileNo) {
+    s32 startPage;
+    s32 declPage;
+    s32 lastPage;
+    s32 ret;
+    s32 fileSizeInPages;
+    InodeUnit firstPage;
+    Inode inode;
+    Inode backup;
+    Dir dir;
+    s32 freeBytes;
+    s32 prevPage = 0;
+    u8 oldBank = 0;
+    s32 j = 0;
+    u8 bank;
+
+    if (companyCode == 0 || gameCode == 0) {
         return 5;
     }
-    total = (n + 0xFF) / 0x100;
-    r = osPfsFindFile(obj, val, a2, a3, p5, p7);
-    if (r != 0 && r != 5) {
-        return r;
+    fileSizeInPages = (fileSizeInBytes + 0xFF) / 0x100;
+    ret = osPfsFindFile(pfs, companyCode, gameCode, gameName, extName, fileNo);
+    if (ret != 0 && ret != 5) {
+        return ret;
     }
-    if (*p7 != -1) {
+    if (*fileNo != -1) {
         return 9;
     }
-    osPfsFreeBlocks(obj, &v54);
-    if (v54 < n) {
+    osPfsFreeBlocks(pfs, &freeBytes);
+    if (freeBytes < fileSizeInBytes) {
         return 7;
     }
-    if (total == 0) {
+    if (fileSizeInPages == 0) {
         return 5;
     }
-    r = osPfsFindFile(obj, 0, 0, 0, 0, p7);
-    if (r != 0 && r != 5) {
-        return r;
+    ret = osPfsFindFile(pfs, 0, 0, 0, 0, fileNo);
+    if (ret != 0 && ret != 5) {
+        return ret;
     }
-    if (*p7 == -1) {
+    if (*fileNo == -1) {
         return 8;
     }
-
-    nsub = 0;
-    prev = 0;
-    cur = 0;
-    count = obj->unk64;
-    i = 0;
-    while ((s32)i < count) {
-        r = __osPfsRWInode(obj, tbl, 0, i);
-        if (r != 0) {
-            return r;
+    for (bank = 0; bank < pfs->banks; bank++) {
+        ret = __osPfsRWInode(pfs, &inode, 0, bank);
+        if (ret != 0) {
+            return ret;
         }
-        r = __osPfsDeclearPage(obj, tbl, total, &cnt, i, &p1, &p2);
-        if (r != 0) {
-            return r;
+        ret = __osPfsDeclearPage(pfs, &inode, fileSizeInPages, &startPage, bank, &declPage, &lastPage);
+        if (ret != 0) {
+            return ret;
         }
-        if (cnt != -1) {
-            if (nsub != 0) {
-                ((u8 *)buf)[prev * 2] = i;
-                ((u8 *)buf)[prev * 2 + 1] = cnt;
-                r = __osPfsRWInode(obj, buf, 1, cur);
-                if (r != 0) {
-                    return r;
-                }
+        if (startPage != -1) {
+            if (j == 0) {
+                firstPage.t.page = startPage;
+                firstPage.t.bank = bank;
             } else {
-                pair[1] = cnt;
-                pair[0] = i;
+                backup.inodePage[prevPage].t.bank = bank;
+                backup.inodePage[prevPage].t.page = startPage;
+                ret = __osPfsRWInode(pfs, &backup, 1, oldBank);
+                if (ret != 0) {
+                    return ret;
+                }
             }
-            if (p1 < total) {
-                bcopy(tbl, buf, 0x100);
-                prev = p2;
-                cur = i;
-                nsub++;
-                total -= p1;
+            if (declPage < fileSizeInPages) {
+                bcopy(&inode, &backup, 0x100);
+                prevPage = lastPage;
+                oldBank = bank;
+                j++;
+                fileSizeInPages -= declPage;
             } else {
-                total = 0;
-                r = __osPfsRWInode(obj, tbl, 1, i);
-                if (r == 0) {
-                    break;
+                fileSizeInPages = 0;
+                ret = __osPfsRWInode(pfs, &inode, 1, bank);
+                if (ret != 0) {
+                    return ret;
                 }
-                return r;
+                break;
             }
         }
-        i++;
-        count = obj->unk64;
     }
-
-    if (total > 0 || cnt == -1) {
+    if (fileSizeInPages > 0 || startPage == -1) {
         return 3;
     }
-    bcopy(a3, blk70, 0x10);
-    bcopy(p5, &sp6C, 4);
-    *(s32 *)blk60 = a2;
-    *(u16 *)(blk60 + 4) = val;
-    *(u16 *)(blk60 + 6) = *(u16 *)pair;
-    *(u16 *)(blk60 + 10) = 0;
-    return __osContRamWrite(obj->unk4, obj->unk8, (u16)(*p7 + obj->unk5C), blk60, 0);
+    dir.companyCode = companyCode;
+    dir.gameCode = gameCode;
+    dir.startPage = firstPage;
+    dir.dataSum = 0;
+    bcopy(gameName, dir.gameName, 16);
+    bcopy(extName, dir.extName, 4);
+    return __osContRamWrite(pfs->queue, pfs->channel, pfs->dirTable + *fileNo, (u8 *)&dir, 0);
 }

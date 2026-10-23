@@ -1,72 +1,101 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
+// best attempt: 4 instr differ (inode lands 4 bytes higher on the stack than in the ROM, and two byte loads of the loop tail are swapped)
 #include "types.h"
 
-typedef struct Obj {
-    u8 pad0[4];
-    u32 unk4;
-    u32 unk8;
-    u8 pad0C[0x50];
-    u32 unk5C;
-    u8 pad60[4];
-    u8 unk64;
-    u8 unk65;
-} Obj;
+typedef struct {
+    u32 status;
+    void *queue;
+    s32 channel;
+    u8 pad0C[0x44];
+    s32 dirSize;
+    u8 pad54[8];
+    s32 dirTable;
+    s32 inodeStartPage;
+    u8 banks;
+    u8 activeBank;
+} Pfs;
 
-s32 osPfsFindFile(Obj *o, u16 a1, u32 a2, u32 a3, u32 a4, u32 *out);
-s32 __osPfsSelectBank(Obj *o, u32 a1);
-s32 __osContRamRead(u32 a0, u32 a1, u16 a2, u8 *a3);
-s32 __osPfsRWInode(Obj *o, u8 *buf, u32 a2, u8 a3);
-s32 __osPfsReleasePages(Obj *o, u8 *buf, u8 a2, u8 a3, u16 *out);
+typedef union {
+    u16 ipage;
+    struct {
+        u8 bank;
+        u8 page;
+    } t;
+} InodeUnit;
+
+typedef struct {
+    u32 gameCode;
+    u16 companyCode;
+    InodeUnit startPage;
+    u8 status;
+    u8 pad[0x1B];
+} Dir;
+
+typedef struct {
+    u8 pad[0x100];
+} Inode;
+
+s32 osPfsFindFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName, s32 *fileNo);
+s32 __osPfsSelectBank(Pfs *pfs, u8 bank);
+s32 __osContRamRead(void *queue, s32 channel, u16 address, void *buffer);
+s32 __osPfsRWInode(Pfs *pfs, Inode *inode, u8 flag, u8 bank);
+s32 __osPfsReleasePages(Pfs *pfs, Inode *inode, u8 startPage, u8 bank, InodeUnit *lastPage);
 void bzero(void *p, u32 n);
-s32 __osContRamWrite(u32 a0, u32 a1, u16 a2, u8 *a3, u32 a4);
+s32 __osContRamWrite(void *queue, s32 channel, u16 address, void *buffer, s32 force);
 
-s32 osPfsDeleteFile(Obj *s, u16 a1, u32 a2, u32 a3, u32 a4) {
-    u32 sp16C;
-    u8 sp68[0x104];
-    u8 sp48[0x20];
-    u8 sp44[4];
-    u8 *buf;
-    u16 *p44;
-    s32 r;
-    u32 one;
+s32 osPfsDeleteFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName) {
+    s32 fileNo;
+    Inode inode;
+    Dir dir;
+    InodeUnit lastPage;
+    s32 ret;
+    u8 bank;
+    u8 startPage;
 
-    if (a1 == 0 || a2 == 0) {
+    if (companyCode == 0 || gameCode == 0) {
         return 5;
     }
-    r = osPfsFindFile(s, a1, a2, a3, a4, &sp16C);
-    if (r != 0) {
-        return r;
+    ret = osPfsFindFile(pfs, companyCode, gameCode, gameName, extName, &fileNo);
+    if (ret != 0) {
+        return ret;
     }
-    if (s->unk65 != 0) {
-        r = __osPfsSelectBank(s, 0);
-        if (r != 0) {
-            return r;
+    if (pfs->activeBank != 0) {
+        ret = __osPfsSelectBank(pfs, 0);
+        if (ret != 0) {
+            return ret;
         }
     }
-    r = __osContRamRead(s->unk4, s->unk8, (u16)(s->unk5C + sp16C), sp48);
-    if (r != 0) {
-        return r;
+    ret = __osContRamRead(pfs->queue, pfs->channel, pfs->dirTable + fileNo, &dir);
+    if (ret != 0) {
+        return ret;
     }
-    buf = sp68;
-    p44 = (u16 *)sp44;
-    one = 1;
-    if (sp48[6] < s->unk64) {
-        for (;;) {
-            r = __osPfsRWInode(s, buf, 0, sp48[6]);
-            if (r != 0) return r;
-            r = __osPfsReleasePages(s, buf, sp48[7], sp48[6], p44);
-            if (r != 0) return r;
-            r = __osPfsRWInode(s, buf, 1, sp48[6]);
-            if (r != 0) return r;
-            if (one == *p44) break;
-            sp48[6] = sp44[0];
-            sp48[7] = sp44[1];
-            if (!(sp48[6] < s->unk64)) break;
-        }
+    bank = dir.startPage.t.bank;
+    startPage = dir.startPage.t.page;
+    if (bank < pfs->banks) {
+        do {
+            ret = __osPfsRWInode(pfs, &inode, 0, bank);
+            if (ret != 0) {
+                return ret;
+            }
+            ret = __osPfsReleasePages(pfs, &inode, startPage, bank, &lastPage);
+            if (ret != 0) {
+                return ret;
+            }
+            ret = __osPfsRWInode(pfs, &inode, 1, bank);
+            if (ret != 0) {
+                return ret;
+            }
+            if (lastPage.ipage == 1) {
+                break;
+            }
+            bank = lastPage.t.bank;
+            startPage = lastPage.t.page;
+        } while (bank < pfs->banks);
     }
-    if (sp48[6] < s->unk64) {
-        bzero(sp48, 0x20);
-        return __osContRamWrite(s->unk4, s->unk8, (u16)(s->unk5C + sp16C), sp48, 0);
+    if (bank >= pfs->banks) {
+        return 3;
     }
-    return 3;
+    bzero(&dir, 0x20);
+    return __osContRamWrite(pfs->queue, pfs->channel, pfs->dirTable + fileNo, &dir, 0);
 }

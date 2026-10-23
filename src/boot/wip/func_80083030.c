@@ -5,8 +5,8 @@ void Fault_WalkStack(u32 *spPtr, u32 *pcPtr, u32 *raPtr) {
     u32 sp = *spPtr;
     u32 pc = *pcPtr;
     u32 ra = *raPtr;
-    u32 lastInstruction;
-    u32 instruction;
+    u32 lastInst;
+    u32 inst;
     u16 opcode;
     s16 imm;
 
@@ -20,30 +20,30 @@ void Fault_WalkStack(u32 *spPtr, u32 *pcPtr, u32 *raPtr) {
         *pcPtr = ra;
         return;
     }
-    lastInstruction = 0;
+    lastInst = 0;
     while (1) {
-        instruction = *(u32 *)pc;
-        opcode = instruction >> 16;
-        imm = instruction;
+        inst = *(u32 *)pc;
+        opcode = inst >> 16;
+        imm = inst;
         if (opcode == 0x8FBF) {
             ra = *(u32 *)(sp + imm);
         } else if (opcode == 0x27BD) {
             sp += imm;
-        } else if (instruction == 0x42000018) {
+        } else if (inst == 0x42000018) {
             sp = 0;
             pc = 0;
             ra = 0;
             break;
         }
-        if (lastInstruction == 0x03E00008) {
+        if (lastInst == 0x03E00008) {
             pc = ra;
             break;
         }
-        if ((lastInstruction >> 26) == 2) {
-            pc = (pc & 0xF0000000) | ((lastInstruction << 6) >> 4);
+        if ((lastInst >> 26) == 2) {
+            pc = ((pc >> 28) << 28) | ((lastInst << 6) >> 4);
             break;
         }
-        lastInstruction = instruction;
+        lastInst = inst;
         pc += 4;
     }
     *spPtr = sp;

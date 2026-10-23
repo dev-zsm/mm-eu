@@ -1,4 +1,6 @@
-// FLAGS: -O2 -g0
+// FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
+// best attempt: 6 instr differ (frame is 8 bytes smaller than the ROM's: 40 vs 48; everything else matches)
 #include "types.h"
 
 typedef struct {
@@ -42,12 +44,12 @@ s32 __osMotorAccess(Ctx *p, s32 a) {
     __osSiRawStartDma(0, D_8009D180 + (p->unk8 << 6));
     osRecvMesg(p->unk4, 0, 1);
     if ((ret = ((Fmt *)ptr)->rxsize & 0xC0) == 0) {
-        if (a != 0) {
-            if (((Fmt *)ptr)->datacrc != 0xEB) {
+        if (a == 0) {
+            if (((Fmt *)ptr)->datacrc != 0) {
                 ret = 4;
             }
         } else {
-            if (((Fmt *)ptr)->datacrc != 0) {
+            if (((Fmt *)ptr)->datacrc != 0xEB) {
                 ret = 4;
             }
         }
