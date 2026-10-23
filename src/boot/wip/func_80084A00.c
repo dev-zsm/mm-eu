@@ -27,7 +27,7 @@ void func_80084A00(u32 allocu32, OverlayRelocationSection *ovl, u32 vramStart) {
 
     sections[0] = 0;
     sections[1] = allocu32;
-    sections[2] = sections[1] + ovl->textSize;
+    sections[2] = allocu32 + ovl->textSize;
     sections[3] = sections[2] + ovl->dataSize;
 
     for (i = 0; i < ovl->nRelocations; i++) {
