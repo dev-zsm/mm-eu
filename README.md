@@ -140,6 +140,17 @@ fetched by `make setup` into `tools/vendor/` (not tracked):
 | IDO 7.1 | `tools/vendor/ido71` | everything, by default |
 | IDO 5.3 | `tools/vendor/ido53` | the files marked `// COMPILER: ido53` (part of libultra, e.g. the controller / Controller Pak routines and `ldiv`), which only match with the older compiler |
 
+If you ran `make setup` before IDO 5.3 was added, just run it again: it only downloads what is missing. To install IDO 5.3
+by hand (from the project root, on Linux / WSL):
+
+```
+mkdir -p tools/vendor/ido53
+curl -sL https://github.com/decompals/ido-static-recomp/releases/download/v1.2/ido-5.3-recomp-linux.tar.gz | tar -xz -C tools/vendor/ido53
+```
+
+IDO 7.1 is the same with `ido-7.1-recomp-linux.tar.gz` and `tools/vendor/ido71`. Check with
+`ls tools/vendor/ido71/cc tools/vendor/ido53/cc`.
+
 A source file picks its compiler and flags in its first lines:
 
 ```c
