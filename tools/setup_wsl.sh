@@ -9,6 +9,10 @@ if [ ! -d ido71 ]; then
   mkdir ido71
   curl -sL https://github.com/decompals/ido-static-recomp/releases/download/v1.2/ido-7.1-recomp-linux.tar.gz | tar -xz -C ido71
 fi
+if [ ! -d ido53 ]; then  # older IDO, used by part of libultra / libc (`// COMPILER: ido53`)
+  mkdir ido53
+  curl -sL https://github.com/decompals/ido-static-recomp/releases/download/v1.2/ido-5.3-recomp-linux.tar.gz | tar -xz -C ido53
+fi
 cd ../..
 [ -d ~/mm-venv ] || python3 -m venv ~/mm-venv
 . ~/mm-venv/bin/activate
