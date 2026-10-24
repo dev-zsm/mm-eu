@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import names as _names  # noqa: E402
 
 LBL = re.compile(r"\.L[0-9A-Fa-f]{8}")
+DITEM = re.compile(r"/\*\s+[0-9A-Fa-f]+\s+([0-9A-Fa-f]{8})\b")  # vram in a data line comment
 
 
 def sh(*a):
@@ -101,7 +102,7 @@ def main():
                 end = dlabel[nxt]
                 while dlines[end - 1].startswith((".align", "nonmatching")) or not dlines[end - 1].strip():
                     end -= 1
-                pools.append((start, end, obj))
+                pools.append((start, end, obj, int(nxt[-8:], 16)))
         if cfile is not None and cfile.exists() and i not in keep_asm:
             n_c += 1
         else:
@@ -134,15 +135,42 @@ def main():
                     f.write(f"{a} = {addr};\n")
     # the data file is split around the C constant pools: data_0.o(.data), pool.o(.rodata), data_1.o(.data), ...
     head = "\n".join(dlines[:next(i for i, l in enumerate(dlines) if l.startswith(".section")) + 1]) + "\n"
-    data_parts, cur = [], 0
-    for k, (a, b, pobj) in enumerate(sorted(pools, key=lambda t: t[0]) + [(len(dlines), len(dlines), None)]):
-        ds = named / f"data_{k}.s"
-        ds.write_text(_names.apply((head if k else "") + "\n".join(dlines[cur:a]) + "\n", NM))
-        sh(*AS, str(ds), "-o", str(ds.with_suffix(".o")))
-        data_parts.append(f"        {ds.with_suffix('.o').relative_to(ROOT)}(.data);")
+    data_parts, cur, start = [], 0, None
+    for k, (a, b, pobj, nv) in enumerate(sorted(pools, key=lambda t: t[0]) + [(len(dlines), len(dlines), None, None)]):
+        # a part that starts at an address not multiple of 8 (after a pool of 4 mod 8 bytes) is cut at its `.align 3+`
+        # lines: GNU as pads relative to the start of its object, which would no longer be the ROM's absolute alignment
+        subs, buf, base = [], [], start
+        for i, l in enumerate(dlines[cur:a]):
+            m = re.match(r"\.align ([3-9])\b", l)
+            v = next((int(x.group(1), 16) for x in map(DITEM.search, dlines[cur + i + 1:a]) if x), None) if m else None
+            if start is not None and start % 8 and v is not None:
+                subs.append((buf, base))
+                buf, base = [], v
+            else:
+                buf.append(l)
+        subs.append((buf, base))
+        pos = start
+        for j, (lines_j, v) in enumerate(subs):
+            ds = named / f"data_{k}_{j}.s"
+            cut = len(subs) > 1  # GNU as pads .data to 16 bytes: cut each piece at its real end (end label)
+            ds.write_text(_names.apply((head if k else "") + "\n".join(lines_j) + "\n", NM) + (f"_dend_{k}_{j}:\n" if cut else ""))
+            sh(*AS, str(ds), "-o", str(ds.with_suffix(".o")))
+            if cut:
+                end_off = int(next(l.split()[0] for l in sh("mips-linux-gnu-nm", str(ds.with_suffix(".o"))).splitlines() if l.endswith(f"_dend_{k}_{j}")), 16)
+                trim_text(ds.with_suffix(".o"), end_off, b".data")
+            if j:  # explicit zeros up to the aligned address of this piece
+                assert v >= pos, f"data piece {k}.{j}: {pos:#x} is already past {v:#x}"
+                ps = named / f"data_{k}_{j}_pad.s"
+                ps.write_text(head + f".space {v - pos}\n")
+                sh(*AS, str(ps), "-o", str(ps.with_suffix(".o")))
+                data_parts.append(f"        {ps.with_suffix('.o').relative_to(ROOT)}(.data);")
+                pos = v
+            data_parts.append(f"        {ds.with_suffix('.o').relative_to(ROOT)}(.data);")
+            if cut:
+                pos += end_off
         if pobj is not None:
             data_parts.append(f"        {pobj.relative_to(ROOT)}(.rodata);")
-        cur = b
+        cur, start = b, nv
     ld = (out / f"{seg}.ld").read_text()
     script = []
     for l in ld.splitlines():

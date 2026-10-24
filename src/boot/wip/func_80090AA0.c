@@ -31,12 +31,13 @@ s32 __osVoiceSetADConverter(s32 mq, s32 channel, u8 data) {
         if (D_8009D2E0 != 0xD || D_800981A0 != channel) {
             D_8009D2E0 = 0xD;
             D_800981A0 = channel;
-            for (i = 0; i < channel; i++) {
+            i = 0;
+            while (i < channel) {
                 *ptr++ = 0;
+                i++;
             }
-            D_8009E9A0.pifstatus = 1;
             ptr[0] = 3;
-            ptr[1] = 1;
+            ptr[1] = D_8009E9A0.pifstatus = 1;
             ptr[2] = 0xD;
             ptr[5] = 0;
             ptr[6] = 0xFE;
@@ -50,13 +51,16 @@ s32 __osVoiceSetADConverter(s32 mq, s32 channel, u8 data) {
         __osSiRawStartDma(0, &D_8009E9A0);
         osRecvMesg(mq, 0, 1);
         ret = (ptr[1] & 0xC0) >> 4;
-        if (ret != 0) {
-            ret = 1;
-        } else if (ptr[5] & 1) {
-            ret = __osVoiceGetStatus(mq, channel, &status);
-            if (ret == 0) {
+        if (ret == 0) {
+            if (ptr[5] & 1) {
+                ret = __osVoiceGetStatus(mq, channel, &status);
+                if (ret != 0) {
+                    break;
+                }
                 ret = 4;
             }
+        } else {
+            ret = 1;
         }
     } while (ret == 4 && retry-- >= 0);
     __osSiRelAccess();
