@@ -152,7 +152,9 @@ def main():
         pos = start
         for j, (lines_j, v) in enumerate(subs):
             ds = named / f"data_{k}_{j}.s"
-            cut = len(subs) > 1  # GNU as pads .data to 16 bytes: cut each piece at its real end (end label)
+            # GNU as pads .data to 16 bytes: cut each piece at its real end (end label) when something follows it
+            # (another piece, or a C pool or jump table that must land right after the last data byte)
+            cut = len(subs) > 1 or pobj is not None or start is not None  # start: this part follows a pool
             ds.write_text(_names.apply((head if k else "") + "\n".join(lines_j) + "\n", NM) + (f"_dend_{k}_{j}:\n" if cut else ""))
             sh(*AS, str(ds), "-o", str(ds.with_suffix(".o")))
             if cut:
@@ -166,7 +168,7 @@ def main():
                 data_parts.append(f"        {ps.with_suffix('.o').relative_to(ROOT)}(.data);")
                 pos = v
             data_parts.append(f"        {ds.with_suffix('.o').relative_to(ROOT)}(.data);")
-            if cut:
+            if cut and pos is not None:
                 pos += end_off
         if pobj is not None:
             data_parts.append(f"        {pobj.relative_to(ROOT)}(.rodata);")
