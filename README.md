@@ -28,10 +28,10 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-25):
 
 ```
-boot  functions ██████████████████████████░░░░  85.6 %  (364 / 425)
-boot  code size ██████████████████░░░░░░░░░░░░  59.2 %  (0xd3e0 / 0x165f4 bytes)
-code  functions █████████████░░░░░░░░░░░░░░░░░  44.3 %  (1583 / 3576)
-code  code size ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.7 %  (0x16cd4 / 0x104acc bytes)
+boot  functions ██████████████████████████░░░░  86.4 %  (367 / 425)
+boot  code size ██████████████████░░░░░░░░░░░░  59.9 %  (0xd670 / 0x165f4 bytes)
+code  functions ███████████████░░░░░░░░░░░░░░░  51.6 %  (1844 / 3576)
+code  code size ███░░░░░░░░░░░░░░░░░░░░░░░░░░░  11.1 %  (0x1cf3c / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
@@ -84,7 +84,9 @@ Main tools:
 | `tools/setup_wsl.sh` | one-time setup inside WSL (behind `make setup`) |
 | `tools/auto_match.py`, `tools/auto_near.py`, `tools/auto_recipes.py` | try the m2c drafts with several IDO flag sets and mechanical tricks, then rank the near misses |
 | `tools/rank_wip.py` | rank the unmatched functions by how close they are |
-| `tools/permute_list.py` | run the permuter on a chosen list of near misses and keep what matches in `build/perm_wins/` |
+| `tools/permute_list.py` | run the permuter on a list of unmatched functions, or with `--auto` on every wip draft closest first, and keep what matches in `build/perm_wins/` |
+| `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
+| `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
 | `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then apply the names and run the full check |
 | `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or reference to another project |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |
