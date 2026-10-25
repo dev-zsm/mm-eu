@@ -30,8 +30,8 @@ Matching C verified byte-for-byte against the ROM (refreshed by `make progress`,
 ```
 boot  functions ██████████████████████████░░░░  85.6 %  (364 / 425)
 boot  code size ██████████████████░░░░░░░░░░░░  59.2 %  (0xd3e0 / 0x165f4 bytes)
-code  functions █████████████░░░░░░░░░░░░░░░░░  43.0 %  (1539 / 3576)
-code  code size ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.6 %  (0x16528 / 0x104acc bytes)
+code  functions █████████████░░░░░░░░░░░░░░░░░  44.3 %  (1583 / 3576)
+code  code size ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.7 %  (0x16cd4 / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
@@ -84,6 +84,10 @@ Main tools:
 | `tools/setup_wsl.sh` | one-time setup inside WSL (behind `make setup`) |
 | `tools/auto_match.py`, `tools/auto_near.py`, `tools/auto_recipes.py` | try the m2c drafts with several IDO flag sets and mechanical tricks, then rank the near misses |
 | `tools/rank_wip.py` | rank the unmatched functions by how close they are |
+| `tools/permute_list.py` | run the permuter on a chosen list of near misses and keep what matches in `build/perm_wins/` |
+| `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then apply the names and run the full check |
+| `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or reference to another project |
+| `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |
 | `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see below) |
 | `tools/decomp.py`, `tools/mkelf.py`, `tools/ghidra/ExportDecomp.java` | Ghidra pseudo-C for a code segment (research only) |
 | `tools/AGENT_BRIEF.md`, `tools/CLEANUP_BRIEF.md` | the rules and techniques given to the AI agents that write and tidy the C |
