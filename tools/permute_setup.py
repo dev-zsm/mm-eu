@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """Prepare a decomp-permuter directory for one unmatched function. Run in WSL.
 usage: permute_setup.py <seg> <fn>   ->  build/perm/<fn>/{base.c,target.o,compile.sh,settings.toml}
-Needs build/<seg>/fn/<fn>.o as the target: run `python3 tools/build_seg.py <seg> ...` once first."""
+Needs the object of <fn> built by tools/build_seg.py (kept in objcache.WORK): run `python3 tools/build_seg.py <seg> ...` once first."""
 import re, shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CC = ROOT / "tools/vendor/ido71/cc"
+sys.path.insert(0, str(ROOT / "tools"))
+import names  # noqa: E402
+import objcache  # noqa: E402
+
+CC = objcache._compiler("71")
 
 
 def main():
@@ -22,8 +26,10 @@ def main():
     # the permuter wants one self-contained function: expand the includes with IDO's preprocessor
     pre = subprocess.run([str(CC), "-E", "-Xcpluscomm", "-I" + str(ROOT / "include"), str(src)],
                          capture_output=True, text=True, check=True).stdout
-    (d / "base.c").write_text(re.sub(r"^# \d+.*\n", "", pre, flags=re.M))
-    shutil.copy(ROOT / "build" / seg / "fn" / f"{fn}.o", d / "target.o")
+    base = re.sub(r"^# \d+.*\n", "", pre, flags=re.M)
+    real = names.load(seg).get(fn)  # the C file defines the real name, but target.o carries the address name
+    (d / "base.c").write_text(base.replace(real, fn) if real else base)
+    shutil.copy(objcache.WORK / seg / "fn" / f"{fn}.o", d / "target.o")
     (d / "compile.sh").write_text(f"""#!/bin/bash
 # usage: compile.sh input.c -o output.o  (IDO cc mishandles output paths with spaces: go through a temp file)
 set -e

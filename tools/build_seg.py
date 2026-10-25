@@ -14,6 +14,15 @@ AS = ["mips-linux-gnu-as", "-march=vr4300", "-mabi=32", "-EB", "-I" + str(ROOT /
 HDR = '.include "macro.inc"\n.set noat\n.set noreorder\n.set gp=64\n.section .text, "ax"\n'
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import names as _names  # noqa: E402
+import objcache  # noqa: E402
+
+def rel(p: Path) -> str:
+    """The path as the linker script spells it: relative to the project root when inside it, else absolute."""
+    try:
+        return str(p.relative_to(ROOT))
+    except ValueError:
+        return str(p)
+
 
 LBL = re.compile(r"\.L[0-9A-Fa-f]{8}")
 DITEM = re.compile(r"/\*\s+[0-9A-Fa-f]+\s+([0-9A-Fa-f]{8})\b")  # vram in a data line comment
@@ -48,7 +57,8 @@ def trim_text(obj: Path, size: int, section: bytes = b".text") -> int:
 def main():
     seg, orig = sys.argv[1], Path(sys.argv[2])
     out = ROOT / "build" / seg
-    objdir = out / "fn"
+    objdir = objcache.WORK / seg / "fn"  # native disk, see objcache.py; tools/permute_setup.py reads the objects from here
+    shutil.rmtree(objdir, ignore_errors=True)
     objdir.mkdir(parents=True, exist_ok=True)
     cfg = (ROOT / "config" / f"{seg}.yaml").read_text()
     vram = int(re.search(r"vram: (0x[0-9A-Fa-f]+)", cfg).group(1), 16)
@@ -72,6 +82,12 @@ def main():
     dorder = sorted(dlabel, key=dlabel.get)
     pools = []  # (first data line, end data line, object): C constant pools linked in place of those data lines
 
+    def _flags(cfile):
+        m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
+        return (m.group(1).split() if m else DEFAULT_FLAGS) + CFLAGS
+    # compile every C file that is not cached yet on all cores; the loop below then only copies cached objects
+    objcache.warm([(lambda c=c: objcache.info(objcache.compile_obj(c, _flags(c)))) for c in sorted((ROOT / "src" / seg).glob("func_*.c"))])
+
     script_objs, n_c, data_pending = [], 0, []
     for i, (name, ch) in enumerate(zip(names, chunks)):
         obj = objdir / f"{name}.o"
@@ -79,16 +95,13 @@ def main():
         if cfile.exists() and i not in keep_asm:
             m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
             flags = m.group(1).split() if m else DEFAULT_FLAGS
-            with tempfile.TemporaryDirectory() as d:  # IDO cc mishandles -o paths containing spaces
-                subprocess.run([str(CC53 if any(l.strip() == "// COMPILER: ido53" for l in cfile.read_text().splitlines()[:3]) else CC), "-c", *flags, *CFLAGS, "-o", d + "/x.o", str(cfile)],
-                               check=True, stderr=subprocess.DEVNULL)
-                shutil.move(d + "/x.o", obj)
+            cached = objcache.compile_obj(cfile, flags + CFLAGS)  # cached by content; the copy is trimmed in place
+            shutil.copyfile(cached, obj)
             # a C function with its own constant pool: its .rodata takes the place of the data items the original
-            # code references (one contiguous run); any other case stays assembly until its data is migrated
-            secs = {m.group(1): int(m.group(2), 16) for m in re.finditer(
-                r"\s(\.(?:rodata|rdata|data|sdata|lit4|lit8))\s+([0-9a-f]+)", sh("mips-linux-gnu-objdump", "-h", str(obj)))}
-            # data the C file only declares extern stays in the original data: only the labels it does not import are its own
-            imported = {l.split()[-1] for l in sh("mips-linux-gnu-nm", str(obj)).splitlines() if l.split()[:1] == ["U"] or " U " in l}
+            # code references (one contiguous run); any other case stays assembly until its data is migrated.
+            # `imported`: data the C file only declares extern stays in the original data, only the labels it does not
+            # import are its own
+            secs, imported = objcache.info(cached)
             refs = sorted({dorder.index(r) for r in re.findall(r"%(?:hi|lo)\((\w+)\)", ch) if r in dlabel and r not in imported})
             if any(v for k, v in secs.items() if k != ".rodata") or (secs.get(".rodata") and (
                     not refs or refs != list(range(refs[0], refs[-1] + 1)) or refs[-1] + 1 >= len(dorder))):
@@ -108,18 +121,15 @@ def main():
         if cfile is not None and cfile.exists() and i not in keep_asm:
             n_c += 1
         else:
-            s = objdir / f"{name}.s"
             ch = _names.apply(ch, NM)
             body = LBL.sub(lambda m: "LX_" + m.group(0)[2:] if m.group(0) in cross else m.group(0), ch)
             exported = "".join(f".globl LX_{l[2:]}\n" for l in cross if defs[l] == i)
-            s.write_text(HDR + exported + body)
-            sh(*AS, str(s), "-o", str(obj))
+            shutil.copyfile(objcache.assemble(HDR + exported + body, AS), obj)
         used = trim_text(obj, foot[i])
         script_objs.append(obj)
         if used < foot[i]:  # alignment padding between symbols belongs to no chunk: explicit zeros
-            pad, ps = objdir / f"pad_{addrs[i]:08X}.o", objdir / f"pad_{addrs[i]:08X}.s"
-            ps.write_text(HDR + f".space {foot[i] - used}\n")
-            sh(*AS, str(ps), "-o", str(pad))
+            pad = objdir / f"pad_{addrs[i]:08X}.o"
+            shutil.copyfile(objcache.assemble(HDR + f".space {foot[i] - used}\n", AS), pad)
             trim_text(pad, foot[i] - used)
             script_objs.append(pad)
 
@@ -167,13 +177,13 @@ def main():
                 ps = named / f"data_{k}_{j}_pad.s"
                 ps.write_text(head + f".space {v - pos}\n")
                 sh(*AS, str(ps), "-o", str(ps.with_suffix(".o")))
-                data_parts.append(f"        {ps.with_suffix('.o').relative_to(ROOT)}(.data);")
+                data_parts.append(f"        {rel(ps.with_suffix('.o'))}(.data);")
                 pos = v
-            data_parts.append(f"        {ds.with_suffix('.o').relative_to(ROOT)}(.data);")
+            data_parts.append(f"        {rel(ds.with_suffix('.o'))}(.data);")
             if cut and pos is not None:
                 pos += end_off
         if pobj is not None:
-            data_parts.append(f"        {pobj.relative_to(ROOT)}(.rodata);")
+            data_parts.append(f"        {rel(pobj)}(.rodata);")
         cur, start = b, nv
     ld = (out / f"{seg}.ld").read_text()
     script = []
@@ -183,7 +193,7 @@ def main():
         elif "/text.s.o(" not in l:
             script.append(l)
         elif "(.text)" in l:
-            script += [f"        {o.relative_to(ROOT)}(.text);" for o in script_objs]
+            script += [f"        {rel(o)}(.text);" for o in script_objs]
     # splat forces 16-byte alignment on every input section; per-function objects need 4
     (out / f"{seg}.fn.ld").write_text("\n".join(script).replace("SUBALIGN(16)", "SUBALIGN(4)", 1) + "\n")
     elf, binf = out / f"{seg}.fn.elf", out / f"{seg}.fn.bin"

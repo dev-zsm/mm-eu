@@ -14,6 +14,8 @@ if [ ! -d ido53 ]; then  # older IDO, used by part of libultra / libc (`// COMPI
   curl -sL https://github.com/decompals/ido-static-recomp/releases/download/v1.2/ido-5.3-recomp-linux.tar.gz | tar -xz -C ido53
 fi
 cd ../..
+# native copies of the compilers: about four times faster than running them from /mnt/c (tools/objcache.py picks them)
+for v in 71 53; do [ -d ~/ido$v ] || cp -r tools/vendor/ido$v ~/ido$v; done
 [ -d ~/mm-venv ] || python3 -m venv ~/mm-venv
 . ~/mm-venv/bin/activate
 pip -q install "splat64[mips]" pycparser

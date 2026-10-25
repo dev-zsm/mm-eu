@@ -18,8 +18,10 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
 4. Call functions that have a name in `config/boot.names.txt` by that name, and every other function by its `func_`
    address name; never invent a name. `make names SEG=boot` rewrites the sources with the registered names, and
    `tools/match.py` ignores `jal` targets, so a wrong callee is only caught by step 5.
-5. `make verify SEG=boot` must pass before any commit: every C function equals the ROM bytes, and the segment rebuilt
-   from the C plus the remaining assembly is byte-identical to the ROM.
+5. `make check` must pass before any commit. It runs `make verify` for `boot` and for `code` (every C function equals
+   the ROM bytes, and the segment rebuilt from the C plus the remaining assembly is byte-identical to the ROM), then
+   the source style rules of `tools/check_style.sh`. While working on one segment, `make verify SEG=boot` or
+   `SEG=code` alone is enough; compiled objects are cached, so only the files you changed are compiled again.
 
 Compiler: IDO 7.1 by default. A function that only differs by the scratch register of struct copies (`$at` in the ROM,
 `t`-registers in ours), or that no source form can match with 7.1, may have been built with IDO 5.3: add
