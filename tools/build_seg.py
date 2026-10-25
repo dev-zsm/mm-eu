@@ -87,7 +87,9 @@ def main():
             # code references (one contiguous run); any other case stays assembly until its data is migrated
             secs = {m.group(1): int(m.group(2), 16) for m in re.finditer(
                 r"\s(\.(?:rodata|rdata|data|sdata|lit4|lit8))\s+([0-9a-f]+)", sh("mips-linux-gnu-objdump", "-h", str(obj)))}
-            refs = sorted({dorder.index(r) for r in re.findall(r"%(?:hi|lo)\((\w+)\)", ch) if r in dlabel})
+            # data the C file only declares extern stays in the original data: only the labels it does not import are its own
+            imported = {l.split()[-1] for l in sh("mips-linux-gnu-nm", str(obj)).splitlines() if l.split()[:1] == ["U"] or " U " in l}
+            refs = sorted({dorder.index(r) for r in re.findall(r"%(?:hi|lo)\((\w+)\)", ch) if r in dlabel and r not in imported})
             if any(v for k, v in secs.items() if k != ".rodata") or (secs.get(".rodata") and (
                     not refs or refs != list(range(refs[0], refs[-1] + 1)) or refs[-1] + 1 >= len(dorder))):
                 data_pending.append(name)
