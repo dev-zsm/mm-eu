@@ -1,6 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-// best attempt: 6 instr differ (frame is 8 bytes smaller than the ROM's: 40 vs 48; everything else matches)
 #include "types.h"
 
 typedef struct {
@@ -25,6 +24,7 @@ void __osSiRawStartDma(s32 a, u8 *b);
 void osRecvMesg(s32 a, s32 b, s32 c);
 
 s32 __osMotorAccess(Ctx *p, s32 a) {
+    s32 pad[2]; // stack padding to match frame size
     u8 *ptr = D_8009D180 + (p->unk8 << 6);
     s32 i;
     s32 ret;

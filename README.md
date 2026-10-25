@@ -25,13 +25,13 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 ## Progress
 
 <!-- progress:start -->
-Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-23):
+Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-25):
 
 ```
-boot  functions █████████████████████████░░░░░  84.7 %  (360 / 425)
-boot  code size █████████████████░░░░░░░░░░░░░  57.5 %  (0xcde4 / 0x165f4 bytes)
-code  functions ██████████░░░░░░░░░░░░░░░░░░░░  34.2 %  (1223 / 3576)
-code  code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   6.3 %  (0x105a8 / 0x104acc bytes)
+boot  functions ██████████████████████████░░░░  85.6 %  (364 / 425)
+boot  code size ██████████████████░░░░░░░░░░░░  59.2 %  (0xd3e0 / 0x165f4 bytes)
+code  functions █████████████░░░░░░░░░░░░░░░░░  43.0 %  (1539 / 3576)
+code  code size ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.6 %  (0x16528 / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
@@ -78,7 +78,28 @@ Main tools:
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/names.py` | apply the symbol names of `config/<segment>.names.txt` everywhere |
 | `tools/permute_setup.py`, `tools/permute_all.py`, `tools/flag_sweep.py` | automated search for matching C |
-| `tools/progress.py` | generate `docs/PROGRESS.md` |
+| `tools/progress.py` | generate `docs/PROGRESS.md` and the progress bars of this README |
+| `tools/disasm_diff.py` | ROM and compiled instructions side by side for one function (behind `tools/mm diff`) |
+| `tools/verify_asm.sh` | reassemble the splat output of a segment and check it is byte-identical to the ROM |
+| `tools/setup_wsl.sh` | one-time setup inside WSL (behind `make setup`) |
+| `tools/auto_match.py`, `tools/auto_near.py`, `tools/auto_recipes.py` | try the m2c drafts with several IDO flag sets and mechanical tricks, then rank the near misses |
+| `tools/rank_wip.py` | rank the unmatched functions by how close they are |
+| `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see below) |
+| `tools/decomp.py`, `tools/mkelf.py`, `tools/ghidra/ExportDecomp.java` | Ghidra pseudo-C for a code segment (research only) |
+| `tools/AGENT_BRIEF.md`, `tools/CLEANUP_BRIEF.md` | the rules and techniques given to the AI agents that write and tidy the C |
+
+External tools used (fetched by `make setup` into `tools/vendor/`, or installed with `apt`; none is tracked):
+
+| Tool | Used for |
+|---|---|
+| IDO 7.1 and IDO 5.3 (`ido-static-recomp`) | the original compilers, see [Compilers](#compilers) |
+| GNU binutils for MIPS (`mips-linux-gnu-as`, `-ld`, `-objdump`, `-nm`, `-objcopy`) | assemble, link at the original addresses, inspect objects and cut the rebuilt segment |
+| splat (with spimdisasm and rabbitizer) | split the ROM segments into assembly and data |
+| m2c | first-draft C from assembly |
+| asm-differ | assembly comparison |
+| decomp-permuter | automated search for matching C |
+| Ghidra | pseudo-C for research |
+| WSL (Ubuntu), Python 3, GNU make | run the tools and the checks on Windows |
 
 ## Installation
 
