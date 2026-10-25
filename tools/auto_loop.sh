@@ -8,6 +8,9 @@ set -e
 cd "$(dirname "$0")/.."
 . ~/mm-venv/bin/activate
 before=$(git ls-files 'src/code/func_*.c' 'src/boot/func_*.c' | wc -l)
+python3 tools/names.py code --apply-src > /dev/null  # the link only knows the registered names of the functions in code
+python3 tools/quarantine.py code  # unchecked work (stopped agents) must not break the segment: wrong functions go back to wip
+python3 tools/quarantine.py boot
 python3 tools/build_seg.py code extracted/0049_00C8A000.bin > /dev/null  # the permuter needs the objects of both segments
 python3 tools/build_seg.py boot build/boot.bin > /dev/null
 python3 tools/permute_list.py --auto --hours "${1:-1}"
