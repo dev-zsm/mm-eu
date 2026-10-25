@@ -8,5 +8,6 @@ decomp/
 # third-party tools, fetched by tools/setup_wsl.sh
 tools/vendor/
 __pycache__/
-NEXT_SESSION_PROMPT.md
 src/code/wip/
+# Windows folder settings
+desktop.ini
