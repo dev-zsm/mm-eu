@@ -3,7 +3,7 @@
 usage: layout.py <seg>
 The code segment is linked in source-file order, so each source file is a run of consecutive functions. A named function
 belongs to the module of its registered name (prefix before the first '_'); an unnamed one to the module around it if
-both named neighbours agree, else to a `<seg>_<address of its first function>` run, as for any file whose name is unknown.
+both named neighbours agree, else to the `unknown` folder (a source file whose name is not known yet).
 The table is generated once and then kept (so renaming a function never moves its file); regenerate with --force."""
 import re, sys
 from pathlib import Path
@@ -25,7 +25,7 @@ def module(name):
     return bare.split("_")[0]
 
 
-def build(seg):  # folders of unknown name are `<seg>_<address of the first function>`
+def build(seg):
     nm = names.load(seg)
     fns = [m.group(1) for l in (ROOT / "asm" / seg / "text.s").read_text().splitlines()
            for m in [re.match(r"glabel (func_[0-9A-F]{8})$", l)] if m]
@@ -39,7 +39,7 @@ def build(seg):  # folders of unknown name are `<seg>_<address of the first func
     out, run = [], None
     for f, m in zip(fns, mod):
         if m is None:
-            run = run if run and run.startswith(seg + "_") else seg + "_" + f[5:]
+            run = "unknown"
         else:
             run = m
         out.append((f, run))
