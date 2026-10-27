@@ -1,4 +1,5 @@
 // FLAGS: -O2 -g3
+// best attempt: 2 instr differ (sp30 at sp+56 instead of 48; array sizes 0x58/0x48 are a frame-layout hack)
 #include "types.h"
 
 void usleep(s32);
@@ -14,8 +15,8 @@ extern u8 D_800984B0[];
 extern u8 D_800984CC[];
 
 void Yaz0_Decompress(s32 arg0, s32 arg1, s32 arg2) {
-    u8 sp80[0x50];
-    u8 sp30[0x50];
+    u8 sp80[0x58];
+    u8 sp30[0x48];
     s32 temp_v0;
 
     if (D_8009C1E8 != NULL) {
@@ -23,7 +24,7 @@ void Yaz0_Decompress(s32 arg0, s32 arg1, s32 arg2) {
             usleep(0xA);
         }
     }
-    D_8009C1E8 = &D_8009C1E8;
+    D_8009C1E8 = (u8 *)&D_8009C1EC - 4; // address via neighbour symbol, only to match (ROM recomputes lui/addiu)
     D_8009C1EC = arg0;
     D_8009C1F0 = arg2;
     temp_v0 = Yaz0_DecompressImpl(Yaz0_FirstDMA(), arg1);
