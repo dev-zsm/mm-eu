@@ -61,7 +61,7 @@ ROM ──► extract ──► split ──► per-function C ──► per-fun
 ├── config/               splat configuration, symbol names, aliases, list of hand-written assembly functions
 ├── docs/                 PROGRESS.md, ROADMAP.md, CONTRIBUTING.md
 ├── include/              types.h and the assembler macros used by the generated assembly
-├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts);
+├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts, not tracked);
 │                         both segments have one folder per original source file (config/<segment>.layout.txt)
 ├── tools/                extraction, matching, verification and build scripts (tools/vendor/ is fetched, not tracked)
 ├── asm/  extracted/  build/   generated, not tracked

@@ -8,6 +8,6 @@ decomp/
 # third-party tools, fetched by tools/setup_wsl.sh
 tools/vendor/
 __pycache__/
-src/code/wip/
+src/*/wip/
 # Windows folder settings
 desktop.ini
