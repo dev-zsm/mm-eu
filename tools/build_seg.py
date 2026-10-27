@@ -15,6 +15,7 @@ HDR = '.include "macro.inc"\n.set noat\n.set noreorder\n.set gp=64\n.section .te
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import names as _names  # noqa: E402
 import objcache  # noqa: E402
+import srcpath  # noqa: E402
 
 def rel(p: Path) -> str:
     """The path as the linker script spells it: relative to the project root when inside it, else absolute."""
@@ -86,12 +87,12 @@ def main():
         m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
         return (m.group(1).split() if m else DEFAULT_FLAGS) + CFLAGS
     # compile every C file that is not cached yet on all cores; the loop below then only copies cached objects
-    objcache.warm([(lambda c=c: objcache.info(objcache.compile_obj(c, _flags(c)))) for c in sorted((ROOT / "src" / seg).glob("func_*.c"))])
+    objcache.warm([(lambda c=c: objcache.info(objcache.compile_obj(c, _flags(c)))) for c in srcpath.files(seg)])
 
     script_objs, n_c, data_pending = [], 0, []
     for i, (name, ch) in enumerate(zip(names, chunks)):
         obj = objdir / f"{name}.o"
-        cfile = ROOT / "src" / seg / f"{name}.c"
+        cfile = srcpath.path(seg, name)
         if cfile.exists() and i not in keep_asm:
             m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
             flags = m.group(1).split() if m else DEFAULT_FLAGS

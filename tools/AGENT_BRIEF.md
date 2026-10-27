@@ -70,6 +70,8 @@ matches with the normal flags plus `-trapuv`, e.g. `// FLAGS: -O2 -g3 -mips2 -tr
 
 ## Rules
 
+- Write new files flat in `src/<seg>/<fn>.c` even for `code`: `tools/srcsort.py` files them into their folder afterwards.
+  To edit a function that is already in a folder, find it with `find src/<seg> -name '<fn>.c'`.
 - Only create/edit `src/<seg>/<fn>.c` for the functions you were given. Never touch tools/, asm/, config/,
   include/ or other agents' files. If a struct/type is shared, define it locally in your file.
 - An unmatched function is acceptable. Do not fake a match.

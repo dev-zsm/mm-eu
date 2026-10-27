@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import names  # noqa: E402
 import objcache  # noqa: E402
+import srcpath  # noqa: E402
 
 CC = objcache._compiler("71")
 
@@ -17,7 +18,7 @@ def main():
     seg, fn = sys.argv[1:3]
     src = ROOT / "src" / seg / "wip" / f"{fn}.c"
     if not src.exists():
-        src = ROOT / "src" / seg / f"{fn}.c"
+        src = srcpath.path(seg, fn)
     text = src.read_text()
     m = re.match(r"// FLAGS: (.*)", text.splitlines()[0])
     flags = m.group(1) if m else "-O2 -g3 -mips2"

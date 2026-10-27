@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import match  # noqa: E402
+import srcpath  # noqa: E402
 
 
 def main():
@@ -22,7 +23,7 @@ def main():
     wip = ROOT / "src" / seg / "wip"
     wip.mkdir(exist_ok=True)
     moved = []
-    for f in sorted((ROOT / "src" / seg).glob("func_*.c")):
+    for f in srcpath.files(seg):
         name = f.stem
         if name not in sizes:
             continue

@@ -5,6 +5,7 @@
 set -e
 cd "$(dirname "$0")/.."
 . ~/mm-venv/bin/activate
+python3 tools/srcsort.py
 python3 tools/names.py code --apply-src
 bash tools/verify_all.sh boot
 bash tools/verify_all.sh code

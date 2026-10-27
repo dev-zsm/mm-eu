@@ -30,8 +30,8 @@ Matching C verified byte-for-byte against the ROM (refreshed by `make progress`,
 ```
 boot  functions ██████████████████████████░░░░  86.4 %  (367 / 425)
 boot  code size ██████████████████░░░░░░░░░░░░  59.9 %  (0xd670 / 0x165f4 bytes)
-code  functions ███████████████░░░░░░░░░░░░░░░  51.6 %  (1845 / 3576)
-code  code size ███░░░░░░░░░░░░░░░░░░░░░░░░░░░  11.1 %  (0x1cf84 / 0x104acc bytes)
+code  functions ████████████████░░░░░░░░░░░░░░  53.6 %  (1915 / 3576)
+code  code size ████░░░░░░░░░░░░░░░░░░░░░░░░░░  11.9 %  (0x1f148 / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
@@ -61,7 +61,8 @@ ROM ──► extract ──► split ──► per-function C ──► per-fun
 ├── config/               splat configuration, symbol names, aliases, list of hand-written assembly functions
 ├── docs/                 PROGRESS.md, ROADMAP.md, CONTRIBUTING.md
 ├── include/              types.h and the assembler macros used by the generated assembly
-├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts)
+├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts);
+│                         src/code/ has one folder per original source file (see config/code.layout.txt)
 ├── tools/                extraction, matching, verification and build scripts (tools/vendor/ is fetched, not tracked)
 ├── asm/  extracted/  build/   generated, not tracked
 └── Makefile
@@ -87,7 +88,8 @@ Main tools:
 | `tools/permute_list.py` | run the permuter on a list of unmatched functions, or with `--auto` on every wip draft closest first, and keep what matches in `build/perm_wins/` |
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
 | `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
-| `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then apply the names and run the full check |
+| `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
+| `tools/layout.py`, `tools/srcsort.py`, `tools/srcpath.py` | `src/code` keeps one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/code.layout.txt` once, `srcsort.py` files new flat `src/code/func_*.c` into their folder, `srcpath.py` is the lookup the other tools use |
 | `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or reference to another project |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |
 | `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see below) |

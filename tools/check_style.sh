@@ -2,7 +2,7 @@
 # Source rules every src/boot and src/code file must respect (see docs/CONTRIBUTING.md). wip/ is not checked.
 # Exit status is 0 only if no rule is broken.
 cd "$(dirname "$0")/.."
-files=$(find src/boot src/code -maxdepth 1 -name '*.c')
+files=$(find src/boot src/code -name '*.c' -not -path '*/wip/*')
 fail=0
 rule() {  # rule <description> <extended regex>  (the last pattern excluded with `grep -v` is read from $EXCEPT)
     local hits

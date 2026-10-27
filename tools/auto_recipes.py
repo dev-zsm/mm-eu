@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import auto_match as am  # noqa: E402
 import auto_near as an  # noqa: E402
 import match  # noqa: E402
+import srcpath  # noqa: E402
 
 TYPES = ["s32", "u32", "s16", "u16", "s8", "u8", "f32"]
 SIG = re.compile(r"^(?P<ret>[\w ]+?[ *])(?P<fn>func_\w+)\((?P<args>[^)]*)\) \{", re.M)
@@ -89,7 +90,7 @@ def main():
     todo = []
     for ch in re.split(r"(?=^nonmatching )", text, flags=re.M)[1:]:
         m = re.match(r"nonmatching (\w+), (0x[0-9A-Fa-f]+)", ch)
-        if not m or m.group(1) not in failed or m.group(1) in done or (ROOT / "src" / seg / f"{m.group(1)}.c").exists():
+        if not m or m.group(1) not in failed or m.group(1) in done or srcpath.path(seg, m.group(1)).exists():
             continue
         fn, size = m.group(1), int(m.group(2), 16)
         if size <= max_size:

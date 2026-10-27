@@ -7,7 +7,7 @@
 set -e
 cd "$(dirname "$0")/.."
 . ~/mm-venv/bin/activate
-before=$(git ls-files 'src/code/func_*.c' 'src/boot/func_*.c' | wc -l)
+before=$(git ls-files 'src/code/*func_*.c' 'src/boot/func_*.c' | grep -vc /wip/)
 python3 tools/names.py code --apply-src > /dev/null  # the link only knows the registered names of the functions in code
 python3 tools/quarantine.py code  # unchecked work (stopped agents) must not break the segment: wrong functions go back to wip
 python3 tools/quarantine.py boot
@@ -19,7 +19,7 @@ python3 tools/tidy_perm.py boot
 bash tools/wave_finish.sh
 tail -5 build/perm/log_list.txt
 if [ -n "${AUTO_COMMIT:-}" ]; then  # only reached when the full check passed (set -e); never pushes
-  after=$(ls src/code/func_*.c src/boot/func_*.c | wc -l)
+  after=$(find src/code src/boot -name 'func_*.c' -not -path '*/wip/*' | wc -l)
   git add README.md docs/PROGRESS.md src/boot src/code
   git commit -q -m "code, boot: $((after - before)) more verified C functions
 

@@ -7,7 +7,7 @@ import json, sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
-import match, objcache
+import match, objcache, srcpath
 
 seg = sys.argv[1]
 checker = Path(match.__file__).read_bytes()
@@ -35,7 +35,7 @@ def check(f: Path):
 
 
 with ThreadPoolExecutor(objcache.JOBS) as ex:
-    results = list(ex.map(check, sorted((match.ROOT / "src" / seg).glob("func_*.c"))))
+    results = list(ex.map(check, srcpath.files(seg)))
 ok = [n for n, _, good in results if good]
 bad = [n for n, _, good in results if not good]
 objcache.CACHE.mkdir(parents=True, exist_ok=True)

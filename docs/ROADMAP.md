@@ -41,8 +41,10 @@ reliable. Matching comes first.
       added only with evidence (`sdk:`, `ref:` or `inferred:` in `config/*.names.txt`).
 - [ ] **Variable names.** No data symbol (`D_XXXXXXXX`) is named yet. They can be aligned with the reference
       research the same way functions were (`tools/ref_align.py`), then confirmed from their use in the code.
-- [ ] **Source files named after their function** instead of their address, then grouped into modules
-      (one file per module, in the original order of the code).
+- [x] `src/code` is already split into one folder per original source file (`config/code.layout.txt`, boundaries
+      inferred from the registered names, so approximate).
+- [ ] **Source files named after their function** instead of their address, then merged into one file per module
+      (in the original order of the code), checking the boundaries of `config/code.layout.txt`.
 - [ ] **Structure types.** Replace the local `typedef struct` with padding (`unk1C`, `pad0`) by shared types in
       `include/`, with named fields.
 - [ ] **Drafts to clean up.** Rewrite the verified drafts that still use raw field offsets (`M2C_FIELD`) once the

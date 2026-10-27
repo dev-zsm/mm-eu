@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import names  # noqa: E402
+import srcpath  # noqa: E402
 
 
 def segment(seg: str) -> dict:
@@ -20,7 +21,7 @@ def segment(seg: str) -> dict:
         funcs.append((m.group(1), int(m.group(2), 16), "Handwritten function" in pre))
     asm_only = set((ROOT / "config" / f"{seg}.asm_only.txt").read_text().split()) \
         if (ROOT / "config" / f"{seg}.asm_only.txt").exists() else set()
-    src = {p.stem for p in (ROOT / "src" / seg).glob("func_*.c")}
+    src = {p.stem for p in srcpath.files(seg)}
     wip = {p.stem for p in (ROOT / "src" / seg / "wip").glob("func_*.c")} if (ROOT / "src" / seg / "wip").exists() else set()
     named = names.load(seg)
     c = [f for f in funcs if f[0] in src]
@@ -28,7 +29,7 @@ def segment(seg: str) -> dict:
     return {
         "total": len(funcs), "bytes": sum(f[1] for f in funcs),
         "c": len(c), "c_bytes": sum(f[1] for f in c),
-        "drafts": sum(1 for n in src if "m2c_compat.h" in (ROOT / "src" / seg / f"{n}.c").read_text()), "asm_original": len(hand), "wip": len(wip & {f[0] for f in funcs}),
+        "drafts": sum(1 for n in src if "m2c_compat.h" in srcpath.path(seg, n).read_text()), "asm_original": len(hand), "wip": len(wip & {f[0] for f in funcs}),
         "todo": len(funcs) - len(c) - len(hand),
         "named": len([f for f in funcs if f[0] in named]),
     }

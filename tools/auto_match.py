@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import match  # noqa: E402
+import srcpath  # noqa: E402
 
 M2C = ROOT / "tools/vendor/m2c/m2c.py"
 FLAG_SETS = (["-O2", "-g3", "-mips2"], ["-O2", "-g0", "-mips2"], ["-O1", "-g0", "-mips2"], ["-O1", "-g3", "-mips2"])
@@ -65,7 +66,7 @@ def main():
             continue
         fn, size = m.group(1), int(m.group(2), 16)
         if (size > max_size or not fn.startswith("func_") or fn in done or fn in skip
-                or (ROOT / "src" / seg / f"{fn}.c").exists()):
+                or srcpath.path(seg, fn).exists()):
             continue
         off = int(fn[-8:], 16) - base
         todo.append((seg, fn, rom[off:off + size], head + ch))

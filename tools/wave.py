@@ -10,6 +10,8 @@ import re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import srcpath  # noqa: E402
 # instructions IDO never emits: a function using one was written in assembly (`addi` traps on overflow, IDO uses `addiu`)
 HAND_WRITTEN = re.compile(r"\b(mtc0|mfc0|cache|cfc1|ctc1|eret|tlbwi|tlbr|tlbp|sync|addi)\b")
 
@@ -34,7 +36,7 @@ def main():
     max_size = int(sys.argv[sys.argv.index("--max-size") + 1], 16) if "--max-size" in sys.argv else 1 << 30
     asm_only = set((ROOT / "config" / f"{seg}.asm_only.txt").read_text().split()) \
         if (ROOT / "config" / f"{seg}.asm_only.txt").exists() else set()
-    have = {p.stem for d in (ROOT / "src" / seg, ROOT / "src" / seg / "wip") if d.exists() for p in d.glob("func_*.c")}
+    have = {p.stem for p in srcpath.files(seg)} | {p.stem for p in (ROOT / "src" / seg / "wip").glob("func_*.c")}
     todo = sorted((size, n) for n, size, jt, hw in functions(seg)
                   if n not in have and n not in asm_only and not hw and jt == want_switch and size <= max_size)[:count]
     out = ROOT / "build" / "wave"
