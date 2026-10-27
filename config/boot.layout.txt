@@ -45,7 +45,7 @@ func_80081944 unknown
 func_80081970 unknown
 func_8008198C unknown
 func_800819A8 unknown
-func_800819E0 unknown
+func_800819E0 Fault
 func_80081A50 unknown
 func_80081B34 Fault
 func_80081C2C Fault
@@ -218,16 +218,16 @@ func_80087224 ArenaImpl
 func_8008724C ArenaImpl
 func_8008727C libultra
 func_800872CC libultra
-func_8008736C unknown
-func_8008738C unknown
+func_8008736C libc
+func_8008738C libc
 func_80087394 unknown
 func_8008743C unknown
-func_8008747C unknown
+func_8008747C malloc
 func_80087560 unknown
 func_80087634 Arena
-func_8008766C unknown
-func_800878AC unknown
-func_8008795C unknown
+func_8008766C libc
+func_800878AC libc
+func_8008795C libc
 func_800879D0 unknown
 func_800879F4 unknown
 func_80087A44 libc
@@ -265,7 +265,7 @@ func_80088BD8 unknown
 func_80088C74 unknown
 func_80088CA0 unknown
 func_800891FC unknown
-func_800892E4 unknown
+func_800892E4 libultra
 func_800893E4 unknown
 func_8008942C unknown
 func_8008943C unknown
@@ -294,8 +294,8 @@ func_8008A770 libultra
 func_8008A780 unknown
 func_8008A800 unknown
 func_8008A89C unknown
-func_8008ABB0 unknown
-func_8008ABF0 unknown
+func_8008ABB0 Fault
+func_8008ABF0 libgu
 func_8008AE20 libgu
 func_8008AE80 libultra
 func_8008AF10 libultra
@@ -476,4 +476,4 @@ func_800969D0 libc
 func_80096A20 libc
 func_80096A50 unknown
 func_80096A90 unknown
-func_80096AD0 unknown
+func_80096AD0 libc
