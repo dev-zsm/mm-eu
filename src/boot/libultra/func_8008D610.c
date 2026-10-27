@@ -27,9 +27,9 @@ s32 __osPfsGetStatus(s32 a0, s32 a1);
 s32 osPfsFindFile(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
     s32 i;
     s32 ret;
-    s32 mismatch;
     Buf buf;
     s32 j;
+    s32 mismatch;
 
     if (!(ctx->flags & 1)) {
         return 5;

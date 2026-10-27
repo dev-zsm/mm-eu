@@ -48,14 +48,14 @@ s32 osPfsAllocateFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 
     s32 lastPage;
     s32 ret;
     s32 fileSizeInPages;
-    InodeUnit firstPage;
+    s32 prevPage = 0;
     Inode inode;
     Inode backup;
     Dir dir;
-    s32 freeBytes;
-    s32 prevPage = 0;
     u8 oldBank = 0;
     s32 j = 0;
+    s32 freeBytes;
+    InodeUnit firstPage;
     u8 bank;
 
     if (companyCode == 0 || gameCode == 0) {
@@ -123,10 +123,10 @@ s32 osPfsAllocateFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 
     if (fileSizeInPages > 0 || startPage == -1) {
         return 3;
     }
-    dir.companyCode = companyCode;
-    dir.gameCode = gameCode;
     dir.startPage = firstPage;
     dir.dataSum = 0;
+    dir.companyCode = companyCode;
+    dir.gameCode = gameCode;
     bcopy(gameName, dir.gameName, 16);
     bcopy(extName, dir.extName, 4);
     return __osContRamWrite(pfs->queue, pfs->channel, pfs->dirTable + *fileNo, (u8 *)&dir, 0);

@@ -28,10 +28,10 @@ the game is required. Current progress is tracked in [docs/PROGRESS.md](docs/PRO
 Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-27):
 
 ```
-boot  functions ██████████████████████████░░░░  86.4 %  (367 / 425)
-boot  code size ██████████████████░░░░░░░░░░░░  59.9 %  (0xd670 / 0x165f4 bytes)
-code  functions ████████████████░░░░░░░░░░░░░░  53.6 %  (1915 / 3576)
-code  code size ████░░░░░░░░░░░░░░░░░░░░░░░░░░  11.9 %  (0x1f148 / 0x104acc bytes)
+boot  functions ██████████████████████████░░░░  87.1 %  (370 / 425)
+boot  code size ███████████████████░░░░░░░░░░░  61.8 %  (0xdd60 / 0x165f4 bytes)
+code  functions ████████████████░░░░░░░░░░░░░░  54.9 %  (1965 / 3576)
+code  code size ████░░░░░░░░░░░░░░░░░░░░░░░░░░  12.6 %  (0x20c78 / 0x104acc bytes)
 overlays   (actors, scenes, menus): not started
 ```
 <!-- progress:end -->
@@ -62,7 +62,7 @@ ROM ──► extract ──► split ──► per-function C ──► per-fun
 ├── docs/                 PROGRESS.md, ROADMAP.md, CONTRIBUTING.md
 ├── include/              types.h and the assembler macros used by the generated assembly
 ├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts);
-│                         src/code/ has one folder per original source file (see config/code.layout.txt)
+│                         both segments have one folder per original source file (config/<segment>.layout.txt)
 ├── tools/                extraction, matching, verification and build scripts (tools/vendor/ is fetched, not tracked)
 ├── asm/  extracted/  build/   generated, not tracked
 └── Makefile
@@ -89,7 +89,7 @@ Main tools:
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
 | `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
 | `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
-| `tools/layout.py`, `tools/srcsort.py`, `tools/srcpath.py` | `src/code` keeps one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/code.layout.txt` once, `srcsort.py` files new flat `src/code/func_*.c` into their folder, `srcpath.py` is the lookup the other tools use |
+| `tools/layout.py`, `tools/srcsort.py`, `tools/srcpath.py` | `src/boot` and `src/code` keep one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/<segment>.layout.txt` once, `srcsort.py` files new flat `src/<segment>/func_*.c` into their folder, `srcpath.py` is the lookup the other tools use |
 | `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or reference to another project |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |
 | `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see below) |

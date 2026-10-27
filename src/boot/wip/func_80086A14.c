@@ -20,7 +20,7 @@ f32 Math_FAtanContFracF(f32 x) {
     } else {
         return D_800976C4;
     }
-    sq = x * x; z = 0.0f; conv = 8.0f;
+    z = 0.0f; sq = x * x; conv = 8.0f;
     for (i = 8; i > 0; i--) { z = ((conv * conv) * sq) / (((conv + conv) + 1.0f) + z); conv -= 1.0f; }
     z = x / (1.0f + z);
     if (sector == 0) {

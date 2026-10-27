@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-// best attempt: 4 instr differ (inode lands 4 bytes higher on the stack than in the ROM, and two byte loads of the loop tail are swapped)
+// best attempt: 3 instr differ (two byte loads of the loop tail are swapped)
 #include "types.h"
 
 typedef struct {
@@ -29,7 +29,7 @@ typedef struct {
     u16 companyCode;
     InodeUnit startPage;
     u8 status;
-    u8 pad[0x1B];
+    u8 pad[0x17];
 } Dir;
 
 typedef struct {
@@ -45,10 +45,7 @@ void bzero(void *p, u32 n);
 s32 __osContRamWrite(void *queue, s32 channel, u16 address, void *buffer, s32 force);
 
 s32 osPfsDeleteFile(Pfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName) {
-    s32 fileNo;
-    Inode inode;
-    Dir dir;
-    InodeUnit lastPage;
+s32 fileNo; s32 pad; Inode inode; Dir dir; InodeUnit lastPage;
     s32 ret;
     u8 bank;
     u8 startPage;

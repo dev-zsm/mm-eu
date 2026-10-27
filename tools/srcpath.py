@@ -1,11 +1,11 @@
-"""Where the verified C of a function lives. `code` is split into one folder per original source file
-(config/code.layout.txt, made by tools/layout.py), e.g. src/code/Camera/func_800xxxxx.c, so that no folder has more than
-1000 files (GitHub lists at most 1000 per folder); `boot` stays flat.
+"""Where the verified C of a function lives. `boot` and `code` are split into one folder per original source file
+(config/<seg>.layout.txt, made by tools/layout.py), e.g. src/code/Camera/func_800xxxxx.c, so that no folder has more than
+1000 files (GitHub lists at most 1000 per folder).
 New files may still be written flat (agents, permuter): tools/srcsort.py files them into their folder."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BUCKETED = {"code"}
+BUCKETED = {"boot", "code"}
 _layout = {}
 
 

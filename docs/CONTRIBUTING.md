@@ -7,8 +7,8 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
 
 1. Look at the original: `tools/mm asm boot func_XXXXXXXX`. `tools/mm m2c boot func_XXXXXXXX` gives a first draft;
    it is frequently wrong (argument order, types), so read the assembly.
-2. Write `src/boot/func_XXXXXXXX.c` (for the `code` segment write `src/code/func_XXXXXXXX.c`; `python3 tools/srcsort.py`,
-   which `tools/wave_finish.sh` runs, then files it into its source-file folder from `config/code.layout.txt`). The optional first line `// FLAGS: ...` sets the compiler flags when the
+2. Write `src/boot/func_XXXXXXXX.c` (same flat form for `code`; `python3 tools/srcsort.py`,
+   which `tools/wave_finish.sh` runs, then files it into its source-file folder from `config/<segment>.layout.txt`). The optional first line `// FLAGS: ...` sets the compiler flags when the
    default (`-O2 -g3 -mips2`) is not what the function was built with.
 3. `tools/mm match boot func_XXXXXXXX src/boot/func_XXXXXXXX.c` must print `MATCH`. `tools/mm diff ...` shows the
    original and the compiled instructions side by side. Unfinished attempts go to `src/boot/wip/`.

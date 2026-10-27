@@ -2,7 +2,7 @@
 
 Each `src/<seg>/<fn>.c` you are given already compiles to exactly the original bytes. Your job is to turn it into
 clean, readable C that a maintainer could improve the game from. The verifier decides: after every edit run
-`tools/mm match <seg> <fn> src/<seg>/<fn>.c`. If it no longer says MATCH, undo that edit (keep the last matching version).
+`tools/mm match <seg> <fn> src/<seg>/<fn>.c`. If it no longer says MATCH, undo that edit (keep the last matching version). (Files are in folders by source file: find one with `find src/<seg> -name "<fn>.c"`.)
 
 Read `tools/mm asm <seg> <fn>` when you need to understand what the function really does.
 

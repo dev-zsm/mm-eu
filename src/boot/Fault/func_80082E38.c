@@ -45,6 +45,7 @@ void Fault_DrawMemDump(u32 pc, u32 sp, u32 cLeftJump, u32 cDownJump) {
             addr = 0x807FFF00;
         }
         addr &= ~0xF;
+        scrollCountdown = 0; // dead store, only to match scheduling
         Fault_DrawMemDumpContents(D_80098C08, addr, 0);
         scrollCountdown = 600;
         while (D_8009C220->exit) {
