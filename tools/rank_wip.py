@@ -7,7 +7,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 import match
 
 seg = sys.argv[1]
-skip = set((match.ROOT / "config" / f"{seg}.asm_only.txt").read_text().split())
+asm_file = match.ROOT / "config" / f"{seg}.asm_only.txt"
+skip = set(asm_file.read_text().split()) if asm_file.exists() else set()
 rows = []
 for f in sorted((match.ROOT / "src" / seg / "wip").glob("func_*.c")):
     n = f.stem
