@@ -1,0 +1,13 @@
+// FLAGS: -O2 -g3 -mips2
+#include "types.h"
+#include "m2c_compat.h"
+
+extern M2C_UNK D_8090D4D4;
+extern M2C_UNK D_8090DFA0;
+
+void func_800013F4(u8 *arg0) {
+    M2C_FIELD(arg0, M2C_UNK **, 0x13C) = &D_8090DFA0;
+    M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 4) | 0x10);
+    M2C_FIELD(arg0, s8 *, 0x195) = 0;
+    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_8090D4D4;
+}

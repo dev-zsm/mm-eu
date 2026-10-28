@@ -1,0 +1,12 @@
+// FLAGS: -O2 -g3 -mips2
+#include "types.h"
+#include "m2c_compat.h"
+
+void func_80000244(u8 *arg0) {
+    u16 temp_v0;
+
+    M2C_FIELD(arg0, M2C_UNK (**)(), 0x15C)();
+    temp_v0 = M2C_FIELD(arg0, u16 *, 0x1CC);
+    M2C_FIELD(arg0, u16 *, 0x1CC) = (u16) (temp_v0 & 0xFFFE);
+    M2C_FIELD(arg0, u16 *, 0x1CE) = temp_v0;
+}

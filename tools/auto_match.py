@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Try the m2c draft of every unmatched function as-is, compiled with a few IDO flag sets; keep exact matches.
-Run in WSL (venv, MM_CC set).  usage: auto_match.py <seg> <max_size_hex> [jobs=3]
+Run in WSL (venv, MM_CC set).  usage: auto_match.py <seg> <max_size_hex> [jobs=3]      (seg: boot, code or an overlay `ovlNNNN`; see overlay_auto.py)
 Matches go to build/auto_match/<seg>/<fn>.c (not src/): review them, move to src/<seg>/, then run verify_all.sh.
 Log: build/auto_match/<seg>.txt (resume-safe: functions already tried are skipped)."""
 import re, subprocess, sys, tempfile
@@ -27,6 +27,14 @@ def same(want: bytes, cfile: Path, fn: str, flags: list) -> bool:
     return len(got) == len(want) and match.mask(want, masks) == match.mask(got, masks)
 
 
+def have_c(seg: str, fn: str) -> bool:
+    """A verified C file or an attempt already exists for the function."""
+    if seg.startswith("ovl"):
+        d = ROOT / "src" / "overlays" / seg[3:]
+        return (d / f"{fn}.c").exists() or (d / "wip" / f"{fn}.c").exists()
+    return srcpath.path(seg, fn).exists()
+
+
 def attempt(job):
     seg, fn, want, asm = job
     with tempfile.TemporaryDirectory() as d:
@@ -49,7 +57,7 @@ def attempt(job):
 def main():
     seg, max_size = sys.argv[1], int(sys.argv[2], 16)
     jobs = int(sys.argv[3]) if len(sys.argv) > 3 else 3
-    text = (ROOT / "asm" / seg / "text.s").read_text()
+    text = match.asm_file(seg).read_text()
     head = text[:text.index("nonmatching ")]
     out = ROOT / "build/auto_match" / seg
     out.mkdir(parents=True, exist_ok=True)
@@ -66,7 +74,7 @@ def main():
             continue
         fn, size = m.group(1), int(m.group(2), 16)
         if (size > max_size or not fn.startswith("func_") or fn in done or fn in skip
-                or srcpath.path(seg, fn).exists()):
+                or have_c(seg, fn)):
             continue
         off = int(fn[-8:], 16) - base
         todo.append((seg, fn, rom[off:off + size], head + ch))
