@@ -26,13 +26,21 @@ Each one is a small relocatable program: `text | data | rodata | header | reloca
 
 - [x] Inventory: `tools/overlays.py` finds them in `extracted/` and writes `config/overlays.txt`
       (file index, start in the virtual ROM, section sizes, relocation count). 616 found, about 3.5 MB of code.
-- [ ] Disassembly: one splat configuration per overlay (generated from `config/overlays.txt`), assembly in
-      `asm/overlays/<index>/`, with the relocations used to name the symbols that point into the same overlay.
+- [x] Disassembly: `tools/overlay_split.py` generates one splat configuration per overlay, writes the assembly to
+      `asm/overlays/<index>/` and checks that it rebuilds the file: 595 of 616 overlays are byte-identical (13,011
+      functions). The other 21 differ in the read-only data (strings, alignment), a known limit to fix.
+- [ ] Relocations: use the relocation table to name the symbols that point into the same overlay (`D_`/`func_`
+      with the overlay index), and keep the header, relocations and footer as data in the rebuild.
 - [ ] Build: a segment builder for overlays (like `tools/build_seg.py`, but linking the relocated sections and
       checking the relocation table too), so that each overlay is verified byte for byte against its file.
 - [ ] Order of work: the smallest overlays first (they match fastest), then the large ones; one folder per
       overlay under `src/overlays/`, and the progress numbers are counted per overlay in `docs/PROGRESS.md`.
-- [ ] Names: overlay and function names only with evidence, as for `boot` and `code`.
+- [ ] Layout: `src/overlays/<kind>/ovl_<name>/` with one folder per overlay and the kinds `actors`, `effects`,
+      `fbdemos`, `gamestates` and `kaleido_scope` (the usual layout of decompilation projects of this game). Until an
+      overlay has a name its folder is `ovl_<file index>` and its kind is `unknown`.
+- [ ] Names: `config/overlays.names.txt` (`<file index> <name>  # <evidence>`), checked like the other name files. A name
+      is added only with evidence (the order of the file table, the number of overlays and the relocations of an
+      overlay that points to a known function), never from memory of another project's source code.
 
 ## 4. Full ROM
 
