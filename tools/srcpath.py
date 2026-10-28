@@ -31,5 +31,5 @@ def path(seg, fn):
 def files(seg):
     """Every verified C file of the segment (not wip), sorted by name."""
     d = ROOT / "src" / seg
-    found = list(d.glob("func_*.c")) + [p for p in d.glob("*/func_*.c") if p.parent.name != "wip"]
+    found = list(d.glob("func_*.c")) + [p for p in d.rglob("*/func_*.c") if p.relative_to(d).parts[0] != "wip"]
     return sorted(found, key=lambda p: p.name)

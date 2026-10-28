@@ -13,15 +13,19 @@ sys.path.insert(0, str(ROOT / "tools"))
 import names
 
 
+IO_WORDS = {"Pi", "Si", "Ai", "Vi", "Sp", "Dp", "Cont", "Pfs", "Motor", "Eeprom", "Voice", "Flash", "Rumble", "Cart"}
+
+
 def module(name):
-    """Module of a registered name: libultra (os*), libgu (gu*), libc (the other names without a `Module_` prefix), else the prefix."""
+    """Module of a registered name: libultra/{os,io,gu,libc} for the SDK names, else the prefix before the first underscore."""
     bare = name.lstrip("_")
-    if re.match(r"os[A-Z]", bare):
-        return "libultra"
+    m = re.match(r"os([A-Z][a-z]*)", bare)
+    if m:  # libultra: hardware interface (io) or operating system (os)
+        return "libultra/" + ("io" if m.group(1) in IO_WORDS else "os")
     if re.match(r"gu[A-Z]", bare):
-        return "libgu"
+        return "libultra/gu"
     if "_" not in bare or name.startswith("__"):
-        return "libc"
+        return "libultra/libc"
     return bare.split("_")[0]
 
 

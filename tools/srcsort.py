@@ -8,7 +8,7 @@ for seg in sorted(srcpath.BUCKETED):
     for f in srcpath.files(seg):
         dst = srcpath.ROOT / "src" / seg / srcpath.bucket(seg, f.stem) / f.name
         if f != dst:
-            dst.parent.mkdir(exist_ok=True)
+            dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.move(str(f), str(dst))
             n += 1
     print(f"{seg}: {n} files moved into their source-file folder")
