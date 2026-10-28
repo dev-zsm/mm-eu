@@ -70,3 +70,8 @@ Overlays (actors, scenes, menus) are the next stage after `boot` and `code`; the
 exists, the useful contributions are tooling: disassembly configurations, the relocation-aware builder and its
 verification. The rules of the other segments apply unchanged: only the assembly of our ROM and the local tools,
 no code from other projects, English only, no inline assembly.
+
+## Per segment
+
+[BOOT.md](BOOT.md), [CODE.md](CODE.md) and [OVERLAYS.md](OVERLAYS.md) explain each segment: where the sources are, the
+commands to write and check a function, and what stays assembly.
