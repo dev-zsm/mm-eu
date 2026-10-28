@@ -31,8 +31,8 @@ boot     functions ████████████████████�
 boot     code size ███████████████████░░░░░░░░░░░  62.9 %  (0xe144 / 0x165f4 bytes)
 code     functions ██████████████████░░░░░░░░░░░░  60.9 %  (2179 / 3576)
 code     code size █████░░░░░░░░░░░░░░░░░░░░░░░░░  16.0 %  (0x29ac0 / 0x104acc bytes)
-overlays functions █████████░░░░░░░░░░░░░░░░░░░░░  28.4 %  (3700 / 13011)
-overlays code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   7.8 %  (0x4346c / 0x35bcf4 bytes)
+overlays functions █████████░░░░░░░░░░░░░░░░░░░░░  28.8 %  (3744 / 13011)
+overlays code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.0 %  (0x449c0 / 0x35bcf4 bytes)
 ```
 <!-- progress:end -->
 
