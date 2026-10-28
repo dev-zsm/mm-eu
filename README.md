@@ -7,8 +7,7 @@ A from-scratch matching decompilation of *The Legend of Zelda: Majora's Mask* (E
 
 This is a work-in-progress, from-scratch **matching decompilation** of *The Legend of Zelda: Majora's Mask* for the
 Nintendo 64, European release, revision 1 (game code `NZSP`, version 1). The goal is to recreate a readable and
-modifiable C code base that the original compiler turns into **exactly the same machine code as the retail game**,
-and, once that is done, to build further tooling on top of it (including a native PC port).
+modifiable C code base that the original compiler turns into **exactly the same machine code as the retail game**.
 
 Most of the work in this repository is carried out by artificial intelligence: the C code, the search for matching
 variants and the tooling are largely AI-written. Nothing is trusted on its word. Every function is recompiled with the

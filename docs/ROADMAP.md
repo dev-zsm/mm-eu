@@ -66,10 +66,6 @@ Each one is a small relocatable program: `text | data | rodata | header | reloca
 
 Byte-identical recompression of the compressed files and rebuilding of the file table.
 
-## 5. PC port
-
-Rendering, audio and input layers on top of the C code base.
-
 ## Later: names, layout and readability (after all the C matches)
 
 These are deliberately postponed until every function is written in C and verified: with the whole code base in
