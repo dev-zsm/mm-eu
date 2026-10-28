@@ -65,7 +65,7 @@ from leaked source code (Nintendo 64 SDK, libultra, or any game sharing signific
 
 ## Overlays
 
-Overlays (actors, scenes, menus) are the next stage after `boot` and `code`; their C is not written yet.
+Overlays (actors, scenes, menus) are the next stage after `boot` and `code`; the steps are in [OVERLAYS.md](OVERLAYS.md).
 `python3 tools/overlays.py` (after `tools/extract.py`) lists them in `config/overlays.txt`. Until the overlay build
 exists, the useful contributions are tooling: disassembly configurations, the relocation-aware builder and its
 verification. The rules of the other segments apply unchanged: only the assembly of our ROM and the local tools,

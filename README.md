@@ -59,7 +59,7 @@ ROM ──► extract ──► split ──► per-function C ──► per-fun
 .
 ├── baserom/              your copy of the game (not tracked)
 ├── config/               splat configuration, symbol names, aliases, list of hand-written assembly functions
-├── docs/                 PROGRESS.md, ROADMAP.md, CONTRIBUTING.md
+├── docs/                 PROGRESS.md, ROADMAP.md, CONTRIBUTING.md, OVERLAYS.md
 ├── include/              types.h and the assembler macros used by the generated assembly
 ├── src/<segment>/        one C file per decompiled function (src/<segment>/wip/ holds unfinished attempts, not tracked);
 │                         both segments have one folder per original source file (config/<segment>.layout.txt)

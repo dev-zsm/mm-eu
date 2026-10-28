@@ -11,3 +11,4 @@ __pycache__/
 src/*/wip/
 # Windows folder settings
 desktop.ini
+src/overlays/*/wip/

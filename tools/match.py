@@ -14,7 +14,19 @@ import objcache  # noqa: E402
 NAMES = {**_names.load("boot"), **_names.load("code")}
 import os  # noqa: E402
 CC = objcache._compiler("71")  # MM_CC, else ~/ido71/cc (native disk, ~4x faster than /mnt/c), else tools/vendor
-SEG = {"boot": (ROOT / "build/boot.bin", 0x80080000), "code": (ROOT / "extracted/0049_00C8A000.bin", 0x800A5FE0)}
+class _Segments(dict):
+    """boot and code, plus any overlay as `ovlNNNN` (file index NNNN): its file in extracted/, linked at address 0 and read at 0x80000000."""
+    def __missing__(self, seg):
+        if re.fullmatch(r"ovl\d{4}", seg):
+            return next((ROOT / "extracted").glob(f"{seg[3:]}_*.bin")), 0x80000000
+        raise KeyError(seg)
+
+
+SEG = _Segments({"boot": (ROOT / "build/boot.bin", 0x80080000), "code": (ROOT / "extracted/0049_00C8A000.bin", 0x800A5FE0)})
+
+
+def asm_file(seg: str) -> Path:
+    return ROOT / (f"asm/overlays/{seg[3:]}/text.s" if seg.startswith("ovl") else f"asm/{seg}/text.s")
 CC53 = objcache._compiler("53")  # libultra/libc files built with the older IDO 5.3: `// COMPILER: ido53` in their first lines
 DEFAULT_FLAGS = ["-O2", "-g3", "-mips2", "-G", "0", "-non_shared", "-Xcpluscomm", "-w", "-I" + str(ROOT / "include")]
 # relocation type -> mask of bits that the linker rewrites
@@ -29,7 +41,7 @@ def run(*a):
 @functools.lru_cache(maxsize=None)
 def _sizes(seg: str) -> dict:
     """{function: size} from the splat asm (`nonmatching name, size`), read once."""
-    text = (ROOT / f"asm/{seg}/text.s").read_text()
+    text = asm_file(seg).read_text()
     return {m.group(1): int(m.group(2), 16) for m in re.finditer(r"^nonmatching (\w+), (0x[0-9A-Fa-f]+)", text, re.M)}
 
 

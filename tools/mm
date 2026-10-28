@@ -8,11 +8,12 @@ set -e
 cmd=$1; seg=$2; fn=$3; file=$4
 root=$(cd "$(dirname "$0")/.." && pwd)                       # e.g. /c/Users/me/Projets/mm-n64-europe
 case "$root" in /[a-z]/*) wslroot="/mnt/${root:1:1}/${root:3}" ;; *) wslroot="$root" ;; esac
+case "$seg" in ovl*) asmfile="asm/overlays/${seg#ovl}/text.s";; *) asmfile="asm/$seg/text.s";; esac   # overlays: seg is ovlNNNN
 MSYS_NO_PATHCONV=1 wsl.exe -d Ubuntu -- bash -c "
 cd '$wslroot' && . ~/mm-venv/bin/activate
 case $cmd in
-  asm)   awk '/^glabel $fn\$/{p=1} p{print} /^endlabel $fn\$/{exit}' asm/$seg/text.s ;;
-  m2c)   python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f $fn asm/$seg/text.s ;;
+  asm)   awk '/^glabel $fn\$/{p=1} p{print} /^endlabel $fn\$/{exit}' $asmfile ;;
+  m2c)   python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f $fn $asmfile ;;
   match) python3 tools/match.py $seg $fn '$file' ;;
   diff)  python3 tools/disasm_diff.py $seg $fn '$file' ;;
 esac" 2>&1 | tr -d '\0'
