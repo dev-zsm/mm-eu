@@ -35,9 +35,9 @@ Each one is a small relocatable program: `text | data | rodata | header | reloca
       checking the relocation table too), so that each overlay is verified byte for byte against its file.
 - [ ] Order of work: the smallest overlays first (they match fastest), then the large ones; one folder per
       overlay under `src/overlays/`, and the progress numbers are counted per overlay in `docs/PROGRESS.md`.
-- [ ] Layout: `src/overlays/<kind>/ovl_<name>/` with one folder per overlay and the kinds `actors`, `effects`,
+- [ ] Layout: `src/overlays/<kind>/<name>/` with one folder per overlay and the kinds `actors`, `effects`,
       `fbdemos`, `gamestates` and `kaleido_scope` (the usual layout of decompilation projects of this game). Until an
-      overlay has a name its folder is `ovl_<file index>` and its kind is `unknown`.
+      overlay has a name its folder is its file index (`src/overlays/0050/`).
 - [ ] Names: `config/overlays.names.txt` (`<file index> <name>  # <evidence>`), checked like the other name files. A name
       is added only with evidence (the order of the file table, the number of overlays and the relocations of an
       overlay that points to a known function), never from memory of another project's source code.
