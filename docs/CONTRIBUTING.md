@@ -62,3 +62,11 @@ the address.
 
 This project is built only from the analysis of a legally owned copy of the game. Do not contribute material derived
 from leaked source code (Nintendo 64 SDK, libultra, or any game sharing significant code with this one).
+
+## Overlays
+
+Overlays (actors, scenes, menus) are the next stage after `boot` and `code`; their C is not written yet.
+`python3 tools/overlays.py` (after `tools/extract.py`) lists them in `config/overlays.txt`. Until the overlay build
+exists, the useful contributions are tooling: disassembly configurations, the relocation-aware builder and its
+verification. The rules of the other segments apply unchanged: only the assembly of our ROM and the local tools,
+no code from other projects, English only, no inline assembly.

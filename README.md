@@ -32,7 +32,7 @@ boot  functions █████████████████████�
 boot  code size ███████████████████░░░░░░░░░░░  62.9 %  (0xe144 / 0x165f4 bytes)
 code  functions ██████████████████░░░░░░░░░░░░  60.5 %  (2163 / 3576)
 code  code size █████░░░░░░░░░░░░░░░░░░░░░░░░░  15.8 %  (0x29130 / 0x104acc bytes)
-overlays   (actors, scenes, menus): not started
+overlays   616 files, 0x35cb50 bytes of code: no C yet (inventory only, see docs/ROADMAP.md)
 ```
 <!-- progress:end -->
 
@@ -89,6 +89,7 @@ Main tools:
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
 | `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
 | `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
+| `tools/overlays.py` | list the overlays of the ROM file table in `config/overlays.txt` (file, section sizes, relocation count) |
 | `tools/layout.py`, `tools/layout_callers.py`, `tools/srcsort.py`, `tools/srcpath.py` | `src/boot` and `src/code` keep one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/<segment>.layout.txt` once, `srcsort.py` files new flat `src/<segment>/func_*.c` into their folder, `layout_callers.py` moves a function out of `unknown/` when only one module calls it, `srcpath.py` is the lookup the other tools use |
 | `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or reference to another project |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |

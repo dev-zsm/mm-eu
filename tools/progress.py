@@ -35,6 +35,13 @@ def segment(seg: str) -> dict:
     }
 
 
+def overlays() -> tuple:
+    """(number of overlays, bytes of code) from config/overlays.txt (tools/overlays.py); (0, 0) when it is missing."""
+    f = ROOT / "config" / "overlays.txt"
+    rows = [l.split() for l in f.read_text().splitlines()] if f.exists() else []
+    return len(rows), sum(int(r[2], 16) for r in rows)
+
+
 def bar(pct: float, width: int = 30) -> str:
     n = round(width * pct / 100)
     return "█" * n + "░" * (width - n)
@@ -53,7 +60,8 @@ def update_readme(results: dict):
         for label, pct, extra in (("functions", 100 * r["c"] / max(1, denom), f"{r['c']} / {denom}"),
                                   ("code size", 100 * r["c_bytes"] / max(1, r["bytes"]), f"{r['c_bytes']:#x} / {r['bytes']:#x} bytes")):
             lines.append(f"{s:<5} {label:<9} {bar(pct)} {pct:5.1f} %  ({extra})")
-    lines.append("overlays   (actors, scenes, menus): not started")
+    n, size = overlays()
+    lines.append(f"overlays   {n} files, {size:#x} bytes of code: no C yet (inventory only, see docs/ROADMAP.md)")
     block = (f"{a}\nMatching C verified byte-for-byte against the ROM (refreshed by `make progress`, "
              f"last update {datetime.date.today()}):\n\n```\n" + "\n".join(lines) + f"\n```\n{b}")
     head, rest = text.split(a, 1)
@@ -78,6 +86,8 @@ def main():
            "* **C bytes**: share of the segment's code bytes covered by verified C.\n"
            "* **Original assembly**: hand-written in the original game or impossible in C; not counted in the denominator.\n"
            "* **Attempts (wip)**: unfinished drafts in `src/<segment>/wip/`.\n\n" + "\n".join(rows) + "\n\n"
+           f"Overlays (actors, scenes, menus): {overlays()[0]} files, {overlays()[1]:#x} bytes of code found by `tools/overlays.py`; "
+           "no function is written in C yet (see [ROADMAP.md](ROADMAP.md), section 3).\n\n"
            "Naming, file layout and readability work is planned for after all the C matches: see [ROADMAP.md](ROADMAP.md).\n")
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs" / "PROGRESS.md").write_text(out, encoding="utf-8")

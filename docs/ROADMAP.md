@@ -21,7 +21,18 @@ Same method on the main game code (about 3,500 functions).
 
 ## 3. Overlays
 
-Split the file table into overlays (actors, scenes, menus), one source file each.
+About 600 files of the ROM file table are overlays (actors, scenes, menus): code that the game loads on demand.
+Each one is a small relocatable program: `text | data | rodata | header | relocations | footer`.
+
+- [x] Inventory: `tools/overlays.py` finds them in `extracted/` and writes `config/overlays.txt`
+      (file index, start in the virtual ROM, section sizes, relocation count). 616 found, about 3.5 MB of code.
+- [ ] Disassembly: one splat configuration per overlay (generated from `config/overlays.txt`), assembly in
+      `asm/overlays/<index>/`, with the relocations used to name the symbols that point into the same overlay.
+- [ ] Build: a segment builder for overlays (like `tools/build_seg.py`, but linking the relocated sections and
+      checking the relocation table too), so that each overlay is verified byte for byte against its file.
+- [ ] Order of work: the smallest overlays first (they match fastest), then the large ones; one folder per
+      overlay under `src/overlays/`, and the progress numbers are counted per overlay in `docs/PROGRESS.md`.
+- [ ] Names: overlay and function names only with evidence, as for `boot` and `code`.
 
 ## 4. Full ROM
 
