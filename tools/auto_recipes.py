@@ -78,7 +78,7 @@ def main():
     seg = sys.argv[1]
     max_size = int(sys.argv[2], 16) if len(sys.argv) > 2 else 0x100
     jobs = int(sys.argv[3]) if len(sys.argv) > 3 else 2
-    text = (ROOT / "asm" / seg / "text.s").read_text()
+    text = match.asm_file(seg).read_text()
     head = text[:text.index("nonmatching ")]
     out = ROOT / "build/auto_match" / f"{seg}_recipes"
     out.mkdir(parents=True, exist_ok=True)
@@ -90,7 +90,7 @@ def main():
     todo = []
     for ch in re.split(r"(?=^nonmatching )", text, flags=re.M)[1:]:
         m = re.match(r"nonmatching (\w+), (0x[0-9A-Fa-f]+)", ch)
-        if not m or m.group(1) not in failed or m.group(1) in done or srcpath.path(seg, m.group(1)).exists():
+        if not m or m.group(1) not in failed or m.group(1) in done or am.have_c(seg, m.group(1)):
             continue
         fn, size = m.group(1), int(m.group(2), 16)
         if size <= max_size:
