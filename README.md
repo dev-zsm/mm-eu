@@ -6,7 +6,7 @@ The goal is a readable, modifiable C code base that the original compiler turns 
 the retail game**. Nothing is trusted on its word: every function is recompiled with the original compiler and compared
 to the ROM by an automated check, and a function that does not match is not accepted.
 
-| | |
+| Item | Detail |
 |---|---|
 | Game | *The Legend of Zelda: Majora's Mask*, Nintendo 64, European release, revision 1 (game code `NZSP`, version 1) |
 | ROM | `The Legend of Zelda - Majora's Mask (Europe) (En,Fr,De,Es) (Rev 1)` |
