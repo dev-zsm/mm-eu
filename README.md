@@ -30,7 +30,7 @@ tooling are largely AI-written, and everything it produces goes through the same
 Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-29):
 
 ```
-boot     functions ██████████████████████████░░░░  87.8 %  (373 / 425)
+boot     functions ███████████████████████████░░░  89.0 %  (373 / 419)
 boot     code size ███████████████████░░░░░░░░░░░  63.3 %  (0xe28c / 0x165f4 bytes)
 code     functions ███████████████████░░░░░░░░░░░  63.4 %  (2267 / 3576)
 code     code size █████░░░░░░░░░░░░░░░░░░░░░░░░░  17.8 %  (0x2e4a8 / 0x104acc bytes)

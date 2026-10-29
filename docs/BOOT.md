@@ -44,3 +44,11 @@ added to that list only with the maintainer's agreement.
 `tools/rank_wip.py boot` ranks the unfinished attempts by distance to the ROM; `tools/permute_list.py --auto` runs the
 permuter on them; `tools/tidy_perm.py boot` rewrites what it found; `tools/quarantine.py boot` moves back to `wip`
 any file that does not hold in the rebuilt segment. `make progress` refreshes the numbers.
+
+## Hand-written assembly of the SDK
+
+Besides the functions that were already marked by the disassembly, the matrix routines of libultra (`guNormalize`, `guScale`,
+`guTranslate`, `guMtxF2L`, `guMtxL2F`, `guMtxIdentF`, the `mgu` part of the library) are listed in `config/boot.asm_only.txt`: in the
+SDK they are written in assembly, which is why no C compiles to their bytes (float registers allocated like hand-written code).
+This was confirmed by the published community decompilation of the same library, consulted as allowed by the exception in the
+[README](../README.md#contributing).
