@@ -1,4 +1,4 @@
-# mm-n64-europe
+# mm-eu
 
 A from-scratch **matching decompilation** of *The Legend of Zelda: Majora's Mask* (Europe, Rev 1) for the Nintendo 64.
 

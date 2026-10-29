@@ -14,7 +14,7 @@ BROKEN = "halt_baddata"
 def ghidra(elf: Path, lang: str, outdir: Path) -> Path:
     proc, cspec = LANGS[lang]
     outdir.mkdir(parents=True, exist_ok=True)
-    subprocess.run([GHIDRA, str(ROOT / "build" / "ghidra"), "mm-n64-europe", "-import", str(elf), "-overwrite",
+    subprocess.run([GHIDRA, str(ROOT / "build" / "ghidra"), "mm-eu", "-import", str(elf), "-overwrite",
                     "-processor", proc, "-cspec", cspec, "-scriptPath", str(ROOT / "tools" / "ghidra"),
                     "-postScript", "ExportDecomp.java", str(outdir)],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
