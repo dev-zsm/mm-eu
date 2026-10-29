@@ -37,7 +37,7 @@ tools/mm diff  boot func_80086A14 src/boot/func_80086A14.c
 Functions that were hand-written in the original (marked `Handwritten function` in the splat output) or that no C can
 express (`cfc1`/`ctc1`, `floor.w`/`ceil.w`, the hand-written `bcopy`) are listed in `config/boot.asm_only.txt` or
 marked by the disassembly. They are built from the original assembly and are not counted in the C numbers. A function is
-added to that list only with the maintainer's agreement.
+added to that list only with my agreement.
 
 ## Tools for the hard cases
 

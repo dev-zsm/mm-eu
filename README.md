@@ -263,7 +263,7 @@ do not use any of it as a guide to how a function should be written. Every funct
 our ROM and accepted only if it recompiles to the exact bytes. A function that cannot be written without such help stays
 unfinished.
 
-**Exception, `boot` segment only (decision of the maintainer).** `boot` contains the Nintendo 64 operating-system
+**Exception, `boot` segment only (my decision).** `boot` contains the Nintendo 64 operating-system
 libraries (libultra, libgu, libm, libc), which are shared with other games and have been decompiled by community
 projects. For these library functions only, the published work of such projects may be consulted as a reference for how a
 function is structured and typed (arguments, types, control flow). The C of this repository is still written here, from the

@@ -141,8 +141,8 @@ diff `python3 tools/disasm_diff.py boot FN src/boot/FN.c`.
 - `Fault_RemoveClient`-style list code: keep the original odd logic, do not "simplify" it.
 - Unaligned / `$at` struct copies: try `// COMPILER: ido53` (see above).
 
-## Exception for `boot` (maintainer's decision)
+## Exception for `boot` (my decision)
 
-For the library functions of `boot` (libultra, libgu, libm, libc) only, the maintainer's session may give you a reference taken from a
+For the library functions of `boot` (libultra, libgu, libm, libc) only, my session may give you a reference taken from a
 published community decompilation (the structure and types of a function). Use it as a guide, write the C yourself from the ROM
 assembly and keep the exact-bytes check as the only judge. For `code` and the overlays the rule above is unchanged.
