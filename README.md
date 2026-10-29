@@ -154,6 +154,8 @@ Other targets: `make check` (verification before every commit), `make progress` 
 |---|---|
 | `tools/auto_match.py`, `tools/auto_near.py`, `tools/auto_recipes.py` | try the m2c drafts with several IDO flag sets and mechanical tricks, then rank the near misses |
 | `tools/rank_wip.py` | rank the unmatched functions by how close they are |
+| `tools/diff_kind.py` | classify the difference of each unfinished draft (size, order, registers, other) to choose the right tool |
+| `tools/decl_sweep.py` | try every order of the plain local declarations of each unfinished draft (stack layout and registers) |
 | `tools/permute_setup.py`, `tools/permute_all.py`, `tools/flag_sweep.py` | automated search for matching C |
 | `tools/permute_list.py` | run the permuter on a list of unmatched functions, or with `--auto` on every wip draft closest first, and keep what matches in `build/perm_wins/` |
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
