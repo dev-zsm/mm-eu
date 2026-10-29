@@ -92,3 +92,19 @@ the processor.
   `// matching: keeps the ROM store order` or `// matching: unused, pads the frame to the ROM size`.
 - Describe what is known. A guess is written as one (`likely`, `not confirmed`), and a name that is not proven is not used.
 - Remove a comment that has become false (for example a note about a difference once the function matches).
+
+## Where a file goes: module folder, `unknown/` or `wip/`
+
+| Folder | Content | Matches the ROM | Counted in the progress | Tracked by git |
+|---|---|---|---|---|
+| `src/<segment>/<Module>/` | a verified function whose original source file is known (`Camera/`, `Actor/`, `libultra/os/`, ...) | yes | yes | yes |
+| `src/<segment>/unknown/` | a verified function whose original source file is not known yet | yes | yes | yes |
+| `src/<segment>/wip/` | an unfinished attempt (a draft that still differs from the ROM) | no | no | no |
+
+- `unknown/` is about the **organisation**, not the quality: its functions are finished. A function moves from `unknown/` to a
+  module folder when its module is known (`tools/layout_callers.py` does it when a single module calls it, and the
+  table `config/<segment>.layout.txt` is updated for the others).
+- `wip/` is about the **state of the work**: a function leaves it, flat into `src/<segment>/`, when it matches, and
+  `tools/srcsort.py` then files it into its module folder or `unknown/`.
+- Overlays have no `unknown/`: each overlay is its own source file, so its verified functions are in
+  `src/overlays/<file index>/` and its unfinished attempts in `src/overlays/<file index>/wip/`.
