@@ -84,3 +84,11 @@ what the checks read to `~/.cache/mm-eu-work` (only changed files are copied) an
 copied back. On a native checkout it simply runs `make check`. `tools/check_style.py` keeps a cache of the files it has
 already checked (`build/style_cache.json`), and the permuter tools run at the lowest priority so that the checks keep
 the processor.
+
+## Comments in the sources
+
+- English, one line, factual. No first person, no jokes, and nothing about how the code was found (no attempts, agents or tools).
+- Anything that exists only to make the output match the ROM gets a one-line comment saying so and why, for example
+  `// matching: keeps the ROM store order` or `// matching: unused, pads the frame to the ROM size`.
+- Describe what is known. A guess is written as one (`likely`, `not confirmed`), and a name that is not proven is not used.
+- Remove a comment that has become false (for example a note about a difference once the function matches).

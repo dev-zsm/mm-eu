@@ -11,7 +11,6 @@ typedef struct {
 
 s32 __osContRamWrite(s32 a0, s32 a1, s32 a2, u8 *a3, s32 sp10);
 
-// best attempt: 5 instr differ (ROM puts `or v0,v1,zero` in the jr delay slot, ours before the epilogue)
 s32 __osPfsSelectBank(SomeStruct *pfs, u8 bank) {
     u8 temp[0x20];
     s32 i;
