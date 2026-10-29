@@ -50,7 +50,11 @@ def main():
         ido53 += own
         if not found:
             clean[key] = sig + [own]
-    CACHE.write_text(json.dumps(clean))
+    try:
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        CACHE.write_text(json.dumps(clean))
+    except OSError:  # a read-only checkout: the cache is only an optimisation
+        pass
     fail = False
     for desc, found in hits.items():
         if found:
