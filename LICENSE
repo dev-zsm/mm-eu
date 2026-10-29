@@ -25,8 +25,8 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 2. Reconstructed game code
 --------------------------
 The C sources in `src/`, and the data in `config/` and `include/` that describe the game, are a reconstruction of
-*The Legend of Zelda: Majora's Mask*, a work whose copyright belongs to Nintendo. They are published for study,
-research and interoperability only. No licence is granted on them by this repository, and nothing here transfers or
+*The Legend of Zelda: Majora's Mask*, a work whose copyright belongs to Nintendo.
+No licence is granted on them by this repository, and nothing here transfers or
 claims any right of Nintendo or of any other rights holder. This project is not affiliated with or endorsed by Nintendo.
 
 Third-party tools used by this project (splat, the IDO compiler, decomp-permuter, m2c and others) are not part of this

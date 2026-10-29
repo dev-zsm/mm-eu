@@ -172,7 +172,7 @@ ROM-only. The projects consulted are credited in [Credits](#credits).
 ## License
 
 The tooling and documentation are MIT-licensed. The reconstructed game code in `src/` is not licensed by this
-repository: it describes a work that belongs to Nintendo and is shared for study and interoperability only. See
+repository: it describes a work that belongs to Nintendo, and no right on it is granted. See
 [LICENSE](LICENSE) for the exact scope.
 
 ## Credits
