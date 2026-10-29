@@ -10,7 +10,8 @@ import match
 OPT = ["-O1", "-O2"]
 DBG = ["-g0", "-g3"]
 ARCH = [["-mips2"], ["-mips3", "-32"]]  # -O0/-O3/-g2/-mips1 were never seen in this ROM
-EXTRA = [[], ["-trapuv"]]
+EXTRA = [[], ["-trapuv"], ["-Wab,-r4300_mul"], ["-trapuv", "-Wab,-r4300_mul"]]  # -r4300_mul: the nop after mul.s of libgu
+COMPILERS = ["", "// COMPILER: ido53\n"]  # IDO 7.1, then the older IDO 5.3 of the libultra files
 BASE = match.DEFAULT_FLAGS[3:]  # -G 0 -non_shared -Xcpluscomm -w -I...
 
 
@@ -35,7 +36,7 @@ def main():
     order = [l.split()[0] for l in rank.read_text().splitlines()] if rank.exists() else []
     files = {p.stem: p for p in (match.ROOT / "src" / seg / "wip").glob("func_*.c") if p.stem not in skip}
     todo = [n for n in order if n in files][:limit]
-    log = match.ROOT / "build" / f"flag_sweep_{seg}.txt"
+    log = match.ROOT / "build" / f"flag_sweep_{seg}_v2.txt"
     done = {l.split()[0] for l in log.read_text().splitlines()} if log.exists() else set()
     for fn in [n for n in todo if n not in done]:
         src = files[fn]
@@ -45,24 +46,25 @@ def main():
         cur = match.file_flags(src)
         best = (score(src, fn, cur, want, len(want)), " ".join(cur[:3]))
         tmp = match.ROOT / "src" / seg / "wip" / f"{fn}.sweep.c"
-        for o, g, a, x in itertools.product(OPT, DBG, ARCH, EXTRA):
+        best_comp = ""
+        for comp, o, g, a, x in itertools.product(COMPILERS, OPT, DBG, ARCH, EXTRA):
             fl = [o, g, *a, *x]
-            tmp.write_text("// FLAGS: " + " ".join(fl) + "\n" + body)
+            tmp.write_text("// FLAGS: " + " ".join(fl) + "\n" + comp + body)
             s = score(tmp, fn, fl + BASE, want, len(want))
             if s is not None and (best[0] is None or s < best[0]):
-                best = (s, " ".join(fl))
+                best, best_comp = (s, " ".join(fl)), comp
             if s == 0:
                 break
         tmp.unlink(missing_ok=True)
         if best[0] == 0:
             dst = match.ROOT / "src" / seg / f"{fn}.c"
-            dst.write_text("// FLAGS: " + best[1] + "\n" + body)
+            dst.write_text("// FLAGS: " + best[1] + "\n" + best_comp + body)
             src.unlink()
             status = "MATCHED"
         else:
             status = "no match"
         with log.open("a") as f:
-            f.write(f"{fn} {status} best={best[0]} flags={best[1]}\n")
+            f.write(f"{fn} {status} best={best[0]} flags={best[1]} {best_comp.strip()}\n")
 
 
 if __name__ == "__main__":
