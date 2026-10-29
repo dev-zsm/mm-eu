@@ -108,3 +108,10 @@ the processor.
   `tools/srcsort.py` then files it into its module folder or `unknown/`.
 - Overlays have no `unknown/`: each overlay is its own source file, so its verified functions are in
   `src/overlays/<file index>/` and its unfinished attempts in `src/overlays/<file index>/wip/`.
+
+## Exception for the `boot` segment
+
+By decision of the maintainer, the published work of community decompilation projects may be consulted as a reference for the
+**library functions of `boot`** (libultra, libgu, libm, libc): how a function is structured, its arguments and its types. The rules
+that remain: the C is written here from the assembly of our own ROM, it is accepted only if it recompiles to the exact bytes, nothing
+is copied verbatim, and `code` and the overlays stay ROM-only. The projects used are listed in the credits of the README.

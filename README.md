@@ -263,6 +263,13 @@ do not use any of it as a guide to how a function should be written. Every funct
 our ROM and accepted only if it recompiles to the exact bytes. A function that cannot be written without such help stays
 unfinished.
 
+**Exception, `boot` segment only (decision of the maintainer).** `boot` contains the Nintendo 64 operating-system
+libraries (libultra, libgu, libm, libc), which are shared with other games and have been decompiled by community
+projects. For these library functions only, the published work of such projects may be consulted as a reference for how a
+function is structured and typed (arguments, types, control flow). The C of this repository is still written here, from the
+assembly of our own ROM, and accepted only if it recompiles to the exact bytes; no file is copied verbatim. The `code` segment
+and the overlays remain ROM-only. The projects consulted are credited in [Credits](#credits).
+
 ## License
 
 The tooling and documentation are MIT-licensed. The reconstructed game code in `src/` is not licensed by this
@@ -283,6 +290,10 @@ This project rests on the work of the N64 decompilation community. Thanks to the
 * [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): decompilation of the
   US version, whose published function names (`tools/ref_align.py` aligns them with ours, entries tagged `ref:` in
   `config/*.names.txt`) are the only thing we take from it. No code, structure or other material is taken from it.
+* Community decompilation projects of the Nintendo 64 libraries (for example [zeldaret/mm](https://github.com/zeldaret/mm)
+  and other decompilation projects): consulted as a reference for the structure and typing of the libultra, libgu, libm and
+  libc functions of the `boot` segment only (see the exception in [Contributing](#contributing)). The C here is written and
+  verified against our own ROM.
 * GNU binutils: assembler, linker and `objcopy`
 
 The names, licences and rights of these tools remain with their authors.
