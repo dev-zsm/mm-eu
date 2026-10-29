@@ -32,10 +32,10 @@ Matching C verified byte-for-byte against the ROM (refreshed by `make progress`,
 ```
 boot     functions ██████████████████████████░░░░  87.8 %  (373 / 425)
 boot     code size ███████████████████░░░░░░░░░░░  63.3 %  (0xe28c / 0x165f4 bytes)
-code     functions ███████████████████░░░░░░░░░░░  62.3 %  (2227 / 3576)
-code     code size █████░░░░░░░░░░░░░░░░░░░░░░░░░  16.9 %  (0x2c184 / 0x104acc bytes)
-overlays functions █████████░░░░░░░░░░░░░░░░░░░░░  29.3 %  (3813 / 13011)
-overlays code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.1 %  (0x455b8 / 0x35bcf4 bytes)
+code     functions ███████████████████░░░░░░░░░░░  63.4 %  (2267 / 3576)
+code     code size █████░░░░░░░░░░░░░░░░░░░░░░░░░  17.8 %  (0x2e4a8 / 0x104acc bytes)
+overlays functions █████████░░░░░░░░░░░░░░░░░░░░░  29.7 %  (3868 / 13011)
+overlays code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.1 %  (0x45f6c / 0x35bcf4 bytes)
 ```
 <!-- progress:end -->
 
@@ -141,7 +141,7 @@ Other targets: `make check` (verification before every commit), `make progress` 
 
 | Tool | Purpose |
 |---|---|
-| `tools/verify_src.py`, `tools/verify_all.sh` | check every C function, then the whole rebuilt segment |
+| `tools/verify_src.py`, `tools/verify_all.sh`, `tools/verify_overlays.sh` | check every C function (boot, code, overlays), then the whole rebuilt segment |
 | `tools/fastcheck.sh` (`make fastcheck`) | `make check` on the native disk of WSL: when the repository is under `/mnt/`, it mirrors what the checks read (incrementally) and runs them there, 3-4 times faster; nothing is copied back |
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/verify_asm.sh` | reassemble the splat output of a segment and check it is byte-identical to the ROM |

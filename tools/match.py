@@ -18,7 +18,8 @@ class _Segments(dict):
     """boot and code, plus any overlay as `ovlNNNN` (file index NNNN): its file in extracted/, linked at address 0 and read at 0x80000000."""
     def __missing__(self, seg):
         if re.fullmatch(r"ovl\d{4}", seg):
-            return next((ROOT / "extracted").glob(f"{seg[3:]}_*.bin")), 0x80000000
+            self[seg] = next((ROOT / "extracted").glob(f"{seg[3:]}_*.bin")), 0x80000000  # remembered: the folder has 1,500 files
+            return self[seg]
         raise KeyError(seg)
 
 

@@ -13,8 +13,8 @@ split:            ## disassemble boot and code into asm/ with splat
 verify:           ## every C function == ROM bytes, and the segment rebuilt from C + asm == ROM
 	bash tools/verify_all.sh $(SEG)
 
-check:            ## run before every commit: verify boot and code against the ROM, then the source style rules
-	bash tools/verify_all.sh boot && bash tools/verify_all.sh code && bash tools/check_style.sh
+check:            ## run before every commit: verify boot, code and the overlays against the ROM, then the source style rules
+	bash tools/verify_all.sh boot && bash tools/verify_all.sh code && bash tools/verify_overlays.sh && bash tools/check_style.sh
 
 fastcheck:        ## same as check, 3-4 times faster when the repository is on the Windows disk (mirrors it to the WSL disk)
 	bash tools/fastcheck.sh

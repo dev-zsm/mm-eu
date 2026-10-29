@@ -29,13 +29,13 @@ typedef struct {
 
 extern u8 D_801CE0E4[];
 extern u8 D_801CE0F4[];
-extern void func_80198BDC();
-extern void func_801985A4(void *);
+extern void AudioScript_SequencePlayerDisable();
+extern void AudioScript_InitSequenceChannel(void *);
 
-void func_8019B9D0(SeqPlayer *p) {
+void AudioScript_ResetSequencePlayer(SeqPlayer *p) {
     s32 i;
 
-    func_80198BDC();
+    AudioScript_SequencePlayerDisable();
     p->flags &= ~2;
     p->unk10 = 0;
     p->unk1 = 1;
@@ -55,6 +55,6 @@ void func_8019B9D0(SeqPlayer *p) {
     p->unk24 = 0.0f;
     p->unk28 = 0.5f;
     for (i = 0; i < 16; i++) {
-        func_801985A4(p->channels[i]);
+        AudioScript_InitSequenceChannel(p->channels[i]);
     }
 }

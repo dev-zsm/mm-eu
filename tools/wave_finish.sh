@@ -7,7 +7,5 @@ cd "$(dirname "$0")/.."
 . ~/mm-venv/bin/activate
 python3 tools/srcsort.py
 python3 tools/names.py code --apply-src
-bash tools/verify_all.sh boot
-bash tools/verify_all.sh code
-bash tools/check_style.sh
+bash tools/fastcheck.sh   # boot, code and overlays against the ROM, then the style rules, on the native WSL disk
 python3 tools/progress.py boot code | grep -E '^\| `(boot|code)`'

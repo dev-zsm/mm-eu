@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Re-verify every src/<seg>/<fn>.c against the ROM. Run in WSL. usage: verify_src.py <seg>
+"""Re-verify every src/<seg>/<fn>.c against the ROM. Run in WSL. usage: verify_src.py <seg>       (seg: boot, code, or overlays for every overlay of src/overlays/<file index>/)
 Fast: files are checked on every core, compiled objects are cached by content (objcache), and a MATCH verdict is cached
 by the SHA-256 of (source, flags, compiler, headers, the ROM bytes of the function, the name table, this checker), so
 only functions that changed are compiled again. Delete build/cache/ to force a full check."""
@@ -10,6 +10,18 @@ sys.path.insert(0, str(Path(__file__).parent))
 import match, objcache, srcpath
 
 seg = sys.argv[1]
+
+
+def listing():
+    if seg == "overlays":
+        return sorted((match.ROOT / "src" / "overlays").glob("*/func_*.c"))
+    return srcpath.files(seg)
+
+
+def segment_of(f: Path) -> str:
+    return "ovl" + f.parent.name if seg == "overlays" else seg
+
+
 checker = Path(match.__file__).read_bytes()
 verdicts = objcache.CACHE / f"verdict_{seg}.json"
 known = set(json.loads(verdicts.read_text())) if verdicts.exists() else set()
@@ -19,7 +31,7 @@ def check(f: Path):
     name = f.stem
     key = None
     try:
-        want, _ = match.original(seg, name)
+        want, _ = match.original(segment_of(f), name)
         flags = match.file_flags(f)
         key = objcache.digest(b"verdict", checker, " ".join(flags).encode(), f.read_bytes().replace(b"\r\n", b"\n"),
                               objcache.headers().encode(), want, match.NAMES.get(name, name).encode(),
@@ -35,7 +47,7 @@ def check(f: Path):
 
 
 with ThreadPoolExecutor(objcache.JOBS) as ex:
-    results = list(ex.map(check, srcpath.files(seg)))
+    results = list(ex.map(check, listing()))
 ok = [n for n, _, good in results if good]
 bad = [n for n, _, good in results if not good]
 objcache.CACHE.mkdir(parents=True, exist_ok=True)
