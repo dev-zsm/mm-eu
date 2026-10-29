@@ -75,3 +75,12 @@ no code from other projects, English only, no inline assembly.
 
 [BOOT.md](BOOT.md), [CODE.md](CODE.md) and [OVERLAYS.md](OVERLAYS.md) explain each segment: where the sources are, the
 commands to write and check a function, and what stays assembly.
+
+## Faster checks on Windows
+
+When the repository is on the Windows disk (`/mnt/c/...` in WSL), every file access goes through a slow layer and
+`make check` takes several times longer than on the native Linux disk. `make fastcheck` (`tools/fastcheck.sh`) mirrors
+what the checks read to `~/.cache/mm-eu-work` (only changed files are copied) and runs `make check` there; nothing is
+copied back. On a native checkout it simply runs `make check`. `tools/check_style.py` keeps a cache of the files it has
+already checked (`build/style_cache.json`), and the permuter tools run at the lowest priority so that the checks keep
+the processor.

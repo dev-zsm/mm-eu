@@ -142,6 +142,7 @@ Other targets: `make check` (verification before every commit), `make progress` 
 | Tool | Purpose |
 |---|---|
 | `tools/verify_src.py`, `tools/verify_all.sh` | check every C function, then the whole rebuilt segment |
+| `tools/fastcheck.sh` (`make fastcheck`) | `make check` on the native disk of WSL: when the repository is under `/mnt/`, it mirrors what the checks read (incrementally) and runs them there, 3-4 times faster; nothing is copied back |
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/verify_asm.sh` | reassemble the splat output of a segment and check it is byte-identical to the ROM |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |

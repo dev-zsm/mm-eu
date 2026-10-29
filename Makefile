@@ -2,7 +2,7 @@
 SEG ?= boot
 HOURS ?= 1
 
-.PHONY: setup split verify check auto progress names clean
+.PHONY: setup split verify check fastcheck auto progress names clean
 
 setup:            ## one-time: IDO 7.1, splat, m2c, asm-differ (needs binutils-mips-linux-gnu)
 	bash tools/setup_wsl.sh
@@ -15,6 +15,9 @@ verify:           ## every C function == ROM bytes, and the segment rebuilt from
 
 check:            ## run before every commit: verify boot and code against the ROM, then the source style rules
 	bash tools/verify_all.sh boot && bash tools/verify_all.sh code && bash tools/check_style.sh
+
+fastcheck:        ## same as check, 3-4 times faster when the repository is on the Windows disk (mirrors it to the WSL disk)
+	bash tools/fastcheck.sh
 
 auto:             ## unattended: permuter queue for HOURS (default 1), tidy the wins, then names and the full check
 	bash tools/auto_loop.sh $(HOURS)
