@@ -165,7 +165,7 @@ to the exact bytes. From other projects we take only the **function names** of t
 No code, structure, algorithm or comment is copied from any project or SDK.
 
 **Exception, `boot` only (my decision).** The library functions of `boot` (libultra, libgu, libm, libc) are shared with other games and
-have been decompiled by community projects: their published work may be consulted as a reference for structure and types. The C is
+have been decompiled by community projects (so far, only the work of zeldaret/mm): their published work may be consulted as a reference for structure and types. The C is
 still written here from our ROM's assembly and verified byte for byte, with nothing copied verbatim. `code` and the overlays stay
 ROM-only. The projects consulted are credited in [Credits](#credits).
 
@@ -187,12 +187,11 @@ This project rests on the work of the N64 decompilation community. Thanks to the
 * [asm-differ](https://github.com/simonlindholm/asm-differ) (Simon Lindholm and contributors): assembly comparison
 * [Ghidra](https://github.com/NationalSecurityAgency/ghidra) (NSA): initial analysis and pseudo-C
 * [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): decompilation of the
-  US version, whose published function names (`tools/ref_align.py` aligns them with ours, entries tagged `ref:` in
-  `config/*.names.txt`) are the only thing we take from it. No code, structure or other material is taken from it.
-* Community decompilation projects of the Nintendo 64 libraries (for example [zeldaret/mm](https://github.com/zeldaret/mm)
-  and other decompilation projects): consulted as a reference for the structure and typing of the libultra, libgu, libm and
-  libc functions of the `boot` segment only (see the exception in [Contributing](#contributing)). The C here is written and
-  verified against our own ROM.
+  US version. We take from it the published function names (`tools/ref_align.py` aligns them with ours, entries tagged `ref:` in
+  `config/*.names.txt`), and, for the `boot` segment only, we consult its work on the Nintendo 64 library functions (libultra,
+  libgu, libm, libc) as a reference for their structure and types (see the exception in [Contributing](#contributing)). The C
+  here is written from our own ROM's assembly and verified byte for byte; nothing is copied verbatim, and `code` and the
+  overlays use nothing from it.
 * GNU binutils: assembler, linker and `objcopy`
 
 The names, licences and rights of these tools remain with their authors.
