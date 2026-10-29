@@ -40,13 +40,13 @@ T="$(mktemp -d)"; cp "$IN" "$T/x.c"
 cp "$T/x.o" "$OUT"; rm -rf "$T"
 """)
     (d / "compile.sh").chmod(0o755)
-    # Boosted weights for the differences that remain in the unfinished drafts (registers, instruction order, stack size):
+    # Pass weights suited to the differences that remain in the unfinished drafts (registers, instruction order, stack size):
     # more reordering of statements and declarations, type changes of variables and callees, frame padding, conditions.
-    boost = {"perm_temp_for_expr": 60, "perm_reorder_stmts": 30, "perm_reorder_decls": 30, "perm_pad_var_decl": 6,
+    pass_weights = {"perm_temp_for_expr": 60, "perm_reorder_stmts": 30, "perm_reorder_decls": 30, "perm_pad_var_decl": 6,
              "perm_randomize_internal_type": 25, "perm_randomize_external_type": 15, "perm_randomize_function_type": 15,
              "perm_chain_assignment": 12, "perm_add_self_assignment": 10, "perm_commutative": 12, "perm_inequalities": 10,
              "perm_sameline": 20, "perm_empty_stmt": 15, "perm_condition": 20, "perm_split_assignment": 15}
-    weights = "".join(f"{k} = {v}\n" for k, v in boost.items())
+    weights = "".join(f"{k} = {v}\n" for k, v in pass_weights.items())
     (d / "settings.toml").write_text(f'func_name = "{fn}"\ncompiler_type = "ido"\n\n[weight_overrides]\n{weights}')
     print(d)
 
