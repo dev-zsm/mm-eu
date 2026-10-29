@@ -138,36 +138,9 @@ make progress                                   refresh the numbers
 
 ## Compilers
 
-The game was not built with a single compiler version. Two builds of the original SGI IDO compiler are used, both
-fetched by `make setup` into `tools/vendor/` (not tracked):
-
-| Compiler | Folder | Used for |
-|---|---|---|
-| IDO 7.1 | `tools/vendor/ido71` | everything, by default |
-| IDO 5.3 | `tools/vendor/ido53` | the files marked `// COMPILER: ido53` (part of libultra, e.g. the controller / Controller Pak routines and `ldiv`), which only match with the older compiler |
-
-If you ran `make setup` before IDO 5.3 was added, just run it again: it only downloads what is missing. To install IDO 5.3
-by hand (from the project root, on Linux / WSL):
-
-```
-mkdir -p tools/vendor/ido53
-curl -sL https://github.com/decompals/ido-static-recomp/releases/download/v1.2/ido-5.3-recomp-linux.tar.gz | tar -xz -C tools/vendor/ido53
-```
-
-IDO 7.1 is the same with `ido-7.1-recomp-linux.tar.gz` and `tools/vendor/ido71`. Check with
-`ls tools/vendor/ido71/cc tools/vendor/ido53/cc`.
-
-A source file picks its compiler and flags in its first lines:
-
-```c
-// FLAGS: -O2 -g0 -mips2        optional, first line: optimisation flags (default -O2 -g3 -mips2)
-// COMPILER: ido53              optional, within the first three lines: build this file with IDO 5.3
-```
-
-Without the second line a file is built with IDO 7.1. `tools/match.py`, `tools/verify_src.py` and
-`tools/build_seg.py` all read these two lines, so a file is compiled the same way by every tool. Never switch a file to
-IDO 5.3 to make it match: use it only when the original really was built with it, which shows as a function that
-matches with 5.3 and not with 7.1 (typically struct copies going through `$at`).
+The game is built with the original SGI IDO compiler: **IDO 7.1** by default, and **IDO 5.3** for the files marked
+`// COMPILER: ido53` (part of libultra). `make setup` fetches both into `tools/vendor/`. Installation, the source-file header and
+the rules for choosing the compiler are in [docs/COMPILERS.md](docs/COMPILERS.md).
 
 ## Documentation
 
@@ -178,35 +151,23 @@ matches with 5.3 and not with 7.1 (typically struct copies going through `$at`).
 | [docs/PROGRESS.md](docs/PROGRESS.md) | the numbers per segment, refreshed by `make progress` |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | the planned work |
 | [docs/TOOLS.md](docs/TOOLS.md) | the scripts of `tools/` and the external tools |
+| [docs/COMPILERS.md](docs/COMPILERS.md) | the IDO compilers: installation, the header of a source file, when to use IDO 5.3 |
 
 ## Contributing
 
-Contributions are welcome. Start with [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
+Contributions are welcome: start with [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). The project is built only from the analysis of a
+legally owned copy of the game: do not contribute material derived from leaked source code of the Nintendo 64 SDK, libultra or any game
+that shares much of its code with this one.
 
-This project is built exclusively from the analysis of a legally owned copy of the game. Anyone who wishes to
-contribute must not have accessed leaked source code for the Nintendo 64 SDK, libultra, or any game that shares a
-significant part of its code with this one, and must not contribute material derived from such sources.
+**Sources of the code.** The C is derived from our own European ROM only: written from its assembly and accepted only if it recompiles
+to the exact bytes. From other projects we take only the **function names** of the US decompilation
+[zeldaret/mm](https://github.com/zeldaret/mm), registered in `config/*.names.txt` (entries tagged `ref:`) once they fit our assembly.
+No code, structure, algorithm or comment is copied from any project or SDK.
 
-### Sources of the code (rule for everyone, humans and AI agents)
-
-The C code of this repository is derived from **one source only: our own European ROM** (its machine code, analysed and
-verified byte for byte with the tools above).
-
-The **only** thing taken from another project is **names**: the function names published by the US-version
-decompilation, [zeldaret/mm](https://github.com/zeldaret/mm), which we register in `config/*.names.txt` (entries tagged
-`ref:`) after checking that they fit our own assembly. Nothing else is taken from it or from any other project:
-no C code, no function bodies, no structure layouts, no algorithms, no comments. Do not copy, paraphrase or reproduce
-from memory the source of another decompilation project, of the Nintendo 64 SDK, of libultra, or of any other game, and
-do not use any of it as a guide to how a function should be written. Every function must be written from the assembly of
-our ROM and accepted only if it recompiles to the exact bytes. A function that cannot be written without such help stays
-unfinished.
-
-**Exception, `boot` segment only (my decision).** `boot` contains the Nintendo 64 operating-system
-libraries (libultra, libgu, libm, libc), which are shared with other games and have been decompiled by community
-projects. For these library functions only, the published work of such projects may be consulted as a reference for how a
-function is structured and typed (arguments, types, control flow). The C of this repository is still written here, from the
-assembly of our own ROM, and accepted only if it recompiles to the exact bytes; no file is copied verbatim. The `code` segment
-and the overlays remain ROM-only. The projects consulted are credited in [Credits](#credits).
+**Exception, `boot` only (my decision).** The library functions of `boot` (libultra, libgu, libm, libc) are shared with other games and
+have been decompiled by community projects: their published work may be consulted as a reference for structure and types. The C is
+still written here from our ROM's assembly and verified byte for byte, with nothing copied verbatim. `code` and the overlays stay
+ROM-only. The projects consulted are credited in [Credits](#credits).
 
 ## License
 
