@@ -22,6 +22,9 @@ fastcheck:        ## same as check, 3-4 times faster when the repository is on t
 auto:             ## unattended: permuter queue for HOURS (default 1), tidy the wins, then names and the full check
 	bash tools/auto_loop.sh $(HOURS)
 
+daily:            ## unattended, several hours (HOURS=3): permuter, overlay passes, full check, then commit and push
+	bash tools/daily.sh $(HOURS)
+
 progress:         ## refresh docs/PROGRESS.md and the progress bars in README.md
 	python3 tools/progress.py boot code
 

@@ -86,7 +86,7 @@ def info(obj: Path):
         return d["secs"], set(d["imported"])
     run = lambda *a: subprocess.run(a, check=True, capture_output=True, text=True).stdout
     secs = {m.group(1): int(m.group(2), 16) for m in re.finditer(
-        r"\s(\.(?:rodata|rdata|data|sdata|lit4|lit8))\s+([0-9a-f]+)", run("mips-linux-gnu-objdump", "-h", str(obj)))}
+        r"\s(\.(?:rodata|rdata|data|sdata|bss|sbss|lit4|lit8))\s+([0-9a-f]+)", run("mips-linux-gnu-objdump", "-h", str(obj)))}
     imported = sorted({l.split()[-1] for l in run("mips-linux-gnu-nm", str(obj)).splitlines() if l.split()[:1] == ["U"] or " U " in l})
     tmp = side.with_suffix(f".{os.getpid()}.tmp")
     tmp.write_text(json.dumps({"secs": secs, "imported": imported}))
