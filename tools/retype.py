@@ -4,7 +4,7 @@ usage: retype.py <table> [--dry] [-j N]
 Table line:  <segment> <function> <header.h> <prototype>   [# evidence]      (segment: boot, code or ovlNNNN)
     ovl0057 func_800007A0 actor.h void func_800007A0(Actor *thisx, PlayState *play)   # update slot of the actor profile
 For each function with a verified source file the tool
-  1. replaces the signature (same number of parameters) and renames the parameters in the body,
+  1. replaces the signature (a function that ignored its last parameters gets them added) and renames the parameters in the body,
   2. casts a renamed parameter used as `p + N` to `(u8 *)p + N` (the body was written for a byte or integer parameter),
   3. adds `#include "<header>"` after the last include,
   4. compiles the result with the flags of the file and compares it with the ROM bytes (tools/match.py rules),
@@ -21,6 +21,7 @@ import objcache  # noqa: E402
 import srcpath  # noqa: E402
 
 PARAM = re.compile(r"^(?P<type>.*?[\s\*])(?P<name>\w+)$")
+FIRST_FIELD = {"PlayState": "gfxCtx"}  # structures whose first field is known: a dereference `*p` becomes `p->field`
 
 
 def source(seg: str, fn: str) -> Path:
@@ -54,8 +55,9 @@ def matches(seg: str, fn: str, path: Path) -> bool:
     return len(got) == len(want) and match.mask(want, masks) == match.mask(got, masks)
 
 
-def rewrite(text: str, fn: str, header: str, proto: str):
-    """(new text, reason): the reason is empty on success."""
+def rewrite(text: str, fn: str, header: str, proto: str, fit: bool = False):
+    """(new text, reason): the reason is empty on success. `fit`: keep only as many parameters as the current definition has
+    (a function that takes fewer arguments than its prototype, as its bytes show: a declared parameter would be spilled)."""
     pm = re.match(r"^(?P<ret>.*?[\s\*])" + re.escape(fn) + r"\s*\((?P<args>.*)\)\s*;?$", proto.strip())
     if not pm:
         return None, "bad prototype"
@@ -64,8 +66,12 @@ def rewrite(text: str, fn: str, header: str, proto: str):
     if new is None or not dm:
         return None, "definition not found"
     old = params(dm.group("args"))
-    if old is None or len(old) != len(new):
-        return None, "different parameter count"
+    if old is None or len(old) > len(new):  # a function that ignored its last parameters is completed
+        return None, "more parameters than the prototype"
+    if fit:
+        new = new[:len(old)]
+        if not new:
+            return None, "no parameter to type"
     head, body = text[:dm.start()], text[dm.end():]
     for (ot, on), (nt, nn) in zip(old, new):
         if on != nn:
@@ -74,6 +80,9 @@ def rewrite(text: str, fn: str, header: str, proto: str):
             body = re.sub(r"\b" + re.escape(on) + r"\b", nn, body)
         if "*" in nt:  # the body did arithmetic on a byte or integer parameter: a typed pointer would scale it
             body = re.sub(r"\b" + re.escape(nn) + r"\b(\s*[-+]\s*(?:0x[0-9A-Fa-f]+|\d+)\b)", lambda m: "(u8 *)" + nn + m.group(1), body)
+        first = FIRST_FIELD.get(nt.replace("*", "").strip())
+        if first:  # `*p` read the first field of the structure
+            body = re.sub(r"(?<![\w\)\]])\*\s*" + re.escape(nn) + r"\b", f"{nn}->{first}", body)
     sig = pm.group("ret").strip() + " " + fn + "(" + ", ".join(f"{t}{'' if t.endswith('*') else ' '}{n}" for t, n in new) + ") {"
     sig = sig.replace("* ", "*") if False else sig
     out = head + sig + body
@@ -94,14 +103,18 @@ def work(entry):
     old = path.read_text()
     if f'#include "{header}"' in old and proto.rstrip(";") in old:
         return entry, "already", ""
-    new, why = rewrite(old, fn, header, proto)
-    if new is None:
-        return entry, "failed", why
-    path.write_text(new)
-    if matches(seg, fn, path):
-        return entry, "converted", ""
-    path.write_text(old)
-    return entry, "failed", "no longer matches (or does not compile)"
+    why = ""
+    for fit in (False, True):  # the full prototype first, then only the parameters the bytes show
+        new, why = rewrite(old, fn, header, proto, fit)
+        if new is None:
+            if not fit:
+                return entry, "failed", why
+            continue
+        path.write_text(new)
+        if matches(seg, fn, path):
+            return entry, "converted" if not fit else "converted_fit", ""
+        path.write_text(old)
+    return entry, "failed", why or "no longer matches (or does not compile)"
 
 
 def parse(table: Path):

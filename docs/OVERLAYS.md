@@ -39,6 +39,9 @@ update, draw functions). Then the large ones. Progress is added up over all the 
 
 ## Signatures
 
+The four handlers of every actor overlay (init, destroy, update, draw) are typed `Actor *thisx, PlayState *play` by
+`tools/sig_actors.py` and `tools/retype.py`; a handler whose bytes show that it takes only the first argument is typed
+`Actor *thisx`, and one that reads actor fields we cannot name yet keeps its local types until the `Actor` structure is known.
 Overlay functions come from the automatic drafts (`arg0`, `u8 *`, raw field offsets). Their real types (actor, play state,
 scene and menu callbacks) come from shared headers of `include/` once the structures are known; the rule is in
 [CONTRIBUTING.md](CONTRIBUTING.md#code-style), the count is the "Typed signatures" column of [PROGRESS.md](PROGRESS.md), and

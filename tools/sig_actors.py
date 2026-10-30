@@ -5,7 +5,8 @@ An actor overlay starts its .data with a profile whose words at 0x10, 0x14, 0x18
 draw): each is a relocation of type R_MIPS_32 in the data section. The overlay is linked at its own address, so the offset of a
 function is found by choosing the load address for which every handler pointer is the start of a function of the disassembly and the
 most `jal` targets of the overlay land on function starts. An overlay whose load address is not unique is skipped.
-Every listed function takes (Actor *thisx, PlayState *play)."""
+Every listed function is a handler `void f(Actor *thisx, PlayState *play)`; tools/retype.py types only the first parameter of a
+handler whose bytes show that it ignores the second (a declared parameter would be spilled to the stack)."""
 import re, struct
 from pathlib import Path
 

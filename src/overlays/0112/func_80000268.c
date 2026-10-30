@@ -1,2 +1,3 @@
 #include "types.h"
-void func_80000268(u8 *a) { (*(void (**)())(a + 0x15C))(); }
+#include "actor.h"
+void func_80000268(Actor *thisx) { (*(void (**)())((u8 *)thisx + 0x15C))(); }

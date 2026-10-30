@@ -9,8 +9,13 @@ typedef struct Actor {
     /* 0x000 */ u8 unk0[0x144];
 } Actor;
 
-/* Passed to every actor handler; its layout is not known yet. */
-typedef struct PlayState PlayState;
+typedef struct GraphicsContext GraphicsContext;
+
+/* Passed to every actor handler. Only the first field is known (the graphics calls of the actors read it first); the size and the
+ * rest of the layout are not, so neither sizeof nor pointer arithmetic on it means anything yet. */
+typedef struct PlayState {
+    /* 0x00 */ GraphicsContext *gfxCtx;
+} PlayState;
 
 typedef void (*ActorFunc)(Actor *thisx, PlayState *play);
 
