@@ -20,7 +20,7 @@ Matching C verified byte-for-byte against the ROM (refreshed by `make progress`,
 ```
 boot     ████████████████████████████░░  93.1 %  (390 / 419)
 code     ███████████████████░░░░░░░░░░░  63.4 %  (2268 / 3576)
-overlays █████████░░░░░░░░░░░░░░░░░░░░░  30.9 %  (4023 / 13011)
+overlays ██████████░░░░░░░░░░░░░░░░░░░░  31.7 %  (4128 / 13011)
 ```
 <!-- progress:end -->
 

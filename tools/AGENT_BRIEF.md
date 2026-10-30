@@ -140,6 +140,20 @@ diff `python3 tools/disasm_diff.py boot FN src/boot/FN.c`.
   for copy/fill loops; the simplest form wins (`memset`, `strchr`, `bzero` wrappers).
 - `Fault_RemoveClient`-style list code: keep the original odd logic, do not "simplify" it.
 - Unaligned / `$at` struct copies: try `// COMPILER: ido53` (see above).
+- Tiny overlay functions (init, destroy, small update stubs), found on 99 of 120 matches:
+  - Try `-g3` (the default) before `-g0`: a function that spills unused argument registers at entry only matches with `-g3`.
+  - A register the ROM passes on untouched is an argument forwarded to the callee: declare the callee with empty parentheses and
+    write `f(a0, CONST)`; the m2c draft often invents extra arguments.
+  - `andi a1,a2,0xFFFF` in a call's delay slot: the parameter is `u16` and the call passes `a2 & 0xFFFF`.
+  - A float compare that loads the first field into `$f0` and the second into `$f4`: `f32 x = a->first; if (x >= a->second)`.
+  - A load chain `a->p->field` that the ROM keeps in `v0`: use a pointer local `T *p = a->p;`.
+  - A boolean result left in `v0` is `return A && B;` (or `f() != 0 || g() != 0`), not a temporary plus `if`.
+  - A store to an `s16` global with no `sll`/`sra`: keep the temporary `s32`. A `lui` register that comes out in the wrong
+    place usually means the stores are in the wrong source order: write them in the ROM's order.
+  - `0x8000` loaded by `ori` comes from a `u16` field; `addiu -0x8000` from an `s16` field.
+  - A 6-byte unaligned copy (`lwl/lwr`, `swl/swr`, `lhu/sh`): `typedef struct { u16 x[3]; } B6;` and one struct assignment.
+  - A float argument in the fifth slot is stored with `swc1`: give the callee a prototype with `f32` there; an empty-parentheses
+    prototype promotes the constant to double.
 
 ## Exception for `boot` (my decision)
 
