@@ -5,7 +5,7 @@ Picks the `count` smallest functions that have no C yet (no src/<seg>/<fn>.c, no
 assembly, not a known unmatched-by-construction function), splits them into `chunks` lists (round robin, so every
 agent gets a mix of sizes) and writes build/wave/<seg>.chunkNN (one function per line) plus build/wave/<seg>.all.
 --switch picks only functions with a jump table, the default skips them.
-After the agents are done run `tools/wave_finish.sh <seg>` (names, full verification, style)."""
+After the agents are done run `tools/wave_finish.sh` (names, full verification, style)."""
 import re, sys
 from pathlib import Path
 

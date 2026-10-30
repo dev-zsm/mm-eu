@@ -2,7 +2,8 @@
 """Re-verify every src/<seg>/<fn>.c against the ROM. Run in WSL. usage: verify_src.py <seg>       (seg: boot, code, or overlays for every overlay of src/overlays/<file index>/)
 Fast: files are checked on every core, compiled objects are cached by content (objcache), and a MATCH verdict is cached
 by the SHA-256 of (source, flags, compiler, headers, the ROM bytes of the function, the name table, this checker), so
-only functions that changed are compiled again. Delete build/cache/ to force a full check."""
+only functions that changed are compiled again. Delete ~/.cache/mm-n64-decomp to force a full check.
+Exit status is 0 only if every function matches."""
 import json, sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -55,3 +56,4 @@ verdicts.write_text(json.dumps(sorted({k for _, k, good in results if good and k
 print(f"{seg}: {len(ok)} MATCH, {len(bad)} not matching")
 for n in bad:
     print("  FAIL", n)
+sys.exit(1 if bad else 0)

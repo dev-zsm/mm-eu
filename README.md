@@ -24,18 +24,21 @@ overlays ██████████░░░░░░░░░░░░░�
 ```
 <!-- progress:end -->
 
+`boot` and `code` are also rebuilt whole and compared with the ROM. The overlays are only checked function by function for
+now, with relocated fields masked, so a wrong call target or data address is not caught until the overlay build exists.
+
 More detail per segment is in [docs/PROGRESS.md](docs/PROGRESS.md), and the plan is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Building
 
 On Windows, install [WSL](https://learn.microsoft.com/windows/wsl/install) with Ubuntu and run everything below inside it
-(Python 3 on Windows is only needed for `tools/extract.py` and `tools/mm`).
+(outside WSL only the `tools/mm` wrapper is used; it needs a bash such as Git Bash).
 
 1. Install the dependencies:
 
    ```
    sudo apt update
-   sudo apt install git build-essential binutils-mips-linux-gnu curl python3 python3-pip python3-venv
+   sudo apt install git build-essential binutils-mips-linux-gnu curl rsync python3 python3-pip python3-venv
    ```
 
 2. Clone the repository and enter it.
@@ -49,7 +52,8 @@ On Windows, install [WSL](https://learn.microsoft.com/windows/wsl/install) with 
    make setup
    ```
 
-   `make setup` downloads the compilers, `m2c`, `asm-differ` and `splat` (see [docs/COMPILERS.md](docs/COMPILERS.md)).
+   `make setup` downloads the compilers, `m2c`, `asm-differ`, `decomp-permuter` and `splat` (see
+   [docs/COMPILERS.md](docs/COMPILERS.md)).
 
 5. Split the code and check that it matches:
 
@@ -58,7 +62,8 @@ On Windows, install [WSL](https://learn.microsoft.com/windows/wsl/install) with 
    make verify SEG=boot
    ```
 
-   `make verify` should report that every C function matches and that the rebuilt segment is identical to the ROM.
+   `make split` also disassembles the 616 overlays, which takes a while. `make verify` should report that every C
+   function matches and that the rebuilt segment is identical to the ROM.
 
 `make check` runs the full verification before a commit (`make fastcheck` is quicker under WSL). The scripts in `tools/`
 are described in [docs/TOOLS.md](docs/TOOLS.md).

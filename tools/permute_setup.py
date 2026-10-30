@@ -11,8 +11,6 @@ import names  # noqa: E402
 import objcache  # noqa: E402
 import srcpath  # noqa: E402
 
-CC = objcache._compiler("71")
-
 
 def main():
     seg, fn = sys.argv[1:3]
@@ -24,8 +22,12 @@ def main():
     flags = m.group(1) if m else "-O2 -g3 -mips2"
     d = ROOT / "build" / "perm" / fn
     d.mkdir(parents=True, exist_ok=True)
-    # the permuter wants one self-contained function: expand the includes with IDO's preprocessor
-    pre = subprocess.run([str(CC), "-E", "-Xcpluscomm", "-I" + str(ROOT / "include"), str(src)],
+    cc, cc_env = (objcache.compiler_for(src), "MM_CC53" if objcache.uses_ido53(src) else "MM_CC")
+    # the permuter wants one self-contained function: expand the includes with IDO's preprocessor,
+    # which stops on an apostrophe in a `//` comment, so the comments go first
+    plain = d / "plain.c"
+    plain.write_text(re.sub(r"//.*", "", text))
+    pre = subprocess.run([str(cc), "-E", "-Xcpluscomm", "-I" + str(ROOT / "include"), str(plain)],
                          capture_output=True, text=True, check=True).stdout
     base = re.sub(r"^# \d+.*\n", "", pre, flags=re.M)
     real = names.load(seg).get(fn)  # the C file defines the real name, but target.o carries the address name
@@ -36,7 +38,7 @@ def main():
 set -e
 IN="$(realpath "$1")"; OUT="$(realpath -m "$3")"
 T="$(mktemp -d)"; cp "$IN" "$T/x.c"
-"${{MM_CC:-{CC}}}" -c {flags} -G 0 -non_shared -Xcpluscomm -w -o "$T/x.o" "$T/x.c" 2>/dev/null
+"${{{cc_env}:-{cc}}}" -c {flags} -G 0 -non_shared -Xcpluscomm -w -o "$T/x.o" "$T/x.c" 2>/dev/null
 cp "$T/x.o" "$OUT"; rm -rf "$T"
 """)
     (d / "compile.sh").chmod(0o755)

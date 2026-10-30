@@ -2,13 +2,13 @@
 SEG ?= boot
 HOURS ?= 1
 
-.PHONY: setup split verify check fastcheck auto progress names clean
+.PHONY: setup split verify check fastcheck auto daily progress names clean
 
 setup:            ## one-time: IDO 7.1, splat, m2c, asm-differ (needs binutils-mips-linux-gnu)
 	bash tools/setup_wsl.sh
 
-split:            ## disassemble boot and code into asm/ with splat
-	. ~/mm-venv/bin/activate && splat split config/boot.yaml && splat split config/code.yaml
+split:            ## disassemble boot, code and the overlays into asm/ with splat (make check needs all three)
+	. ~/mm-venv/bin/activate && splat split config/boot.yaml && splat split config/code.yaml && python3 tools/overlay_split.py
 
 verify:           ## every C function == ROM bytes, and the segment rebuilt from C + asm == ROM
 	bash tools/verify_all.sh $(SEG)

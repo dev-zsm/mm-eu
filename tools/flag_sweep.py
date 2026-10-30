@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Try many IDO flag combinations on every unmatched function's draft; promote any that matches and report the best
 score per function. CPU only. Run in WSL.  usage: flag_sweep.py <seg> [first_n]
-Log: build/flag_sweep_<seg>.txt"""
+Log: build/flag_sweep_<seg>_v2.txt"""
 import itertools, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
@@ -31,7 +31,8 @@ def score(cfile, fn, flags, want, size):
 def main():
     seg = sys.argv[1]
     limit = int(sys.argv[2]) if len(sys.argv) > 2 else 10**9
-    skip = set((match.ROOT / "config" / f"{seg}.asm_only.txt").read_text().split())
+    asm_only = match.ROOT / "config" / f"{seg}.asm_only.txt"
+    skip = set(asm_only.read_text().split()) if asm_only.exists() else set()
     rank = match.ROOT / "build" / f"rank_{seg}.txt"
     order = [l.split()[0] for l in rank.read_text().splitlines()] if rank.exists() else []
     files = {p.stem: p for p in (match.ROOT / "src" / seg / "wip").glob("func_*.c") if p.stem not in skip}

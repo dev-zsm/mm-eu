@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PERMUTER = ROOT / "tools/vendor/decomp-permuter/permuter.py"
 sys.path.insert(0, str(ROOT / "tools"))
 import names  # noqa: E402
+import objcache  # noqa: E402
 import wave  # noqa: E402
 
 LOG = ROOT / "build/perm/log_list.txt"
@@ -73,10 +74,9 @@ def run_one(seg: str, fn: str, budget: int) -> str:
     best = sorted(d.glob("output-0-*/source.c"))
     if not best:
         return "no match"
-    flags = text.splitlines()[0] if text.startswith("// FLAGS") else ""
     WINS.mkdir(parents=True, exist_ok=True)
     out = WINS / f"{fn}.c"
-    out.write_text((flags + "\n" if flags else "") + names.apply(best[0].read_text(), names.load(seg)))
+    out.write_text(objcache.directives(text) + names.apply(best[0].read_text(), names.load(seg)))
     r = subprocess.run([sys.executable, str(ROOT / "tools/match.py"), seg, fn, str(out)], capture_output=True, text=True)
     if "MATCH" in r.stdout and "differ" not in r.stdout:
         return f"MATCH -> {out.relative_to(ROOT)}"

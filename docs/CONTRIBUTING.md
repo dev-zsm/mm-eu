@@ -20,14 +20,14 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
    address name; never invent a name. `make names SEG=boot` rewrites the sources with the registered names, and
    `tools/match.py` ignores `jal` targets, so a wrong callee is only caught by step 5.
 5. `make check` must pass before any commit. It runs `make verify` for `boot` and for `code` (every C function equals
-   the ROM bytes, and the segment rebuilt from the C plus the remaining assembly is byte-identical to the ROM), then
-   the source style rules of `tools/check_style.sh`. While working on one segment, `make verify SEG=boot` or
+   the ROM bytes, and the segment rebuilt from the C plus the remaining assembly is byte-identical to the ROM), checks
+   the overlays function by function, then the source style rules of `tools/check_style.sh`. While working on one segment, `make verify SEG=boot` or
    `SEG=code` alone is enough; compiled objects are cached, so only the files you changed are compiled again.
 
 Compiler: IDO 7.1 by default. A function that only differs by the scratch register of struct copies (`$at` in the ROM,
 `t`-registers in ours), or that no source form can match with 7.1, may have been built with IDO 5.3: add
-`// COMPILER: ido53` in the first three lines (after the `// FLAGS:` line) and run `tools/match.py` again. See the
-Compilers section of the README. Do not use 5.3 just to get a match: it must match as plain, natural C.
+`// COMPILER: ido53` in the first three lines (after the `// FLAGS:` line) and run `tools/match.py` again. See
+[COMPILERS.md](COMPILERS.md). Do not use 5.3 just to get a match: it must match as plain, natural C.
 
 Techniques that make the compiler produce the original code are collected in `tools/AGENT_BRIEF.md`. For register
 allocation and stack layout problems, use the automated tools: `tools/permute_all.py` (decomp-permuter) and
@@ -65,11 +65,11 @@ from leaked source code (Nintendo 64 SDK, libultra, or any game sharing signific
 
 ## Overlays
 
-Overlays (actors, scenes, menus) are the next stage after `boot` and `code`; the steps are in [OVERLAYS.md](OVERLAYS.md).
-`python3 tools/overlays.py` (after `tools/extract.py`) lists them in `config/overlays.txt`. Until the overlay build
-exists, the useful contributions are tooling: disassembly configurations, the relocation-aware builder and its
-verification. The rules of the other segments apply unchanged: only the assembly of our ROM and the local tools,
-no code from other projects, English only, no inline assembly.
+Overlays (actors, scenes, menus) are worked on function by function; the steps are in [OVERLAYS.md](OVERLAYS.md). The
+overlay build does not exist yet, so a function is only checked on its own, with relocated fields masked: the
+relocation-aware builder and its verification are the most useful contribution. The rules of the other segments apply
+unchanged: only the assembly of our ROM and the local tools, no code from other projects, English only, no inline
+assembly.
 
 ## Per segment
 

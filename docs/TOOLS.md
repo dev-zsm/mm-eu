@@ -22,7 +22,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/verify_asm.sh` | reassemble the splat output of a segment and check it is byte-identical to the ROM |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |
-| `tools/progress.py` | generate `docs/PROGRESS.md` and the progress bars of this README |
+| `tools/progress.py` | generate `docs/PROGRESS.md` and the progress bars of the README |
 
 ## Automated search for matching C
 
@@ -33,9 +33,10 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | `tools/diff_kind.py` | classify the difference of each unfinished draft (size, order, registers, other) to choose the right tool |
 | `tools/decl_sweep.py` | try every order of the plain local declarations of each unfinished draft (stack layout and registers) |
 | `tools/permute_setup.py`, `tools/permute_all.py`, `tools/flag_sweep.py` | automated search for matching C |
-| `tools/permute_list.py` | run the permuter on a list of unmatched functions, or with `--auto` on every wip draft closest first, and keep what matches in `build/perm_wins/` |
+| `tools/permute_list.py` | run the permuter on a list of unmatched functions, or with `--auto` on every wip draft closest first, and keep what matches in `build/perm_wins/`; a function already in its log is not tried again without `--retry` |
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
 | `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
+| `tools/daily.sh` (`make daily HOURS=3`) | unattended: the same, plus the overlay passes, then commit and push if the check passed. It stops when its terminal closes: start it with `nohup make daily HOURS=3 > build/daily.out 2>&1 &` |
 | `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
 | `tools/AGENT_BRIEF.md`, `tools/CLEANUP_BRIEF.md` | the rules and techniques given to the AI agents that write and tidy the C |
 
@@ -44,7 +45,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | Tool | Purpose |
 |---|---|
 | `tools/layout.py`, `tools/layout_callers.py`, `tools/srcsort.py`, `tools/srcpath.py` | `src/boot` and `src/code` keep one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/<segment>.layout.txt` once, `srcsort.py` files new flat `src/<segment>/func_*.c` into their folder, `layout_callers.py` moves a function out of `unknown/` when only one module calls it, `srcpath.py` is the lookup the other tools use |
-| `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see [Contributing](#contributing)) |
+| `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see [CONTRIBUTING.md](CONTRIBUTING.md)) |
 
 ## Overlays
 
@@ -60,13 +61,13 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 |---|---|
 | `tools/extract.py` | decode the ROM file table, extract every file, and write `build/boot.bin` |
 | `tools/setup_wsl.sh` | one-time setup inside WSL (behind `make setup`) |
-| `tools/decomp.py`, `tools/mkelf.py`, `tools/ghidra/ExportDecomp.java` | Ghidra pseudo-C for a code segment (research only) |
+| `tools/decomp.py`, `tools/mkelf.py`, `tools/ghidra/ExportDecomp.java` | Ghidra pseudo-C for a code segment (research only); set `GHIDRA_HEADLESS` to your `support/analyzeHeadless` script |
 
 External tools used (fetched by `make setup` into `tools/vendor/`, or installed with `apt`; none is tracked):
 
 | Tool | Used for |
 |---|---|
-| IDO 7.1 and IDO 5.3 (`ido-static-recomp`) | the original compilers, see [Compilers](#compilers) |
+| IDO 7.1 and IDO 5.3 (`ido-static-recomp`) | the original compilers, see [COMPILERS.md](COMPILERS.md) |
 | GNU binutils for MIPS (`mips-linux-gnu-as`, `-ld`, `-objdump`, `-nm`, `-objcopy`) | assemble, link at the original addresses, inspect objects and cut the rebuilt segment |
 | splat (with spimdisasm and rabbitizer) | split the ROM segments into assembly and data |
 | m2c | first-draft C from assembly |

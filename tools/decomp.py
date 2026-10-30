@@ -2,11 +2,11 @@
 """Ghidra pseudo-C for one code segment: 32-bit pass (clean constants), 64-bit pass for
 functions using 64-bit instructions the 32-bit language can't decode.
 usage: decomp.py <name> <code.bin> <vram hex>  ->  decomp/<name>.c"""
-import re, subprocess, sys
+import os, re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-GHIDRA = r"C:\Users\minec\Stockage\Ghidra\support\analyzeHeadless.bat"
+GHIDRA = os.environ.get("GHIDRA_HEADLESS", "analyzeHeadless")  # the support/analyzeHeadless script of your Ghidra install
 LANGS = {"32": ("MIPS:BE:32:default", "default"), "64": ("MIPS:BE:64:64-32addr", "o32")}
 BROKEN = "halt_baddata"
 

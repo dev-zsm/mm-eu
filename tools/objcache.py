@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Content-addressed cache of compiled and assembled objects, shared by match.py, verify_src.py and build_seg.py.
 A function whose source, flags, compiler and headers did not change is never compiled twice: the object is found in
-build/cache/ by the SHA-256 of everything that can change its bytes. Delete ~/.cache/mm-n64-decomp (or run `make clean`) to start from scratch.
+the cache by the SHA-256 of everything that can change its bytes. Delete ~/.cache/mm-n64-decomp (or run `make clean`) to start from scratch.
 Also picks the fastest copy of the compilers: MM_CC / MM_CC53, else ~/ido71 and ~/ido53 (native WSL disk, about four
 times faster than the copies in tools/vendor on /mnt/c; `tools/setup_wsl.sh` creates them), else tools/vendor."""
 import hashlib, json, os, re, shutil, subprocess, tempfile
@@ -27,6 +27,11 @@ def uses_ido53(cfile: Path) -> bool:
 
 def compiler_for(cfile: Path) -> Path:
     return _compiler("53" if uses_ido53(cfile) else "71")
+
+
+def directives(text: str) -> str:
+    """The `// FLAGS:` and `// COMPILER:` lines of a source, which every rewritten copy of it must keep."""
+    return "".join(l + "\n" for l in text.splitlines()[:3] if l.startswith(("// FLAGS:", "// COMPILER:")))
 
 
 def _headers() -> str:

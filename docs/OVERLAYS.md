@@ -26,15 +26,17 @@ tools/mm diff  ovl0050 func_8000009C src/overlays/0050/func_8000009C.c
 
 - Write the file as `src/overlays/<index>/<function>.c`; unfinished attempts go to `src/overlays/<index>/wip/`.
 - Calls into `boot` or `code` keep the address name of the callee (`func_8013F34C`) until names are registered for it.
-- The match is checked per function only: the overlay build that links the relocated sections and checks the
-  relocation table is not written yet (see the roadmap). A MATCH needs the exact size of the function.
+- The match is checked per function only, with relocated fields masked, so a wrong callee or data address is not caught:
+  the overlay build that links the relocated sections and checks the relocation table is not written yet (see the
+  roadmap). A MATCH needs the exact size of the function.
+- `make split` runs step 3 of the setup, and `make check` needs its output.
 - The flags, `// COMPILER: ido53`, the idioms and the rules about sources are those of the other segments. Only the
   assembly of our ROM and the local tools are used.
 
 ## Order of work
 
 Start with the smallest overlays: they match fastest and show the structure shared by many of them (initialisation,
-update, draw functions). Then the large ones. Progress is counted per overlay in [PROGRESS.md](PROGRESS.md).
+update, draw functions). Then the large ones. Progress is added up over all the overlays in [PROGRESS.md](PROGRESS.md).
 
 ## Names
 

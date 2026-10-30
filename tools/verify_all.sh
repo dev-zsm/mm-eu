@@ -12,6 +12,5 @@ case $seg in
   code) orig=extracted/0049_00C8A000.bin ;;
   *) echo "unknown segment $seg"; exit 2 ;;
 esac
-python3 tools/verify_src.py "$seg" | tee /tmp/verify_src.out | head -3
-! grep -q FAIL /tmp/verify_src.out
+python3 tools/verify_src.py "$seg"
 python3 tools/build_seg.py "$seg" "$orig"

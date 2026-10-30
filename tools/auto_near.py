@@ -65,7 +65,8 @@ def main():
     todo = []
     for ch in re.split(r"(?=^nonmatching )", text, flags=re.M)[1:]:
         m = re.match(r"nonmatching (\w+), (0x[0-9A-Fa-f]+)", ch)
-        if m and m.group(1) in failed and not srcpath.path(seg, m.group(1)).exists():
+        # an existing wip draft may hold hand work, and wip is not tracked by git: never overwrite it
+        if m and m.group(1) in failed and not srcpath.path(seg, m.group(1)).exists() and not (wipdir / f"{m.group(1)}.c").exists():
             fn, size = m.group(1), int(m.group(2), 16)
             off = int(fn[-8:], 16) - base
             todo.append((seg, fn, rom[off:off + size], head + ch, ratio))

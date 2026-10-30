@@ -3,5 +3,4 @@
 set -e
 cd "$(dirname "$0")/.."
 . ~/mm-venv/bin/activate
-python3 tools/verify_src.py overlays | tee /tmp/verify_overlays.out | head -3
-! grep -q FAIL /tmp/verify_overlays.out
+python3 tools/verify_src.py overlays
