@@ -15,6 +15,15 @@ low-level game startup (DMA manager, fault handler, interrupt manager, heap). It
 New files are written flat in `src/boot/`; `python3 tools/srcsort.py` (run by `tools/wave_finish.sh`) files them into
 their folder.
 
+## Shared headers
+
+`include/ultra64.h` holds the libultra types and the kernel, timer and Pi routines whose functions are converted
+(`OSThread`, `OSMesgQueue`, `OSTimer`, `OSPiHandle`, `OSIoMesg`, hardware register macros), and `include/libc.h` the heap and the
+string functions. A function converted to these headers includes them instead of declaring its own types; the other functions of
+`boot` still carry local placeholder types (`Obj`, `Ctx`, `Node`) and `s32` parameters that are really pointers. They are converted
+group by group, each one kept at `MATCH`; see the rule in [CONTRIBUTING.md](CONTRIBUTING.md#code-style). The "Typed signatures"
+column of [PROGRESS.md](PROGRESS.md) counts the functions already converted, and the plan is in [ROADMAP.md](ROADMAP.md).
+
 ## Writing and checking one function
 
 ```
@@ -50,5 +59,3 @@ any file that does not hold in the rebuilt segment. `make progress` refreshes th
 Besides the functions that were already marked by the disassembly, the matrix routines of libultra (`guNormalize`, `guScale`,
 `guTranslate`, `guMtxF2L`, `guMtxL2F`, `guMtxIdentF`, the `mgu` part of the library) are listed in `config/boot.asm_only.txt`: in the
 SDK they are written in assembly, which is why no C compiles to their bytes (float registers allocated like hand-written code).
-This was confirmed by the published community decompilation of the same library, consulted as allowed by the exception in the
-[README](../README.md#contributing).

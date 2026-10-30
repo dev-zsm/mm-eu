@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "printf.h"
 
-extern void vaprintf(void *a0, s32 a1, void *a2);
-
-void aprintf(void *a0, s32 a1, ...) {
-    vaprintf(a0, a1, (char *)&a1 + 4);
+s32 aprintf(PrintfCallback *pfn, const char *fmt, ...) {
+    return vaprintf(pfn, fmt, (char *)&fmt + 4);
 }

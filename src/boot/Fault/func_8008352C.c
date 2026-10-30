@@ -1,33 +1,23 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+#include "fault.h"
+#include "os_internal.h"
+#include "os_vi.h"
 
-extern void osViSetYScale(f32 a0);
-extern void osViSetMode(void *a0);
-extern void osViSetSpecialFeatures(s32 a0);
-extern void osViBlack(s32 a0);
-extern s32 func_8008ABB0(void);
-extern void osViSwapBuffer(s32 a0);
-extern void FaultDrawer_SetDrawerFrameBuffer(s32 a0, s32 a1, s32 a2);
-extern u8 D_800981B0[];
-extern void *D_8009C220;
-extern s32 D_80000318;
 void Fault_DisplayFrameBuffer(void) {
-    s32 a;
-    s32 v;
+    void *fb;
+
     osViSetYScale(1.0f);
-    osViSetMode(D_800981B0);
-    osViSetSpecialFeatures(0x42);
+    osViSetMode(&D_800981B0);
+    osViSetSpecialFeatures(OS_VI_GAMMA_OFF | OS_VI_DITHER_FILTER_ON);
     osViBlack(0);
-    v = *(s32 *)((u8 *)D_8009C220 + 0x844);
-    if (v != 0) {
-        a = v;
+    if (D_8009C220->fb != NULL) {
+        fb = D_8009C220->fb;
     } else {
-        v = func_8008ABB0();
-        a = v;
-        if (v == 0x80000000) {
-            a = (D_80000318 | 0x80000000) + 0xFFFDA800;
+        fb = func_8008ABB0();
+        if ((u32)fb == 0x80000000) {
+            fb = (void *)((D_80000318 | 0x80000000) + 0xFFFDA800);
         }
     }
-    osViSwapBuffer(a);
-    FaultDrawer_SetDrawerFrameBuffer(a, 0x140, 0xF0);
+    osViSwapBuffer(fb);
+    FaultDrawer_SetDrawerFrameBuffer(fb, 320, 240);
 }

@@ -1,15 +1,9 @@
 // FLAGS: -O2 -g3
-#include "types.h"
-
-extern void FaultDrawer_DrawText(s32 a, s32 b, void *c, void *d);
-extern u8 D_80098510[];
-extern u8 D_80098520[];
-extern u8 D_80098534[];
-extern u8 D_800998A0[];
-extern u8 D_800998AC[];
+#include "os_internal.h"
+#include "os_sp.h"
 
 void func_80081880(void) {
-    FaultDrawer_DrawText(0x50, 0xC8, D_80098510, (void *)(*(u32 *)0xA4040010));
+    FaultDrawer_DrawText(0x50, 0xC8, D_80098510, IO_READ(SP_STATUS_REG));
     FaultDrawer_DrawText(0x28, 0xB8, D_80098520, D_800998A0);
     FaultDrawer_DrawText(0x38, 0xC0, D_80098534, D_800998AC);
 }

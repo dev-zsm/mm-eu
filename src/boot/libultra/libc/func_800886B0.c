@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
-extern s16 D_800977D0[];
+#include "libm.h"
+
 s16 sins(u16 x) {
     s16 value;
 

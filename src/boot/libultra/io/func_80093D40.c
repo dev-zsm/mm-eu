@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_vi.h"
+#include "os_sp.h"
 
-s32 osAiGetLength(void) {
-    return *(s32 *)0xA4500004;
+u32 osAiGetLength(void) {
+    return IO_READ(AI_LEN_REG);
 }

@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-
-void __osSpSetStatus(s32 a0);
+#include "os_sp.h"
 
 void osSpTaskYield(void) {
-    __osSpSetStatus(0x400);
+    __osSpSetStatus(SPSTATUS_SET_SIG0);
 }

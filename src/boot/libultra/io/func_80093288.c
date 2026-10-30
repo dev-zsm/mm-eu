@@ -1,45 +1,34 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_pfs.h"
 
-typedef struct {
-    s32 pad0;
-    s32 unk4;
-    s32 unk8;
-} Ctx;
-
-s32 __osPfsSelectBank(Ctx *c, s32 x);
-s32 __osContRamRead(s32 a, s32 b, u16 c, u8 *d);
-s32 __osContRamWrite(s32 a, s32 b, u16 c, u8 *d, s32 e);
-s32 bcmp(u8 *a, u8 *b, s32 n);
-
-s32 __osPfsCheckRamArea(Ctx *arg0) {
+s32 __osPfsCheckRamArea(OSPfs *pfs) {
     s32 ret;
     s32 i;
-    u8 pattern[0x20];
-    u8 readback[0x20];
-    u8 backup[0x20];
+    u8 pattern[PFS_BLOCKSIZE];
+    u8 readback[PFS_BLOCKSIZE];
+    u8 backup[PFS_BLOCKSIZE];
 
-    ret = __osPfsSelectBank(arg0, 0);
+    ret = __osPfsSelectBank(pfs, 0);
     if (ret != 0) {
         return ret;
     }
-    ret = __osContRamRead(arg0->unk4, arg0->unk8, 0, backup);
+    ret = __osContRamRead(pfs->queue, pfs->channel, 0, backup);
     if (ret != 0) {
         return ret;
     }
-    for (i = 0; i < 0x20; i++) {
+    for (i = 0; i < PFS_BLOCKSIZE; i++) {
         pattern[i] = i;
     }
-    ret = __osContRamWrite(arg0->unk4, arg0->unk8, 0, pattern, 0);
+    ret = __osContRamWrite(pfs->queue, pfs->channel, 0, pattern, 0);
     if (ret != 0) {
         return ret;
     }
-    ret = __osContRamRead(arg0->unk4, arg0->unk8, 0, readback);
+    ret = __osContRamRead(pfs->queue, pfs->channel, 0, readback);
     if (ret != 0) {
         return ret;
     }
-    if (bcmp(pattern, readback, 0x20) != 0) {
-        return 0xB;
+    if (bcmp(pattern, readback, PFS_BLOCKSIZE) != 0) {
+        return PFS_ERR_DEVICE;
     }
-    return __osContRamWrite(arg0->unk4, arg0->unk8, 0, backup, 0);
+    return __osContRamWrite(pfs->queue, pfs->channel, 0, backup, 0);
 }

@@ -10,7 +10,8 @@ accepted.
 The repository contains no assets, no ROM data and no assembly extracted from the game. You need your own copy of the
 game to build anything. Names of files, folders and symbols are still being reorganised from one commit to the next.
 
-Most of the C code and the tooling were written with an AI assistant. All of it goes through the same byte-for-byte check.
+This project is vibe coded: most of the C code and the tooling were written with an AI assistant. All of it goes through the
+same byte-for-byte check.
 
 ## Progress
 
@@ -91,17 +92,8 @@ tracked either.
 
 ## Contributing
 
-Contributions are welcome, see [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). Do not contribute anything derived from leaked
-source code of the Nintendo 64 SDK, libultra or any game that shares much of its code with this one.
-
-The C is derived from our own European ROM: it is written from its assembly and accepted only if it recompiles to the exact
-bytes. From other projects we take function names only, from the US decompilation [zeldaret/mm](https://github.com/zeldaret/mm)
-(entries tagged `ref:` in `config/*.names.txt`).
-
-There is one exception, by my decision. The library functions of `boot` (libultra, libgu, libm, libc) are shared with other
-games and have been decompiled by community projects (so far only zeldaret/mm), so their published work may be consulted for
-structure and types. The code is still written here from our assembly and verified byte for byte, with nothing copied
-verbatim. `code` and the overlays use nothing from other projects.
+Contributions are welcome, see [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). Whatever the source of a function, it is accepted
+only if it recompiles with IDO to the exact bytes of this ROM.
 
 ## License
 
@@ -117,9 +109,8 @@ describes a work that belongs to Nintendo and no right on it is granted. See [LI
   (Simon Lindholm and contributors)
 - [m2c](https://github.com/matt-kempster/m2c) (Matt Kempster and contributors)
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) (NSA)
-- [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): the function names
-  (`tools/ref_align.py` aligns them with ours) and, for `boot` only, the structure and types of the Nintendo 64 library
-  functions (see Contributing). Nothing is copied verbatim.
+- [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): the decompilation of the
+  US release of this game, which this project draws inspiration from.
 - GNU binutils
 
 *The Legend of Zelda: Majora's Mask* is a trademark and a work of Nintendo. This project is not affiliated with or endorsed

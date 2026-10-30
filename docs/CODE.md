@@ -44,6 +44,13 @@ tools/mm diff  code func_800BDE3C src/code/func_800BDE3C.c
 4. `make auto HOURS=2` runs the permuter over every unfinished attempt, tidies what it found and verifies it.
 5. `make check` must pass before every commit.
 
+## Signatures
+
+Most functions of `code` still take `arg0`, `void *` or `u8 *` parameters from the automatic drafts. They get real types and
+parameter names from shared headers of `include/` (the rule is in [CONTRIBUTING.md](CONTRIBUTING.md#code-style)) once the
+structures they use are known; the "Typed signatures" column of [PROGRESS.md](PROGRESS.md) counts the functions done, and
+the plan is in [ROADMAP.md](ROADMAP.md).
+
 ## Assembly that stays assembly
 
 The few hand-written functions are marked in the splat output (`Handwritten function`) and are not counted in the C

@@ -1,38 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "os_voice.h"
 
-typedef struct {
-    u8 dummy;
-    u8 txsize;
-    u8 rxsize;
-    u8 cmd;
-    u8 addrh;
-    u8 addrl;
-    u8 data[36];
-    u8 datacrc;
-    u8 end;
-} VoiceReadFmt;
-
-typedef struct {
-    u32 ramarray[15];
-    u32 pifstatus;
-} PifRam;
-
-void __osSiGetAccess(void);
-void __osSiRelAccess(void);
-void osRecvMesg(void *mq, void *msg, s32 flag);
-void __osSiRawStartDma(s32 dir, void *buf);
-s32 __osVoiceGetStatus(void *mq, s32 channel, u8 *status);
-s32 __osContAddressCrc(u16 addr);
-u8 __osVoiceContDataCrc(u8 *data, s32 size);
-void bcopy(void *src, void *dst, s32 n);
-
-extern s32 D_800981A0;
-extern u8 D_8009D2E0;
-extern PifRam D_8009E9A0;
-
-s32 __osVoiceContRead36(void *mq, s32 channel, u16 address, u8 *buffer) {
+s32 __osVoiceContRead36(OSMesgQueue *mq, s32 channel, u16 address, u8 *buffer) {
     s32 ret = 0;
     u8 status;
     s32 i;
@@ -42,8 +12,8 @@ s32 __osVoiceContRead36(void *mq, s32 channel, u16 address, u8 *buffer) {
     __osSiGetAccess();
     do {
         ptr = (u8 *)&D_8009E9A0;
-        if (D_8009D2E0 != 9 || channel != D_800981A0) {
-            D_8009D2E0 = 9;
+        if (D_8009D2E0 != CONT_CMD_READ36_VOICE || channel != D_800981A0) {
+            D_8009D2E0 = CONT_CMD_READ36_VOICE;
             D_800981A0 = channel;
             i = 0;
             while (i < channel) {
@@ -51,36 +21,36 @@ s32 __osVoiceContRead36(void *mq, s32 channel, u16 address, u8 *buffer) {
                 i++;
             }
             D_8009E9A0.pifstatus = 1;
-            ((VoiceReadFmt *)ptr)->dummy = 0xFF;
-            ((VoiceReadFmt *)ptr)->txsize = 3;
-            ((VoiceReadFmt *)ptr)->rxsize = 0x25;
-            ((VoiceReadFmt *)ptr)->cmd = 9;
-            ((VoiceReadFmt *)ptr)->datacrc = 0xFF;
-            ((VoiceReadFmt *)ptr)->end = 0xFE;
+            ((__OSVoiceRead36Format *)ptr)->dummy = 0xFF;
+            ((__OSVoiceRead36Format *)ptr)->txsize = 3;
+            ((__OSVoiceRead36Format *)ptr)->rxsize = 0x25;
+            ((__OSVoiceRead36Format *)ptr)->cmd = CONT_CMD_READ36_VOICE;
+            ((__OSVoiceRead36Format *)ptr)->datacrc = 0xFF;
+            ((__OSVoiceRead36Format *)ptr)->end = CONT_CMD_END;
         } else {
             ptr = (u8 *)&D_8009E9A0 + channel;
         }
-        ((VoiceReadFmt *)ptr)->addrh = address >> 3;
-        ((VoiceReadFmt *)ptr)->addrl = __osContAddressCrc(address) | (address << 5);
-        __osSiRawStartDma(1, &D_8009E9A0);
-        osRecvMesg(mq, 0, 1);
-        __osSiRawStartDma(0, &D_8009E9A0);
-        osRecvMesg(mq, 0, 1);
-        ret = (((VoiceReadFmt *)ptr)->rxsize & 0xC0) >> 4;
+        ((__OSVoiceRead36Format *)ptr)->addrh = address >> 3;
+        ((__OSVoiceRead36Format *)ptr)->addrl = __osContAddressCrc(address) | (address << 5);
+        __osSiRawStartDma(OS_WRITE, &D_8009E9A0);
+        osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+        __osSiRawStartDma(OS_READ, &D_8009E9A0);
+        osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+        ret = (((__OSVoiceRead36Format *)ptr)->rxsize & 0xC0) >> 4;
         if (ret == 0) {
-            if (__osVoiceContDataCrc(ptr + 6, 36) != ((VoiceReadFmt *)ptr)->datacrc) {
+            if (__osVoiceContDataCrc(ptr + 6, 36) != ((__OSVoiceRead36Format *)ptr)->datacrc) {
                 ret = __osVoiceGetStatus(mq, channel, &status);
                 if (ret != 0) {
                     break;
                 }
-                ret = 4;
+                ret = PFS_ERR_CONTRFAIL;
             } else {
                 bcopy(ptr + 6, buffer, 36);
             }
         } else {
-            ret = 1;
+            ret = PFS_ERR_NOPACK;
         }
-    } while (ret == 4 && !(retry-- < 0));
+    } while (ret == PFS_ERR_CONTRFAIL && !(retry-- < 0));
     __osSiRelAccess();
     return ret;
 }

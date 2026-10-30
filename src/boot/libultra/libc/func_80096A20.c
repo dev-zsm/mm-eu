@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "libc.h"
 
-void *memset(void *s, s32 c, u32 n) {
+void *memset(void *s, s32 c, size_t n) {
     u8 *p = s;
 
     while (n--) {

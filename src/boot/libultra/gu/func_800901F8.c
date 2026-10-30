@@ -1,12 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "gu.h"
 
-void guPositionF(f32 *m, f32 x, f32 y, f32 z, f32 s, f32 tx, f32 ty, f32 tz);
-void guMtxF2L(f32 *m, s32 arg);
+void guPosition(Mtx *m, f32 roll, f32 pitch, f32 yaw, f32 scale, f32 x, f32 y, f32 z) {
+    MtxF mf;
 
-void guPosition(s32 arg0, f32 x, f32 y, f32 z, f32 s, f32 tx, f32 ty, f32 tz) {
-    f32 sp28[16];
-
-    guPositionF(sp28, x, y, z, s, tx, ty, tz);
-    guMtxF2L(sp28, arg0);
+    guPositionF(mf, roll, pitch, yaw, scale, x, y, z);
+    guMtxF2L(mf, m);
 }

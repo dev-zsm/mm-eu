@@ -1,9 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "libc.h"
 
-extern s32 D_8009D0F0;
-void func_8008795C(s32 *p);
-
-void CheckArena(void) {
-    func_8008795C(&D_8009D0F0);
+s32 CheckArena(void) {
+    return func_8008795C(&D_8009D0F0);
 }

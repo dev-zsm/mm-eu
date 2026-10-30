@@ -1,79 +1,36 @@
 // FLAGS: -O2 -g0 -mips2
+#include "stackcheck.h"
 
-typedef signed char s8;
-typedef unsigned char u8;
-typedef signed short s16;
-typedef unsigned short u16;
-typedef signed int s32;
-typedef unsigned int u32;
-typedef signed long long s64;
-typedef unsigned long long u64;
-typedef float f32;
-typedef double f64;
-typedef struct Node
-{
-  struct Node *next;
-  struct Node *prev;
-  u32 start;
-  u32 end;
-  u32 fill;
-  s32 limit;
-  s32 unk18;
-} Node;
-extern s32 D_80096DE0;
-extern s32 D_80096DE4;
-void StackCheck_Init(Node *arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4, s32 arg5)
-{
-  char new_var;
-  Node *v0;
-  Node *tail;
-  u32 p;
-  if (arg0 == ((void *) 0))
-  {
-    *((Node **) (&D_80096DE0)) = (void *) 0;
-    return;
-  }
-  arg0->start = arg1;
-  arg0->end = arg2;
-  arg0->fill = arg3;
-  arg0->limit = arg4;
-  arg0->unk18 = arg5;
-  v0 = *((Node **) (&D_80096DE0));
-  if (v0 != ((void *) 0))
-  {
-    do
-    {
-      if (v0 == arg0)
-      {
+void StackCheck_Init(StackEntry *entry, void *stackBottom, void *stackTop, u32 initValue, s32 minSpace, const char *name) {
+    StackEntry *iter;
+    u32 *p;
+
+    if (entry == NULL) {
+        D_80096DE0 = NULL;
         return;
-      }
-      v0 = v0->next;
     }
-    while (v0 != ((void *) 0));
-  }
-  arg0->prev = *((Node **) (&D_80096DE4));
-  arg0->next = (void *) 0;
-  new_var = 0;
-  if ((*((Node **) (&D_80096DE4))) != ((void *) new_var))
-  {
-    (*((Node **) (&D_80096DE4)))->next = arg0;
-  }
-  *((Node **) (&D_80096DE4)) = arg0;
-  if ((*((Node **) (&D_80096DE0))) == ((void *) new_var))
-  {
-    *((Node **) (&D_80096DE0)) = arg0;
-  }
-  if (arg0->limit != (-1))
-  {
-    p = arg0->start;
-    if (p < arg0->end)
-    {
-      do
-      {
-        p += 4;
-        *((u32 *) (p - 4)) = arg0->fill;
-      }
-      while (p < arg0->end);
+    entry->head = stackBottom;
+    entry->tail = stackTop;
+    entry->initValue = initValue;
+    entry->minSpace = minSpace;
+    entry->name = name;
+    for (iter = D_80096DE0; iter != NULL; iter = iter->next) {
+        if (iter == entry) {
+            return;
+        }
     }
-  }
+    entry->prev = D_80096DE4;
+    entry->next = NULL;
+    if (D_80096DE4 != NULL) {
+        D_80096DE4->next = entry;
+    }
+    D_80096DE4 = entry;
+    if (D_80096DE0 == NULL) {
+        D_80096DE0 = entry;
+    }
+    if (entry->minSpace != -1) {
+        for (p = entry->head; p < entry->tail; p++) {
+            *p = entry->initValue;
+        }
+    }
 }

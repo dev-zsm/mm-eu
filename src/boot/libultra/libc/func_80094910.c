@@ -1,8 +1,11 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "printf.h"
 
-s16 _Ldunscale(s16 *pex, u16 *ps) {
+/* Splits the double held in the first eight bytes of px into a mantissa in [0.5, 1) and a binary exponent; returns -1
+   for a finite non-zero value, 0 for zero, 1 for infinity and 2 for a NaN. */
+s16 _Ldunscale(s16 *pex, Pft *px) {
+    u16 *ps = (u16 *)px;
     s16 xchar = (ps[0] & 0x7FF0) >> 4;
 
     if (xchar == 0x7FF) {

@@ -1,22 +1,11 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-extern u8 D_80098000[];
-
-typedef struct {
-    u8 *begin;
-    u8 *end;
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
-} Buf;
-
-void osCreateMesgQueue(Buf *a0, s32 a1, s32 a2) {
-    a0->begin = D_80098000;
-    a0->end = D_80098000;
-    a0->unk8 = 0;
-    a0->unkC = 0;
-    a0->unk10 = a2;
-    a0->unk14 = a1;
+void osCreateMesgQueue(OSMesgQueue *mq, OSMesg *msg, s32 count) {
+    mq->mtqueue = (OSThread *)&D_80098000;
+    mq->fullqueue = (OSThread *)&D_80098000;
+    mq->validCount = 0;
+    mq->first = 0;
+    mq->msgCount = count;
+    mq->msg = msg;
 }

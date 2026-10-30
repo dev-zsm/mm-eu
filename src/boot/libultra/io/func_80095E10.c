@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_voice.h"
 
 s32 osVoiceCheckWord(u8 *word) {
     s32 count = 0;

@@ -1,37 +1,25 @@
 // FLAGS: -O2 -g3
-#include "types.h"
+#include "irqmgr.h"
 
-s32 osSetIntMask(s32);
-
-typedef struct Node {
-    struct Node *next;
-    s32 data;
-} Node;
-
-typedef struct Owner {
-    u8 pad0[0x248];
-    Node *list;
-} Owner;
-
-void IrqMgr_RemoveClient(Owner *arg0, Node *arg1) {
-    Node *cur;
-    Node *prev;
-    s32 irq;
+void IrqMgr_RemoveClient(IrqMgr *irqMgr, IrqMgrClient *client) {
+    IrqMgrClient *cur;
+    IrqMgrClient *prev;
+    OSIntMask mask;
 
     prev = NULL;
-    cur = arg0->list;
-    irq = osSetIntMask(1);
+    cur = irqMgr->clients;
+    mask = osSetIntMask(1);
     while (cur != NULL) {
-        if (cur == arg1) {
+        if (cur == client) {
             if (prev != NULL) {
-                prev->next = arg1->next;
+                prev->next = client->next;
             } else {
-                arg0->list = arg1->next;
+                irqMgr->clients = client->next;
             }
             break;
         }
         prev = cur;
         cur = cur->next;
     }
-    osSetIntMask(irq);
+    osSetIntMask(mask);
 }

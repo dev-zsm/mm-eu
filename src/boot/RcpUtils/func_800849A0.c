@@ -1,12 +1,9 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
-
-s32 __osSpGetStatus(void);
-void osDpGetStatus(void);
+#include "rcputils.h"
 
 void RcpUtils_PrintRegisterStatus(void) {
-    s32 sp1C;
+    u32 spStatus;
 
-    sp1C = __osSpGetStatus();
+    spStatus = __osSpGetStatus();
     osDpGetStatus();
 }

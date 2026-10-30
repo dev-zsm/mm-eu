@@ -1,19 +1,12 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+#include "faultdrawer.h"
+#include "fault.h"
 
-extern u8 *D_80096D80;
-extern u8 D_800992F4[];
-
-void func_8008198C(void *fmt, ...);
-
-void FaultDrawer_SetCursor(s32 a0, s32 a1) {
-    if (D_80096D80[0x35] != 0) {
-        func_8008198C(D_800992F4,
-                      (a1 - *(u16 *)(D_80096D80 + 0x8)) /
-                          (*(s8 *)(D_80096D80 + 0x1F) + *(u8 *)(D_80096D80 + 0x1D)),
-                      (a0 - *(u16 *)(D_80096D80 + 0xC)) /
-                          (*(s8 *)(D_80096D80 + 0x1E) + *(u8 *)(D_80096D80 + 0x1C)));
+void FaultDrawer_SetCursor(s32 x, s32 y) {
+    if (D_80096D80->osSyncPrintfEnabled) {
+        func_8008198C(D_800992F4, (y - D_80096D80->yStart) / (D_80096D80->charH + D_80096D80->charHPad),
+                      (x - D_80096D80->xStart) / (D_80096D80->charW + D_80096D80->charWPad));
     }
-    *(u16 *)(D_80096D80 + 0x14) = a0;
-    *(u16 *)(D_80096D80 + 0x16) = a1;
+    D_80096D80->cursorX = x;
+    D_80096D80->cursorY = y;
 }

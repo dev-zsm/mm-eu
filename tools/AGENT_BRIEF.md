@@ -5,15 +5,13 @@ original machine code. The verifier is the only judge. Work from the project roo
 
 ## Sources: what you may use (strict rule)
 
-Your only source for the C code is **the assembly of our ROM** (`asm/<seg>/text.s`) and the compiler's feedback
-(`tools/match.py`, `tools/disasm_diff.py`). The only thing that comes from another project is **names**: the function
-names of the US decompilation (zeldaret/mm), already registered in `config/<seg>.names.txt` (entries tagged `ref:`).
+The ground truth for the C code is **the assembly of our ROM** (`asm/<seg>/text.s`) and the compiler's feedback
+(`tools/match.py`, `tools/disasm_diff.py`). Names found by other decompilation projects are already registered in
+`config/<seg>.names.txt` (entries tagged `ref:`).
 
-Never copy, paraphrase or recall from memory the C source of zeldaret/mm, of any other decompilation project, of the
-Nintendo 64 SDK or libultra, or of any other game, and never use it as a guide for a function's structure, algorithm,
-variable names or comments. If a function only seems to match when you "remember" how it is written elsewhere, stop:
-leave it unfinished in `src/<seg>/wip/` and say so in your report. Do not invent names either: use the names of
-`config/<seg>.names.txt`, else the `func_XXXXXXXX` name.
+The European ROM decides: code that does not compile to our bytes is adapted until it does, or left unfinished in
+`src/<seg>/wip/` and reported. Do not invent names: use the names of `config/<seg>.names.txt`, else the `func_XXXXXXXX` name.
+The sources carry no web address and no project name (credits live in the README).
 
 ## Loop, for each function you were given (segment `boot`, or the segment named in your task)
 
@@ -155,8 +153,3 @@ diff `python3 tools/disasm_diff.py boot FN src/boot/FN.c`.
   - A float argument in the fifth slot is stored with `swc1`: give the callee a prototype with `f32` there; an empty-parentheses
     prototype promotes the constant to double.
 
-## Exception for `boot` (my decision)
-
-For the library functions of `boot` (libultra, libgu, libm, libc) only, my session may give you a reference taken from a
-published community decompilation (the structure and types of a function). Use it as a guide, write the C yourself from the ROM
-assembly and keep the exact-bytes check as the only judge. For `code` and the overlays the rule above is unchanged.

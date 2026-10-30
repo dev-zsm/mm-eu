@@ -1,14 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "libultra_libc.h"
 
-typedef struct {
-    s32 quot;
-    s32 rem;
-} DivResult;
-
-DivResult ldiv(s32 num, s32 den) {
-    DivResult r;
+ldiv_t ldiv(s32 num, s32 den) {
+    ldiv_t r;
 
     r.quot = num / den;
     r.rem = num - den * r.quot;

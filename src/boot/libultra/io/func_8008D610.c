@@ -1,76 +1,54 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "os_pfs.h"
 
-typedef struct {
-    s32 flags;
-    s32 unk4;
-    s32 unk8;
-    u8 pad0C[0x44];
-    s32 count;
-    u8 pad54[8];
-    s32 base;
-} Ctx;
-
-typedef struct {
-    s32 w0;
-    u16 h4;
-    u8 pad56[6];
-    u8 b5C[4];
-    u8 b60[0x10];
-} Buf;
-
-s32 __osCheckId(Ctx *ctx);
-s32 __osContRamRead(s32 a0, s32 a1, u16 a2, Buf *a3);
-s32 __osPfsGetStatus(s32 a0, s32 a1);
-
-s32 osPfsFindFile(Ctx *ctx, u16 key, s32 fe, u8 *a3, u8 *a4, s32 *out) {
+s32 osPfsFindFile(OSPfs *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName, s32 *fileNo) {
     s32 i;
     s32 ret;
-    Buf buf;
+    __OSDir dir;
     s32 j;
     s32 mismatch;
 
-    if (!(ctx->flags & 1)) {
-        return 5;
+    if (!(pfs->status & PFS_INITIALIZED)) {
+        return PFS_ERR_INVALID;
     }
-    ret = __osCheckId(ctx);
+    ret = __osCheckId(pfs);
     if (ret != 0) {
         return ret;
     }
-    for (i = 0; i < ctx->count; i++) {
-        ret = __osContRamRead(ctx->unk4, ctx->unk8, (u16)(ctx->base + i), &buf);
+    for (i = 0; i < pfs->dirSize; i++) {
+        ret = __osContRamRead(pfs->queue, pfs->channel, (u16)(pfs->dirTable + i), (u8 *)&dir);
         if (ret != 0) {
             return ret;
         }
-        ret = __osPfsGetStatus(ctx->unk4, ctx->unk8);
+        ret = __osPfsGetStatus(pfs->queue, pfs->channel);
         if (ret != 0) {
             return ret;
         }
-        if (buf.h4 == key && buf.w0 == fe) {
+        if (dir.companyCode == companyCode && dir.gameCode == gameCode) {
             mismatch = 0;
-            if (a3 != NULL) {
-                for (j = 0; j < 0x10; j++) {
-                    if (buf.b60[j] != a3[j]) {
+            if (gameName != NULL) {
+                for (j = 0; j < 16; j++) {
+                    if (dir.gameName[j] != gameName[j]) {
                         mismatch = 1;
                         break;
                     }
                 }
             }
-            if (a4 != NULL && mismatch == 0) {
+            if (extName != NULL && mismatch == 0) {
                 for (j = 0; j < 4; j++) {
-                    if (buf.b5C[j] != a4[j]) {
+                    if (dir.extName[j] != extName[j]) {
                         mismatch = 1;
                         break;
                     }
                 }
             }
             if (mismatch == 0) {
-                *out = i;
+                *fileNo = i;
                 return ret;
             }
         }
     }
-    *out = -1;
-    return 5;
+    *fileNo = -1;
+    return PFS_ERR_INVALID;
 }

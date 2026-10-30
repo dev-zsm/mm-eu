@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+#include "fault.h"
 
-extern void func_80177194(s32 a0, s32 a1);
-
-void Fault_PadCallback(s32 a0) {
-    func_80177194(a0, 0);
+void Fault_PadCallback(Input *input) {
+    func_80177194(input, 0);
 }

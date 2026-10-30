@@ -1,19 +1,14 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-void __osSiGetAccess(s32 a0);
-void __osSiRelAccess(void);
-extern u8 D_8009D2E0;
-extern u8 D_8009D2E1;
-s32 osContSetCh(s32 a0) {
-    u8 v = a0;
-    __osSiGetAccess(a0);
-    v = a0;
-    if (v >= 5) {
-        D_8009D2E1 = 4;
+#include "os_cont.h"
+
+s32 osContSetCh(u8 channels) {
+    __osSiGetAccess();
+    if (channels >= MAXCONTROLLERS + 1) {
+        D_8009D2E1 = MAXCONTROLLERS;
     } else {
-        D_8009D2E1 = v;
+        D_8009D2E1 = channels;
     }
-    D_8009D2E0 = 0xFE;
+    D_8009D2E0 = CONT_CMD_END;
     __osSiRelAccess();
     return 0;
 }

@@ -1,67 +1,54 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "os_pfs.h"
 
-typedef struct {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    u8 pad0C[0x65 - 0x0C];
-    u8 unk65;
-} Obj;
+s32 osMotorInit(OSMesgQueue *mq, OSPfs *pfs, s32 channel) {
+    s32 ret;
+    u8 temp[32];
 
-extern u8 D_8009D180[];
-s32 __osPfsSelectBank(Obj *o, s32 x);
-s32 __osContRamRead(s32 a, s32 b, s32 c, u8 *d);
-void __osMakeMotorData(s32 count, u8 *buf);
+    pfs->queue = mq;
+    pfs->channel = channel;
+    pfs->activeBank = 0xFF;
+    pfs->status = 0;
 
-s32 osMotorInit(s32 a0, Obj *a1, s32 a2) {
-    s32 v;
-    u8 sp24[0x20];
-
-    a1->unk4 = a0;
-    a1->unk8 = a2;
-    a1->unk65 = 0xFF;
-    a1->unk0 = 0;
-
-    v = __osPfsSelectBank(a1, 0xFE);
-    if (v == 2) {
-        v = __osPfsSelectBank(a1, 0x80);
+    ret = __osPfsSelectBank(pfs, 0xFE);
+    if (ret == PFS_ERR_NEW_PACK) {
+        ret = __osPfsSelectBank(pfs, 0x80);
     }
-    if (v != 0) {
-        return v;
+    if (ret != 0) {
+        return ret;
     }
 
-    v = __osContRamRead(a0, a2, 0x400, sp24);
-    if (v == 2) {
-        v = 4;
+    ret = __osContRamRead(mq, channel, 0x400, temp);
+    if (ret == PFS_ERR_NEW_PACK) {
+        ret = PFS_ERR_CONTRFAIL;
     }
-    if (v != 0) {
-        return v;
+    if (ret != 0) {
+        return ret;
     }
-    if (sp24[0x1F] == 0xFE) {
-        return 0xB;
+    if (temp[0x1F] == 0xFE) {
+        return PFS_ERR_DEVICE;
     }
 
-    v = __osPfsSelectBank(a1, 0x80);
-    if (v == 2) {
-        v = 4;
+    ret = __osPfsSelectBank(pfs, 0x80);
+    if (ret == PFS_ERR_NEW_PACK) {
+        ret = PFS_ERR_CONTRFAIL;
     }
-    if (v != 0) {
-        return v;
+    if (ret != 0) {
+        return ret;
     }
-    v = __osContRamRead(a0, a2, 0x400, sp24);
-    if (v == 2) {
-        v = 4;
+    ret = __osContRamRead(mq, channel, 0x400, temp);
+    if (ret == PFS_ERR_NEW_PACK) {
+        ret = PFS_ERR_CONTRFAIL;
     }
-    if (v != 0) {
-        return v;
+    if (ret != 0) {
+        return ret;
     }
-    if (sp24[0x1F] != 0x80) {
-        return 0xB;
+    if (temp[0x1F] != 0x80) {
+        return PFS_ERR_DEVICE;
     }
-    if (!(a1->unk0 & 8)) {
-        __osMakeMotorData(a2, D_8009D180 + (a2 << 6));
+    if (!(pfs->status & PFS_MOTOR_INITIALIZED)) {
+        __osMakeMotorData(channel, D_8009D180 + (channel << 6));
     }
-    a1->unk0 = 8;
+    pfs->status = PFS_MOTOR_INITIALIZED;
     return 0;
 }

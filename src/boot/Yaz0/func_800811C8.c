@@ -1,36 +1,28 @@
 // FLAGS: -O2 -g3
-#include "types.h"
+#include "dbg.h"
+#include "yaz0.h"
 
-void usleep(s32);
-void sprintf();
-void Fault_AddHungupAndCrashImpl(void *, void *);
-s32 Yaz0_FirstDMA(void);
-s32 Yaz0_DecompressImpl(s32, s32);
+extern char D_800984B0[];  /* "slidma slidstart_szs ret=%d" */
+extern char D_800984CC[];  /* "src:%08lx dst:%08lx siz:%08lx" */
 
-extern void *D_8009C1E8;
-extern s32 D_8009C1EC;
-extern s32 D_8009C1F0;
-extern u8 D_800984B0[];
-extern u8 D_800984CC[];
-
-void Yaz0_Decompress(s32 arg0, s32 arg1, s32 arg2) {
-    s32 temp_v0;
-    u8 sp80[0x54];
-    u8 sp30[0x50];
+void Yaz0_Decompress(u32 romStart, void *dst, u32 size) {
+    s32 status;
+    char msg1[0x54];
+    char msg2[0x50];
 
     if (D_8009C1E8 != NULL) {
         while (D_8009C1E8 != NULL) {
             usleep(0xA);
         }
     }
-    D_8009C1E8 = (u8 *)&D_8009C1EC - 4; // matching: ROM recomputes the address with its own lui/addiu
-    D_8009C1EC = arg0;
-    D_8009C1F0 = arg2;
-    temp_v0 = Yaz0_DecompressImpl(Yaz0_FirstDMA(), arg1);
-    if (temp_v0 != 0) {
-        sprintf(sp80, D_800984B0, temp_v0);
-        sprintf(sp30, D_800984CC, arg0, arg1, arg2);
-        Fault_AddHungupAndCrashImpl(sp80, sp30);
+    D_8009C1E8 = D_8009BDE8 + YAZ0_BUFFER_SIZE;
+    D_8009C1EC = romStart;
+    D_8009C1F0 = size;
+    status = Yaz0_DecompressImpl(Yaz0_FirstDMA(), dst);
+    if (status != 0) {
+        sprintf(msg1, D_800984B0, status);
+        sprintf(msg2, D_800984CC, romStart, dst, size);
+        Fault_AddHungupAndCrashImpl(msg1, msg2);
     }
     D_8009C1E8 = NULL;
 }

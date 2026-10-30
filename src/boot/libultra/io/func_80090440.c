@@ -1,21 +1,19 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-extern s32 __osSpGetStatus(void);
+s32 osSpTaskYielded(OSTask *task) {
+    u32 status;
+    s32 yielded;
 
-s32 osSpTaskYielded(s32 *arg0) {
-    s32 temp_v0;
-    s32 var_v1;
-
-    temp_v0 = __osSpGetStatus();
-    if (temp_v0 & 0x100) {
-        var_v1 = 1;
+    status = __osSpGetStatus();
+    if (status & SP_STATUS_SIG1) {
+        yielded = OS_TASK_YIELDED;
     } else {
-        var_v1 = 0;
+        yielded = 0;
     }
-    if (temp_v0 & 0x80) {
-        arg0[1] = arg0[1] | var_v1;
-        arg0[1] = arg0[1] & ~2;
+    if (status & SP_STATUS_SIG0) {
+        task->t.flags = task->t.flags | yielded;
+        task->t.flags = task->t.flags & ~OS_TASK_DP_WAIT;
     }
-    return var_v1;
+    return yielded;
 }

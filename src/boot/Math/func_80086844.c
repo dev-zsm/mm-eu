@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
-void roundf(void);
-void Math_FRoundF(void) {
-    roundf();
+#include "libm.h"
+
+f32 Math_FRoundF(f32 x) {
+    return roundf(x);
 }

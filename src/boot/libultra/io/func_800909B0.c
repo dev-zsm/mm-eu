@@ -1,30 +1,26 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_cont.h"
 
-extern u8 D_8009E9A0[];
-void __osSiGetAccess(void);
-void __osSiRelAccess(void);
-s32 __osSiRawStartDma(s32, u8 *);
-void osRecvMesg(s32, s32, s32);
-s32 __osContChannelReset(s32 mq, s32 channels) {
+s32 __osContChannelReset(OSMesgQueue *mq, s32 channels) {
     s32 i;
     s32 ret;
     u8 *ptr;
-    ptr = D_8009E9A0;
+
+    ptr = (u8 *)&D_8009E9A0;
     __osSiGetAccess();
-    *((s32 *) (&D_8009E9A0[0x3C])) = 1;
+    D_8009E9A0.pifstatus = 1;
     for (i = 0; i < channels; i++) {
         *ptr = 0;
         ptr++;
     }
 
-    *ptr = 0xFD;
+    *ptr = CONT_CMD_CHANNEL_RESET;
     ptr++;
-    *ptr = 0xFE;
-    __osSiRawStartDma(1, D_8009E9A0);
-    osRecvMesg(mq, 0, 1);
-    ret = __osSiRawStartDma(0, D_8009E9A0);
-    osRecvMesg(mq, 0, 1);
+    *ptr = CONT_CMD_END;
+    __osSiRawStartDma(OS_WRITE, &D_8009E9A0);
+    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+    ret = __osSiRawStartDma(OS_READ, &D_8009E9A0);
+    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
     __osSiRelAccess();
     return ret;
 }

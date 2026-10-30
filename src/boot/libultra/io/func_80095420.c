@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-void __osSpSetStatus(s32 a0) {
-    *(s32 *)0xA4040010 = a0;
+void __osSpSetStatus(u32 status) {
+    IO_WRITE(SP_STATUS_REG, status);
 }

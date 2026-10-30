@@ -1,41 +1,24 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+#include "fault.h"
 
-typedef struct Node {
-    struct Node *next;
-    u32 unk4;
-    u32 unk8;
-    u32 unkC;
-} Node;
-
-typedef struct Owner {
-    u8 pad0[0x7D8];
-    Node *head;
-} Owner;
-
-extern u32 osSetIntMask(u32 mask);
-extern void func_8008198C(void *queue, void *node);
-extern Owner *D_8009C220;
-extern u8 D_8009877C[];
-
-void Fault_RemoveClient(Node *client) {
-    Node *iter;
-    Node *lastIter;
-    u32 mask;
+void Fault_RemoveClient(FaultClient *client) {
+    FaultClient *iter;
+    FaultClient *lastIter;
+    OSIntMask mask;
     s32 listIsEmpty;
 
-    iter = D_8009C220->head;
+    iter = D_8009C220->clients;
     lastIter = NULL;
     listIsEmpty = 0;
-    mask = osSetIntMask(1);
+    mask = osSetIntMask(OS_IM_NONE);
     while (iter != NULL) {
         if (iter == client) {
             if (lastIter != NULL) {
                 lastIter->next = client->next;
             } else {
-                D_8009C220->head = client;
-                if (D_8009C220->head != NULL) {
-                    D_8009C220->head = client->next;
+                D_8009C220->clients = client;
+                if (D_8009C220->clients != NULL) {
+                    D_8009C220->clients = client->next;
                 } else {
                     listIsEmpty = 1;
                 }

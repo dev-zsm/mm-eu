@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_vi.h"
 
-extern void *D_800982B0;
-
-void *__osViGetCurrentContext(void) {
+OSViContext *__osViGetCurrentContext(void) {
     return D_800982B0;
 }

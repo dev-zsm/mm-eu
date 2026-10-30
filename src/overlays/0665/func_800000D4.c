@@ -1,3 +1,4 @@
 #include "types.h"
+#include "actor.h"
 extern void func_80137C80();
-void func_800000D4(u8 *a, s32 a1) { func_80137C80(a + 0x190, a1, a); }
+void func_800000D4(Actor *thisx, PlayState *play) { func_80137C80((u8 *)thisx + 0x190, play, thisx); }

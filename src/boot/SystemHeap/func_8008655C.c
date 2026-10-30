@@ -1,24 +1,22 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "systemheap.h"
 
-extern void SystemHeap_Free(u32 a0);
+void SystemHeap_RunBlockFunc1Reverse(void *blocks, u32 count, u32 size, void (*fn)(void *, s32), s32 freeBlocks) {
+    u8 *end;
+    u8 *p;
 
-void SystemHeap_RunBlockFunc1Reverse(u32 a0, s32 a1, s32 a2, void (*a3)(u32, s32), s32 a4) {
-    u32 end;
-    u32 p;
-
-    if (a0 != 0) {
-        if (a3 != NULL) {
-            end = a0;
-            p = a0;
-            p += a1 * a2;
+    if (blocks != NULL) {
+        if (fn != NULL) {
+            end = blocks;
+            p = blocks;
+            p += count * size;
             while (end < p) {
-                p -= a2 ^ 0; // "^ 0": keeps the step in its own register, like the sibling SystemHeap_RunBlockFunc* files
-                a3(p, 2);
+                p -= size ^ 0; // matching: keeps the step in its own register
+                fn(p, 2);
             }
         }
-        if (a4 != 0) {
-            SystemHeap_Free(a0);
+        if (freeBlocks != 0) {
+            SystemHeap_Free(blocks);
         }
     }
 }

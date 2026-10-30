@@ -1,29 +1,37 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
-extern u8 *D_8009C220;
-extern void Fault_Sleep(s32 a);
-extern void Fault_UpdatePadImpl(void);
-extern void FaultDrawer_SetOsSyncPrintfEnabled(s32 a);
+#include "fault.h"
+
 s32 Fault_WaitForInputImpl(void) {
-    u16 * volatile ptr; /* volatile: forces the pointer to live in its stack slot like the ROM */
-    s32 timeout;
-    s32 btn;
-    ptr = (u16 *)(D_8009C220 + 0x7E4);
-    timeout = 0x258;
-    for (;;) {
+    Input *volatile input; /* matching: volatile keeps the pointer in its stack slot like the ROM */
+    s32 count;
+    u32 pressedBtn;
+
+    input = D_8009C220->padInput;
+    count = 600;
+    while (1) {
         Fault_Sleep(0x10);
         Fault_UpdatePadImpl();
-        btn = ptr[6];
-        if (0x20 == btn) {
-            D_8009C220[0x7CF] = !D_8009C220[0x7CF];
+        pressedBtn = input->press.button;
+        if (pressedBtn == BTN_L) {
+            D_8009C220->autoScroll = !D_8009C220->autoScroll;
         }
-        if (D_8009C220[0x7CF] != 0) {
-            if (timeout-- < 1) return 0;
+        if (D_8009C220->autoScroll) {
+            if (count-- < 1) {
+                return 0;
+            }
             continue;
         }
-        if (0x8000 == btn || 0x100 == btn) return 0;
-        if (0x200 == btn) return 1;
-        if (0x800 == btn) FaultDrawer_SetOsSyncPrintfEnabled(1);
-        if (0x400 == btn) FaultDrawer_SetOsSyncPrintfEnabled(0);
+        if (pressedBtn == BTN_A || pressedBtn == BTN_DRIGHT) {
+            return 0;
+        }
+        if (pressedBtn == BTN_DLEFT) {
+            return 1;
+        }
+        if (pressedBtn == BTN_DUP) {
+            FaultDrawer_SetOsSyncPrintfEnabled(1);
+        }
+        if (pressedBtn == BTN_DDOWN) {
+            FaultDrawer_SetOsSyncPrintfEnabled(0);
+        }
     }
 }

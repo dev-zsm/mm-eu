@@ -1,52 +1,36 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "os_internal.h"
 
-typedef struct Obj {
-    struct Obj *unk0;
-    s32 unk4;
-    struct Obj *unk8;
-    struct Obj *unkC;
-    u16 unk10;
-} Obj;
+void func_80089610(OSThread *t) {
+    register OSIntMask savedMask;
+    register OSThread *it;
+    register OSThread *next;
 
-extern Obj *D_80098010;
-extern Obj *D_8009800C;
-
-void *__osDisableInt(void);
-void __osRestoreInt(void *a);
-void func_80089444(void);
-void func_800895D0(Obj *a0, Obj *a1);
-
-void func_80089610(Obj *arg) {
-    register void *s0;
-    register Obj *s1;
-    register Obj *s2;
-
-    s0 = __osDisableInt();
-    if (arg == NULL) {
-        arg = D_80098010;
-    } else if (arg->unk10 != 1) {
-        func_800895D0(arg->unk8, arg);
+    savedMask = __osDisableInt();
+    if (t == NULL) {
+        t = D_80098010;
+    } else if (t->state != OS_STATE_STOPPED) {
+        func_800895D0(t->queue, t);
     }
 
-    if (D_8009800C == arg) {
-        D_8009800C = D_8009800C->unkC;
+    if (D_8009800C == t) {
+        D_8009800C = D_8009800C->tlnext;
     } else {
-        s1 = D_8009800C;
-        if (s1->unk4 != -1) {
+        it = D_8009800C;
+        if (it->priority != -1) {
             do {
-                s2 = s1->unkC;
-                if (s2 == arg) {
-                    s1->unkC = arg->unkC;
+                next = it->tlnext;
+                if (next == t) {
+                    it->tlnext = t->tlnext;
                     break;
                 }
-                s1 = s2;
-            } while (s1->unk4 != -1);
+                it = next;
+            } while (it->priority != -1);
         }
     }
 
-    if (arg == D_80098010) {
+    if (t == D_80098010) {
         func_80089444();
     }
-    __osRestoreInt(s0);
+    __osRestoreInt(savedMask);
 }

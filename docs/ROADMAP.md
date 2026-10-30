@@ -17,7 +17,10 @@ How to work on it: [BOOT.md](BOOT.md).
       excluded from the C count; the list is final only when the maintainer agrees.
 - [ ] Symbol names: official SDK / libc / libm names where the code proves them, evidence-backed project names otherwise
       (`config/boot.names.txt`).
-- [ ] Shared headers (`OSThread`, `OSMesgQueue`, hardware registers) instead of local structures.
+- [ ] Professional signatures for every function: shared headers (`OSThread`, `OSMesgQueue`, hardware registers) instead of
+      local placeholder structures, real parameter names, one prototype per function in a header, each kept at `MATCH`
+      (rule in [CONTRIBUTING.md](CONTRIBUTING.md#code-style)). Started with `libultra/os`, the Pi, the heap and the string
+      functions (`include/ultra64.h`, `include/libc.h`); the column "Typed signatures" of [PROGRESS.md](PROGRESS.md) counts them.
 - [ ] Data (`.data`, `.rodata`, jump tables, strings) expressed in C with proper types.
 - [ ] Segment rebuilt without any assembly other than the original hand-written functions, identical to the ROM.
 
@@ -35,6 +38,9 @@ How to work on it: [CODE.md](CODE.md). About 3,580 functions.
 - [ ] Symbol names: functions without evidence keep their address name.
 - [ ] Verified drafts that still use raw field offsets (`M2C_FIELD`) are rewritten with real structures once the types
       are known.
+- [ ] Professional signatures for every function (same rule as `boot`, counted in "Typed signatures" of
+      [PROGRESS.md](PROGRESS.md)). Most `code` functions take `arg0`/`void *` today; this needs the shared structures first
+      (`Actor`, `PlayState`, `Camera`, the audio and graphics contexts), so it follows the structure work below.
 - [ ] Data, jump tables and strings expressed in C with proper types; the segment rebuilt without assembly other than
       the hand-written functions.
 
@@ -59,9 +65,13 @@ Each one is a small relocatable program: `text | data | rodata | header | reloca
 - [ ] Layout: `src/overlays/<kind>/<name>/` with one folder per overlay and the kinds `actors`, `effects`,
       `fbdemos`, `gamestates` and `kaleido_scope` (the usual layout of decompilation projects of this game). Until an
       overlay has a name its folder is its file index (`src/overlays/0050/`).
+- [ ] Professional signatures: the thousands of overlay functions follow a few patterns (actor `Init`/`Update`/`Draw`,
+      scene and menu callbacks), so one shared set of headers (`Actor`, `PlayState`, ...) types most of them with a scripted
+      rewrite that `make check` still has to confirm function by function. Counted in "Typed signatures" of
+      [PROGRESS.md](PROGRESS.md); done after the structures are known.
 - [ ] Names: `config/overlays.names.txt` (`<file index> <name>  # <evidence>`), checked like the other name files. A name
       is added only with evidence (the order of the file table, the number of overlays and the relocations of an
-      overlay that points to a known function), never from memory of another project's source code.
+      overlay that points to a known function) or from another decompilation project (tag `ref:`).
 
 ## 4. Full ROM
 
@@ -83,6 +93,9 @@ reliable. Matching comes first.
       (in the original order of the code), checking the boundaries of `config/<segment>.layout.txt`.
 - [ ] **Structure types.** Replace the local `typedef struct` with padding (`unk1C`, `pad0`) by shared types in
       `include/`, with named fields.
+- [ ] **Signatures for all functions.** Every function gets the real types and parameter names of the shared headers
+      (`boot` first, then `code`, then the overlays). It is long work, so it is tracked by the "Typed signatures" column
+      of [PROGRESS.md](PROGRESS.md) and done group by group, each one verified.
 - [ ] **Drafts to clean up.** Rewrite the verified drafts that still use raw field offsets (`M2C_FIELD`) once the
       structures are known (the count is in [PROGRESS.md](PROGRESS.md)).
 - [ ] Data (`.data`, `.rodata`, strings, jump tables) expressed in C with proper types.

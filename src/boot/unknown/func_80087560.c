@@ -1,52 +1,37 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "arena.h"
 
-/* Header placed immediately before every heap payload (0x10 bytes). */
-typedef struct Block {
-    s16 magic;
-    s16 is_free;
-    u32 size;               /* payload size, excluding the header */
-    struct Block *next;     /* physically following block */
-    struct Block *prev;     /* physically preceding block */
-} Block;
-
-#define BLOCK_HEADER_SIZE 0x10
-#define BLOCK_MAGIC_USED  0x7373
-
-/*
- * Frees the block whose payload starts at ptr and merges it with a free neighbour
- * on either side. Heap handle heap is unused here. Internal helper, SDK name unknown.
- */
-void func_80087560(s32 heap, Block *ptr) {
-    Block *block;
-    Block *prev;
-    Block *next;
-    Block *after_next;
+/* Frees the block whose payload starts at ptr and merges it with a free neighbour on either side. */
+void func_80087560(Arena *arena, void *ptr) {
+    ArenaNode *node;
+    ArenaNode *prev;
+    ArenaNode *next;
+    ArenaNode *afterNext;
 
     if (ptr != NULL) {
-        block = (Block *)((u8 *)ptr - BLOCK_HEADER_SIZE);
-        // shortcut: empty test forces the header load before the magic check (matches ROM register order)
-        if (block->is_free) {
+        node = (ArenaNode *)((u8 *)ptr - ARENA_NODE_SIZE);
+        // matching: the empty test forces the header load before the magic check
+        if (node->isFree) {
         }
-        if (block->magic == BLOCK_MAGIC_USED && block->is_free == 0) {
-            next = block->next;
-            prev = block->prev;
-            block->is_free = 1;
-            if (next == (Block *)((u8 *)block + block->size + BLOCK_HEADER_SIZE) && next->is_free != 0) {
-                after_next = next->next;
-                if (after_next != NULL) {
-                    after_next->prev = block;
+        if (node->magic == ARENA_NODE_MAGIC && node->isFree == 0) {
+            next = node->next;
+            prev = node->prev;
+            node->isFree = 1;
+            if (next == (ArenaNode *)((u8 *)node + node->size + ARENA_NODE_SIZE) && next->isFree != 0) {
+                afterNext = next->next;
+                if (afterNext != NULL) {
+                    afterNext->prev = node;
                 }
-                block->size = block->size + next->size + BLOCK_HEADER_SIZE;
-                block->next = after_next;
-                next = after_next;
+                node->size = node->size + next->size + ARENA_NODE_SIZE;
+                node->next = afterNext;
+                next = afterNext;
             }
-            if (prev != NULL && prev->is_free != 0 && block == (Block *)((u8 *)prev + prev->size + BLOCK_HEADER_SIZE)) {
+            if (prev != NULL && prev->isFree != 0 && node == (ArenaNode *)((u8 *)prev + prev->size + ARENA_NODE_SIZE)) {
                 if (next != NULL) {
                     next->prev = prev;
                 }
                 prev->next = next;
-                prev->size = prev->size + block->size + BLOCK_HEADER_SIZE;
+                prev->size = prev->size + node->size + ARENA_NODE_SIZE;
             }
         }
     }

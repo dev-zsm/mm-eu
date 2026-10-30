@@ -1,18 +1,14 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_vi.h"
 
-extern s32 __osDisableInt(void);
-extern void __osRestoreInt(s32 a0);
-extern u16 *D_800982B4;
+void osViBlack(u8 active) {
+    OSIntMask mask;
 
-void osViBlack(u8 arg0) {
-    s32 temp_a0;
-
-    temp_a0 = __osDisableInt();
-    if (arg0 != 0) {
-        *D_800982B4 |= 0x20;
+    mask = __osDisableInt();
+    if (active != 0) {
+        D_800982B4->state |= VI_STATE_BLACK;
     } else {
-        *D_800982B4 &= 0xFFDF;
+        D_800982B4->state &= ~VI_STATE_BLACK;
     }
-    __osRestoreInt(temp_a0);
+    __osRestoreInt(mask);
 }

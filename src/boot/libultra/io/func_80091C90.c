@@ -1,48 +1,30 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-
-typedef struct Node {
-    u16 unk0;
-    u16 unk2;
-    u32 unk4;
-    void *unk8;
-    s32 unkC;
-} Node;
-
-extern Node D_80098250;
-extern Node D_80098280;
-extern Node *D_800982B0;
-extern Node *D_800982B4;
-extern s32 D_80000300;
-extern u8 D_80097780[];
-extern u8 D_800981B0[];
-extern u8 D_80098200[];
-
-void bzero(void *arg0, s32 arg1);
-void __osViSwapContext(void);
+#include "os_vi.h"
+#include "libc.h"
 
 void __osViInit(void) {
-    s32 t;
+    u32 tvType;
+
     bzero(&D_80098250, 0x60);
     D_800982B0 = &D_80098250;
     D_800982B4 = &D_80098280;
-    D_800982B4->unk2 = 1;
-    D_800982B0->unk2 = 1;
-    D_800982B4->unk4 = 0x80000000;
-    D_800982B0->unk4 = 0x80000000;
-    t = D_80000300;
-    if (t == 0) {
-        D_800982B4->unk8 = D_80097780;
-    } else if (t == 2) {
-        D_800982B4->unk8 = D_80098200;
+    D_800982B4->retraceCount = 1;
+    D_800982B0->retraceCount = 1;
+    D_800982B4->framep = (void *)0x80000000;
+    D_800982B0->framep = (void *)0x80000000;
+    tvType = D_80000300;
+    if (tvType == 0) {
+        D_800982B4->modep = &D_80097780;
+    } else if (tvType == 2) {
+        D_800982B4->modep = &D_80098200;
     } else {
-        D_800982B4->unk8 = D_800981B0;
+        D_800982B4->modep = &D_800981B0;
     }
-    D_800982B4->unk0 = 0x20;
-    D_800982B4->unkC = ((Node *) D_800982B4->unk8)->unk4;
-    if (*(volatile u32 *) 0xA4400010 >= 0xB) {
-        do {} while (*(volatile u32 *) 0xA4400010 >= 0xB);
+    D_800982B4->state = 0x20;
+    D_800982B4->control = D_800982B4->modep->comRegs.ctrl;
+    if (IO_READ(VI_CURRENT_REG) >= 0xB) {
+        do {} while (IO_READ(VI_CURRENT_REG) >= 0xB);
     }
-    *(u32 *) 0xA4400000 = 0;
+    IO_WRITE(VI_CONTROL_REG, 0);
     __osViSwapContext();
 }

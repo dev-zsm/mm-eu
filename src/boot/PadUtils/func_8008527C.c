@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "padutils.h"
 
-void PadUtils_GetRelXImpl(void);
-
-void PadUtils_GetRelX(void) {
-    PadUtils_GetRelXImpl();
+s8 PadUtils_GetRelX(Input *input) {
+    return PadUtils_GetRelXImpl(input);
 }

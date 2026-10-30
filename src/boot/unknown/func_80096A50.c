@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
-#include "types.h"
+#include "os_internal.h"
 
-s32 func_80096A50(u8 *s1, u8 *s2) {
+s32 func_80096A50(const u8 *s1, const u8 *s2) {
     u8 a;
     u8 b;
 

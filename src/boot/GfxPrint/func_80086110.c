@@ -1,22 +1,10 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "gfxprint.h"
 
-typedef struct {
-    void *unk0;
-    s32 unk4;
-    u16 unk8;
-    u16 unkA;
-    u16 unkC;
-    u8 unkE;
-    u8 unkF;
-    s32 unk10;
-} Obj;
+Gfx *GfxPrint_Close(GfxPrint *this) {
+    Gfx *dList = this->dList;
 
-s32 GfxPrint_Close(Obj *arg0) {
-    s32 temp_v0;
-
-    temp_v0 = arg0->unk4;
-    arg0->unk4 = 0;
-    arg0->unkF = arg0->unkF & 0xFF7F;
-    return temp_v0;
+    this->dList = NULL;
+    this->flags &= ~GFXPRINT_FLAG_OPEN;
+    return dList;
 }

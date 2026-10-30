@@ -30,13 +30,19 @@ tools/mm diff  ovl0050 func_8000009C src/overlays/0050/func_8000009C.c
   the overlay build that links the relocated sections and checks the relocation table is not written yet (see the
   roadmap). A MATCH needs the exact size of the function.
 - `make split` runs step 3 of the setup, and `make check` needs its output.
-- The flags, `// COMPILER: ido53`, the idioms and the rules about sources are those of the other segments. Only the
-  assembly of our ROM and the local tools are used.
+- The flags, `// COMPILER: ido53` and the idioms are those of the other segments.
 
 ## Order of work
 
 Start with the smallest overlays: they match fastest and show the structure shared by many of them (initialisation,
 update, draw functions). Then the large ones. Progress is added up over all the overlays in [PROGRESS.md](PROGRESS.md).
+
+## Signatures
+
+Overlay functions come from the automatic drafts (`arg0`, `u8 *`, raw field offsets). Their real types (actor, play state,
+scene and menu callbacks) come from shared headers of `include/` once the structures are known; the rule is in
+[CONTRIBUTING.md](CONTRIBUTING.md#code-style), the count is the "Typed signatures" column of [PROGRESS.md](PROGRESS.md), and
+the plan is in [ROADMAP.md](ROADMAP.md).
 
 ## Names
 

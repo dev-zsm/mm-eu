@@ -1,19 +1,16 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-extern s32 __osSpDeviceBusy(void);
-extern s32 osVirtualToPhysical(s32 a0);
-
-s32 __osSpRawStartDma(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 __osSpRawStartDma(s32 direction, u32 devAddr, void *dramAddr, u32 size) {
     if (__osSpDeviceBusy() != 0) {
         return -1;
     }
-    *(s32 *)0xA4040000 = arg1;
-    *(s32 *)0xA4040004 = osVirtualToPhysical(arg2);
-    if (arg0 == 0) {
-        *(s32 *)0xA404000C = arg3 - 1;
+    IO_WRITE(SP_MEM_ADDR_REG, devAddr);
+    IO_WRITE(SP_DRAM_ADDR_REG, osVirtualToPhysical(dramAddr));
+    if (direction == OS_READ) {
+        IO_WRITE(SP_WR_LEN_REG, size - 1);
     } else {
-        *(s32 *)0xA4040008 = arg3 - 1;
+        IO_WRITE(SP_RD_LEN_REG, size - 1);
     }
     return 0;
 }

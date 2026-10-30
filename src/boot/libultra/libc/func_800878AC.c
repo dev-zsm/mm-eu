@@ -1,49 +1,23 @@
 // FLAGS: -O2 -g0 -mips2
+#include "arena.h"
 
-typedef signed char s8;
-typedef unsigned char u8;
-typedef signed short s16;
-typedef unsigned short u16;
-typedef signed int s32;
-typedef unsigned int u32;
-typedef signed long long s64;
-typedef unsigned long long u64;
-typedef float f32;
-typedef double f64;
-typedef struct Node
-{
-  s16 type;
-  s16 flag;
-  u32 val;
-  struct Node *next;
-} Node;
-extern void ArenaImpl_Lock(void);
-extern void ArenaImpl_Unlock(void);
-void func_800878AC(Node **head, u32 *a1, u32 *a2, u32 *a3)
-{
-  Node *node;
-  ArenaImpl_Lock();
-  *a1 = 0;
-  *a2 = 0;
-  *a3 = 0;
-  for (node = *head; node != ((void *) 0); node = node->next)
-  {
-    if (node->flag != 0)
-    {
-      *a2 += node->val;
-      if ((*a1) < node->val)
-      {
-        *a1 = node->val;
-      }
-    }
-    else
-    {
-      *a3 += node->val;
-      if (!head)
-      {
-      }
-    }
-  }
+void func_800878AC(Arena *arena, u32 *maxFree, u32 *bytesFree, u32 *bytesAllocated) {
+    ArenaNode *node;
 
-  ArenaImpl_Unlock();
+    ArenaImpl_Lock(arena);
+    *maxFree = 0;
+    *bytesFree = 0;
+    *bytesAllocated = 0;
+    for (node = arena->head; node != NULL; node = node->next) {
+        if (node->isFree != 0) {
+            *bytesFree += node->size;
+            if (*maxFree < node->size) {
+                *maxFree = node->size;
+            }
+        } else {
+            *bytesAllocated += node->size;
+        }
+    }
+
+    ArenaImpl_Unlock(arena);
 }

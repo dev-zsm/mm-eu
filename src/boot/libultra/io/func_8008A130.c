@@ -1,26 +1,17 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_cont.h"
 
-extern u8 D_8009D2A0[];
-extern u8 D_8009D2E0;
-
-void __osSiGetAccess(s32 a0);
-void __osPackReadData(void);
-s32 __osSiRawStartDma(s32 a0, void *a1);
-void osRecvMesg(s32 a0, s32 a1, s32 a2);
-void __osSiRelAccess(void);
-
-s32 osContStartReadData(s32 arg0) {
+s32 osContStartReadData(OSMesgQueue *mq) {
     s32 ret;
 
-    __osSiGetAccess(arg0);
-    if (D_8009D2E0 != 1) {
+    __osSiGetAccess();
+    if (D_8009D2E0 != CONT_CMD_READ_BUTTON) {
         __osPackReadData();
-        __osSiRawStartDma(1, D_8009D2A0);
-        osRecvMesg(arg0, 0, 1);
+        __osSiRawStartDma(OS_WRITE, &D_8009D2A0);
+        osRecvMesg(mq, NULL, OS_MESG_BLOCK);
     }
-    ret = __osSiRawStartDma(0, D_8009D2A0);
-    D_8009D2E0 = 1;
+    ret = __osSiRawStartDma(OS_READ, &D_8009D2A0);
+    D_8009D2E0 = CONT_CMD_READ_BUTTON;
     __osSiRelAccess();
     return ret;
 }

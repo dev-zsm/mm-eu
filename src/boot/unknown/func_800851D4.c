@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "os_internal.h"
 
-s32 func_800851D4(u16 *a0, u16 a1) {
-    return (*a0 ^ a1) == 0;
+s32 func_800851D4(u16 *ptr, u16 value) {
+    return (*ptr ^ value) == 0;
 }

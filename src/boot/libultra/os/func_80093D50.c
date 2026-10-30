@@ -1,15 +1,11 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-void __osPiGetAccess(void);
-s32 __osPiRelAccess(void);
-s32 __osEPiRawWriteIo(s32, s32, s32);
-
-s32 osEPiWriteIo(s32 arg0, s32 arg1, s32 arg2) {
+s32 osEPiWriteIo(OSPiHandle *handle, u32 devAddr, u32 data) {
     s32 ret;
 
     __osPiGetAccess();
-    ret = __osEPiRawWriteIo(arg0, arg1, arg2);
+    ret = __osEPiRawWriteIo(handle, devAddr, data);
     __osPiRelAccess();
     return ret;
 }

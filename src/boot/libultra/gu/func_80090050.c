@@ -1,42 +1,41 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 // dtor is a function-static in the original source, so the object carries its own .data (the segment build keeps this function as assembly)
-#include "types.h"
+#include "gu.h"
+#include "libm.h"
 
-f32 __sinf(f32);
-f32 __cosf(f32);
-
-void guPositionF(f32 *m, f32 x, f32 y, f32 z, f32 s, f32 tx, f32 ty, f32 tz) {
+void guPositionF(MtxF mf, f32 roll, f32 pitch, f32 yaw, f32 scale, f32 x, f32 y, f32 z) {
     static f32 dtor = 3.1415926 / 180.0;
-    f32 sx;
-    f32 sy;
-    f32 sz;
-    f32 cx;
-    f32 cy;
-    f32 cz;
-    x = x * dtor;
-    y = y * dtor;
-    z = z * dtor;
-    sx = __sinf(x);
-    cx = __cosf(x);
-    sy = __sinf(y);
-    cy = __cosf(y);
-    sz = __sinf(z);
-    cz = __cosf(z);
+    f32 sinRoll;
+    f32 sinPitch;
+    f32 sinYaw;
+    f32 cosRoll;
+    f32 cosPitch;
+    f32 cosYaw;
 
-    m[0] = cy * cz * s;
-    m[1] = cy * sz * s;
-    m[2] = -sy * s;
-    m[3] = 0.0f;
-    m[4] = (sx * sy * cz - cx * sz) * s;
-    m[5] = (sx * sy * sz + cx * cz) * s;
-    m[6] = sx * cy * s;
-    m[7] = 0.0f;
-    m[8] = (cx * sy * cz + sx * sz) * s;
-    m[9] = (cx * sy * sz - sx * cz) * s;
-    m[10] = cx * cy * s;
-    m[11] = 0.0f;
-    m[12] = tx;
-    m[13] = ty;
-    m[14] = tz;
-    m[15] = 1.0f;
+    roll = roll * dtor;
+    pitch = pitch * dtor;
+    yaw = yaw * dtor;
+    sinRoll = __sinf(roll);
+    cosRoll = __cosf(roll);
+    sinPitch = __sinf(pitch);
+    cosPitch = __cosf(pitch);
+    sinYaw = __sinf(yaw);
+    cosYaw = __cosf(yaw);
+
+    mf[0][0] = cosPitch * cosYaw * scale;
+    mf[0][1] = cosPitch * sinYaw * scale;
+    mf[0][2] = -sinPitch * scale;
+    mf[0][3] = 0.0f;
+    mf[1][0] = (sinRoll * sinPitch * cosYaw - cosRoll * sinYaw) * scale;
+    mf[1][1] = (sinRoll * sinPitch * sinYaw + cosRoll * cosYaw) * scale;
+    mf[1][2] = sinRoll * cosPitch * scale;
+    mf[1][3] = 0.0f;
+    mf[2][0] = (cosRoll * sinPitch * cosYaw + sinRoll * sinYaw) * scale;
+    mf[2][1] = (cosRoll * sinPitch * sinYaw - sinRoll * cosYaw) * scale;
+    mf[2][2] = cosRoll * cosPitch * scale;
+    mf[2][3] = 0.0f;
+    mf[3][0] = x;
+    mf[3][1] = y;
+    mf[3][2] = z;
+    mf[3][3] = 1.0f;
 }

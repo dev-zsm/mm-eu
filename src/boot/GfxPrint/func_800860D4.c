@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "gfxprint.h"
 
-void GfxPrint_Destroy(s32 arg0) {
+void GfxPrint_Destroy(GfxPrint *this) {
 }

@@ -1,9 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "libultra_libc.h"
 
-void *func_80096AD0(void *dst, void *src, u32 n) {
+void *func_80096AD0(void *dst, const void *src, u32 n) {
     u8 *d = dst;
-    u8 *s = src;
+    const u8 *s = src;
 
     if (d == s) {
         return dst;

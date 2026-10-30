@@ -1,11 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-extern s32 D_80098060;
-
-s32 osPiGetCmdQueue(void) {
-    if (*(s32 *)&D_80098060 == 0) {
-        return 0;
+OSMesgQueue *osPiGetCmdQueue(void) {
+    if (D_80098060.active == 0) {
+        return NULL;
     }
-    return ((s32 *)&D_80098060)[2];
+    return D_80098060.cmdQueue;
 }

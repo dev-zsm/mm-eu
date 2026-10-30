@@ -1,13 +1,14 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "actor.h"
 
 M2C_UNK func_800B02EC(s32, s32);                    /* extern */
 M2C_UNK func_800E0FAC(s32, s32);                    /* extern */
 M2C_UNK func_800E1F64(s32, s32);                    /* extern */
 
-void func_80001F80(u8 *arg0, s32 arg1) {
-    func_800E0FAC(arg1, arg0 + 0x18C);
-    func_800E1F64(arg1, arg0 + 0x1D8);
-    func_800B02EC(arg1, M2C_FIELD(arg0, s32 *, 0x4DC));
+void func_80001F80(Actor *thisx, PlayState *play) {
+    func_800E0FAC(play, (u8 *)thisx + 0x18C);
+    func_800E1F64(play, (u8 *)thisx + 0x1D8);
+    func_800B02EC(play, M2C_FIELD(thisx, s32 *, 0x4DC));
 }

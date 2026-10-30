@@ -1,13 +1,6 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 // COMPILER: ido53
-#include "types.h"
-
-extern f64 D_800995F0[];
-extern f64 D_80099618;
-extern f64 D_80099620;
-extern f64 D_80099628;
-extern f32 D_80099630;
-extern f32 D_80099820;
+#include "libm.h"
 
 f32 __sinf(f32 x) {
     f64 dx;

@@ -1,17 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "libc.h"
+#include "os_voice.h"
 
-typedef struct {
-    s32 mq;
-    s32 channel;
-} VoiceHandle;
-
-s32 __osVoiceGetStatus(s32, s32, u8 *);
-s32 __osVoiceCheckResult(VoiceHandle *, u8 *);
-void bzero(void *, s32);
-s32 __osVoiceContWrite20(s32, s32, s32, u8 *);
-
-s32 osVoiceSetWord(VoiceHandle *hd, u8 *word) {
+s32 osVoiceSetWord(OSVoiceHandle *hd, u8 *word) {
     s32 errorCode;
     s32 n;
     s32 i;
@@ -25,7 +16,7 @@ s32 osVoiceSetWord(VoiceHandle *hd, u8 *word) {
         return errorCode;
     }
     if (status & 2) {
-        return 0xF;
+        return CONT_ERR_VOICE_NO_RESPONSE;
     }
     n = 0;
     p = word;
@@ -62,11 +53,11 @@ s32 osVoiceSetWord(VoiceHandle *hd, u8 *word) {
     errorCode = __osVoiceCheckResult(hd, &status);
     if (errorCode != 0) {
         if (errorCode & 0x100) {
-            errorCode = 0xD;
+            errorCode = CONT_ERR_VOICE_MEMORY;
         } else if (errorCode & 0x200) {
-            errorCode = 0xE;
+            errorCode = CONT_ERR_VOICE_WORD;
         } else if (errorCode & 0xFF00) {
-            errorCode = 5;
+            errorCode = PFS_ERR_INVALID;
         }
     }
     return errorCode;

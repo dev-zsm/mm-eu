@@ -1,41 +1,11 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+#include "fault.h"
 
-#define CHECK_BTN_ALL(state, combo) (~((state) | ~(combo)) == 0)
-
-typedef struct {
-    u16 button;
-    s8 stickX;
-    s8 stickY;
-    u8 errNo;
-} ContPad;
-
-typedef struct {
-    ContPad cur;
-    ContPad prev;
-    ContPad press;
-    ContPad rel;
-} Input;
-
-typedef struct {
-    u8 pad0[0x7CF];
-    u8 exit;
-    u8 pad7D0[0x7E4 - 0x7D0];
-    Input padInput;
-} FaultCtx;
-
-extern FaultCtx *D_8009C220;
-extern u8 D_80098C08[];
-
-extern void Fault_Sleep(u32 ms);
-extern void Fault_UpdatePadImpl(void);
-extern void Fault_DrawMemDumpContents(char *title, u32 addr, u32 arg2);
-
-void Fault_DrawMemDump(u32 pc, u32 sp, u32 cLeftJump, u32 cDownJump) {
+void Fault_DrawMemDump(u32 pc, u32 sp, u32 cLeftJump, u32 cRightJump) {
     u32 addr = pc;
     s32 scrollCountdown;
     s32 off;
-    Input *input = &D_8009C220->padInput;
+    Input *input = &D_8009C220->padInput[0];
 
     do {
         if (addr < 0x80000000) {
@@ -45,52 +15,52 @@ void Fault_DrawMemDump(u32 pc, u32 sp, u32 cLeftJump, u32 cDownJump) {
             addr = 0x807FFF00;
         }
         addr &= ~0xF;
-        scrollCountdown = 0; // dead store, only to match scheduling
+        scrollCountdown = 0; /* matching: dead store, only for the scheduling */
         Fault_DrawMemDumpContents(D_80098C08, addr, 0);
         scrollCountdown = 600;
-        while (D_8009C220->exit) {
+        while (D_8009C220->autoScroll) {
             if (scrollCountdown == 0) {
                 return;
             }
             scrollCountdown--;
             Fault_Sleep(0x10);
             Fault_UpdatePadImpl();
-            if (CHECK_BTN_ALL(input->press.button, 0x20)) {
-                D_8009C220->exit = 0;
+            if (CHECK_BTN_ALL(input->press.button, BTN_L)) {
+                D_8009C220->autoScroll = 0;
             }
         }
         do {
             Fault_Sleep(0x10);
             Fault_UpdatePadImpl();
         } while (input->press.button == 0);
-        if (CHECK_BTN_ALL(input->press.button, 0x1000)) {
+        if (CHECK_BTN_ALL(input->press.button, BTN_START)) {
             return;
         }
         off = 0x10;
-        if (CHECK_BTN_ALL(input->cur.button, 0x8000)) {
+        if (CHECK_BTN_ALL(input->cur.button, BTN_A)) {
             off = 0x100;
         }
-        if (CHECK_BTN_ALL(input->cur.button, 0x4000)) {
+        if (CHECK_BTN_ALL(input->cur.button, BTN_B)) {
             off <<= 8;
         }
-        if (CHECK_BTN_ALL(input->press.button, 0x800)) {
+        if (CHECK_BTN_ALL(input->press.button, BTN_DUP)) {
             addr -= off;
         }
-        if (CHECK_BTN_ALL(input->press.button, 0x400)) {
+        if (CHECK_BTN_ALL(input->press.button, BTN_DDOWN)) {
             addr += off;
         }
-        if (CHECK_BTN_ALL(input->press.button, 8)) {
+        if (CHECK_BTN_ALL(input->press.button, BTN_CUP)) {
             addr = pc;
         }
-        if (CHECK_BTN_ALL(input->press.button, 4)) {
+        if (CHECK_BTN_ALL(input->press.button, BTN_CDOWN)) {
             addr = sp;
         }
-        if (CHECK_BTN_ALL(input->press.button, 2)) {
+        if (CHECK_BTN_ALL(input->press.button, BTN_CLEFT)) {
             addr = cLeftJump;
         }
-        if (CHECK_BTN_ALL(input->press.button, 1)) {
-            addr = cDownJump;
+        if (CHECK_BTN_ALL(input->press.button, BTN_CRIGHT)) {
+            addr = cRightJump;
         }
-    } while (!CHECK_BTN_ALL(input->press.button, 0x20));
-    D_8009C220->exit = 1;
+    } while (!CHECK_BTN_ALL(input->press.button, BTN_L));
+    D_8009C220->autoScroll = 1;
 }

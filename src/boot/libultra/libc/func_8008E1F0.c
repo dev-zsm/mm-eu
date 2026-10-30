@@ -1,34 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
-
-typedef struct {
-    s64 ll;
-    char *s;
-    s32 n0;
-    s32 nz0;
-    s32 n1;
-    s32 nz1;
-    s32 n2;
-    s32 nz2;
-    s32 prec;
-    s32 width;
-    u32 nchar;
-    u32 flags;
-    u8 qual;
-} Pft;
-
-typedef char *va_list;
-typedef void *(*PrintfCb)(void *, const char *, u32);
-
-extern char D_80098110[];
-extern char D_80098134[];
-extern char D_800996D0[];
-extern char D_800996D4[];
-extern s32 D_800996DC[];
-
-extern char *strchr();
-extern void _Putfld();
+#include "printf.h"
 
 // matching: PUT/PAD/ATOI/VAI are macros in the original sources; MAX_PAD is unsigned in the clamp
 #define MAX_PAD 32
@@ -59,8 +31,7 @@ extern void _Putfld();
         }                                   \
     }
 
-s32 _Printf(PrintfCb pfn, void *arg, const char *fmt, va_list ap) {
-
+s32 _Printf(PrintfCallback pfn, void *arg, const char *fmt, va_list ap) {
     Pft x;
 
     x.nchar = 0;
@@ -88,7 +59,7 @@ s32 _Printf(PrintfCb pfn, void *arg, const char *fmt, va_list ap) {
             s++;
             if (x.width < 0) {
                 x.width = -x.width;
-                x.flags |= 4;
+                x.flags |= FLAGS_MINUS;
             }
         } else {
             x.width = 0;
@@ -113,7 +84,7 @@ s32 _Printf(PrintfCb pfn, void *arg, const char *fmt, va_list ap) {
         }
         _Putfld(&x, &ap, *s, ac);
         x.width -= x.n0 + x.nz0 + x.n1 + x.nz1 + x.n2 + x.nz2;
-        if (!(x.flags & 4)) {
+        if (!(x.flags & FLAGS_MINUS)) {
             PAD(D_80098110, x.width);
         }
         PUT(ac, x.n0);
@@ -122,7 +93,7 @@ s32 _Printf(PrintfCb pfn, void *arg, const char *fmt, va_list ap) {
         PAD(D_80098134, x.nz1);
         PUT(x.s + x.n1, x.n2);
         PAD(D_80098134, x.nz2);
-        if (x.flags & 4) {
+        if (x.flags & FLAGS_MINUS) {
             PAD(D_80098110, x.width);
         }
         fmt = s + 1;

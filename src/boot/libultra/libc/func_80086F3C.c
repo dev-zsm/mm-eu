@@ -1,9 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "libc.h"
 
-extern u8 D_8009D0F0[];
-extern void func_800878AC(void *, void *, void *, void *);
-
-void GetFreeArena(void *a0, void *a1, void *a2) {
-    func_800878AC(D_8009D0F0, a0, a1, a2);
+void GetFreeArena(u32 *maxFree, u32 *bytesFree, u32 *bytesAllocated) {
+    func_800878AC(&D_8009D0F0, maxFree, bytesFree, bytesAllocated);
 }

@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "types.h"
+#include "irqmgr.h"
 
-extern void IrqMgr_CheckStacks(void);
-
-void IrqMgr_HandlePRENMI500(s32 arg0) {
+void IrqMgr_HandlePRENMI500(IrqMgr *irqMgr) {
     IrqMgr_CheckStacks();
 }

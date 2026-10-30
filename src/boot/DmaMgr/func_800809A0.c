@@ -1,26 +1,17 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "dmamgr.h"
 
-// Translates addr through the range table (see DmaMgr_FindDmaEntry). Linear ranges map
-// base + (addr - start); flagged ranges only map their exact start address.
-// Returns -1 if addr is not mapped.
-typedef struct {
-    u32 start;
-    u32 end;
-    u32 base;
-    u32 flags;
-} MapEntry;
+// Translates vrom to a ROM address; a compressed file (romEnd != 0) only maps its first address.
+// Returns -1 if vrom is not mapped.
+s32 DmaMgr_TranslateVromToRom(u32 vrom) {
+    DmaEntry *entry = DmaMgr_FindDmaEntry(vrom);
 
-MapEntry *DmaMgr_FindDmaEntry(u32 addr);
-
-s32 DmaMgr_TranslateVromToRom(u32 addr) {
-    MapEntry *e = DmaMgr_FindDmaEntry(addr);
-    if (e != NULL) {
-        if (e->flags == 0) {
-            return e->base + addr - e->start;
+    if (entry != NULL) {
+        if (entry->romEnd == 0) {
+            return entry->romStart + vrom - entry->vromStart;
         }
-        if (addr == e->start) {
-            return e->base;
+        if (vrom == entry->vromStart) {
+            return entry->romStart;
         }
         return -1;
     }

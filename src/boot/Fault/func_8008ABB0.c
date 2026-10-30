@@ -1,22 +1,13 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "fault.h"
+#include "os_vi.h"
 
-typedef struct {
-    s32 pad0;
-    s32 unk4;
-} Struct800982B4;
+void *func_8008ABB0(void) {
+    OSIntMask mask;
+    void *framep;
 
-extern Struct800982B4 *D_800982B4;
-
-s32 __osDisableInt(void);
-void __osRestoreInt(s32 a);
-
-s32 func_8008ABB0(void) {
-    s32 temp_a0;
-    s32 sp18;
-
-    temp_a0 = __osDisableInt();
-    sp18 = D_800982B4->unk4;
-    __osRestoreInt(temp_a0);
-    return sp18;
+    mask = __osDisableInt();
+    framep = D_800982B4->framep;
+    __osRestoreInt(mask);
+    return framep;
 }

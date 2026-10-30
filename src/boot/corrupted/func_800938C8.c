@@ -1,32 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
-
-typedef struct {
-    u8 pad0[0x60];
-    s32 inodeStartPage;
-    u8 banks;
-} OSPfs;
-
-typedef union {
-    u16 ipage;
-    struct {
-        u8 bank;
-        u8 page;
-    } inode_t;
-} __OSInodeUnit;
-
-typedef struct {
-    __OSInodeUnit inodePage[128];
-} __OSInode;
-
-typedef struct {
-    __OSInode inode;
-    u8 bank;
-    u8 map[256];
-} __OSInodeCache;
-
-s32 __osPfsRWInode(OSPfs *pfs, __OSInode *inode, u8 flag, u8 bank);
+#include "libultra_libc.h"
 
 s32 corrupted_init(OSPfs *pfs, __OSInodeCache *cache) {
     s32 i;

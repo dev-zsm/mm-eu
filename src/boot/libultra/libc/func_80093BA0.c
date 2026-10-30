@@ -1,32 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
-
-typedef struct {
-    u8 pad0[0x60];
-    s32 inodeStartPage;
-    u8 banks;
-} OSPfs;
-
-typedef union {
-    u16 ipage;
-    struct {
-        u8 bank;
-        u8 page;
-    } inode_t;
-} __OSInodeUnit;
-
-typedef struct {
-    __OSInodeUnit inodePage[128];
-} __OSInode;
-
-typedef struct {
-    __OSInode inode;
-    u8 bank;
-    u8 map[256];
-} __OSInodeCache;
-
-s32 __osPfsRWInode(OSPfs *pfs, __OSInode *inode, u8 flag, u8 bank);
+#include "libultra_libc.h"
 
 s32 corrupted(OSPfs *pfs, __OSInodeUnit fpage, __OSInodeCache *cache) {
     s32 j;
@@ -46,12 +20,12 @@ s32 corrupted(OSPfs *pfs, __OSInodeUnit fpage, __OSInodeCache *cache) {
         if (bank == fpage.inode_t.bank || (cache->map[n] & (1 << (bank % 8)))) {
             if (bank != cache->bank) {
                 ret = __osPfsRWInode(pfs, &cache->inode, 0, bank);
-                if (ret != 0 && ret != 3) {
+                if (ret != 0 && ret != PFS_ERR_INCONSISTENT) {
                     return ret;
                 }
                 cache->bank = bank;
             }
-            for (j = offset; hit < 2 && j < 128; j++) {
+            for (j = offset; hit < 2 && j < PFS_INODE_ENTRIES; j++) {
                 if (fpage.ipage == cache->inode.inodePage[j].ipage) {
                     hit++;
                 }

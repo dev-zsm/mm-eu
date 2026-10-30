@@ -1,11 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "padutils.h"
 
-s32 PadUtils_GetCurX(s32);
-s32 PadUtils_GetCurY(s32);
-void PadUtils_SetRelXY(s32, s32, s32);
-
-void PadUtils_UpdateRelXY(s32 input) {
+void PadUtils_UpdateRelXY(Input *input) {
     s32 curX = PadUtils_GetCurX(input);
     s32 curY = PadUtils_GetCurY(input);
     s32 relX;

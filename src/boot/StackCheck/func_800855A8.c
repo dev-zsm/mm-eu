@@ -1,14 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "stackcheck.h"
 
-extern void StackCheck_GetState(void);
-extern void StackCheck_CheckAll(void);
-
-void StackCheck_Check(s32 arg0) {
-    if (arg0 == 0) {
-        StackCheck_CheckAll();
-    } else {
-        StackCheck_GetState();
+s32 StackCheck_Check(StackEntry *entry) {
+    if (entry == NULL) {
+        return StackCheck_CheckAll();
     }
+    return StackCheck_GetState(entry);
 }
-

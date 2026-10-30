@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Candidate names from a reference symbol table (zeldaret/mm function lists), found by aligning function-size
-sequences with ours. Research only: no code is read from the reference, and a candidate is applied to
+sequences with ours. A candidate is applied to
 config/<seg>.names.txt only through this strict filter (`--write`), tagged `ref:`.
 usage: ref_align.py <seg> <ref functions.txt> [--write]
 Strict filter: the function lies in a run of >= 20 consecutive functions with identical sizes, at least 2 functions

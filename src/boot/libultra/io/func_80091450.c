@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-void osDpSetStatus(u32 a0) {
-    *(u32 *)0xA410000C = a0;
+void osDpSetStatus(u32 status) {
+    IO_WRITE(DPC_STATUS_REG, status);
 }

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
-void func_80086D18(void);
-void Math_FCeilF(void) {
-    func_80086D18();
+#include "libm.h"
+
+f32 Math_FCeilF(f32 x) {
+    return func_80086D18(x);
 }

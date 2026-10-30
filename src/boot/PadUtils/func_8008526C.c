@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "padutils.h"
 
-s8 PadUtils_GetRelXImpl(u8 *a0) {
-    return *(s8 *)(a0 + 0x14);
+s8 PadUtils_GetRelXImpl(Input *input) {
+    return input->rel.stick_x;
 }

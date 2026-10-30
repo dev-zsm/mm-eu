@@ -1,23 +1,17 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+#include "fault.h"
 
-extern void FaultDrawer_Printf();
-extern u8 D_80098890[];
-extern u8 D_800988A0[];
-extern u8 D_800988A8[];
-extern s32 D_80096D68[];
-
-void Fault_PrintFPCSR(u32 arg0) {
+void Fault_PrintFPCSR(u32 value) {
     s32 i;
-    u32 bit = 0x20000;
+    u32 flag = FPCSR_CAUSE_UNIMPLEMENTED;
 
-    FaultDrawer_Printf(D_80098890, arg0);
-    for (i = 0; i != 6; i++) {
-        if (arg0 & bit) {
+    FaultDrawer_Printf(D_80098890, value);
+    for (i = 0; i < FPCSR_NUM_CAUSES; i++) {
+        if (value & flag) {
             FaultDrawer_Printf(D_800988A0, D_80096D68[i]);
             break;
         }
-        bit >>= 1;
+        flag >>= 1;
     }
     FaultDrawer_Printf(D_800988A8);
 }

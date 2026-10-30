@@ -1,26 +1,14 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-typedef struct Node {
-    struct Node *next;
-    struct Node *prev;
-    u64 interval;
-    u64 value;
-} Node;
-
-extern Node *D_80098160;
-extern u32 __osDisableInt(void);
-extern void __osSetCompare(s32 a);
-extern void __osRestoreInt(u32 a);
-
-s32 osStopTimer(Node *t) {
-    register u32 savedMask;
-    Node *timep;
+s32 osStopTimer(OSTimer *t) {
+    register OSIntMask saveMask;
+    OSTimer *timep;
 
     if (t->next == NULL) {
         return -1;
     }
-    savedMask = __osDisableInt();
+    saveMask = __osDisableInt();
     timep = t->next;
     if (timep != D_80098160) {
         timep->value += t->value;
@@ -32,6 +20,6 @@ s32 osStopTimer(Node *t) {
     if (D_80098160->next == D_80098160) {
         __osSetCompare(0);
     }
-    __osRestoreInt(savedMask);
+    __osRestoreInt(saveMask);
     return 0;
 }

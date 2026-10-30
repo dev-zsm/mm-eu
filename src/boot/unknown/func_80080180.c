@@ -1,5 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-void func_80080180(u32 *p, u32 n, u32 v) {
- while (n > 0) { n -= 4; *p++ = v; }
+#include "os_internal.h"
+
+void func_80080180(u32 *dst, u32 size, u32 value) {
+    while (size > 0) {
+        size -= 4;
+        *dst++ = value;
+    }
 }

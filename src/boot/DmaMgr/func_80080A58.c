@@ -1,30 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "types.h"
-
-typedef struct {
-    u32 vromAddr;
-    void *dramAddr;
-    u32 size;
-} DmaRequest;
-
-typedef struct {
-    u32 vromStart;
-    u32 vromEnd;
-    u32 romStart;
-    u32 romEnd;
-} DmaEntry;
-
-extern u16 D_8009B68C;
-extern DmaEntry D_8009FC80[];
-extern u8 D_80098454[];
-extern u8 D_80098464[];
-extern u8 D_80098474[];
-extern u8 D_80098484[];
-s32 DmaMgr_FindDmaIndex(u32 vrom);
-void func_800807E0(u32 rom, void *ram, u32 size);
-void Fault_AddHungupAndCrash(void *file, s32 line);
-void Yaz0_Decompress(u32 romStart, void *dst, u32 size);
-void osSetThreadPri(void *t, s32 pri);
+#include "dbg.h"
+#include "yaz0.h"
 
 void DmaMgr_ProcessRequest(DmaRequest *req) {
     u32 vrom = req->vromAddr;
@@ -53,9 +29,9 @@ void DmaMgr_ProcessRequest(DmaRequest *req) {
         if (size != D_8009FC80[index].vromEnd - D_8009FC80[index].vromStart) {
             Fault_AddHungupAndCrash(D_80098474, 0x20D);
         }
-        osSetThreadPri(0, 10);
+        osSetThreadPri(NULL, 10);
         Yaz0_Decompress(romStart, ram, romSize);
-        osSetThreadPri(0, 0x11);
+        osSetThreadPri(NULL, 0x11);
         return;
     }
     Fault_AddHungupAndCrash(D_80098484, 0x22E);

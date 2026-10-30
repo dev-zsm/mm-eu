@@ -1,11 +1,8 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "types.h"
+#include "gu.h"
+#include "libm.h"
 
-extern void guMtxIdentF(f32 mf[4][4]);
-extern f32 __cosf(f32 x);
-extern f32 __sinf(f32 x);
-
-void func_8008ABF0(f32 mf[4][4], u16 *perspNorm, f32 fovy, f32 aspect, f32 near, f32 far, f32 scale) {
+void func_8008ABF0(MtxF mf, u16 *perspNorm, f32 fovy, f32 aspect, f32 near, f32 far, f32 scale) {
     f32 cot;
     s32 i;
     s32 j;

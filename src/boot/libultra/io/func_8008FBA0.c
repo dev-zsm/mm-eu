@@ -1,11 +1,11 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
 s32 __osSpDeviceBusy(void) {
-    s32 v;
+    u32 status;
 
-    v = *(s32 *)0xA4040010;
-    if (v & 0x1C) {
+    status = IO_READ(SP_STATUS_REG);
+    if (status & (SP_STATUS_DMA_BUSY | SP_STATUS_DMA_FULL | SP_STATUS_IO_FULL)) {
         return 1;
     }
     return 0;

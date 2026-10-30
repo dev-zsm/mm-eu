@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "padutils.h"
 
-void PadUtils_GetRelYImpl(void);
-
-void PadUtils_GetRelY(void) {
-    PadUtils_GetRelYImpl();
+s8 PadUtils_GetRelY(Input *input) {
+    return PadUtils_GetRelYImpl(input);
 }

@@ -1,9 +1,10 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "actor.h"
 
 M2C_UNK func_800C625C(s32, s32, s32, s32);          /* extern */
 
-void func_800003A8(u8 *arg0, s32 arg1) {
-    func_800C625C(arg1, arg1 + 0x880, M2C_FIELD(arg0, s32 *, 0x144), arg1);
+void func_800003A8(Actor *thisx, PlayState *play) {
+    func_800C625C(play, (u8 *)play + 0x880, M2C_FIELD(thisx, s32 *, 0x144), play);
 }

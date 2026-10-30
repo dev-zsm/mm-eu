@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-void GfxPrint_VPrintf(s32 a, s32 b, s32 *c);
-void GfxPrint_Printf(s32 a0, s32 a1, s32 a2, ...) {
-    s32 *p = &a1;
-    GfxPrint_VPrintf(a0, *p, &a2);
+#include "gfxprint.h"
+
+s32 GfxPrint_Printf(GfxPrint *this, const char *fmt, ...) {
+    /* the first variadic word sits in the home slot right after fmt */
+    return GfxPrint_VPrintf(this, fmt, (va_list)&fmt + 4);
 }

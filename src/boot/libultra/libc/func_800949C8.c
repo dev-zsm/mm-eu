@@ -1,28 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "printf.h"
 
-typedef struct {
-    s64 ll;
-    u8 *s;
-    s32 n0;
-    s32 nz0;
-    s32 n1;
-    s32 nz1;
-    s32 n2;
-    s32 nz2;
-    s32 prec;
-    s32 width;
-    u32 nchar;
-    u32 flags;
-    u8 qual;
-} Pft;
-
-extern u8 D_80099880[];
-
-void memcpy(void *dst, void *src, u32 n);
-
-void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
+void _Genld(Pft *px, char code, char *p, s16 nsig, s16 xexp) {
     if (nsig <= 0) {
         p = D_80099880;
         nsig = 1;
@@ -30,7 +10,7 @@ void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
     if (code == 'f' || ((code == 'g' || code == 'G') && xexp >= -4 && xexp < px->prec)) {
         xexp++;
         if (code != 'f') {
-            if (!(px->flags & 8) && nsig < px->prec) {
+            if (!(px->flags & FLAGS_HASH) && nsig < px->prec) {
                 px->prec = nsig;
             }
             if ((px->prec -= xexp) < 0) {
@@ -39,7 +19,7 @@ void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
         }
         if (xexp <= 0) {
             px->s[px->n1++] = '0';
-            if (px->prec > 0 || (px->flags & 8)) {
+            if (px->prec > 0 || (px->flags & FLAGS_HASH)) {
                 px->s[px->n1++] = '.';
             }
             if (px->prec < -xexp) {
@@ -57,7 +37,7 @@ void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
             memcpy(px->s + px->n1, p, nsig);
             px->n1 += nsig;
             px->nz1 = xexp - nsig;
-            if (px->prec > 0 || (px->flags & 8)) {
+            if (px->prec > 0 || (px->flags & FLAGS_HASH)) {
                 px->s[px->n1] = '.';
                 px->n2++;
             }
@@ -66,7 +46,7 @@ void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
             memcpy(px->s + px->n1, p, xexp);
             px->n1 += xexp;
             nsig -= xexp;
-            if (px->prec > 0 || (px->flags & 8)) {
+            if (px->prec > 0 || (px->flags & FLAGS_HASH)) {
                 px->s[px->n1++] = '.';
             }
             if (px->prec < nsig) {
@@ -91,7 +71,7 @@ void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
             }
         }
         px->s[px->n1++] = *p++;
-        if (px->prec > 0 || (px->flags & 8)) {
+        if (px->prec > 0 || (px->flags & FLAGS_HASH)) {
             px->s[px->n1++] = '.';
         }
         if (px->prec > 0) {
@@ -121,7 +101,7 @@ void _Genld(Pft *px, char code, u8 *p, s16 nsig, s16 xexp) {
         *p++ = xexp + '0';
         px->n2 = (p - px->s) - px->n1;
     }
-    if ((px->flags & 0x14) == 0x10) {
+    if ((px->flags & (FLAGS_MINUS | FLAGS_ZERO)) == FLAGS_ZERO) {
         s32 n = px->n0 + px->n1 + px->nz1 + px->n2 + px->nz2;
 
         if (n < px->width) {

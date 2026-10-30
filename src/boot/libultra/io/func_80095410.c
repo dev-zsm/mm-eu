@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-s32 __osSpGetStatus(void) {
-    return *(s32 *)0xA4040010;
+u32 __osSpGetStatus(void) {
+    return IO_READ(SP_STATUS_REG);
 }

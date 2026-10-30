@@ -1,46 +1,36 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "os_pfs.h"
 
-typedef struct {
-    u32 flags;
-    u8 pad4[0x5C];
-    s32 unk60;
-    u8 unk64;
-} Obj;
-
-extern s32 __osCheckId(Obj *p);
-extern s32 __osPfsRWInode(Obj *p, u16 *buf, s32 zero, u8 i);
-
-s32 osPfsFreeBlocks(Obj *p, s32 *out) {
+s32 osPfsFreeBlocks(OSPfs *pfs, s32 *bytesNotUsed) {
     /* declaration order decides the stack layout (matching) */
-    s32 n;
+    s32 usedPages;
     s32 start;
-    u16 buf[0x80];
+    __OSInode inode;
     s32 j;
-    s32 err;
-    u8 i;
+    s32 ret;
+    u8 bank;
 
-    n = 0;
-    if (!(p->flags & 1)) {
-        return 5;
+    usedPages = 0;
+    if (!(pfs->status & PFS_INITIALIZED)) {
+        return PFS_ERR_INVALID;
     }
-    err = __osCheckId(p);
-    if (err != 0) {
-        return err;
+    ret = __osCheckId(pfs);
+    if (ret != 0) {
+        return ret;
     }
-    for (i = 0; i < p->unk64; i++) {
-        err = __osPfsRWInode(p, buf, 0, i);
-        if (err != 0) {
-            return err;
+    for (bank = 0; bank < pfs->banks; bank++) {
+        ret = __osPfsRWInode(pfs, &inode, 0, bank);
+        if (ret != 0) {
+            return ret;
         }
-        if (i > 0) { start = 1; } else { start = p->unk60; }
-        for (j = start; j < 0x80; j++) {
-            if (buf[j] == 3) {
-                n++;
+        if (bank > 0) { start = 1; } else { start = pfs->inodeStartPage; }
+        for (j = start; j < PFS_INODE_ENTRIES; j++) {
+            if (inode.inodePage[j].ipage == 3) {
+                usedPages++;
             }
         }
     }
-    *out = n << 8;
+    *bytesNotUsed = usedPages << 8;
     return 0;
 }

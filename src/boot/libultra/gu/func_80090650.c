@@ -1,13 +1,8 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "types.h"
+#include "gu.h"
+#include "libm.h"
 
-extern f32 D_80098180;
-f32 __sinf(f32);
-f32 __cosf(f32);
-void guMtxIdentF(f32 mf[4][4]);
-void guNormalize(f32 *, f32 *, f32 *);
-
-void guRotateF(f32 mf[4][4], f32 a, f32 x, f32 y, f32 z) {
+void guRotateF(MtxF mf, f32 a, f32 x, f32 y, f32 z) {
     f32 sine;
     f32 cosine;
     f32 ab;

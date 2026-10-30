@@ -1,117 +1,63 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
+#include "fault.h"
 
-typedef signed char s8;
-typedef unsigned char u8;
-typedef signed short s16;
-typedef unsigned short u16;
-typedef signed int s32;
-typedef unsigned int u32;
-typedef signed long long s64;
-typedef unsigned long long u64;
-typedef float f32;
-typedef double f64;
-extern void FaultDrawer_Printf();
-extern void Fault_PrintFReg(s32 arg0, u8 *arg1);
-extern void Fault_PrintFPCSR(s32 arg0);
-extern void FaultDrawer_SetCharPad(s32 a, s32 b);
-extern void FaultDrawer_SetCursor(s32 a, s32 b);
-extern void FaultDrawer_FillScreen();
-extern void FaultDrawer_DrawText(s32 a, s32 b, void *c, f64 d);
-extern s32 D_80096D20[];
-extern u8 D_800988C4[];
-extern u8 D_800988D8[];
-extern u8 D_800988F4[];
-extern u8 D_80098910[];
-extern u8 D_8009892C[];
-extern u8 D_80098948[];
-extern u8 D_80098964[];
-extern u8 D_80098980[];
-extern u8 D_8009899C[];
-extern u8 D_800989B8[];
-extern u8 D_800989D4[];
-extern u8 D_800989F0[];
-extern u8 D_80098A10[];
-extern u8 D_80098A14[];
-extern u8 D_80098A18[];
-extern u8 D_80098A1C[];
-extern u8 D_80098A20[];
-extern u8 D_80098A24[];
-extern u8 D_80098A28[];
-extern u8 D_80098A2C[];
-extern u8 D_80098A30[];
-extern u8 D_80098A34[];
-extern f32 D_8009C224;
-typedef struct 
-{
-  s32 w[0x80 / 4];
-} Sub;
-typedef struct 
-{
-  u8 pad0[0x20];
-  Sub sub;
-} Arg;
-void Fault_PrintThreadContext(Arg *arg0)
-{
-  s16 var_s0;
-  Sub *temp_s0;
-  var_s0 = (s16) ((((u32) (*((s32 *) (((u8 *) arg0) + 0x120)))) >> 2) & 0x1F);
-  if (var_s0 == 0x17)
-  {
-    var_s0 = 0x10;
-  }
-  if (var_s0 == 0x1F)
-  {
-    var_s0 = 0x11;
-  }
-  temp_s0 = &arg0->sub;
-  FaultDrawer_FillScreen();
-  FaultDrawer_SetCharPad(-2, 4);
-  FaultDrawer_SetCursor(0x16, 0x14);
-  FaultDrawer_Printf(D_800988C4, *((s32 *) (((u8 *) arg0) + 0x14)), (s32) var_s0, D_80096D20[var_s0]);
-  FaultDrawer_SetCharPad(-1, 0);
-  FaultDrawer_Printf(D_800988D8, temp_s0->w[0x3f], temp_s0->w[0x3e], temp_s0->w[0x41]);
-  FaultDrawer_Printf(D_800988F4, temp_s0->w[0x1], temp_s0->w[0x3], temp_s0->w[0x5]);
-  FaultDrawer_Printf(D_80098910, temp_s0->w[0x7], temp_s0->w[0x9], temp_s0->w[0xb]);
-  FaultDrawer_Printf(D_8009892C, temp_s0->w[0xd], temp_s0->w[0xf], temp_s0->w[0x11]);
-  FaultDrawer_Printf(D_80098948, temp_s0->w[0x13], temp_s0->w[0x15], temp_s0->w[0x17]);
-  FaultDrawer_Printf(D_80098964, temp_s0->w[0x19], temp_s0->w[0x1b], temp_s0->w[0x1d]);
-  FaultDrawer_Printf(D_80098980, temp_s0->w[0x1f], temp_s0->w[0x21], temp_s0->w[0x23]);
-  FaultDrawer_Printf(D_8009899C, temp_s0->w[0x25], temp_s0->w[0x27], temp_s0->w[0x29]);
-  FaultDrawer_Printf(D_800989B8, temp_s0->w[0x2b], temp_s0->w[0x2d], temp_s0->w[0x2f]);
-  FaultDrawer_Printf(D_800989D4, temp_s0->w[0x31], temp_s0->w[0x33], temp_s0->w[0x35]);
-  FaultDrawer_Printf(D_800989F0, temp_s0->w[0x37], temp_s0->w[0x39], temp_s0->w[0x3b]);
-  Fault_PrintFPCSR(temp_s0->w[0x43]);
-  FaultDrawer_Printf(D_80098A10);
-  Fault_PrintFReg(0, ((u8 *) temp_s0) + 0x114);
-  Fault_PrintFReg(2, ((u8 *) temp_s0) + 0x11C);
-  FaultDrawer_Printf(D_80098A14);
-  Fault_PrintFReg(4, ((u8 *) temp_s0) + 0x124);
-  Fault_PrintFReg(6, ((u8 *) temp_s0) + 0x12C);
-  FaultDrawer_Printf(D_80098A18);
-  Fault_PrintFReg(8, ((u8 *) temp_s0) + 0x134);
-  Fault_PrintFReg(0xA, ((u8 *) temp_s0) + 0x13C);
-  FaultDrawer_Printf(D_80098A1C);
-  Fault_PrintFReg(0xC, ((u8 *) temp_s0) + 0x144);
-  Fault_PrintFReg(0xE, ((u8 *) temp_s0) + 0x14C);
-  FaultDrawer_Printf(D_80098A20);
-  Fault_PrintFReg(0x10, ((u8 *) temp_s0) + 0x154);
-  if (((!arg0) && (!arg0)) && (!arg0))
-  {
-  }
-  Fault_PrintFReg(0x12, ((u8 *) temp_s0) + 0x15C);
-  FaultDrawer_Printf(D_80098A24);
-  Fault_PrintFReg(0x14, ((u8 *) temp_s0) + 0x164);
-  Fault_PrintFReg(0x16, ((u8 *) temp_s0) + 0x16C);
-  FaultDrawer_Printf(D_80098A28);
-  Fault_PrintFReg(0x18, ((u8 *) temp_s0) + 0x174);
-  Fault_PrintFReg(0x1A, ((u8 *) temp_s0) + 0x17C);
-  FaultDrawer_Printf(D_80098A2C);
-  Fault_PrintFReg(0x1C, ((u8 *) temp_s0) + 0x184);
-  Fault_PrintFReg(0x1E, ((u8 *) temp_s0) + 0x18C);
-  FaultDrawer_Printf(D_80098A30);
-  FaultDrawer_SetCharPad(0, 0);
-  if (D_8009C224 != 0.0f)
-  {
-    FaultDrawer_DrawText(0xA0, 0xD8, D_80098A34, (f64) D_8009C224);
-  }
+void Fault_PrintThreadContext(OSThread *thread) {
+    s16 causeStrIdx = (thread->context.cause >> 2) & 0x1F;
+    __OSThreadContext *ctx;
+
+    if (causeStrIdx == 0x17) {
+        causeStrIdx = 0x10;
+    }
+    if (causeStrIdx == 0x1F) {
+        causeStrIdx = 0x11;
+    }
+    ctx = &thread->context;
+    FaultDrawer_FillScreen();
+    FaultDrawer_SetCharPad(-2, 4);
+    FaultDrawer_SetCursor(22, 20);
+    FaultDrawer_Printf(D_800988C4, thread->id, causeStrIdx, D_80096D20[causeStrIdx]);
+    FaultDrawer_SetCharPad(-1, 0);
+    FaultDrawer_Printf(D_800988D8, (u32)ctx->pc, (u32)ctx->sr, (u32)ctx->badvaddr);
+    FaultDrawer_Printf(D_800988F4, LOW_WORD(ctx->at), LOW_WORD(ctx->v0), LOW_WORD(ctx->v1));
+    FaultDrawer_Printf(D_80098910, LOW_WORD(ctx->a0), LOW_WORD(ctx->a1), LOW_WORD(ctx->a2));
+    FaultDrawer_Printf(D_8009892C, LOW_WORD(ctx->a3), LOW_WORD(ctx->t0), LOW_WORD(ctx->t1));
+    FaultDrawer_Printf(D_80098948, LOW_WORD(ctx->t2), LOW_WORD(ctx->t3), LOW_WORD(ctx->t4));
+    FaultDrawer_Printf(D_80098964, LOW_WORD(ctx->t5), LOW_WORD(ctx->t6), LOW_WORD(ctx->t7));
+    FaultDrawer_Printf(D_80098980, LOW_WORD(ctx->s0), LOW_WORD(ctx->s1), LOW_WORD(ctx->s2));
+    FaultDrawer_Printf(D_8009899C, LOW_WORD(ctx->s3), LOW_WORD(ctx->s4), LOW_WORD(ctx->s5));
+    FaultDrawer_Printf(D_800989B8, LOW_WORD(ctx->s6), LOW_WORD(ctx->s7), LOW_WORD(ctx->t8));
+    FaultDrawer_Printf(D_800989D4, LOW_WORD(ctx->t9), LOW_WORD(ctx->gp), LOW_WORD(ctx->sp));
+    FaultDrawer_Printf(D_800989F0, LOW_WORD(ctx->s8), LOW_WORD(ctx->ra), LOW_WORD(ctx->lo));
+    Fault_PrintFPCSR(ctx->fpcsr);
+    FaultDrawer_Printf(D_80098A10);
+    Fault_PrintFReg(0, &ctx->fp0.f.f_even);
+    Fault_PrintFReg(2, &ctx->fp2.f.f_even);
+    FaultDrawer_Printf(D_80098A14);
+    Fault_PrintFReg(4, &ctx->fp4.f.f_even);
+    Fault_PrintFReg(6, &ctx->fp6.f.f_even);
+    FaultDrawer_Printf(D_80098A18);
+    Fault_PrintFReg(8, &ctx->fp8.f.f_even);
+    Fault_PrintFReg(10, &ctx->fp10.f.f_even);
+    FaultDrawer_Printf(D_80098A1C);
+    Fault_PrintFReg(12, &ctx->fp12.f.f_even);
+    Fault_PrintFReg(14, &ctx->fp14.f.f_even);
+    FaultDrawer_Printf(D_80098A20);
+    Fault_PrintFReg(16, &ctx->fp16.f.f_even);
+    if (thread == NULL && thread == NULL && thread == NULL) { /* matching: dead check */
+    }
+    Fault_PrintFReg(18, &ctx->fp18.f.f_even);
+    FaultDrawer_Printf(D_80098A24);
+    Fault_PrintFReg(20, &ctx->fp20.f.f_even);
+    Fault_PrintFReg(22, &ctx->fp22.f.f_even);
+    FaultDrawer_Printf(D_80098A28);
+    Fault_PrintFReg(24, &ctx->fp24.f.f_even);
+    Fault_PrintFReg(26, &ctx->fp26.f.f_even);
+    FaultDrawer_Printf(D_80098A2C);
+    Fault_PrintFReg(28, &ctx->fp28.f.f_even);
+    Fault_PrintFReg(30, &ctx->fp30.f.f_even);
+    FaultDrawer_Printf(D_80098A30);
+    FaultDrawer_SetCharPad(0, 0);
+    if (D_8009C224 != 0.0f) {
+        FaultDrawer_DrawText(160, 216, D_80098A34, D_8009C224);
+    }
 }

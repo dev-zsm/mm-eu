@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "os_internal.h"
 
-void func_800819A8(s32 a0, ...) {
+void func_800819A8(const char *fmt, ...) {
 }

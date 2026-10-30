@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "os_vi.h"
 
-extern s32 D_800983BC;
-
-void osViExtendVStart(s32 a) {
-    *(s32 *)&D_800983BC = a;
+void osViExtendVStart(s32 value) {
+    D_800983BC = value;
 }

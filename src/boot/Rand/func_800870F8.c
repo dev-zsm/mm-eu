@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "libm.h"
 
-void Rand_Seed_Variable(u32 *a, u32 v) {
-    *a = v;
+void Rand_Seed_Variable(u32 *rand, u32 seed) {
+    *rand = seed;
 }

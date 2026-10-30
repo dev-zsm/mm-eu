@@ -1,15 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
-
-typedef struct {
-    u16 *buf;
-    u16 w;
-    u16 h;
-} Fb;
-
-extern Fb *D_80096D80;
-
-extern void osWritebackDCacheAll(void);
+#include "faultdrawer.h"
+#include "fault.h"
 
 void FaultDrawer_DrawRecImpl(s32 xStart, s32 yStart, s32 xEnd, s32 yEnd, u16 color) {
     s32 x;
@@ -27,7 +18,7 @@ void FaultDrawer_DrawRecImpl(s32 xStart, s32 yStart, s32 xEnd, s32 yEnd, u16 col
         if (yDiff < ySize) {
             ySize = yDiff;
         }
-        ptr = D_80096D80->buf + D_80096D80->w * yStart + xStart;
+        ptr = D_80096D80->fb + D_80096D80->w * yStart + xStart;
         for (y = 0; y < ySize; y++) {
             for (x = 0; x < xSize; x++) {
                 *ptr++ = color;

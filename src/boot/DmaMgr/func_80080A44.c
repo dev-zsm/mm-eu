@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "types.h"
-extern u8 D_80098450[];
-void *func_80080A44(s32 arg0) {
+#include "dmamgr.h"
+
+const char *func_80080A44(u32 vrom) {
     return D_80098450;
 }

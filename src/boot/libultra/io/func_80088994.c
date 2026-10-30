@@ -1,13 +1,10 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-s32 __osSpDeviceBusy(void);
-void __osSpSetStatus(s32 arg0);
-
-void osSpTaskStartGo(s32 arg0) {
+void osSpTaskStartGo(OSTask *task) {
     if (__osSpDeviceBusy() != 0) {
         do {
         } while (__osSpDeviceBusy() != 0);
     }
-    __osSpSetStatus(0x125);
+    __osSpSetStatus(SPSTATUS_CLEAR_HALT | SPSTATUS_CLEAR_BROKE | SPSTATUS_CLEAR_SSTEP | SPSTATUS_SET_INTR_BREAK);
 }

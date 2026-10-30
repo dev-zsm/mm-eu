@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-extern s32 D_8009D0F0;
-void __osMallocInit(s32 *p, s32 a, s32 b);
+#include "libc.h"
 
-void MallocInit(s32 arg0, s32 arg1) {
-    __osMallocInit(&D_8009D0F0, arg0, arg1);
+void MallocInit(void *start, size_t size) {
+    __osMallocInit(&D_8009D0F0, start, size);
 }

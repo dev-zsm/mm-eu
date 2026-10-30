@@ -1,29 +1,26 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-typedef struct Node { struct Node *next; struct Node *prev; u32 start; u32 end; u32 fill; s32 limit; s32 unk18; } Node;
-extern Node *D_80096DE0;
-extern Node *D_80096DE4;
+#include "stackcheck.h"
 
-void StackCheck_Cleanup(Node *e) {
+void StackCheck_Cleanup(StackEntry *entry) {
     s32 bad = 0;
 
-    if (e->prev == NULL) {
-        if (D_80096DE0 == e) {
-            D_80096DE0 = e->next;
+    if (entry->prev == NULL) {
+        if (D_80096DE0 == entry) {
+            D_80096DE0 = entry->next;
         } else {
             bad = 1;
         }
     } else {
-        e->prev->next = e->next;
+        entry->prev->next = entry->next;
     }
-    if (e->next == NULL) {
-        if (D_80096DE4 == e) {
-            D_80096DE4 = e->prev;
+    if (entry->next == NULL) {
+        if (D_80096DE4 == entry) {
+            D_80096DE4 = entry->prev;
         } else {
             bad = 1;
         }
     }
     if (bad) {
-        /* the original reported the inconsistent list here (empty in this build); kept for the register allocation */
+        /* matching: the empty branch keeps the register allocation */
     }
 }

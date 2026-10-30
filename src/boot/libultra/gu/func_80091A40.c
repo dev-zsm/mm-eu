@@ -1,9 +1,7 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "types.h"
+#include "gu.h"
 
-void guMtxIdentF(f32 mf[4][4]);
-
-void guOrthoF(f32 mf[4][4], f32 l, f32 r, f32 b, f32 t, f32 n, f32 f, f32 scale) {
+void guOrthoF(MtxF mf, f32 l, f32 r, f32 b, f32 t, f32 n, f32 f, f32 scale) {
     s32 i;
     s32 j;
 

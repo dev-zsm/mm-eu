@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "padutils.h"
 
-s32 PadUtils_CheckPressed(u8 *a0, u16 a1) {
-    return ((*(u16 *)(a0 + 0xC) & a1) ^ a1) == 0;
+s32 PadUtils_CheckPressed(Input *input, u16 key) {
+    return ((input->press.button & key) ^ key) == 0;
 }

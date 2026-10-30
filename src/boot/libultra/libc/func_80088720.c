@@ -1,43 +1,30 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "libultra_libc.h"
 
-extern u8 D_8009D140[];
-extern s32 D_8009D150;
-extern s32 D_8009D158;
-extern s32 D_8009D160;
-extern s32 D_8009D168;
-extern s32 D_8009D16C;
-extern s32 D_8009D170;
-extern s32 D_8009D178;
+OSTask *_VirtualToPhysicalTask(OSTask *task) {
+    OSTask_t *t = &D_8009D140.t;
 
-void bcopy(s32 a0, void *dst, s32 size);
-s32 osVirtualToPhysical(s32 arg0);
-
-void *_VirtualToPhysicalTask(s32 arg0) {
-    s32 temp_a0;
-
-    bcopy(arg0, D_8009D140, 0x40);
-    if (D_8009D150 != 0) {
-        D_8009D150 = osVirtualToPhysical(D_8009D150);
+    bcopy(task, &D_8009D140, sizeof(OSTask));
+    if (t->ucode != NULL) {
+        t->ucode = (u64 *)osVirtualToPhysical(t->ucode);
     }
-    if (D_8009D158 != 0) {
-        D_8009D158 = osVirtualToPhysical(D_8009D158);
+    if (t->ucode_data != NULL) {
+        t->ucode_data = (u64 *)osVirtualToPhysical(t->ucode_data);
     }
-    if (D_8009D160 != 0) {
-        D_8009D160 = osVirtualToPhysical(D_8009D160);
+    if (t->dram_stack != NULL) {
+        t->dram_stack = (u64 *)osVirtualToPhysical(t->dram_stack);
     }
-    if (D_8009D168 != 0) {
-        D_8009D168 = osVirtualToPhysical(D_8009D168);
+    if (t->output_buff != NULL) {
+        t->output_buff = (u64 *)osVirtualToPhysical(t->output_buff);
     }
-    if (D_8009D16C != 0) {
-        D_8009D16C = osVirtualToPhysical(D_8009D16C);
+    if (t->output_buff_size != NULL) {
+        t->output_buff_size = (u64 *)osVirtualToPhysical(t->output_buff_size);
     }
-    if (D_8009D170 != 0) {
-        D_8009D170 = osVirtualToPhysical(D_8009D170);
+    if (t->data_ptr != NULL) {
+        t->data_ptr = (u64 *)osVirtualToPhysical(t->data_ptr);
     }
-    temp_a0 = D_8009D178;
-    if (temp_a0 != 0) {
-        D_8009D178 = osVirtualToPhysical(temp_a0);
+    if (t->yield_data_ptr != NULL) {
+        t->yield_data_ptr = (u64 *)osVirtualToPhysical(t->yield_data_ptr);
     }
-    return D_8009D140;
+    return &D_8009D140;
 }

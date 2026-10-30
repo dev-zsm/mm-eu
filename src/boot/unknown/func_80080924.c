@@ -1,9 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_internal.h"
 
-extern s32 osEPiStartDma(void);
-
-// Thin wrapper around osEPiStartDma, return value discarded. SDK name unknown.
-void func_80080924(void) {
-    osEPiStartDma();
+/* Thin wrapper around osEPiStartDma. */
+s32 func_80080924(OSPiHandle *handle, OSIoMesg *mb, s32 direction) {
+    return osEPiStartDma(handle, mb, direction);
 }

@@ -1,16 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
-
-typedef struct {
-    s32 mq;
-    s32 channel;
-    s32 mode;
-} OSVoiceHandle;
-
-extern s32 __osVoiceGetStatus();
-extern s32 __osVoiceContWrite4();
-extern s32 __osVoiceCheckResult();
+#include "os_voice.h"
 
 s32 osVoiceStopReadData(OSVoiceHandle *hd) {
     s32 errorCode;
@@ -24,10 +14,10 @@ s32 osVoiceStopReadData(OSVoiceHandle *hd) {
         return errorCode;
     }
     if (status & 2) {
-        return 15;
+        return CONT_ERR_VOICE_NO_RESPONSE;
     }
     if (hd->mode == 0) {
-        return 5;
+        return PFS_ERR_INVALID;
     }
     *(u32 *)data = 0x700;
     errorCode = __osVoiceContWrite4(hd->mq, hd->channel, 0, data);
@@ -42,13 +32,13 @@ s32 osVoiceStopReadData(OSVoiceHandle *hd) {
                     errorCode = 0;
                     hd->mode = 0;
                 } else {
-                    errorCode = 5;
+                    errorCode = PFS_ERR_INVALID;
                 }
             } else {
                 hd->mode = 0;
             }
             i++;
-        } while (errorCode == 15 && i < 20);
+        } while (errorCode == CONT_ERR_VOICE_NO_RESPONSE && i < 20);
     }
     if (i >= 20) {
     }

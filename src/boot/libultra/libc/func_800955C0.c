@@ -1,41 +1,13 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 // viRetrace is a function-static in the original; temp is always zero and only shapes the code generation
-#include "types.h"
+#include "libultra_libc.h"
 
-typedef struct {
-    u8 pad0[2];
-    u16 retraceCount;
-    u8 pad4[0xC];
-    void *msgq;
-    void *msg;
-} ViContext;
-
-typedef struct {
-    u16 type;
-} ViMsg;
-
-typedef struct {
-    u8 pad0[0xC];
-    void *evtQueue;
-} DevMgr;
-
-extern u64 D_8009E980;
-extern u32 D_8009E988;
-extern u32 D_8009E98C;
-
-ViContext *__osViGetCurrentContext(void);
-s32 osRecvMesg(void *a, void *b, s32 c);
-void __osTimerInterrupt(void);
-void __osViSwapContext(void);
-void osSendMesg(void *a, void *b, s32 c);
-u32 osGetCount(void);
-
-void viMgrMain(void *arg) {
-    DevMgr *dmArgs;
+void viMgrMain(void *args) {
+    OSDevMgr *dmArgs;
     static u16 viRetrace;
     u32 addTime;
-    ViMsg *mesg;
+    OSIoMesg *mesg;
     u32 temp;
 
     mesg = 0;
@@ -44,17 +16,18 @@ void viMgrMain(void *arg) {
     if (viRetrace == 0) {
         viRetrace = 1;
     }
-    dmArgs = (DevMgr *)arg;
+    dmArgs = (OSDevMgr *)args;
     for (;;) {
-        osRecvMesg(dmArgs->evtQueue, &mesg, 1);
-        switch (mesg->type) {
-            case 13:
+        osRecvMesg(dmArgs->evtQueue, (OSMesg *)&mesg, OS_MESG_BLOCK);
+        switch (mesg->hdr.type) {
+            case OS_MESG_TYPE_VRETRACE:
                 __osViSwapContext();
                 viRetrace--;
                 if (viRetrace == 0) {
-                    ViContext *ctx = __osViGetCurrentContext();
-                    if (ctx->msgq != 0) {
-                        osSendMesg(ctx->msgq, ctx->msg, 0);
+                    OSViContext *ctx = __osViGetCurrentContext();
+
+                    if (ctx->msgq != NULL) {
+                        osSendMesg(ctx->msgq, ctx->msg, OS_MESG_NOBLOCK);
                     }
                     viRetrace = ctx->retraceCount;
                 }
@@ -67,7 +40,7 @@ void viMgrMain(void *arg) {
                 addTime = D_8009E988 - addTime;
                 D_8009E980 = addTime + D_8009E980;
                 break;
-            case 14:
+            case OS_MESG_TYPE_COUNTER:
                 __osTimerInterrupt();
                 break;
         }

@@ -1,31 +1,24 @@
 // FLAGS: -O2 -g0
-#include "types.h"
-
-typedef struct Entry {
-    s32 next;
-    void (*fn)(void);
-} Entry;
-
-extern s32 D_800976A0;
+#include "systemheap.h"
 
 void SystemHeap_RunInits(void) {
-    Entry *s0;
-    Entry *s1;
+    SystemHeapInitEntry *entry;
+    SystemHeapInitEntry *prev;
     s32 off;
     void (*fn)(void);
 
     off = D_800976A0;
-    s0 = (Entry *)&D_800976A0;
-    s1 = 0;
+    entry = (SystemHeapInitEntry *)&D_800976A0;
+    prev = NULL;
     while (off != 0) {
-        s0 = (Entry *)((u8 *)s0 + off);
-        fn = s0->fn;
-        if (fn != 0) {
+        entry = (SystemHeapInitEntry *)((u8 *)entry + off);
+        fn = entry->fn;
+        if (fn != NULL) {
             fn();
         }
-        off = s0->next;
-        s0->next = (s32)s1;
-        s1 = s0;
+        off = entry->next;
+        entry->next = (s32)prev;
+        prev = entry;
     }
-    D_800976A0 = (s32)s1;
+    D_800976A0 = (s32)prev;
 }

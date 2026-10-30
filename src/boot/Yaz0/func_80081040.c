@@ -1,11 +1,5 @@
 // FLAGS: -O2 -g3
-#include "types.h"
-
-u8 *Yaz0_NextDMA(u8 *);
-
-extern u8 *D_8009BDE0;
-extern u32 D_8009C1F0;
-extern u8 *D_8009C1F4;
+#include "yaz0.h"
 
 s32 Yaz0_DecompressImpl(u8 *src, u8 *dst) {
     u32 bitIdx = 0;
@@ -15,9 +9,9 @@ s32 Yaz0_DecompressImpl(u8 *src, u8 *dst) {
     s32 dist;
     u8 *copyPtr;
     u32 chunkHeader = 0;
-    u32 magic = *(u32 *)src; /* local copy of the header word: only to match IDO's register choice */
+    u32 magic = *(u32 *)src; /* matching: a local copy of the header word steers IDO's register choice */
 
-    if (magic != 0x59617A30) {
+    if (magic != 0x59617A30) { /* "Yaz0" */
         return -1;
     }
     dstEnd = dst + *(u32 *)(src + 4);

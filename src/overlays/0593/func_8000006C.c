@@ -1,7 +1,8 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "actor.h"
 
-void func_8000006C(s32 arg0, M2C_UNK arg1) {
+void func_8000006C(Actor *thisx, PlayState *play) {
 
 }

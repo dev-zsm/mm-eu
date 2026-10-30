@@ -1,37 +1,25 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
-
-extern u8 D_8009D2E0;
-extern u8 D_8009E9A0[];
-
-typedef struct {
-    u8 txsize;
-    u8 rxsize;
-    u8 cmd;
-    u8 typeh;
-    u8 typel;
-    u8 status;
-} Req6;
+#include "os_pfs.h"
 
 void __osPfsRequestOneChannel(s32 channel, u8 poll) {
     u8 *ptr;
-    Req6 fmt;
+    __OSContRequestFormatShort requestformat;
     s32 i;
 
-    D_8009D2E0 = 0xFE;
-    *(s32 *)(D_8009E9A0 + 0x3C) = 1;
-    ptr = D_8009E9A0;
-    fmt.txsize = 1;
-    fmt.rxsize = 3;
-    fmt.cmd = poll;
-    fmt.typeh = 0xFF;
-    fmt.typel = 0xFF;
-    fmt.status = 0xFF;
+    D_8009D2E0 = CONT_CMD_END;
+    D_8009E9A0.pifstatus = 1;
+    ptr = (u8 *)&D_8009E9A0;
+    requestformat.txsize = 1;
+    requestformat.rxsize = 3;
+    requestformat.cmd = poll;
+    requestformat.typel = 0xFF;
+    requestformat.typeh = 0xFF;
+    requestformat.status = 0xFF;
     for (i = 0; i < channel; i++) {
         *ptr++ = 0;
     }
-    *(Req6 *)ptr = fmt;
-    ptr += sizeof(Req6);
-    ptr[0] = 0xFE;
+    *(__OSContRequestFormatShort *)ptr = requestformat;
+    ptr += sizeof(__OSContRequestFormatShort);
+    ptr[0] = CONT_CMD_END;
 }

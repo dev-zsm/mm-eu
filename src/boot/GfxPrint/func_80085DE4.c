@@ -1,16 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-
-typedef struct {
-    u8 pad0[8];
-    u16 posX;
-    u16 posY;
-    u16 baseX;
-    u8 pad1;
-    u8 flags;
-} GfxPrint;
-
-extern void GfxPrint_PrintCharImpl(GfxPrint *this, u8 c);
+#include "gfxprint.h"
 
 void GfxPrint_PrintChar(GfxPrint *this, u8 c) {
     if (c == ' ') {
@@ -18,7 +7,7 @@ void GfxPrint_PrintChar(GfxPrint *this, u8 c) {
     } else if (c > 0x20 && c < 0x7F) {
         GfxPrint_PrintCharImpl(this, c);
     } else if (c >= 0xA0 && c < 0xE0) {
-        if (this->flags & 1) {
+        if (this->flags & GFXPRINT_FLAG_1) {
             if (c < 0xC0) {
                 c -= 0x20;
             } else {
@@ -42,18 +31,18 @@ void GfxPrint_PrintChar(GfxPrint *this, u8 c) {
                 } while ((this->posX - this->baseX) % 0x100);
                 break;
             case 0x8D:
-                this->flags |= 1;
+                this->flags |= GFXPRINT_FLAG_1;
                 break;
             case 0x8C:
-                this->flags &= ~1;
+                this->flags &= ~GFXPRINT_FLAG_1;
                 break;
             case 0x8B:
-                this->flags |= 2;
-                this->flags |= 8;
+                this->flags |= GFXPRINT_FLAG_2;
+                this->flags |= GFXPRINT_FLAG_8;
                 break;
             case 0x8A:
-                this->flags &= ~2;
-                this->flags |= 8;
+                this->flags &= ~GFXPRINT_FLAG_2;
+                this->flags |= GFXPRINT_FLAG_8;
                 break;
             case 0x8E:
             default:

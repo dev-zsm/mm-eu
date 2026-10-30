@@ -1,28 +1,21 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "dmamgr.h"
 
-// One range of the translation table D_8009FC80 (see DmaMgr_TranslateVromToRom).
-// flags == 0: linear mapping. Nonzero: only the exact start address matches (inferred).
-typedef struct {
-    u32 start;
-    u32 end;
-    u32 base;
-    u32 flags;
-} MapEntry;
+// Returns the row of D_8009FC80 that contains vrom, or NULL.
+DmaEntry *DmaMgr_FindDmaEntry(u32 vrom) {
+    DmaEntry *iter;
+    DmaEntry *first = D_8009FC80; /* matching: separate start pointer */
 
-extern MapEntry D_8009FC80[];
-
-// Finds the range containing addr in D_8009FC80, which is terminated by an entry with end == 0.
-// Returns NULL if no range contains addr.
-MapEntry *DmaMgr_FindDmaEntry(u32 addr) {
-    MapEntry *p;
-    MapEntry *first = D_8009FC80;
-    if (first->end != 0) {
-        p = first;
+    if (first->vromEnd != 0) {
+        iter = first;
         while (1) {
-            if (addr >= p->start && addr < p->end) return p;
-            p++;
-            if (p->end == 0) break;
+            if (vrom >= iter->vromStart && vrom < iter->vromEnd) {
+                return iter;
+            }
+            iter++;
+            if (iter->vromEnd == 0) {
+                break;
+            }
         }
     }
     return NULL;

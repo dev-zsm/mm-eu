@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "padutils.h"
 
-s8 PadUtils_GetCurX(u8 *a0) {
-    return *(s8 *)(a0 + 0x2);
+s8 PadUtils_GetCurX(Input *input) {
+    return input->cur.stick_x;
 }

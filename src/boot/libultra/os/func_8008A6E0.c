@@ -1,13 +1,11 @@
 // FLAGS: -O1 -g0
-#include "types.h"
+#include "ultra64.h"
 
-void __osProbeTLB(u32 addr);
-
-u32 osVirtualToPhysical(u32 addr) {
-    if (addr >= 0x80000000 && addr < 0xA0000000) {
-        return addr & 0x1FFFFFFF;
-    } else if (addr >= 0xA0000000 && addr < 0xC0000000) {
-        return addr & 0x1FFFFFFF;
+u32 osVirtualToPhysical(void *vaddr) {
+    if (IS_KSEG0(vaddr)) {
+        return K0_TO_PHYS(vaddr);
+    } else if (IS_KSEG1(vaddr)) {
+        return K1_TO_PHYS(vaddr);
     }
-    __osProbeTLB(addr);
+    return __osProbeTLB(vaddr);
 }

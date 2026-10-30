@@ -1,10 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_cont.h"
 
-void __osContGetInitData(u8 *dst, s32 src);
+void osContGetQuery(OSContStatus *data) {
+    u8 pattern;
 
-void osContGetQuery(s32 a0) {
-    u8 buf;
-
-    __osContGetInitData(&buf, a0);
+    __osContGetInitData(&pattern, data);
 }

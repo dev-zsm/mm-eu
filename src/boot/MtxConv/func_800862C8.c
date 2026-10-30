@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "gu.h"
 
-extern void guMtxL2F(void);
-
-void MtxConv_L2F(void) {
-    guMtxL2F();
+void MtxConv_L2F(MtxF mf, Mtx *mtx) {
+    guMtxL2F(mf, mtx);
 }

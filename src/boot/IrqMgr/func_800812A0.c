@@ -1,32 +1,18 @@
 // FLAGS: -O2 -g3
-#include "types.h"
+#include "irqmgr.h"
 
-s32 osSetIntMask(s32);
-void osSendMesg(s32, void *, s32);
+void IrqMgr_AddClient(IrqMgr *irqMgr, IrqMgrClient *client, OSMesgQueue *queue) {
+    OSIntMask mask;
 
-typedef struct Node {
-    struct Node *next;
-    s32 data;
-} Node;
-
-typedef struct Owner {
-    u8 pad0[0x248];
-    Node *list;
-    u8 count;
-} Owner;
-
-void IrqMgr_AddClient(Owner *arg0, Node *arg1, s32 arg2) {
-    s32 irq;
-
-    irq = osSetIntMask(1);
-    arg1->data = arg2;
-    arg1->next = arg0->list;
-    arg0->list = arg1;
-    osSetIntMask(irq);
-    if (arg0->count > 0) {
-        osSendMesg(arg1->data, (u8 *)arg0 + 0x20, 0);
+    mask = osSetIntMask(1);
+    client->queue = queue;
+    client->next = irqMgr->clients;
+    irqMgr->clients = client;
+    osSetIntMask(mask);
+    if (irqMgr->resetStatus > 0) {
+        osSendMesg(client->queue, &irqMgr->prenmiMsg, OS_MESG_NOBLOCK);
     }
-    if (arg0->count >= 2) {
-        osSendMesg(arg1->data, (u8 *)arg0 + 0x40, 0);
+    if (irqMgr->resetStatus >= 2) {
+        osSendMesg(client->queue, &irqMgr->prenmi450Msg, OS_MESG_NOBLOCK);
     }
 }

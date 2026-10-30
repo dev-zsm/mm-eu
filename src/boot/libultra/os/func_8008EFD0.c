@@ -1,35 +1,22 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-typedef struct {
-    u16 unk0;
-    u8 unk2;
-    u8 pad3[0x11];
-    void *unk14;
-} Obj;
+s32 osEPiStartDma(OSPiHandle *handle, OSIoMesg *mb, s32 direction) {
+    s32 ret;
 
-extern s32 D_80098060;
-
-s32 osPiGetCmdQueue(void *a0, Obj *a1, s32 a2);
-s32 osJamMesg(s32 a0, Obj *a1, s32 a2);
-s32 osSendMesg(s32 a0, Obj *a1, s32 a2);
-
-s32 osEPiStartDma(void *a0, Obj *a1, s32 a2) {
-    s32 r;
-
-    if (D_80098060 == 0) {
+    if (D_80098060.active == 0) {
         return -1;
     }
-    a1->unk14 = a0;
-    if (a2 == 0) {
-        a1->unk0 = 0xF;
+    mb->piHandle = handle;
+    if (direction == OS_READ) {
+        mb->hdr.type = OS_MESG_TYPE_EDMAREAD;
     } else {
-        a1->unk0 = 0x10;
+        mb->hdr.type = OS_MESG_TYPE_EDMAWRITE;
     }
-    if (a1->unk2 == 1) {
-        r = osJamMesg(osPiGetCmdQueue(a0, a1, a2), a1, 0);
+    if (mb->hdr.pri == OS_MESG_PRI_HIGH) {
+        ret = osJamMesg(osPiGetCmdQueue(), mb, OS_MESG_NOBLOCK);
     } else {
-        r = osSendMesg(osPiGetCmdQueue(a0, a1, a2), a1, 0);
+        ret = osSendMesg(osPiGetCmdQueue(), mb, OS_MESG_NOBLOCK);
     }
-    return r;
+    return ret;
 }

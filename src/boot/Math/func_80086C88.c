@@ -1,8 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "libm.h"
 
-f32 Math_FAtan2F(f32 y, f32 x);
-float sqrtf(float);
 #pragma intrinsic (sqrtf)
 
 f32 Math_FAsinF(f32 x) {

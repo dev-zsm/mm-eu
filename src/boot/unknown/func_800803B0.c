@@ -1,31 +1,9 @@
 // FLAGS: -O2 -g3 -mips2
-#include "types.h"
-
-#define OS_TV_PAL   0
-#define OS_TV_NTSC  1
-#define OS_TV_MPAL  2
-
-// Per-TV-type setup, run at boot. Picks the 20-word timing table for the console's
-// TV standard (osTvType at 0x80000300, likely libultra). Globals keep their D_ names.
-typedef struct {
-    u32 w[20];
-} TvTable;
+#include "os_internal.h"
 
 #define osTvType D_80000300
 
-extern void osCreateViManager(s32);
-extern s32 D_80000300;
-extern s8 D_80096CC0;
-extern s32 D_80096CCC;
-extern f32 D_80096CD0;
-extern f32 D_80096CD4;
-extern TvTable D_800981B0;
-extern TvTable D_80098200;
-extern TvTable D_80098320;
-extern f32 D_80098440;
-extern TvTable D_8009B610;
-extern s8 D_8009B660;
-
+/* Per-TV-type setup at boot: picks the VI mode table of the console's TV standard. */
 void func_800803B0(void) {
     osCreateViManager(0xFE);
     D_80096CCC = 0x42;

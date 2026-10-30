@@ -1,56 +1,38 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-typedef struct BootNode {
-    struct BootNode *next;
-    struct BootNode *prev;
-    u64 interval;
-    u64 remaining;
-    s32 mq;
-    s32 msg;
-} BootNode;
+s32 osSetTimer(OSTimer *t, OSTime value, OSTime interval, OSMesgQueue *mq, OSMesg msg) {
+    OSTime time;
+    OSTimer *next;
+    u32 count;
+    u32 elapsed;
+    OSIntMask saveMask;
+    OSTime *p;
 
-extern BootNode *D_80098160;
-extern u32 D_8009E990;
-
-s32 __osDisableInt(void);
-void __osRestoreInt(s32 a);
-u32 osGetCount(void);
-u64 __osInsertTimer(BootNode *p);
-void __osSetTimerIntr(u32 hi, u32 lo);
-
-s32 osSetTimer(BootNode *node, u64 value, u64 interval, s32 mq, s32 msg) {
-    u64 sp30;
-    BootNode *q;
-    u32 now;
-    u32 delta;
-    s32 sp20;
-    u64 *p;
-
-    node->next = NULL;
-    node->prev = NULL;
-    node->interval = interval;
+    t->next = NULL;
+    t->prev = NULL;
+    t->interval = interval;
     if (value != 0) {
-        node->remaining = value;
+        t->value = value;
     } else {
-        node->remaining = interval;
+        t->value = interval;
     }
-    node->mq = mq;
-    node->msg = msg;
-    sp20 = __osDisableInt();
+    t->mq = mq;
+    t->msg = msg;
+    saveMask = __osDisableInt();
     if (D_80098160->next == D_80098160) {} else {
-        q = D_80098160->next;
-        now = osGetCount();
-        delta = now - D_8009E990;
-        if ((u64)delta < q->remaining) {
-            p = &q->remaining;
-            *p = *p - (u64)delta;
+        next = D_80098160->next;
+        count = osGetCount();
+        elapsed = count - D_8009E990;
+        if ((OSTime)elapsed < next->value) {
+            p = &next->value;
+            *p = *p - (OSTime)elapsed;
         } else {
-            q->remaining = 1;
+            next->value = 1;
         }
     }
-    sp30 = __osInsertTimer(node);
-    __osSetTimerIntr(*(u32 *)&D_80098160->next->remaining, *((u32 *)&D_80098160->next->remaining + 1));
-    __osRestoreInt(sp20);
+    time = __osInsertTimer(t);
+    __osSetTimerIntr(D_80098160->next->value);
+    __osRestoreInt(saveMask);
     return 0;
 }

@@ -1,39 +1,23 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "ultra64.h"
 
-typedef struct Thread {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    u16 unk10;
-} Thread;
+void osSetThreadPri(OSThread *t, OSPri pri) {
+    register OSIntMask saveMask;
 
-extern Thread *D_80098008;
-extern Thread *D_80098010;
-
-s32 __osDisableInt(void);
-void __osRestoreInt(s32);
-void func_800892E4(void *);
-void func_800893E4(s32, void *);
-void func_800895D0(s32, void *);
-
-void osSetThreadPri(Thread *arg0, s32 arg1) {
-    register s32 temp_s0;
-    temp_s0 = __osDisableInt();
-    if (arg0 == NULL) {
-        arg0 = D_80098010;
+    saveMask = __osDisableInt();
+    if (t == NULL) {
+        t = D_80098010;
     }
-    if (arg0->unk4 != arg1) {
-        arg0->unk4 = arg1;
-        if ((arg0 != D_80098010) && (arg0->unk10 != 1)) {
-            func_800895D0(arg0->unk8, arg0);
-            func_800893E4(arg0->unk8, arg0);
+    if (t->priority != pri) {
+        t->priority = pri;
+        if ((t != D_80098010) && (t->state != OS_STATE_STOPPED)) {
+            func_800895D0(t->queue, t);
+            func_800893E4(t->queue, t);
         }
-        if (D_80098010->unk4 < D_80098008->unk4) {
-            D_80098010->unk10 = 2;
+        if (D_80098010->priority < D_80098008->priority) {
+            D_80098010->state = OS_STATE_RUNNABLE;
             func_800892E4(&D_80098008);
         }
     }
-    __osRestoreInt(temp_s0);
+    __osRestoreInt(saveMask);
 }

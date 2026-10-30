@@ -1,12 +1,7 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "types.h"
+#include "gu.h"
 
-typedef struct {
-    s16 intPart[4][4];
-    u16 fracPart[4][4];
-} Mtx;
-
-void MtxConv_F2L(Mtx *mtx, f32 mf[4][4]) {
+void MtxConv_F2L(Mtx *mtx, MtxF mf) {
     s32 i;
     s32 j;
     s32 temp;

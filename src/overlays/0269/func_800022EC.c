@@ -1,6 +1,7 @@
 #include "types.h"
+#include "actor.h"
 void func_809A6BF8();
-void func_800022EC(u8 *a, s32 b) {
-    (*(void (**)())(a + 0x144))(a, b);
-    func_809A6BF8(a, b);
+void func_800022EC(Actor *thisx, PlayState *play) {
+    (*(void (**)())((u8 *)thisx + 0x144))(thisx, play);
+    func_809A6BF8(thisx, play);
 }

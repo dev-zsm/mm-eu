@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "os_pfs.h"
+
 u16 __osSumcalc(u8 *ptr, s32 length) {
     s32 i;
     u32 sum = 0;

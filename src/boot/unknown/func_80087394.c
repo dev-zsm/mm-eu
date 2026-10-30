@@ -1,40 +1,34 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "arena.h"
 
-typedef struct Block {
-    s16 magic;
-    s16 used;
-    u32 size;
-    struct Block *next;
-    struct Block *prev;
-} Block;
-void *func_80087394(Block **arg0, u32 size) {
-    Block *node;
-    Block *newNode;
-    void *alloc = (void *) 0;
-    int new_var;
+void *func_80087394(Arena *arena, size_t size) {
+    ArenaNode *node;
+    ArenaNode *newNode;
+    void *alloc = NULL;
+    int new_var; // matching: the second rounding stays in a separate local
     u32 blockSize;
-    size = (size + 0xF) & (~0xF);
-    new_var = ((size + 0xF) & (~0xF)) + 0x10;
-    node = *arg0;
-    while (node != ((void *) 0)) {
-        if (node->used && (node->size >= size)) {
+
+    size = (size + 0xF) & ~0xF;
+    new_var = ((size + 0xF) & ~0xF) + 0x10;
+    node = arena->head;
+    while (node != NULL) {
+        if (node->isFree && node->size >= size) {
             blockSize = new_var;
             if (blockSize < node->size) {
-                newNode = (Block *) (((u32) node) + blockSize);
+                newNode = (ArenaNode *)((u32)node + blockSize);
                 newNode->next = node->next;
                 newNode->prev = node;
                 newNode->size = node->size - blockSize;
-                newNode->used = 1;
-                newNode->magic = 0x7373;
+                newNode->isFree = 1;
+                newNode->magic = ARENA_NODE_MAGIC;
                 node->next = newNode;
                 node->size = size;
-                if (newNode->next != ((void *) 0)) {
+                if (newNode->next != NULL) {
                     newNode->next->prev = newNode;
                 }
             }
-            node->used = 0;
-            alloc = ((u8 *) node) + 0x10;
+            node->isFree = 0;
+            alloc = (u8 *)node + 0x10;
             break;
         }
         node = node->next;

@@ -1,6 +1,6 @@
 // FLAGS: -O1 -g0 -mips3 -32
-#include "types.h"
+#include "libultra_libc.h"
 
-f64 __ull_to_d(u64 arg0) {
-    return (f64)arg0;
+f64 __ull_to_d(u64 x) {
+    return (f64)x;
 }

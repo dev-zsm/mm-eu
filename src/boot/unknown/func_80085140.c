@@ -1,15 +1,12 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_internal.h"
 
-void func_80085074(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);
-s32 malloc_r(s32 a0);
+void *func_80085140(u32 rangeStart, u32 rangeEnd, u32 start, u32 end) {
+    void *buf;
 
-s32 func_80085140(s32 a0, s32 a1, s32 a2, s32 a3, ...) {
-    s32 ret;
-
-    ret = malloc_r(a3 - a2);
-    if (ret != 0) {
-        func_80085074(a0, a1, a2, a3, ret);
+    buf = malloc_r(end - start);
+    if (buf != NULL) {
+        func_80085074(rangeStart, rangeEnd, start, end, buf);
     }
-    return ret;
+    return buf;
 }

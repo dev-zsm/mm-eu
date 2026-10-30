@@ -1,56 +1,50 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_pfs.h"
 
-typedef struct {
-    u8 pad0[0x60];
-    s32 unk60;
-} Obj;
-
-s32 __osPfsDeclearPage(Obj *obj, u16 *tbl, s32 n, s32 *cnt, u8 i, s32 *p1, s32 *p2) {
+s32 __osPfsDeclearPage(OSPfs *pfs, __OSInode *inode, s32 fileSizeInPages, s32 *startPage, u8 bank, s32 *decl,
+                       s32 *lastPage) {
     s32 v;
     s32 idx;
     s32 found;
     s32 last;
-    u8 *bytes;
 
-    if (i > 0) {
+    if (bank > 0) {
         v = 1;
     } else {
-        v = obj->unk60;
+        v = pfs->inodeStartPage;
     }
     idx = v;
-    while (idx < 0x80) {
-        if (tbl[idx] == 3) {
+    while (idx < PFS_INODE_ENTRIES) {
+        if (inode->inodePage[idx].ipage == 3) {
             break;
         }
         idx++;
     }
-    if (idx == 0x80) {
-        *cnt = -1;
+    if (idx == PFS_INODE_ENTRIES) {
+        *startPage = -1;
         return 0;
     }
     found = idx;
-    *p1 = 1;
+    *decl = 1;
     last = found;
     idx = found + 1;
-    bytes = (u8 *)tbl;
-    if (n >= 2 && idx < 0x80) {
+    if (fileSizeInPages >= 2 && idx < PFS_INODE_ENTRIES) {
         do {
-            if (tbl[idx] == 3) {
-                bytes[last * 2] = i;
-                bytes[last * 2 + 1] = idx;
-                (*p1)++;
+            if (inode->inodePage[idx].ipage == 3) {
+                inode->inodePage[last].inode_t.bank = bank;
+                inode->inodePage[last].inode_t.page = idx;
+                (*decl)++;
                 last = idx;
             }
             idx++;
-        } while (*p1 < n && idx < 0x80);
+        } while (*decl < fileSizeInPages && idx < PFS_INODE_ENTRIES);
     }
-    *cnt = found;
-    if (idx == 0x80 && *p1 < n) {
-        *p2 = last;
+    *startPage = found;
+    if (idx == PFS_INODE_ENTRIES && *decl < fileSizeInPages) {
+        *lastPage = last;
     } else {
-        tbl[last] = 1;
-        *p2 = 0;
+        inode->inodePage[last].ipage = 1;
+        *lastPage = 0;
     }
     return 0;
 }

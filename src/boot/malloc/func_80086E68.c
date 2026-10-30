@@ -1,9 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "libc.h"
 
-extern s32 D_8009D0F0;
-void func_8008747C(s32 *p, s32 n);
-
-void malloc_r(s32 arg0) {
-    func_8008747C(&D_8009D0F0, arg0);
+void *malloc_r(size_t size) {
+    return func_8008747C(&D_8009D0F0, size);
 }

@@ -1,57 +1,44 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_voice.h"
 
-typedef struct {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-} Func80090870Struct;
-
-extern u8 D_80098190[];
-s32 __osVoiceGetStatus(s32, s32, u8 *);
-s32 __osContChannelReset(s32, s32);
-s32 __osVoiceSetADConverter(s32, s32, s32);
-s32 __osVoiceContWrite4(s32, s32, s32, s32 *);
-s32 __osVoiceCheckResult(Func80090870Struct *, u8 *);
-
-s32 osVoiceInit(s32 arg0, Func80090870Struct *arg1, s32 arg2) {
+s32 osVoiceInit(OSMesgQueue *mq, OSVoiceHandle *hd, s32 channel) {
     s32 ret;
     s32 i; /* index loop (strength-reduced by IDO); also reserves the stack slot like the ROM */
-    u8 sp37;
-    s32 sp30;
+    u8 status;
+    u32 data;
 
-    sp37 = 0;
-    arg1->unk4 = arg2;
-    arg1->unk0 = arg0;
-    arg1->unk8 = 0;
-    ret = __osVoiceGetStatus(arg0, arg2, &sp37);
+    status = 0;
+    hd->channel = channel;
+    hd->mq = mq;
+    hd->mode = 0;
+    ret = __osVoiceGetStatus(mq, channel, &status);
     if (ret != 0) {
         return ret;
     }
-    if (__osContChannelReset(arg0, arg2) != 0) {
-        return 4;
+    if (__osContChannelReset(mq, channel) != 0) {
+        return PFS_ERR_CONTRFAIL;
     }
     for (i = 0; i < 5; i++) {
-        ret = __osVoiceSetADConverter(arg0, arg2, D_80098190[i]);
+        ret = __osVoiceSetADConverter(mq, channel, D_80098190[i]);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = __osVoiceGetStatus(arg0, arg2, &sp37);
+    ret = __osVoiceGetStatus(mq, channel, &status);
     if (ret != 0) {
         return ret;
     }
-    if (sp37 & 2) {
-        return 0xF;
+    if (status & 2) {
+        return CONT_ERR_VOICE_NO_RESPONSE;
     }
-    sp30 = 0x100;
-    ret = __osVoiceContWrite4(arg0, arg2, 0, &sp30);
+    data = 0x100;
+    ret = __osVoiceContWrite4(mq, channel, 0, (u8 *)&data);
     if (ret != 0) {
         return ret;
     }
-    ret = __osVoiceCheckResult(arg1, &sp37);
+    ret = __osVoiceCheckResult(hd, &status);
     if (ret & 0xFF00) {
-        ret = 5;
+        ret = PFS_ERR_INVALID;
     }
     return ret;
 }

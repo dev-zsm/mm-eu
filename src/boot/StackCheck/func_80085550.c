@@ -1,33 +1,19 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-
-typedef struct Node {
-    struct Node *next;  /* 0x00 */
-    struct Node *prev;  /* 0x04 */
-    u32 start;          /* 0x08 */
-    u32 end;            /* 0x0C */
-    u32 fill;           /* 0x10 */
-    s32 limit;          /* 0x14 */
-    s32 unk18;          /* 0x18 */
-} Node;
-
-extern Node *D_80096DE0;
-
-s32 StackCheck_GetState(Node *arg0);
+#include "stackcheck.h"
 
 s32 StackCheck_CheckAll(void) {
-    Node *n;
+    StackEntry *iter;
     s32 found;
 
-    n = D_80096DE0;
+    iter = D_80096DE0;
     found = 0;
-    if (n != NULL) {
+    if (iter != NULL) {
         do {
-            if (StackCheck_GetState(n) != 0) {
+            if (StackCheck_GetState(iter) != 0) {
                 found = 1;
             }
-            n = n->next;
-        } while (n != NULL);
+            iter = iter->next;
+        } while (iter != NULL);
     }
     return found;
 }

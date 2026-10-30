@@ -1,9 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
+#include "libc.h"
 
-extern s32 D_8009D0F0;
-void Arena_Free(s32 *p, s32 n);
-
-void free(s32 arg0) {
-    Arena_Free(&D_8009D0F0, arg0);
+void free(void *ptr) {
+    Arena_Free(&D_8009D0F0, ptr);
 }

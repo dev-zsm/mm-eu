@@ -1,11 +1,13 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-s32 __osSpSetPc(s32 arg0) {
-    s32 temp_v0;
-    temp_v0 = *(u32 *)0xA4040010;
-    if (!(temp_v0 & 1)) {
+#include "os_sp.h"
+
+s32 __osSpSetPc(u32 pc) {
+    u32 status;
+
+    status = IO_READ(SP_STATUS_REG);
+    if (!(status & SP_STATUS_HALT)) {
         return -1;
     }
-    *(s32 *)0xA4080000 = arg0;
+    IO_WRITE(SP_PC_REG, pc);
     return 0;
 }

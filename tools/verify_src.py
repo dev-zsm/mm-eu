@@ -39,7 +39,13 @@ def check(f: Path):
                               b"53" if objcache.uses_ido53(f) else b"71")
         if key in known:
             return name, key, True
-        got, masks = match.compiled(f, name, flags, len(want))
+        for attempt in range(3):  # a compiler killed under load is retried; a real error fails the same way every time
+            try:
+                got, masks = match.compiled(f, name, flags, len(want))
+                break
+            except Exception:
+                if attempt == 2:
+                    raise
         if len(got) > len(want) and not any(got[len(want):]):
             got = got[:len(want)]
         return name, key, len(want) == len(got) and match.mask(want, masks) == match.mask(got, masks)

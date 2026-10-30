@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
-#include "types.h"
-void floorf(void);
-void Math_FFloorF(void) {
-    floorf();
+#include "libm.h"
+
+f32 Math_FFloorF(f32 x) {
+    return floorf(x);
 }

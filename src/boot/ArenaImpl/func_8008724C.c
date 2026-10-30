@@ -1,13 +1,10 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
-struct Node {
-    u8 pad[8];
-    struct Node *next;
-};
+#include "arena.h"
 
-void *ArenaImpl_GetLastBlock(struct Node **head) {
-    struct Node *p = *head;
-    struct Node *q;
+ArenaNode *ArenaImpl_GetLastBlock(Arena *arena) {
+    ArenaNode *p = arena->head;
+    ArenaNode *q;
+
     if (p != NULL) {
         q = p->next;
         while (q != NULL) {

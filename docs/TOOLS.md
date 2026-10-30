@@ -11,7 +11,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | `tools/match.py` | compile one C function with IDO (7.1, or 5.3 if the file asks for it) and compare it to the ROM bytes |
 | `tools/disasm_diff.py` | ROM and compiled instructions side by side for one function (behind `tools/mm diff`) |
 | `tools/names.py` | apply the symbol names of `config/<segment>.names.txt` everywhere |
-| `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or reference to another project |
+| `tools/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or project name in the sources (credits live in the README) |
 
 ## Verification and build
 
@@ -22,7 +22,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | `tools/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/verify_asm.sh` | reassemble the splat output of a segment and check it is byte-identical to the ROM |
 | `tools/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |
-| `tools/progress.py` | generate `docs/PROGRESS.md` and the progress bars of the README |
+| `tools/progress.py` | generate `docs/PROGRESS.md` (functions, drafts, typed signatures, names) and the progress bars of the README |
 
 ## Automated search for matching C
 
@@ -45,7 +45,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | Tool | Purpose |
 |---|---|
 | `tools/layout.py`, `tools/layout_callers.py`, `tools/srcsort.py`, `tools/srcpath.py` | `src/boot` and `src/code` keep one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/<segment>.layout.txt` once, `srcsort.py` files new flat `src/<segment>/func_*.c` into their folder, `layout_callers.py` moves a function out of `unknown/` when only one module calls it, `srcpath.py` is the lookup the other tools use |
-| `tools/ref_align.py` | find candidate function names by aligning function sizes with a public symbol list (names only, see [CONTRIBUTING.md](CONTRIBUTING.md)) |
+| `tools/ref_align.py` | find candidate function names by aligning function sizes with the symbol list of another decompilation project |
 
 ## Overlays
 

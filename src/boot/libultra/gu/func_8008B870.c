@@ -1,12 +1,10 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "types.h"
+#include "gu.h"
+#include "libm.h"
 
-float sqrtf(float);
 #pragma intrinsic (sqrtf)
 
-void guMtxIdentF(f32 mf[4][4]);
-
-void guLookAtF(f32 mf[4][4], f32 xEye, f32 yEye, f32 zEye, f32 xAt, f32 yAt, f32 zAt, f32 xUp, f32 yUp, f32 zUp) {
+void guLookAtF(MtxF mf, f32 xEye, f32 yEye, f32 zEye, f32 xAt, f32 yAt, f32 zAt, f32 xUp, f32 yUp, f32 zUp) {
     f32 len;
     f32 xLook;
     f32 yLook;

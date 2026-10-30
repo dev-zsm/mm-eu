@@ -54,6 +54,14 @@ the address.
 * Anything that exists only to make the compiler match (padding locals, `volatile`, an unusual declaration order, an
   alias symbol from `config/<segment>.aliases.txt`) gets a one-line comment saying why.
 * Structures keep their exact offsets. Name the fields you understand; keep `unkXX` / `padXX` for the others.
+* A type used by more than one function lives in a header of `include/` (`ultra64.h`: threads, message queues, timers, the
+  Pi, `libc.h`: the heap and the string functions), never as a local copy in each source file. A signature uses those types
+  and real parameter names (`OSMesgQueue *mq`, not `s32 arg0`); a pointer is not declared `s32`, and a function whose callee
+  returns a value does not return `void`. Add the prototype to the header and delete it from the sources. Function and data
+  names without proof stay `func_XXXXXXXX` / `D_XXXXXXXX` in the header. Constants and hardware registers are macros of the
+  header, not literals. The "Typed signatures" column of [PROGRESS.md](PROGRESS.md) counts the functions that follow this rule.
+  Rewriting a signature must keep `tools/mm match` at `MATCH`: when it no longer does, the previous
+  form was compensating for a wrong type, so look at the difference before going back.
 * `config/<segment>.aliases.txt` (an extra symbol at a known address, only to steer IDO) is technical debt: each entry
   has a comment saying why and is removed once the real expression is found.
 * Keep generated and ROM-derived content out of git (`baserom/`, `extracted/`, `asm/`, `decomp/`, `build/`).
@@ -68,7 +76,7 @@ from leaked source code (Nintendo 64 SDK, libultra, or any game sharing signific
 Overlays (actors, scenes, menus) are worked on function by function; the steps are in [OVERLAYS.md](OVERLAYS.md). The
 overlay build does not exist yet, so a function is only checked on its own, with relocated fields masked: the
 relocation-aware builder and its verification are the most useful contribution. The rules of the other segments apply
-unchanged: only the assembly of our ROM and the local tools, no code from other projects, English only, no inline
+unchanged: English only, no inline
 assembly.
 
 ## Per segment
@@ -109,9 +117,8 @@ the processor.
 - Overlays have no `unknown/`: each overlay is its own source file, so its verified functions are in
   `src/overlays/<file index>/` and its unfinished attempts in `src/overlays/<file index>/wip/`.
 
-## Exception for the `boot` segment
+## Where the code comes from
 
-By my decision, the published work of community decompilation projects may be consulted as a reference for the
-**library functions of `boot`** (libultra, libgu, libm, libc): how a function is structured, its arguments and its types. The rules
-that remain: the C is written here from the assembly of our own ROM, it is accepted only if it recompiles to the exact bytes, nothing
-is copied verbatim, and `code` and the overlays stay ROM-only. The projects used are listed in the credits of the README.
+Whatever its source, a function is accepted only if it recompiles to the exact bytes of this ROM (`make check`). The projects
+this one draws inspiration from are listed in the credits of the README, which is where they are named: the sources carry no web
+address and no project name (`tools/check_style.sh` checks it).

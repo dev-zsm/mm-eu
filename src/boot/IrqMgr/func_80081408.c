@@ -1,37 +1,18 @@
 // FLAGS: -O2 -g3 -mips2
-#include "types.h"
+#include "irqmgr.h"
 
-typedef struct Node {
-    struct Node *next;
-    void *data;
-} Node;
+void IrqMgr_JamMesgToClients(IrqMgr *irqMgr, OSMesg msg) {
+    IrqMgrClient *client;
+    OSMesgQueue *queue;
 
-typedef struct Ent {
-    u8 pad0[8];
-    s32 unk8;
-    u8 pad1[4];
-    s32 unk10;
-} Ent;
-
-typedef struct Obj {
-    u8 pad0[0x248];
-    Node *list;
-} Obj;
-
-extern void osSendMesg(void *a, u32 b, u32 c);
-
-void IrqMgr_JamMesgToClients(Obj *arg0, u32 arg1) {
-    Node *n;
-    Ent *e;
-
-    n = arg0->list;
-    if (n != NULL) {
+    client = irqMgr->clients;
+    if (client != NULL) {
         do {
-            e = n->data;
-            if (e->unk8 < e->unk10) {
-                osSendMesg(e, arg1, 0);
+            queue = client->queue;
+            if (queue->validCount < queue->msgCount) {
+                osSendMesg(queue, msg, OS_MESG_NOBLOCK);
             }
-            n = n->next;
-        } while (n != NULL);
+            client = client->next;
+        } while (client != NULL);
     }
 }

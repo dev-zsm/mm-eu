@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "types.h"
+#include "os_internal.h"
 
 u32 osGetMemSize(void) {
     u32 *ptr;
@@ -9,10 +9,10 @@ u32 osGetMemSize(void) {
 
     size = 0x400000;
     do {
-        ptr = (u32 *)(0xA0000000 + size);
-        data0 = *(u32 *)(0xA0000000 + size);
-        data1 = *(u32 *)(0xA0000000 + size + 0xFFFFC);
-        *(u32 *)(0xA0000000 + size) ^= 0xFFFFFFFF;
+        ptr = (u32 *)(K1BASE + size);
+        data0 = *(u32 *)(K1BASE + size);
+        data1 = *(u32 *)(K1BASE + size + 0xFFFFC);
+        *(u32 *)(K1BASE + size) ^= 0xFFFFFFFF;
         *(u32 *)((u32)ptr + 0xFFFFC) ^= 0xFFFFFFFF;
         if (*ptr != (data0 ^ 0xFFFFFFFF) || *(u32 *)((u32)ptr + 0xFFFFC) != (data1 ^ 0xFFFFFFFF)) {
             return size;

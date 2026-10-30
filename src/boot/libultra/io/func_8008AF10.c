@@ -1,25 +1,21 @@
 // FLAGS: -O2 -g0 -mips2
-#include "types.h"
+#include "os_sp.h"
 
-extern s32 osVirtualToPhysical(s32 a0);
-extern void func_8008A780(s32 a0, s32 a1, s32 a2);
-extern void osInvalDCache(s32 a0, s32 a1);
-
-s32 __osSiRawStartDma(s32 arg0, s32 arg1) {
-    if (*(s32 *)0xA4800018 & 3) {
+s32 __osSiRawStartDma(s32 direction, void *dramAddr) {
+    if (IO_READ(SI_STATUS_REG) & (SI_STATUS_DMA_BUSY | SI_STATUS_IO_BUSY)) {
         return -1;
     }
-    if (arg0 == 1) {
-        func_8008A780(arg1, 0x40, arg0);
+    if (direction == OS_WRITE) {
+        func_8008A780(dramAddr, 0x40);
     }
-    *(s32 *)0xA4800000 = osVirtualToPhysical(arg1);
-    if (arg0 == 0) {
-        *(s32 *)0xA4800004 = 0x1FC007C0;
+    IO_WRITE(SI_DRAM_ADDR_REG, osVirtualToPhysical(dramAddr));
+    if (direction == OS_READ) {
+        IO_WRITE(SI_PIF_ADDR_RD64B_REG, 0x1FC007C0);
     } else {
-        *(s32 *)0xA4800010 = 0x1FC007C0;
+        IO_WRITE(SI_PIF_ADDR_WR64B_REG, 0x1FC007C0);
     }
-    if (arg0 == 0) {
-        osInvalDCache(arg1, 0x40);
+    if (direction == OS_READ) {
+        osInvalDCache(dramAddr, 0x40);
     }
     return 0;
 }

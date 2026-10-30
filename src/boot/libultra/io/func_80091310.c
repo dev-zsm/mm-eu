@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "types.h"
+#include "os_cont.h"
 
 u8 __osContDataCrc(u8 *data) {
     u32 i;
