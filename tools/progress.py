@@ -70,9 +70,8 @@ def update_readme(results: dict):
     lines = []
     for s, r in results.items():
         denom = r["total"] - r["asm_original"]
-        for label, pct, extra in (("functions", 100 * r["c"] / max(1, denom), f"{r['c']} / {denom}"),
-                                  ("code size", 100 * r["c_bytes"] / max(1, r["bytes"]), f"{r['c_bytes']:#x} / {r['bytes']:#x} bytes")):
-            lines.append(f"{s:<8} {label:<9} {bar(pct)} {pct:5.1f} %  ({extra})")
+        pct = 100 * r["c"] / max(1, denom)
+        lines.append(f"{s:<8} {bar(pct)} {pct:5.1f} %  ({r['c']} / {denom})")
     block = (f"{a}\nMatching C verified byte-for-byte against the ROM (refreshed by `make progress`, "
              f"last update {datetime.date.today()}):\n\n```\n" + "\n".join(lines) + f"\n```\n{b}")
     head, rest = text.split(a, 1)

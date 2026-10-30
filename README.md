@@ -15,15 +15,12 @@ Most of the C code and the tooling were written with an AI assistant. All of it 
 ## Progress
 
 <!-- progress:start -->
-Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-29):
+Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-10-30):
 
 ```
-boot     functions ████████████████████████████░░  91.9 %  (385 / 419)
-boot     code size ██████████████████████░░░░░░░░  72.1 %  (0x1023c / 0x165f4 bytes)
-code     functions ███████████████████░░░░░░░░░░░  63.4 %  (2268 / 3576)
-code     code size █████░░░░░░░░░░░░░░░░░░░░░░░░░  17.8 %  (0x2e534 / 0x104acc bytes)
-overlays functions █████████░░░░░░░░░░░░░░░░░░░░░  30.1 %  (3914 / 13011)
-overlays code size ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   8.2 %  (0x465e0 / 0x35bcf4 bytes)
+boot     ████████████████████████████░░  93.1 %  (390 / 419)
+code     ███████████████████░░░░░░░░░░░  63.4 %  (2268 / 3576)
+overlays █████████░░░░░░░░░░░░░░░░░░░░░  30.1 %  (3914 / 13011)
 ```
 <!-- progress:end -->
 
