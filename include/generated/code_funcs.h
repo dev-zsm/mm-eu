@@ -514,7 +514,6 @@ s32 func_800CB9E0(void *arg0, f32 arg1, f32 arg2);
 s32 func_800CBA34(s32 arg0, s32 arg1, void *arg2, s32 arg3);
 s32 Camera_BgCheckInfo(s32 arg0, s32 arg1, s32 arg2);  /* 800CBDB0 */
 s32 Camera_BgCheck(s32 arg0, s32 arg1, s32 arg2);  /* 800CBED8 */
-s32 Camera_CheckOOB(s32 arg0, s32 arg1, s32 arg2);  /* 800CBF74 */
 s32 func_800CC010(void *arg0, void *arg1, void *arg2, void *arg3);
 f32 Camera_GetFloorYLayer(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800CC378 */
 void Camera_GetBgCamOrActorCsCamFuncData(u8 *arg0, s32 arg1);  /* 800CC558 */
@@ -1151,7 +1150,6 @@ void MapDisp_Update(s32 arg0);  /* 80105934 */
 void MapDisp_SwapRooms(s16);  /* 80105A40 */
 void MapDisp_Minimap_DrawRedCompassIcon(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80105DE0 */
 s32 MapDisp_IsLocationRomaniRanchAltScene(void);  /* 80106208 */
-s32 MapDisp_CanDisplayMinimap(s32);  /* 80106250 */
 s32 MapDisp_IsLocationMinimapBlocked(void *arg0);  /* 801062CC */
 s32 MapDisp_IsMinimapToggleBlocked(s32 arg0);  /* 80106330 */
 s32 MapDisp_AreRoomsSameStorey(s32 arg0, s32 arg1);  /* 8010637C */
@@ -1273,7 +1271,6 @@ f32 OLib_Vec3fDist(void *arg0, void *arg1);  /* 8010C030 */
 f32 OLib_Vec3fDistXZ(f32 *a, f32 *b);  /* 8010C0D0 */
 f32 OLib_ClampMinDist(f32 val, f32 min);  /* 8010C104 */
 f32 OLib_ClampMaxDist(f32 value, f32 max);  /* 8010C16C */
-void OLib_VecSphToVec3f(void *, void *, void *);  /* 8010C284 */
 void OLib_Vec3fToVecSph(s32 arg0, void *arg1);  /* 8010C374 */
 void OLib_Vec3fDiffDegF(s32 arg0, s32 arg1);  /* 8010C6C8 */
 void OLib_Vec3fDiffBinAng(s32 arg0, s32 arg1);  /* 8010C730 */
@@ -1369,7 +1366,6 @@ u8 Player_MaskIdToItemId(s32 id);  /* 80123388 */
 void func_801233D8(void *arg0);
 void func_801234CC(void *arg0, s32 arg1);
 void func_801235F0(s32 arg0, void *arg1);
-s32 Player_InCsMode(void *arg0);  /* 80123894 */
 s32 Player_CheckHostileLockOn(void *arg0);  /* 801238D0 */
 s32 Player_FriendlyLockOnOrParallel(void *arg0);  /* 801238E4 */
 s32 Player_IsGoronOrDeku(u8 *a0);  /* 80123960 */
