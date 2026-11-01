@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Show ROM vs compiled instructions side by side. usage: disasm_diff.py <seg> <fn> <file.c>"""
-import subprocess, sys, tempfile
+import sys, tempfile
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import match

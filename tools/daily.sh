@@ -1,6 +1,6 @@
 #!/bin/bash
 # Unattended daily run, no agent needed. In WSL:  tools/daily.sh [hours=3]
-#   1. permuter over every boot, code and overlay draft (the overlay ones: wip files and m2c drafts of what the passes missed), closest to a match first (what tools/auto_loop.sh does)
+#   1. permuter over every boot, code and overlay draft (the overlay ones: wip files and m2c drafts of what the passes missed), closest to a match first
 #   2. overlays: the m2c draft of every function is tried (tools/overlay_auto.py), then the mechanical recipes, then promoted
 #   3. what matched is tidied into src/, then names, srcsort and the full check (tools/wave_finish.sh)
 #   4. only if the check passed: commit and push (set -e stops everything before that otherwise)

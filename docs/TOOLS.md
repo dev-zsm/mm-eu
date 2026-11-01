@@ -29,14 +29,10 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | Tool | Purpose |
 |---|---|
 | `tools/auto_match.py`, `tools/auto_near.py`, `tools/auto_recipes.py` | try the m2c drafts with several IDO flag sets and mechanical tricks, then rank the near misses |
-| `tools/rank_wip.py` | rank the unmatched functions by how close they are |
-| `tools/diff_kind.py` | classify the difference of each unfinished draft (size, order, registers, other) to choose the right tool |
-| `tools/decl_sweep.py` | try every order of the plain local declarations of each unfinished draft (stack layout and registers) |
-| `tools/permute_setup.py`, `tools/permute_all.py`, `tools/flag_sweep.py` | automated search for matching C |
+| `tools/permute_setup.py`, `tools/flag_sweep.py` | automated search for matching C |
 | `tools/permute_list.py` | run the permuter on a list of unmatched functions, or with `--auto` on every wip draft (boot, code, and overlays: wip files plus the m2c drafts of what the automatic passes missed) closest first, and keep what matches in `build/perm_wins/`; a function already in its log is not tried again without `--retry` |
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
-| `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
-| `tools/daily.sh` (`make daily HOURS=3`) | unattended: the same, plus the overlay passes and the typing of the new actor handlers (`tools/retype.py`), then commit and push if the check passed. It stops when its terminal closes: start it with `nohup make daily HOURS=3 > build/daily.out 2>&1 &` |
+| `tools/daily.sh` (`make daily HOURS=3`) | unattended: the permuter over the boot, code and overlay drafts, tidy the wins, the overlay passes, the typing of the new actor handlers (`tools/retype.py`) and the prototype headers (`tools/sig_header.py`), the full check, then commit and push if the check passed. It stops when its terminal closes: start it with `nohup make daily HOURS=3 > build/daily.out 2>&1 &` |
 | `tools/sig_header.py` | prototypes of a whole segment in one header (`include/code_funcs.h`, `include/overlays/NNNN.h`): the definition's own where there is verified C, else the `extern` the other files carry, else read from the assembly (arguments, pointers, floats, result); `--apply` makes each verified file use the header, kept only if it still matches |
 | `tools/forever.sh` | for a machine that stays on: `tools/daily.sh` in a loop, a failed round restored to the last commit, a push retried by the next round; run it as a service (`Restart=always`) |
 | `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |

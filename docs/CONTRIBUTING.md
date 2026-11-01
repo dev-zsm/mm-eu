@@ -30,7 +30,7 @@ Compiler: IDO 7.1 by default. A function that only differs by the scratch regist
 [COMPILERS.md](COMPILERS.md). Do not use 5.3 just to get a match: it must match as plain, natural C.
 
 Techniques that make the compiler produce the original code are collected in `tools/AGENT_BRIEF.md`. For register
-allocation and stack layout problems, use the automated tools: `tools/permute_all.py` (decomp-permuter) and
+allocation and stack layout problems, use the automated tools: `tools/permute_list.py` (decomp-permuter) and
 `tools/flag_sweep.py` (compiler flag combinations).
 
 ## Symbol names (`config/<segment>.names.txt`)

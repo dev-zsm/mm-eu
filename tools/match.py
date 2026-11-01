@@ -12,7 +12,6 @@ import names as _names  # noqa: E402
 import objcache  # noqa: E402
 
 NAMES = {**_names.load("boot"), **_names.load("code")}
-import os  # noqa: E402
 CC = objcache._compiler("71")  # MM_CC, else ~/ido71/cc (native disk, ~4x faster than /mnt/c), else tools/vendor
 class _Segments(dict):
     """boot and code, plus any overlay as `ovlNNNN` (file index NNNN): its file in extracted/, linked at address 0 and read at 0x80000000."""

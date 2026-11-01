@@ -1412,7 +1412,7 @@ void func_801257C8(void *arg0, void *arg1);
 void func_801257F0(void);
 void func_8012581C(void);
 void Player_DrawZoraShield(s32 arg0, void *arg1);  /* 80125854 */
-void func_801259B0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void func_801259B0(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 Player_OverrideLimbDrawGameplayCommon(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80125A30 */
 void func_80126190(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void Player_OverrideLimbDrawGameplayDefault(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801261FC */

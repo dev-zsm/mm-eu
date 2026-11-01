@@ -27,7 +27,7 @@ def run(i, f, text, data, ro, size):
     tail = size - foot  # header, relocations and footer
     b = ROOT / "build" / "overlays"
     b.mkdir(parents=True, exist_ok=True)
-    sub = [f"      - [0x0, asm, text]", f"      - [{text:#x}, data, data]"]
+    sub = ["      - [0x0, asm, text]", f"      - [{text:#x}, data, data]"]
     if tail > text + data:
         sub.append(f"      - [{text + data:#x}, rodata, rodata]")
     (b / f"{i}.yaml").write_text(f"""name: ovl{i}
@@ -58,7 +58,6 @@ segments:
     r = subprocess.run(["splat", "split", str(b / f"{i}.yaml")], capture_output=True, text=True, cwd=ROOT)
     if r.returncode:
         return "SPLAT FAILED: " + (r.stderr.strip().splitlines() or ["?"])[-1][:100]
-    objs = []
     for s in sorted((ROOT / "asm" / "overlays" / i).rglob("*.s")):
         o = b / i / (s.relative_to(ROOT).as_posix() + ".o")
         o.parent.mkdir(parents=True, exist_ok=True)

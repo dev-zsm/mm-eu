@@ -19,8 +19,8 @@ check:            ## run before every commit: verify boot, code and the overlays
 fastcheck:        ## same as check, 3-4 times faster when the repository is on the Windows disk (mirrors it to the WSL disk)
 	bash tools/fastcheck.sh
 
-auto:             ## unattended: permuter queue for HOURS (default 1), tidy the wins, then names and the full check
-	bash tools/auto_loop.sh $(HOURS)
+auto:             ## unattended, like daily but nothing is committed (HOURS=1)
+	NO_COMMIT=1 bash tools/daily.sh $(HOURS)
 
 daily:            ## unattended, several hours (HOURS=3): permuter, overlay passes, full check, then commit and push
 	bash tools/daily.sh $(HOURS)

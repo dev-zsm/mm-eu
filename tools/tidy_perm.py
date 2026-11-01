@@ -106,7 +106,8 @@ def tidy_enough(t: str) -> bool:
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     dry = "--dry" in sys.argv
-    seg, fns = args[0], args[1:] or sorted(p.stem for p in wins(seg).glob("func_*.c"))
+    seg = args[0]
+    fns = args[1:] or sorted(p.stem for p in wins(seg).glob("func_*.c"))
     for fn in fns:
         raw = (wins(seg) / f"{fn}.c").read_text().replace("\r", "")
         if not matches(seg, fn, raw):

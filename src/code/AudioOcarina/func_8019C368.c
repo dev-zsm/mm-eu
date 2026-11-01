@@ -1,10 +1,10 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern s32 D_801F4D70[];
 extern u8 D_801D0E60;
 extern s32 D_801D0E64;
-void AudioOcarina_Start(s32 mask);
 
 void AudioOcarina_StartWithSongNoteLengths(u32 mask) {
     u8 i;

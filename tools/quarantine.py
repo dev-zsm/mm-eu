@@ -4,7 +4,7 @@ Run in WSL.  usage: quarantine.py <boot|code>
 Rebuilds the segment with tools/build_seg.py, compares each src/<seg>/func_*.c with the ROM bytes of its function
 and moves the files that differ. Their callers and the rest of the segment fall back to the original assembly, so one
 pass is enough. Use it after a batch of unchecked work (stopped agents, hand edits); `make check` stays the judge."""
-import re, shutil, subprocess, sys
+import shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent

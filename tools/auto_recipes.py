@@ -14,7 +14,6 @@ sys.path.insert(0, str(ROOT / "tools"))
 import auto_match as am  # noqa: E402
 import auto_near as an  # noqa: E402
 import match  # noqa: E402
-import srcpath  # noqa: E402
 
 TYPES = ["s32", "u32", "s16", "u16", "s8", "u8", "f32"]
 SIG = re.compile(r"^(?P<ret>[\w ]+?[ *])(?P<fn>func_\w+)\((?P<args>[^)]*)\) \{", re.M)

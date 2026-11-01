@@ -2,7 +2,7 @@
 """Try many IDO flag combinations on every unmatched function's draft; promote any that matches and report the best
 score per function. CPU only. Run in WSL.  usage: flag_sweep.py <seg> [first_n]
 Log: build/flag_sweep_<seg>_v2.txt"""
-import itertools, re, sys
+import itertools, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import match

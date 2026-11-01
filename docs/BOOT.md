@@ -50,8 +50,7 @@ added to that list only with my agreement.
 
 ## Tools for the hard cases
 
-`tools/rank_wip.py boot` ranks the unfinished attempts by distance to the ROM; `tools/permute_list.py --auto` runs the
-permuter on them; `tools/tidy_perm.py boot` rewrites what it found; `tools/quarantine.py boot` moves back to `wip`
+`tools/permute_list.py --auto` ranks the unfinished attempts by distance to the ROM and runs the permuter on them, closest first; `tools/tidy_perm.py boot` rewrites what it found; `tools/quarantine.py boot` moves back to `wip`
 any file that does not hold in the rebuilt segment. `make progress` refreshes the numbers.
 
 ## Hand-written assembly of the SDK

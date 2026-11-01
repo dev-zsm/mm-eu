@@ -41,7 +41,7 @@ tools/mm diff  code func_800BDE3C src/code/func_800BDE3C.c
 3. `bash tools/wave_finish.sh` files the sources, applies the names, verifies both segments and the style, and
    refreshes the numbers. `python3 tools/quarantine.py code` moves back to `wip` what does not hold in the rebuilt
    segment.
-4. `make auto HOURS=2` runs the permuter over every unfinished attempt, tidies what it found and verifies it.
+4. `make auto HOURS=2` runs the permuter over every unfinished attempt, tidies what it found and verifies it, without committing (`make daily` also commits and pushes).
 5. `make check` must pass before every commit.
 
 ## Signatures

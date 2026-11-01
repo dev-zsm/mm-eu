@@ -2,7 +2,7 @@
 """Rebuild one code segment from per-function objects: C (IDO 7.1) where src/<seg>/<fn>.c exists,
 the splat assembly otherwise. Links them at the original addresses and compares with the ROM bytes.
 Run in WSL.  usage: build_seg.py <boot|code> <original.bin>"""
-import re, shutil, struct, subprocess, sys, tempfile
+import re, shutil, struct, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
