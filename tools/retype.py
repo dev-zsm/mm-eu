@@ -79,7 +79,7 @@ def rewrite(text: str, fn: str, header: str, proto: str, fit: bool = False):
                 return None, f"name {nn} already used"
             body = re.sub(r"\b" + re.escape(on) + r"\b", nn, body)
         if "*" in nt:  # the body did arithmetic on a byte or integer parameter: a typed pointer would scale it
-            body = re.sub(r"\b" + re.escape(nn) + r"\b(\s*[-+]\s*(?:0x[0-9A-Fa-f]+|\d+)\b)", lambda m: "(u8 *)" + nn + m.group(1), body)
+            body = re.sub(r"(?<!\(u8 \*\))\b" + re.escape(nn) + r"\b(\s*[-+]\s*(?:0x[0-9A-Fa-f]+|\d+)\b)", lambda m: "(u8 *)" + nn + m.group(1), body)
         first = FIRST_FIELD.get(nt.replace("*", "").strip())
         if first:  # `*p` read the first field of the structure
             body = re.sub(r"(?<![\w\)\]])\*\s*" + re.escape(nn) + r"\b", f"{nn}->{first}", body)
