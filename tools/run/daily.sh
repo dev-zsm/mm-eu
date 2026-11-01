@@ -36,7 +36,7 @@ for seg in boot code overlays; do python3 tools/signatures/sig_header.py $seg --
 bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks
 
 [ -n "${NO_COMMIT:-}" ] && exit 0
-git add README.md docs/PROGRESS.md src/boot src/code src/overlays
+git add README.md docs/PROGRESS.md include src/boot src/code src/overlays
 if git diff --cached --quiet; then echo "nothing new today"; exit 0; fi
 git commit -q -m "daily run: more verified functions
 

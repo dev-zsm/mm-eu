@@ -96,7 +96,7 @@ void func_80006D4C(void *arg0, s32 arg1, s32 arg2);
 void func_80006E34(void *arg0, s32 arg1, void *arg2);
 void func_80006F84(void *arg0, s32 arg1, void *arg2);
 void func_800070F0(void *arg0, s32 arg1, s32 arg2);
-void func_800072A0(void *arg0, s32 arg1);
+void func_800072A0(u8 *arg0, s32 arg1);
 void func_800072C4(s32 arg0);
 void func_80007314(void *arg0, void *arg1);
 void func_8000746C(void *arg0, s32 arg1, void *arg2);

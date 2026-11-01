@@ -24,7 +24,7 @@ void func_80000850(void *arg0);
 void func_800008A0(u8 *arg0, s32 arg1);
 void func_8000097C(u8 *arg0);
 void func_800009AC(u8 *arg0, s32 arg1);
-void func_80000A6C(void *arg0);
+void func_80000A6C(u8 *arg0);
 void func_80000A8C(void *arg0, s32 arg1);
 void func_80000BCC(u8 *arg0);
 void func_80000BE0(void *arg0, s32 arg1);
