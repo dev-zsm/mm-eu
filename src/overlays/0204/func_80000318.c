@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0204.h"
 
 extern void func_8095E978();
 extern u8 D_40367B0;

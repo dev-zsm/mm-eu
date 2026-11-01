@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "overlays/0401.h"
 extern u8 D_80AA9A5C;
 void func_800B8C4C();
 void func_80000400(u8 *a) {

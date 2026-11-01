@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0531.h"
 
 extern void func_800B8C4C();
 

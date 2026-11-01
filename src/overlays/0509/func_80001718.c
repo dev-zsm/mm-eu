@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "overlays/0509.h"
 
 void func_80001718(u8 *arg0, u8 *arg1, s16 arg2) {
     s16 temp_v1;

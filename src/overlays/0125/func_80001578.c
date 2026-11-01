@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0125.h"
 
 extern u8 D_808E9F20;
 

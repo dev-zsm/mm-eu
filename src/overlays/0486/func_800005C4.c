@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0486.h"
 
 extern void func_80B22E98();
 

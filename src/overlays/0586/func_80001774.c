@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0586.h"
 
 s32 func_80001774(void *a0, s32 a1, s32 *a2, s32 a3) {
     switch (a1) {

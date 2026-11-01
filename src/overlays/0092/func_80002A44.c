@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "overlays/0092.h"
 
 M2C_UNK func_808B0E78(u8 *);                      /* extern */
 extern M2C_UNK D_808B3488;

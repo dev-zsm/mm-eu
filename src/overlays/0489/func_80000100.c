@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0489.h"
 extern s32 func_80B287CC();
 extern void func_80B287A4();
 s32 func_80000100(void) {

@@ -1,3 +1,4 @@
 #include "types.h"
+#include "overlays/0463.h"
 extern void func_800B6490(a0);
 void func_80001F04(void *a0, s32 a1) { func_800B6490(a0); }

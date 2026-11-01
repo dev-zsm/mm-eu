@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0056.h"
 
 extern s32 D_8085BAD4;
 extern void func_8013698C();

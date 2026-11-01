@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0295.h"
 
 void func_80000000(s16 *a0, u8 *a1, s32 a2) {
     if (a2 < 0x40) {

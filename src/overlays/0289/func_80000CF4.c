@@ -1,0 +1,11 @@
+// FLAGS: -O2 -g3 -mips2
+#include "types.h"
+#include "m2c_compat.h"
+#include "overlays/0289.h"
+
+extern M2C_UNK D_809D7B64;
+
+void func_80000CF4(u8 *arg0, M2C_UNK arg1) {
+    M2C_FIELD(arg0, M2C_UNK **, 0x198) = &D_809D7B64;
+    M2C_FIELD(arg0, s8 *, 0x144) = 1;
+}

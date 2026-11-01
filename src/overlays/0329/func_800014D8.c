@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0329.h"
 extern s16 D_801EC702;
 void func_800014D8(u8 *a, s32 b) {
     s32 t;

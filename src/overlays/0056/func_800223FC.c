@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0056.h"
 
 extern s32 func_8082F2D4();
 

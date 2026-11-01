@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0068.h"
 
 extern u8 D_8087A040[];
 

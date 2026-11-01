@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0074.h"
 extern u8 D_80897864[];
 void func_800011F4(u8 *a0) {
     *(s32 *)(a0 + 0x2A8) = (s32)D_80897864;

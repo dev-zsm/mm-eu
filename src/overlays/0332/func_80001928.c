@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0332.h"
 extern u8 D_80A2BA24[];
 void func_80A2A324();
 void func_80001928(u8 *a0) {

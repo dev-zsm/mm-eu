@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0611.h"
 
 extern void func_80BE0604(void *a0, void *a1, s16 a2, s32 a3, f32 a4);
 

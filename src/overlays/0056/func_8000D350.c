@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0056.h"
 
 extern s32 func_80839F50(void *a0, void *a1, f32 a2);
 

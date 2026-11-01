@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0477.h"
 
 extern u8 D_80B1577C[];
 

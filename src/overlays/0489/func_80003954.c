@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0489.h"
 
 extern s32 D_80B33670;
 extern u8 D_80B2C054[];

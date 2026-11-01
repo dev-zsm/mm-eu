@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0478.h"
 
 typedef struct {
     s32 x[7];

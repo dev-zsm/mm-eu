@@ -1,4 +1,5 @@
 #include "types.h"
+#include "overlays/0056.h"
 extern u8 D_8085C05C[];
 extern s32 D_8085C028[];
 void func_8082D8D4();

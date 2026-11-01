@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "overlays/0113.h"
 
 extern void func_808D74E4();
 
