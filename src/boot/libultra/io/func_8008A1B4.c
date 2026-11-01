@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_cont.h"
+#include "sdk/os_cont.h"
 
 void osContGetReadData(OSContPad *data) {
     register u8 *ptr = (u8 *)&D_8009D2A0;

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0080.h"
+#include "generated/overlays/0080.h"
 extern void func_8089EC00(void *, f32);
 s32 func_800000F0(void *a) {
     func_8089EC00(a, -1.0f);

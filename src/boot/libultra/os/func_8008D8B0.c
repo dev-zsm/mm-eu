@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "irqmgr.h"
-#include "os_sp.h"
+#include "boot/irqmgr.h"
+#include "sdk/os_sp.h"
 
 void osAfterPreNMI(void) {
     __osSpSetPc(0);

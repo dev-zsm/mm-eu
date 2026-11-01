@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -Wab,-r4300_mul
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 f32 sqrtf(f32);
 #pragma intrinsic (sqrtf)
 f32 func_800CAFF0(f32 *v) {

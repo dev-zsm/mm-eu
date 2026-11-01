@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 s32 func_80088070(void *, u32 *, s32);
 extern u8 D_801F4980[];
 extern u8 *D_801F49D8[];

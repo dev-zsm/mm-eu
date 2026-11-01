@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_cont.h"
-#include "os_internal.h"
+#include "sdk/os_cont.h"
+#include "sdk/os_internal.h"
 
 #define MOTOR_PAK_ADDRESS 0x600
 

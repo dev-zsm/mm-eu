@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "faultdrawer.h"
+#include "boot/faultdrawer.h"
 
 void FaultDrawer_DrawText(s32 x, s32 y, const char *fmt, ...) {
     va_list args;

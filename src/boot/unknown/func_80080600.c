@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_80080600(s32 useDefaultMode) {
     if (useDefaultMode != 0) {

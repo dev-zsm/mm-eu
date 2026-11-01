@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 f32 Math_CosS(s16);                             /* extern */
 f32 Math_SinS(s16);                             /* extern */

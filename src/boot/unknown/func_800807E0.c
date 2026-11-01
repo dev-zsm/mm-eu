@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
-#include "os_internal.h"
-#include "os_sp.h"
-#include "dmamgr.h"
+#include "sdk/os_internal.h"
+#include "sdk/os_sp.h"
+#include "boot/dmamgr.h"
 
 s32 func_800807E0(u32 romStart, void *ramStart, u32 size) {
     OSIoMesg ioMsg;

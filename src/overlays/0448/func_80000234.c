@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0448.h"
+#include "generated/overlays/0448.h"
 
 extern M2C_UNK D_80AE1904;
 extern M2C_UNK D_80AE1BC4;

@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "rcputils.h"
+#include "boot/rcputils.h"
 
 void RcpUtils_PrintRegisterStatus(void) {
     u32 spStatus;

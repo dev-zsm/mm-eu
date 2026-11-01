@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "printf.h"
+#include "boot/printf.h"
 
 s32 sprintf(char *buf, const char *fmt, ...) {
     s32 ret;

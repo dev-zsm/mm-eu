@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern u8 D_801CE958[];
 extern u8 D_801CE9C8[];
 extern u8 *D_801CEAB8;

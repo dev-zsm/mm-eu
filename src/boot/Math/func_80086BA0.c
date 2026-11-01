@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "libm.h"
+#include "sdk/libm.h"
 
 /* Single-precision atan2: the quotient y/x goes through Math_FAtanF, pi is added or subtracted by quadrant. */
 f32 Math_FAtan2F(f32 y, f32 x) {

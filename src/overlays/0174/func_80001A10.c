@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0174.h"
+#include "generated/overlays/0174.h"
 
 extern void func_8093F4EC();
 extern void *D_8093F6E0[];

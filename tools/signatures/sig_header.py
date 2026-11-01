@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Prototypes of a whole segment in one header, then the sources use it. Run in WSL.
 usage: sig_header.py <seg> [--apply] [-j N]          seg = boot, code or ovlNNNN (or `overlays`: every overlay)
-  without --apply: write the header only (include/<seg>_funcs.h, include/overlays/NNNN.h) and report
+  without --apply: write the header only (include/generated/<seg>_funcs.h, include/generated/overlays/NNNN.h) and report
   with --apply:   also make each verified C file include it and drop its own `extern` declarations of those functions;
                   a file is kept only if it still compiles to the exact bytes of the ROM (the others are restored)
 Where a function has verified C, its prototype is the one of its definition (types the header knows only: the ones of types.h
@@ -31,11 +31,11 @@ CLOBBER = {"a0", "a1", "a2", "a3", "v0", "v1", "at", *(f"t{i}" for i in range(10
 
 
 def header_path(seg: str) -> Path:
-    return ROOT / "include" / ("overlays/" + seg[3:] + ".h" if seg.startswith("ovl") else f"{seg}_funcs.h")
+    return ROOT / "include" / header_name(seg)
 
 
 def header_name(seg: str) -> str:
-    return "overlays/" + seg[3:] + ".h" if seg.startswith("ovl") else f"{seg}_funcs.h"
+    return "generated/overlays/" + seg[3:] + ".h" if seg.startswith("ovl") else f"generated/{seg}_funcs.h"
 
 
 def chunks(seg: str):

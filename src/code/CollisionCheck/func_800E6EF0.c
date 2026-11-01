@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void CollisionCheck_OC_SphereVsJntSph(void *a0, void *a1, void *a2, void *a3) {

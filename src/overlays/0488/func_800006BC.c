@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0488.h"
+#include "generated/overlays/0488.h"
 
 extern void func_80B25BA4(s32, s32, u16);
 

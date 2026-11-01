@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
-#include "libc.h"
+#include "boot/fault.h"
+#include "sdk/libc.h"
 
 void Fault_Init(void) {
     bzero(D_8009C220 = &D_8009C850, sizeof(FaultMgr));

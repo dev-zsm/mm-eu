@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0085.h"
+#include "generated/overlays/0085.h"
 
 s32 func_800019EC(u8 *arg0) {
     s32 var_v1;

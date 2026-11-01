@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "gu.h"
-#include "libm.h"
+#include "sdk/gu.h"
+#include "sdk/libm.h"
 
 #pragma intrinsic (sqrtf)
 

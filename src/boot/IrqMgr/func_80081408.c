@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "irqmgr.h"
+#include "boot/irqmgr.h"
 
 void IrqMgr_JamMesgToClients(IrqMgr *irqMgr, OSMesg msg) {
     IrqMgrClient *client;

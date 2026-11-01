@@ -1,4 +1,4 @@
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_80080150(void *start, void *end) {
     if (start < end) {

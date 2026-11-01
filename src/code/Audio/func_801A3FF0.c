@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern u8 D_801F4BEB;
 extern u16 D_801F4BEC;
 void Audio_UpdateFanfare(void) {

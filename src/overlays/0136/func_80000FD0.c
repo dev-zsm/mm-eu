@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0136.h"
+#include "generated/overlays/0136.h"
 extern u8 D_80901B80[];
 void func_80000FD0(u8 *a0) {
     *(s16 *)(a0 + 0x24C) = 0x40;

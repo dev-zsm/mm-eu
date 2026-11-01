@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "arena.h"
+#include "boot/arena.h"
 
 void func_800878AC(Arena *arena, u32 *maxFree, u32 *bytesFree, u32 *bytesAllocated) {
     ArenaNode *node;

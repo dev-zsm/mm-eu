@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0614.h"
+#include "generated/overlays/0614.h"
 
 void func_800004EC(u8 *a0) {
     *(s16 *)(a0 + 0x2BC) = 0;

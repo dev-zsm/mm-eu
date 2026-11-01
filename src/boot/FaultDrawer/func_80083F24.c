@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "faultdrawer.h"
-#include "fault.h"
+#include "boot/faultdrawer.h"
+#include "boot/fault.h"
 
 void FaultDrawer_DrawRecImpl(s32 xStart, s32 yStart, s32 xEnd, s32 yEnd, u16 color) {
     s32 x;

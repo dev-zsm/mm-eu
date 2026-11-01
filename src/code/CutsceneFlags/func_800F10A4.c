@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void CutsceneFlags_Set(void *ctx, s16 flag) {
     s16 index = flag / 16;

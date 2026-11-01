@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "faultdrawer.h"
+#include "boot/faultdrawer.h"
 
 void FaultDrawer_SetDrawerFrameBuffer(void *fb, u16 w, u16 h) {
     D_80096D80->fb = fb;

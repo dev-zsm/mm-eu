@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
-#include "os_internal.h"
-#include "os_vi.h"
+#include "boot/fault.h"
+#include "sdk/os_internal.h"
+#include "sdk/os_vi.h"
 
 void Fault_DisplayFrameBuffer(void) {
     void *fb;

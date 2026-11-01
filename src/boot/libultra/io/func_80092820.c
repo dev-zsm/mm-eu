@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 void __osPfsGetInitData(u8 *pattern, OSContStatus *data) {
     /* declaration order decides the stack layout (matching) */

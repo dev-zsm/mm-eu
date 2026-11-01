@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 osMotorInit(OSMesgQueue *mq, OSPfs *pfs, s32 channel) {
     s32 ret;

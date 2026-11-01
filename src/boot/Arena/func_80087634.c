@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "arena.h"
+#include "boot/arena.h"
 
 void Arena_Free(Arena *arena, void *ptr) {
     ArenaImpl_Lock(arena);

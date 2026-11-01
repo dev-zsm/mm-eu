@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void CollisionCheck_SetInfo(u8 *a0, void *a1, u8 *a2) {
     a0[0x17] = a2[0];
     *(void **)a0 = a1;

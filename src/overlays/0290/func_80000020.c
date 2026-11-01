@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "overlays/0290.h"
+#include "generated/overlays/0290.h"
 
 extern s32 D_809EF5B8;
 extern s32 D_809EF5BC;

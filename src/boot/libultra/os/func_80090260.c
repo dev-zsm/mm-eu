@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 __osEPiRawStartDma(OSPiHandle *handle, s32 direction, u32 cartAddr, void *dramAddr, u32 size) {
     u32 stat;

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 extern OSThread D_8009D5F0;      /* Pi manager thread */
 extern OSMesgQueue D_8009E7A0;   /* Pi event queue; the stack of the thread ends where it begins */

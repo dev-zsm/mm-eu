@@ -1,6 +1,6 @@
 // FLAGS: -O1 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void View_SetViewport(s32, void *);
 void func_801531A8(s32 a0) {
     struct { s32 a, b, c, d; } r;

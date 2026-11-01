@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0056.h"
+#include "generated/overlays/0056.h"
 
 void func_800001A8(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xA70) = (s32) (M2C_FIELD(arg0, s32 *, 0xA70) & 0xFFFDFFFF);

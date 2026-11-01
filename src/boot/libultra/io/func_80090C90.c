@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
-#include "os_vi.h"
-#include "os_sp.h"
+#include "sdk/os_vi.h"
+#include "sdk/os_sp.h"
 
 s32 osAiSetFrequency(u32 frequency) {
     s32 dacRate;

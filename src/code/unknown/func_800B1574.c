@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern void EffectSsDust_Spawn(void *play, s32 type, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6, s16 arg7, s16 arg8, s32 life, s32 flags);
 

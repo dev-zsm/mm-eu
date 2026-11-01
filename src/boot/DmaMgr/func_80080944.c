@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "dmamgr.h"
+#include "boot/dmamgr.h"
 
 // Returns the row of D_8009FC80 that contains vrom, or NULL.
 DmaEntry *DmaMgr_FindDmaEntry(u32 vrom) {

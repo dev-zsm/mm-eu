@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void Audio_PlayFanfareWithPlayerIOCustomPort(u16 seqId, s8 port, u8 value) {

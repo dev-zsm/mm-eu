@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osCheckId(OSPfs *pfs) {
     u8 temp[0x20];

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 void Fault_ProcessClients(void) {
     FaultClient *client = D_8009C220->clients;

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void MapData_GetMapScale(s32 a0, s32 *scale) {

@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 Schedule_ReturnEmpty(s32 arg0, M2C_UNK arg1, void *arg2) {
     M2C_FIELD(arg2, s32 *, 0xC) = 1;

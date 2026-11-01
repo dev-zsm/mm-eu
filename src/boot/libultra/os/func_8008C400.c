@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 void __osDevMgrMain(void *args) {
     OSIoMesg *mb;

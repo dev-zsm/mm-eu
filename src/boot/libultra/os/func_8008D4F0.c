@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 u32 osGetMemSize(void) {
     u32 *ptr;

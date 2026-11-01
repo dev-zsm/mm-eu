@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_800801FC(void) {
     u32 sp18[2];

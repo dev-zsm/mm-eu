@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "gu.h"
+#include "sdk/gu.h"
 
 void MtxConv_F2L(Mtx *mtx, MtxF mf) {
     s32 i;

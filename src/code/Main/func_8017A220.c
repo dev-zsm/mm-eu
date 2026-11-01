@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void func_8017A220(s32 a0, s32 a1, s32 a2, s32 a3, s32 rows, u8 *arg5) {

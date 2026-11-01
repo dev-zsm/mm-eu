@@ -1,4 +1,4 @@
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 // FLAGS: -O2 -g3 -mips2
 
 extern s32 D_801E7DB0;

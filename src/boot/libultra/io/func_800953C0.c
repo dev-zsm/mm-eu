@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_sp.h"
+#include "sdk/os_sp.h"
 
 s32 __osSiRawWriteIo(u32 devAddr, u32 data) {
     if (__osSiDeviceBusy() != 0) {

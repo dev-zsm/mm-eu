@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0119.h"
+#include "generated/overlays/0119.h"
 
 extern void *D_808E0BA8[];
 

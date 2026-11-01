@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "padutils.h"
+#include "boot/padutils.h"
 
 void PadUtils_SetRelXY(Input *input, s32 x, s32 y) {
     input->rel.stick_x = x;

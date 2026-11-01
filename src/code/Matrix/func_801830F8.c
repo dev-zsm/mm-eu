@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Matrix_Transpose(f32 *m) {
     f32 t;

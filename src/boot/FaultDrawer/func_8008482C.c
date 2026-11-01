@@ -1,6 +1,6 @@
 // FLAGS: -O1 -g3 -mips2 -trapuv
 #include "types.h"
-#include "boot_funcs.h"
+#include "generated/boot_funcs.h"
 
 void FaultDrawer_VPrintf(s32 a0, s32 *a1);
 

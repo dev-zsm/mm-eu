@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void __osSetHWIntrRoutine(OSHWIntr interrupt, s32 (*handler)(void), void *stackEnd) {
     register OSIntMask saveMask = __osDisableInt();

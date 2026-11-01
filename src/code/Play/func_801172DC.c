@@ -1,6 +1,6 @@
 // FLAGS: -O1 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void View_SetViewport(s32, s32 *);
 

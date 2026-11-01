@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 Math_StepToIImpl(s32 start, s32 target, s32 step) {
     s32 v;

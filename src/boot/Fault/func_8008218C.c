@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 void Fault_FillScreenRed(void) {
     FaultDrawer_SetForeColor(FAULT_COLOR_WHITE);

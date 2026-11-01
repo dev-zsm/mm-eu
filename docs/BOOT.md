@@ -17,8 +17,8 @@ their folder.
 
 ## Shared headers
 
-`include/ultra64.h` holds the libultra types and the kernel, timer and Pi routines whose functions are converted
-(`OSThread`, `OSMesgQueue`, `OSTimer`, `OSPiHandle`, `OSIoMesg`, hardware register macros), and `include/libc.h` the heap and the
+`include/sdk/ultra64.h` holds the libultra types and the kernel, timer and Pi routines whose functions are converted
+(`OSThread`, `OSMesgQueue`, `OSTimer`, `OSPiHandle`, `OSIoMesg`, hardware register macros), and `include/sdk/libc.h` the heap and the
 string functions. A function converted to these headers includes them instead of declaring its own types; the other functions of
 `boot` still carry local placeholder types (`Obj`, `Ctx`, `Node`) and `s32` parameters that are really pointers. They are converted
 group by group, each one kept at `MATCH`; see the rule in [CONTRIBUTING.md](CONTRIBUTING.md#code-style). The "Typed signatures"

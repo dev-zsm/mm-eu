@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "faultdrawer.h"
-#include "fault.h"
+#include "boot/faultdrawer.h"
+#include "boot/fault.h"
 
 void FaultDrawer_UpdatePrintColor(void) {
     s32 idx;

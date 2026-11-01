@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3
-#include "irqmgr.h"
+#include "boot/irqmgr.h"
 
 void IrqMgr_AddClient(IrqMgr *irqMgr, IrqMgrClient *client, OSMesgQueue *queue) {
     OSIntMask mask;

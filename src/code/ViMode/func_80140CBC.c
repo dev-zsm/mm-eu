@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void ViMode_ConfigureFeatures(void *arg0, s32 arg1) {
     s32 var_v0;

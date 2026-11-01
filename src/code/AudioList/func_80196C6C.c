@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void AudioList_InitNoteList(void *arg0) {
     M2C_FIELD(arg0, void **, 0) = arg0;

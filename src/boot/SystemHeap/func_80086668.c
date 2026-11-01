@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "systemheap.h"
+#include "boot/systemheap.h"
 
 void SystemHeap_Init(void *start, size_t size) {
     MallocInit(start, size);

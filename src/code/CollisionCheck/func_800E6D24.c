@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void CollisionCheck_OC_CylVsJntSph(s32 a0, s32 a1, s32 a2, s32 a3) {

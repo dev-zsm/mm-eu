@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void func_8016365C(f32 t, f32 *dest) {
     f32 u = 1.0f - t;

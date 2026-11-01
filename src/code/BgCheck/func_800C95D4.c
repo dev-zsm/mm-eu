@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 typedef struct { u8 pad0[0x1C]; void *unk1C; s32 unk20; } Info;
 

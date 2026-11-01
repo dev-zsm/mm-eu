@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 f32 func_800CAFC0(f32 arg0) {
     f32 var_f2;

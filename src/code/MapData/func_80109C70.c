@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void MapData_CPID_GetDrawType(s32 arg0, s32 *arg1) {

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Flags_SetSwitch(u8 *play, s32 flag) {
     if ((flag >= 0) && (flag < 0x80)) {

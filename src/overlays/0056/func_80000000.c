@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0056.h"
+#include "generated/overlays/0056.h"
 
 s32 func_80000000(u8 *a) {
     u8 *p = a + 0x18000;

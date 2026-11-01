@@ -36,7 +36,7 @@ def directives(text: str) -> str:
 
 def _headers() -> str:
     h = hashlib.sha256()
-    for p in sorted((ROOT / "include").rglob("*")):   # include/overlays/ holds the headers of the overlays
+    for p in sorted((ROOT / "include").rglob("*")):   # include/generated/overlays/ holds the headers of the overlays
         if p.is_file():
             h.update(p.relative_to(ROOT / "include").as_posix().encode() + p.read_bytes())
     return h.hexdigest()

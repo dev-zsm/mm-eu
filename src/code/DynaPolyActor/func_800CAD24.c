@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 DynaPolyActor_IsPlayerAbove(void *arg0) {
     if (M2C_FIELD(arg0, u8 *, 0x158) & 4) {

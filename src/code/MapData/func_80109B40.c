@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void MapData_CPID_GetTexDim(s32 id, s32 *w, s32 *h) {

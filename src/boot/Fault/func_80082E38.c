@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 void Fault_DrawMemDump(u32 pc, u32 sp, u32 cLeftJump, u32 cRightJump) {
     u32 addr = pc;

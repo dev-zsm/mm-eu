@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
-#include "dbg.h"
+#include "boot/fault.h"
+#include "boot/dbg.h"
 
 void Fault_AddHungupAndCrashImpl(const char *exp1, const char *exp2) {
     FaultClient client;

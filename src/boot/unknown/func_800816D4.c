@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_800816D4(IrqMgr *irqMgr) {
     s32 msg;

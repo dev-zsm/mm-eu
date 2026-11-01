@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void VisZBuf_Init(u8 *a0) {
     *(s32 *)(a0 + 0) = 0;
     *(s32 *)(a0 + 4) = 0;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Animation_OnFrameImpl(void *, f32, f32);
 extern f32 D_801C9E18;

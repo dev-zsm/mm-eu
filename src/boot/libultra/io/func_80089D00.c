@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_cont.h"
+#include "sdk/os_cont.h"
 
 s32 osContInit(OSMesgQueue *mq, u8 *bitpattern, OSContStatus *data) {
     OSMesg dummy;

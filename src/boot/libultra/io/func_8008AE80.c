@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_sp.h"
+#include "sdk/os_sp.h"
 
 s32 __osSpRawStartDma(s32 direction, u32 devAddr, void *dramAddr, u32 size) {
     if (__osSpDeviceBusy() != 0) {

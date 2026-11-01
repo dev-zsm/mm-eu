@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern void Math_Vec3f_Copy(void *a0);
 void EffectSsGFire_Spawn(void *a0) {
     u8 buf[0xC];

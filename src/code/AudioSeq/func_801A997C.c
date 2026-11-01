@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern u8 D_801D3DF0;
 extern u8 D_801D3DF4;

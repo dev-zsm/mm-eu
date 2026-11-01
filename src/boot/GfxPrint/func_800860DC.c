@@ -1,4 +1,4 @@
-#include "gfxprint.h"
+#include "boot/gfxprint.h"
 
 void GfxPrint_Open(GfxPrint *this, Gfx *dList) {
     if (!(this->flags & GFXPRINT_FLAG_OPEN)) {

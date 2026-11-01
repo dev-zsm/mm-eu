@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 // matching: address bits are hoisted by the compiler; status copy order follows the ROM
-#include "os_voice.h"
+#include "sdk/os_voice.h"
 
 s32 __osVoiceContRead2(OSMesgQueue *mq, s32 channel, u16 address, u8 *buffer) {
     s32 ret;

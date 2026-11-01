@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 typedef struct { s32 pad0[3]; s32 unkC; s32 unk10; s32 pad14[2]; } Ov; /* 0x1C */
 extern Ov D_801C9450[2];
 extern s32 D_801C9488;

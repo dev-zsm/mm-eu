@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_80081A50(FaultClient *client, FaultClientCallback callback, void *arg0, void *arg1) {
     OSIntMask mask;

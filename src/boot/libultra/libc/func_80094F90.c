@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "libultra_libc.h"
+#include "sdk/libultra_libc.h"
 
 ldiv_t ldiv(s32 num, s32 den) {
     ldiv_t r;

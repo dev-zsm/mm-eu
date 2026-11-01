@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "arena.h"
+#include "boot/arena.h"
 
 void __osMallocAddHeap(Arena *arena, void *start, size_t size) {
     ArenaNode *firstNode;

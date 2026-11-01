@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 void __osPfsRequestOneChannel(s32 channel, u8 poll) {
     u8 *ptr;

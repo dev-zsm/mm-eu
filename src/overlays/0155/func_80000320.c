@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0155.h"
+#include "generated/overlays/0155.h"
 
 extern void func_800B8C4C();
 

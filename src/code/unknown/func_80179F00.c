@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void func_800807E0(s32, void *, s32);
 extern s32 D_801F3460[];
 

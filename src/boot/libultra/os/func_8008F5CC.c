@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 void __osTimerInterrupt(void) {
     OSTimer *t;

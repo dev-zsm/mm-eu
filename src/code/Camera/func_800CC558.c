@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern void func_8016AE0C(void *arg0, s32 arg1);
 

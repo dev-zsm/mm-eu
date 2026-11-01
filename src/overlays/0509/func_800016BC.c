@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0509.h"
+#include "generated/overlays/0509.h"
 
 void func_800016BC(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x15C) = arg1;

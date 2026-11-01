@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 osPfsIsPlug(OSMesgQueue *queue, u8 *pattern) {
     s32 ret = 0;

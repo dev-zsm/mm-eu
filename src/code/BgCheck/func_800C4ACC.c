@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void BgCheck_EntitySphVsWall3(s32 a0, s32 a1, s32 a2, s32 a3, f32 f4, s32 s4C, s32 s50, s32 s54, f32 f6) {

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0510.h"
+#include "generated/overlays/0510.h"
 
 extern u8 D_80B61E70[];
 

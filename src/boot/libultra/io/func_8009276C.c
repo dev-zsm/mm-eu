@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 void __osPfsRequestData(u8 cmd) {
     u8 *ptr = (u8 *)D_8009E9A0.ramarray;

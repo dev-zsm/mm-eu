@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0110.h"
+#include "generated/overlays/0110.h"
 
 extern f32 D_808D3060;
 extern u8 D_808D0D20;

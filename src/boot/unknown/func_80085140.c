@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void *func_80085140(u32 rangeStart, u32 rangeEnd, u32 start, u32 end) {
     void *buf;

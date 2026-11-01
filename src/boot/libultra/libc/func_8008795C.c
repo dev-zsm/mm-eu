@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "arena.h"
+#include "boot/arena.h"
 
 s32 func_8008795C(Arena *arena) {
     ArenaNode *node;

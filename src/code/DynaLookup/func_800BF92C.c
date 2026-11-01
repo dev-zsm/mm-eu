@@ -1,4 +1,4 @@
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 // FLAGS: -O2 -g3 -mips2
 
 void func_800BF92C(s16 *arg0)

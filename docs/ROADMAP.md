@@ -20,7 +20,7 @@ How to work on it: [BOOT.md](BOOT.md).
 - [ ] Professional signatures for every function: shared headers (`OSThread`, `OSMesgQueue`, hardware registers) instead of
       local placeholder structures, real parameter names, one prototype per function in a header, each kept at `MATCH`
       (rule in [CONTRIBUTING.md](CONTRIBUTING.md#code-style)). Started with `libultra/os`, the Pi, the heap and the string
-      functions (`include/ultra64.h`, `include/libc.h`); the column "Typed signatures" of [PROGRESS.md](PROGRESS.md) counts them.
+      functions (`include/sdk/ultra64.h`, `include/sdk/libc.h`); the column "Typed signatures" of [PROGRESS.md](PROGRESS.md) counts them.
 - [ ] Data (`.data`, `.rodata`, jump tables, strings) expressed in C with proper types.
 - [ ] Segment rebuilt without any assembly other than the original hand-written functions, identical to the ROM.
 

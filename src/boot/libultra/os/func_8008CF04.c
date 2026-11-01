@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osGetId(OSPfs *pfs) {
     u16 sum;

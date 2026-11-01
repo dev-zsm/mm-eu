@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "libm.h"
+#include "sdk/libm.h"
 
 /* Odd Taylor series of atan: x - x^3/3 + x^5/5 - ..., summed until a term no longer changes the result. */
 f32 Math_FAtanTaylorQF(f32 x) {

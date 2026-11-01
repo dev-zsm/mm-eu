@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "gu.h"
+#include "sdk/gu.h"
 
 void guRotate(Mtx *m, f32 a, f32 x, f32 y, f32 z) {
     MtxF mf;

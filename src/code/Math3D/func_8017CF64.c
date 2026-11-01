@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern f32 D_801D79F0;
 f32 fabsf(f32);
 #pragma intrinsic (fabsf)

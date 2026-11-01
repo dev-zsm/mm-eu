@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void SkinMatrix_SetYRotation(f32 *mf, s16 a) {

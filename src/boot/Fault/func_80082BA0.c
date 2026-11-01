@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 void Fault_Wait5Seconds(void) {
     u8 pad[8]; /* matching: unused, needed for the frame layout */

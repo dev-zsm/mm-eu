@@ -1,4 +1,4 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void *func_8016240C(void) { return CutsceneCamera_Interp_Scale; }

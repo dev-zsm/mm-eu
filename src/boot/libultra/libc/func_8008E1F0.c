@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "printf.h"
+#include "boot/printf.h"
 
 // matching: PUT/PAD/ATOI/VAI are macros in the original sources; MAX_PAD is unsigned in the clamp
 #define MAX_PAD 32

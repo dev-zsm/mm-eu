@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_800817A4(IrqMgr *irqMgr, void *stack, OSPri pri, u8 retraceCount) {
     irqMgr->clients = NULL;

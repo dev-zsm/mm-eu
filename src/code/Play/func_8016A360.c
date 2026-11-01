@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern void Play_GetFloorSurfaceImpl();
 void Play_GetFloorSurface(s32 a0, s32 a1, s32 a2) {
     s32 sp24;

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0056.h"
+#include "generated/overlays/0056.h"
 
 extern void func_80136A4C(s32, s32, s32, f32);
 

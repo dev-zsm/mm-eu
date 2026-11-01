@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "dmamgr.h"
+#include "boot/dmamgr.h"
 
 // Serves requests until a NULL one arrives (see DmaMgr_Stop).
 void DmaMgr_ThreadEntry(void *arg) {

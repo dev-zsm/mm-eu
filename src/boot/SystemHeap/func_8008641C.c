@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "systemheap.h"
+#include "boot/systemheap.h"
 
 void SystemHeap_RunBlockFunc1(void *blocks, u32 count, u32 size, void (*fn)(void *, s32)) {
     u8 *end;

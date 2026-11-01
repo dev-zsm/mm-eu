@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void func_8012CFD8(s32 arg0, s32 arg1, s32 arg2) {

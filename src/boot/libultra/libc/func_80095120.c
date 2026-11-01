@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "libultra_libc.h"
-#include "printf.h"
+#include "sdk/libultra_libc.h"
+#include "boot/printf.h"
 
 void _Litob(Pft *args, char type) {
     char buff[0x18];

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_sp.h"
+#include "sdk/os_sp.h"
 
 s32 __osSiRawStartDma(s32 direction, void *dramAddr) {
     if (IO_READ(SI_STATUS_REG) & (SI_STATUS_DMA_BUSY | SI_STATUS_IO_BUSY)) {

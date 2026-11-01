@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 Player_BButtonSwordFromIA(u8 *arg0, s32 arg1) {
     s32 idx = arg1 - 2;

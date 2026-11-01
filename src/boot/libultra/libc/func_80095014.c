@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "libultra_libc.h"
+#include "sdk/libultra_libc.h"
 
 lldiv_t lldiv(s64 num, s64 den) {
     lldiv_t r;

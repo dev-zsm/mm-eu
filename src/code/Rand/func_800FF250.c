@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 f32 func_8008704C(void);
 s16 Rand_S16Offset(s16 base, s16 range) {

@@ -1,4 +1,4 @@
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 // FLAGS: -O2 -g3 -mips2
 
 s32 func_800B6EE0(u8 *arg0)

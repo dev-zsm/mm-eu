@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0611.h"
+#include "generated/overlays/0611.h"
 extern void func_80BE0AF4(void);
 void func_80000BD8(void) {
     func_80BE0AF4();

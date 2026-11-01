@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "stackcheck.h"
+#include "boot/stackcheck.h"
 
 s32 StackCheck_Check(StackEntry *entry) {
     if (entry == NULL) {

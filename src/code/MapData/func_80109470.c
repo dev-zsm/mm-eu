@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 s32 MapData_MapGrandTexSizeTest(s32 count) {

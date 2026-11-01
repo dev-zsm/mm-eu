@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 typedef struct { u8 pad0[4]; u32 unk4; } FE;
 typedef struct { u8 pad0[4]; u8 req[0x20]; u8 mq[0x18]; u8 buf[4]; } Task;
 extern Task *AnimTaskQueue_NewTask(void *, s32);

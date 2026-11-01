@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void Collider_SetQuadMidpoints(s32);
 void Math_Vec3f_Copy(s32, s32);
 void func_800E7C1C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {

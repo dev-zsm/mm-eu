@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osPfsReleasePages(OSPfs *pfs, __OSInode *inode, u8 startPage, u8 bank, __OSInodeUnit *finalPage) {
     __OSInodeUnit lastPage;

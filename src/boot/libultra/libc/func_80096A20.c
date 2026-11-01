@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "libc.h"
+#include "sdk/libc.h"
 
 void *memset(void *s, s32 c, size_t n) {
     u8 *p = s;

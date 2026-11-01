@@ -75,7 +75,7 @@ are described in [docs/TOOLS.md](docs/TOOLS.md).
 baserom/    your copy of the game (not tracked)
 config/     splat configuration, symbol names, list of hand-written assembly functions
 docs/       guides and progress
-include/    types.h and the assembler macros
+include/    types.h and the assembler macros; sdk/ (libultra), boot/ (boot modules), generated/ (prototypes written by tools/signatures/sig_header.py)
 src/        decompiled C, one file per function, one folder per original source file
 tools/      scripts, one folder per use: lib, check, search, signatures, split, layout, run, research, agents
 ```

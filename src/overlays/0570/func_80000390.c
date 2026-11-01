@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0570.h"
+#include "generated/overlays/0570.h"
 
 extern void func_80BB6210(void *a0, s16 a1, u8 a2, f32 a3);
 

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "arena.h"
+#include "boot/arena.h"
 
 void *func_8008743C(Arena *arena, size_t size) {
     void *ptr;

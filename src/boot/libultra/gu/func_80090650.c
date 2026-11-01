@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "gu.h"
-#include "libm.h"
+#include "sdk/gu.h"
+#include "sdk/libm.h"
 
 void guRotateF(MtxF mf, f32 a, f32 x, f32 y, f32 z) {
     f32 sine;

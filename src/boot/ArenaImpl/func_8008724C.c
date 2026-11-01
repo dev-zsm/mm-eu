@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "arena.h"
+#include "boot/arena.h"
 
 ArenaNode *ArenaImpl_GetLastBlock(Arena *arena) {
     ArenaNode *p = arena->head;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 osPfsFileState(OSPfs *pfs, s32 fileNo, OSPfsState *state) {
     s32 ret;

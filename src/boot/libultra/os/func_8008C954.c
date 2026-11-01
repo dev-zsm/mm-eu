@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osIdCheckSum(u16 *ptr, u16 *checksum, u16 *inverseChecksum) {
     u16 data;

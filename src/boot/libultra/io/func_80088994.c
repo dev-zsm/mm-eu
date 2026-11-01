@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "os_sp.h"
+#include "sdk/os_sp.h"
 
 void osSpTaskStartGo(OSTask *task) {
     if (__osSpDeviceBusy() != 0) {

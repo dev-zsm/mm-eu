@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern u8 D_801E6EF0[];
 s32 MsgEvent_SetWeekEventReg(void *arg0, void *arg1, u8 **script, s32 arg3) {

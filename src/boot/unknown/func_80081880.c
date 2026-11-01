@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3
-#include "os_internal.h"
-#include "os_sp.h"
+#include "sdk/os_internal.h"
+#include "sdk/os_sp.h"
 
 void func_80081880(void) {
     FaultDrawer_DrawText(0x50, 0xC8, D_80098510, IO_READ(SP_STATUS_REG));

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern void Collider_InitBase();
 s32 Collider_InitJntSph(void *a0, u8 *a1) {
     Collider_InitBase(a0, a1);

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "printf.h"
+#include "boot/printf.h"
 
 /* Splits the double held in the first eight bytes of px into a mantissa in [0.5, 1) and a binary exponent; returns -1
    for a finite non-zero value, 0 for zero, 1 for infinity and 2 for a NaN. */

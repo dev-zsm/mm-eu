@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 extern u8 D_800895C0[]; /* return address of a thread whose entry function returns */
 

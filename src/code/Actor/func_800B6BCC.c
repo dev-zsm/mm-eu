@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 f32 Actor_WorldDistXZToPoint(u8 *actor, void *point) {

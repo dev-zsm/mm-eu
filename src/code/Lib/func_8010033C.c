@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern u32 D_801EFA00[];
 u32 func_8010033C(u32 arg0) {
     if ((arg0 >> 0x1C) == 0) {

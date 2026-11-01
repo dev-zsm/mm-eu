@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "dmamgr.h"
+#include "boot/dmamgr.h"
 
 // Runs one transfer and waits for its completion. Returns -1 if the request could not be queued.
 s32 DmaMgr_RequestSync(void *ram, u32 vrom, u32 size) {

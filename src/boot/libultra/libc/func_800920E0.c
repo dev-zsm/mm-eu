@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "libm.h"
+#include "sdk/libm.h"
 
 f32 __cosf(f32 x) {
     f32 absx;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "dbg.h"
-#include "yaz0.h"
+#include "boot/dbg.h"
+#include "boot/yaz0.h"
 
 void DmaMgr_ProcessRequest(DmaRequest *req) {
     u32 vrom = req->vromAddr;

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 // matching: IDO 5.3, u16 shift local, tmem chosen from imageFmt
-#include "gu.h"
+#include "sdk/gu.h"
 
 void guS2DInitBg(uObjBg *bg) {
     u32 size;

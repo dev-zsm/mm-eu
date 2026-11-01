@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g3 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 /* Applies the D_80096CC4 flag to osViBlack; when D_80096D00 is 2, also resets the y scale. */
 void func_80080778(void) {

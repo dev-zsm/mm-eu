@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
-#include "overlays/0481.h"
+#include "generated/overlays/0481.h"
 f32 func_80000FA8(f32 *a0, f32 *a1, f32 *a2) {
     f32 a0x = a0[0];
     f32 a0z = a0[2];

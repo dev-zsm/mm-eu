@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "irqmgr.h"
+#include "boot/irqmgr.h"
 
 void IrqMgr_HandlePRENMI450(IrqMgr *irqMgr) {
     D_80096D00 = 2;

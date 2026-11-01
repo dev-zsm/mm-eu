@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "arena.h"
+#include "boot/arena.h"
 
 /* Frees the block whose payload starts at ptr and merges it with a free neighbour on either side. */
 void func_80087560(Arena *arena, void *ptr) {

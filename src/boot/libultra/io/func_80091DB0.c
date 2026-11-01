@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_vi.h"
+#include "sdk/os_vi.h"
 
 void __osViSwapContext(void) {
     register OSViMode *viMode;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern void Collider_InitBase();
 s32 Collider_InitTris(s32 a0, s32 *a1) {
     Collider_InitBase(a0, a1);

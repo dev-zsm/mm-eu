@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Keyframe_MorphInterpolateLinear(s16 *dst, s16 *target, f32 t) {
     s32 i;

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 void Fault_PrintFReg(s32 index, f32 *value) {
     s32 bits;

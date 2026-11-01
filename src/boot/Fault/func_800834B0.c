@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
-#include "os_sp.h"
+#include "boot/fault.h"
+#include "sdk/os_sp.h"
 
 void Fault_ResumeThread(OSThread *thread) {
     thread->context.cause = 0;

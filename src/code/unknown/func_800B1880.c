@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void func_800B1880(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5) {

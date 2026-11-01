@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_voice.h"
+#include "sdk/os_voice.h"
 
 s32 osVoiceControlGain(OSVoiceHandle *hd, s32 analog, s32 digital) {
     s32 ret;

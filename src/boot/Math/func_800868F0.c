@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "libm.h"
+#include "sdk/libm.h"
 
 /*
  * Single-precision arctangent. Reduces |x| with atan(1/x) = pi/2 - atan(x)

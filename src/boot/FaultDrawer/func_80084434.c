@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "faultdrawer.h"
-#include "fault.h"
+#include "boot/faultdrawer.h"
+#include "boot/fault.h"
 
 void FaultDrawer_SetCursor(s32 x, s32 y) {
     if (D_80096D80->osSyncPrintfEnabled) {

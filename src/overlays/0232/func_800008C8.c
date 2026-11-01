@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0232.h"
+#include "generated/overlays/0232.h"
 extern s32 func_80137C58(u8 *, f32);
 extern void func_800B8C4C();
 void func_800008C8(u8 *a0, f32 a1) {

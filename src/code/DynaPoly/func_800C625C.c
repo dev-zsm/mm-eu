@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 DynaPoly_IsBgIdBgActor(s32);
 u8 *DynaPoly_GetActor(s32, s32);

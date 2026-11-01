@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "os_sp.h"
+#include "sdk/os_sp.h"
 
 void __osSiCreateAccessQueue(void) {
     D_80098020 = 1;

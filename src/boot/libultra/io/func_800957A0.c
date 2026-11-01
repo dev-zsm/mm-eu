@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "libc.h"
-#include "os_voice.h"
+#include "sdk/libc.h"
+#include "sdk/os_voice.h"
 
 s32 osVoiceMaskDictionary(OSVoiceHandle *hd, u8 *maskPattern, s32 size) {
     s32 i;

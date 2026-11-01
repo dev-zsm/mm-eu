@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 s32 BgCheck_EntityRaycastFloor5_2(void *a, void *b, void *c, void *d, void *e, void *f) {

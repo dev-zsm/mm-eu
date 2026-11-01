@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0056.h"
+#include "generated/overlays/0056.h"
 
 void func_801367B4(void *, void *, s32, f32, f32, f32, s32, f32);
 

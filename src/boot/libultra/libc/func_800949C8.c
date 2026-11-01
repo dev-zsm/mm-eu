@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "printf.h"
+#include "boot/printf.h"
 
 void _Genld(Pft *px, char code, char *p, s16 nsig, s16 xexp) {
     if (nsig <= 0) {

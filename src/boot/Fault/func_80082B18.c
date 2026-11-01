@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 OSThread *Fault_FindFaultedThread(void) {
     OSThread *thread = __osGetActiveQueue();

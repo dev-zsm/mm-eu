@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern u8 D_801BF8D8[];
 void MapData_GetMapTexGameplayDangeonKeepOffset(s32 a0, s32 *a1, s32 *a2) {
     u8 *v = (u8 *)D_801BF8D8 + a0 * 10;

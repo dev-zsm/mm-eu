@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3
-#include "yaz0.h"
+#include "boot/yaz0.h"
 
 s32 Yaz0_DecompressImpl(u8 *src, u8 *dst) {
     u32 bitIdx = 0;

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "padutils.h"
+#include "boot/padutils.h"
 
 void PadUtils_UpdateRelXY(Input *input) {
     s32 curX = PadUtils_GetCurX(input);

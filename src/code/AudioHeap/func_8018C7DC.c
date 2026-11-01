@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 typedef struct {
     /* 0x0000 */ u8 pad0[0x4454];

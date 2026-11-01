@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 __osPiRawStartDma(s32 direction, u32 cartAddr, void *dramAddr, u32 size) {
     volatile u32 *reg;

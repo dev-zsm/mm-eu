@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 func_801A60C0(s32 arg0) {
     switch (arg0) {

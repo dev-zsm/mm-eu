@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "overlays/0056.h"
+#include "generated/overlays/0056.h"
 
 extern void func_8082E0C0(s32 a0, s32 a1, s32 a2, s32 a3);
 

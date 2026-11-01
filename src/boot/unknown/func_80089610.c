@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void func_80089610(OSThread *t) {
     register OSIntMask savedMask;

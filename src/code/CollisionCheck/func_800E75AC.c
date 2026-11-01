@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 typedef struct { u8 pad0[0x18]; s32 count; u8 *elems; } T;
 
 void CollisionCheck_ApplyDamageJntSph(s32 a0, s32 a1, void *a2) {

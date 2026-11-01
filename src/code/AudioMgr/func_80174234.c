@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern void func_800897D0(void *, s32);
 extern void func_8008F3E0(void *, void *, s32);

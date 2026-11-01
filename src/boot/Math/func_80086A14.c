@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
-#include "libm.h"
+#include "sdk/libm.h"
 
 /* Single-precision arctangent by a continued fraction of depth 8, with |x| reduced to 1 or less through 1/x. */
 f32 Math_FAtanContFracF(f32 x) {

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "arena.h"
+#include "boot/arena.h"
 
 /* Allocates from the end of a free block, scanning from the last block backwards. */
 void *func_8008747C(Arena *arena, size_t size) {

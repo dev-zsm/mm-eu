@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "stackcheck.h"
+#include "boot/stackcheck.h"
 
 void StackCheck_Cleanup(StackEntry *entry) {
     s32 bad = 0;

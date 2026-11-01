@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0189.h"
+#include "generated/overlays/0189.h"
 extern u8 D_80956510;
 extern f32 D_80956E08;
 void func_800021B4(u8 *a) {

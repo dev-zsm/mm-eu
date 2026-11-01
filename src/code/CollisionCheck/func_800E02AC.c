@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 u8 CollisionCheck_GetElementATDamage(s16 **arg0, void *arg1, s16 **arg2, M2C_UNK arg3) {
     s16 *temp_v0;

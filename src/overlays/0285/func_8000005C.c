@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0285.h"
+#include "generated/overlays/0285.h"
 // FLAGS: -O2 -g0 -mips2
 typedef struct { u8 p0[0x45C]; u16 a45C; } T;
 extern T *D_801EB7E0;

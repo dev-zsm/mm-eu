@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 osSendMesg(OSMesgQueue *mq, OSMesg msg, s32 flags) {
     register OSIntMask saveMask; /* register: -O1 only allocates saved registers for register locals */

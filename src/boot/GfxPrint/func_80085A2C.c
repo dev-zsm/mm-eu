@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "gfxprint.h"
+#include "boot/gfxprint.h"
 
 void GfxPrint_SetColor(GfxPrint *this, u32 r, u32 g, u32 b, u32 a) {
     Gfx *dl;

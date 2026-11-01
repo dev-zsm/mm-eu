@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 typedef struct { u8 pad[0x60]; } Ss;
 typedef struct { Ss *data; s32 searchStart; s32 size; } Tbl;
 typedef struct { u8 pad0[0x10]; s32 unk10; u8 pad14[8]; } Ent;

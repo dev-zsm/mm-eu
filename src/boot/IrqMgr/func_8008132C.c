@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3
-#include "irqmgr.h"
+#include "boot/irqmgr.h"
 
 void IrqMgr_RemoveClient(IrqMgr *irqMgr, IrqMgrClient *client) {
     IrqMgrClient *cur;

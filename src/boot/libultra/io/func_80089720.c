@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_voice.h"
+#include "sdk/os_voice.h"
 
 s32 __osVoiceCheckResult(OSVoiceHandle *hd, u8 *status) {
     s32 ret;

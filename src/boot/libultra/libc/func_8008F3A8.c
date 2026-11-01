@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "libc.h"
+#include "sdk/libc.h"
 
 void *memcpy(void *dst, const void *src, size_t n) {
     u8 *d = dst;

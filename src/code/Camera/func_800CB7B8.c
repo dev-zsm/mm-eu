@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 s32 Camera_IsClimbingLedge(u8 *a0) {
     u8 *v1 = *(u8 **)(a0 + 0x90);
     if (v1 == *(u8 **)(*(u8 **)(a0 + 0x8C) + 0x1CCC)) {

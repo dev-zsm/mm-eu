@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s16 func_8016AE44(s16 arg0) {
     if (arg0 == 0x18) {

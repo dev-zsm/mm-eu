@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "gfxprint.h"
+#include "boot/gfxprint.h"
 
 void GfxPrint_Init(GfxPrint *this) {
     this->flags &= ~GFXPRINT_FLAG_OPEN;

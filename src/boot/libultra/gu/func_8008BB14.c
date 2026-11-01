@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "gu.h"
+#include "sdk/gu.h"
 
 void guLookAt(Mtx *m, f32 xEye, f32 yEye, f32 zEye, f32 xAt, f32 yAt, f32 zAt, f32 xUp, f32 yUp, f32 zUp) {
     MtxF mf;

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern s32 Object_IsLoaded(void *objectCtx, s8 objectId);
 

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osMotorAccess(OSPfs *pfs, s32 flag) {
     s32 pad[2]; // stack padding to match frame size

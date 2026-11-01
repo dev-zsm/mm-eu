@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 // Defined here, as in the original timer source file: IDO only emits the 64-bit store of
 // D_8009E980 as "lui; li; li; sw lo; sw hi" when the variable is defined in the same translation unit.

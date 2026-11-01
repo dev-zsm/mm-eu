@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 typedef struct { f32 x, y, z; } V;
 void Actor_GetScreenPos(s32 a0, u8 *a, s16 *x, s16 *y) {
     V p;

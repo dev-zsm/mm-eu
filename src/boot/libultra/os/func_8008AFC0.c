@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 osEPiLinkHandle(OSPiHandle *handle) {
     OSIntMask saveMask;

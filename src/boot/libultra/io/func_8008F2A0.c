@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_voice.h"
+#include "sdk/os_voice.h"
 
 u8 __osVoiceContDataCrc(u8 *data, u32 bytes) {
     u32 ret = 0;

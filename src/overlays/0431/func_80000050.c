@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0431.h"
+#include "generated/overlays/0431.h"
 
 M2C_UNK func_8013DD78(s32, s32, s32, M2C_UNK);      /* extern */
 

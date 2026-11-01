@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 M2C_UNK Audio_PlaySfx_AtPosWithAllChannelsIO(M2C_UNK *, M2C_UNK, s32);     /* extern */
 extern s8 D_801CEFD8;

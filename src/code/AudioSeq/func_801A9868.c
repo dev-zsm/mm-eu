@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern u8 D_801D3DF0;
 extern s32 D_801F7580[];
 void AudioSeq_QueueSeqCmd(s32 a0) {

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "stackcheck.h"
+#include "boot/stackcheck.h"
 
 void StackCheck_Init(StackEntry *entry, void *stackBottom, void *stackTop, u32 initValue, s32 minSpace, const char *name) {
     StackEntry *iter;

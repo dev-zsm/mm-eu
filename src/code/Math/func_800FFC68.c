@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Math_ApproachZeroF(f32 *pValue, f32 scale, f32 maxStep) {
     f32 step = *pValue * scale;

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "libm.h"
+#include "sdk/libm.h"
 
 /* Builds a float in [1, 2) from the high bits of the state, then returns it minus 1. */
 f32 Rand_ZeroOne(void) {

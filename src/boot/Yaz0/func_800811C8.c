@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3
-#include "dbg.h"
-#include "yaz0.h"
+#include "boot/dbg.h"
+#include "boot/yaz0.h"
 
 extern char D_800984B0[];  /* "slidma slidstart_szs ret=%d" */
 extern char D_800984CC[];  /* "src:%08lx dst:%08lx siz:%08lx" */

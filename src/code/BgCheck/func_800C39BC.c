@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 BgCheck_GetCollisionHeader(u8 *arg0, s32 arg1) {
     if (arg1 == 0x32) {

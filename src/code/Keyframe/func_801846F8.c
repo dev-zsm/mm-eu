@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Keyframe_FlexChangeAnim(u8 *, s32, s32, f32, f32, f32, f32, f32, s32);
 

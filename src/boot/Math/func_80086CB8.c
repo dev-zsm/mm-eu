@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "libm.h"
+#include "sdk/libm.h"
 
 /* acos(x) = pi/2 - asin(x) */
 f32 Math_FAcosF(f32 x) {

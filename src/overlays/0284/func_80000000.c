@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0284.h"
+#include "generated/overlays/0284.h"
 extern s32 D_809BD77C;
 extern s32 D_809BD780;
 extern s32 D_809BD784;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern void Math3D_CosOut(s32 a0, s32 a1, f32 *p);
 f32 Math3D_Cos(s32 a0, s32 a1) {
     f32 r;

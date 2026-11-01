@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0069.h"
+#include "generated/overlays/0069.h"
 
 extern void func_8087F9F0(u8 *a0, s32 a1, f32 a2, f32 a3);
 

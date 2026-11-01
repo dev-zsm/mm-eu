@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 /* Indexed from a base 0xA00 bytes before D_801BF8D8; entries are 10 bytes wide. */
 extern u8 D_801BF8D8[];

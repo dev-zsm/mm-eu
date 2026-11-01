@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osPfsDeclearPage(OSPfs *pfs, __OSInode *inode, s32 fileSizeInPages, s32 *startPage, u8 bank, s32 *decl,
                        s32 *lastPage) {

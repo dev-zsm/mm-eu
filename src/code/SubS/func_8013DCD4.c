@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern s32 Object_GetSlot(void *objectCtx, s16 objectId);
 

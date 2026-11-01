@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 s32 Fault_WaitForInputImpl(void) {
     Input *volatile input; /* matching: volatile keeps the pointer in its stack slot like the ROM */

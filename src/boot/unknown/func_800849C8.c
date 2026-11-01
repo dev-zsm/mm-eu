@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "os_internal.h"
-#include "rcputils.h"
+#include "sdk/os_internal.h"
+#include "boot/rcputils.h"
 
 void func_800849C8(void) {
     RcpUtils_PrintRegisterStatus();

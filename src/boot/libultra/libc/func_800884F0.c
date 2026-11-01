@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 // COMPILER: ido53
-#include "libm.h"
+#include "sdk/libm.h"
 
 f32 __sinf(f32 x) {
     f64 dx;

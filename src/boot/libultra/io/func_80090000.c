@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_vi.h"
+#include "sdk/os_vi.h"
 
 void osViSwapBuffer(void *frameBuf) {
     OSIntMask mask;

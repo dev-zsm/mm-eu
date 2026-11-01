@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0630.h"
+#include "generated/overlays/0630.h"
 
 extern f32 D_80BEFEBC;
 extern u8 D_80BEF8E4[];

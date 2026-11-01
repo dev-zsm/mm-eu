@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 // -Wab,-r4300_mul: the ROM has a nop after the mul.s that precedes a dependent mul.s.
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 BgCheck_ComputeWallDisplacement(s32 arg0, s32 arg1, f32 *arg2, f32 *arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9, s32 *arg10) {
     f32 scale;

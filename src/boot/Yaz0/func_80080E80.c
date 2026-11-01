@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "yaz0.h"
+#include "boot/yaz0.h"
 
 // Stages the first block of compressed data and returns the start of the buffer.
 u8 *Yaz0_FirstDMA(void) {

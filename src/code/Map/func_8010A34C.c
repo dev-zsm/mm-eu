@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern s16 D_801C00A0;
 extern s16 D_801C00A4;
 extern s16 D_801C00A8;

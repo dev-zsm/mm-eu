@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 func_80086E40(M2C_UNK);                         /* extern */
 M2C_UNK VisMono_DesaturateTLUT(s32);                         /* extern */

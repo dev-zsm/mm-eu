@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0327.h"
+#include "generated/overlays/0327.h"
 
 void func_8000015C(u8 *arg0, u8 *arg1) {
     if (M2C_FIELD(arg1, s8 *, 0x1CA4) == 0x64) {

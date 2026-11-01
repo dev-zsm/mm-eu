@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 osEPiStartDma(OSPiHandle *handle, OSIoMesg *mb, s32 direction) {
     s32 ret;

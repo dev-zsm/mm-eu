@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 #define osTvType D_80000300
 

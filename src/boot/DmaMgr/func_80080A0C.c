@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "dmamgr.h"
+#include "boot/dmamgr.h"
 
 s32 DmaMgr_FindDmaIndex(u32 vrom) {
     DmaEntry *entry = DmaMgr_FindDmaEntry(vrom);

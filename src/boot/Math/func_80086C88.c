@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "libm.h"
+#include "sdk/libm.h"
 
 #pragma intrinsic (sqrtf)
 

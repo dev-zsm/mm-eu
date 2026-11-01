@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 OSMesgQueue *osPiGetCmdQueue(void) {
     if (D_80098060.active == 0) {

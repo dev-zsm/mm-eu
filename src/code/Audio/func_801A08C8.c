@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 typedef struct { u8 pad0[4]; f32 f; } Ent;
 extern u8 D_801D3DE8[];
 Ent *AudioSfx_AddSfxSetting(void *pos, s32 sfx);

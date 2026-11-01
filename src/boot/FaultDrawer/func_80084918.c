@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "faultdrawer.h"
-#include "fault.h"
-#include "os_internal.h"
-#include "os_pfs.h"
+#include "boot/faultdrawer.h"
+#include "boot/fault.h"
+#include "sdk/os_internal.h"
+#include "sdk/os_pfs.h"
 
 void FaultDrawer_Init(void) {
     D_80096D80 = &D_8009D0A0;

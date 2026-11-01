@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "irqmgr.h"
+#include "boot/irqmgr.h"
 
 void IrqMgr_HandleRetrace(IrqMgr *irqMgr) {
     if (D_80096D10 == 0) {

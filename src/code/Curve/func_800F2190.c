@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 f32 Curve_CubicHermiteSpline(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5) {
     f32 sp4;

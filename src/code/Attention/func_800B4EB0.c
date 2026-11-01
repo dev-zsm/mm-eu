@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void Attention_SetReticlePos(u8 *a0, s32 a1, f32 a2, f32 a3, f32 a4) {
     u8 *v0 = (u8 *)((u32)a0 + a1 * 20);

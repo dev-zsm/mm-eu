@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void Matrix_MtxFCopy(f32 *a, f32 *b) {
     f32 t0, t1;
     t0 = b[0]; t1 = b[1]; a[0] = t0; a[1] = t1;

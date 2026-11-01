@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0
-#include "arena.h"
+#include "boot/arena.h"
 
 void func_8008736C(Arena *arena) {
     bzero(arena, sizeof(Arena));

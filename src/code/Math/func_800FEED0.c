@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 Math_StepUntilAngleS(s16 *arg0, s16 arg1, s16 arg2) {
     s16 temp_v0;

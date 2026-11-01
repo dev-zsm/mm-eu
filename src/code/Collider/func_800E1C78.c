@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern void Collider_SetBaseType1(s32 arg0, u8 *arg1, s32 arg2, u8 *arg3);
 extern void Collider_SetElement(s32 arg0, u8 *arg1, u8 *arg2);

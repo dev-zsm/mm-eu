@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "os_internal.h"
-#include "dmamgr.h"
+#include "sdk/os_internal.h"
+#include "boot/dmamgr.h"
 
 void func_80175DB0(void *arg);
 

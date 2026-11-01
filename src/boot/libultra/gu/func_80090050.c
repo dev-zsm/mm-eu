@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2 -Wab,-r4300_mul
 // dtor is a function-static in the original source, so the object carries its own .data (the segment build keeps this function as assembly)
-#include "gu.h"
-#include "libm.h"
+#include "sdk/gu.h"
+#include "sdk/libm.h"
 
 void guPositionF(MtxF mf, f32 roll, f32 pitch, f32 yaw, f32 scale, f32 x, f32 y, f32 z) {
     static f32 dtor = 3.1415926 / 180.0;

@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 osRecvMesg(OSMesgQueue *mq, OSMesg *msg, s32 flags) {
     register OSIntMask saveMask;

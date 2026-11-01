@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0089.h"
+#include "generated/overlays/0089.h"
 
 extern u8 D_808AD384[];
 

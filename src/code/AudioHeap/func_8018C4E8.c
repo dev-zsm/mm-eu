@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern void *AudioHeap_AllocZeroed(void *a0, s32 a1);
 void *AudioHeap_AllocDmaMemoryZeroed(void *a0, s32 a1) {
     void *p = AudioHeap_AllocZeroed(a0, a1);

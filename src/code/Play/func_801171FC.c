@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 typedef struct { f32 x, y, z; } V3;
 typedef struct { u8 pad0[0x200]; s32 a; s32 b; s32 c; s32 d; } View2;

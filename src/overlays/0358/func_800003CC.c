@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0358.h"
+#include "generated/overlays/0358.h"
 extern s32 D_80A506F4;
 void func_800003CC(u8 *a0) {
     s32 v = *(s32 *)(a0 + 0x30C);

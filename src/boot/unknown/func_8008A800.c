@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 /* The values are truncated to 8 bits by the s8 globals. */
 void func_8008A800(void) {

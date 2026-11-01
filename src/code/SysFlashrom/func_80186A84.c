@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 SysFlashrom_NeedsToErase(u32 *a0, u32 *a1, s32 count) {
     u32 i = 0;

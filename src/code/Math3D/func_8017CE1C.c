@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void Math3D_TriChkPointParaYDeterminate(void *a0, void *a1, void *a2, f32 a3, f32 a4, f32 a5, f32 a6) {

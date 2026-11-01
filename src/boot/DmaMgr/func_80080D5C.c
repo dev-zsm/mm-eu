@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "dmamgr.h"
+#include "boot/dmamgr.h"
 
 void DmaMgr_Init(void) {
     DmaEntry *first;

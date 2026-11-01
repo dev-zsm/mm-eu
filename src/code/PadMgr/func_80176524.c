@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern s32 func_80089AE4(s32, void *, s32);
 extern void func_80089870(void *, s32);
 typedef struct { u8 pad[0x2C9]; u8 unk2C9[4]; u8 pad2CD[0xF]; u8 unk2DC[4][0x68]; } PM;

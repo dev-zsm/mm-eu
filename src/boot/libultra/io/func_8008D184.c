@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 // matching: offset via ternary, sum compared as inode->inodePage[0].inode_t.page != sum
-#include "os_pfs.h"
+#include "sdk/os_pfs.h"
 
 s32 __osPfsRWInode(OSPfs *pfs, __OSInode *inode, u8 flag, u8 bank) {
     u8 sum;

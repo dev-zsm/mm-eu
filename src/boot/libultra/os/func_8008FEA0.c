@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 s32 __osEPiRawReadIo(OSPiHandle *handle, u32 devAddr, u32 *data) {
     register u32 stat;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 s32 func_800897D0(s32, s32);
 extern s32 D_801C7CA8;
 extern s32 D_801C7CAC;

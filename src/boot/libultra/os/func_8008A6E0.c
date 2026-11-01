@@ -1,5 +1,5 @@
 // FLAGS: -O1 -g0
-#include "ultra64.h"
+#include "sdk/ultra64.h"
 
 u32 osVirtualToPhysical(void *vaddr) {
     if (IS_KSEG0(vaddr)) {

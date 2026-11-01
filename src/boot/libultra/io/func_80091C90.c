@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_vi.h"
-#include "libc.h"
+#include "sdk/os_vi.h"
+#include "sdk/libc.h"
 
 void __osViInit(void) {
     u32 tvType;

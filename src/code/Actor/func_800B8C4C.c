@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 
 void Actor_PlaySfx(u8 *actor, u16 sfxId) {

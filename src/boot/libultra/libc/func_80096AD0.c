@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "libultra_libc.h"
+#include "sdk/libultra_libc.h"
 
 void *func_80096AD0(void *dst, const void *src, u32 n) {
     u8 *d = dst;

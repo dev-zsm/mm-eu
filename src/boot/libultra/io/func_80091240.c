@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_cont.h"
+#include "sdk/os_cont.h"
 
 u8 __osContAddressCrc(u16 addr) {
     u32 temp = 0;

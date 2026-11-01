@@ -54,7 +54,7 @@ the address.
 * Anything that exists only to make the compiler match (padding locals, `volatile`, an unusual declaration order, an
   alias symbol from `config/<segment>.aliases.txt`) gets a one-line comment saying why.
 * Structures keep their exact offsets. Name the fields you understand; keep `unkXX` / `padXX` for the others.
-* A type used by more than one function lives in a header of `include/` (`ultra64.h`: threads, message queues, timers, the
+* A type used by more than one function lives in a header of `include/` (`sdk/ultra64.h`: threads, message queues, timers, the
   Pi, `libc.h`: the heap and the string functions), never as a local copy in each source file. A signature uses those types
   and real parameter names (`OSMesgQueue *mq`, not `s32 arg0`); a pointer is not declared `s32`, and a function whose callee
   returns a value does not return `void`. Add the prototype to the header and delete it from the sources. Function and data

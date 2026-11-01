@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 void func_800B8D44(u8 *arg0, u16 arg1) {
     *(u16 *)(arg0 + 0x50) = arg1;

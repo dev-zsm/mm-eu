@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_voice.h"
+#include "sdk/os_voice.h"
 
 s32 __osVoiceContWrite20(OSMesgQueue *mq, s32 channel, u16 address, u8 *buffer) {
     s32 ret;

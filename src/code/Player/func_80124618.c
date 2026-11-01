@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 Player_MeleeWeaponFromIA(s32 arg0) {
     s32 temp_v0;

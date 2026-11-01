@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_voice.h"
+#include "sdk/os_voice.h"
 
 s32 osVoiceStartReadData(OSVoiceHandle *hd) {
     s32 errorCode;

@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
-#include "stackcheck.h"
-#include "boot_funcs.h"
+#include "boot/stackcheck.h"
+#include "generated/boot_funcs.h"
 
 s32 StackCheck_CheckAll(void) {
     StackEntry *iter;

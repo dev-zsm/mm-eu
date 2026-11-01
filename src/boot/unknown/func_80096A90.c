@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 char *func_80096A90(char *dst, const char *src) {
     char *d = dst;

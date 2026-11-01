@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "libm.h"
+#include "sdk/libm.h"
 
 f32 fmodf(f32 x, f32 y) {
     if (y == 0.0f) {

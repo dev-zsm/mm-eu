@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 s32 func_80087CB0(void *mq, void *msg, s32 flag);
 extern u16 D_801FAD14;

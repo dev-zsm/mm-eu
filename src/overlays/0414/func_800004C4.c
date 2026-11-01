@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
-#include "overlays/0414.h"
+#include "generated/overlays/0414.h"
 
 extern f32 D_80AB2810;
 extern f32 D_80AB2814;

@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 void Fault_HangupFaultClient(const char *exp1, const char *exp2) {
     func_8008198C(D_80098E70, osGetThreadId(NULL));

@@ -2,7 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 M2C_UNK func_80087CB0(s32, s32, M2C_UNK, void *);   /* extern */
 M2C_UNK Sched_SetNextFramebufferFromTask(s32, void *);                 /* extern */

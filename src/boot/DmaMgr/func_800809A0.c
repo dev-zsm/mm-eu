@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "dmamgr.h"
+#include "boot/dmamgr.h"
 
 // Translates vrom to a ROM address; a compressed file (romEnd != 0) only maps its first address.
 // Returns -1 if vrom is not mapped.

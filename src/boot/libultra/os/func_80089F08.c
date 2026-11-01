@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
-#include "os_cont.h"
+#include "sdk/os_cont.h"
 
 void __osPackRequestData(u8 cmd) {
     u8 *ptr;

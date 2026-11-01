@@ -1,6 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
-#include "dmamgr.h"
-#include "irqmgr.h"
+#include "boot/dmamgr.h"
+#include "boot/irqmgr.h"
 
 s32 DmaMgr_RequestAsync(DmaRequest *req, void *ram, u32 vrom, u32 size, u32 unused, OSMesgQueue *queue, OSMesg msg) {
     if (D_80096D00 >= 2) {

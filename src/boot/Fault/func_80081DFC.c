@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2 -trapuv
-#include "fault.h"
+#include "boot/fault.h"
 
 u32 Fault_ConvertAddress(u32 addr) {
     FaultAddrConvClient *client = D_8009C220->addrConvClients;

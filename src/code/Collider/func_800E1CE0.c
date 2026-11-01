@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 
 extern void Collider_SetElement(void *arg0, u8 *arg1, u8 *arg2);
 extern void Collider_SetQuadDim(void *arg0, u8 *arg1, u8 *arg2);

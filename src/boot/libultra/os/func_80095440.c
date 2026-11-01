@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_internal.h"
+#include "sdk/os_internal.h"
 
 void osCreateViManager(OSPri pri) {
     OSIntMask savedMask;

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 void Math_Vec3f_ToVec3s(s16 *a0, f32 *a1) {
     f32 x = a1[0];
     f32 y = a1[1];

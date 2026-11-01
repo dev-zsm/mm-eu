@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g0 -mips2
-#include "os_sp.h"
+#include "sdk/os_sp.h"
 
 s32 osSpTaskYielded(OSTask *task) {
     u32 status;

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 // viRetrace is a function-static in the original; temp is always zero and only shapes the code generation
-#include "libultra_libc.h"
+#include "sdk/libultra_libc.h"
 
 void viMgrMain(void *args) {
     OSDevMgr *dmArgs;

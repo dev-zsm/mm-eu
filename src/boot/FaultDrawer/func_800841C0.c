@@ -1,5 +1,5 @@
 // FLAGS: -O2 -g3 -mips2
-#include "faultdrawer.h"
+#include "boot/faultdrawer.h"
 
 s32 FaultDrawer_ColorToPrintColor(u16 color) {
     s32 i;

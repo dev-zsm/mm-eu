@@ -1,5 +1,5 @@
 #include "types.h"
-#include "code_funcs.h"
+#include "generated/code_funcs.h"
 extern u8 D_801F84B0;
 void AudioLoad_SetFontLoadStatus(s32 a0, s32 a1) {
     u8 *p;

@@ -1,5 +1,5 @@
 #include "types.h"
-#include "overlays/0300.h"
+#include "generated/overlays/0300.h"
 
 extern u8 D_80A03810[];
 extern s16 D_80A03F3C[];
