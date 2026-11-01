@@ -145,7 +145,7 @@ def run_one(seg: str, fn: str, budget: int) -> str:
         return "setup failed"
     d = permute_setup.workdir(seg, fn)
     # own process group: on timeout the worker processes must die too, or they pile up and eat memory
-    p = subprocess.Popen([sys.executable, str(PERMUTER), str(d), "-j", str(os.cpu_count() or 4), "--stop-on-zero"],
+    p = subprocess.Popen([sys.executable, str(PERMUTER), str(d), "-j", str(objcache.JOBS), "--stop-on-zero"],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True,
                          preexec_fn=lambda: os.nice(19))  # lowest priority: the checks and the agents keep the CPU
     try:

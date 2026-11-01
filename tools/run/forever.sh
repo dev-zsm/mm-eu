@@ -7,6 +7,6 @@ hours="${1:-3}"
 while true; do
     start=$(date +%s)
     bash tools/run/daily.sh "$hours" || { echo "round failed ($?), restoring the last commit"; git reset -q --hard HEAD; }
-    git push -q 2>/dev/null || true   # sends what an earlier round committed while the push was not possible
+    bash tools/run/push.sh > /dev/null 2>&1 || true   # sends what an earlier round committed while the push was not possible
     [ $(( $(date +%s) - start )) -lt 300 ] && sleep 600   # daily.sh refused to start or had nothing to do: do not spin
 done

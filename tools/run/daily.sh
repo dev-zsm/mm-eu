@@ -15,7 +15,7 @@ export PYTHONUNBUFFERED=1
 renice -n 19 $$ > /dev/null 2>&1 || true
 hours="${1:-3}"
 
-git pull -q --ff-only || true
+git fetch -q && { git rebase -q -X ours origin/main 2>/dev/null || git rebase --abort 2>/dev/null; } || true   # another machine may have pushed
 python3 tools/lib/names.py code --apply-src > /dev/null
 python3 tools/check/quarantine.py code
 python3 tools/check/quarantine.py boot
@@ -27,8 +27,8 @@ python3 tools/search/tidy_perm.py code
 python3 tools/search/tidy_perm.py boot
 for d in build/perm_wins/ovl*/; do if [ -d "$d" ]; then python3 tools/search/tidy_perm.py "$(basename "$d")"; fi; done   # the overlays win too: one folder each
 
-nice -n 19 python3 tools/search/overlay_auto.py run 0x400 4
-nice -n 19 python3 tools/search/overlay_auto.py recipes 0x200 4
+nice -n 19 python3 tools/search/overlay_auto.py run 0x400 "${MM_JOBS:-$(nproc)}"
+nice -n 19 python3 tools/search/overlay_auto.py recipes 0x200 "${MM_JOBS:-$(nproc)}"
 python3 tools/search/overlay_auto.py promote
 python3 tools/signatures/retype.py config/overlays/signatures.txt   # type the actor handlers that just matched (kept only if they still match)
 for seg in boot code overlays; do python3 tools/signatures/sig_header.py $seg --apply; done   # prototypes of the new functions into the headers, sources switched to them (kept only if they still match)
@@ -42,4 +42,4 @@ git commit -q -m "daily run: more verified functions
 
 Found by the permuter and the automatic passes. make check: boot, code and overlays identical to the ROM, style rules OK."
 git log -1 --format='committed %h %s'
-[ -n "${NO_PUSH:-}" ] || git push -q
+bash tools/run/push.sh

@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 # On the native WSL disk: file operations on /mnt/c cost about 1.5 ms each and dominate the whole check otherwise.
 CACHE = Path(os.environ.get("MM_CACHE") or Path.home() / ".cache" / "mm-n64-decomp")
 WORK = CACHE / "work"  # per-function objects of build_seg.py, build/<seg>/fn before the cache moved here
-JOBS = os.cpu_count() or 4
+JOBS = int(os.environ.get("MM_JOBS") or os.cpu_count() or 4)   # MM_JOBS: fewer workers on a machine that is also used for something else
 
 
 def _compiler(version: str) -> Path:
