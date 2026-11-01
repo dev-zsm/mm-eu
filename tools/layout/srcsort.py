@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""File every src/code/func_*.c into the folder of its source file (config/code.layout.txt). Idempotent. usage: srcsort.py"""
+"""File every src/code/func_*.c into the folder of its source file (config/code/layout.txt). Idempotent. usage: srcsort.py"""
 import shutil
 import sys
 from pathlib import Path

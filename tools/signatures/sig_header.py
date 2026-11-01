@@ -332,7 +332,7 @@ def use(seg: str, fn: str, real: str, hdr: str, declared: set):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     jobs = int(sys.argv[sys.argv.index("-j") + 1]) if "-j" in sys.argv else objcache.JOBS
-    segs = [f"ovl{l.split()[0]}" for l in (ROOT / "config/overlays.txt").read_text().splitlines() if l.strip()] \
+    segs = [f"ovl{l.split()[0]}" for l in (ROOT / "config/overlays/list.txt").read_text().splitlines() if l.strip()] \
         if args[0] == "overlays" else [args[0]]
     total = {}
     for seg in segs:

@@ -31,7 +31,7 @@ def score(cfile, fn, flags, want, size):
 def main():
     seg = sys.argv[1]
     limit = int(sys.argv[2]) if len(sys.argv) > 2 else 10**9
-    asm_only = match.ROOT / "config" / f"{seg}.asm_only.txt"
+    asm_only = match.ROOT / "config" / seg / "asm_only.txt"
     skip = set(asm_only.read_text().split()) if asm_only.exists() else set()
     rank = match.ROOT / "build" / f"rank_{seg}.txt"
     order = [l.split()[0] for l in rank.read_text().splitlines()] if rank.exists() else []

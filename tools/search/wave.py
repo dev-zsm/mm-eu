@@ -34,8 +34,8 @@ def main():
     chunks = int(args[2]) if len(args) > 2 else 8
     want_switch = "--switch" in sys.argv
     max_size = int(sys.argv[sys.argv.index("--max-size") + 1], 16) if "--max-size" in sys.argv else 1 << 30
-    asm_only = set((ROOT / "config" / f"{seg}.asm_only.txt").read_text().split()) \
-        if (ROOT / "config" / f"{seg}.asm_only.txt").exists() else set()
+    asm_only = set((ROOT / "config" / seg / "asm_only.txt").read_text().split()) \
+        if (ROOT / "config" / seg / "asm_only.txt").exists() else set()
     have = {p.stem for p in srcpath.files(seg)} | {p.stem for p in (ROOT / "src" / seg / "wip").glob("func_*.c")}
     todo = sorted((size, n) for n, size, jt, hw in functions(seg)
                   if n not in have and n not in asm_only and not hw and jt == want_switch and size <= max_size)[:count]

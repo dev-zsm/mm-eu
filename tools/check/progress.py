@@ -21,8 +21,8 @@ def segment(seg: str) -> dict:
             continue  # data labels inside the text region
         pre = text[:text.index(b)][-120:]
         funcs.append((m.group(1), int(m.group(2), 16), "Handwritten function" in pre))
-    asm_only = set((ROOT / "config" / f"{seg}.asm_only.txt").read_text().split()) \
-        if (ROOT / "config" / f"{seg}.asm_only.txt").exists() else set()
+    asm_only = set((ROOT / "config" / seg / "asm_only.txt").read_text().split()) \
+        if (ROOT / "config" / seg / "asm_only.txt").exists() else set()
     src = {p.stem for p in srcpath.files(seg)}
     wip = {p.stem for p in (ROOT / "src" / seg / "wip").glob("func_*.c")} if (ROOT / "src" / seg / "wip").exists() else set()
     named = names.load(seg)
@@ -40,8 +40,8 @@ def segment(seg: str) -> dict:
 
 
 def overlays() -> tuple:
-    """(number of overlays, bytes of code) from config/overlays.txt (tools/split/overlays.py); (0, 0) when it is missing."""
-    f = ROOT / "config" / "overlays.txt"
+    """(number of overlays, bytes of code) from config/overlays/list.txt (tools/split/overlays.py); (0, 0) when it is missing."""
+    f = ROOT / "config" / "overlays" / "list.txt"
     rows = [l.split() for l in f.read_text().splitlines()] if f.exists() else []
     return len(rows), sum(int(r[2], 16) for r in rows)
 

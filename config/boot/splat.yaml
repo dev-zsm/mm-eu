@@ -3,7 +3,7 @@ sha1: 881b2a2f0f3cf03c971bf2bfc161f744ea65ca9c
 options:
   basename: boot
   target_path: build/boot.bin
-  base_path: ..
+  base_path: ../..
   platform: n64
   compiler: IDO
   endianness: big
@@ -14,7 +14,7 @@ options:
   create_asm_dependencies: True
   find_file_boundaries: False
   use_legacy_include_asm: False
-  symbol_addrs_path: config/boot.symbols.txt
+  symbol_addrs_path: config/boot/symbols.txt
   undefined_funcs_auto_path: build/boot/undefined_funcs_auto.txt
   undefined_syms_auto_path: build/boot/undefined_syms_auto.txt
 segments:

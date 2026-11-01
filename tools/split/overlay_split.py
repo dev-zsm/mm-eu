@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Disassemble overlays with splat and check that the assembly rebuilds the extracted file byte for byte. Run in WSL.
-usage: overlay_split.py [--smallest N] [<file index> ...]      (default: every overlay of config/overlays.txt)
+usage: overlay_split.py [--smallest N] [<file index> ...]      (default: every overlay of config/overlays/list.txt)
 Per overlay <idx>: config in build/overlays/<idx>.yaml (generated), assembly in asm/overlays/<idx>/, result IDENTICAL or DIFFERENT.
 An overlay is linked at address 0 and relocated at load time, so the code is disassembled at 0x80000000, which keeps the
 `jal` targets of the file readable; the header, relocations and footer after the sections are not disassembled (checked against the file as it is)."""
@@ -13,7 +13,7 @@ AS = ["mips-linux-gnu-as", "-march=vr4300", "-mabi=32", "-EB", "-Iinclude", "-G0
 
 def rows():
     out = []
-    for l in (ROOT / "config" / "overlays.txt").read_text().split("\n"):
+    for l in (ROOT / "config" / "overlays" / "list.txt").read_text().split("\n"):
         if l.strip():
             i, v, t, d, r, b, n = l.split()
             f = next((ROOT / "extracted").glob(f"{i}_*.bin"))

@@ -8,7 +8,7 @@ with the function (`ovl0050` is the file with index 0050 of the ROM file table).
 ## Setup, once
 
 1. `python3 tools/split/extract.py` extracts the files of the ROM into `extracted/`.
-2. `python3 tools/split/overlays.py` finds the overlays and writes `config/overlays.txt`.
+2. `python3 tools/split/overlays.py` finds the overlays and writes `config/overlays/list.txt`.
 3. `python3 tools/split/overlay_split.py` disassembles every overlay into `asm/overlays/<index>/` and checks that the
    assembly rebuilds the file (a single overlay: `python3 tools/split/overlay_split.py 0050`).
 
@@ -50,5 +50,5 @@ the plan is in [ROADMAP.md](ROADMAP.md).
 ## Names
 
 Overlay and function names come only from evidence, as for the other segments: they are registered in
-`config/overlays.names.txt` (`<file index> <name>  # <evidence>`) once that file exists. Until then, folders and
+`config/overlays/names.txt` (`<file index> <name>  # <evidence>`) once that file exists. Until then, folders and
 functions keep their file index and address names.

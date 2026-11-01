@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Signatures of the actor handlers of the overlays, from the relocation table of the ROM. Run in WSL (after tools/split/overlays.py and
-tools/split/overlay_split.py).  usage: sig_actors.py      writes config/overlays.signatures.txt (input of tools/signatures/retype.py)
+tools/split/overlay_split.py).  usage: sig_actors.py      writes config/overlays/signatures.txt (input of tools/signatures/retype.py)
 An actor overlay starts its .data with a profile whose words at 0x10, 0x14, 0x18 and 0x1C are function pointers (init, destroy, update,
 draw): each is a relocation of type R_MIPS_32 in the data section. The overlay is linked at its own address, so the offset of a
 function is found by choosing the load address for which every handler pointer is the start of a function of the disassembly and the
@@ -47,7 +47,7 @@ def analyse(idx: str, f: Path):
 
 def main():
     rows, skipped, sizes = [], {}, []
-    for line in (ROOT / "config" / "overlays.txt").read_text().splitlines():
+    for line in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines():
         idx = line.split()[0]
         f = next((ROOT / "extracted").glob(f"{idx}_*.bin"))
         found, info = analyse(idx, f)
@@ -57,7 +57,7 @@ def main():
         sizes.append(info)
         for fn, slot in found.items():
             rows.append(f"ovl{idx} {fn} actor.h void {fn}(Actor *thisx, PlayState *play)   # {slot} slot of the actor profile (relocations of the data section)\n")
-    (ROOT / "config" / "overlays.signatures.txt").write_text("".join(rows))
+    (ROOT / "config" / "overlays" / "signatures.txt").write_text("".join(rows))
     print(f"{len(rows)} handlers in {len(sizes)} actor overlays (smallest instance size {min(sizes):#x}); skipped {skipped}")
 
 

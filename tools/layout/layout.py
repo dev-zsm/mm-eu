@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write config/<seg>.layout.txt: the folder (original source file) of every function of the segment. Run in WSL.
+"""Write config/<seg>/layout.txt: the folder (original source file) of every function of the segment. Run in WSL.
 usage: layout.py <seg>
 The code segment is linked in source-file order, so each source file is a run of consecutive functions. A named function
 belongs to the module of its registered name (prefix before the first '_'); an unnamed one to the module around it if
@@ -52,7 +52,7 @@ def build(seg):
 
 if __name__ == "__main__":
     seg = sys.argv[1]
-    dst = ROOT / "config" / f"{seg}.layout.txt"
+    dst = ROOT / "config" / seg / "layout.txt"
     if dst.exists() and "--force" not in sys.argv:
         sys.exit(f"{dst} exists; --force to regenerate (this moves files: run srcsort.py afterwards)")
     rows = build(seg)

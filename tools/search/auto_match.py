@@ -63,7 +63,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     log = out.parent / f"{seg}.txt"
     done = {l.split()[0] for l in log.read_text().splitlines()} if log.exists() else set()
-    asm_only = ROOT / "config" / f"{seg}.asm_only.txt"
+    asm_only = ROOT / "config" / seg / "asm_only.txt"
     skip = set(asm_only.read_text().split()) if asm_only.exists() else set()
     path, base = match.SEG[seg]
     rom = path.read_bytes()

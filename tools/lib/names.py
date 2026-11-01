@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Symbol renaming layer. config/<seg>.names.txt maps the splat names (func_8008XXXX, D_8009XXXX) to real names:
+"""Symbol renaming layer. config/<seg>/names.txt maps the splat names (func_8008XXXX, D_8009XXXX) to real names:
     func_80087634 free        # sdk: heap free (libc)
     func_80080150 osInvalDCache2   # inferred: ...
 Columns: old new, then a comment starting with `sdk:` (official SDK/game name, high confidence),
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def load(seg: str) -> dict:
-    path = ROOT / "config" / f"{seg}.names.txt"
+    path = ROOT / "config" / seg / "names.txt"
     out = {}
     if path.exists():
         for line in path.read_text().splitlines():

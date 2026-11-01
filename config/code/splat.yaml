@@ -3,7 +3,7 @@ sha1: 672a3318f011e732b0d2232993f6b51fa4458e90
 options:
   basename: code
   target_path: extracted/0049_00C8A000.bin
-  base_path: ..
+  base_path: ../..
   platform: n64
   compiler: IDO
   endianness: big
@@ -14,7 +14,7 @@ options:
   create_asm_dependencies: True
   find_file_boundaries: False
   use_legacy_include_asm: False
-  symbol_addrs_path: config/code.symbols.txt
+  symbol_addrs_path: config/code/symbols.txt
   undefined_funcs_auto_path: build/code/undefined_funcs_auto.txt
   undefined_syms_auto_path: build/code/undefined_syms_auto.txt
 segments:

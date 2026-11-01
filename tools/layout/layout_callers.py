@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Move functions of the `unknown` folder into the module that alone calls them. Run in WSL. usage: layout_callers.py <seg>
 Evidence: every `jal` to the function comes from functions of one single module (repeated until nothing changes).
-Edits config/<seg>.layout.txt; run tools/layout/srcsort.py afterwards to move the files."""
+Edits config/<seg>/layout.txt; run tools/layout/srcsort.py afterwards to move the files."""
 import re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 seg = sys.argv[1]
-table = ROOT / "config" / f"{seg}.layout.txt"
+table = ROOT / "config" / seg / "layout.txt"
 folder = dict(l.split() for l in table.read_text().splitlines())
 callers, cur = {}, None
 for l in (ROOT / "asm" / seg / "text.s").read_text().splitlines():

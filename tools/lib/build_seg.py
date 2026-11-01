@@ -61,7 +61,7 @@ def main():
     objdir = objcache.WORK / seg / "fn"  # native disk, see objcache.py; tools/search/permute_setup.py reads the objects from here
     shutil.rmtree(objdir, ignore_errors=True)
     objdir.mkdir(parents=True, exist_ok=True)
-    cfg = (ROOT / "config" / f"{seg}.yaml").read_text()
+    cfg = (ROOT / "config" / seg / "splat.yaml").read_text()
     vram = int(re.search(r"vram: (0x[0-9A-Fa-f]+)", cfg).group(1), 16)
     text_end = vram + int(re.search(r"\[(0x[0-9A-Fa-f]+), data", cfg).group(1), 16)
     NM = _names.load(seg)
@@ -139,7 +139,7 @@ def main():
     named.mkdir(exist_ok=True)
     for f in ("undefined_syms_auto.txt", "undefined_funcs_auto.txt"):
         (named / f).write_text(_names.apply((out / f).read_text(), NM))
-    al = ROOT / "config" / f"{seg}.aliases.txt"
+    al = ROOT / "config" / seg / "aliases.txt"
     if al.exists():  # alias symbols that only exist to steer IDO while matching
         with (named / "undefined_syms_auto.txt").open("a") as f:
             for line in al.read_text().splitlines():

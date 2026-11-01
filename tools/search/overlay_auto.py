@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def overlays():
-    return [l.split()[0] for l in (ROOT / "config" / "overlays.txt").read_text().splitlines() if l.strip()]
+    return [l.split()[0] for l in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines() if l.strip()]
 
 
 def run(max_size, jobs):

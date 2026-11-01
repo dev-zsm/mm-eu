@@ -30,7 +30,7 @@ they run from any directory.
 | `tools/mm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows) |
 | `tools/lib/match.py` | compile one C function with IDO (7.1, or 5.3 if the file asks for it) and compare it to the ROM bytes |
 | `tools/research/disasm_diff.py` | ROM and compiled instructions side by side for one function (behind `tools/mm diff`) |
-| `tools/lib/names.py` | apply the symbol names of `config/<segment>.names.txt` everywhere |
+| `tools/lib/names.py` | apply the symbol names of `config/<segment>/names.txt` everywhere |
 | `tools/check/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or project name in the sources (credits live in the README) |
 
 ## Verification and build
@@ -62,14 +62,14 @@ they run from any directory.
 
 | Tool | Purpose |
 |---|---|
-| `tools/layout/layout.py`, `tools/layout/layout_callers.py`, `tools/layout/srcsort.py`, `tools/lib/srcpath.py` | `src/boot` and `src/code` keep one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/<segment>.layout.txt` once, `srcsort.py` files new flat `src/<segment>/func_*.c` into their folder, `layout_callers.py` moves a function out of `unknown/` when only one module calls it, `srcpath.py` is the lookup the other tools use |
+| `tools/layout/layout.py`, `tools/layout/layout_callers.py`, `tools/layout/srcsort.py`, `tools/lib/srcpath.py` | `src/boot` and `src/code` keep one folder per original source file (GitHub shows at most 1000 files per folder): `layout.py` writes the table `config/<segment>/layout.txt` once, `srcsort.py` files new flat `src/<segment>/func_*.c` into their folder, `layout_callers.py` moves a function out of `unknown/` when only one module calls it, `srcpath.py` is the lookup the other tools use |
 | `tools/research/ref_align.py` | find candidate function names by aligning function sizes with the symbol list of another decompilation project |
 
 ## Overlays
 
 | Tool | Purpose |
 |---|---|
-| `tools/split/overlays.py` | list the overlays of the ROM file table in `config/overlays.txt` (file, section sizes, relocation count) |
+| `tools/split/overlays.py` | list the overlays of the ROM file table in `config/overlays/list.txt` (file, section sizes, relocation count) |
 | `tools/split/overlay_split.py` | disassemble every overlay with splat and check that the assembly rebuilds the extracted file (`asm/overlays/`) |
 | `tools/search/overlay_auto.py` | automatic pass on the overlays (m2c drafts, mechanical recipes), then promote what matches to `src/overlays/` |
 

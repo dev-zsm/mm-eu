@@ -8,7 +8,7 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
 1. Look at the original: `tools/mm asm boot func_XXXXXXXX`. `tools/mm m2c boot func_XXXXXXXX` gives a first draft;
    it is frequently wrong (argument order, types), so read the assembly.
 2. Write `src/boot/func_XXXXXXXX.c` (same flat form for `code`; `python3 tools/layout/srcsort.py`,
-   which `tools/search/wave_finish.sh` runs, then files it into its source-file folder from `config/<segment>.layout.txt`). The optional first line `// FLAGS: ...` sets the compiler flags when the
+   which `tools/search/wave_finish.sh` runs, then files it into its source-file folder from `config/<segment>/layout.txt`). The optional first line `// FLAGS: ...` sets the compiler flags when the
    default (`-O2 -g3 -mips2`) is not what the function was built with.
 3. `tools/mm match boot func_XXXXXXXX src/boot/func_XXXXXXXX.c` must print `MATCH`. `tools/mm diff ...` shows the
    original and the compiled instructions side by side. Unfinished attempts go to `src/boot/wip/`.
@@ -16,7 +16,7 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
    `awk '/^glabel FN$/{p=1} p{print} /^endlabel FN$/{exit}' asm/boot/text.s` (assembly),
    `python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f FN asm/boot/text.s` (draft),
    `python3 tools/lib/match.py boot FN src/boot/FN.c` and `python3 tools/research/disasm_diff.py boot FN src/boot/FN.c`.
-4. Call functions that have a name in `config/boot.names.txt` by that name, and every other function by its `func_`
+4. Call functions that have a name in `config/boot/names.txt` by that name, and every other function by its `func_`
    address name; never invent a name. `make names SEG=boot` rewrites the sources with the registered names, and
    `tools/lib/match.py` ignores `jal` targets, so a wrong callee is only caught by step 5.
 5. `make check` must pass before any commit. It runs `make verify` for `boot` and for `code` (every C function equals
@@ -33,7 +33,7 @@ Techniques that make the compiler produce the original code are collected in `to
 allocation and stack layout problems, use the automated tools: `tools/search/permute_list.py` (decomp-permuter) and
 `tools/search/flag_sweep.py` (compiler flag combinations).
 
-## Symbol names (`config/<segment>.names.txt`)
+## Symbol names (`config/<segment>/names.txt`)
 
 One line per renamed symbol: `old_name new_name   # sdk|inferred: evidence`.
 
@@ -52,7 +52,7 @@ the address.
 * Use the types of `include/types.h` (`s32`, `u32`, `f32`, ...). No inline assembly and no `#pragma intrinsic`, except
   the documented `sqrtf` idiom.
 * Anything that exists only to make the compiler match (padding locals, `volatile`, an unusual declaration order, an
-  alias symbol from `config/<segment>.aliases.txt`) gets a one-line comment saying why.
+  alias symbol from `config/<segment>/aliases.txt`) gets a one-line comment saying why.
 * Structures keep their exact offsets. Name the fields you understand; keep `unkXX` / `padXX` for the others.
 * A type used by more than one function lives in a header of `include/` (`sdk/ultra64.h`: threads, message queues, timers, the
   Pi, `libc.h`: the heap and the string functions), never as a local copy in each source file. A signature uses those types
@@ -62,7 +62,7 @@ the address.
   header, not literals. The "Typed signatures" column of [PROGRESS.md](PROGRESS.md) counts the functions that follow this rule.
   Rewriting a signature must keep `tools/mm match` at `MATCH`: when it no longer does, the previous
   form was compensating for a wrong type, so look at the difference before going back.
-* `config/<segment>.aliases.txt` (an extra symbol at a known address, only to steer IDO) is technical debt: each entry
+* `config/<segment>/aliases.txt` (an extra symbol at a known address, only to steer IDO) is technical debt: each entry
   has a comment saying why and is removed once the real expression is found.
 * Keep generated and ROM-derived content out of git (`baserom/`, `extracted/`, `asm/`, `decomp/`, `build/`).
 
@@ -111,7 +111,7 @@ the processor.
 
 - `unknown/` is about the **organisation**, not the quality: its functions are finished. A function moves from `unknown/` to a
   module folder when its module is known (`tools/layout/layout_callers.py` does it when a single module calls it, and the
-  table `config/<segment>.layout.txt` is updated for the others).
+  table `config/<segment>/layout.txt` is updated for the others).
 - `wip/` is about the **state of the work**: a function leaves it, flat into `src/<segment>/`, when it matches, and
   `tools/layout/srcsort.py` then files it into its module folder or `unknown/`.
 - Overlays have no `unknown/`: each overlay is its own source file, so its verified functions are in

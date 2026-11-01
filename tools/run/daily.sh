@@ -30,7 +30,7 @@ for d in build/perm_wins/ovl*/; do if [ -d "$d" ]; then python3 tools/search/tid
 nice -n 19 python3 tools/search/overlay_auto.py run 0x400 4
 nice -n 19 python3 tools/search/overlay_auto.py recipes 0x200 4
 python3 tools/search/overlay_auto.py promote
-python3 tools/signatures/retype.py config/overlays.signatures.txt   # type the actor handlers that just matched (kept only if they still match)
+python3 tools/signatures/retype.py config/overlays/signatures.txt   # type the actor handlers that just matched (kept only if they still match)
 for seg in boot code overlays; do python3 tools/signatures/sig_header.py $seg --apply; done   # prototypes of the new functions into the headers, sources switched to them (kept only if they still match)
 
 bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks

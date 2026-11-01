@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Inventory of the overlays: files of the ROM file table that end with a relocation header. Run in WSL (after tools/split/extract.py).
-usage: overlays.py            writes config/overlays.txt:  <file index> <vrom start> <text> <data> <rodata> <bss> <relocs>  (hex sizes)
+usage: overlays.py            writes config/overlays/list.txt:  <file index> <vrom start> <text> <data> <rodata> <bss> <relocs>  (hex sizes)
 An overlay file is  text | data | rodata | header(text, data, rodata, bss, reloc count) | relocations | footer(offset of the header
 from the end of the file).  A file is only listed when every size is consistent with the file size, so a false positive is unlikely."""
 import re, struct
@@ -32,8 +32,8 @@ def main():
         if h:
             rows.append((int(m.group(1)), int(m.group(2), 16), *h))
     out = "".join(f"{i:04d} {v:08X} {t:X} {d:X} {r:X} {b:X} {n}\n" for i, v, t, d, r, b, n in rows)
-    (ROOT / "config" / "overlays.txt").write_text(out)
-    print(f"{len(rows)} overlays, {sum(r[2] for r in rows):#x} bytes of code in total -> config/overlays.txt")
+    (ROOT / "config" / "overlays" / "list.txt").write_text(out)
+    print(f"{len(rows)} overlays, {sum(r[2] for r in rows):#x} bytes of code in total -> config/overlays/list.txt")
 
 
 if __name__ == "__main__":

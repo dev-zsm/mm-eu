@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Candidate names from a reference symbol table (zeldaret/mm function lists), found by aligning function-size
 sequences with ours. A candidate is applied to
-config/<seg>.names.txt only through this strict filter (`--write`), tagged `ref:`.
+config/<seg>/names.txt only through this strict filter (`--write`), tagged `ref:`.
 usage: ref_align.py <seg> <ref functions.txt> [--write]
 Strict filter: the function lies in a run of >= 20 consecutive functions with identical sizes, at least 2 functions
 away from the run's ends, its window of +-2 neighbour sizes is unique in our whole segment, and the reference name
@@ -57,7 +57,7 @@ def main():
     strict = [c for c in strict if c[1] not in dup]  # a name given twice is a misalignment: drop both
     print(f"{seg}: {len(cand)} candidates (runs >= 8), {len(strict)} strict, {len(dup)} duplicate names dropped")
     if "--write" in sys.argv:
-        path = ROOT / "config" / f"{seg}.names.txt"
+        path = ROOT / "config" / seg / "names.txt"
         have = {l.split("#")[0].split()[0] for l in path.read_text().splitlines() if l.split("#")[0].split()} if path.exists() else set()
         used = {l.split("#")[0].split()[1] for l in path.read_text().splitlines() if len(l.split("#")[0].split()) > 1} if path.exists() else set()
         with path.open("a") as f:

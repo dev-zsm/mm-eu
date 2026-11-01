@@ -51,7 +51,7 @@ def auto_queue(tried: set):
     queue = []
     for seg in ("code", "boot"):
         skip = {n for n, _, _, hand in wave.functions(seg) if hand}
-        asm_only = ROOT / "config" / f"{seg}.asm_only.txt"
+        asm_only = ROOT / "config" / seg / "asm_only.txt"
         skip |= set(asm_only.read_text().split()) if asm_only.exists() else set()
         for f in sorted((ROOT / "src" / seg / "wip").glob("func_*.c")):
             if f.stem in skip or f.stem in tried:
@@ -117,7 +117,7 @@ def overlay_queue(tried: set):
 
 
 def auto_match_overlays():
-    return [l.split()[0] for l in (ROOT / "config" / "overlays.txt").read_text().splitlines() if l.strip()]
+    return [l.split()[0] for l in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines() if l.strip()]
 
 
 def make_draft(seg: str, fn: str, asm: str) -> bool:

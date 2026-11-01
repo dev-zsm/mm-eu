@@ -8,7 +8,7 @@ ROM = ROOT / "baserom" / "The Legend of Zelda Majora's Mask (Europe).z64"
 OUT = ROOT / "extracted"
 SHA1 = "bb4e4757d10727c7584c59c1f2e5f44196e9c293"
 DMADATA = 0x1A8D0
-BOOT = ROOT / "build" / "boot.bin"  # ROM[0x1000:0x1A8D0]: the boot segment (SHA-1 checked by config/boot.yaml)
+BOOT = ROOT / "build" / "boot.bin"  # ROM[0x1000:0x1A8D0]: the boot segment (SHA-1 checked by config/boot/splat.yaml)
 BOOT_START, BOOT_SIZE = 0x1000, 0x198D0
 
 

@@ -7,10 +7,10 @@ original machine code. The verifier is the only judge. Work from the project roo
 
 The ground truth for the C code is **the assembly of our ROM** (`asm/<seg>/text.s`) and the compiler's feedback
 (`tools/lib/match.py`, `tools/research/disasm_diff.py`). Names found by other decompilation projects are already registered in
-`config/<seg>.names.txt` (entries tagged `ref:`).
+`config/<seg>/names.txt` (entries tagged `ref:`).
 
 The European ROM decides: code that does not compile to our bytes is adapted until it does, or left unfinished in
-`src/<seg>/wip/` and reported. Do not invent names: use the names of `config/<seg>.names.txt`, else the `func_XXXXXXXX` name.
+`src/<seg>/wip/` and reported. Do not invent names: use the names of `config/<seg>/names.txt`, else the `func_XXXXXXXX` name.
 The sources carry no web address and no project name (credits live in the README).
 
 ## Loop, for each function you were given (segment `boot`, or the segment named in your task)
@@ -108,7 +108,7 @@ The remaining differences are almost always register allocation or stack layout.
 - Case bodies emitted out of order: write the `switch` cases in the ROM's order (e.g. `case 2`, `case 0`, `case 1: default`).
 - Unaligned struct copy (`lwl/lwr` + aligned `sw`): `*(T __unaligned *)p`.
 - Use unique scratch file names (`build/agent_<fn>_N.c`); other agents work in the same folder.
-- Names: if config/<seg>.names.txt gives a real name to a function (check with `grep <fn> config/<seg>.names.txt`),
+- Names: if config/<seg>/names.txt gives a real name to a function (check with `grep <fn> config/<seg>/names.txt`),
   the C file src/<seg>/<fn>.c must DEFINE that real name (callees keep their func_ names); `tools/mm match` still takes
   the func_ name. Without this it crashes with a NoneType/symbol-not-found error instead of a diff.
 - `addu` operand order: `(u8 *)((s32)p + n)` or `(s32 *)((u32)ctx + i * 12)` flips it versus `p + n`.
@@ -128,7 +128,7 @@ diff `python3 tools/research/disasm_diff.py boot FN src/boot/FN.c`.
 
 ## Lessons of the fifth wave
 
-- Call a function that has a name in `config/boot.names.txt` by that name, any other by its `func_` name. Never invent an
+- Call a function that has a name in `config/boot/names.txt` by that name, any other by its `func_` name. Never invent an
   SDK name (`tools/lib/match.py` ignores `jal` targets; only the full rebuild, `make verify`, catches a wrong callee).
 - libultra `os*` routines (`osSendMesg`, `osStartThread`, `osCreateThread`, `__osInsertTimer`...): `-O1 -g0 -mips2` with
   `register` on the locals that live across calls.

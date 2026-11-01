@@ -1,5 +1,5 @@
 """Where the verified C of a function lives. `boot` and `code` are split into one folder per original source file
-(config/<seg>.layout.txt, made by tools/layout/layout.py), e.g. src/code/Camera/func_800xxxxx.c, so that no folder has more than
+(config/<seg>/layout.txt, made by tools/layout/layout.py), e.g. src/code/Camera/func_800xxxxx.c, so that no folder has more than
 1000 files (GitHub lists at most 1000 per folder).
 New files may still be written flat (agents, permuter): tools/layout/srcsort.py files them into their folder."""
 from pathlib import Path
@@ -11,7 +11,7 @@ _layout = {}
 
 def _folders(seg):
     if seg not in _layout:
-        f = ROOT / "config" / f"{seg}.layout.txt"
+        f = ROOT / "config" / seg / "layout.txt"
         _layout[seg] = dict(l.split() for l in f.read_text().splitlines()) if f.exists() else {}
     return _layout[seg]
 

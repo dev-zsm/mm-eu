@@ -7,16 +7,16 @@ Current numbers: [PROGRESS.md](PROGRESS.md) (`make progress`). Verification: `ma
 How to work on it: [BOOT.md](BOOT.md).
 
 - [x] ROM extraction, segment split, lossless reassembly, IDO matching tool, automated search tools.
-- [x] Source organised by module (`src/boot/Fault`, `src/boot/libultra/{os,io,gu,libc}`, ...), see `config/boot.layout.txt`.
+- [x] Source organised by module (`src/boot/Fault`, `src/boot/libultra/{os,io,gu,libc}`, ...), see `config/boot/layout.txt`.
 - [x] The segment rebuilt from the C and the remaining assembly is identical to the ROM (`make check`, run at every commit).
 - [ ] Every function that can be written in C is written in C and verified. What is left are the hard cases:
       near misses (register order, stack slot, branch operand order; candidates for the permuter) and large functions
       whose drafts are far from the ROM.
-- [ ] Functions that were hand-written assembly in the original or that no C can express (`config/boot.asm_only.txt`
+- [ ] Functions that were hand-written assembly in the original or that no C can express (`config/boot/asm_only.txt`
       and the `Handwritten function` marks: `floor`/`ceil`/`round`/`trunc`, `__osSetFpcCsr`/`__osGetFpcCsr`, `bcopy`, ...) stay as assembly and are
       excluded from the C count; the list is final only when the maintainer agrees.
 - [ ] Symbol names: official SDK / libc / libm names where the code proves them, evidence-backed project names otherwise
-      (`config/boot.names.txt`).
+      (`config/boot/names.txt`).
 - [ ] Professional signatures for every function: shared headers (`OSThread`, `OSMesgQueue`, hardware registers) instead of
       local placeholder structures, real parameter names, one prototype per function in a header, each kept at `MATCH`
       (rule in [CONTRIBUTING.md](CONTRIBUTING.md#code-style)). Started with `libultra/os`, the Pi, the heap and the string
@@ -29,7 +29,7 @@ How to work on it: [BOOT.md](BOOT.md).
 How to work on it: [CODE.md](CODE.md). About 3,580 functions.
 
 - [x] Extraction, split, matching and verification tools, the wave method with agents, the permuter queue (`make auto`).
-- [x] Source organised by original source file (`src/code/<module>/`, `config/code.layout.txt`); the functions of
+- [x] Source organised by original source file (`src/code/<module>/`, `config/code/layout.txt`); the functions of
       source files with no known name are in `src/code/unknown/` unless a single module calls them.
 - [x] The segment rebuilt from the C and the remaining assembly is identical to the ROM (`make check`).
 - [ ] Every function that can be written in C is written in C and verified. The functions left are larger and harder
@@ -49,7 +49,7 @@ How to work on it: [CODE.md](CODE.md). About 3,580 functions.
 About 600 files of the ROM file table are overlays (actors, scenes, menus): code that the game loads on demand.
 Each one is a small relocatable program: `text | data | rodata | header | relocations | footer`.
 
-- [x] Inventory: `tools/split/overlays.py` finds them in `extracted/` and writes `config/overlays.txt`
+- [x] Inventory: `tools/split/overlays.py` finds them in `extracted/` and writes `config/overlays/list.txt`
       (file index, start in the virtual ROM, section sizes, relocation count). 616 found, about 3.5 MB of code.
 - [x] Disassembly: `tools/split/overlay_split.py` generates one splat configuration per overlay, writes the assembly to
       `asm/overlays/<index>/` and checks that it rebuilds the file: 595 of 616 overlays are byte-identical (13,011
@@ -69,7 +69,7 @@ Each one is a small relocatable program: `text | data | rodata | header | reloca
       scene and menu callbacks), so one shared set of headers (`Actor`, `PlayState`, ...) types most of them with a scripted
       rewrite that `make check` still has to confirm function by function. Counted in "Typed signatures" of
       [PROGRESS.md](PROGRESS.md); done after the structures are known.
-- [ ] Names: `config/overlays.names.txt` (`<file index> <name>  # <evidence>`), checked like the other name files. A name
+- [ ] Names: `config/overlays/names.txt` (`<file index> <name>  # <evidence>`), checked like the other name files. A name
       is added only with evidence (the order of the file table, the number of overlays and the relocations of an
       overlay that points to a known function) or from another decompilation project (tag `ref:`).
 
@@ -84,13 +84,13 @@ hand, how each variable and structure field is used across the game is visible, 
 reliable. Matching comes first.
 
 - [ ] **Remaining function names.** About 750 functions still carry their address name (`func_8009XXXX`). Names are
-      added only with evidence (`sdk:`, `ref:` or `inferred:` in `config/*.names.txt`).
+      added only with evidence (`sdk:`, `ref:` or `inferred:` in `config/*/names.txt`).
 - [ ] **Variable names.** No data symbol (`D_XXXXXXXX`) is named yet. They can be aligned with the reference
       research the same way functions were (`tools/research/ref_align.py`), then confirmed from their use in the code.
-- [x] `src/boot` and `src/code` are already split into one folder per original source file (`config/<segment>.layout.txt`, boundaries
+- [x] `src/boot` and `src/code` are already split into one folder per original source file (`config/<segment>/layout.txt`, boundaries
       inferred from the registered names, so approximate).
 - [ ] **Source files named after their function** instead of their address, then merged into one file per module
-      (in the original order of the code), checking the boundaries of `config/<segment>.layout.txt`.
+      (in the original order of the code), checking the boundaries of `config/<segment>/layout.txt`.
 - [ ] **Structure types.** Replace the local `typedef struct` with padding (`unk1C`, `pad0`) by shared types in
       `include/`, with named fields.
 - [ ] **Signatures for all functions.** Every function gets the real types and parameter names of the shared headers
