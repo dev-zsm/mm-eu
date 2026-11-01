@@ -53,7 +53,6 @@ void func_80002C98(void *arg0, s32 arg1);
 void func_80002D74(u8 *arg0, s32 arg1);
 void func_80002E38(s32 arg0, s32 arg1);
 void func_80002E48(void *arg0, s32 arg1);
-void func_80003034(void *arg0);
 void func_80003058(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8000320C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void func_8000324C(void *arg0, s32 arg1);

@@ -398,7 +398,6 @@ void BgCheck_SphVsFirstPolyImpl(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8
 s32 BgCheck_SphVsFirstPoly(void *colCtx, void *pos, f32 radius);  /* 800C57B0 */
 void BgCheck_SphVsFirstWall(s32 arg0, s32 arg1, f32 arg2);  /* 800C57F4 */
 void SSNodeList_Init(void *arg0);  /* 800C583C */
-void SSNodeList_Alloc(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C5854 */
 u16 SSNodeList_GetNextNodeIdx(u16 *a0);  /* 800C594C */
 void ScaleRotPos_Init(void *arg0);  /* 800C5960 */
 s32 ScaleRotPos_IsEqual(void *arg0, void *arg1);  /* 800C59EC */
@@ -1474,14 +1473,11 @@ void Gfx_SetFogWithSync(s32 a0, s32 r, s32 g, s32 b, s32 z, s32 n, s32 f);  /* 8
 void Gfx_SetFog2(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6);  /* 8012C3B8 */
 void Gfx_SetupDL(void);  /* 8012C428 */
 void Gfx_SetupDLAtPtr(s32 *arg0);  /* 8012C448 */
-void Gfx_SetupDL52_NoCD(void *arg0);  /* 8012C4C4 */
-s32 func_8012C648(s32);
 void Gfx_SetupDL26_Opa(void *arg0);  /* 8012C670 */
 void Gfx_SetupDL23_Opa(void *arg0);  /* 8012C6C4 */
 void func_8012C718(s32 *arg0);
 void Gfx_SetupDL71(void *arg0);  /* 8012C764 */
 void Gfx_SetupDL34_Opa(void *arg0);  /* 8012C8A4 */
-s32 Gfx_SetupDL39(s32);  /* 8012CAB0 */
 void Gfx_SetupDL39_Opa(void *arg0);  /* 8012CAD8 */
 void Gfx_SetupDL39_Overlay(void *arg0);  /* 8012CB04 */
 void Gfx_SetupDL39_Ptr(void *arg0);  /* 8012CB30 */
@@ -1738,7 +1734,6 @@ s16 SubS_GetDistSqAndOrientPoints(f32 *a, f32 *b, f32 *distSq);  /* 8013DAD0 */
 s8 SubS_IsObjectLoaded(s8 objectId, void *play);  /* 8013DC8C */
 s8 SubS_GetObjectSlot(s16 objectId, u8 *play);  /* 8013DCD4 */
 void SubS_UpdateFidgetTables(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013DD78 */
-s32 SubS_IsFloorAbove(s32 arg0, s32 arg1, s32 arg2);  /* 8013DF40 */
 s32 SubS_CopyPointFromPathList(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8013DFF0 */
 u8 SubS_GetPathCountFromPathList(u8 *a0, s32 a1);  /* 8013E07C */
 void SubS_ActorPathing_Init(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8013E090 */

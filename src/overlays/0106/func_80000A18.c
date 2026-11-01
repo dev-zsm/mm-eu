@@ -1,12 +1,18 @@
-// FLAGS: -O2 -g3 -mips2
 #include "types.h"
-#include "m2c_compat.h"
-#include "generated/overlays/0106.h"
 
-extern M2C_UNK D_808CA1BC;
-
-void func_80000A18(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x1C) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_808CA1BC;
-    M2C_FIELD(arg0, f32 *, 0x70) = 5.0f;
+typedef struct {
+    u8 p0[0x1C];
+    s16 s;
+    u8 p1[0x70 - 0x1E];
+    f32 g;
+    u8 p2[0x144 - 0x74];
+    void *f;
+} A;
+extern u8 D_808CA1BC[];
+void func_80000A18(A *x) {
+    A *new_var;
+    x->s = 0;
+    new_var = x;
+    new_var->f = D_808CA1BC;
+    x->g = 5.0f;
 }
