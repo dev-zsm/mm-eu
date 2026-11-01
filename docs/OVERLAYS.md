@@ -7,14 +7,14 @@ with the function (`ovl0050` is the file with index 0050 of the ROM file table).
 
 ## Setup, once
 
-1. `python3 tools/extract.py` extracts the files of the ROM into `extracted/`.
-2. `python3 tools/overlays.py` finds the overlays and writes `config/overlays.txt`.
-3. `python3 tools/overlay_split.py` disassembles every overlay into `asm/overlays/<index>/` and checks that the
-   assembly rebuilds the file (a single overlay: `python3 tools/overlay_split.py 0050`).
+1. `python3 tools/split/extract.py` extracts the files of the ROM into `extracted/`.
+2. `python3 tools/split/overlays.py` finds the overlays and writes `config/overlays.txt`.
+3. `python3 tools/split/overlay_split.py` disassembles every overlay into `asm/overlays/<index>/` and checks that the
+   assembly rebuilds the file (a single overlay: `python3 tools/split/overlay_split.py 0050`).
 
 ## Writing and checking one function
 
-The same loop as for `boot` and `code` (see [CONTRIBUTING.md](CONTRIBUTING.md) and `tools/AGENT_BRIEF.md`), with the
+The same loop as for `boot` and `code` (see [CONTRIBUTING.md](CONTRIBUTING.md) and `tools/agents/AGENT_BRIEF.md`), with the
 segment name `ovl<index>`:
 
 ```
@@ -40,7 +40,7 @@ update, draw functions). Then the large ones. Progress is added up over all the 
 ## Signatures
 
 The four handlers of every actor overlay (init, destroy, update, draw) are typed `Actor *thisx, PlayState *play` by
-`tools/sig_actors.py` and `tools/retype.py`; a handler whose bytes show that it takes only the first argument is typed
+`tools/signatures/sig_actors.py` and `tools/signatures/retype.py`; a handler whose bytes show that it takes only the first argument is typed
 `Actor *thisx`, and one that reads actor fields we cannot name yet keeps its local types until the `Actor` structure is known.
 Overlay functions come from the automatic drafts (`arg0`, `u8 *`, raw field offsets). Their real types (actor, play state,
 scene and menu callbacks) come from shared headers of `include/` once the structures are known; the rule is in

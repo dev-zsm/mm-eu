@@ -14,6 +14,6 @@ cd '$wslroot' && . ~/mm-venv/bin/activate
 case $cmd in
   asm)   awk '/^glabel $fn\$/{p=1} p{print} /^endlabel $fn\$/{exit}' $asmfile ;;
   m2c)   python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f $fn $asmfile ;;
-  match) python3 tools/match.py $seg $fn '$file' ;;
-  diff)  python3 tools/disasm_diff.py $seg $fn '$file' ;;
+  match) python3 tools/lib/match.py $seg $fn '$file' ;;
+  diff)  python3 tools/research/disasm_diff.py $seg $fn '$file' ;;
 esac" 2>&1 | tr -d '\0'

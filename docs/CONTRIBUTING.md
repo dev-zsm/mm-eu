@@ -7,31 +7,31 @@ to modify the game. All checks run inside WSL / Linux (`make setup` first, see t
 
 1. Look at the original: `tools/mm asm boot func_XXXXXXXX`. `tools/mm m2c boot func_XXXXXXXX` gives a first draft;
    it is frequently wrong (argument order, types), so read the assembly.
-2. Write `src/boot/func_XXXXXXXX.c` (same flat form for `code`; `python3 tools/srcsort.py`,
-   which `tools/wave_finish.sh` runs, then files it into its source-file folder from `config/<segment>.layout.txt`). The optional first line `// FLAGS: ...` sets the compiler flags when the
+2. Write `src/boot/func_XXXXXXXX.c` (same flat form for `code`; `python3 tools/layout/srcsort.py`,
+   which `tools/search/wave_finish.sh` runs, then files it into its source-file folder from `config/<segment>.layout.txt`). The optional first line `// FLAGS: ...` sets the compiler flags when the
    default (`-O2 -g3 -mips2`) is not what the function was built with.
 3. `tools/mm match boot func_XXXXXXXX src/boot/func_XXXXXXXX.c` must print `MATCH`. `tools/mm diff ...` shows the
    original and the compiled instructions side by side. Unfinished attempts go to `src/boot/wip/`.
    On Linux, without the Windows wrapper, run the underlying tools directly (after `. ~/mm-venv/bin/activate`):
    `awk '/^glabel FN$/{p=1} p{print} /^endlabel FN$/{exit}' asm/boot/text.s` (assembly),
    `python3 tools/vendor/m2c/m2c.py -t mips-ido-c -f FN asm/boot/text.s` (draft),
-   `python3 tools/match.py boot FN src/boot/FN.c` and `python3 tools/disasm_diff.py boot FN src/boot/FN.c`.
+   `python3 tools/lib/match.py boot FN src/boot/FN.c` and `python3 tools/research/disasm_diff.py boot FN src/boot/FN.c`.
 4. Call functions that have a name in `config/boot.names.txt` by that name, and every other function by its `func_`
    address name; never invent a name. `make names SEG=boot` rewrites the sources with the registered names, and
-   `tools/match.py` ignores `jal` targets, so a wrong callee is only caught by step 5.
+   `tools/lib/match.py` ignores `jal` targets, so a wrong callee is only caught by step 5.
 5. `make check` must pass before any commit. It runs `make verify` for `boot` and for `code` (every C function equals
    the ROM bytes, and the segment rebuilt from the C plus the remaining assembly is byte-identical to the ROM), checks
-   the overlays function by function, then the source style rules of `tools/check_style.sh`. While working on one segment, `make verify SEG=boot` or
+   the overlays function by function, then the source style rules of `tools/check/check_style.sh`. While working on one segment, `make verify SEG=boot` or
    `SEG=code` alone is enough; compiled objects are cached, so only the files you changed are compiled again.
 
 Compiler: IDO 7.1 by default. A function that only differs by the scratch register of struct copies (`$at` in the ROM,
 `t`-registers in ours), or that no source form can match with 7.1, may have been built with IDO 5.3: add
-`// COMPILER: ido53` in the first three lines (after the `// FLAGS:` line) and run `tools/match.py` again. See
+`// COMPILER: ido53` in the first three lines (after the `// FLAGS:` line) and run `tools/lib/match.py` again. See
 [COMPILERS.md](COMPILERS.md). Do not use 5.3 just to get a match: it must match as plain, natural C.
 
-Techniques that make the compiler produce the original code are collected in `tools/AGENT_BRIEF.md`. For register
-allocation and stack layout problems, use the automated tools: `tools/permute_list.py` (decomp-permuter) and
-`tools/flag_sweep.py` (compiler flag combinations).
+Techniques that make the compiler produce the original code are collected in `tools/agents/AGENT_BRIEF.md`. For register
+allocation and stack layout problems, use the automated tools: `tools/search/permute_list.py` (decomp-permuter) and
+`tools/search/flag_sweep.py` (compiler flag combinations).
 
 ## Symbol names (`config/<segment>.names.txt`)
 
@@ -44,7 +44,7 @@ One line per renamed symbol: `old_name new_name   # sdk|inferred: evidence`.
 * A wrong name is worse than the address name. When unsure, keep `func_XXXXXXXX` and describe the behaviour in a
   comment.
 
-`tools/names.py` and `tools/build_seg.py` apply the names to the C, the assembly, the data and the link. File names keep
+`tools/lib/names.py` and `tools/lib/build_seg.py` apply the names to the C, the assembly, the data and the link. File names keep
 the address.
 
 ## Code style
@@ -87,9 +87,9 @@ commands to write and check a function, and what stays assembly.
 ## Faster checks on Windows
 
 When the repository is on the Windows disk (`/mnt/c/...` in WSL), every file access goes through a slow layer and
-`make check` takes several times longer than on the native Linux disk. `make fastcheck` (`tools/fastcheck.sh`) mirrors
+`make check` takes several times longer than on the native Linux disk. `make fastcheck` (`tools/check/fastcheck.sh`) mirrors
 what the checks read to `~/.cache/mm-eu-work` (only changed files are copied) and runs `make check` there; nothing is
-copied back. On a native checkout it simply runs `make check`. `tools/check_style.py` keeps a cache of the files it has
+copied back. On a native checkout it simply runs `make check`. `tools/check/check_style.py` keeps a cache of the files it has
 already checked (`build/style_cache.json`), and the permuter tools run at the lowest priority so that the checks keep
 the processor.
 
@@ -107,13 +107,13 @@ the processor.
 |---|---|---|---|---|
 | `src/<segment>/<Module>/` | a verified function whose original source file is known (`Camera/`, `Actor/`, `libultra/os/`, ...) | yes | yes | yes |
 | `src/<segment>/unknown/` | a verified function whose original source file is not known yet | yes | yes | yes |
-| `src/<segment>/wip/` | an unfinished attempt (a draft that still differs from the ROM) | no | no | no |
+| `src/<segment>/wip/` | an unfinished attempt (a draft that still differs from the ROM) | no | no | yes |
 
 - `unknown/` is about the **organisation**, not the quality: its functions are finished. A function moves from `unknown/` to a
-  module folder when its module is known (`tools/layout_callers.py` does it when a single module calls it, and the
+  module folder when its module is known (`tools/layout/layout_callers.py` does it when a single module calls it, and the
   table `config/<segment>.layout.txt` is updated for the others).
 - `wip/` is about the **state of the work**: a function leaves it, flat into `src/<segment>/`, when it matches, and
-  `tools/srcsort.py` then files it into its module folder or `unknown/`.
+  `tools/layout/srcsort.py` then files it into its module folder or `unknown/`.
 - Overlays have no `unknown/`: each overlay is its own source file, so its verified functions are in
   `src/overlays/<file index>/` and its unfinished attempts in `src/overlays/<file index>/wip/`.
 
@@ -121,4 +121,4 @@ the processor.
 
 Whatever its source, a function is accepted only if it recompiles to the exact bytes of this ROM (`make check`). The projects
 this one draws inspiration from are listed in the credits of the README, which is where they are named: the sources carry no web
-address and no project name (`tools/check_style.sh` checks it).
+address and no project name (`tools/check/check_style.sh` checks it).

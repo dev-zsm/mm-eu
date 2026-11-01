@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # the ROM and the compiler are not in the repository: only the source rules can run here
-      - run: bash tools/check_style.sh
+      - run: bash tools/check/check_style.sh

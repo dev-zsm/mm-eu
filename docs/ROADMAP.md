@@ -49,16 +49,16 @@ How to work on it: [CODE.md](CODE.md). About 3,580 functions.
 About 600 files of the ROM file table are overlays (actors, scenes, menus): code that the game loads on demand.
 Each one is a small relocatable program: `text | data | rodata | header | relocations | footer`.
 
-- [x] Inventory: `tools/overlays.py` finds them in `extracted/` and writes `config/overlays.txt`
+- [x] Inventory: `tools/split/overlays.py` finds them in `extracted/` and writes `config/overlays.txt`
       (file index, start in the virtual ROM, section sizes, relocation count). 616 found, about 3.5 MB of code.
-- [x] Disassembly: `tools/overlay_split.py` generates one splat configuration per overlay, writes the assembly to
+- [x] Disassembly: `tools/split/overlay_split.py` generates one splat configuration per overlay, writes the assembly to
       `asm/overlays/<index>/` and checks that it rebuilds the file: 595 of 616 overlays are byte-identical (13,011
       functions). The other 21 differ in the read-only data (strings, alignment), a known limit to fix.
 - [x] Per-function matching and verification (`make check`), with relocated fields masked, and automatic passes
-      (`tools/overlay_auto.py`). The numbers in [PROGRESS.md](PROGRESS.md) mean only this until the build below exists.
+      (`tools/search/overlay_auto.py`). The numbers in [PROGRESS.md](PROGRESS.md) mean only this until the build below exists.
 - [ ] Relocations: use the relocation table to name the symbols that point into the same overlay (`D_`/`func_`
       with the overlay index), and keep the header, relocations and footer as data in the rebuild.
-- [ ] Build: a segment builder for overlays (like `tools/build_seg.py`, but linking the relocated sections and
+- [ ] Build: a segment builder for overlays (like `tools/lib/build_seg.py`, but linking the relocated sections and
       checking the relocation table too), so that each overlay is verified byte for byte against its file.
 - [ ] Order of work: the smallest overlays first (they match fastest), then the large ones; one folder per
       overlay under `src/overlays/`.
@@ -86,7 +86,7 @@ reliable. Matching comes first.
 - [ ] **Remaining function names.** About 750 functions still carry their address name (`func_8009XXXX`). Names are
       added only with evidence (`sdk:`, `ref:` or `inferred:` in `config/*.names.txt`).
 - [ ] **Variable names.** No data symbol (`D_XXXXXXXX`) is named yet. They can be aligned with the reference
-      research the same way functions were (`tools/ref_align.py`), then confirmed from their use in the code.
+      research the same way functions were (`tools/research/ref_align.py`), then confirmed from their use in the code.
 - [x] `src/boot` and `src/code` are already split into one folder per original source file (`config/<segment>.layout.txt`, boundaries
       inferred from the registered names, so approximate).
 - [ ] **Source files named after their function** instead of their address, then merged into one file per module

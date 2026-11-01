@@ -49,7 +49,7 @@ On Windows, install [WSL](https://learn.microsoft.com/windows/wsl/install) with 
 4. Extract the files and set up the toolchain:
 
    ```
-   python3 tools/extract.py
+   python3 tools/split/extract.py
    make setup
    ```
 
@@ -77,11 +77,11 @@ config/     splat configuration, symbol names, list of hand-written assembly fun
 docs/       guides and progress
 include/    types.h and the assembler macros
 src/        decompiled C, one file per function, one folder per original source file
-tools/      extraction, matching, verification and build scripts
+tools/      scripts, one folder per use: lib, check, search, signatures, split, layout, run, research, agents
 ```
 
-`asm/`, `extracted/` and `build/` are generated and not tracked. Unfinished attempts live in `src/<segment>/wip/` and are not
-tracked either.
+`asm/`, `extracted/` and `build/` are generated and not tracked. Unfinished attempts live in `src/<segment>/wip/`; they are tracked so that
+every machine working on the project has them, but they do not count in the progress.
 
 ## Documentation
 

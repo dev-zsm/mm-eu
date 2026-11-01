@@ -26,7 +26,7 @@ A source file picks its compiler and flags in its first lines:
 // COMPILER: ido53              optional, within the first three lines: build this file with IDO 5.3
 ```
 
-Without the second line a file is built with IDO 7.1. `tools/match.py`, `tools/verify_src.py` and
-`tools/build_seg.py` all read these two lines, so a file is compiled the same way by every tool. Never switch a file to
+Without the second line a file is built with IDO 7.1. `tools/lib/match.py`, `tools/check/verify_src.py` and
+`tools/lib/build_seg.py` all read these two lines, so a file is compiled the same way by every tool. Never switch a file to
 IDO 5.3 to make it match: use it only when the original really was built with it, which shows as a function that
 matches with 5.3 and not with 7.1 (typically struct copies going through `$at`).
