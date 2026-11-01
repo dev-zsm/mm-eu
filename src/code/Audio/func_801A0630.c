@@ -1,8 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-s32 Audio_SetSyncedSfxFreqAndVolume(f32);
-s32 AudioSfx_PlaySfx(u16, s32, s32, void *, void *, void *);
 extern u8 D_801D3DE8[];
 extern u8 D_801F4A9C[];
 extern u8 D_801F4AA4[];

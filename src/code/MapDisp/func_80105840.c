@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     s32 unk0;
@@ -32,7 +33,6 @@ typedef struct {
 extern MapDisp D_801BF708;
 extern s32 D_801BF76C;
 extern void MapDisp_DestroyRoomStoreyRecord();
-extern void MapDisp_DestroyMapI();
 
 void MapDisp_Destroy(s32 a0) {
     s32 i;

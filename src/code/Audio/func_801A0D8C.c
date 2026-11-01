@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern u16 D_801CEFD4;
 extern f32 *D_801F4AD4;

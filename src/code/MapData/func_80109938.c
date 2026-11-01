@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 s32 MapData_MID_GetType(s32);                             /* extern */
 s32 MapData_GetMapIId(s32);                             /* extern */

@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 M2C_UNK func_8008A780(s32, s32);                    /* extern */
 s32 SysFlashrom_IsInit();                                /* extern */

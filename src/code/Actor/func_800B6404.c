@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { s16 id; s16 pad; void *ptr; } Entry;
 

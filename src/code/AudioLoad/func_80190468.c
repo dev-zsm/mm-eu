@@ -1,8 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void AudioLoad_SyncLoadSeqFonts(s32 seqId, u32 *outFontId);
-void AudioLoad_SyncLoadSeq(s32 seqId);
 s32 func_80087CB0(void *mq, void *msg, s32 flag);
 extern u16 D_801FAD14;
 

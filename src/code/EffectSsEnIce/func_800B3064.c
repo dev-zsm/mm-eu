@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void EffectSsEnIce_SpawnFlying(s32 a0, s32 a1, s32 a2, s32 *a3, s32 *a4, f32 a5);
 extern s32 D_801AF33C;
 extern s32 D_801AF340;
 

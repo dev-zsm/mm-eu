@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
+#include "code_funcs.h"
 f32 Math3D_Vec3fMagnitudeSq(f32 *v) {
     f32 x = v[0];
     f32 y = v[1];

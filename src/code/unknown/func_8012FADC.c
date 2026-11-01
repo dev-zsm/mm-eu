@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 extern s32 D_801C3400[];
 s32 func_8012FADC(u8 *arg0, s32 arg1, s16 arg2) {
     u8 *v = (u8 *)((s32)arg0 + arg1 * 0x44);

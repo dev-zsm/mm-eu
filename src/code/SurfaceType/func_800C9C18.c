@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-s32 SurfaceType_GetData(s32, s32, s32, s32);
 
 s32 SurfaceType_IsWallDamage(s32 a0, s32 a1, s32 a2) {
     s32 var_v1;

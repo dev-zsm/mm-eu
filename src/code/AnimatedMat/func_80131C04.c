@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void AnimatedMat_DrawMain(s32 a0, s32 a1, f32 a2, s32 a3, s32 a4);
 

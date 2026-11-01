@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern struct {
     u8 pad0[0x40];

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-u8 *func_80100304(s32);
 void Keyframe_FlexChangeAnim(u8 *, s32, s32, f32, f32, f32, f32, f32, s32);
 
 void Keyframe_FlexPlayLoopSetSpeed(u8 *arg0, s32 arg1, f32 arg2) {

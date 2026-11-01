@@ -1,9 +1,8 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void EffectSs_Spawn(s32, s32, s32, void *);
 void Math_Vec3f_Copy(void *, s32);
-void Color_RGBA8_Copy(void *, s32);
 
 void EffectSsDtBubble_SpawnCustomColor(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, s16 arg7, s16 arg8) {
     struct {

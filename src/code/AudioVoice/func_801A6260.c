@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { s32 pad0[2]; s32 unk8; } S;
 s32 PadMgr_VoiceAcquireSerialEventQueue();
 void func_800965B0(void *);

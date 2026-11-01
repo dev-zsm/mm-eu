@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern s16 D_801ED318;
 

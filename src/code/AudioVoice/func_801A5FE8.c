@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[0xA];
@@ -10,9 +11,6 @@ extern u8 D_801D176C;
 extern Ent *D_801D1770;
 extern u16 D_801D1774;
 extern u8 D_801D1778;
-extern void func_801A5D88(void);
-extern Ent *func_801A6260(void);
-extern s32 func_801A66D8(void);
 
 void AudioVoice_Update(void) {
     if (D_801D176C & 2) {

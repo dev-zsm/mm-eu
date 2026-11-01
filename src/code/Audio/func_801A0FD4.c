@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void AudioSfx_PlaySfx(s32, s32, s32, void *, void *, void *);
 extern u8 D_801D14E0;
 extern u8 D_801D3DE0;
 extern u8 D_801D3DE8;

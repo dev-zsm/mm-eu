@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { s32 pad0[3]; s32 unkC; s32 unk10; s32 pad14[2]; } Ov; /* 0x1C */
 extern Ov D_801C9450[2];
 extern s32 D_801C9488;
@@ -6,7 +7,6 @@ extern s32 D_801C948C;
 extern u8 D_801EE480[];
 s32 THA_AllocTailAlign16(void *, s32, void *);
 void func_80081C2C(void *, void *, s32);
-void KaleidoManager_FaultAddrConv(void);
 void KaleidoManager_Init(u8 *play) {
     s32 max = 0;
     s32 i;

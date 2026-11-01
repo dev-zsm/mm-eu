@@ -1,8 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-extern void AudioSfx_StopByPosAndBankImpl(u8 bank, s32 *pos);
-extern void AudioSfx_RemoveMatchingRequests(u8 type, s32 *pos);
 
 void AudioSfx_StopByPos(s32 *pos) {
     u8 bank;

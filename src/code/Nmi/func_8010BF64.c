@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { s32 unk0; u8 pad4[0xC]; s64 unk10; } NmiPrenmi;
 

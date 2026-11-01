@@ -1,11 +1,11 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     f32 m[4][4];
 } MtxF;
 
 extern MtxF *D_801F3644;
-extern void SkinMatrix_SetScale(MtxF *, f32, f32, f32);
 
 void Matrix_Scale(f32 x, f32 y, f32 z, s32 mode) {
     MtxF *cmf = D_801F3644;

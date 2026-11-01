@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 void AudioThread_QueueCmd(s32, s32 *);
 

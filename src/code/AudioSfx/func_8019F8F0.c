@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern f32 D_801D8624;
 extern f32 D_801D8628;

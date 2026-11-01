@@ -1,9 +1,7 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { u8 pad0[0x1C]; void *unk1C; s32 unk20; } Info;
-extern Info *BgCheck_GetCollisionHeader(void *a, s32 b);
-extern s32 SurfaceType_GetBgCamIndex(void *a, void *b, s32 c);
-extern s32 BgCheck_GetBgCamCountImpl(void *a, s32 b, s32 c);
 
 s32 BgCheck_GetBgCamCount(void *a, void *b, s32 c) {
     Info *i = BgCheck_GetCollisionHeader(a, c);

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-f32 Math3D_DistPlaneToPos(f32 a, f32 b, f32 c, f32 d, void *pos);
 float fabsf(float);
 #pragma intrinsic (fabsf)
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     f32 x;
@@ -6,7 +7,6 @@ typedef struct {
     f32 z;
 } V3;
 
-extern void Math3D_CylTriVsIntersect(s32, s32, V3 *);
 
 void Math3D_CylVsTri(s32 arg0, s32 arg1) {
     V3 sp1C;

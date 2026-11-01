@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { u8 pad[0x2D0]; } Reverb;
 typedef struct {
@@ -10,7 +11,6 @@ typedef struct {
 } AudioHeapState;
 
 extern AudioHeapState D_801F84B0;
-void AudioHeap_UpdateReverb(Reverb *reverb);
 
 void AudioHeap_UpdateReverbs(void) {
     s32 i;

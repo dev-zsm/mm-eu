@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     void *actor;
@@ -12,9 +13,6 @@ typedef struct {
 } InitParams2FE4;
 
 void Math_Vec3f_Copy(f32 *, f32 *);
-void Color_RGBA8_Copy(u8 *, u8 *);
-void Actor_PlaySfx(void *, s32);
-void EffectSs_Spawn(void *, s32, s32, void *);
 
 void EffectSsEnIce_SpawnFlying(void *play, void *actor, f32 *pos, u8 *primColor, u8 *envColor, f32 scale) {
     InitParams2FE4 p;

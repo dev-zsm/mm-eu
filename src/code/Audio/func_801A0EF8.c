@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     f32 unk0;
@@ -9,8 +10,6 @@ typedef struct {
 
 extern Fade D_801F4AB8;
 extern u8 D_801D3DE8;
-s32 AudioSfx_IsPlaying(s32);
-void AudioSfx_PlaySfx(s32, s32, s32, Fade *, Fade *, u8 *);
 
 void Audio_PlaySfx_Waterfall(s32 arg0, f32 arg1) {
     if (AudioSfx_IsPlaying(0x2007) == 0) {

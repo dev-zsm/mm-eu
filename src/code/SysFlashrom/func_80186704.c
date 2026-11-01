@@ -1,7 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-int SysFlashrom_IsInit();
-s32 func_80187C00(s32 *, s32 *);
 extern s32 D_801F3670;
 s32 SysFlashrom_CheckFlashType(void) {
     s32 sp1C;

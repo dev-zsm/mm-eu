@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 extern u32 D_801C29F0[];
 extern u32 D_801E7D94[];
 s32 Inventory_IsMapVisible(s16 arg0) {

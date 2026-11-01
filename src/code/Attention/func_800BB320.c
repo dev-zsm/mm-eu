@@ -1,9 +1,9 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern s32 D_801C9E30;
 extern s32 D_801C9E34;
 
-extern void Actor_GetScreenPos(void *a, void *b, s16 *x, s16 *y);
 
 s32 Attention_ActorOnScreen(void *a, void *b) {
     s16 x;

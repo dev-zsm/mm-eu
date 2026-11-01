@@ -1,10 +1,8 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { s16 a; s16 b; s16 c; s16 d; s32 pad8[2]; s32 e; } T;
 extern T D_801BE3E0;
-void Actor_GetScreenPos(s32, s32, s16 *, s16 *);
-f32 OLib_Vec3fDist(s32, s32);
-s32 Play_GetCamera(s32, s16);
 s32 func_800F2074(s16 arg0, s32 arg1) {
     f32 temp_f0;
     s16 sp2A;

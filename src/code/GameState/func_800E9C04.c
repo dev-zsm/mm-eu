@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { u8 a, b, c; u8 d[0x29]; } E2;
 typedef struct { u8 a, b, c, d; } Ent;
 void func_80085A2C(s32, u8, u8, u8, s32);

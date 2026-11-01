@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s16 EffectSs_LerpInv(s16 a, s16 b, s32 divisor) {
     s16 result;

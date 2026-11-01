@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 s32 Play_GetCamera(u8 *a0, s16 a1) {
     s16 i;
     if (a1 == -1) {

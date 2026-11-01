@@ -12,15 +12,38 @@ import objcache  # noqa: E402
 import srcpath  # noqa: E402
 
 
+def workdir(seg: str, fn: str) -> Path:
+    """Overlays share function names (every one has a func_80000000): their work directory carries the overlay."""
+    return ROOT / "build" / "perm" / (f"{seg}_{fn}" if seg.startswith("ovl") else fn)
+
+
+def draft(seg: str, fn: str):
+    """The unfinished C of a function: src/<seg>/wip, or for an overlay build/auto_drafts (made by tools/permute_list.py)."""
+    if seg.startswith("ovl"):
+        for p in (ROOT / "src" / "overlays" / seg[3:] / "wip" / f"{fn}.c", ROOT / "build" / "auto_drafts" / seg / f"{fn}.c"):
+            if p.exists():
+                return p
+        return None
+    p = ROOT / "src" / seg / "wip" / f"{fn}.c"
+    return p if p.exists() else None
+
+
+def overlay_target(seg: str, fn: str, out: Path):
+    """target.o of an overlay function: its splat assembly, assembled."""
+    import build_seg  # noqa: E402
+    import match  # noqa: E402
+    chunk = next(c for c in re.split(r"(?=^nonmatching )", match.asm_file(seg).read_text(), flags=re.M)[1:]
+                 if c.startswith(f"nonmatching {fn},"))
+    shutil.copyfile(objcache.assemble(build_seg.HDR + chunk, build_seg.AS), out)
+
+
 def main():
     seg, fn = sys.argv[1:3]
-    src = ROOT / "src" / seg / "wip" / f"{fn}.c"
-    if not src.exists():
-        src = srcpath.path(seg, fn)
+    src = draft(seg, fn) or srcpath.path(seg, fn)
     text = src.read_text()
     m = re.match(r"// FLAGS: (.*)", text.splitlines()[0])
     flags = m.group(1) if m else "-O2 -g3 -mips2"
-    d = ROOT / "build" / "perm" / fn
+    d = workdir(seg, fn)
     d.mkdir(parents=True, exist_ok=True)
     cc, cc_env = (objcache.compiler_for(src), "MM_CC53" if objcache.uses_ido53(src) else "MM_CC")
     # the permuter wants one self-contained function: expand the includes with IDO's preprocessor,
@@ -32,7 +55,10 @@ def main():
     base = re.sub(r"^# \d+.*\n", "", pre, flags=re.M)
     real = names.load(seg).get(fn)  # the C file defines the real name, but target.o carries the address name
     (d / "base.c").write_text(base.replace(real, fn) if real else base)
-    shutil.copy(objcache.WORK / seg / "fn" / f"{fn}.o", d / "target.o")
+    if seg.startswith("ovl"):
+        overlay_target(seg, fn, d / "target.o")
+    else:
+        shutil.copy(objcache.WORK / seg / "fn" / f"{fn}.o", d / "target.o")
     (d / "compile.sh").write_text(f"""#!/bin/bash
 # usage: compile.sh input.c -o output.o  (IDO cc mishandles output paths with spaces: go through a temp file)
 set -e

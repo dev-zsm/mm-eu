@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x00 */ s32 unk0;
@@ -15,8 +16,6 @@ typedef struct {
 } FireTail;
 
 extern void Math_Vec3f_Copy(f32 *, f32 *);
-extern void Color_RGBA8_Copy(u8 *, u8 *);
-extern void EffectSs_Spawn(s32, s32, s32, FireTail *);
 
 void EffectSsFireTail_Spawn(s32 a0, s32 a1, f32 *a2, f32 a3, f32 *a4, s16 a5, u8 *a6, u8 *a7, s16 a8, s16 a9, s32 a10) {
     FireTail init;

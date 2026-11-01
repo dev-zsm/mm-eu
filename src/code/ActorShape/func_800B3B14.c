@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 void ActorShape_Init(u8 *p, f32 a, s32 b, f32 c) {
     *(f32 *)(p + 0x8) = a;

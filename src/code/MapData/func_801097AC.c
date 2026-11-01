@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { s16 unk0; s16 unk2; s16 unk4; s16 unk6; s16 unk8; } MapITex;
 

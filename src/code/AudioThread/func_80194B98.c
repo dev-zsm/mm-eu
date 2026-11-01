@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[0x4448];
@@ -11,10 +12,6 @@ typedef struct {
 
 extern AudioCtx D_801F84B0;
 
-void AudioThread_WaitForAudioResetQueueP(void);
-void AudioThread_ResetCmdQueue(void);
-void AudioThread_QueueCmdS32(u32 a, s32 b);
-s32 AudioThread_ScheduleProcessCmds(void);
 void func_80088070(s32 a, void *b, s32 c, s32 d);
 
 s32 AudioThread_ResetAudioHeap(s32 specId) {

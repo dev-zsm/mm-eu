@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 MsgEvent_Jump3(s32 a0, s32 a1, u8 **scriptPtr, s32 a3) {
     unsigned long new_var3;

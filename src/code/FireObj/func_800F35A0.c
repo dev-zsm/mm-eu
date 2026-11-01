@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void FireObj_SetState(s32, f32, u8);
 

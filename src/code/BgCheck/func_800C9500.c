@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x00 */ u8 pad0[0x1C];
@@ -6,9 +7,6 @@ typedef struct {
     /* 0x20 */ s32 unk20;
 } Hdr;
 
-extern Hdr *BgCheck_GetCollisionHeader(s32, s32);
-extern s32 SurfaceType_GetBgCamIndex(s32, s32, s32);
-extern s32 BgCheck_GetBgCamSettingImpl(s32, s32, s32);
 
 s32 BgCheck_GetBgCamSetting(s32 a0, s32 a1, s32 a2) {
     Hdr *h = BgCheck_GetCollisionHeader(a0, a2);

@@ -1,12 +1,12 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u16 unk0;
     u8 pad2[0x21A];
 } SeqRequestInfo;
 
-void AudioThread_QueueCmdS32(u32 opArgs, s32 data);
 extern u16 D_801FAD28;
 extern SeqRequestInfo D_801F7B8A[];
 

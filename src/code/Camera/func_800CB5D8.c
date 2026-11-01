@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Camera_IsDekuHovering(u8 *camera) {
     u8 *play;

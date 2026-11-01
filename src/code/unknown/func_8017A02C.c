@@ -1,10 +1,8 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern void func_80179F00(s32, s32, s32 *, s32 *, s32 *);
 extern s32 func_80086E40(s32);
 extern void func_80086EC0(s32);
-extern void func_80179D40(s32, s32, s32);
-extern void func_80179FFC(s32, s32, s32);
 
 void func_8017A02C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 sp2C;

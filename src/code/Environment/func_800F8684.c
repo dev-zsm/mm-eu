@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 // Raw byte access to the save context, matches the compiler aliasing.
 extern u8 D_801E6EF0[];

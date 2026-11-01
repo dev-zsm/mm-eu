@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 M2C_UNK PadMgr_RumbleSet(M2C_UNK *);                   /* extern */
 M2C_UNK func_80183D80(M2C_UNK *);                   /* extern */

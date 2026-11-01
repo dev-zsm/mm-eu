@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Collider_SetBaseToActor(s32 arg0, u8 *dst, u8 *src) {
     *(u32 *)dst = *(u32 *)src;

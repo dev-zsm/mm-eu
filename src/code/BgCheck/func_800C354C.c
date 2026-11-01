@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void BgCheck_SetSubdivisionDimension(f32 min, s32 subdivLen, f32 *max, f32 *subdivAmount, f32 *inv) {
     float new_var;

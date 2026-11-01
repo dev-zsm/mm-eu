@@ -1,9 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern u8 D_801FC878[];
-extern s32 AudioLoad_GetRealTableIndex(s32 tableType, s32 id);
-extern s32 AudioLoad_SyncLoad(s32 tableType, s32 id, s32 *status);
 
 s32 AudioLoad_SyncLoadSeq(s32 seqId) {
     s32 pad; // keeps status at the ROM stack offset

@@ -1,8 +1,7 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern f32 D_801F4AA8[4];
-extern s32 AudioSfx_IsPlaying(s32);
-extern void AudioSfx_PlaySfx(s32, s32, s32, f32 *, void *, void *);
 extern u8 D_801D3DE0[];
 extern u8 D_801D3DE8[];
 

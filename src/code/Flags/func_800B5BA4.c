@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 void Flags_UnsetSwitch(s32 *arg0, s32 arg1) {
     s32 *p;

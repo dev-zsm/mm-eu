@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 void Room_Init(s32 arg0, u8 *arg1) {
     s32 var_v0;

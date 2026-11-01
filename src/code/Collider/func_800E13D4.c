@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 M2C_UNK Collider_SetElement(s32, s32, s32);               /* extern */
 M2C_UNK Collider_SetTrisElementDim(s32, s32, s32);               /* extern */

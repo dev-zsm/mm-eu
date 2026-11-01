@@ -1,10 +1,9 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { u8 pad0[0x30]; f32 x, y, z; } Mtxf3;
 
-extern Mtxf3 *Matrix_GetCurrent(void);
 extern u8 *Actor_SpawnAsChild(u8 *, u8 *, u8 *, s32, f32, f32, f32, s32, s32, s32, s32);
-extern void Matrix_MtxFToYXZRot(Mtxf3 *, u8 *, s32);
 extern void Math_Vec3f_Copy(u8 *, u8 *);
 
 void Actor_SpawnBodyParts(u8 *actor, u8 *play, s32 arg2, s32 *arg3) {

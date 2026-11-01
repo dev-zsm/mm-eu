@@ -1,8 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void LightContext_InitList(s32, s32);
-void LightContext_SetAmbientColor(s32, s32, s32, s32);
 void LightContext_SetFog(s32, s32, s32, s32, s32, s32);
 void func_800897D0(void *, s32);
 extern u8 D_801EC7F0[];

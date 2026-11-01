@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x00 */ s32 unk0;
@@ -16,7 +17,6 @@ typedef struct {
     /* 0x24 */ s32 unk24;
 } BgInfo;
 
-extern void Prerender_DrawBackground2DImpl(BgInfo *, s32);
 
 void Prerender_DrawBackground2D(s32 a0, s32 a1, s32 a2, u16 a3, u16 a4, u8 a5, u8 a6, u16 a7, u16 a8, f32 a9, f32 a10, f32 a11, f32 a12, s32 a13) {
     BgInfo info;

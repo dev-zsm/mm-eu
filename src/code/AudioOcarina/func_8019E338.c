@@ -1,11 +1,11 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern u8 D_801CF968;
 extern u8 D_801CF96C;
 extern u8 D_801CF970[];
 
-extern void AudioOcarina_MemoryGameNextNote(void);
 
 void AudioOcarina_MemoryGameInit(u8 difficulty) {
     u8 i;

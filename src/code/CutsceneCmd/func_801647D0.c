@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 f32 func_801647D0(u8 *a0) {
     if (a0[2] != 2) {
         return 38.0f - (*(f32 *)(a0 + 0x40) - *(f32 *)(a0 + 0x28));

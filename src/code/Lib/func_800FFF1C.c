@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
+#include "code_funcs.h"
 f32 Math_CosS(s16);
 f32 Math_SinS(s16);
 void func_800FFF1C(f32 *a, s16 arg1, f32 *b, f32 *c) {

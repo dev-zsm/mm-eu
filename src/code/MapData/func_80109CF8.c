@@ -1,8 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-s32 MapData_CPID_GetType(s32 cpid);
-s32 MapData_GetMapGrandColorIndex(s32 arg0);
-s32 MapData_GetMapIColorIndex(s32 arg0);
 
 s32 MapData_CPID_GetMapColorIndex(s32 cpid) {
     if (cpid == -1) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Math_StepToF(f32 *pValue, f32 target, f32 step) {
     if (step != 0.0f) {

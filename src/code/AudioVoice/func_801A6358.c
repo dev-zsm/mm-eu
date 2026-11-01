@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 s32 func_80095E10(s32);
 s32 PadMgr_VoiceAcquireSerialEventQueue();
 void PadMgr_VoiceReleaseSerialEventQueue(s32);

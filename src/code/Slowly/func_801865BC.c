@@ -1,9 +1,9 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void func_800897D0(void *, s32);
 extern void func_80089FE0(void *, s32, void *, void *, s32, s32);
 extern void func_80095950(void *);
-extern void func_8018659C(void *);
 
 void Slowly_Init(u8 *a0, s32 a1, s32 a2, s32 a3, s32 a4) {
     func_800897D0(a0, 0x1C0);

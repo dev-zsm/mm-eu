@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-extern void AudioSfx_ProcessRequest(void);
 extern u32 D_801FCBD0;
 extern u8 D_801D3DA4;
 extern u8 D_801D3DA0;

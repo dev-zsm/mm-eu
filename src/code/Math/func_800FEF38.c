@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Math_StepToAngleS(s16 *pValue, s16 target, s16 step) {
     s32 diff = target - *pValue;

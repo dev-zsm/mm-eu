@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 s32 Collider_SetBase(s32 arg0, void *arg1, s32 arg2, void *arg3) {
     M2C_FIELD(arg1, s32 *, 0) = arg2;

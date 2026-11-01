@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 func_801A4814(s32 arg0, s32 arg1);
 

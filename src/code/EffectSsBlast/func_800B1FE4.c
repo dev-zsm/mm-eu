@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void EffectSsBlast_Spawn(void *arg0, void *arg1, void *arg2, void *arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s16 arg9);
 

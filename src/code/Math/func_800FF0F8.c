@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 s32 Math_AsymStepToF(f32 *pValue, f32 target, f32 incrStep, f32 decrStep) {
     f32 step;
     if (*pValue <= target) {

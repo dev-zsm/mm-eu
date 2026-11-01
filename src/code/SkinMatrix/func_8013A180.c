@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 f32 Math_SinS(s16);
 f32 Math_CosS(s16);
 void SkinMatrix_SetXRotation(f32 *mf, s16 a) {

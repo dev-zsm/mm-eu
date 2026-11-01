@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void func_8017A1B0(u16 *a0, s32 a1, s32 a2, s32 a3) {
     u16 *p;

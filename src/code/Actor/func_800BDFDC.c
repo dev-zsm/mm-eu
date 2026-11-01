@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 void Actor_SetDropFlag(void *arg0, void *arg1) {
     s32 *temp_v0;

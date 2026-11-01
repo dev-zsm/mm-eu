@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 M2C_UNK func_801920C8();                            /* extern */
 M2C_UNK AudioLoad_ProcessAsyncLoads(s32);                         /* extern */

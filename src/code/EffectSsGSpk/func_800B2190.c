@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 r;
@@ -9,7 +10,6 @@ typedef struct {
 
 extern Color_RGBA8 D_801AF290;
 extern Color_RGBA8 D_801AF294;
-extern void EffectSsGSpk_SpawnSmall(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, Color_RGBA8 *a5, Color_RGBA8 *a6);
 
 void EffectSsGSpk_SpawnFuse(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) {
     Color_RGBA8 primColor = D_801AF290;

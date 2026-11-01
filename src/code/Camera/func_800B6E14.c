@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
+#include "code_funcs.h"
 extern f32 D_801D4AFC;
 extern u8 *D_801EB7E0;
 f32 func_800B6E14(u8 *arg0) {

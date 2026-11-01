@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Flags_GetCollectible(s32, s32);
-s32 Flags_SetCollectible(s32, s32);
 
 s32 MsgEvent_SetCollectible(u8 *arg0, s32 arg1, u8 **arg2, s32 arg3) {
     s32 sp18;

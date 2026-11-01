@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 void Math_Vec3f_Copy(u8 *, void *);
 extern u8 D_801C9EE0[];
 void func_80128014(u8 *p, s32 n, void *a) {

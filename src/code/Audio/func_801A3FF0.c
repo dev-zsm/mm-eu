@@ -1,10 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
-extern void AudioThread_QueueCmdS32(u32, s32);
-extern void Audio_MuteBgmPlayersForFanfare(void);
-extern void AudioSeq_QueueSeqCmd(u32);
-extern s32 AudioSeq_GetActiveSeqId(s32);
-extern s32 AudioSeq_IsSeqCmdNotQueued(u32, u32);
+#include "code_funcs.h"
 extern u8 D_801F4BEB;
 extern u16 D_801F4BEC;
 void Audio_UpdateFanfare(void) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void SkinMatrix_Vec3fMtxFMultXYZW(void *mf, void *src, void *dest, f32 *invW);
 

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void func_800897D0(void *, s32);
 extern void func_8008F3E0(void *, void *, s32);
 extern void func_80089FE0(void *, s32, void *, void *, s32, s32);
 extern void func_80095950(void *);
-extern void AudioMgr_ThreadEntry(void *);
 
 
 void AudioMgr_Init(u8 *audioMgr, s32 stack, s32 stackSize, s32 pri, s32 a4, s32 a5) {

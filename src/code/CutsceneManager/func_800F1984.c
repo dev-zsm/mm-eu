@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern s16 D_801BE3E0;
 extern u8 D_801EC690[];

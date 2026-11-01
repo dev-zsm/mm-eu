@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 void THA_SetHead(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 8) = arg1;

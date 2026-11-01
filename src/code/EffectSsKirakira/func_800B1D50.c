@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { f32 x, y, z; } V3;
 typedef struct {
@@ -16,9 +17,7 @@ typedef struct {
 } KirakiraInit;
 
 f32 func_8008704C(void);
-void EffectSs_Spawn(s32 play, s32 a, s32 b, void *c);
 void Math_Vec3f_Copy(void *a, void *b);
-void Color_RGBA8_Copy(void *a, s32 b);
 
 void EffectSsKirakira_SpawnFocused(s32 play, s32 unused, void *pos, void *vel, s32 primColor, s32 envColor, s16 yaw, s32 life) {
     KirakiraInit init;

@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul
 #include "types.h"
+#include "code_funcs.h"
 float sqrtf(float);
 #pragma intrinsic (sqrtf)
 f32 Math_Vec3f_DistXZ(f32 *a0, f32 *a1) {

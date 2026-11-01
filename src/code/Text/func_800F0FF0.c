@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 Player_GetMask(void *);
 extern u16 D_801BCF4E[][19];
 
 u16 Text_GetFaceReaction(void *play, s32 reactionSet) {

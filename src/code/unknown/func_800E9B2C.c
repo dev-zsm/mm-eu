@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { u8 r; u8 g; u8 b; u8 text[41]; } DbgLine;
 extern s32 D_801BBBC0;

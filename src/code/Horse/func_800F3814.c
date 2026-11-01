@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { s16 a; s16 b; } E;
 extern E D_801BE5A0[11];
 s32 Horse_IsValidSpawn(s16 a) {

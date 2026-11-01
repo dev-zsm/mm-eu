@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { u8 buttonIdx; u8 pad[7]; } SongPitch;
 typedef struct { u8 len; u8 buttons[8]; } SongButtons;

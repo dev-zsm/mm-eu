@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x0 */ u8 active;
@@ -45,7 +46,6 @@ typedef struct {
 
 extern EffectTable D_801DB840;
 extern EffectInit D_801AF1F4[];
-extern s32 func_8016B1A4(void *play);
 
 void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initParams) {
     s32 pad[2]; // unused: pads the frame to the ROM size

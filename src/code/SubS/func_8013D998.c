@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 SubS_AngleDiffLessEqual(s16 angleA, s16 maxDiff, s16 angleB) {
     s16 diff = angleB - angleA;

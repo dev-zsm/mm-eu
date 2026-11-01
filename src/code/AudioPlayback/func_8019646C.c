@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[1];
@@ -17,7 +18,6 @@ typedef struct {
 } AudioCtx;
 
 extern AudioCtx D_801F84B0;
-extern s32 AudioLoad_IsFontLoadComplete(s32 a);
 
 s32 AudioPlayback_GetDrum(s32 bank, s32 drum) {
     DrumBank *b;

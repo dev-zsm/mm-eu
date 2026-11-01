@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern s8 D_801CEF88;
 extern s8 D_801CEF8C;
@@ -7,7 +8,6 @@ extern s8 D_801CEF90;
 extern u8 D_801D3DE0[];
 extern u8 D_801D3DE8[];
 extern u8 D_801F4AC8[];
-extern void AudioSfx_PlaySfx(u16, s32, s32, void *, void *, void *);
 void Audio_PlaySfx_AtPosWithTimer(s32 a0, u16 a1, f32 a2) {
     D_801CEF88--;
     if (D_801CEF88 == 0) {

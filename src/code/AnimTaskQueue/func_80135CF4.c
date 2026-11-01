@@ -1,8 +1,8 @@
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { u8 pad0[4]; u32 unk4; } FE;
 typedef struct { u8 pad0[4]; u8 req[0x20]; u8 mq[0x18]; u8 buf[4]; } Task;
 extern Task *AnimTaskQueue_NewTask(void *, s32);
-extern FE *func_80100304(s32);
 extern void func_8008F3E0(void *, void *, s32);
 extern void func_80080C54(void *, s32, u32, u32, u32, void *, u32);
 extern u8 D_5E0C00[];

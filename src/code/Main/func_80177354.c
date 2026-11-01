@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x00 */ u8 pad0[0x9C];
@@ -14,9 +15,6 @@ extern void func_80086690();
 extern void func_80092E20(u8);
 extern void func_80089FE0();
 extern void func_80095950(void *);
-extern void func_801771D0();
-extern void PadMgr_UnlockPadData(void);
-extern void PadMgr_ReleaseSerialEventQueue(s32);
 
 void func_80177354(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) {
     func_800897D0(D_801C9E40, 0x480);

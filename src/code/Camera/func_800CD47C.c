@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 float sqrtf(float);
 #pragma intrinsic (sqrtf)
 extern u8 D_801AF820[];

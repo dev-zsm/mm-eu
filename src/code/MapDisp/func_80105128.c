@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 MapDisp_IsBossDoor(s32 arg0) {
     // the narrowing through char is needed for the ROM's codegen

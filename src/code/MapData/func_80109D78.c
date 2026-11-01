@@ -1,9 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-s32 MapData_CPID_GetType(s32 mapId);
-s32 MapData_GetMapGrandScale(s32 mapId);
-s32 MapData_GetMapIScale(s32 mapId);
 
 s32 MapData_CPID_GetMapScale(s32 mapId) {
     if (mapId == -1) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad[0x5C];
@@ -13,7 +14,6 @@ typedef struct {
 
 extern EffectSsInfo D_801AF260;
 void EffectSs_Delete(EffectSs *ss);
-void EffectSs_Update(s32 play, s32 index);
 
 void EffectSs_UpdateAll(s32 play) {
     s32 i;

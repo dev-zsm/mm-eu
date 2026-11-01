@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void func_801152C4(s32 *array, u32 count) {
     u32 i;

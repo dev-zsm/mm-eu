@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 M2C_UNK BgCheck_CheckLineImpl(s32, M2C_UNK, M2C_UNK, s32, s32, s32, s32, s32, s32, f32, s32); /* extern */
 s32 BgCheck_GetBccFlags(s32, s32, s32, s32, s32);         /* extern */

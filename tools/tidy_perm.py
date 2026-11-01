@@ -17,8 +17,17 @@ TYPEDEF = re.compile(r"^typedef (?:signed char|unsigned char|signed short|unsign
 ONE_LINE = "// one line: the ROM's scheduling depends on these stores sharing a single source line"
 
 
+def wins(seg: str) -> Path:
+    """Raw permuter output: one folder per overlay, since overlays share function names."""
+    return WINS / seg if seg.startswith("ovl") else WINS
+
+
+def home(seg: str) -> Path:
+    return ROOT / "src" / ("overlays/" + seg[3:] if seg.startswith("ovl") else seg)
+
+
 def matches(seg: str, fn: str, text: str) -> bool:
-    tmp = WINS / f".tidy_{fn}.c"
+    tmp = wins(seg) / f".tidy_{fn}.c"
     tmp.write_text(text)
     try:
         r = subprocess.run([sys.executable, str(ROOT / "tools/match.py"), seg, fn, str(tmp)], capture_output=True, text=True)
@@ -97,9 +106,9 @@ def tidy_enough(t: str) -> bool:
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     dry = "--dry" in sys.argv
-    seg, fns = args[0], args[1:] or sorted(p.stem for p in WINS.glob("func_*.c"))
+    seg, fns = args[0], args[1:] or sorted(p.stem for p in wins(seg).glob("func_*.c"))
     for fn in fns:
-        raw = (WINS / f"{fn}.c").read_text().replace("\r", "")
+        raw = (wins(seg) / f"{fn}.c").read_text().replace("\r", "")
         if not matches(seg, fn, raw):
             print(f"{fn}: the raw file does not match any more, skipped")
             continue
@@ -107,12 +116,12 @@ def main():
         if not tidy_enough(new):
             print(f"{fn}: left in build/perm_wins/ ({'; '.join(notes) or 'not tidy enough'})")
             continue
-        dst = ROOT / "build" / "perm_tidy" / f"{fn}.c" if dry else ROOT / "src" / seg / f"{fn}.c"
+        dst = ROOT / "build" / "perm_tidy" / f"{fn}.c" if dry else home(seg) / f"{fn}.c"
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(new)
         if not dry:
-            (ROOT / "src" / seg / "wip" / f"{fn}.c").unlink(missing_ok=True)
-            (WINS / f"{fn}.c").unlink()
+            (home(seg) / "wip" / f"{fn}.c").unlink(missing_ok=True)
+            (wins(seg) / f"{fn}.c").unlink()
         print(f"{fn}: tidied -> {dst.relative_to(ROOT)}" + (f" ({'; '.join(notes)})" if notes else ""))
 
 

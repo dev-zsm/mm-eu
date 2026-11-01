@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern u32 TransitionOverlay_VramToRam(u32 base, u32 addr);
 

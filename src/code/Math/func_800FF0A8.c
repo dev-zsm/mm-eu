@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Math_StepUntilF(f32 *pValue, f32 limit, f32 step) {
     f32 prev = *pValue;

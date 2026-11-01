@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern void func_8017A38C(void);
 extern void func_80089610(s32 a0);
 extern u32 D_80000318;
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void Math_ApproachS(s16 *pValue, s16 target, s16 scale, s16 maxStep) {
     s16 diff = target - *pValue;

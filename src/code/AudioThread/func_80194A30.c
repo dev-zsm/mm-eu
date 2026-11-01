@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 s32 func_80088070(M2C_UNK *, u32 *, M2C_UNK);       /* extern */
 extern M2C_UNK D_801FA2F0;

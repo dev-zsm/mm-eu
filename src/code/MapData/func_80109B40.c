@@ -1,8 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 MapData_CPID_GetType(s32);
-extern void MapData_GetMapTexGameplayDangeonKeepDim(s32, s32 *, s32 *);
-extern void MapData_GetMapITexDim(s32, s32 *, s32 *);
 
 void MapData_CPID_GetTexDim(s32 id, s32 *w, s32 *h) {
     if (id == -1) {

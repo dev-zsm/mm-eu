@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void func_80189070(void) {
 }

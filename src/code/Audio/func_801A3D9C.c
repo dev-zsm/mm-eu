@@ -1,10 +1,9 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern u16 D_801CEFFC;
 extern u8 D_801CF030[];
 extern u16 D_801F4C78;
-u16 AudioSeq_GetActiveSeqId(s32 arg0);
-void AudioSeq_QueueSeqCmd(s32 arg0);
 void func_801A3D9C(void) {
     u16 *p = &D_801CEFFC;
     if ((AudioSeq_GetActiveSeqId(0) != 0xFFFF) && (D_801CF030[(u8) AudioSeq_GetActiveSeqId(0)] & 8)) {

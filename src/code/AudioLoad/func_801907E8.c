@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad[0x2860];
@@ -7,10 +8,6 @@ typedef struct {
 } AudioCtx;
 
 extern AudioCtx D_801F84B0;
-extern s32 AudioLoad_GetRealTableIndex(s32 a, u8 b);
-extern s32 AudioHeap_SearchPermanentCache(s32 a, s32 b);
-extern void AudioLoad_DiscardFont(s32 a);
-extern void AudioLoad_SetFontLoadStatus(s32 a, s32 b);
 
 void AudioLoad_DiscardSeqFonts(s32 arg0) {
     s32 n;

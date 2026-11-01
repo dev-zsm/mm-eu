@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 s32 Math_StepToS(s16 *p, s16 a, s16 b) {
     s16 t;
     if (b != 0) {

@@ -1,8 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 MapData_CPID_GetType(s32);
-extern void func_8010940C(s32, s32 *);
-extern void func_801097DC(s32, s32 *);
 
 void MapData_CPID_GetDrawType(s32 arg0, s32 *arg1) {
     if (arg0 == -1) {

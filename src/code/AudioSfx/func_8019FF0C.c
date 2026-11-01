@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x0 */ f32 unk0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void func_800843FC(s32, s32);
 extern void func_8008482C(void *, ...);

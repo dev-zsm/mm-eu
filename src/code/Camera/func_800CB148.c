@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s16 Camera_ScaledStepToCeilS(s16 cur, s16 target, f32 scale, s16 minDiff) {
     s16 diff = cur - target;

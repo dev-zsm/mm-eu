@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     f32 x, y, z;
@@ -14,7 +15,6 @@ typedef struct {
 } SibukiInitParams;
 
 extern void Math_Vec3f_Copy(Vec3f *dst, void *src);
-extern void EffectSs_Spawn(void *play, s32 type, s32 priority, void *initParams);
 
 void EffectSsSibuki_Spawn(void *play, void *pos, void *velocity, void *accel, s16 arg4, s16 arg5, s16 arg6) {
     SibukiInitParams params;

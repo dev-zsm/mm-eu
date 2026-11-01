@@ -1,9 +1,9 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { f32 x, y, z; } Vec3f;
 
 void func_800B18F8(s32 a0, f32 a1, Vec3f *a2, Vec3f *a3, Vec3f *a4);
-void func_800B1810(s32 play, Vec3f *a1, Vec3f *a2, Vec3f *a3, s32 a4, s32 a5, s32 a6);
 
 void func_800B1AB8(s32 play, f32 arg1, s32 arg2) {
     s32 i;

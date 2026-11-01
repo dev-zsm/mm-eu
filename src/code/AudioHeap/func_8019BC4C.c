@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[0x4B40];
@@ -7,8 +8,6 @@ typedef struct {
     u8 pad4B41[0x5F];
     s32 unk4BA0;
 } S1;
-void AudioScript_InitLayerFreelist(void);
-void func_8019BB7C(u8 *);
 extern S1 D_801F84B0[];
 extern u8 D_801FB1B0[];
 extern u8 D_801FC910[];

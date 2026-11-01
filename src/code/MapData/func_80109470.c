@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 MapData_GetSizeOfMapGrandTex(s32 index);
 
 s32 MapData_MapGrandTexSizeTest(s32 count) {
     s32 last = count - 0x100;

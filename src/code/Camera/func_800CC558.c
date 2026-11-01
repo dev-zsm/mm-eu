@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern void BgCheck_GetBgCamFuncDataImpl(void *arg0, s32 arg1, s32 arg2);
 extern void func_8016AE0C(void *arg0, s32 arg1);
 
 void Camera_GetBgCamOrActorCsCamFuncData(u8 *arg0, s32 arg1) {

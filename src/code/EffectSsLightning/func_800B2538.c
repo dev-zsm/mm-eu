@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     f32 pos[3];
@@ -11,8 +12,6 @@ typedef struct {
 } InitParams2538;
 
 void Math_Vec3f_Copy(f32 *, f32 *);
-void Color_RGBA8_Copy(u8 *, u8 *);
-void EffectSs_Spawn(void *, s32, s32, void *);
 
 void EffectSsLightning_Spawn(void *play, f32 *pos, u8 *primColor, u8 *envColor, s16 a, s16 b, s16 c, s16 d) {
     InitParams2538 p;

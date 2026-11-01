@@ -1,9 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { u8 pad0[0xC8]; s8 unkC8; } T;
 typedef struct { u8 pad0[0x4880]; u32 unk4880; u8 pad4884[0x70]; T *unk48F4; } S;
-s32 AudioSeq_GetActiveSeqId(s32);
-void AudioThread_QueueCmdS8(s32, s32);
 extern S D_801F84B0;
 u8 func_801A48BC(void) {
     u8 sp27;

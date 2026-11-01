@@ -1,7 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 func_801529DC(s32 a);
-extern s32 func_80147B34(s32 a);
 
 s32 MsgEvent_AwaitTextJump(s32 arg0, s32 arg1, u8 **arg2, s32 arg3) {
     u8 *p = *arg2;

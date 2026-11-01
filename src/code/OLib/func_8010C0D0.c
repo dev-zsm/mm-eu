@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -Wab,-r4300_mul
 #include "types.h"
+#include "code_funcs.h"
 f32 sqrtf(f32);
 #pragma intrinsic (sqrtf)
 f32 OLib_Vec3fDistXZ(f32 *a, f32 *b) {

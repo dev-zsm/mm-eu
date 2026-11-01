@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 void EffectSsHitmark_Spawn(s32 a0, s32 a1, s32 a2, s32 a3);
 

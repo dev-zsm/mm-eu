@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 MapData_GetMapIId(s32 arg0);
 
 s32 MapData_GetMapCompactId(s32 arg0) {
     s32 ret = MapData_GetMapIId(arg0);

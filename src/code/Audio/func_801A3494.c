@@ -1,11 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern u16 D_801F4AE0;
 extern u16 D_801CEFFC;
-extern void Audio_PlayAmbience(s32 a);
-extern void Audio_StartSceneSequence(u16 a);
-extern void AudioSeq_QueueSeqCmd(u32 a);
 
 void Audio_PlaySceneSequence(u16 seqId, u8 flag) {
     if (D_801F4AE0 != seqId) {

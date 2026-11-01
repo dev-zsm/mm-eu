@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u16 type;
@@ -11,7 +12,6 @@ typedef struct {
     BgCamInfo *bgCamList;
 } CollisionHeader;
 
-extern CollisionHeader *BgCheck_GetCollisionHeader(void *colCtx, s32 bgId);
 
 u16 BgCheck_GetBgCamCountImpl(void *colCtx, s32 camId, s32 bgId) {
     CollisionHeader *colHeader = BgCheck_GetCollisionHeader(colCtx, bgId);

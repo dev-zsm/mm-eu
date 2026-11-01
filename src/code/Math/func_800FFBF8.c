@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 void Math_ApproachF(f32 *pValue, f32 target, f32 fraction, f32 step) {
     f32 delta;

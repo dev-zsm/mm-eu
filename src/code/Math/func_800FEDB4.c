@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 s32 Math_StepToC(s8 *pValue, s8 target, s8 step) {
     if (step != 0) {

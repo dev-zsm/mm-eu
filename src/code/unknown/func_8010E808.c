@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 s64 func_800905C0(s32);
-void PadMgr_GetInputNoLock(u16 *, s32);
 extern s32 D_801C065C;
 extern u8 D_801E6EF0[];
 extern u16 D_801ED0D0;

@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 flags;
@@ -21,7 +22,6 @@ extern u8 D_801F84B0[];
 extern u8 D_801FAEA0[];
 extern Chan D_801FFCF0;
 Chan *AudioHeap_AllocZeroed(void *a, s32 b);
-void AudioScript_InitSequenceChannel(Chan *c);
 void func_8019BAA0(s32 playerIdx) {
     SeqPlayer *player = &((SeqPlayer *) (D_801F84B0 + 0x4460))[playerIdx];
     s32 i;

@@ -1,8 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 MapData_CPID_GetType(s32);
-extern s32 MapData_GetSizeOfMapGrandTex(s32);
-extern s32 MapDisp_GetSizeOfMapITex(s32);
 
 s32 MapData_CPID_GetSizeOfMapTex(s32 id) {
     if (id == -1) {

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-extern void MapDisp_InitChestData();
 
 void Scene_CommandMapDataChests(s32 a0, u8 *a1) {
     u8 *a3 = a1;

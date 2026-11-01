@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 u8 Actor_ApplyDamage(u8 *a0) {
     s32 v = a0[0xB8];
     s32 w = a0[0xB7];

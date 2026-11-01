@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern f32 D_801C9E18;
 s32 Math_ScaledStepToS(s16 *pValue, s16 target, s16 step) {

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void EffectSs_Spawn(s32, s32, s32, void *);
 void Math_Vec3f_Copy(void *, s32);
 
 typedef struct {

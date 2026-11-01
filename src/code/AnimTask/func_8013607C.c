@@ -2,6 +2,7 @@
 // STATUS: verified draft (raw field offsets from the automatic draft; to be cleaned up)
 #include "types.h"
 #include "m2c_compat.h"
+#include "code_funcs.h"
 
 M2C_UNK SkelAnime_InterpFrameTable(u8, s32, s32, s32, f32);      /* extern */
 extern s32 D_801ED334;

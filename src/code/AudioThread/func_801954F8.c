@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // sRandom/sPrevCount are function statics in the original source, so the object carries its own .data
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x0000 */ u8 pad0[0x28C0];

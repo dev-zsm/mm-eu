@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void func_800897D0(void *ptr, s32 size);
 extern void THA_Reset(s32 *arg0);

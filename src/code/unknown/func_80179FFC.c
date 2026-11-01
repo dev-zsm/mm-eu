@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 extern void func_800811C8(void *a0, s32 a1, s32 a2);
 void func_80179FFC(void *a0, s32 a1, s32 a2) {
     if (a1 != 0) {

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Unattended daily run, no agent needed. In WSL:  tools/daily.sh [hours=3]
-#   1. permuter over every boot and code draft, closest to a match first (what tools/auto_loop.sh does)
+#   1. permuter over every boot, code and overlay draft (the overlay ones: wip files and m2c drafts of what the passes missed), closest to a match first (what tools/auto_loop.sh does)
 #   2. overlays: the m2c draft of every function is tried (tools/overlay_auto.py), then the mechanical recipes, then promoted
 #   3. what matched is tidied into src/, then names, srcsort and the full check (tools/wave_finish.sh)
 #   4. only if the check passed: commit and push (set -e stops everything before that otherwise)
@@ -25,11 +25,13 @@ python3 tools/build_seg.py boot build/boot.bin > /dev/null
 nice -n 19 python3 tools/permute_list.py --auto --hours "$hours"
 python3 tools/tidy_perm.py code
 python3 tools/tidy_perm.py boot
+for d in build/perm_wins/ovl*/; do if [ -d "$d" ]; then python3 tools/tidy_perm.py "$(basename "$d")"; fi; done   # the overlays win too: one folder each
 
 nice -n 19 python3 tools/overlay_auto.py run 0x400 4
 nice -n 19 python3 tools/overlay_auto.py recipes 0x200 4
 python3 tools/overlay_auto.py promote
 python3 tools/retype.py config/overlays.signatures.txt   # type the actor handlers that just matched (kept only if they still match)
+for seg in boot code overlays; do python3 tools/sig_header.py $seg --apply; done   # prototypes of the new functions into the headers, sources switched to them (kept only if they still match)
 
 bash tools/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks
 

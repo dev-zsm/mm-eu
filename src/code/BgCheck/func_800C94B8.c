@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u16 setting;
@@ -11,7 +12,6 @@ typedef struct {
     BgCamEntry* entries;
 } BgCamData;
 
-extern BgCamData* BgCheck_GetCollisionHeader(s32 a0, s32 a1);
 
 u16 BgCheck_GetBgCamSettingImpl(s32 a0, s32 index, s32 a2) {
     BgCamData* data;

@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void Collider_SetBase(s32, s32, s32, s32);
 void Collider_SetElement(s32, s32, s32);
 void Collider_SetJntSphElementDim(s32, s32, s32);
 

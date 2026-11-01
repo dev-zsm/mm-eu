@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[1];
@@ -13,9 +14,6 @@ typedef struct {
     s32 unk18;
 } Inst;
 
-extern Inst *AudioPlayback_GetInstrumentInner(s32, s32);
-extern Inst *AudioPlayback_GetDrum(s32, s32);
-extern void AudioLoad_SyncLoadSample(s32, s32);
 
 s32 AudioLoad_SyncLoadInstrument(s32 a0, s32 a1, s32 a2) {
     Inst *i;

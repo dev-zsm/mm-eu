@@ -1,11 +1,10 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { f32 x, y, z; } V3;
 typedef struct { u8 pad0[0x200]; s32 a; s32 b; s32 c; s32 d; } View2;
 void View_LookAt(View2 *v, V3 *eye, V3 *at, V3 *up);
 void View_SetViewport(View2 *v, void *p);
-void View_SetPerspective(View2 *v, f32 a, f32 b, f32 c);
-void View_ApplyPerspectiveToOverlay(View2 *v);
 
 void func_801171FC(u8 *play, s32 a, s32 b, s32 c, s32 d) {
     View2 *view = (View2 *)&play[0x169E8];

@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern s32 BgCheck_RaycastFloorImpl(s32 a0, s32 a1, s32 a2, s32 a3, s32 *result, s32 arg5, s32 arg6, s32 arg7, f32 arg8, s32 arg9);
 
 s32 BgCheck_EntityRaycastFloor2_1(s32 a0, s32 a1, s32 a2, s32 a3) {
     s32 result;

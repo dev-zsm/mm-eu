@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void AudioScript_SequencePlayerDisable(u8* seqPlayer);
 

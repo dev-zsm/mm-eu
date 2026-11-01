@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 s32 Play_SetFog(u8 **, s32);
 extern u16 D_801E7F06;
 

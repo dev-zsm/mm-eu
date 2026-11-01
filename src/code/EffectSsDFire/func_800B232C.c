@@ -1,8 +1,8 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { u8 a[12]; u8 b[12]; u8 c[12]; s16 d[5]; s16 pad; s32 e; } L;
 void Math_Vec3f_Copy();
-void EffectSs_Spawn(s32, s32, s32, void *);
 void EffectSsDFire_Spawn(s32 a0, s32 a1, s32 a2, s32 a3, s16 a4, s16 a5, s16 a6, s16 a7, s16 a8, s32 a9) {
     L l;
     Math_Vec3f_Copy(&l.a, a1);

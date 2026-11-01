@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct {
     /* 0x000 */ u8 pad0[0x1F4];
     /* 0x1F4 */ f32 unk1F4;
@@ -36,7 +37,6 @@ typedef struct {
 } Sub;
 typedef struct { u8 pad[0xB50]; s16 unkB50; } Other;
 void func_800897D0(Sub *, s32);
-void View_Init(Sub *, s32);
 extern u8 D_801EAE2E;
 extern Other *D_801EB7E0;
 

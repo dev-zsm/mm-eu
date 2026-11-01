@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-extern void AudioThread_QueueCmdS32(u32 a0, s32 a1);
 
 void Audio_MuteSeqPlayerBgmSub(u8 flag) {
     if (flag == 1) {

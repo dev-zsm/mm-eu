@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     s32 unk0;
@@ -15,7 +16,6 @@ typedef struct {
 
 extern AudioContext D_801F84B0;
 
-extern s32 AudioLoad_SyncInitSeqPlayerInternal(s32 arg0, s32 arg1, s32 arg2);
 
 s32 AudioLoad_SyncInitSeqPlayerSkipTicks(s32 seqPlayerIndex, s32 seqId, s32 skipTicks) {
     if (D_801F84B0.unk29A4 != 0) {

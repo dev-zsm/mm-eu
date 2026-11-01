@@ -1,9 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-s32 Matrix_GetCurrent(void);
-void SkinMatrix_MtxFMtxFMult(s32, s32, s32);
-void Matrix_MtxFCopy(s32, s32);
 extern s32 D_801F3644;
 
 void Matrix_Mult(s32 arg0, s32 arg1) {

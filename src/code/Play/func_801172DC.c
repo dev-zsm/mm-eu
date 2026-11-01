@@ -1,8 +1,8 @@
 // FLAGS: -O1 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 void View_SetViewport(s32, s32 *);
-void View_ApplyOrthoToOverlay(s32);
 
 void func_801172DC(s32 arg0) {
     s32 sp24;

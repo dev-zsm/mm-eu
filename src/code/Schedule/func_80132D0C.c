@@ -1,10 +1,10 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern u8 D_801C2D65;
 extern u8 D_801C2D67;
 extern u8 D_801E6F60[];
 
-s32 Player_GetMask(void *a0);
 
 s32 Schedule_CheckMiscS(void *play, u8 **script, s32 unused) {
     u8 *cmd = *script;

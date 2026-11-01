@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     /* 0x0000 */ u8 pad0[0x39];
@@ -12,7 +13,6 @@ typedef struct {
 } Struct_801E6EF0;
 
 extern Struct_801E6EF0 D_801E6EF0;
-extern void Audio_PlaySfx(s32);
 
 void func_801162AC(void) {
     s32 lo;

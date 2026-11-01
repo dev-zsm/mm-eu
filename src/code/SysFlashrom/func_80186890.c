@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 s32 SysFlashrom_IsInit();                                /* extern */
 s32 func_80187FC4(s32);                             /* extern */

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     f32 x, y, z;
@@ -13,7 +14,6 @@ typedef struct {
 } ExtraInitParams;
 
 extern void Math_Vec3f_Copy(Vec3f *dst, void *src);
-extern void EffectSs_Spawn(void *play, s32 type, s32 priority, void *initParams);
 
 void EffectSsExtra_Spawn(void *play, void *pos, void *velocity, void *accel, s16 scale, s16 scaleStep) {
     ExtraInitParams params;

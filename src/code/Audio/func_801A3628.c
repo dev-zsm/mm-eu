@@ -1,6 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern u16 AudioSeq_GetActiveSeqId(s32);
 extern u8 D_801CF030[];
 extern u8 D_801CF000;
 extern s8 D_801FCA6B;

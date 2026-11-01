@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 typedef struct { s8 unk0; s8 unk1; s8 unk2; } St;
-extern s8 AudioOcarina_MapPitchToButton(u8);
 extern u8 D_801CF910;
 extern u16 D_801CF928;
 extern u8 D_801CF930;

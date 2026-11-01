@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[0x10];
@@ -6,7 +7,6 @@ typedef struct {
     s32 unk14;
 } TableEntry;
 
-extern u8 *AudioLoad_GetLoadTable(s32 arg0);
 
 s32 AudioLoad_GetRealTableIndex(s32 arg0, s32 arg1) {
     TableEntry *entry = (TableEntry *)(AudioLoad_GetLoadTable(arg0) + arg1 * 16);

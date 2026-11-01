@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-extern void Camera_GetCamDir();
 
 s16 Camera_GetCamDirPitch(s32 a0) {
     s32 pad;

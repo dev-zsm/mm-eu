@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct { u8 unk0; u8 unk1; u8 pad2[8]; } MapITexEntry;
 

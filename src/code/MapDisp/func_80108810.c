@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern u32 D_801BF834[];
 extern u32 D_801BF850[];

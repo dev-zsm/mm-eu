@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 typedef struct {
     u8 pad0[4];
@@ -15,7 +16,6 @@ extern struct {
     s32 error;
 } D_801F84B0;
 
-extern s32 AudioLoad_IsFontLoadComplete(s32);
 
 s32 *AudioPlayback_GetSoundEffect(s32 fontId, s32 id) {
     s32 *sfx; u32 base; Font *font;

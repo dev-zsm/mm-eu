@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
-void AudioThread_QueueCmdS8(u32 opArgs, s8 data);
 
 void Audio_SetSfxReverbIndexExceptOcarinaBank(u8 reverbIndex) {
     u8 channelIndex;

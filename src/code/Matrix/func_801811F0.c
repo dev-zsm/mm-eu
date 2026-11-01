@@ -1,4 +1,5 @@
 #include "types.h"
+#include "code_funcs.h"
 
 extern void *THA_AllocTailAlign16(void *tha, s32 size);
 extern void *D_801F3640;

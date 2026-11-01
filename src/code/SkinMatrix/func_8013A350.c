@@ -1,7 +1,6 @@
 #include "types.h"
+#include "code_funcs.h"
 
-extern f32 Math_SinS(s16 a);
-extern f32 Math_CosS(s16 a);
 
 void SkinMatrix_SetYRotation(f32 *mf, s16 a) {
     f32 sinA;

@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "code_funcs.h"
 
 extern u8 D_801CEFCF;
 extern u8 D_801CEFD0;
@@ -8,8 +9,6 @@ extern u8 D_801F4ACD;
 extern u8 D_801F4ACE;
 extern u8 D_801F4ACF;
 extern u8 D_801F4AD0;
-extern void Audio_SetGanonsTowerBgmVolume(u8);
-extern void AudioSeq_SetVolumeScale(s32, s32, u8, s32);
 
 void Audio_UpdateRiverSoundVolumes(void) {
     if (D_801F4ACF == 1) {

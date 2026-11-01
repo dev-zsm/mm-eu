@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "code_funcs.h"
 s32 Actor_AddToLensActors(u8 *a0, s32 a1) {
     u8 n = a0[0x1CAF];
     if (n >= 0x20) {
