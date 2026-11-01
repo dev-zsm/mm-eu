@@ -37,6 +37,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 | `tools/tidy_perm.py` | rewrite the raw permuter output in the project style, checking the match after every step, and move it to `src/` |
 | `tools/auto_loop.sh` (`make auto HOURS=2`) | unattended: permuter queue, tidy the wins, then names and the full check; nothing is committed |
 | `tools/daily.sh` (`make daily HOURS=3`) | unattended: the same, plus the overlay passes and the typing of the new actor handlers (`tools/retype.py`), then commit and push if the check passed. It stops when its terminal closes: start it with `nohup make daily HOURS=3 > build/daily.out 2>&1 &` |
+| `tools/forever.sh` | for a machine that stays on: `tools/daily.sh` in a loop, a failed round restored to the last commit, a push retried by the next round; run it as a service (`Restart=always`) |
 | `tools/wave.py`, `tools/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
 | `tools/AGENT_BRIEF.md`, `tools/CLEANUP_BRIEF.md` | the rules and techniques given to the AI agents that write and tidy the C |
 
