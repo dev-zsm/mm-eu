@@ -1,26 +1,22 @@
 #include "types.h"
 
 typedef struct {
-    /* 0x00 */ u8 pad0[0x20];
-    /* 0x20 */ u8 unk20;
-    /* 0x21 */ u8 pad21[0x2B];
-    /* 0x4C */ u8 tab[4][4];
+    u8 pad0[0x20];
+    u8 unk20;
+    u8 pad21[0x2B];
+    u8 tab[4][4];
 } Data;
-
 typedef struct {
-    /* 0x00000 */ u8 pad0[0x16B60];
-    /* 0x16B60 */ u8 *unk16B60;
+    u8 pad0[0x16B60];
+    u8 *unk16B60;
 } Ctx;
-
 extern Data D_801E6EF0;
 extern u8 D_9FEE70[];
 extern void func_8017A0BC(u8 *, u8, u8 *, s32);
-
 void func_80112A3C(Ctx *a0, u8 a1) {
-    u8 idx;
+    int idx;
     s32 v1;
-
-    if (a1 == 0) {
+    if (!a1) {
         if (D_801E6EF0.unk20 == 4) {
             v1 = 0;
         } else {
