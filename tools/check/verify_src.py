@@ -48,7 +48,9 @@ def check(f: Path):
                     raise
         if len(got) > len(want) and not any(got[len(want):]):
             got = got[:len(want)]
-        return name, key, len(want) == len(got) and match.mask(want, masks) == match.mask(got, masks)
+        same = len(want) == len(got) and match.mask(want, masks) == match.mask(got, masks)
+        # the masked fields must also point where the ROM's do: a wrong callee or data symbol has the right bytes but the wrong address
+        return name, key, same and not match.check_targets(want, got, match.last_relocs())
     except Exception:  # compile error, symbol missing, ...
         return name, key, False
 
@@ -60,6 +62,8 @@ bad = [n for n, _, good in results if not good]
 objcache.CACHE.mkdir(parents=True, exist_ok=True)
 verdicts.write_text(json.dumps(sorted({k for _, k, good in results if good and k})))  # only the current keys: no stale growth
 print(f"{seg}: {len(ok)} MATCH, {len(bad)} not matching")
+if match.TARGET_STATS:   # only the functions compiled in this run: a verdict kept in the cache is not looked at again
+    print(f"  call and data targets compared with the ROM in this run: {match.TARGET_STATS['compared']}, of unknown address (not compared): {match.TARGET_STATS['unknown address']}")
 for n in bad:
     print("  FAIL", n)
 sys.exit(1 if bad else 0)

@@ -14,6 +14,7 @@ flock -n 9 || { echo "daily.sh already running"; exit 0; }
 export PYTHONUNBUFFERED=1
 renice -n 19 $$ > /dev/null 2>&1 || true
 hours="${1:-3}"
+python3 tools/check/selftest.py   # a broken tool stops the round before it spends hours
 
 git fetch -q && { git rebase -q -X ours origin/main 2>/dev/null || git rebase --abort 2>/dev/null; } || true   # another machine may have pushed
 python3 tools/lib/names.py code --apply-src > /dev/null

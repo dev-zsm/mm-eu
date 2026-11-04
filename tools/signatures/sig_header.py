@@ -9,7 +9,7 @@ and pointers to them). Where it has none, the prototype is read from the assembl
 are written, a callee's arguments counted when they are passed on untouched), pointers (used as the base of a load or store),
 floats ($f12/$f14 read first) and the result (read by a caller after the call). Such an inferred prototype is only a
 reading of the code, it never replaces a definition."""
-import re, subprocess, sys
+import collections, re, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -197,7 +197,7 @@ def declared_in_sources(seg: str) -> dict:
     """{name: (ret, args)}: the `extern` declarations that the verified files of the segment already carry. They compile to the
     ROM's bytes, so they are better evidence of a function's prototype than the assembly alone."""
     base = ROOT / "src" / ("overlays/" + seg[3:] if seg.startswith("ovl") else seg)
-    out = {}
+    seen = {}   # name -> {(ret, args): how many files declare it so}
     for f in sorted(base.rglob("func_*.c")):
         if "wip" in f.parts:
             continue
@@ -205,8 +205,12 @@ def declared_in_sources(seg: str) -> dict:
             ret = " ".join(m.group("ret").split()).replace("M2C_UNK", "s32")
             if "static" in ret or "typedef" in ret or ret.startswith(("return", "else")):
                 continue
-            out.setdefault(m.group("name"), (ret, " ".join(m.group("args").split()).replace("M2C_UNK", "s32")))
-    return out
+            key = (ret, " ".join(m.group("args").split()).replace("M2C_UNK", "s32"))
+            seen.setdefault(m.group("name"), collections.Counter())[key] += 1
+    # the files disagree on some functions: the declaration most of them carry wins; on a tie, the one with more parameters
+    # (a call with too many arguments is refused, one with too few is not)
+    return {name: max(c, key=lambda k: (c[k], len([a for a in k[1].split(",") if a.strip()])))
+            for name, c in seen.items()}
 
 
 def type_known(ret: str, args: str) -> bool:

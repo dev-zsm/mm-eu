@@ -85,6 +85,18 @@ def update_readme(results: dict):
     readme.write_text(head + block + rest.split(b, 1)[1], encoding="utf-8")
 
 
+def asm_note(segs):
+    """Functions with verified C that the rebuilt segment still takes from the assembly (their constant pool is not the ROM's):
+    tools/lib/build_seg.py writes the list. They are counted as C above, so say how many there are."""
+    parts = []
+    for s in segs:
+        f = ROOT / "build" / s / "built_from_asm.txt"
+        if f.exists() and f.read_text().split():
+            parts.append(f"`{s}` {len(f.read_text().split())}")
+    return ("Verified C that the rebuilt segment still takes from the assembly because its constant pool is not the ROM's "
+            "(counted as C above): " + ", ".join(parts) + ".\n\n") if parts else ""
+
+
 def main():
     segs = sys.argv[1:] or ["boot", "code"]
     rows = ["| Segment | C functions (verified) | of which drafts to clean up | Typed signatures | C bytes | Original assembly | Attempts (wip) | Remaining | Named |",
@@ -109,9 +121,10 @@ def main():
            "* **C bytes**: share of the segment's code bytes covered by verified C.\n"
            "* **Original assembly**: hand-written in the original game or impossible in C; not counted in the denominator.\n"
            "* **Attempts (wip)**: unfinished drafts in `src/<segment>/wip/`.\n\n" + "\n".join(rows) + "\n\n"
-           f"`overlays` adds up the {overlays()[0]} overlays (actors, scenes, menus) found by `tools/split/overlays.py`; their C is verified function by function, "
-           "with relocated fields masked, so a wrong call target or data address is not caught until the overlay build exists "
-           "(see [ROADMAP.md](ROADMAP.md), section 3).\n\n"
+           f"`overlays` adds up the {overlays()[0]} overlays (actors, scenes, menus) found by `tools/split/overlays.py`; their C is verified function by function: "
+           "the bytes with the relocated fields masked, then the address each call or data reference would link to, against the ROM's "
+           "(the overlays are not rebuilt whole yet, see [ROADMAP.md](ROADMAP.md), section 3).\n\n"
+           + asm_note(segs) +
            "Naming, file layout and readability work is planned for after all the C matches: see [ROADMAP.md](ROADMAP.md).\n")
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs" / "PROGRESS.md").write_text(out, encoding="utf-8")

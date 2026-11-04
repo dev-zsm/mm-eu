@@ -3,7 +3,7 @@
 Run inside WSL.  usage: match.py <boot|code> <function> <file.c>
 Relocated fields (jal targets, %hi/%lo, gp-relative) are masked on both sides, since the
 original bytes are already linked and the .o is not."""
-import functools, re, struct, subprocess, sys, tempfile
+import collections, functools, re, struct, subprocess, sys, tempfile, threading
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -63,8 +63,61 @@ def compiler_for(cfile: Path) -> Path:
     return CC53 if any(re.match(r"// COMPILER: ido53\s*$", l) for l in head) else CC
 
 
+TARGET_STATS = collections.Counter()   # relocations whose target was compared with the ROM / was of unknown address
+RELOCS = {}   # thread -> [(offset in the function, relocation type, symbol)] of the last compiled() call of that thread
+
+
+def last_relocs():
+    return RELOCS.get(threading.get_ident(), [])
+
+
+def _address(sym: str):
+    """The address a symbol stands for: its splat name, or the splat name a registered name replaces. None if unknown."""
+    m = re.fullmatch(r"(?:func|D)_([0-9A-F]{8})", sym)
+    if m:
+        return int(m.group(1), 16)
+    m = _REVERSE().get(sym)
+    return int(m[-8:], 16) if m else None
+
+
+@functools.lru_cache(maxsize=None)
+def _REVERSE():
+    return {v: k for k, v in NAMES.items()}
+
+
+def check_targets(rom: bytes, got: bytes, relocs) -> list:
+    """The symbols whose address, once linked, would not be the one the ROM has: [(offset, symbol)]. `rom` and `got` are the code of
+    the function in the ROM and in our object (whose immediate fields hold the addends); a symbol of unknown address is not checked."""
+    word = lambda b, o: struct.unpack(">I", b[o:o + 4])[0]
+    s16 = lambda v: v - 0x10000 if v & 0x8000 else v
+    bad = []
+    for i, (off, typ, sym) in enumerate(relocs):
+        a = _address(sym)
+        if a is None or off + 4 > len(rom) or off + 4 > len(got):
+            TARGET_STATS["unknown address"] += 1
+            continue
+        TARGET_STATS["compared"] += 1
+        if typ == "R_MIPS_26":
+            want = ((a + (word(got, off) & 0x3FFFFFF) * 4) >> 2) & 0x3FFFFFF
+            ok = word(rom, off) & 0x3FFFFFF == want
+        elif typ == "R_MIPS_LO16":
+            ok = word(rom, off) & 0xFFFF == (a + s16(word(got, off) & 0xFFFF)) & 0xFFFF
+        elif typ == "R_MIPS_HI16":
+            lo = next((o for o, t, s2 in relocs[i + 1:] if t == "R_MIPS_LO16" and s2 == sym), None)
+            if lo is None or lo + 4 > len(got):
+                continue
+            addend = ((word(got, off) & 0xFFFF) << 16) + s16(word(got, lo) & 0xFFFF)
+            ok = word(rom, off) & 0xFFFF == ((a + addend + 0x8000) >> 16) & 0xFFFF
+        else:
+            continue
+        if not ok:
+            bad.append((off, sym))
+    return bad
+
+
 def compiled(cfile: Path, name: str, flags: list[str], want_len: int = 0):
     name = NAMES.get(name, name)  # the C file defines the real name; files and the ROM table use the splat name
+    RELOCS[threading.get_ident()] = []
     obj = objcache.compile_obj(cfile, flags)  # cached by content: an unchanged file is not compiled again
     with tempfile.TemporaryDirectory() as d:
         syms = run("mips-linux-gnu-nm", str(obj))
@@ -81,10 +134,11 @@ def compiled(cfile: Path, name: str, flags: list[str], want_len: int = 0):
             if any(blob[end:tsize]):  # the file holds more code than the ROM function: report it as a size difference
                 end = tsize
         masks = {}
-        for m in re.finditer(r"^([0-9a-f]{8})\s+[0-9a-f]+\s+(R_MIPS_\w+)", run("mips-linux-gnu-readelf", "-r", str(obj)), re.M):
+        for m in re.finditer(r"^([0-9a-f]{8})\s+[0-9a-f]+\s+(R_MIPS_\w+)\s+[0-9a-f]+\s+(\S+)", run("mips-linux-gnu-readelf", "-rW", str(obj)), re.M):
             off = int(m.group(1), 16)
             if start <= off < end and m.group(2) in MASKS:
                 masks[off - start] = MASKS[m.group(2)]
+                RELOCS.setdefault(threading.get_ident(), []).append((off - start, m.group(2), m.group(3)))
         return blob[start:end], masks
 
 

@@ -20,13 +20,13 @@ Matching C verified byte-for-byte against the ROM (refreshed by `make progress`,
 
 ```
 boot     ████████████████████████████░░  93.1 %  (390 / 419)
-code     ███████████████████░░░░░░░░░░░  64.0 %  (2288 / 3576)
+code     ███████████████████████░░░░░░░  76.7 %  (2742 / 3576)
 overlays ██████████░░░░░░░░░░░░░░░░░░░░  32.0 %  (4161 / 13011)
 ```
 <!-- progress:end -->
 
-`boot` and `code` are also rebuilt whole and compared with the ROM. The overlays are only checked function by function for
-now, with relocated fields masked, so a wrong call target or data address is not caught until the overlay build exists.
+`boot` and `code` are also rebuilt whole and compared with the ROM. The overlays are checked function by function for now: the bytes with the
+relocated fields masked, then the address each call or data reference would link to against the ROM's.
 
 More detail per segment is in [docs/PROGRESS.md](docs/PROGRESS.md), and the plan is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
@@ -75,7 +75,7 @@ are described in [docs/TOOLS.md](docs/TOOLS.md).
 baserom/    your copy of the game (not tracked)
 config/     one folder per segment (boot, code, overlays): splat.yaml, symbols, names, layout, hand-written assembly functions
 docs/       guides and progress
-include/    types.h and the assembler macros; sdk/ (libultra), boot/ (boot modules), generated/ (prototypes written by tools/signatures/sig_header.py)
+include/    types.h and the assembler macros; sdk/ (libultra), boot/ (boot modules), mm/ (headers of the game code), generated/ (prototypes written by tools/signatures/sig_header.py)
 src/        decompiled C, one file per function, one folder per original source file
 tools/      scripts, one folder per use: lib, check, search, signatures, split, layout, run, research, agents
 ```
@@ -110,7 +110,8 @@ describes a work that belongs to Nintendo and no right on it is granted. See [LI
 - [m2c](https://github.com/matt-kempster/m2c) (Matt Kempster and contributors)
 - [Ghidra](https://github.com/NationalSecurityAgency/ghidra) (NSA)
 - [zeldaret/mm](https://github.com/zeldaret/mm) (the Zelda Decompilation project and contributors): the decompilation of the
-  US release of this game, which this project draws inspiration from.
+  US release of this game, which this project draws inspiration from; some of its headers (`include/mm/`) and functions are used here, each function
+  accepted only if it compiles to the bytes of this ROM.
 - GNU binutils
 
 *The Legend of Zelda: Majora's Mask* is a trademark and a work of Nintendo. This project is not affiliated with or endorsed

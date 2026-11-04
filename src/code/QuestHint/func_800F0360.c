@@ -1,0 +1,83 @@
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+#include "generated/mm/z_elf_message.h"
+
+u16 QuestHint_GetTatlTextId(PlayState* play) {
+    if (INV_CONTENT(ITEM_OCARINA_OF_TIME) == ITEM_OCARINA_OF_TIME) {
+        return 0;
+    }
+
+    if (CURRENT_DAY <= 0) {
+        return 0;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_88_20)) {
+        return 0;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_79_10)) {
+        if (CHECK_WEEKEVENTREG(WEEKEVENTREG_CLOCK_TOWER_OPENED)) {
+            return 0;
+        }
+
+        return 0x224;
+    }
+
+    if (!CHECK_WEEKEVENTREG(WEEKEVENTREG_08_80)) {
+        if (CHECK_WEEKEVENTREG(WEEKEVENTREG_09_01)) {
+            return 0x21E;
+        }
+
+        if (play->sceneId == SCENE_YOUSEI_IZUMI) {
+            return 0;
+        }
+
+        return 0x21D;
+    }
+
+    if (gSaveContext.save.saveInfo.playerData.isMagicAcquired != true) {
+        return 0x21F;
+    }
+
+    if (INV_CONTENT(ITEM_DEED_LAND) == ITEM_DEED_LAND) {
+        if (play->sceneId != SCENE_OKUJOU) {
+            return 0x244;
+        }
+
+        return 0;
+    }
+
+    if (INV_CONTENT(ITEM_MOONS_TEAR) == ITEM_MOONS_TEAR) {
+        if (CHECK_WEEKEVENTREG(WEEKEVENTREG_86_04)) {
+            return 0x242;
+        }
+
+        return 0x243;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_74_20)) {
+        return 0x223;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_ENTERED_BOMBERS_CODE)) {
+        return 0x222;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_73_20)) {
+        return 0x221;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_77_02)) {
+        if (CHECK_WEEKEVENTREG(WEEKEVENTREG_73_10)) {
+            return 0x240;
+        }
+
+        return 0x241;
+    }
+
+    if (CHECK_WEEKEVENTREG(WEEKEVENTREG_TALKED_TO_BOMBERS_GUARD) ||
+        CHECK_WEEKEVENTREG(WEEKEVENTREG_DEKU_LEARNED_WHERE_BOMBER_JIM_IS)) {
+        return 0x23F;
+    }
+
+    return 0x220;
+}

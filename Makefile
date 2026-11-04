@@ -2,7 +2,7 @@
 SEG ?= boot
 HOURS ?= 1
 
-.PHONY: setup split verify check fastcheck auto daily progress names clean
+.PHONY: setup split verify check fastcheck selftest auto daily progress names clean
 
 setup:            ## one-time: IDO 7.1, splat, m2c, asm-differ (needs binutils-mips-linux-gnu)
 	bash tools/split/setup_wsl.sh
@@ -27,6 +27,9 @@ daily:            ## unattended, several hours (HOURS=3): permuter, overlay pass
 
 progress:         ## refresh docs/PROGRESS.md and the progress bars in README.md
 	python3 tools/check/progress.py boot code
+
+selftest:         ## a few seconds: the tools parse, find the project root and give the right answers on small inputs
+	python3 tools/check/selftest.py
 
 names:            ## check config/*/names.txt and apply names to the sources
 	python3 tools/lib/names.py $(SEG) --apply-src

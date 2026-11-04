@@ -1,0 +1,106 @@
+#ifndef MACROS_H
+#define MACROS_H
+
+#include "PR/ultratypes.h"
+#include "versions.h"
+
+#define SCREEN_WIDTH  320
+#define SCREEN_HEIGHT 240
+#define SCREEN_WIDTH_HIRES 640
+#define SCREEN_HEIGHT_HIRES 480
+
+#define HIRES_BUFFER_WIDTH  576
+#define HIRES_BUFFER_HEIGHT 454
+
+#define PROJECTED_TO_SCREEN_X(projectedPos, invW) ((projectedPos).x * (invW) * (SCREEN_WIDTH / 2) + (SCREEN_WIDTH / 2))
+#define PROJECTED_TO_SCREEN_Y(projectedPos, invW) ((projectedPos).y * (invW) * (-SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 2))
+
+#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))
+#define ARRAY_COUNTU(arr) (u32)(sizeof(arr) / sizeof(arr[0]))
+
+#define ARRAY_COUNT_2D(arr) (s32)(sizeof(arr) / sizeof(arr[0][0]))
+
+#define CLOCK_TIME(hr, min) (s32)(((hr) * 60 + (min)) * 0x10000 / (24 * 60))
+#define CLOCK_TIME_MINUTE  (CLOCK_TIME(0, 1))
+#define CLOCK_TIME_HOUR (CLOCK_TIME(1, 0))
+#define DAY_LENGTH (CLOCK_TIME(24, 0))
+
+#define TIME_TO_HOURS_F(time) ((time) * (24.0f / 0x10000))
+#define TIME_TO_HOURS_F_ALT(time) (TIME_TO_MINUTES_F(time) / 60.0f)
+#define TIME_TO_MINUTES_F(time) ((time) * ((24.0f * 60.0f) / 0x10000)) // 0.021972656f
+#define TIME_TO_MINUTES_ALT_F(time) ((time) / (0x10000 / (24.0f * 60.0f)))
+#define TIME_TO_SECONDS_F(time) ((time) * ((24.0f * 60.0f * 60.0f) / 0x10000))
+
+#define CLOCK_TIME_F(hr, min) (((hr) * 60.0f + (min)) * (0x10000 / (24.0f * 60.0f)))
+#define CLOCK_TIME_ALT_F(hr, min) (((hr) * 60.0f + (min)) / (24.0f * 60.0f / 0x10000))
+#define CLOCK_TIME_ALT2_F(hr, min) ((((hr) + (min) / 60.0f) * 60.0f) / (24.0f * 60.0f / 0x10000))
+#define CLOCK_TIME_HOUR_F (CLOCK_TIME_F(1, 0))
+
+#define CAPACITY(upg, value) gUpgradeCapacities[upg][value]
+#define CUR_CAPACITY(upg) CAPACITY(upg, CUR_UPG_VALUE(upg))
+
+// To be used with `Magic_Add`, but ensures enough magic is added to fill the magic bar to capacity
+#define MAGIC_FILL_TO_CAPACITY (((void)0, gSaveContext.magicFillTarget) + (gSaveContext.save.saveInfo.playerData.isDoubleMagicAcquired + 1) * MAGIC_NORMAL_METER)
+
+#define CHECK_FLAG_ALL(flags, mask) (((flags) & (mask)) == (mask))
+
+#define BIT_FLAG_TO_SHIFT(flag) \
+    ((flag & 0x80) ? 7 : \
+    (flag & 0x40) ? 6 : \
+    (flag & 0x20) ? 5 : \
+    (flag & 0x10) ? 4 : \
+    (flag & 0x8) ? 3 : \
+    (flag & 0x4) ? 2 : \
+    (flag & 0x2) ? 1 : \
+    (flag & 0x1) ? 0 : \
+    0)
+
+#define DECR(x) ((x) == 0 ? 0 : --(x))
+
+//! checks min first
+#define CLAMP(x, min, max) ((x) < (min) ? (min) : (x) > (max) ? (max) : (x))
+//! checks max first
+#define CLAMP_ALT(x, min, max) ((x) > (max) ? (max) : (x) < (min) ? (min) : (x))
+#define CLAMP_MAX(x, max) ((x) > (max) ? (max) : (x))
+#define CLAMP_MIN(x, min) ((x) < (min) ? (min) : (x))
+
+#define SWAP(type, a, b)    \
+    {                       \
+        type _temp = (a);   \
+        (a) = (b);          \
+        (b) = _temp;        \
+    }                       \
+    (void)0
+
+/**
+ * The T macro holds translations in English for original debug strings written in Japanese.
+ * The translated strings match the original debug strings, they are only direct translations.
+ * For example, any original name is left as is rather than being replaced with the name in the codebase.
+ */
+#define T(jp, en) jp
+
+// IDO doesn't support variadic macros, but it merely throws a warning for the
+// number of arguments not matching the definition (warning 609) instead of
+// throwing an error. We suppress this warning and rely on GCC to catch macro
+// argument errors instead.
+// Note some tools define __sgi but preprocess with a modern cpp implementation,
+// ensure that these do not use the IDO workaround to avoid errors.
+#define IDO_PRINTF_WORKAROUND (__sgi && !__GNUC__ && !M2CTX && !PERMUTER)
+
+#if DEBUG_FEATURES
+    #define PRINTF osSyncPrintf
+#elif IDO_PRINTF_WORKAROUND
+    #if MM_VERSION >= N64_US
+        #define PRINTF(args) (void)0
+    #else
+        #define PRINTF(args) do { (void)(args); } while (0)
+    #endif
+#else
+    #if MM_VERSION >= N64_US
+        #define PRINTF(format, ...) (void)0
+    #else
+        #define PRINTF(format, ...) do { (void)(format); } while (0)
+    #endif
+#endif
+
+#endif // MACROS_H

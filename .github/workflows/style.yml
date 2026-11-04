@@ -9,3 +9,9 @@ jobs:
       - uses: actions/checkout@v4
       # the ROM and the compiler are not in the repository: only the source rules can run here
       - run: bash tools/check/check_style.sh
+      - run: |
+          pip install pyflakes
+          python3 -m pyflakes tools/*/*.py | grep -v "unable to detect" > pyflakes.txt || true
+          cat pyflakes.txt
+          test ! -s pyflakes.txt
+      - run: python3 tools/check/selftest.py

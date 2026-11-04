@@ -122,3 +122,5 @@ the processor.
 Whatever its source, a function is accepted only if it recompiles to the exact bytes of this ROM (`make check`). The projects
 this one draws inspiration from are listed in the credits of the README, which is where they are named: the sources carry no web
 address and no project name (`tools/check/check_style.sh` checks it).
+
+Functions of `code` that the reference compiles to the bytes of this ROM are imported by `tools/search/ref_import.py` with the headers of `include/mm/`. They keep the code of the reference (macros included) and are checked like any other function; the unfinished attempts of the permuter and of the agents stay in `wip/`.

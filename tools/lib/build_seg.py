@@ -30,7 +30,11 @@ DITEM = re.compile(r"/\*\s+[0-9A-Fa-f]+\s+([0-9A-Fa-f]{8})\b")  # vram in a data
 
 
 def sh(*a):
-    return subprocess.run(a, check=True, capture_output=True, text=True).stdout
+    r = subprocess.run(a, capture_output=True, text=True)
+    if r.returncode:   # the message of the tool is what says which symbol or section is wrong
+        print(r.stderr[-3000:], file=sys.stderr)
+        raise subprocess.CalledProcessError(r.returncode, a, r.stdout, r.stderr)
+    return r.stdout
 
 
 def trim_text(obj: Path, size: int, section: bytes = b".text") -> int:
@@ -111,14 +115,21 @@ def main():
             elif secs.get(".rodata"):
                 first, nxt = dorder[refs[0]], dorder[refs[-1] + 1]
                 size = int(nxt[-8:], 16) - int(first[-8:], 16)
-                assert trim_text(obj, size, b".rodata") == size, f"{name}: constant pool smaller than {size:#x}"
-                start = dlabel[first]
-                while dlines[start - 1].startswith("nonmatching") or not dlines[start - 1].strip():
-                    start -= 1
-                end = dlabel[nxt]
-                while dlines[end - 1].startswith((".align", "nonmatching")) or not dlines[end - 1].strip():
-                    end -= 1
-                pools.append((start, end, obj, int(nxt[-8:], 16)))
+                try:
+                    fits = trim_text(obj, size, b".rodata") == size
+                except AssertionError:   # the pool holds more than the ROM's data run (strings, other constants)
+                    fits = False
+                if not fits:   # the function stays assembly until its data is migrated
+                    data_pending.append(name)
+                    cfile = None
+                else:
+                    start = dlabel[first]
+                    while dlines[start - 1].startswith("nonmatching") or not dlines[start - 1].strip():
+                        start -= 1
+                    end = dlabel[nxt]
+                    while dlines[end - 1].startswith((".align", "nonmatching")) or not dlines[end - 1].strip():
+                        end -= 1
+                    pools.append((start, end, obj, int(nxt[-8:], 16)))
         if cfile is not None and cfile.exists() and i not in keep_asm:
             n_c += 1
         else:
@@ -139,13 +150,14 @@ def main():
     named.mkdir(exist_ok=True)
     for f in ("undefined_syms_auto.txt", "undefined_funcs_auto.txt"):
         (named / f).write_text(_names.apply((out / f).read_text(), NM))
-    al = ROOT / "config" / seg / "aliases.txt"
-    if al.exists():  # alias symbols that only exist to steer IDO while matching
-        with (named / "undefined_syms_auto.txt").open("a") as f:
-            for line in al.read_text().splitlines():
-                if line.strip() and not line.startswith("#"):
-                    a, addr = line.split()[:2]
-                    f.write(f"{a} = {addr};\n")
+    for extra in ("aliases.txt", "bases.txt"):  # symbols that only exist to steer IDO; starts of arrays the assembly reaches mid-way
+        al = ROOT / "config" / seg / extra
+        if al.exists():
+            with (named / "undefined_syms_auto.txt").open("a") as f:
+                for line in al.read_text().splitlines():
+                    if line.strip() and not line.startswith("#"):
+                        a, addr = line.split()[:2]
+                        f.write(f"{a} = {addr};\n")
     # the data file is split around the C constant pools: data_0.o(.data), pool.o(.rodata), data_1.o(.data), ...
     head = "\n".join(dlines[:next(i for i, l in enumerate(dlines) if l.startswith(".section")) + 1]) + "\n"
     data_parts, cur, start = [], 0, None
@@ -202,6 +214,7 @@ def main():
        "-T", str(named / "undefined_funcs_auto.txt"), "--no-check-sections", "-o", str(elf))
     sh("mips-linux-gnu-objcopy", "-O", "binary", str(elf), str(binf))
     ok = binf.read_bytes() == orig.read_bytes()
+    (out / "built_from_asm.txt").write_text("".join(f"{n}\n" for n in data_pending))   # tools/check/progress.py reports the count
     if data_pending:
         print(f"note: {len(data_pending)} verified C functions still built from asm (own constant pool): {' '.join(data_pending)}")
     print(f"{seg}: {n_c} C functions + {len(chunks) - n_c} asm -> {'IDENTICAL to ROM' if ok else 'DIFFERENT'} "
