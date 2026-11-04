@@ -2,9 +2,11 @@
 #ifndef MM_Z_DRAW_H
 #define MM_Z_DRAW_H
 
+/* names of ours that symbols of the reference stand for */
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
 #define sDrawItemTable D_801BBCA0
+
 #include "global.h"
 #include "assets/objects/object_gi_arrow/object_gi_arrow.h"
 #include "assets/objects/object_gi_arrowcase/object_gi_arrowcase.h"

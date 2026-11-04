@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_800A5FE0(void *arg0, s32 arg1);
+void EnAObj_Init(void *arg0, s32 arg1);
 void func_800A608C(s32 arg0, s32 arg1);
 void EnAObj_Talk(void *arg0);  /* 800A6148 */
 void EnItem00_SetObject(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);  /* 800A6220 */
@@ -140,8 +140,8 @@ void EffectSsExtra_Spawn(void *play, void *pos, void *velocity, void *accel, s16
 void func_800B3550(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s32 arg6);
 void EffectSsDeadDs_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s16 arg6, s32 arg7);  /* 800B3664 */
 void func_800B36DC(void *arg0, void *arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5);
-void func_800B37F0(void *arg0);
-void func_800B3914(void *arg0);
+void Overlay_LoadGameState(void *arg0);
+void Overlay_FreeGameState(void *arg0);
 void Actor_PrintLists(u8 *ctx);  /* 800B3A40 */
 void ActorShape_Init(u8 *p, f32 a, s32 b, f32 c);  /* 800B3B14 */
 s32 ActorShadow_Draw(void *, s32, s32, s32 *, s32);  /* 800B3B38 */
@@ -317,7 +317,7 @@ s32 func_800BE3C0(void *arg0);
 void func_800BE404(void *arg0, s32 arg1, void *arg2, s32 arg3);
 void func_800BF550(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800BF720(s32 a0, s32 a1);
-void func_800BF7F8(s32 arg0, s32 arg1);
+void ActorOverlayTable_FaultAddrConv(s32 arg0, s32 arg1);
 void func_800BF868(void);
 void func_800BF8C0(void);
 void func_800BF910(s16 *a0, s16 *a1, u16 a2);
@@ -492,7 +492,7 @@ s32 DynaPolyActor_IsPlayerOnTop(void *arg0);  /* 800CAD00 */
 s32 DynaPolyActor_IsPlayerAbove(void *arg0);  /* 800CAD24 */
 s32 func_800CAD48(void *arg0);
 s32 func_800CAD6C(void *arg0);
-void func_800CAD90(s32 arg0, void *arg1, s32 arg2, s32 arg3);
+void DynaPolyActor_ValidateMove(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 f32 func_800CAFC0(f32 arg0);
 f32 func_800CAFF0(f32 *v);
 f32 Camera_QuadraticAttenuation(f32 arg0);  /* 800CB020 */
@@ -797,7 +797,7 @@ void Collider_UpdateCylinder(void *arg0, void *arg1);  /* 800E7BB8 */
 void Collider_SetCylinderPosition(void *arg0, void *arg1);  /* 800E7BFC */
 void func_800E7C1C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void func_800E7C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void func_800E7D4C(s32 arg0, void *arg1);
+void Collider_UpdateSpheres(s32 arg0, void *arg1);
 void Collider_UpdateSphere(s32 arg0, void *arg1);  /* 800E7FAC */
 void CollisionCheck_SpawnRedBlood(s32 arg0, s32 arg1);  /* 800E8088 */
 s32 CollisionCheck_SpawnWaterDroplets(s32, s32);  /* 800E81E8 */
@@ -829,7 +829,7 @@ void Debug_ScreenText(s32 index, s32 color, u8 *text);  /* 800E9A10 */
 void Debug_DrawScreenText(s32 arg0);  /* 800E9A6C */
 void func_800E9B2C(u8 r, u8 g, u8 b, u8 *str);
 void func_800E9C04(s32 arg0);
-void func_800E9CE8(s32 arg0);
+void Debug_DrawText(s32 arg0);
 void func_800E9E00(void *arg0, void *arg1);
 void func_800E9E74(s32 arg0, void *arg1);
 void Cutscene_StopManual(s32 arg0, void *arg1);  /* 800E9E8C */
@@ -953,7 +953,7 @@ s32 Horse_IsActive(s32 arg0, void *arg1);  /* 800F3F94 */
 void Jpeg_ScheduleDecoderTask(void *arg0);  /* 800F4050 */
 void Jpeg_CopyToZbuffer(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800F416C */
 s32 Jpeg_GetUnalignedU16(u8 *arg0);  /* 800F42A4 */
-void func_800F44BC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void Jpeg_Decode(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800F47C0(s32 arg0);
 void func_800F49BC(void *arg0);
 void func_800F4BDC(u8 *arg0);
@@ -986,10 +986,10 @@ s32 Environment_DrawSun(s32);  /* 800F8B44 */
 void Environment_DrawLensFlare(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 800F95E4 */
 f32 Environment_RandCentered(void);  /* 800FA15C */
 s32 Environment_DrawRainImpl(void *arg0, s32 arg1, void *arg2);  /* 800FA184 */
-void func_800FA874(s32 arg0, s32 arg1);
+void Environment_ChangeLightSetting(s32 arg0, s32 arg1);
 s32 func_800FA9E0(s32);
-void func_800FAD6C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 func_800FAE08(s32);
+void Environment_DrawLightningFlash(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 Environment_UpdateLightningStrike(s32);
 void Environment_AddLightningBolts(void *play, u8 numBolts);  /* 800FB118 */
 s32 Environment_DrawLightning(s32, s32);  /* 800FB180 */
 void Environment_PlaySceneSequence(void *arg0);  /* 800FB550 */
@@ -1034,9 +1034,9 @@ void Environment_LerpSandstormColors(s32 arg0, s32 arg1);  /* 800FE5A0 */
 void func_800FE848(s32 arg0);
 void func_800FE8A8(void);
 void func_800FE8B8(void);
-void func_800FE8EC(void *arg0);
+void Environment_NewDay(void *arg0);
 s32 func_800FEA90(s32 arg0, s32 arg1, s32 arg2);
-void func_800FEAC0(s32 arg0, s32 arg1, s32 arg2);
+void Lib_MemSet(s32 arg0, s32 arg1, s32 arg2);
 f32 Math_CosS(s16 arg0);  /* 800FEB44 */
 f32 Math_SinS(s16 angle);  /* 800FEB84 */
 s32 Math_StepToIImpl(s32 start, s32 target, s32 step);  /* 800FEBC4 */
@@ -1079,7 +1079,7 @@ void func_800FFEA4(u16 arg0);
 void Lib_PlaySfx_2(u16 arg0);  /* 800FFECC */
 void Lib_PlaySfx_AtPos(s32 a0, u16 a1);  /* 800FFEF4 */
 void func_800FFF1C(f32 *a, s16 arg1, f32 *b, f32 *c);
-void func_800FFFB8(void *arg0, void *arg1, s32 arg2, void *arg3);
+void Color_RGB8_Lerp(void *arg0, void *arg1, s32 arg2, void *arg3);
 void func_80100248(s32 arg0, s32 arg1, s32 arg2);
 u32 func_80100304(s32 arg0);
 u32 func_8010033C(u32 arg0);
@@ -1487,7 +1487,7 @@ s32 Gfx_TexScroll(s32, s32, s32, u8, s32);  /* 8012CFFC */
 s32 Gfx_TwoTexScroll(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32);  /* 8012D080 */
 void Gfx_TwoTexScrollEnvColor(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8012D1A0 */
 void Gfx_EnvColor(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8012D300 */
-void func_8012D358(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void Gfx_PrimColor(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 func_8012D3BC(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8012D824(s32 a0, u8 a1, u8 a2, u8 a3);
 void func_8012D8C0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -1507,10 +1507,10 @@ void Inventory_ChangeUpgrade(s16 upgrade, s32 value);  /* 8012F198 */
 s32 Inventory_IsMapVisible(s16 arg0);  /* 8012F1E4 */
 void Inventory_SetWorldMapCloudVisibility(s32 arg0);  /* 8012F2BC */
 void Inventory_SaveDekuPlaygroundHighScore(s32 arg0);  /* 8012F49C */
-void func_8012F56C(s32 arg0);
+void Inventory_IncrementSkullTokenCount(s32 arg0);
 s16 func_8012F5DC(s16 arg0);
-s32 func_8012F680(void *a0, s16 a1);
-void func_8012F770(void *arg0, void *arg1);
+s32 Object_SpawnPersistent(void *a0, s16 a1);
+void Object_InitContext(void *arg0, void *arg1);
 void Object_UpdateEntries(void *arg0);  /* 8012F89C */
 void Object_LoadAll(void *arg0);  /* 8012FA38 */
 s32 func_8012FADC(u8 *arg0, s32 arg1, s16 arg2);
@@ -1660,8 +1660,8 @@ void SkelAnime_CopyFrameTableTrue(void *arg0, s32 arg1, void *arg2, void *arg3);
 void SkelAnime_UpdateTranslation(void *arg0, void *arg1, s32 arg2);  /* 80137AE8 */
 void func_80137C58(s32 arg0, f32 arg1);
 void func_80137CCC(u8 *entry, void *src, void *dst);
-void func_80137D20(void *arg0, void *arg1, void *arg2, s32 arg3);
-void func_80137EE4(s32 arg0, void *arg1, s32 arg2, s32 arg3);
+void Skin_UpdateVertices(void *arg0, void *arg1, void *arg2, s32 arg3);
+void Skin_ApplyLimbModifications(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void Skin_DrawLimb(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80138308 */
 s32 Skin_DrawImpl(s32, s32, s32, s32, s32, s32, s32, s32);  /* 80138400 */
 void func_801385D8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -1816,25 +1816,25 @@ s32 Sram_CalcChecksum(void *arg0, s32 arg1);  /* 80144994 */
 void Sram_ResetSave(void);  /* 801449D8 */
 s32 Sram_GenerateRandomSaveFields();  /* 80144A34 */
 void Sram_InitNewSave(void);  /* 80144C40 */
-void func_80144D18();
-void func_80144E44(s32 arg0);
+void Sram_InitDebugSave();
+void Sram_ResetSaveFromMoonCrash(s32 arg0);
 void func_80145228(s32 arg0, s32 arg1);
 void func_8014582C(u8 *);
 void func_80145A58(u8 *, s32);
 void func_80145B8C(s32 arg0, void *arg1);
 void func_801469D8(s32 arg0, u8 *arg1);
-void func_80146A84(s32 arg0, s32 arg1, s32 arg2);
-void func_80146B2C(s32 arg0, s32 arg1);
-void func_80146FA4(s32 arg0, s32 arg1);
+void Sram_EraseSave(s32 arg0, s32 arg1, s32 arg2);
+void Sram_CopySave(s32 arg0, s32 arg1);
+void Sram_InitSave(s32 arg0, s32 arg1);
 void func_801472FC(u8 *arg0);
-void func_80147344(s32 arg0, s32 arg1);
+void Sram_InitSram(s32 arg0, s32 arg1);
 void func_80147374(s32 arg0, void *arg1);
 void func_801473C0(s32 *a0, s32 a1, s32 a2);
 void func_801473EC(u8 *arg0);
 void func_80147460(u8 *arg0);
 void func_8014750C(void *arg0, s32 arg1, s32 arg2);
 void func_8014763C(void *arg0, s32 arg1, s32 arg2);
-void func_8014769C(void *arg0);
+void Sram_UpdateWriteToFlashOwlSave(void *arg0);
 void func_80147818(s32 arg0, s32 arg1);
 void func_80147918(void *arg0, s32 arg1, s32 arg2);
 void func_80147A10(s32 arg0);
@@ -1894,7 +1894,7 @@ void func_8015948C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8015999C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80159C58(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8015A0F4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8015A3F8(s32 arg0, s32 arg1, void *arg2);
+void Message_GetTimerDigitsNES(s32 arg0, s32 arg1, void *arg2);
 void func_8015A62C(void *arg0, s32 arg1, s32 arg2);
 void func_8015C290(void *arg0);
 void func_8015F8C0(s32 arg0, s32 arg1);
@@ -1926,8 +1926,8 @@ void *func_801623F4(void);
 void *func_80162400(void);
 void *func_8016240C(void);
 void *func_80162418(void);
-s32 func_80162428(void *arg0);
-s32 func_80162B08(s32, s32 *);
+s32 CutsceneCamera_ProcessSpline(void *arg0);
+s32 CutsceneCamera_UpdateSplines(s32, s32 *);
 s16 func_80162D1C(void);
 void CutsceneCamera_SetState(s16 arg0);  /* 80162D50 */
 void CutsceneCamera_Reset(void);  /* 80162D7C */
@@ -2019,24 +2019,24 @@ void func_8016AC6C(u8 *ctx, s16 a1, s16 a2);
 s16 func_8016AD4C(s32 arg0, s16 arg1);
 s32 func_8016AD80(s32 arg0, s16 arg1, s16 arg2);
 s16 func_8016AE44(s16 arg0);
-void func_8016AF54(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void Play_SetRespawnData(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8016B054(void *arg0);
 void func_8016B164(void);
 s32 func_8016B184(void *arg0);
 s32 func_8016B1A4(void *arg0);
 s32 func_8016B2F0(void);
 void func_8016B3F0(s32 a0, s16 a1, u8 a2, u8 a3, u8 a4, u8 a5);
-void func_8016B450(void);
-void func_8016BD90(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void Play_Init(void);
+void BombersNotebook_DrawScisTexRect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8016BF9C(s32 arg0);
-void func_8016C40C(s32 arg0);
-void func_8016C644(s32 arg0, s32 arg1, s32 arg2);
-void func_8016D4D8(void *arg0, s32 arg1);
+void BombersNotebook_DrawColumns(s32 arg0);
+void BombersNotebook_DrawEntries(s32 arg0, s32 arg1, s32 arg2);
+void BombersNotebook_DrawRows(void *arg0, s32 arg1);
 void func_8016DEE0(s32 arg0);
-void func_8016F5C4(s32 arg0, s32 arg1);
-void func_8016FC48(s32 arg0, s32 arg1);
-void func_80170360(s32 arg0, s32 arg1);
-void func_801706A4(void *arg0, s32 arg1);
+void BombersNotebook_DrawCursor(s32 arg0, s32 arg1);
+void BombersNotebook_DrawArrows(s32 arg0, s32 arg1);
+void BombersNotebook_Draw(s32 arg0, s32 arg1);
+void BombersNotebook_LoadFiles(void *arg0, s32 arg1);
 void func_80170760(s32 arg0, void *arg1, void *arg2);
 void func_80170E30(s32 a0);
 void func_80170EEC(s32 arg0);
@@ -2158,7 +2158,7 @@ void PadMgr_HandlePreNMI(void);  /* 80176FFC */
 s32 PadMgr_GetInputNoLock(s32, s32);  /* 80177028 */
 void PadMgr_GetInput(s32 arg0, s32 arg1);  /* 80177158 */
 void PadMgr_GetInput2(s32 arg0, s32 arg1);  /* 80177194 */
-void func_801771D0();
+void PadMgr_ThreadEntry();
 void func_80177354(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);
 void func_80177440(s32 arg0);
 void func_80177538(s32 arg0);
@@ -2180,12 +2180,12 @@ void func_80178480(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void func_80178570(void *arg0, s32 arg1, s32 arg2);
 void func_80178580(s32 a0);
 void func_801785A4(s32 arg0);
-void func_801785B0(void *arg0, s32 arg1);
-void func_80178CA8(void *arg0, s32 arg1);
-void func_80179038(s32 arg0, s32 arg1, s32 arg2);
-void func_801792D0(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_801793CC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8017960C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void SpeedMeter_DrawTimeEntries(void *arg0, s32 arg1);
+void SpeedMeter_DrawAllocEntry(void *arg0, s32 arg1);
+void SpeedMeter_DrawAllocEntries(s32 arg0, s32 arg1, s32 arg2);
+void Mtx_SetTranslateScaleMtx(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void Mtx_SetRotationMtx(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void Mtx_SetTranslationRotationScaleMtx(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80179930(void);
 void func_80179A40();
 void func_80179BEC(void);
@@ -2199,8 +2199,8 @@ void func_80179D40(void *arg0, void *arg1, s32 arg2);
 void func_80179F00(s32 arg0, u32 arg1, s32 *arg2, s32 *arg3, s32 *arg4);
 void func_80179FFC(void *a0, s32 a1, s32 a2);
 void func_8017A02C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 func_8017A0BC(s32 *, s32, s32, s32);
-void func_8017A0FC(s32 arg0, s32 arg1, s32 arg2);
+s32 CmpDma_LoadFile(s32 *, s32, s32, s32);
+void CmpDma_LoadAllFiles(s32 arg0, s32 arg1, s32 arg2);
 void func_8017A1B0(u16 *a0, s32 a1, s32 a2, s32 a3);
 void func_8017A1E0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8017A220(s32 a0, s32 a1, s32 a2, s32 a3, s32 rows, u8 *arg5);
@@ -2209,7 +2209,7 @@ void func_8017A38C();
 s32 func_8017A454();
 void func_8017A51C(void);
 void func_8017A560(void);
-void func_8017A5B0(f32 arg0);
+void Math_FactorialF(f32 arg0);
 f32 func_8017A6B0(s32 n);
 void Math_PowF(f32 arg0, s32 arg1);  /* 8017A774 */
 f32 Math_SinF(f32 rad);  /* 8017A79C */
@@ -2237,11 +2237,11 @@ f32 Math3D_Vec3fDistSq(void *a0, void *a1);  /* 8017B9A8 */
 void func_8017B9D0(void);
 void func_8017BADC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 func_8017BB44(void *arg0, void *arg1, void *arg2);
-s32 func_8017BBFC(void *arg0, void *arg1, void *arg2);
-s32 func_8017BDAC(void *arg0, void *arg1, void *arg2);
-s32 func_8017BF28(void *arg0, void *arg1, s32 arg2, s32 arg3);
+s32 Math3D_PointRelativeToCubeEdges(void *arg0, void *arg1, void *arg2);
+s32 Math3D_PointRelativeToCubeVertices(void *arg0, void *arg1, void *arg2);
+s32 Math3D_LineVsCube(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void func_8017C87C(f32 *a0, s16 a1, f32 *a2, f32 *a3, f32 *a4);
-void func_8017C908(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void Math3D_DefPlane(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 f32 Math3D_PlaneF(f32 arg0, f32 arg1, s32 arg2, s32 arg3);  /* 8017CA1C */
 f32 Math3D_UDistPlaneToPos(f32 a, f32 b, f32 c, f32 d, void *pos);  /* 8017CA98 */
 f32 Math3D_DistPlaneToPos(f32 arg0, f32 arg1, f32 arg2, f32 arg3, s32 arg4);  /* 8017CAD0 */
@@ -2282,10 +2282,10 @@ s32 Math3D_SphVsCylOverlapCenterDist(void *arg0, void *arg1, void *arg2, void *a
 void Math3D_CylVsCylOverlap(s32 a0, s32 a1, s32 a2);  /* 801804E0 */
 s32 Math3D_CylVsCylOverlapCenterDist(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80180500 */
 s32 Math3D_TriVsTriIntersect(void *arg0, void *arg1, s32 arg2);  /* 801806D0 */
-void func_80180BA0(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
+void Math3D_CircleLineIntersections(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 void func_80180DC8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 u16 func_80180F40(f32 a0, f32 a1);
-s32 func_80180F74(f32, f32);
+s32 Math_Atan2S(f32, f32);
 f32 Math_Atan2F(void);  /* 8018115C */
 void Math_Atan2S_XY(f32 arg0, f32 arg1);  /* 80181190 */
 void Math_Atan2F_XY(f32 arg0, f32 arg1);  /* 801811BC */
@@ -2327,7 +2327,7 @@ void *SysUcode_GetUCodeBoot(void);  /* 80183D20 */
 s32 func_80183D30(void);
 s32 func_80183D4C(void);
 s32 func_80183D5C(void);
-s32 func_80183D80(s32 *);
+s32 RumbleManager_Update(s32 *);
 void func_801840C0(u8 *a0);
 void RumbleManager_Destroy(s32 arg0);  /* 801840F8 */
 void Sys_Freeze(void);  /* 80184110 */
@@ -2356,8 +2356,8 @@ void Keyframe_StandardChangeAnim(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 a
 void Keyframe_StandardChangeAnimQuick(void *arg0, s32 arg1);  /* 80185A40 */
 void Keyframe_StandardMorphInterpolation(void *arg0);  /* 80185A7C */
 void Keyframe_UpdateStandard(void *arg0);  /* 80185CE8 */
-void func_80186140(void *arg0, void *arg1, void *arg2, s32 arg3);
-void func_80186468(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void Keyframe_DrawStandardLimb(void *arg0, void *arg1, void *arg2, s32 arg3);
+void Keyframe_DrawStandard(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8018659C(void);
 void Slowly_Init(u8 *a0, s32 a1, s32 a2, s32 a3, s32 a4);  /* 801865BC */
 void Slowly_Destroy(void);  /* 80186640 */
@@ -2923,7 +2923,7 @@ s32 JpegDecoder_ProcessMcu(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 801A
 s32 JpegDecoder_ParseNextSymbol(void *arg0, s32 arg1, s32 arg2);  /* 801AB2A4 */
 s32 JpegDecoder_ReadBits(s32 arg0);  /* 801AB3E0 */
 void GameOver_Init(void *arg0);  /* 801AB4D0 */
-void func_801AB54C(s32 arg0);
+void GameOver_Update(s32 arg0);
 void func_801AB960(s32 arg0);
 void func_801AB970();
 

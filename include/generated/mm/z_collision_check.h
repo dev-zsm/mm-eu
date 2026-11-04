@@ -2,6 +2,7 @@
 #ifndef MM_Z_COLLISION_CHECK_H
 #define MM_Z_COLLISION_CHECK_H
 
+/* names of ours that symbols of the reference stand for */
 #define FrameAdvance_IsEnabled func_8016B1A4
 #define ref_D_801EDE10 D_801E5700
 #define ref_D_801EDE20 D_801E5710
@@ -34,6 +35,7 @@
 #define sOCLineCheckFuncs D_801BAFE4
 #define sOCResetFuncs D_801BAE90
 #define sOCVsFuncs D_801BAF50
+
 #include "z64collision_check.h"
 #include "stdbool.h"
 #include "macros.h"

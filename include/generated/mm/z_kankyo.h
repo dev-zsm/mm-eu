@@ -2,14 +2,17 @@
 #ifndef MM_Z_KANKYO_H
 #define MM_Z_KANKYO_H
 
+/* names of ours that symbols of the reference stand for */
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define DmaMgr_RequestAsync func_80080C54
 #define Play_CamIsNotFixed func_8016B184
+#define Rand_ZeroOne func_8008704C
 #define gCustomLensFlare1On D_801EC6BA
 #define gCustomLensFlare1Pos D_801EC6C0
 #define gCustomLensFlare2On D_801EC6D6
 #define gCustomLensFlare2Pos D_801EC6D8
 #define gLightConfigAfterUnderwater D_801BE704
+#define gLightningStrike D_801EC6F0
 #define gRandFloat D_8009D120
 #define gRegEditor D_801EB7E0
 #define gSaveContext D_801E6EF0
@@ -28,11 +31,15 @@
 #define ref_D_801F4E74 D_801EC6FC
 #define ref_D_801F4E78 D_801EC700
 #define ref_D_801F4F28 D_801EC7B0
+#define ref_D_801F4F30 D_801EC7B8
 #define ref_D_801F4F31 D_801EC7B9
+#define ref_D_801F4F33 D_801EC6B1
 #define ref_func_800F6CEC func_800F6AAC
 #define ref_func_800FE5D0 func_800FE3C8
 #define sEnvSkyboxNumStars D_801BE6E8
 #define sGameOverLightsIntensity D_801EC6B2
+#define sInitSkyboxConfig D_801EC6B9
+#define sLightningFlashAlpha D_801EC7B4
 #define sNGameOverLightInfo D_801EC770
 #define sNGameOverLightNode D_801EC768
 #define sNextSandstormColorIndex D_801BE6F4
@@ -51,6 +58,7 @@
 #define sSunScale D_801EC7A0
 #define sTimeBasedLightConfigs D_801BE71C
 #define sTimeBasedSkyboxConfigs D_801BE844
+
 #include "ultra64.h"
 #include "z64light.h"
 #include "z64math.h"

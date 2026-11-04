@@ -2,6 +2,7 @@
 #ifndef MM_SCHED_H
 #define MM_SCHED_H
 
+/* names of ours that symbols of the reference stand for */
 #define bzero func_800897D0
 #define gAudioSPDataPtr D_801F3350
 #define gAudioSPDataSize D_801F3354
@@ -19,6 +20,7 @@
 #define sRSPGFXStartTime D_801F3330
 #define sRSPOtherStartTime D_801F3340
 #define usleep func_80087BBC
+
 #include "scheduler.h"
 #include "libc64/sleep.h"
 #include "fault.h"

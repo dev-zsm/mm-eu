@@ -2,6 +2,7 @@
 #ifndef MM_Z_INVENTORY_H
 #define MM_Z_INVENTORY_H
 
+/* names of ours that symbols of the reference stand for */
 #define gBitFlags D_801C29F0
 #define gEquipMasks D_801C2A70
 #define gEquipNegMasks D_801C2A78
@@ -9,6 +10,7 @@
 #define gRegEditor D_801EB7E0
 #define gSaveContext D_801E6EF0
 #define sSceneIdsPerTingleMap D_801C3040
+
 #include "z64inventory.h"
 #include "global.h"
 #include "regs.h"

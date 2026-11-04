@@ -2,6 +2,8 @@
 #ifndef MM_Z_VISMONO_H
 #define MM_Z_VISMONO_H
 
+/* names of ours that symbols of the reference stand for */
+
 #include "z64vis.h"
 #include "gfxalloc.h"
 #include "global.h"

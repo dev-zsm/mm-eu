@@ -1,7 +1,7 @@
 
 #include "types.h"
 void func_800897D0(void *, s32);
-u8 *func_800FEAC0(u8 *p, s32 v, s32 n) {
+u8 *Lib_MemSet(u8 *p, s32 v, s32 n) {
     u8 *q;
     s32 i;
     if (v == 0) {

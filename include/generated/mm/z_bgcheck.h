@@ -2,11 +2,12 @@
 #ifndef MM_Z_BGCHECK_H
 #define MM_Z_BGCHECK_H
 
+/* names of ours that symbols of the reference stand for */
 #define Fault_AddHungupAndCrashImpl func_80083E54
-#define Math3D_LineVsCube func_8017BF28
-#define Math3D_PointRelativeToCubeEdges func_8017BBFC
+#define Math3D_LineVsCube Math3D_LineVsCube
+#define Math3D_PointRelativeToCubeEdges Math3D_PointRelativeToCubeEdges
 #define Math3D_PointRelativeToCubeFaces func_8017BB44
-#define Math3D_PointRelativeToCubeVertices func_8017BDAC
+#define Math3D_PointRelativeToCubeVertices Math3D_PointRelativeToCubeVertices
 #define Math3D_SurfaceNorm func_8017BADC
 #define Math3D_YZInSphere func_80180B2C
 #define SSNode_SetValue func_800BF910
@@ -17,6 +18,7 @@
 #define ref_D_801EDAF8 D_801E51D0
 #define sModelToWorldMtxF D_801E53B0
 #define sprintf func_80087A44
+
 #include "z64bgcheck.h"
 #include "libc64/fixed_point.h"
 #include "libc64/sprintf.h"

@@ -2,8 +2,10 @@
 #ifndef MM_Z_EFFECT_H
 #define MM_Z_EFFECT_H
 
+/* names of ours that symbols of the reference stand for */
 #define sEffectContext D_801DB840
 #define sEffectInfoTable D_801AF1F0
+
 #include "z64effect.h"
 #include "global.h"
 #define SPARK_COUNT 3

@@ -12,7 +12,7 @@ extern void Debug_DrawScreenText(void *);
 extern void func_800E9C04(void *);
 extern s32 D_801BBBC0;
 extern s16 D_801BBC2C;
-void func_800E9CE8(Ctx *ctx) {
+void Debug_DrawText(Ctx *ctx) {
     u8 sp30[0x30];
     Gfx *opa;
     Gfx *g;

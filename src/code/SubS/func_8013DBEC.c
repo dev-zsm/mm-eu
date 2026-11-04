@@ -10,7 +10,7 @@ typedef struct {
     s32 unk4;
 } Path;
 extern Vec3s *func_80100304(s32);
-extern f32 func_80180F74(f32, f32);
+extern f32 Math_Atan2S(f32, f32);
 f32 SubS_GetDistSqAndOrientPath(Path *a0, s32 a1, f32 *a2, f32 *a3) {
     f32 dx = 0.0f;
     f32 dz = 0.0f;
@@ -25,5 +25,5 @@ f32 SubS_GetDistSqAndOrientPath(Path *a0, s32 a1, f32 *a2, f32 *a3) {
     if (((!a2) && (!a2)) && (!a2)) {
     }
     *a3 = (dx * dx) + (dz * dz);
-    return func_80180F74(dx, dz);
+    return Math_Atan2S(dx, dz);
 }

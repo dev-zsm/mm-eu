@@ -2,9 +2,11 @@
 #ifndef MM_Z_SKIN_H
 #define MM_Z_SKIN_H
 
+/* names of ours that symbols of the reference stand for */
 #define Lib_SegmentedToVirtual func_80100304
 #define gIdentityMtx D_801CA710
 #define gSkinLimbMatrices D_801ED340
+
 #include "z64skin.h"
 #include "stdbool.h"
 #include "global.h"

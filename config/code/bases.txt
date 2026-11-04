@@ -1,3 +1,12 @@
 # Symbols at the start of an array that a function reaches with an offset: the assembly names the address it uses,
 # not the start. `name address`, written by tools/search/ref_import.py and linked like the aliases of the boot segment.
 D_8009C850 0x8009C850
+View_SetViewport 0x8013F52C
+__ll_mul 0x80088B48
+__ull_div 0x80088A48
+gItemSlots 0x801C2D38
+gRegEditor 0x801EB7E0
+gScreenHeight 0x801C9E34
+gScreenWidth 0x801C9E30
+gUpgradeMasks 0x801C2A80
+gUpgradeShifts 0x801C2AC4

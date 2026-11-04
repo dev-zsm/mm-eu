@@ -9,10 +9,10 @@ extern s32 D_801B5140;
 extern M2C_UNK D_801E51B0;
 extern M2C_UNK D_801E51C0;
 extern M2C_UNK func_800BF720;
-extern M2C_UNK func_800BF7F8;
+extern M2C_UNK ActorOverlayTable_FaultAddrConv;
 
 void func_800BF868(void) {
     D_801B5140 = 0x2B2;
     func_80081A50(&D_801E51C0, &func_800BF720, 0, 0);
-    func_80081C2C(&D_801E51B0, &func_800BF7F8, 0);
+    func_80081C2C(&D_801E51B0, &ActorOverlayTable_FaultAddrConv, 0);
 }

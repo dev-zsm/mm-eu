@@ -2,9 +2,11 @@
 #ifndef MM_Z_LIFEMETER_H
 #define MM_Z_LIFEMETER_H
 
+/* names of ours that symbols of the reference stand for */
 #define gSaveContext D_801E6EF0
 #define sHeartsDDEnv D_801EC7E0
 #define sHeartsDDPrim D_801EC7D0
+
 #include "z64lifemeter.h"
 #include "global.h"
 #include "su_mtx.h"

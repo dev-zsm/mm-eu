@@ -2,7 +2,9 @@
 #ifndef MM_Z_RCP_H
 #define MM_Z_RCP_H
 
+/* names of ours that symbols of the reference stand for */
 #define gSetupDLs D_801C1BB0
+
 #include "gfx.h"
 #include "global.h"
 #include "gfxalloc.h"

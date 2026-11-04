@@ -4,7 +4,7 @@ typedef struct {
     s32 w[16];
 } Fix;
 
-void func_801792D0(Fix *d, f32 a1, f32 a2, f32 a3, f32 a4, f32 a5, f32 a6) {
+void Mtx_SetTranslateScaleMtx(Fix *d, f32 a1, f32 a2, f32 a3, f32 a4, f32 a5, f32 a6) {
     s32 t;
     s32 u;
     s16 *h = (s16 *)d;

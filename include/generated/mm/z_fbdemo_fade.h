@@ -2,8 +2,10 @@
 #ifndef MM_Z_FBDEMO_FADE_H
 #define MM_Z_FBDEMO_FADE_H
 
+/* names of ours that symbols of the reference stand for */
 #define gRegEditor D_801EB7E0
 #define gSaveContext D_801E6EF0
+
 #include "z64transition.h"
 #include "stdbool.h"
 #include "gfx.h"

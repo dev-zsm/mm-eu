@@ -2,7 +2,9 @@
 #ifndef MM_Z_LIGHTS_H
 #define MM_Z_LIGHTS_H
 
+/* names of ours that symbols of the reference stand for */
 #define SysCfb_GetZBufferInt func_80179D08
+
 #include "z64light.h"
 #include "sys_cfb.h"
 #include "z64skin_matrix.h"

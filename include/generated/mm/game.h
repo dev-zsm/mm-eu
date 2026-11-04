@@ -2,9 +2,9 @@
 #ifndef MM_GAME_H
 #define MM_GAME_H
 
-#define Debug_DrawText func_800E9CE8
-#define SpeedMeter_DrawAllocEntries func_80179038
-#define SpeedMeter_DrawTimeEntries func_801785B0
+#define Debug_DrawText Debug_DrawText
+#define SpeedMeter_DrawAllocEntries SpeedMeter_DrawAllocEntries
+#define SpeedMeter_DrawTimeEntries SpeedMeter_DrawTimeEntries
 #define SpeedMeter_Init func_80178580
 #define gActiveViMode D_801F3408
 #define gRegEditor D_801EB7E0

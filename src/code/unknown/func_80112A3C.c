@@ -12,7 +12,7 @@ typedef struct {
 } Ctx;
 extern Data D_801E6EF0;
 extern u8 D_9FEE70[];
-extern void func_8017A0BC(u8 *, u8, u8 *, s32);
+extern void CmpDma_LoadFile(u8 *, u8, u8 *, s32);
 void func_80112A3C(Ctx *a0, u8 a1) {
     int idx;
     s32 v1;
@@ -26,5 +26,5 @@ void func_80112A3C(Ctx *a0, u8 a1) {
     } else {
         idx = D_801E6EF0.tab[0][a1];
     }
-    func_8017A0BC(D_9FEE70, idx, a0->unk16B60 + (a1 << 12), 0x1000);
+    CmpDma_LoadFile(D_9FEE70, idx, a0->unk16B60 + (a1 << 12), 0x1000);
 }

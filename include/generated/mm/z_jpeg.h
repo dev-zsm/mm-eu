@@ -2,6 +2,9 @@
 #ifndef MM_Z_JPEG_H
 #define MM_Z_JPEG_H
 
+/* names of ours that symbols of the reference stand for */
+#define osCreateMesgQueue func_8008F3E0
+
 #include "z64jpeg.h"
 #include "stdbool.h"
 #include "scheduler.h"

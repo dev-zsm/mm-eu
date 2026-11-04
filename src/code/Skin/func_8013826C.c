@@ -17,7 +17,7 @@ typedef struct {
 } Limb_8013826C;
 
 extern void *func_80100304(s32);
-extern void func_80137EE4(GfxCtx_8013826C *, s32 **, s32, s32);
+extern void Skin_ApplyLimbModifications(GfxCtx_8013826C *, s32 **, s32, s32);
 
 void Skin_DrawAnimatedLimb(GfxCtx_8013826C *arg0, s32 **arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 pad[4]; // unused, only to match the ROM frame size
@@ -26,7 +26,7 @@ void Skin_DrawAnimatedLimb(GfxCtx_8013826C *arg0, s32 **arg1, s32 arg2, s32 arg3
 
     limb = func_80100304(((Limb_8013826C *)func_80100304(((s32 *)func_80100304(**arg1))[arg2]))->unkC);
     if (!(arg4 & 1)) {
-        func_80137EE4(arg0, arg1, arg2, arg3);
+        Skin_ApplyLimbModifications(arg0, arg1, arg2, arg3);
     }
     dl = arg0->unk2B0++;
     dl->w0 = 0xDE000000;

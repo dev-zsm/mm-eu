@@ -2,12 +2,16 @@
 #ifndef MM_CUTSCENE_CAMERA_H
 #define MM_CUTSCENE_CAMERA_H
 
+/* names of ours that symbols of the reference stand for */
+#define CutsceneCamera_Interpolate func_8016239C
 #define Math_FTanF func_800867D0
 #define ref_func_801624EC func_8016365C
 #define ref_func_801629BC func_80163B2C
 #define ref_func_80162FF8 func_80164168
 #define ref_func_801631DC func_8016434C
+#define ref_func_80163660 func_801647D0
 #define sCsCamKnots D_801EE3E8
+
 #include "global.h"
 #include "string.h"
 #include "z64olib.h"

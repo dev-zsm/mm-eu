@@ -2,7 +2,9 @@
 #ifndef MM_Z_VISFBUF_H
 #define MM_Z_VISFBUF_H
 
+/* names of ours that symbols of the reference stand for */
 #define guS2DInitBg func_80092C20
+
 #include "z64visfbuf.h"
 #include "gfxalloc.h"
 #include "global.h"

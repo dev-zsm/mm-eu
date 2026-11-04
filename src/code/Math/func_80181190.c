@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-M2C_UNK func_80180F74(f32, f32);                    /* extern */
+M2C_UNK Math_Atan2S(f32, f32);                    /* extern */
 
 void Math_Atan2S_XY(f32 arg0, f32 arg1) {
-    func_80180F74(arg1, arg0);
+    Math_Atan2S(arg1, arg0);
 }

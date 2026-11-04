@@ -2,6 +2,8 @@
 #ifndef MM_Z_EFF_TIRE_MARK_H
 #define MM_Z_EFF_TIRE_MARK_H
 
+/* names of ours that symbols of the reference stand for */
+
 #include "z64eff_tire_mark.h"
 #include "global.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

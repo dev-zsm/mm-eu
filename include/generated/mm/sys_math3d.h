@@ -2,8 +2,12 @@
 #ifndef MM_SYS_MATH3D_H
 #define MM_SYS_MATH3D_H
 
+/* names of ours that symbols of the reference stand for */
+#define Math3D_PointRelativeToCubeFaces func_8017BB44
+#define Math3D_SurfaceNorm func_8017BADC
 #define Math3D_Vec3f_Cross func_8017BA68
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
+
 #include "z64math.h"
 #include "stdbool.h"
 #include "PR/gu.h"

@@ -2,7 +2,9 @@
 #ifndef MM_PRERENDER_H
 #define MM_PRERENDER_H
 
+/* names of ours that symbols of the reference stand for */
 #define ref_func_80170200 func_801713C0
+
 #include "z64prerender.h"
 #include "alloca.h"
 #include "stdbool.h"

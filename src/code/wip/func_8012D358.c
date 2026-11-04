@@ -10,7 +10,7 @@ typedef struct {
     Gfx *dlTail;
 } GraphicsContext;
 
-Gfx *func_8012D358(GraphicsContext *gfxCtx, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+Gfx *Gfx_PrimColor(GraphicsContext *gfxCtx, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     Gfx *dl;
 
     gfxCtx->dlTail -= 2;

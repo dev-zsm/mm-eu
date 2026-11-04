@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 void Math_Vec3f_Copy(u8 *, s32);
-void func_8017C908(s32, s32, s32, f32 *, f32 *, f32 *, f32 *);
+void Math3D_DefPlane(s32, s32, s32, f32 *, f32 *, f32 *, f32 *);
 void func_800E7C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 
 
@@ -17,7 +17,7 @@ void func_800E7C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     Math_Vec3f_Copy(temp_s0 + 0x28, arg2);
     Math_Vec3f_Copy(temp_s0 + 0x34, arg3);
     Math_Vec3f_Copy(temp_s0 + 0x40, arg4);
-    func_8017C908(arg2, arg3, arg4, &sp40, &sp3C, &sp38, &sp34);
+    Math3D_DefPlane(arg2, arg3, arg4, &sp40, &sp3C, &sp38, &sp34);
     *(f32 *)(temp_s0 + 0x4C) = sp40;
     *(f32 *)(temp_s0 + 0x50) = sp3C;
     *(f32 *)(temp_s0 + 0x54) = sp38;

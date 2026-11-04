@@ -2,6 +2,8 @@
 #ifndef MM_SYS_MATH_H
 #define MM_SYS_MATH_H
 
+/* names of ours that symbols of the reference stand for */
+
 #include "global.h"
 #include "rand.h"
 extern f32 sFactorialTbl[];

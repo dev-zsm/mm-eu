@@ -2,12 +2,14 @@
 #ifndef MM_Z_MSGEVENT_H
 #define MM_Z_MSGEVENT_H
 
+/* names of ours that symbols of the reference stand for */
 #define Message_GetState func_801529DC
 #define Message_ShouldAdvance func_80147B34
 #define gBitFlags D_801C29F0
 #define gItemSlots D_801C2D38
 #define gSaveContext D_801E6EF0
 #define ref_func_80123810 func_80123CC0
+
 #include "global.h"
 #include "attributes.h"
 s32 MsgEvent_CheckWeekEventReg(Actor* actor, PlayState* play, u8** script, MsgScriptCallback callback, s32* endScript);

@@ -2,12 +2,14 @@
 #ifndef MM_Z_DEBUG_DISPLAY_H
 #define MM_Z_DEBUG_DISPLAY_H
 
+/* names of ours that symbols of the reference stand for */
 #define Gfx_SetupDL38_Xlu func_8012CA10
 #define Gfx_SetupDL47_Xlu func_8012CBAC
 #define Gfx_SetupDL4_Xlu func_8012CA38
 #define gIdentityMtx D_801CA710
 #define sDebugDisplayLight1 D_801BBB80
 #define sDebugDisplaySpriteDL D_801BBB28
+
 #include "z64debug_display.h"
 #include "global.h"
 extern DebugDispObject* sDebugObjectListHead;;

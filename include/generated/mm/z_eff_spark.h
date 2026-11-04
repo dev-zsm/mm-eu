@@ -2,7 +2,9 @@
 #ifndef MM_Z_EFF_SPARK_H
 #define MM_Z_EFF_SPARK_H
 
+/* names of ours that symbols of the reference stand for */
 #define Rand_ZeroOne func_8008704C
+
 #include "z64eff_spark.h"
 #include "global.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

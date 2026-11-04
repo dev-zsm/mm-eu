@@ -26,6 +26,6 @@ void func_80177354(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) {
     D_801C9E40->unk2C8 = 4;
     func_80092E20(D_801C9E40->unk2C8);
     PadMgr_ReleaseSerialEventQueue(a0);
-    func_80089FE0((u8 *)D_801C9E40 + 0xA0, a2, func_801771D0, D_801C9E40, a4, a3);
+    func_80089FE0((u8 *)D_801C9E40 + 0xA0, a2, PadMgr_ThreadEntry, D_801C9E40, a4, a3);
     func_80095950((u8 *)D_801C9E40 + 0xA0);
 }

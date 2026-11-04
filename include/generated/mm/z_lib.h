@@ -2,6 +2,9 @@
 #ifndef MM_Z_LIB_H
 #define MM_Z_LIB_H
 
+/* names of ours that symbols of the reference stand for */
+#define bzero func_800897D0
+
 #include "z64lib.h"
 #include "ichain.h"
 #include "libc64/qrand.h"

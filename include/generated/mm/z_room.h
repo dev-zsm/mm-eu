@@ -2,6 +2,7 @@
 #ifndef MM_Z_ROOM_H
 #define MM_Z_ROOM_H
 
+/* names of ours that symbols of the reference stand for */
 #define DmaMgr_RequestAsync func_80080C54
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
@@ -19,6 +20,7 @@
 #define ref_func_80123140 func_801235F0
 #define ref_func_8012C268 func_8012C718
 #define sZeroVec D_801C29D0
+
 #include "global.h"
 #include "PR/gs2dex.h"
 #include "libu64/debug.h"

@@ -2,7 +2,9 @@
 #ifndef MM_Z_EFF_SHIELD_PARTICLE_H
 #define MM_Z_EFF_SHIELD_PARTICLE_H
 
+/* names of ours that symbols of the reference stand for */
 #define Rand_ZeroOne func_8008704C
+
 #include "z64eff_shield_particle.h"
 #include "z64effect.h"
 #include "global.h"

@@ -2,7 +2,10 @@
 #ifndef MM_TITLE_SETUP_H
 #define MM_TITLE_SETUP_H
 
+/* names of ours that symbols of the reference stand for */
+#define ConsoleLogo_Init D_80800768
 #define gRegEditor D_801EB7E0
+
 #include "z_title_setup.h"
 #include "sys_flashrom.h"
 #include "overlays/gamestates/ovl_title/z_title.h"

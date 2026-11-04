@@ -12,7 +12,7 @@ extern M2C_UNK D_801AED6C;
 extern M2C_UNK EnAObj_Idle;
 extern M2C_UNK ActorShadow_DrawCircle;
 
-void func_800A5FE0(u8 *arg0, s32 arg1) {
+void EnAObj_Init(u8 *arg0, s32 arg1) {
     u8 *sp20;
     s16 temp_v0;
     u8 *temp_a1;

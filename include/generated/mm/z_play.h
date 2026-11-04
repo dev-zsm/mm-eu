@@ -2,15 +2,16 @@
 #ifndef MM_Z_PLAY_H
 #define MM_Z_PLAY_H
 
+/* names of ours that symbols of the reference stand for */
 #define BombersNotebook_Destroy func_80170E50
-#define BombersNotebook_Draw func_80170360
+#define BombersNotebook_Draw BombersNotebook_Draw
 #define FileSelect_Init D_80815250
 #define Interface_Destroy func_8012223C
 #define Interface_SetHudVisibility func_8010EE64
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Message_Draw func_80156C8C
-#define Object_InitContext func_8012F770
-#define Play_Init func_8016B450
+#define Object_InitContext Object_InitContext
+#define Play_Init Play_Init
 #define SysCfb_GetFramebuffer func_80179C60
 #define SysCfb_GetZBuffer func_80179C88
 #define SysCfb_SetHiResMode func_80179A40
@@ -37,6 +38,7 @@
 #define sPlayVisMono D_801EE5A8
 #define sTransitionFillTimer D_801EE4A0
 #define sTransitionTile D_801EE4C0
+
 #include "PR/ultratypes.h"
 extern s16 sTransitionFillTimer;;
 extern struct Input ref_D_801F6C18;;

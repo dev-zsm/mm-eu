@@ -13,7 +13,7 @@ typedef struct {
 extern void func_8012C530(GfxCtx* gfxCtx);
 extern u8 D_E0002C8[];
 
-void func_800FAD6C(GfxCtx** pGfxCtx, u8 r, u8 g, u8 b, u8 a) {
+void Environment_DrawLightningFlash(GfxCtx** pGfxCtx, u8 r, u8 g, u8 b, u8 a) {
     GfxCtx* gfxCtx = *pGfxCtx;
     Gfx* dl;
 

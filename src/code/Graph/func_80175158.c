@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern void Setup_Init(void);
-extern void func_8016B450(void);
+extern void Play_Init(void);
 extern u8 D_80801B6C[];
 extern u8 D_80800768[];
 extern u8 D_80803F50[];
@@ -28,7 +28,7 @@ void *Graph_GetNextGameState(void) {
     if (r == D_80800768) {
         return D_801BE4A0;
     }
-    if (r == func_8016B450) {
+    if (r == Play_Init) {
         return D_801BE4D0;
     }
     if (r == D_80803F50) {

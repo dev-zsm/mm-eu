@@ -28,6 +28,8 @@ for p in sorted(TOOLS.glob("*/*.py")):
     except SyntaxError as e:
         check(False, f"{rel}: {e}")
         continue
+    control = {chr(i) for i in (*range(0, 9), 11, 12, *range(14, 32))}   # a backslash lost on the way becomes one of these (\b, \1 ...)
+    check(not control & set(p.read_text()), f"{rel}: control character in the source (a lost backslash)")
     m = re.search(r"ROOT = Path\(__file__\)\.resolve\(\)\.parents\[(\d)\]", p.read_text())
     if m:
         check(p.parents[int(m.group(1))] == ROOT, f"{rel}: parents[{m.group(1)}] is not the project root")

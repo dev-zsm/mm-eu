@@ -2,7 +2,10 @@
 #ifndef MM_PADMGR_H
 #define MM_PADMGR_H
 
+/* names of ours that symbols of the reference stand for */
 #define AudioVoice_Noop func_801A5D80
+#define IrqMgr_AddClient func_800812A0
+#define IrqMgr_RemoveClient func_8008132C
 #define PadUtils_UpdateRelXY func_800852BC
 #define bzero func_800897D0
 #define cosf func_800920E0
@@ -12,6 +15,7 @@
 #define osContGetReadData func_8008A1B4
 #define osContStartQuery func_8008D8D0
 #define osContStartReadData func_8008A130
+#define osCreateMesgQueue func_8008F3E0
 #define osRecvMesg func_80088070
 #define osVoiceInit func_80090870
 #define sPadMgrInstance D_801C9E40
@@ -19,6 +23,7 @@
 #define sVoiceInitStatus D_801C9E48
 #define sinf func_800884F0
 #define sprintf func_80087A44
+
 #include "padmgr.h"
 #include "line_numbers.h"
 #include "libc64/sprintf.h"

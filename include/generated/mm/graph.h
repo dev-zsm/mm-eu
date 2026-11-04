@@ -4,8 +4,8 @@
 
 #define Fault_AddHungupAndCrashImpl func_80083E54
 #define Fault_SetFrameBuffer func_80083BD0
-#define Overlay_FreeGameState func_800B3914
-#define Overlay_LoadGameState func_800B37F0
+#define Overlay_FreeGameState Overlay_FreeGameState
+#define Overlay_LoadGameState Overlay_LoadGameState
 #define Sched_SendGfxCancelMsg func_80178234
 #define SysCfb_GetFramebuffer func_80179C60
 #define SysCfb_GetZBuffer func_80179C88

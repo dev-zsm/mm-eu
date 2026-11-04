@@ -2,8 +2,10 @@
 #ifndef MM_C_KEYFRAME_H
 #define MM_C_KEYFRAME_H
 
+/* names of ours that symbols of the reference stand for */
 #define Lib_SegmentedToVirtual func_80100304
 #define nearbyint func_80086D94
+
 #include "global.h"
 #include "libc64/fixed_point.h"
 #define FMOD(x, mod) ((x) - ((s32)((x) * (1.0f / (mod))) * (f32)(mod)))

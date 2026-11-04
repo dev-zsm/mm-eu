@@ -23,7 +23,7 @@ typedef struct {
 extern Range D_801C3400[];
 extern void func_80080CE0();
 
-s32 func_8012F680(Ent *a0, s16 a1) {
+s32 Object_SpawnPersistent(Ent *a0, s16 a1) {
     Hdr *h = (Hdr *)a0;
     u32 start;
     s32 size;

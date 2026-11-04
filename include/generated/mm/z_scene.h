@@ -2,18 +2,21 @@
 #ifndef MM_Z_SCENE_H
 #define MM_Z_SCENE_H
 
+/* names of ours that symbols of the reference stand for */
 #define DmaMgr_RequestAsync func_80080C54
 #define DmaMgr_RequestSync func_80080CE0
 #define Lib_SegmentedToVirtual func_80100304
-#define Object_SpawnPersistent func_8012F680
+#define Object_SpawnPersistent Object_SpawnPersistent
 #define gActorOverlayTable D_801AFB00
 #define gObjectTable D_801C3400
 #define gPlayerFormObjectIds D_801C33F0
 #define gRegEditor D_801EB7E0
 #define gSaveContext D_801E6EF0
+#define gSegments D_801EFA00
 #define osCreateMesgQueue func_8008F3E0
 #define osRecvMesg func_80088070
 #define ref_func_8012F73C func_8012FADC
+
 #include "global.h"
 s32 Object_SpawnPersistent(ObjectContext* objectCtx, s16 id);
 void Object_InitContext(GameState* gameState, ObjectContext* objectCtx);

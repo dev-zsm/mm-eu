@@ -20,14 +20,14 @@ typedef struct {
     s32 unk4;
 } SceneCmd;
 
-s32 func_8012F680(void *a0, s16 a1);
+s32 Object_SpawnPersistent(void *a0, s16 a1);
 s32 Play_LoadFile(void *a0, void *a1);
 extern u8 D_801C3310[];
 extern u32 D_801EFA14;
 
 void Scene_CommandSpecialFiles(PlayState *play, SceneCmd *cmd) {
     if (cmd->unk4 != 0) {
-        play->subKeepIndex = func_8012F680(play->objCtx, cmd->unk4);
+        play->subKeepIndex = Object_SpawnPersistent(play->objCtx, cmd->unk4);
         D_801EFA14 = play->status[play->subKeepIndex].segment + 0x80000000;
     }
     if (cmd->unk1 != 0) {

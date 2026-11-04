@@ -11,7 +11,7 @@ typedef struct {
 extern MapEntry D_801AFB00[];
 extern s32 D_801B5140;
 
-u32 func_800BF7F8(u32 addr, u8 arg1) {
+u32 ActorOverlayTable_FaultAddrConv(u32 addr, u8 arg1) {
     s32 i;
     s32 n = D_801B5140;
     MapEntry *e = D_801AFB00;

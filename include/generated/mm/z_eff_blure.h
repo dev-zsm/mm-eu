@@ -2,8 +2,10 @@
 #ifndef MM_Z_EFF_BLURE_H
 #define MM_Z_EFF_BLURE_H
 
+/* names of ours that symbols of the reference stand for */
 #define gIdentityMtx D_801CA710
 #define sSetupHandlers D_801AF120
+
 #include "z64eff_blure.h"
 #include "stdbool.h"
 #include "gfx.h"

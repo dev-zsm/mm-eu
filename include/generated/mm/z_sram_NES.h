@@ -2,7 +2,24 @@
 #ifndef MM_Z_SRAM_NES_H
 #define MM_Z_SRAM_NES_H
 
+/* names of ours that symbols of the reference stand for */
+#define Lib_MemCpy func_800FEA90
+#define bzero func_800897D0
+#define gFlashSaveNumPages D_801C7CB0
+#define gFlashSaveStartPages D_801C7C88
 #define gSaveContext D_801E6EF0
+#define osGetTime func_800905C0
+#define ref_D_801C6A48 D_801C7F08
+#define ref_D_801C6A50 D_801C7F10
+#define ref_D_801F6AF0 D_801EE370
+#define ref_D_801F6AF2 D_801EE372
+#define ref_func_80147314 func_80147818
+#define ref_func_80147414 func_80147918
+#define sSaveDebugChecksum D_801C7F04
+#define sSaveDebugInventory D_801C7E7C
+#define sSaveDebugItemEquips D_801C7E58
+#define sSaveDebugPlayerData D_801C7E30
+
 #include "z64save.h"
 #include "global.h"
 #include "sys_flashrom.h"

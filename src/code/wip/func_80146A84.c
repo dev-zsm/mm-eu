@@ -9,7 +9,7 @@ extern u8 D_801E6EF0[];
 extern void func_80147818();
 extern void func_800897D0(void *, s32);
 extern void func_800FEA90(void *, void *, s32);
-void func_80146A84(s32 a0, S *a1, s32 a2) {
+void Sram_EraseSave(s32 a0, S *a1, s32 a2) {
     u8 *p = (u8 *)(a0 + a2);
     if (D_801EAE2F != 0) {
         if (p[0x2446A] != 0) {

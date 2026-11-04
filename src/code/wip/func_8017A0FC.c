@@ -9,7 +9,7 @@ M2C_UNK func_8017A02C(s32, u32, s32, M2C_UNK);      /* extern */
 extern s32 D_8009BDE0;
 extern u32 D_801F3460;
 
-void func_8017A0FC(s32 arg1, M2C_UNK arg2) {
+void CmpDma_LoadAllFiles(s32 arg1, M2C_UNK arg2) {
     s32 temp_v0;
     s32 var_s1;
     u32 temp_s3;
