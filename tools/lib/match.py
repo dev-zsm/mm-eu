@@ -115,31 +115,63 @@ def check_targets(rom: bytes, got: bytes, relocs) -> list:
     return bad
 
 
+R_NAMES = {2: "R_MIPS_32", 4: "R_MIPS_26", 5: "R_MIPS_HI16", 6: "R_MIPS_LO16", 7: "R_MIPS_GPREL16", 9: "R_MIPS_GOT16", 11: "R_MIPS_CALL16"}
+
+
+@functools.lru_cache(maxsize=8192)
+def elf_text(path: str):
+    """(code of .text, its size, {symbol: (offset, size)} of the symbols in .text, [(offset, relocation type, symbol)] of .rel.text)
+    of an ELF32 big-endian object, read directly: this used to be four calls to the binutils per function, the bulk of every check."""
+    d = Path(path).read_bytes()
+    shoff, = struct.unpack_from(">I", d, 0x20)
+    shentsize, shnum, shstrndx = struct.unpack_from(">HHH", d, 0x2E)
+    secs = [struct.unpack_from(">10I", d, shoff + i * shentsize) for i in range(shnum)]   # name type flags addr offset size link info align entsize
+
+    def cstr(base, o):
+        return d[base + o:d.index(b"\0", base + o)].decode()
+
+    shstr = secs[shstrndx][4]
+    names = [cstr(shstr, s[0]) for s in secs]
+    ti = names.index(".text")
+    symtab = next(i for i, s in enumerate(secs) if s[1] == 2)
+    strtab = secs[secs[symtab][6]][4]
+    syms = []
+    for k in range(secs[symtab][5] // 16):
+        st_name, st_value, st_size, st_info, _, st_shndx = struct.unpack_from(">IIIBBH", d, secs[symtab][4] + 16 * k)
+        # a relocation against a section is named after the section, as readelf prints it
+        syms.append((names[st_shndx] if st_info & 15 == 3 and st_shndx < len(names) else cstr(strtab, st_name), st_value, st_size, st_shndx, st_info & 15))
+    text = d[secs[ti][4]:secs[ti][4] + secs[ti][5]]
+    inside = {n: (v, z) for n, v, z, sh, t in syms if sh == ti and n and t != 3}   # not the symbol of the section itself
+    relocs = []
+    for s in secs:
+        if s[1] == 9 and s[7] == ti:   # SHT_REL of .text
+            for k in range(s[5] // 8):
+                off, info = struct.unpack_from(">II", d, s[4] + 8 * k)
+                relocs.append((off, R_NAMES.get(info & 255, f"R_MIPS_{info & 255}"), syms[info >> 8][0]))
+    return text, secs[ti][5], inside, relocs
+
+
 def compiled(cfile: Path, name: str, flags: list[str], want_len: int = 0):
     name = NAMES.get(name, name)  # the C file defines the real name; files and the ROM table use the splat name
     RELOCS[threading.get_ident()] = []
     obj = objcache.compile_obj(cfile, flags)  # cached by content: an unchanged file is not compiled again
-    with tempfile.TemporaryDirectory() as d:
-        syms = run("mips-linux-gnu-nm", str(obj))
-        start = int(re.search(rf"^([0-9a-f]+) T {name}$", syms, re.M).group(1), 16)
-        sec = run("mips-linux-gnu-objdump", "-h", str(obj))
-        tsize = int(re.search(r"\.text\s+([0-9a-f]+)", sec).group(1), 16)
-        subprocess.run(["mips-linux-gnu-objcopy", "-O", "binary", "--only-section=.text", str(obj), d + "/t.bin"], check=True)
-        blob = (Path(d) / "t.bin").read_bytes()
-        # function ends at the next text symbol (or end of section)
-        later = sorted(int(m.group(1), 16) for m in re.finditer(r"^([0-9a-f]+) [Tt] ", syms, re.M) if int(m.group(1), 16) > start)
-        end = later[0] if later else tsize
-        if want_len and want_len > end - start:  # the ROM 'function' may hold several tiny ones (splat split)
-            end = min(tsize, start + want_len)
-            if any(blob[end:tsize]):  # the file holds more code than the ROM function: report it as a size difference
-                end = tsize
-        masks = {}
-        for m in re.finditer(r"^([0-9a-f]{8})\s+[0-9a-f]+\s+(R_MIPS_\w+)\s+[0-9a-f]+\s+(\S+)", run("mips-linux-gnu-readelf", "-rW", str(obj)), re.M):
-            off = int(m.group(1), 16)
-            if start <= off < end and m.group(2) in MASKS:
-                masks[off - start] = MASKS[m.group(2)]
-                RELOCS.setdefault(threading.get_ident(), []).append((off - start, m.group(2), m.group(3)))
-        return blob[start:end], masks
+    blob, tsize, inside, relocs = elf_text(str(obj))
+    if name not in inside:   # a static function nobody calls is not emitted at all
+        raise KeyError(f"{name} is not defined in the object")
+    start = inside[name][0]
+    # function ends at the next text symbol (or end of section)
+    later = sorted(v for v, _ in inside.values() if v > start)
+    end = later[0] if later else tsize
+    if want_len and want_len > end - start:  # the ROM 'function' may hold several tiny ones (splat split)
+        end = min(tsize, start + want_len)
+        if any(blob[end:tsize]):  # the file holds more code than the ROM function: report it as a size difference
+            end = tsize
+    masks = {}
+    for off, typ, sym in relocs:
+        if start <= off < end and typ in MASKS:
+            masks[off - start] = MASKS[typ]
+            RELOCS.setdefault(threading.get_ident(), []).append((off - start, typ, sym))
+    return blob[start:end], masks
 
 
 def mask(code: bytes, masks: dict) -> list[int]:

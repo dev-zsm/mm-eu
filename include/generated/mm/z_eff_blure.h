@@ -3,6 +3,8 @@
 #define MM_Z_EFF_BLURE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL38_Xlu func_8012CA10
+#define Math_FNearbyIntF func_80086884
 #define gIdentityMtx D_801CA710
 #define sSetupHandlers D_801AF120
 

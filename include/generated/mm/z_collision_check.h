@@ -3,7 +3,11 @@
 #define MM_Z_COLLISION_CHECK_H
 
 /* names of ours that symbols of the reference stand for */
+#define Collider_ResetJntSphElementAT func_800E08A0
+#define Collider_SetJntSphElement func_800E0850
+#define Collider_SetTrisElement func_800E13D4
 #define FrameAdvance_IsEnabled func_8016B1A4
+#define ref_D_801EDE00 D_801E56F0
 #define ref_D_801EDE10 D_801E5700
 #define ref_D_801EDE20 D_801E5710
 #define ref_D_801EDE30 D_801E5720
@@ -28,7 +32,10 @@
 #define ref_D_801EE700 D_801E64B8
 #define ref_D_801EF590 D_801E6E80
 #define ref_D_801EF5C8 D_801E6EB8
+#define ref_D_801EF600 D_801E5680
+#define ref_D_801EF638 D_801E56B8
 #define sACResetFuncs D_801BAE7C
+#define sACVsFuncs D_801BAEEC
 #define sATResetFuncs D_801BAE68
 #define sBloodFuncs D_801BAEA4
 #define sHitInfo D_801BAEBC
