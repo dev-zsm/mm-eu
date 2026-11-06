@@ -3,7 +3,11 @@
 #define MM_Z_DEMO_MOONEND_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
+#define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
+#define Cutscene_GetCueChannel Cutscene_GetCueChannel
+#define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DemoMoonend_Draw func_8000050C
 #define DemoMoonend_Init func_80000000
 #define DemoMoonend_OverrideLimbDraw func_80000460
@@ -12,6 +16,9 @@
 #define func_80C17B60 func_80000150
 #define func_80C17C48 func_80000238
 #define func_80C17FCC func_800005BC
+#define ref_func_80C17B60 func_80000150
+#define ref_func_80C17C48 func_80000238
+#define ref_func_80C17FCC func_800005BC
 
 #include "overlays/actors/ovl_Demo_Moonend/z_demo_moonend.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)

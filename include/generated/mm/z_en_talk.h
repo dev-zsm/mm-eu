@@ -3,10 +3,14 @@
 #define MM_Z_EN_TALK_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_OfferTalk Actor_OfferTalk
 #define Actor_SetScale Actor_SetScale
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
 #define EnTalk_Init func_80000000
+#define Player_IsFacingActor Player_IsFacingActor
 #define func_80BDE090 func_800000B0
-#define ref_func_80BDE090 D_80BC2E30
+#define ref_func_80BDE058 D_80BC2DF8
+#define ref_func_80BDE090 func_800000B0
 
 #include "overlays/actors/ovl_En_Talk/z_en_talk.h"
 #define FLAGS (ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_FRIENDLY)

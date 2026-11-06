@@ -3,13 +3,22 @@
 #define MM_Z_EN_HANABI_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_FlaggedCentered2 Actor_PlaySfx_FlaggedCentered2
 #define Actor_SetScale Actor_SetScale
 #define EnHanabi_Destroy func_80000850
+#define EnHanabi_Draw D_80B08768
 #define EnHanabi_Init func_80000718
 #define EnHanabi_Update func_80000DFC
 #define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
+#define Lights_PointSetColorAndRadius Lights_PointSetColorAndRadius
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80B22C00 func_80000000
 #define func_80B22C2C func_8000002C
 #define func_80B22C80 func_80000080
@@ -20,10 +29,19 @@
 #define func_80B235CC func_800009CC
 #define func_80B236C8 func_80000AC8
 #define func_80B23934 func_80000D34
-#define ref_func_80B22C00 func_80B07930
-#define ref_func_80B22E0C func_80B07B3C
+#define gSaveContext D_801E6EF0
+#define ref_D_80B23C2C D_80B0895C
+#define ref_func_80B22C00 func_80000000
+#define ref_func_80B22C2C func_8000002C
+#define ref_func_80B22C80 func_80000080
+#define ref_func_80B22E0C func_8000020C
+#define ref_func_80B22F34 func_80000334
+#define ref_func_80B22FA8 func_800003A8
+#define ref_func_80B234C8 func_800008C8
+#define ref_func_80B235CC func_800009CC
+#define ref_func_80B236C8 func_80000AC8
 #define ref_func_80B23910 D_80B08640
-#define ref_func_80B23934 D_80B08664
+#define ref_func_80B23934 func_80000D34
 
 #include "overlays/actors/ovl_En_Hanabi/z_en_hanabi.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

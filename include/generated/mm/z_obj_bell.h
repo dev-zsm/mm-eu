@@ -3,7 +3,13 @@
 #define MM_Z_OBJ_BELL_H
 
 /* names of ours that symbols of the reference stand for */
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionCheck_SetOC CollisionCheck_SetOC
+#define Math_ApproachF Math_ApproachF
+#define Math_SinS Math_SinS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_ToVec3s Math_Vec3f_ToVec3s
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define ObjBell_Draw func_800008E8
@@ -14,12 +20,13 @@
 #define func_80A359B4 func_800004C0
 #define func_80A35B18 func_80000624
 #define func_80A35BD4 func_800006E0
-#define ref_func_80A356D8 func_80A1A408
+#define ref_func_80A35510 func_80000000
+#define ref_func_80A356D8 func_800001C8
 #define ref_func_80A357A8 func_80A1A4D8
-#define ref_func_80A358FC func_80A1A648
-#define ref_func_80A359B4 func_80A1A700
-#define ref_func_80A35B18 func_80A1A864
-#define ref_func_80A35BD4 func_80A1A920
+#define ref_func_80A358FC func_80000408
+#define ref_func_80A359B4 func_800004C0
+#define ref_func_80A35B18 func_80000624
+#define ref_func_80A35BD4 func_800006E0
 
 #include "overlays/actors/ovl_Obj_Bell/z_obj_bell.h"
 #include "assets/objects/object_f52_obj/object_f52_obj.h"

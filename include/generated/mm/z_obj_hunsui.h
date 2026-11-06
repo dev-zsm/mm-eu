@@ -3,9 +3,27 @@
 #define MM_Z_OBJ_HUNSUI_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
+#define Flags_GetSwitch Flags_GetSwitch
+#define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Math_ApproachF Math_ApproachF
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_SmoothStepToF Math_SmoothStepToF
+#define Math_StepToF Math_StepToF
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define ObjHunsui_Draw func_80001574
 #define ObjHunsui_Init func_800005B4
 #define ObjHunsui_Update func_8000096C
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_ZeroFloat Rand_ZeroFloat
+#define Rand_ZeroOne func_8008704C
+#define SubS_FindActorCustom SubS_FindActorCustom
 #define SubS_StartCutscene SubS_StartCutscene
 #define func_80B9C450 func_80000000
 #define func_80B9C5E8 func_80000198
@@ -16,6 +34,21 @@
 #define func_80B9D508 func_800010B8
 #define func_80B9D714 func_800012C4
 #define func_80B9DA60 func_80001610
+#define ref_D_80B9DED8 D_80B82C78
+#define ref_func_800F22C4 func_800F2074
+#define ref_func_80B9C450 func_80000000
+#define ref_func_80B9C5E8 func_80000198
+#define ref_func_80B9CE64 func_80000A14
+#define ref_func_80B9D094 func_80000C44
+#define ref_func_80B9D0FC func_80B81E9C
+#define ref_func_80B9D120 func_80000CD0
+#define ref_func_80B9D288 D_80B82028
+#define ref_func_80B9D2BC func_80B8205C
+#define ref_func_80B9D334 func_80000EE4
+#define ref_func_80B9D4D0 func_80B82270
+#define ref_func_80B9D508 func_800010B8
+#define ref_func_80B9D714 func_800012C4
+#define ref_func_80B9DA60 func_80001610
 
 #include "overlays/actors/ovl_Obj_Hunsui/z_obj_hunsui.h"
 #include "attributes.h"

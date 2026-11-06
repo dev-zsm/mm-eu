@@ -3,12 +3,36 @@
 #define MM_Z_DOOR_WARP1_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_HasParent Actor_HasParent
+#define Actor_OfferGetItem Actor_OfferGetItem
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
+#define Actor_SpawnAsChild Actor_SpawnAsChild
+#define AudioSfx_PlaySfx AudioSfx_PlaySfx
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_Start func_800F1B24
+#define Cutscene_GetCueChannel Cutscene_GetCueChannel
+#define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DoorWarp1_Destroy func_800003E8
 #define DoorWarp1_Draw func_800033BC
 #define DoorWarp1_GetRemains func_8000000C
 #define DoorWarp1_Init func_80000248
+#define DoorWarp1_SetupAction func_808B7B70
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Item_Give func_80112D7C
+#define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
+#define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
+#define Math_SmoothStepToF Math_SmoothStepToF
+#define Math_StepToF Math_StepToF
+#define Message_StartTextbox func_80151DF4
+#define Play_InCsMode Play_InCsMode
+#define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
+#define Scene_SetExitFade Scene_SetExitFade
+#define SkelAnime_Draw SkelAnime_Draw
+#define SkelAnime_Update SkelAnime_Update
 #define func_808B8568 func_800000D8
 #define func_808B866C func_800001DC
 #define func_808B8924 func_80000494
@@ -31,10 +55,42 @@
 #define func_808BAE9C func_80002A0C
 #define func_808BB4F4 func_80003064
 #define func_808BB8D4 func_80003444
-#define ref_func_808BACCC func_808BA3AC
-#define ref_func_808BAE9C func_808BA57C
+#define gDungeonBossWarpSceneId D_801EC662
+#define gSaveContext D_801E6EF0
+#define gSfxDefaultFreqAndVolScale D_801D3DE0
+#define gSfxDefaultReverb D_801D3DE8
+#define ref_D_808BC000 D_808BB6E0
+#define ref_D_808BC004 D_808BB6E4
+#define ref_func_80169FDC func_8016B164
+#define ref_func_808B8568 func_800000D8
+#define ref_func_808B866C func_800001DC
+#define ref_func_808B8924 func_80000494
+#define ref_func_808B8A7C func_800005EC
+#define ref_func_808B8C48 func_800007B8
+#define ref_func_808B900C func_80000B7C
+#define ref_func_808B90CC func_80000C3C
+#define ref_func_808B921C func_80000D8C
+#define ref_func_808B93A0 D_808B8A80
+#define ref_func_808B958C func_800010FC
+#define ref_func_808B96B0 D_808B8D90
+#define ref_func_808B977C func_800012EC
+#define ref_func_808B9840 D_808B8F20
+#define ref_func_808B98A8 func_80001418
+#define ref_func_808B9B30 func_800016A0
+#define ref_func_808B9BE8 func_80001758
+#define ref_func_808B9CE8 func_80001858
+#define ref_func_808B9E94 D_808B9574
+#define ref_func_808B9F10 D_808B95F0
+#define ref_func_808B9FD0 func_80001B40
+#define ref_func_808BA10C func_80001C7C
+#define ref_func_808BA550 func_800020C0
+#define ref_func_808BAAF4 func_80002664
+#define ref_func_808BABF4 D_808BA2D4
+#define ref_func_808BACCC func_8000283C
+#define ref_func_808BAE9C func_80002A0C
 #define ref_func_808BB4C4 func_808BABA4
-#define ref_func_808BB4F4 func_808BABD4
+#define ref_func_808BB4F4 func_80003064
+#define ref_func_808BB8D4 func_80003444
 
 #include "overlays/actors/ovl_Door_Warp1/z_door_warp1.h"
 #include "assets/objects/object_warp1/object_warp1.h"

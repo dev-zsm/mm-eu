@@ -3,18 +3,26 @@
 #define MM_Z_BG_ICEFLOE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define BgIcefloe_Destroy func_80000114
 #define BgIcefloe_Grow func_800001F8
 #define BgIcefloe_Init func_80000000
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define EffectSsIceBlock_Spawn func_800B378C
+#define EffectSsIceSmoke_Spawn func_800B372C
+#define Math_SinF Math_SinF
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80AC4C34 func_80000344
 #define func_80AC4D2C func_8000043C
+#define gZeroVec3f D_801C9EE0
 #define numberSpawned D_80AA9D90
 #define ref_func_80AC4C18 func_80AA9948
+#define ref_func_80AC4C34 func_80000344
+#define ref_func_80AC4CF0 func_80AA9A20
+#define ref_func_80AC4D2C func_8000043C
 #define sIceBlockAccel D_80AA9C70
 #define sSpawnedInstances D_80AA9C60
 

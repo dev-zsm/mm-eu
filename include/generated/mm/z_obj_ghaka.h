@@ -3,12 +3,24 @@
 #define MM_Z_OBJ_GHAKA_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_OfferTalkNearColChkInfoCylinder Actor_OfferTalkNearColChkInfoCylinder
+#define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define Audio_PlaySfx_AtPos Audio_PlaySfx_AtPos
+#define Math_StepToS Math_StepToS
 #define ObjGhaka_Draw func_800005F8
 #define ObjGhaka_Init func_80000498
 #define ObjGhaka_Update func_800005AC
 #define func_80B3C2C4 func_80000064
 #define func_80B3C39C func_8000013C
 #define func_80B3C624 func_800003C4
+#define ref_D_80B3C960 D_80B21690
+#define ref_func_80B3C260 func_80B20F90
+#define ref_func_80B3C29C func_80B20FCC
+#define ref_func_80B3C2B0 func_80B20FE0
+#define ref_func_80B3C2C4 func_80000064
+#define ref_func_80B3C39C func_8000013C
+#define ref_func_80B3C624 func_800003C4
 
 #include "overlays/actors/ovl_Obj_Ghaka/z_obj_ghaka.h"
 #include "assets/objects/object_ghaka/object_ghaka.h"

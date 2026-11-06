@@ -6,6 +6,9 @@
 #define EffectSsKirakira_Draw func_8000015C
 #define EffectSsKirakira_Init func_80000000
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Math_SinS Math_SinS
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_ZeroOne func_8008704C
 #define SkinMatrix_MtxFMtxFMult SkinMatrix_MtxFMtxFMult
 #define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
 #define SkinMatrix_SetRotateRPY SkinMatrix_SetRotateRPY
@@ -15,6 +18,9 @@
 #define func_80977E6C func_8000046C
 #define func_80977F28 func_80000528
 #define gIdentityMtx D_801CA710
+#define ref_func_80977DB4 func_800003B4
+#define ref_func_80977E6C func_8000046C
+#define ref_func_80977F28 func_80000528
 
 #include "overlays/effects/ovl_Effect_Ss_Kirakira/z_eff_ss_kirakira.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

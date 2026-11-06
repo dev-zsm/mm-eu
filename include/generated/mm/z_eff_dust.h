@@ -3,7 +3,13 @@
 #define MM_Z_EFF_DUST_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define EffDust_Init func_80000078
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_ZeroFloat Rand_ZeroFloat
+#define Rand_ZeroOne func_8008704C
 #define free func_80086EC0
 #define func_80918B40 func_80000000
 #define func_80918D64 func_80000224
@@ -11,12 +17,12 @@
 #define func_80919230 func_800006F0
 #define func_80919768 func_80000C28
 #define func_809199FC func_80000EBC
-#define ref_func_80918B40 func_808FD630
-#define ref_func_80918D64 D_808FD854
-#define ref_func_80918FE4 D_808FDAD4
-#define ref_func_80919230 D_808FDD20
-#define ref_func_80919768 D_808FE258
-#define ref_func_809199FC D_808FE4EC
+#define ref_func_80918B40 func_80000000
+#define ref_func_80918D64 func_80000224
+#define ref_func_80918FE4 func_800004A4
+#define ref_func_80919230 func_800006F0
+#define ref_func_80919768 func_80000C28
+#define ref_func_809199FC func_80000EBC
 
 #include "overlays/actors/ovl_Eff_Dust/z_eff_dust.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

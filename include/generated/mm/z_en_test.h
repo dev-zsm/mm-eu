@@ -9,12 +9,17 @@
 #define EnTest_OverrideLimbDraw func_80000948
 #define EnTest_Update func_800007CC
 #define Keyframe_UpdateFlex Keyframe_UpdateFlex
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Rand_ZeroOne func_8008704C
 #define func_80862B70 func_80000000
 #define func_80862CBC func_8000014C
 #define func_80862EDC func_8000036C
 #define func_80863048 func_800004D8
-#define ref_func_80862CBC func_808623DC
-#define ref_func_80862EDC func_808625FC
+#define ref_func_80862B70 func_80000000
+#define ref_func_80862CBC func_8000014C
+#define ref_func_80862EDC func_8000036C
+#define ref_func_80863048 func_800004D8
 
 #include "overlays/actors/ovl_En_Test/z_en_test.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

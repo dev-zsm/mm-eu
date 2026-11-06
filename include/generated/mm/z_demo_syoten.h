@@ -3,12 +3,27 @@
 #define MM_Z_DEMO_SYOTEN_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_GetProjectedPos Actor_GetProjectedPos
+#define Actor_MoveWithoutGravityReverse Actor_MoveWithoutGravityReverse
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_SetScale Actor_SetScale
 #define AnimatedMat_DrawStepXlu func_80131C94
 #define AnimatedMat_DrawXlu AnimatedMat_DrawXlu
+#define Cutscene_GetCueChannel Cutscene_GetCueChannel
+#define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DemoSyoten_Draw func_800010A8
 #define DemoSyoten_Init func_80000000
 #define DemoSyoten_OverrideLimbDraw func_80000C78
+#define Environment_LerpSandstormColors Environment_LerpSandstormColors
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Keyframe_UpdateFlex Keyframe_UpdateFlex
+#define Lib_SegmentedToVirtual func_80100304
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_DistXYZ Math_Vec3f_DistXYZ
+#define Math_Vec3f_Pitch Math_Vec3f_Pitch
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_Mult Matrix_Mult
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
@@ -24,7 +39,20 @@
 #define func_80C173B4 func_80000F34
 #define func_80C17468 func_80000FE8
 #define func_80C17690 func_80001210
-#define ref_func_80C17468 func_80BFC208
+#define ref_D_80C17824 D_80BFC5C4
+#define ref_D_80C17834 D_80BFC5D4
+#define ref_func_80C16760 func_800002E0
+#define ref_func_80C16818 func_80000398
+#define ref_func_80C168D0 func_80000450
+#define ref_func_80C16974 func_800004F4
+#define ref_func_80C16A74 func_800005F4
+#define ref_func_80C16BD4 func_80000754
+#define ref_func_80C16DD4 func_80000954
+#define ref_func_80C16EAC func_80000A2C
+#define ref_func_80C17008 func_80000B88
+#define ref_func_80C173B4 func_80000F34
+#define ref_func_80C17468 func_80000FE8
+#define ref_func_80C17690 func_80001210
 
 #include "overlays/actors/ovl_Demo_Syoten/z_demo_syoten.h"
 #include "assets/objects/object_syoten/object_syoten.h"

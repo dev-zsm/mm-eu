@@ -19,6 +19,7 @@
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Audio_PlaySfx_AtPosWithChannelIO Audio_PlaySfx_AtPosWithChannelIO
+#define BgCheck_EntityRaycastFloor3 BgCheck_EntityRaycastFloor3
 #define Camera_AddQuake Camera_AddQuake
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_InitJntSph Collider_InitJntSph
@@ -46,6 +47,10 @@
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Math_Vec3f_DistXYZ Math_Vec3f_DistXYZ
+#define Math_Vec3f_DistXYZAndStoreDiff Math_Vec3f_DistXYZAndStoreDiff
+#define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Math_Vec3f_ToVec3s Math_Vec3f_ToVec3s
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_RotateZYX Matrix_RotateZYX
@@ -64,8 +69,10 @@
 #define gPowderKegFuseModel1DL D_80872740
 #define gPowderKegFuseModel2DL D_80872760
 #define gSaveContext D_801E6EF0
+#define gZeroVec3f D_801C9EE0
 #define ref_func_800B0DE0 func_800B1300
-#define ref_func_80872648 func_80871D68
+#define ref_func_80872648 func_80001898
+#define ref_func_808726DC func_8000192C
 #define sCylinderInit D_808724E8
 #define sInitChain D_8087257C
 #define sJntSphInit1 D_80872538

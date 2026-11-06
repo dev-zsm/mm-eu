@@ -516,7 +516,7 @@ def import_module(fname, chunks, items, reasons):
     known = read_aliases(header)   # kept: the functions of this file imported by an earlier run use them
     overlay = items[0][0] != SEG
     # an overlay function has no name of ours: the reference's name is an alias of its address name, so that the file defines that
-    selfalias = {real: fn for seg, fn, real in items} if overlay else {}
+    selfalias = {US.sub(r"ref_\1", real): fn for seg, fn, real in items} if overlay else {}   # the body spells func_80862B70 as ref_func_80862B70
     header.write_text(build_header(stem, chunks, {**known, **selfalias}, refdir))
     pairs, kept = {}, []
     for seg, fn, real in items:

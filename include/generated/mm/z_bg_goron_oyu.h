@@ -3,15 +3,27 @@
 #define MM_Z_BG_GORON_OYU_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_HasParent Actor_HasParent
+#define Actor_OfferGetItem Actor_OfferGetItem
+#define Audio_PlaySfx_AtPos Audio_PlaySfx_AtPos
 #define BgCheck_EntityRaycastFloor2 BgCheck_EntityRaycastFloor2
 #define BgGoronOyu_Draw func_80000618
 #define BgGoronOyu_SpawnEffects func_80000314
+#define BgGoronOyu_UpdateWaterBoxInfo func_80B25038
+#define CutsceneManager_Stop func_800F1D6C
 #define EffectSsIceSmoke_Spawn func_800B372C
+#define Math_StepToF Math_StepToF
+#define Math_Vec3f_DistXYZAndStoreDiff Math_Vec3f_DistXYZAndStoreDiff
 #define Rand_ZeroOne func_8008704C
 #define func_80B4009C func_8000001C
 #define func_80B40160 func_800000E0
 #define func_80B401F8 func_80000178
 #define gZeroVec3f D_801C9EE0
+#define ref_func_80B40080 func_80B24DB0
+#define ref_func_80B4009C func_8000001C
+#define ref_func_80B40100 D_80B24E30
+#define ref_func_80B40160 func_800000E0
+#define ref_func_80B401F8 func_80000178
 
 #include "overlays/actors/ovl_Bg_Goron_Oyu/z_bg_goron_oyu.h"
 #include "assets/objects/object_oyu/object_oyu.h"

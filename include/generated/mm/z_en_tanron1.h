@@ -4,12 +4,22 @@
 
 /* names of ours that symbols of the reference stand for */
 #define EnTanron1_Update func_80000128
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroFloat Rand_ZeroFloat
+#define Rand_ZeroOne func_8008704C
 #define func_80BB4E50 func_80000050
 #define func_80BB5318 func_80000518
 #define func_80BB5AAC func_80000CAC
-#define ref_func_80BB4E50 func_80B99BF0
-#define ref_func_80BB5318 func_80B9A0B8
+#define ovl_En_Tanron1_DL_001428 D_80B9AFC8
+#define ovl_En_Tanron1_DL_001888 D_80B9B428
+#define ovl_En_Tanron1_DL_001900 D_80B9B4A0
+#define ref_func_80BB4E50 func_80000050
+#define ref_func_80BB5318 func_80000518
+#define ref_func_80BB5AAC func_80000CAC
 
 #include "overlays/actors/ovl_En_Tanron1/z_en_tanron1.h"
 #define FLAGS                                                                                 \

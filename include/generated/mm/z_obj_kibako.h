@@ -8,6 +8,7 @@
 #define Actor_HasParent Actor_HasParent
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_OfferGetItem Actor_OfferGetItem
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
@@ -50,7 +51,7 @@
 #define ref_func_800A8150 func_800A8670
 #define ref_func_800A817C func_800A869C
 #define ref_func_809262BC func_8090ADAC
-#define ref_func_80926318 func_8090AE08
+#define ref_func_80926318 func_80000168
 #define ref_func_80926394 func_8090AE84
 #define ref_func_80926B40 func_8090B630
 #define sCylinderInit D_8090BEA0

@@ -5,7 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetFocus Actor_SetFocus
 #define Actor_SetScale Actor_SetScale
+#define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
@@ -15,11 +17,16 @@
 #define EnDoorEtc_IsDistanceGreater func_80000174
 #define EnDoorEtc_Update func_80000560
 #define EnDoorEtc_WaitForObject func_800001D8
+#define Flags_GetSwitch Flags_GetSwitch
+#define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
+#define Player_InCsMode Player_InCsMode
 #define func_80AC21A0 func_800002D0
 #define func_80AC2354 func_80000484
-#define ref_func_80AC2354 D_80AA7084
+#define ref_func_80AC2154 D_80AA6E84
+#define ref_func_80AC21A0 func_800002D0
+#define ref_func_80AC2354 func_80000484
 #define sCylinderInit D_80AA72D0
 #define sInitChain D_80AA7364
 #define sObjectInfo D_80AA72FC

@@ -3,9 +3,15 @@
 #define MM_Z_EN_OKARINA_TAG_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_OcarinaInteractionAccepted Actor_OcarinaInteractionAccepted
+#define Actor_OfferOcarinaInteraction Actor_OfferOcarinaInteraction
 #define EnOkarinaTag_Init func_80000010
+#define Flags_GetSwitch Flags_GetSwitch
+#define Message_DisplayOcarinaStaff func_80152978
 #define func_8093E518 func_800000F8
-#define ref_func_8093E518 D_80923008
+#define gSaveContext D_801E6EF0
+#define ref_func_8093E518 func_800000F8
+#define ref_func_8093E68C D_8092317C
 
 #include "overlays/actors/ovl_En_Okarina_Tag/z_en_okarina_tag.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_UPDATE_DURING_OCARINA | ACTOR_FLAG_LOCK_ON_DISABLED)

@@ -3,6 +3,9 @@
 #define MM_Z_ITEM_ETCETERA_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_HasParent Actor_HasParent
+#define Actor_Kill Actor_Kill
+#define Actor_OfferGetItem Actor_OfferGetItem
 #define Actor_SetScale Actor_SetScale
 #define GetItem_Draw GetItem_Draw
 #define ItemEtcetera_Draw D_80904CAC
@@ -14,7 +17,7 @@
 #define func_8092009C func_800001AC
 #define ref_func_800B8050 func_800B7DD4
 #define ref_func_800B8118 func_800B7E9C
-#define ref_func_8092009C D_80904B8C
+#define ref_func_8092009C func_800001AC
 #define ref_func_809200F8 D_80904BE8
 #define sGetItemDrawIds D_80904D3C
 #define sGetItemIds D_80904D58

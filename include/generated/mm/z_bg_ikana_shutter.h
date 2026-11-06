@@ -4,9 +4,21 @@
 
 /* names of ours that symbols of the reference stand for */
 #define BgIkanaShutter_AllSwitchesPressed func_80000000
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetClear Flags_SetClear
+#define Quake_Request Quake_Request
+#define Quake_SetDuration Quake_SetDuration
+#define Quake_SetPerturbations Quake_SetPerturbations
+#define Quake_SetSpeed Quake_SetSpeed
 #define func_80BD5A18 func_80000388
 #define func_80BD5B60 func_800004D0
+#define ref_func_80BD5828 func_80BBA5C8
+#define ref_func_80BD5A18 func_80000388
+#define ref_func_80BD5B60 func_800004D0
+#define ref_func_80BD5BC4 func_80BBA964
 
 #include "overlays/actors/ovl_Bg_Ikana_Shutter/z_bg_ikana_shutter.h"
 #include "z64quake.h"

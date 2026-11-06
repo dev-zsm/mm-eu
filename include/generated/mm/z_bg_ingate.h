@@ -3,10 +3,22 @@
 #define MM_Z_BG_INGATE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
 #define BgIngate_Draw func_80000D78
 #define BgIngate_FindActor func_80000000
 #define BgIngate_Init func_80000B10
+#define Camera_ChangeSetting Camera_ChangeSetting
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define Environment_StartTime Environment_StartTime
+#define Environment_StopTime Environment_StopTime
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Message_StartTextbox func_80151DF4
+#define Play_GetCamera Play_GetCamera
+#define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define SubS_FindActor SubS_FindActor
+#define SubS_TimePathing_FillKnots SubS_TimePathing_FillKnots
+#define SubS_TimePathing_Update SubS_TimePathing_Update
 #define func_80953B40 func_800000B0
 #define func_80953BEC func_8000015C
 #define func_80953DA8 func_80000318
@@ -15,6 +27,20 @@
 #define func_809541B8 func_80000728
 #define func_809542A0 func_80000810
 #define func_80954340 func_800008B0
+#define gSaveContext D_801E6EF0
+#define gZeroVec3f D_801C9EE0
+#define ref_func_80953B40 func_800000B0
+#define ref_func_80953BEC func_8000015C
+#define ref_func_80953DA8 func_80000318
+#define ref_func_80953E38 func_80938928
+#define ref_func_80953EA4 func_80000414
+#define ref_func_80953F14 func_80938A04
+#define ref_func_80953F8C D_80938A7C
+#define ref_func_80953F9C func_8000050C
+#define ref_func_809541B8 func_80000728
+#define ref_func_809542A0 func_80000810
+#define ref_func_80954340 func_800008B0
+#define ref_func_809543D4 D_80938EC4
 
 #include "overlays/actors/ovl_Bg_Ingate/z_bg_ingate.h"
 #include "assets/objects/object_sichitai_obj/object_sichitai_obj.h"

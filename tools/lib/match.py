@@ -74,10 +74,15 @@ def last_relocs():
 def _address(sym: str):
     """The address a symbol stands for: its splat name, or the splat name a registered name replaces. None if unknown."""
     m = re.fullmatch(r"(?:func|D)_([0-9A-F]{8})", sym)
-    if m:
-        return int(m.group(1), 16)
-    m = _REVERSE().get(sym)
-    return int(m[-8:], 16) if m else None
+    if not m:
+        m = _REVERSE().get(sym)
+        if not m:
+            return None
+        m = re.search(r"([0-9A-F]{8})$", m)
+    address = int(m.group(1), 16)
+    # below the boot segment is an address inside an overlay: the file holds the link-time value there, which the relocation table
+    # of the overlay corrects when it is loaded, so the raw bytes of the ROM cannot be compared with it
+    return address if address >= 0x80080000 else None
 
 
 @functools.lru_cache(maxsize=None)

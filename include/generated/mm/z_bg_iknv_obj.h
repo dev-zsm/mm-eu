@@ -4,15 +4,24 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySeq_FlaggedMusicBoxHouse Actor_PlaySeq_FlaggedMusicBoxHouse
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Audio_PlaySfx_2 Audio_PlaySfx_2
 #define BgIknvObj_Destroy func_800001CC
 #define BgIknvObj_Draw func_80000690
 #define BgIknvObj_Init func_80000000
+#define BgIknvObj_UpdateSakonDoor D_80BBCE38
 #define BgIknvObj_UpdateWaterwheel func_800002BC
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define CollisionCheck_SetOC CollisionCheck_SetOC
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_SmoothStepToS Math_SmoothStepToS
 #define func_80BD7CEC func_8000023C
 #define func_80BD7E0C func_8000035C
 #define func_80BD7ED8 func_80000428
@@ -20,6 +29,12 @@
 #define func_80BD7FDC func_8000052C
 #define func_80BD8040 func_80000590
 #define gSaveContext D_801E6EF0
+#define ref_func_80BD7CEC func_8000023C
+#define ref_func_80BD7E0C func_8000035C
+#define ref_func_80BD7ED8 func_80000428
+#define ref_func_80BD7F4C func_8000049C
+#define ref_func_80BD7FDC func_8000052C
+#define ref_func_80BD8040 func_80000590
 
 #include "overlays/actors/ovl_Bg_Iknv_Obj/z_bg_iknv_obj.h"
 #include "assets/objects/object_iknv_obj/object_iknv_obj.h"

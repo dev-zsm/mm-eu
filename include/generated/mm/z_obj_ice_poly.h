@@ -4,20 +4,40 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_SetScale Actor_SetScale
+#define BgCheck_EntityRaycastFloor1 BgCheck_EntityRaycastFloor1
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionCheck_SetAT CollisionCheck_SetAT
+#define CollisionCheck_SetOC CollisionCheck_SetOC
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define EffectSsEnIce_Spawn EffectSsEnIce_Spawn
+#define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define Flags_GetSwitch Flags_GetSwitch
 #define ObjIcePoly_Destroy func_80000244
 #define ObjIcePoly_Draw func_80000C5C
 #define ObjIcePoly_Init func_80000000
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_ZeroFloat Rand_ZeroFloat
+#define Rand_ZeroOne func_8008704C
+#define SubS_FindActor SubS_FindActor
 #define func_80931828 func_800002C8
 #define func_80931A38 func_800004D8
 #define func_80931E58 func_800008F8
 #define func_80931EEC func_8000098C
-#define ref_func_80931A38 D_80916528
+#define gZeroVec3f D_801C9EE0
+#define ref_D_80932378 D_80916E68
+#define ref_D_8093237C D_80916E6C
+#define ref_func_80931828 func_800002C8
+#define ref_func_80931A38 func_800004D8
+#define ref_func_80931E58 func_800008F8
+#define ref_func_80931EEC func_8000098C
 #define sCylinderInit1 D_80916E10
 #define sCylinderInit2 D_80916E3C
 

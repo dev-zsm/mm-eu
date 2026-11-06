@@ -4,12 +4,15 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_Stop func_800F1D6C
 #define Flags_GetSwitch Flags_GetSwitch
 #define ObjDemo_Init func_80000000
 #define ObjDemo_Update func_80000304
 #define func_80983678 func_80000158
 #define ref_func_80983634 func_80968374
-#define ref_func_80983678 D_809683B8
+#define ref_func_80983678 func_80000158
+#define ref_func_80983704 D_80968444
 
 #include "overlays/actors/ovl_Obj_Demo/z_obj_demo.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)

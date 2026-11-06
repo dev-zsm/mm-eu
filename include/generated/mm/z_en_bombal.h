@@ -5,22 +5,33 @@
 /* names of ours that symbols of the reference stand for */
 #define ActorShadow_DrawCircle D_800B3F30
 #define ActorShape_Init ActorShape_Init
+#define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_SetScale Actor_SetScale
+#define Actor_Spawn Actor_Spawn
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define EnBombal_DrawEffects func_80000798
 #define EnBombal_Init func_80000000
 #define EnBombal_InitEffects func_80000520
 #define EnBombal_Update func_8000040C
 #define EnBombal_UpdateEffects func_80000648
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
 #define func_80C05C44 func_800001D4
 #define func_80C05DE8 func_80000378
 #define ref_func_80C05B24 func_80BEA8C4
+#define ref_func_80C05C44 func_800001D4
+#define ref_func_80C05DE8 func_80000378
 #define sCylinderInit D_80BEB200
 
 #include "overlays/actors/ovl_En_Bombal/z_en_bombal.h"

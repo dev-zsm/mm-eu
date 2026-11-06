@@ -3,6 +3,7 @@
 #define MM_Z_EN_WATER_EFFECT_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_SetScale Actor_SetScale
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
@@ -13,6 +14,7 @@
 #define EnWaterEffect_Update func_80000558
 #define Flags_GetSwitch Flags_GetSwitch
 #define Math_ApproachF Math_ApproachF
+#define Math_ApproachZeroF Math_ApproachZeroF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_MultVecZ Matrix_MultVecZ
 #define Matrix_RotateYF Matrix_RotateYF
@@ -27,12 +29,13 @@
 #define func_80A5A184 func_800019E4
 #define func_80A5A534 func_80001D94
 #define func_80A5A6B8 func_80001F18
-#define ref_func_80A587A0 func_80A3D500
-#define ref_func_80A58908 func_80A3D668
-#define ref_func_80A59C04 D_80A3E964
-#define ref_func_80A5A184 D_80A3EEE4
-#define ref_func_80A5A534 D_80A3F294
-#define ref_func_80A5A6B8 D_80A3F418
+#define ref_func_80A587A0 func_80000000
+#define ref_func_80A58908 func_80000168
+#define ref_func_80A599E8 func_80001248
+#define ref_func_80A59C04 func_80001464
+#define ref_func_80A5A184 func_800019E4
+#define ref_func_80A5A534 func_80001D94
+#define ref_func_80A5A6B8 func_80001F18
 #define sZeroVec D_80A3FD10
 
 #include "overlays/actors/ovl_En_Water_Effect/z_en_water_effect.h"

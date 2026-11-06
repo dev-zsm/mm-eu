@@ -4,8 +4,11 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
@@ -13,20 +16,31 @@
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Math_StepToF Math_StepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define ObjToge_Init func_800002CC
 #define ObjToge_Update func_8000090C
+#define Rand_ZeroOne func_8008704C
 #define func_809A41C0 func_80000000
 #define func_809A42A0 func_800000E0
 #define func_809A43EC func_8000022C
 #define func_809A477C func_800005BC
 #define func_809A481C func_8000065C
 #define func_809A48AC func_800006EC
+#define ref_D_809A4CDC D_80989A1C
 #define ref_D_809A4D0C D_80989A4C
+#define ref_func_800B2B44 func_800B3064
+#define ref_func_809A41C0 func_80000000
+#define ref_func_809A42A0 func_800000E0
+#define ref_func_809A43EC func_8000022C
 #define ref_func_809A4744 func_80989484
+#define ref_func_809A477C func_800005BC
 #define ref_func_809A4804 func_80989544
+#define ref_func_809A481C func_8000065C
+#define ref_func_809A488C func_809895CC
+#define ref_func_809A48AC func_800006EC
 #define sCylinderInit D_809899F0
 #define sInitChain D_80989A54
 

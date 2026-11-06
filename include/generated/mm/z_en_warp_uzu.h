@@ -3,15 +3,23 @@
 #define MM_Z_EN_WARP_UZU_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_OfferTalk Actor_OfferTalk
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define Actor_WorldYawTowardActor Actor_WorldYawTowardActor
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define EnWarpUzu_DoNothing D_80A4B148
 #define EnWarpUzu_Init func_80000000
 #define EnWarpUzu_Update func_80000278
 #define func_80A66278 func_800000F8
 #define func_80A66384 func_80000204
+#define gSaveContext D_801E6EF0
+#define ref_func_80169EFC func_8016B084
 #define ref_func_80A66208 func_80A4AF68
+#define ref_func_80A66278 func_800000F8
+#define ref_func_80A66384 func_80000204
 #define sCylinderInit D_80A4B220
 #define sInitChain D_80A4B24C
 

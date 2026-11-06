@@ -4,13 +4,20 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_SpawnAsChild Actor_SpawnAsChild
 #define EnEncount3_Draw func_800006D4
 #define EnEncount3_Init func_80000000
 #define EnEncount3_Update func_800002F0
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
+#define Player_GetMask Player_GetMask
 #define func_809AD084 func_80000144
 #define func_809AD194 func_80000254
+#define ref_D_809AD810 D_80992550
 #define ref_func_809AD058 func_80991D98
+#define ref_func_809AD084 func_80000144
+#define ref_func_809AD194 func_80000254
+#define ref_func_809AD1EC D_80991F2C
 
 #include "overlays/actors/ovl_En_Encount3/z_en_encount3.h"
 #include "assets/objects/object_big_fwall/object_big_fwall.h"

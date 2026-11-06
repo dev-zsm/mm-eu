@@ -3,12 +3,24 @@
 #define MM_Z_BG_HAKUGIN_SWITCH_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ChangeCategory Actor_ChangeCategory
+#define Actor_PlaySfx_FlaggedTimer Actor_PlaySfx_FlaggedTimer
 #define BgHakuginSwitch_Init func_80000068
 #define BgHakuginSwitch_Update func_80000E98
+#define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
 #define DynaPolyActor_IsHeavySwitchPressed func_800CAD6C
+#define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
 #define DynaPolyActor_IsSwitchPressed func_800CAD48
+#define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
+#define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Math_StepToF Math_StepToF
+#define Rumble_Request Rumble_Request
 #define func_80B15A68 func_800002D8
 #define func_80B15B1C func_8000038C
 #define func_80B15B74 func_800003E4
@@ -22,8 +34,27 @@
 #define func_80B162AC func_80000B1C
 #define func_80B16400 func_80000C70
 #define func_80B16494 func_80000D04
-#define ref_func_80B15A68 D_80AFA798
-#define ref_func_80B161A0 D_80AFAED0
+#define ref_D_80B1688C D_80AFB5BC
+#define ref_D_80B16AF0 D_80AFB820
+#define ref_func_80B15790 func_80AFA4C0
+#define ref_func_80B157C4 func_80AFA4F4
+#define ref_func_80B15A4C func_80AFA77C
+#define ref_func_80B15A68 func_800002D8
+#define ref_func_80B15B1C func_8000038C
+#define ref_func_80B15B74 func_800003E4
+#define ref_func_80B15E0C func_8000067C
+#define ref_func_80B15E78 func_800006E8
+#define ref_func_80B15F3C func_800007AC
+#define ref_func_80B15F88 func_800007F8
+#define ref_func_80B1606C func_800008DC
+#define ref_func_80B160DC func_8000094C
+#define ref_func_80B16180 func_80AFAEB0
+#define ref_func_80B161A0 func_80000A10
+#define ref_func_80B162AC func_80000B1C
+#define ref_func_80B163C4 func_80AFB0F4
+#define ref_func_80B16400 func_80000C70
+#define ref_func_80B16494 func_80000D04
+#define ref_func_80B16520 D_80AFB250
 
 #include "overlays/actors/ovl_Bg_Hakugin_Switch/z_bg_hakugin_switch.h"
 #include "z64rumble.h"

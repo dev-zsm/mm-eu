@@ -3,13 +3,33 @@
 #define MM_Z_OBJ_NOZOKI_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_OfferTalk Actor_OfferTalk
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define Actor_TextboxIsClosing Actor_TextboxIsClosing
+#define Actor_WorldToActorCoords Actor_WorldToActorCoords
+#define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
+#define CutsceneManager_GetAdditionalCsId CutsceneManager_GetAdditionalCsId
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPolyActor_Init DynaPolyActor_Init
+#define Flags_GetSwitch Flags_GetSwitch
+#define Flags_UnsetSwitch Flags_UnsetSwitch
 #define GetItem_Draw GetItem_Draw
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Lib_Vec3f_TranslateAndRotateY func_800FFF1C
+#define Math_StepToF Math_StepToF
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_StepToXZ Math_Vec3f_StepToXZ
 #define ObjNozoki_Draw func_80001014
 #define ObjNozoki_Init func_8000000C
 #define ObjNozoki_SetupAction func_80B871C0
+#define Play_InCsMode Play_InCsMode
+#define SubS_FindActor SubS_FindActor
 #define func_80BA2514 func_800000F4
 #define func_80BA26A8 func_80000288
 #define func_80BA2708 func_800002E8
@@ -22,9 +42,28 @@
 #define func_80BA311C func_80000CFC
 #define func_80BA3230 func_80000E10
 #define func_80BA3344 func_80000F24
+#define gSfxDefaultPos D_801D3DD4
+#define ref_D_80BA34D8 D_80B88278
+#define ref_D_80BA34E4 D_80B88284
 #define ref_D_80BA34FC D_80B8829C
-#define ref_func_80BA2514 D_80B872B4
-#define ref_func_80BA3230 D_80B87FD0
+#define ref_D_80BA36B0 D_80B88450
+#define ref_D_80BA36B4 D_80B88454
+#define ref_D_80BA36B8 D_80B88458
+#define ref_func_80BA2514 func_800000F4
+#define ref_func_80BA26A8 func_80000288
+#define ref_func_80BA2708 func_800002E8
+#define ref_func_80BA2790 func_80B87530
+#define ref_func_80BA27C4 D_80B87564
+#define ref_func_80BA28DC func_800004BC
+#define ref_func_80BA2AB4 func_80000694
+#define ref_func_80BA2B64 func_80B87904
+#define ref_func_80BA2BA4 func_80000784
+#define ref_func_80BA2C28 func_80000808
+#define ref_func_80BA2C94 func_80000874
+#define ref_func_80BA3044 func_80000C24
+#define ref_func_80BA311C func_80000CFC
+#define ref_func_80BA3230 func_80000E10
+#define ref_func_80BA3344 func_80000F24
 #define sInitChain D_80B88250
 
 #include "overlays/actors/ovl_Obj_Nozoki/z_obj_nozoki.h"

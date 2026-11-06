@@ -3,12 +3,25 @@
 #define MM_Z_EN_BOOM_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
+#define Actor_SetSpeeds Actor_SetSpeeds
+#define Actor_WorldPitchTowardPoint Actor_WorldPitchTowardPoint
+#define Actor_WorldYawTowardPoint Actor_WorldYawTowardPoint
+#define BgCheck_EntityLineTest1 BgCheck_EntityLineTest1
+#define BgCheck_GetWaterSurfaceNoBgIdAlt BgCheck_GetWaterSurfaceNoBgIdAlt
 #define Collider_DestroyQuad Collider_DestroyQuad
 #define Collider_InitQuad Collider_InitQuad
 #define Collider_SetQuad Collider_SetQuad
+#define CollisionCheck_SpawnShieldParticlesMetal CollisionCheck_SpawnShieldParticlesMetal
 #define EffectBlure_AddVertex EffectBlure_AddVertex
+#define EffectSsBubble_Spawn EffectSsBubble_Spawn
+#define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
+#define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define Effect_Add Effect_Add
 #define Effect_Destroy Effect_Destroy
 #define Effect_GetByIndex Effect_GetByIndex
@@ -18,6 +31,10 @@
 #define EnBoom_SetupAction func_808A1BF0
 #define EnBoom_Update func_800008C4
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_ScaledStepToS Math_ScaledStepToS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Math_Vec3f_DistXYZ Math_Vec3f_DistXYZ
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
@@ -25,8 +42,10 @@
 #define func_808A24DC func_8000000C
 #define func_808A2918 func_80000448
 #define ref_D_808A3078 D_808A2798
+#define ref_func_800B90AC func_800B8E30
 #define ref_func_80126440 func_801268F0
-#define ref_func_808A2918 D_808A2038
+#define ref_func_808A24DC func_8000000C
+#define ref_func_808A2918 func_80000448
 #define sInitChain D_808A2780
 #define sQuadInit D_808A2730
 

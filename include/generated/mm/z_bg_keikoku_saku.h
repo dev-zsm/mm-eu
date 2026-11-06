@@ -3,9 +3,12 @@
 #define MM_Z_BG_KEIKOKU_SAKU_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
 #define BgKeikokuSaku_Draw func_800002EC
 #define BgKeikokuSaku_Update func_800001E8
 #define func_80A538E0 func_80000110
+#define ref_func_80A538E0 func_80000110
+#define ref_func_80A53994 D_80A386F4
 
 #include "overlays/actors/ovl_Bg_Keikoku_Saku/z_bg_keikoku_saku.h"
 #include "assets/objects/object_keikoku_obj/object_keikoku_obj.h"

@@ -3,9 +3,12 @@
 #define MM_Z_OBJ_ROOMTIMER_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ChangeCategory Actor_ChangeCategory
+#define Interface_StartTimer func_8010E890
 #define ObjRoomtimer_Init func_80000000
 #define func_80973CD8 func_80000088
-#define ref_func_80973CD8 D_80958A18
+#define ref_func_80973CD8 func_80000088
+#define ref_func_80973D3C D_80958A7C
 
 #include "overlays/actors/ovl_Obj_Roomtimer/z_obj_roomtimer.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)

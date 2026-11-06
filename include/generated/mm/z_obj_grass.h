@@ -31,11 +31,12 @@
 #define ObjGrass_SpawnFragments func_80000204
 #define ObjGrass_UpdateGrass func_8000072C
 #define Rand_Next func_80087010
+#define SkinMatrix_Vec3fMtxFMultXYZW SkinMatrix_Vec3fMtxFMultXYZW
 #define func_809A9110 func_80000000
 #define gObjGrass_D_809AA9F0 D_8098F730
 #define gObjGrass_D_809AAA68 D_8098F7A8
 #define gObjGrass_D_809AAAE0 D_8098F820
-#define ref_func_809A9110 func_8098DE50
+#define ref_func_809A9110 func_80000000
 #define sCylinderInit D_8098F860
 #define sNearestGrassElements D_8098FAF0
 #define sNearestGrassElementsDistSq D_8098FB40

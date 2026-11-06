@@ -3,17 +3,27 @@
 #define MM_Z_DM_HINA_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
 #define DmHina_Draw func_80000840
 #define GetItem_Draw GetItem_Draw
+#define Math_SinS Math_SinS
+#define Math_SmoothStepToF Math_SmoothStepToF
 #define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
+#define Message_GetState func_801529DC
+#define Play_SetCameraAtEye Play_SetCameraAtEye
 #define func_80A1F470 func_80000060
 #define func_80A1F56C func_8000015C
 #define func_80A1F63C func_8000022C
 #define func_80A1F75C func_8000034C
 #define func_80A1F9AC func_8000059C
-#define ref_func_80A1F9AC func_80A046DC
+#define ref_func_80A1F470 func_80000060
+#define ref_func_80A1F56C func_8000015C
+#define ref_func_80A1F5AC D_80A042DC
+#define ref_func_80A1F63C func_8000022C
+#define ref_func_80A1F75C func_8000034C
+#define ref_func_80A1F9AC func_8000059C
 
 #include "overlays/actors/ovl_Dm_Hina/z_dm_hina.h"
 #include "z64draw.h"

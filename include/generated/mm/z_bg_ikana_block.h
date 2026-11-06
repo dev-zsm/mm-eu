@@ -3,13 +3,26 @@
 #define MM_Z_BG_IKANA_BLOCK_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_SetFocus Actor_SetFocus
+#define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
+#define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
 #define BgIkanaBlock_Init func_800004D8
 #define BgIkanaBlock_Update func_80000A14
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define DynaPoly_GetActor DynaPoly_GetActor
+#define Math_StepToF Math_StepToF
+#define Matrix_MultVecY Matrix_MultVecY
+#define Matrix_MultVecZ Matrix_MultVecZ
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define SurfaceType_GetSfxOffset SurfaceType_GetSfxOffset
 #define func_80B7EA60 func_80000000
 #define func_80B7EB94 func_80000134
 #define func_80B7ECFC func_8000029C
@@ -22,7 +35,24 @@
 #define func_80B7F290 func_80000830
 #define func_80B7F398 func_80000938
 #define func_80B7F564 func_80000B04
-#define ref_func_80B7ED54 func_80B63A74
+#define ref_func_80B7EA60 func_80000000
+#define ref_func_80B7EB30 func_80B63850
+#define ref_func_80B7EB64 func_80B63884
+#define ref_func_80B7EB7C func_80B6389C
+#define ref_func_80B7EB94 func_80000134
+#define ref_func_80B7ECFC func_8000029C
+#define ref_func_80B7ED54 func_800002F4
+#define ref_func_80B7EDC4 func_80000364
+#define ref_func_80B7EE70 func_80B63B90
+#define ref_func_80B7EEB4 func_80000454
+#define ref_func_80B7F034 func_800005D4
+#define ref_func_80B7F0A4 func_80B63DC4
+#define ref_func_80B7F0D0 func_80000670
+#define ref_func_80B7F1A8 func_80000748
+#define ref_func_80B7F290 func_80000830
+#define ref_func_80B7F360 func_80B64080
+#define ref_func_80B7F398 func_80000938
+#define ref_func_80B7F564 func_80000B04
 
 #include "overlays/actors/ovl_Bg_Ikana_Block/z_bg_ikana_block.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"

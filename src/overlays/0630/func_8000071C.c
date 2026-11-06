@@ -1,0 +1,13 @@
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+#include "generated/mm/z_bg_iknin_susceil.h"
+
+void ref_func_80C0AE5C(BgIkninSusceil* this, PlayState* play) {
+    this->dyna.actor.velocity.y += -0.1f;
+    this->dyna.actor.velocity.y *= 0.95f;
+    this->dyna.actor.velocity.y = CLAMP_MIN(this->dyna.actor.velocity.y, 1.0f);
+    this->dyna.actor.world.pos.y += this->dyna.actor.velocity.y;
+    if ((this->dyna.actor.home.pos.y + 365.0f) < this->dyna.actor.world.pos.y) {
+        BgIkninSusceil_RequestQuakeAndRumble(this, play, 3, 14, 2);
+        ref_func_80C0AB14(this);
+    }
+}

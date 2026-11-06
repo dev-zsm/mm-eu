@@ -39,7 +39,7 @@
 #define gSaveContext D_801E6EF0
 #define gSfxDefaultFreqAndVolScale D_801D3DE0
 #define gSfxDefaultReverb D_801D3DE8
-#define ref_func_808B5EEC func_808B55CC
+#define ref_func_808B5EEC func_80000B2C
 #define sChargingSfxIds D_808B6834
 #define sCylinderInit D_808B6800
 #define sDamages D_808B682C

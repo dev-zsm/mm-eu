@@ -5,6 +5,8 @@
 /* names of ours that symbols of the reference stand for */
 #define BgHakaBombwall_PlayCutscene func_80000514
 #define BgHakaBombwall_SetupEndCutscene func_80BBB154
+#define BgHakaBombwall_SetupPlayCutscene func_80BBB070
+#define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
@@ -13,7 +15,9 @@
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80BD5E6C func_8000006C
 #define func_80BD6274 func_80000474
-#define ref_func_80BD5E6C func_80BBAC0C
+#define ref_func_80BD5E00 func_80BBABA0
+#define ref_func_80BD5E6C func_8000006C
+#define ref_func_80BD6274 func_80000474
 
 #include "overlays/actors/ovl_Bg_Haka_Bombwall/z_bg_haka_bombwall.h"
 #include "assets/objects/object_haka_obj/object_haka_obj.h"

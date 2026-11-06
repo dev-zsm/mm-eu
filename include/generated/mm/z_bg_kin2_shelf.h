@@ -5,9 +5,17 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
+#define Audio_PlaySfx Audio_PlaySfx
+#define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
 #define BgKin2Shelf_Init func_80000460
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Matrix_Translate Matrix_Translate
 #define func_80B6FB30 func_80000000
 #define func_80B6FCA4 func_80000174
 #define func_80B6FE48 func_80000318
@@ -16,8 +24,25 @@
 #define func_80B700C0 func_80000590
 #define func_80B70230 func_80000700
 #define func_80B704B4 func_80000984
+#define ref_D_80B70750 D_80B55480
+#define ref_D_80B70758 D_80B55488
+#define ref_D_80B70760 D_80B55490
+#define ref_D_80B70768 D_80B55498
+#define ref_D_80B70770 D_80B554A0
+#define ref_D_80B70778 D_80B554A8
 #define ref_D_80B70780 D_80B554B0
+#define ref_func_80B6FB30 func_80000000
+#define ref_func_80B6FCA4 func_80000174
+#define ref_func_80B6FE08 func_80B54B38
+#define ref_func_80B6FE48 func_80000318
+#define ref_func_80B6FEBC func_8000038C
+#define ref_func_80B6FF28 func_800003F8
 #define ref_func_80B700A8 func_80B54DD8
+#define ref_func_80B700C0 func_80000590
+#define ref_func_80B70214 func_80B54F44
+#define ref_func_80B70230 func_80000700
+#define ref_func_80B70498 func_80B551C8
+#define ref_func_80B704B4 func_80000984
 #define sInitChain D_80B554AC
 
 #include "overlays/actors/ovl_Bg_Kin2_Shelf/z_bg_kin2_shelf.h"

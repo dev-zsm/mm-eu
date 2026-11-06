@@ -3,9 +3,30 @@
 #define MM_Z_BG_DBLUE_BALANCE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_Spawn Actor_Spawn
+#define AudioSfx_StopByPosAndId AudioSfx_StopByPosAndId
+#define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
+#define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define BgDblueBalance_Draw func_80001234
 #define BgDblueBalance_Init func_800007B0
 #define BgDblueBalance_Update func_80000F18
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
+#define Flags_GetSwitch Flags_GetSwitch
+#define Math_CosS Math_CosS
+#define Math_StepToS Math_StepToS
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_MultVecZ Matrix_MultVecZ
+#define Matrix_MultZero Matrix_MultZero
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Translate Matrix_Translate
 #define func_80B823B0 func_80000000
 #define func_80B82454 func_800000A4
 #define func_80B8259C func_800001EC
@@ -17,7 +38,18 @@
 #define func_80B833C4 func_80001014
 #define func_80B83518 func_80001168
 #define func_80B83758 func_800013A8
-#define ref_func_80B828E4 func_80B67604
+#define ref_func_80B823B0 func_80000000
+#define ref_func_80B82454 func_800000A4
+#define ref_func_80B8259C func_800001EC
+#define ref_func_80B8264C func_8000029C
+#define ref_func_80B828E4 func_80000534
+#define ref_func_80B8296C func_800005BC
+#define ref_func_80B82B00 func_80000750
+#define ref_func_80B82DE0 func_80000A30
+#define ref_func_80B83344 func_80B68064
+#define ref_func_80B833C4 func_80001014
+#define ref_func_80B83518 func_80001168
+#define ref_func_80B83758 func_800013A8
 
 #include "overlays/actors/ovl_Bg_Dblue_Balance/z_bg_dblue_balance.h"
 #include "assets/objects/object_dblue_object/object_dblue_object.h"

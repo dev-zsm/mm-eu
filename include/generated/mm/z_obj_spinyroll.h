@@ -3,8 +3,23 @@
 #define MM_Z_OBJ_SPINYROLL_H
 
 /* names of ours that symbols of the reference stand for */
+#define BgCheck_EntityCheckCeiling BgCheck_EntityCheckCeiling
+#define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
+#define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
+#define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
+#define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_StepToF Math_StepToF
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Math_Vec3f_Scale Math_Vec3f_Scale
+#define Math_Vec3f_Sum Math_Vec3f_Sum
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define ObjSpinyroll_Draw func_800013CC
 #define ObjSpinyroll_Init func_80000CD8
 #define ObjSpinyroll_Update func_80001320
@@ -21,9 +36,26 @@
 #define func_80A1E394 func_80000944
 #define func_80A1E3D8 func_80000988
 #define func_80A1E648 func_80000BF8
-#define ref_func_80A1DB2C func_80A0285C
-#define ref_func_80A1DC5C func_80A0298C
+#define gZeroVec3f D_801C9EE0
+#define ref_D_80A1F1B8 D_80A03EE8
+#define ref_D_80A1F1F4 D_80A03F24
+#define ref_D_80A1F1FC D_80A03F2C
+#define ref_func_80A1DA50 func_80A02780
+#define ref_func_80A1DAAC func_8000005C
+#define ref_func_80A1DB2C func_800000DC
+#define ref_func_80A1DC5C func_8000020C
 #define ref_func_80A1DCCC func_80A029FC
+#define ref_func_80A1DD18 func_800002C8
+#define ref_func_80A1DE10 func_800003C0
+#define ref_func_80A1DEB8 func_80000468
+#define ref_func_80A1DFA0 func_80000550
+#define ref_func_80A1E074 func_80000624
+#define ref_func_80A1E2D8 func_80000888
+#define ref_func_80A1E334 func_800008E4
+#define ref_func_80A1E394 func_80000944
+#define ref_func_80A1E3D8 func_80000988
+#define ref_func_80A1E648 func_80000BF8
+#define sTrisInit D_80A03ED8
 
 #include "overlays/actors/ovl_Obj_Spinyroll/z_obj_spinyroll.h"
 #include "overlays/effects/ovl_Effect_Ss_Hitmark/z_eff_ss_hitmark.h"

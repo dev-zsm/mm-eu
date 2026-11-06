@@ -35,14 +35,16 @@
 #define Math3D_Vec3fReflect Math3D_Vec3fReflect
 #define Math_ApproachF Math_ApproachF
 #define Math_SmoothStepToF Math_SmoothStepToF
+#define Matrix_MultVec3f Matrix_MultVec3f
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C
 #define func_8089F908 func_80000428
 #define func_8089FF30 func_80000A50
 #define func_808A005C func_80000B7C
 #define ref_func_8089F59C func_8089ECBC
-#define ref_func_8089F908 func_8089F028
-#define ref_func_8089FF30 func_8089F650
+#define ref_func_8089F908 func_80000428
+#define ref_func_8089FF30 func_80000A50
+#define ref_func_808A005C func_80000B7C
 #define sColChkInfoInit D_8089FE78
 #define sJntSphInit D_8089FE68
 

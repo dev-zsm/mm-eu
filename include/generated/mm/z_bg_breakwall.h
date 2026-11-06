@@ -5,15 +5,27 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetObjectDependency Actor_SetObjectDependency
+#define Actor_SetScale Actor_SetScale
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgBreakwall_Destroy func_8000031C
 #define BgBreakwall_Draw func_80000C84
 #define BgBreakwall_Init func_80000250
 #define BgBreakwall_SetupAction func_808B6A40
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define EffectSsIceSmoke_Spawn func_800B372C
+#define Environment_LerpSandstormColors Environment_LerpSandstormColors
+#define Flags_GetSwitch Flags_GetSwitch
+#define Gfx_PrimColor Gfx_PrimColor
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Object_GetSlot Object_GetSlot
+#define Object_IsLoaded Object_IsLoaded
+#define Rand_ZeroFloat Rand_ZeroFloat
+#define Rand_ZeroOne func_8008704C
 #define func_808B73C4 func_80000064
 #define func_808B7410 func_800000B0
 #define func_808B751C func_800001BC
@@ -22,8 +34,20 @@
 #define func_808B7A90 func_80000730
 #define func_808B7B54 func_800007F4
 #define func_808B7D34 func_800009D4
+#define gSaveContext D_801E6EF0
+#define gZeroVec3f D_801C9EE0
 #define ref_D_808B8140 D_808B7820
-#define ref_func_808B76CC D_808B6DAC
+#define ref_D_808B82F0 D_808B79D0
+#define ref_D_808B8300 D_808B79E0
+#define ref_func_800FEA50 func_800FE848
+#define ref_func_808B73C4 func_80000064
+#define ref_func_808B7410 func_800000B0
+#define ref_func_808B751C func_800001BC
+#define ref_func_808B76CC func_8000036C
+#define ref_func_808B7914 func_800005B4
+#define ref_func_808B7A90 func_80000730
+#define ref_func_808B7B54 func_800007F4
+#define ref_func_808B7D34 func_800009D4
 #define sInitChain D_808B79C0
 
 #include "overlays/actors/ovl_Bg_Breakwall/z_bg_breakwall.h"

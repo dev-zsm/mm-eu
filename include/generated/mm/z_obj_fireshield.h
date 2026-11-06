@@ -7,6 +7,14 @@
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
+#define Flags_GetSwitch Flags_GetSwitch
+#define Flags_GetTreasure Flags_GetTreasure
+#define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Math_StepToF Math_StepToF
 #define ObjFireshield_Draw func_80000C14
 #define ObjFireshield_Init func_8000075C
 #define ObjFireshield_Update func_8000090C
@@ -19,9 +27,19 @@
 #define func_80A4CE28 func_80000398
 #define func_80A4D174 func_800006E4
 #define ref_D_80A4D84C D_80A325AC
+#define ref_D_80A4D864 D_80A325C4
+#define ref_D_80A4D874 D_80A325D4
+#define ref_D_80A4D884 D_80A325E4
+#define ref_D_80A4D894 D_80A325F4
+#define ref_func_80A4CA90 func_80A317F0
+#define ref_func_80A4CABC func_8000002C
+#define ref_func_80A4CB7C func_800000EC
+#define ref_func_80A4CC54 func_800001C4
+#define ref_func_80A4CCBC func_8000022C
 #define ref_func_80A4CD28 D_80A31A88
-#define ref_func_80A4CD34 func_80A31A94
-#define ref_func_80A4D174 func_80A31ED4
+#define ref_func_80A4CD34 func_800002A4
+#define ref_func_80A4CE28 func_80000398
+#define ref_func_80A4D174 func_800006E4
 #define sCylinderInit D_80A32580
 #define sInitChain D_80A32604
 

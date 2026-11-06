@@ -11,9 +11,11 @@
 #define Collider_InitTris Collider_InitTris
 #define Collider_SetTris Collider_SetTris
 #define Collider_SetTrisVertices func_800E7C8C
+#define CollisionCheck_SetAC CollisionCheck_SetAC
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
@@ -27,7 +29,10 @@
 #define ref_D_80C18A48 D_80BFD7E8
 #define ref_D_80C18AC0 D_80BFD860
 #define ref_D_80C18AC8 D_80BFD868
+#define ref_func_80C184EC func_800002AC
 #define ref_func_80C187E4 func_80BFD584
+#define ref_func_80C187F8 func_800005B8
+#define ref_func_80C1886C func_80BFD60C
 #define sTrisInit D_80BFD7D8
 
 #include "overlays/actors/ovl_Bg_Last_Bwall/z_bg_last_bwall.h"

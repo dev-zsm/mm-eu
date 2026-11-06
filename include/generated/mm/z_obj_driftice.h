@@ -4,8 +4,21 @@
 
 /* names of ours that symbols of the reference stand for */
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
+#define Math_CosS Math_CosS
+#define Math_ScaledStepToS Math_ScaledStepToS
+#define Math_SinS Math_SinS
+#define Math_StepToF Math_StepToF
+#define Math_StepToS Math_StepToS
+#define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Math_Vec3f_Scale Math_Vec3f_Scale
+#define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define ObjDriftice_Init func_80000A24
 #define ObjDriftice_Update func_80000F8C
+#define Rand_S16Offset Rand_S16Offset
+#define Rand_ZeroOne func_8008704C
 #define func_80A665EC func_8000007C
 #define func_80A667F0 func_80000280
 #define func_80A66930 func_800003C0
@@ -13,7 +26,22 @@
 #define func_80A66E30 func_800008C0
 #define func_80A671E0 func_80000C70
 #define func_80A67450 func_80000EE0
-#define ref_func_80A66E30 func_80A4BB90
+#define ref_D_80A67664 D_80A4C3C4
+#define ref_D_80A67694 D_80A4C3F4
+#define ref_D_80A676B8 D_80A4C418
+#define ref_D_80A676D0 D_80A4C430
+#define ref_func_80A66570 func_80A4B2D0
+#define ref_func_80A665AC func_80A4B30C
+#define ref_func_80A665EC func_8000007C
+#define ref_func_80A667F0 func_80000280
+#define ref_func_80A66930 func_800003C0
+#define ref_func_80A66C4C func_800006DC
+#define ref_func_80A66E30 func_800008C0
+#define ref_func_80A671CC func_80A4BF2C
+#define ref_func_80A671E0 func_80000C70
+#define ref_func_80A6743C func_80A4C19C
+#define ref_func_80A67450 func_80000EE0
+#define ref_func_80A674A8 func_80A4C208
 
 #include "overlays/actors/ovl_Obj_Driftice/z_obj_driftice.h"
 #include "assets/objects/object_driftice/object_driftice.h"

@@ -1,0 +1,10 @@
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+#include "generated/mm/z_obj_comb.h"
+
+void ref_func_8098D870(ObjComb* this, PlayState* play) {
+    s32 temp_v0 = ref_func_800A8150(OBJCOMB_GET_3F(&this->actor));
+
+    if (temp_v0 >= 0) {
+        Item_DropCollectible(play, &this->actor.world.pos, ((OBJCOMB_GET_7F00(&this->actor)) << 8) | temp_v0);
+    }
+}

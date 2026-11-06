@@ -3,14 +3,28 @@
 #define MM_Z_BG_IKANA_BOMBWALL_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define BgIkanaBombwall_Draw func_80000AE0
 #define BgIkanaBombwall_Init func_800005D4
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80BD4720 func_80000000
 #define func_80BD4A14 func_800002F4
 #define func_80BD503C func_8000091C
 #define func_80BD5134 func_80000A14
 #define ref_D_80BD52E0 D_80BBA080
+#define ref_func_80BD4720 func_80000000
+#define ref_func_80BD4A14 func_800002F4
+#define ref_func_80BD503C func_8000091C
+#define ref_func_80BD5118 func_80BB9EB8
+#define ref_func_80BD5134 func_80000A14
 
 #include "overlays/actors/ovl_Bg_Ikana_Bombwall/z_bg_ikana_bombwall.h"
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"

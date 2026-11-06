@@ -6,14 +6,19 @@
 #define ActorShape_Init ActorShape_Init
 #define Actor_PlaySfx_Flagged2 Actor_PlaySfx_Flagged2
 #define Actor_SetScale Actor_SetScale
+#define BgCheck_AnyLineTest1 BgCheck_AnyLineTest1
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_InitQuad Collider_InitQuad
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_SetQuad Collider_SetQuad
+#define Collider_SetQuadVertices func_800E7C1C
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define Math3D_LineSegVsPlane Math3D_LineSegVsPlane
+#define Math_ApproachF Math_ApproachF
 #define Math_ApproachZeroF Math_ApproachZeroF
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define MirRay3_Draw func_80000CB0
 #define MirRay3_Init func_80000000
 #define MirRay3_Update func_80000158
@@ -22,6 +27,10 @@
 #define func_80B9E5F4 func_80000334
 #define func_80B9E7D0 func_80000510
 #define func_80B9E8D4 func_80000614
+#define ref_func_80B9E544 func_80000284
+#define ref_func_80B9E5F4 func_80000334
+#define ref_func_80B9E7D0 func_80000510
+#define ref_func_80B9E8D4 func_80000614
 #define sCylinderInit D_80B84210
 #define sQuadInit D_80B841C0
 

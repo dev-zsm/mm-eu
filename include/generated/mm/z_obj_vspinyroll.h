@@ -3,9 +3,22 @@
 #define MM_Z_OBJ_VSPINYROLL_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
+#define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define EffectSsHitmark_SpawnFixedScale EffectSsHitmark_SpawnFixedScale
+#define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
+#define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
+#define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_StepToF Math_StepToF
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Math_Vec3f_Scale Math_Vec3f_Scale
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define ObjVspinyroll_Draw func_80000D30
 #define ObjVspinyroll_Init func_800007D4
 #define ObjVspinyroll_Update func_80000CA4
@@ -17,6 +30,18 @@
 #define func_80A3C8D8 func_800003F8
 #define func_80A3CB94 func_800006B4
 #define func_80A3D2C0 func_80000DE0
+#define gZeroVec3f D_801C9EE0
+#define ref_D_80A3D450 D_80A221A0
+#define ref_D_80A3D4B4 D_80A22204
+#define ref_D_80A3D4C4 D_80A22214
+#define ref_func_80A3C4E0 func_80000000
+#define ref_func_80A3C560 func_80000080
+#define ref_func_80A3C658 func_80000178
+#define ref_func_80A3C700 func_80000220
+#define ref_func_80A3C7E8 func_80000308
+#define ref_func_80A3C8D8 func_800003F8
+#define ref_func_80A3CB94 func_800006B4
+#define ref_func_80A3D2C0 func_80000DE0
 
 #include "overlays/actors/ovl_Obj_Vspinyroll/z_obj_vspinyroll.h"
 #include "assets/objects/object_spinyroll/object_spinyroll.h"

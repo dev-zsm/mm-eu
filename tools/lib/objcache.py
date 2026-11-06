@@ -68,7 +68,11 @@ def compile_obj(cfile: Path, flags: list[str]) -> Path:
     The object is shared: copy it before modifying it."""
     source = cfile.read_bytes().replace(b"\r\n", b"\n")
     ido = "53" if any(re.match(r"// COMPILER: ido53\s*$", l) for l in source.decode(errors="replace").splitlines()[:3]) else "71"
-    key = _digest(b"cc" + ido.encode(), " ".join(flags).encode(), source, headers().encode())
+    # the context header of an imported function can change while a process runs (tools/search/ref_import.py rewrites it between its
+    # two passes), and `headers()` is computed once: the header the file includes is part of the key too
+    context = b"".join((ROOT / "include" / m).read_bytes() for m in re.findall(r'#include "(generated/mm/[^"]+)"', source.decode(errors="replace"))
+                       if (ROOT / "include" / m).exists())
+    key = _digest(b"cc" + ido.encode(), " ".join(flags).encode(), source, headers().encode(), context)
     obj = CACHE / "obj" / f"{key}.o"
     if obj.exists():
         return obj

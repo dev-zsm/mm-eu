@@ -3,9 +3,12 @@
 #define MM_Z_EN_VIEWER_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define EnViewer_Init func_8000000C
 #define EnViewer_SetupAction func_8089E540
 #define EnViewer_Update func_80000560
+#define Environment_ChangeLightSetting Environment_ChangeLightSetting
+#define SurfaceType_GetLightSettingIndex SurfaceType_GetLightSettingIndex
 #define func_8089F014 func_800001F4
 #define func_8089F0A0 func_80000280
 #define func_8089F17C func_8000035C
@@ -14,9 +17,11 @@
 #define ref_D_8089F3E0 D_8089EB00
 #define ref_D_8089F3E4 D_8089EB04
 #define ref_D_8089F4D0 D_8089EBF0
-#define ref_func_8089F17C D_8089E89C
-#define ref_func_8089F218 D_8089E938
-#define ref_func_8089F2C4 D_8089E9E4
+#define ref_func_8089F014 func_800001F4
+#define ref_func_8089F0A0 func_80000280
+#define ref_func_8089F17C func_8000035C
+#define ref_func_8089F218 func_800003F8
+#define ref_func_8089F2C4 func_800004A4
 
 #include "overlays/actors/ovl_En_Viewer/z_en_viewer.h"
 #define FLAGS                                                                \

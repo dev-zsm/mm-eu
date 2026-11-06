@@ -5,6 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define ActorShadow_DrawCircle D_800B3F30
 #define ActorShape_Init ActorShape_Init
+#define Actor_Kill Actor_Kill
+#define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
@@ -14,11 +17,15 @@
 #define EnScRuppe_Draw func_80000408
 #define EnScRuppe_Init func_800002D8
 #define EnScRuppe_UpdateCollision func_80000000
+#define Rupees_ChangeBy func_80115C10
 #define func_80BD697C func_8000006C
 #define func_80BD6A8C func_8000017C
 #define func_80BD6B18 func_80000208
-#define ref_func_80BD6A8C D_80BBB82C
+#define ref_func_80BD697C func_8000006C
+#define ref_func_80BD6A8C func_8000017C
+#define ref_func_80BD6B18 func_80000208
 #define sCylinderInit D_80BBBBE0
+#define sRupeeInfo D_80BBBBB0
 
 #include "overlays/actors/ovl_En_Sc_Ruppe/z_en_sc_ruppe.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

@@ -3,9 +3,47 @@
 #define MM_Z_BG_IKANA_ROTARYROOM_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
+#define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
 #define BgIkanaRotaryroom_Draw func_80001D50
 #define BgIkanaRotaryroom_Init func_80001418
 #define BgIkanaRotaryroom_Update func_80001BC8
+#define Collider_UpdateSpheres Collider_UpdateSpheres
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CutsceneManager_GetAdditionalCsId CutsceneManager_GetAdditionalCsId
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
+#define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
+#define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
+#define Math_ScaledStepToS Math_ScaledStepToS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Matrix_Get Matrix_Get
+#define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
+#define Matrix_Mult Matrix_Mult
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_MultVecY Matrix_MultVecY
+#define Matrix_MultZero Matrix_MultZero
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Matrix_Translate Matrix_Translate
+#define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
+#define Quake_Request Quake_Request
+#define Quake_SetDuration Quake_SetDuration
+#define Quake_SetPerturbations Quake_SetPerturbations
+#define Quake_SetSpeed Quake_SetSpeed
+#define Rand_ZeroOne func_8008704C
 #define func_80B802E0 func_80000000
 #define func_80B80358 func_80000078
 #define func_80B80440 func_80000160
@@ -23,7 +61,33 @@
 #define func_80B81A80 func_800017A0
 #define func_80B81BA0 func_800018C0
 #define func_80B81DC8 func_80001AE8
-#define ref_func_80B80F08 func_80B65C28
+#define ref_D_80B8216C D_80B66E8C
+#define ref_D_80B82178 D_80B66E98
+#define ref_D_80B82184 D_80B66EA4
+#define ref_D_80B82200 D_80B66F20
+#define ref_func_80B802E0 func_80000000
+#define ref_func_80B80358 func_80000078
+#define ref_func_80B80440 func_80000160
+#define ref_func_80B80550 func_80000270
+#define ref_func_80B80778 func_80000498
+#define ref_func_80B80894 func_800005B4
+#define ref_func_80B80C88 func_800009A8
+#define ref_func_80B80F08 func_80000C28
+#define ref_func_80B81010 func_80000D30
+#define ref_func_80B81234 func_80000F54
+#define ref_func_80B814B8 D_80B661D8
+#define ref_func_80B81570 func_80001290
+#define ref_func_80B816A4 func_800013C4
+#define ref_func_80B818B4 func_80B665D4
+#define ref_func_80B818C8 func_800015E8
+#define ref_func_80B81978 func_80B66698
+#define ref_func_80B819F0 func_80001710
+#define ref_func_80B81A64 func_80B66784
+#define ref_func_80B81A80 func_800017A0
+#define ref_func_80B81B84 func_80B668A4
+#define ref_func_80B81BA0 func_800018C0
+#define ref_func_80B81DAC func_80B66ACC
+#define ref_func_80B81DC8 func_80001AE8
 
 #include "overlays/actors/ovl_Bg_Ikana_Rotaryroom/z_bg_ikana_rotaryroom.h"
 #include "z64quake.h"

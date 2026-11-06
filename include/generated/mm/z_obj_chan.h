@@ -15,6 +15,8 @@
 #define CutsceneManager_Stop func_800F1D6C
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Math_CosS Math_CosS
+#define Math_FAtan2F func_80086BA0
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
 #define Math_StepToS Math_StepToS
@@ -42,7 +44,7 @@
 #define SubS_FillCutscenesList SubS_FillCutscenesList
 #define SubS_StartCutscene SubS_StartCutscene
 #define func_80BB9A1C func_8000013C
-#define ref_func_80BB9A1C func_80B9E7BC
+#define ref_func_80BB9A1C func_8000013C
 #define sInitChain D_80B9F8FC
 #define sObjChanCylinderInit D_80B9F8D0
 #define sObjChanLoaded D_80B9FA30

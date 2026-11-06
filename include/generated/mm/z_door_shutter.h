@@ -4,6 +4,17 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_DrawDoorLock Actor_DrawDoorLock
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_WorldToActorCoords Actor_WorldToActorCoords
+#define Actor_WorldYawTowardPoint Actor_WorldYawTowardPoint
+#define Audio_RestorePrevBgm func_801A3D9C
+#define Camera_ChangeDoorCam Camera_ChangeDoorCam
+#define CutsceneManager_GetAdditionalCsId CutsceneManager_GetAdditionalCsId
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DoorShutter_Draw func_80001524
 #define DoorShutter_Init func_80000220
 #define DoorShutter_SetupAction func_808A0010
@@ -11,16 +22,25 @@
 #define DoorShutter_SetupType func_8000041C
 #define DoorShutter_Update func_800013D4
 #define Flags_GetClear Flags_GetClear
+#define Flags_GetClearTemp Flags_GetClearTemp
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetClear Flags_SetClear
+#define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304
+#define Lib_Vec3f_TranslateAndRotateY func_800FFF1C
+#define Math_StepToF Math_StepToF
 #define Math_Vec3f_DistXZ Math_Vec3f_DistXZ
+#define Math_Vec3f_StepToXZ Math_Vec3f_StepToXZ
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Matrix_RotateYF Matrix_RotateYF
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define Object_IsLoaded Object_IsLoaded
+#define Player_InCsMode Player_InCsMode
+#define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
+#define Room_FinishRoomChange Room_FinishRoomChange
 #define func_808A0900 func_80000010
 #define func_808A0D90 func_800004A0
 #define func_808A0E28 func_80000538
@@ -35,16 +55,32 @@
 #define func_808A1A70 func_80001180
 #define func_808A1C50 func_80001360
 #define func_808A1D68 func_80001478
+#define gSaveContext D_801E6EF0
 #define ref_D_808A2180 D_808A18A0
 #define ref_D_808A21B0 D_808A18D0
+#define ref_D_808A22C4 D_808A19E4
+#define ref_D_808A22D0 D_808A19F0
 #define ref_D_808A22DC D_808A19FC
-#define ref_func_808A0900 func_808A0020
-#define ref_func_808A0F88 D_808A06A8
+#define ref_func_800F22C4 func_800F2074
+#define ref_func_801226E0 func_80122B90
+#define ref_func_80122F28 func_801233D8
+#define ref_func_808A0900 func_80000010
+#define ref_func_808A0D90 func_800004A0
+#define ref_func_808A0E28 func_80000538
+#define ref_func_808A0F88 func_80000698
 #define ref_func_808A1080 D_808A07A0
-#define ref_func_808A1090 func_808A07B0
-#define ref_func_808A1548 D_808A0C68
-#define ref_func_808A1618 D_808A0D38
-#define ref_func_808A1D68 func_808A1488
+#define ref_func_808A1090 func_800007A0
+#define ref_func_808A1288 func_80000998
+#define ref_func_808A1340 func_80000A50
+#define ref_func_808A1478 func_808A0B98
+#define ref_func_808A1548 func_80000C58
+#define ref_func_808A1618 func_80000D28
+#define ref_func_808A1684 D_808A0DA4
+#define ref_func_808A1784 func_80000E94
+#define ref_func_808A1884 func_80000F94
+#define ref_func_808A1A70 func_80001180
+#define ref_func_808A1C50 func_80001360
+#define ref_func_808A1D68 func_80001478
 
 #include "overlays/actors/ovl_Door_Shutter/z_door_shutter.h"
 #include "z64quake.h"

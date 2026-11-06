@@ -4,14 +4,17 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define ObjKzsaku_Draw func_800002C4
 #define ObjKzsaku_Init func_80000000
 #define ObjKzsaku_Rise func_80000150
 #define func_80C08CB0 func_80000230
 #define ref_func_80C08C84 func_80BEDA24
+#define ref_func_80C08CB0 func_80000230
 
 #include "overlays/actors/ovl_Obj_Kzsaku/z_obj_kzsaku.h"
 #include "assets/objects/object_kzsaku/object_kzsaku.h"

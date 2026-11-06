@@ -5,13 +5,19 @@
 /* names of ours that symbols of the reference stand for */
 #define ActorShadow_DrawCircle D_800B3F30
 #define ActorShape_Init ActorShape_Init
+#define Actor_HasParent Actor_HasParent
+#define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_OfferGetItem Actor_OfferGetItem
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
+#define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EnColMan_Init func_80000000
+#define EnColMan_SetHeartPieceCollectedAndKill D_80AE2C30
 #define EnColMan_Update func_80000730
 #define func_80AFDE00 func_800001C0
 #define func_80AFDF60 func_80000320
@@ -22,8 +28,15 @@
 #define func_80AFE584 func_80000944
 #define func_80AFE650 func_80000A10
 #define ref_func_80AFDD60 func_80AE2A90
-#define ref_func_80AFDF60 func_80AE2C90
+#define ref_func_80AFDE00 func_800001C0
+#define ref_func_80AFDF60 func_80000320
+#define ref_func_80AFDFB4 func_80000374
 #define ref_func_80AFE234 func_80AE2F64
+#define ref_func_80AFE25C func_8000061C
+#define ref_func_80AFE414 func_800007D4
+#define ref_func_80AFE4AC func_8000086C
+#define ref_func_80AFE584 func_80000944
+#define ref_func_80AFE650 func_80000A10
 #define sCylinderInit D_80AE3460
 
 #include "overlays/actors/ovl_En_Col_Man/z_en_col_man.h"

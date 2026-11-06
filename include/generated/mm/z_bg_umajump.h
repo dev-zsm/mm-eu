@@ -14,11 +14,13 @@
 #define BgUmajump_Update func_800003DC
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define Math3D_Dist2D Math3D_Dist2D
+#define Math_SinS Math_SinS
 #define Object_GetSlot Object_GetSlot
 #define SubS_FindActor SubS_FindActor
 #define func_80919F30 func_80000000
 #define func_8091A5A0 func_80000670
-#define ref_func_8091A5A0 D_808FF090
+#define ref_func_80919F30 func_80000000
+#define ref_func_8091A5A0 func_80000670
 #define sInitChain D_808FF300
 
 #include "overlays/actors/ovl_Bg_Umajump/z_bg_umajump.h"

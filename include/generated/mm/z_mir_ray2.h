@@ -15,7 +15,7 @@
 #define MirRay2_Init func_80000144
 #define MirRay2_Update func_800002D8
 #define func_80AF3F70 func_80000000
-#define ref_func_80AF3F70 func_80AD8CA0
+#define ref_func_80AF3F70 func_80000000
 #define ref_func_80AF3FE0 func_80AD8D10
 #define sJntSphInit D_80AD90A4
 

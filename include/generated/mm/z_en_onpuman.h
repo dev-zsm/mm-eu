@@ -6,15 +6,23 @@
 #define ActorShadow_DrawCircle D_800B3F30
 #define ActorShape_Init ActorShape_Init
 #define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_OcarinaInteractionAccepted Actor_OcarinaInteractionAccepted
+#define Actor_OfferOcarinaInteraction Actor_OfferOcarinaInteraction
+#define Actor_OfferTalk Actor_OfferTalk
 #define Actor_SetScale Actor_SetScale
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EnOnpuman_Init func_80000000
 #define EnOnpuman_Update func_80000478
+#define Message_StartTextbox func_80151DF4
 #define func_80B121D8 func_80000378
-#define ref_func_80B121D8 D_80AF6F08
+#define ref_func_80B11F44 func_80AF6C74
+#define ref_func_80B1202C D_80AF6D5C
+#define ref_func_80B1217C D_80AF6EAC
+#define ref_func_80B121D8 func_80000378
 #define sCylinderInit D_80AF70C0
 
 #include "overlays/actors/ovl_En_Onpuman/z_en_onpuman.h"

@@ -26,6 +26,8 @@
 #define EnWood02_Update func_80000984
 #define Flags_GetCollectible Flags_GetCollectible
 #define Flags_SetCollectible Flags_SetCollectible
+#define Item_DropCollectible Item_DropCollectible
+#define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Math_ApproachF Math_ApproachF
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
@@ -34,7 +36,8 @@
 #define SkinMatrix_Vec3fMtxFMultXYZW SkinMatrix_Vec3fMtxFMultXYZW
 #define func_808C4458 func_80000858
 #define gSaveContext D_801E6EF0
-#define ref_func_808C4458 func_808C3B38
+#define ref_func_800A8150 func_800A8670
+#define ref_func_808C4458 func_80000858
 #define sCylinderInit D_808C43E0
 #define sInitChain D_808C4430
 #define sWood02SpawnAngle D_808C4424

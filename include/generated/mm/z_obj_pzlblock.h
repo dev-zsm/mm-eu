@@ -3,13 +3,20 @@
 #define MM_Z_OBJ_PZLBLOCK_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetObjectDependency Actor_SetObjectDependency
 #define Actor_SetScale Actor_SetScale
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define DynaPolyActor_ValidateMove DynaPolyActor_ValidateMove
+#define DynaPoly_GetActor DynaPoly_GetActor
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_StepToF Math_StepToF
 #define ObjPzlblock_Init func_80000438
 #define ObjPzlblock_Update func_8000099C
 #define Object_GetSlot Object_GetSlot
@@ -24,11 +31,23 @@
 #define func_809A3D38 func_80000958
 #define func_809A3E58 func_80000A78
 #define func_809A3F0C func_80000B2C
+#define ref_D_809A4050 D_80988D90
+#define ref_D_809A4058 D_80988D98
 #define ref_D_809A4060 D_80988DA0
+#define ref_D_809A4088 D_80988DC8
+#define ref_func_809A33E0 func_80000000
+#define ref_func_809A3448 func_80000068
+#define ref_func_809A34E0 func_80000100
+#define ref_func_809A35EC func_8000020C
+#define ref_func_809A376C func_8000038C
 #define ref_func_809A3A48 func_80988788
+#define ref_func_809A3A74 func_80000694
+#define ref_func_809A3BA4 func_809888E4
+#define ref_func_809A3BC0 func_800007E0
 #define ref_func_809A3D1C func_80988A5C
-#define ref_func_809A3E58 D_80988B98
-#define ref_func_809A3F0C D_80988C4C
+#define ref_func_809A3D38 func_80000958
+#define ref_func_809A3E58 func_80000A78
+#define ref_func_809A3F0C func_80000B2C
 #define sInitChain D_80988DB8
 
 #include "overlays/actors/ovl_Obj_Pzlblock/z_obj_pzlblock.h"

@@ -5,11 +5,19 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_SetFocus Actor_SetFocus
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define Camera_SetTargetActor Camera_SetTargetActor
+#define CutsceneManager_GetAdditionalCsId CutsceneManager_GetAdditionalCsId
+#define CutsceneManager_GetCurrentSubCamId CutsceneManager_GetCurrentSubCamId
+#define CutsceneManager_Stop func_800F1D6C
 #define DmTag_DoNothing D_80C0778C
 #define DmTag_FindActor func_80000000
 #define DmTag_GetMsgScript func_80000530
 #define DmTag_Init func_800006F0
 #define DmTag_Update func_800007F0
+#define MsgEvent_RunScript MsgEvent_RunScript
+#define Play_GetCamera Play_GetCamera
+#define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define SubS_FindActor SubS_FindActor
 #define SubS_Offer SubS_Offer
 #define SubS_SetOfferMode SubS_SetOfferMode
@@ -22,10 +30,13 @@
 #define ref_D_80C22BF0 D_80C07990
 #define ref_D_80C22BFC D_80C0799C
 #define ref_D_80C22C30 D_80C079D0
-#define ref_func_80C224D8 D_80C07278
-#define ref_func_80C227E8 D_80C07588
-#define ref_func_80C2291C func_80C076BC
+#define ref_func_80C22400 func_80C071A0
+#define ref_func_80C2247C func_8000012C
+#define ref_func_80C224D8 func_80000188
+#define ref_func_80C227E8 func_80000498
+#define ref_func_80C2291C func_800005CC
 #define ref_func_80C229AC D_80C0774C
+#define ref_func_80C229FC func_800006AC
 
 #include "overlays/actors/ovl_Dm_Tag/z_dm_tag.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)

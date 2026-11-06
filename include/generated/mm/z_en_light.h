@@ -5,6 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define EnLight_Draw func_80000A08
 #define EnLight_Init func_80000000
 #define EnLight_Update func_800002E4
@@ -13,13 +14,15 @@
 #define Lights_PointGlowSetInfo Lights_PointGlowSetInfo
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
 #define Lights_PointSetColorAndRadius Lights_PointSetColorAndRadius
+#define Math_StepToF Math_StepToF
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Rand_ZeroOne func_8008704C
 #define func_80865BF8 func_80000268
 #define func_80865F38 func_800005A8
 #define gSaveContext D_801E6EF0
 #define ref_D_808666D0 D_80865DF0
-#define ref_func_80865BF8 func_80865318
-#define ref_func_80865F38 D_80865658
+#define ref_func_80865BF8 func_80000268
+#define ref_func_80865F38 func_800005A8
 
 #include "overlays/actors/ovl_En_Light/z_en_light.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

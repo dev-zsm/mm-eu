@@ -4,18 +4,32 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SpawnFloorDustRing Actor_SpawnFloorDustRing
+#define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define BgOpenShutter_Destroy func_80000218
 #define BgOpenShutter_Update func_800004F4
+#define Camera_ChangeDoorCam Camera_ChangeDoorCam
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define Math_StepToF Math_StepToF
+#define Play_GetCamera Play_GetCamera
+#define Player_InCsMode Player_InCsMode
+#define Quake_Request Quake_Request
+#define Quake_SetDuration Quake_SetDuration
+#define Quake_SetPerturbations Quake_SetPerturbations
+#define Quake_SetSpeed Quake_SetSpeed
+#define Rumble_Request Rumble_Request
 #define func_80ACAB10 func_80000000
 #define func_80ACABA8 func_80000098
 #define func_80ACAD88 func_80000278
 #define func_80ACAEF0 func_800003E0
-#define ref_func_80ACAD88 D_80AAFAB8
+#define ref_func_80122F28 func_801233D8
+#define ref_func_80ACAB10 func_80000000
+#define ref_func_80ACABA8 func_80000098
+#define ref_func_80ACAD88 func_80000278
 #define ref_func_80ACAE5C D_80AAFB8C
-#define ref_func_80ACAEF0 D_80AAFC20
+#define ref_func_80ACAEF0 func_800003E0
 
 #include "overlays/actors/ovl_Bg_Open_Shutter/z_bg_open_shutter.h"
 #include "assets/objects/object_open_obj/object_open_obj.h"

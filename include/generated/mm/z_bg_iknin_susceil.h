@@ -3,8 +3,14 @@
 #define MM_Z_BG_IKNIN_SUSCEIL_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define BgIkninSusceil_RequestQuakeAndRumble func_8000012C
 #define BgIkninSusceil_Update func_800007D8
+#define CutsceneManager_Stop func_800F1D6C
+#define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Math_SmoothStepToF Math_SmoothStepToF
 #define Player_PlaySfx Player_PlaySfx
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
@@ -16,11 +22,20 @@
 #define func_80C0ABA8 func_80000468
 #define func_80C0AD64 func_80000624
 #define func_80C0AE5C func_8000071C
+#define ref_D_80C0B0E4 D_80BEFE84
+#define ref_D_80C0B0E8 D_80BEFE88
+#define ref_D_80C0B0F0 D_80BEFE90
+#define ref_D_80C0B0F8 D_80BEFE98
+#define ref_func_80C0A740 func_80000000
 #define ref_func_80C0A804 func_80BEF5A4
 #define ref_func_80C0A838 func_80BEF5D8
-#define ref_func_80C0A95C func_80BEF6FC
+#define ref_func_80C0A95C func_8000021C
+#define ref_func_80C0AB14 func_80BEF8B4
+#define ref_func_80C0ABA8 func_80000468
+#define ref_func_80C0AC74 func_80BEFA14
+#define ref_func_80C0AD64 func_80000624
 #define ref_func_80C0AE3C func_80BEFBDC
-#define ref_func_80C0AE5C D_80BEFBFC
+#define ref_func_80C0AE5C func_8000071C
 
 #include "overlays/actors/ovl_Bg_Iknin_Susceil/z_bg_iknin_susceil.h"
 #include "z64quake.h"

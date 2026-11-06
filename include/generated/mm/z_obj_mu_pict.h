@@ -4,13 +4,28 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_OfferTalk Actor_OfferTalk
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_Stop func_800F1D6C
+#define Math_SmoothStepToS Math_SmoothStepToS
+#define Message_GetState func_801529DC
+#define Message_ShouldAdvance func_80147B34
+#define Message_StartTextbox func_80151DF4
 #define ObjMuPict_Init func_80000000
 #define func_80C06B70 func_800000D0
 #define func_80C06CD8 func_80000238
 #define func_80C06DC8 func_80000328
 #define func_80C06E88 func_800003E8
 #define ref_func_80C06B5C func_80BEB8FC
+#define ref_func_80C06B70 func_800000D0
+#define ref_func_80C06C54 func_80BEB9F4
+#define ref_func_80C06CC4 func_80BEBA64
+#define ref_func_80C06CD8 func_80000238
 #define ref_func_80C06D90 func_80BEBB30
+#define ref_func_80C06DC8 func_80000328
+#define ref_func_80C06E88 func_800003E8
 
 #include "overlays/actors/ovl_Obj_Mu_Pict/z_obj_mu_pict.h"
 #define FLAGS (ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_FRIENDLY)

@@ -4,11 +4,15 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_InitCylinder Collider_InitCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EnInvisibleRuppe_Init func_8000016C
 #define Flags_GetSwitch Flags_GetSwitch
 #define func_80C258A0 func_80000000
+#define ref_func_80C258A0 func_80000000
 #define ref_func_80C2590C D_80C0A6AC
 #define sCylinderInit D_80C0A8F0
 

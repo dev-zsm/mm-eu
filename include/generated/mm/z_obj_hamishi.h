@@ -7,8 +7,16 @@
 #define ActorShape_Init ActorShape_Init
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define Flags_GetSwitch Flags_GetSwitch
+#define Math_CosS Math_CosS
+#define Math_ScaledStepToS Math_ScaledStepToS
+#define Math_SinS Math_SinS
+#define Math_StepToF Math_StepToF
 #define ObjHamishi_Draw func_8000089C
 #define ObjHamishi_Init func_80000560
 #define ObjHamishi_IsUnderwater func_80986148
@@ -17,9 +25,12 @@
 #define func_809A0F78 func_80000058
 #define func_809A10F4 func_800001D4
 #define func_809A13A0 func_80000480
-#define ref_func_809A0F20 func_80985C60
-#define ref_func_809A13A0 func_809860E0
+#define ref_func_809A0F20 func_80000000
+#define ref_func_809A0F78 func_80000058
+#define ref_func_809A10F4 func_800001D4
+#define ref_func_809A13A0 func_80000480
 #define sColChkInfoInit D_8098680C
+#define sCylinderInit D_809867E0
 #define sInitChain D_80986828
 
 #include "overlays/actors/ovl_Obj_Hamishi/z_obj_hamishi.h"

@@ -4,17 +4,41 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgDanpeiMovebg_Init func_8000004C
 #define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_IsActorOnTop DynaPolyActor_IsActorOnTop
+#define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define SubS_ActorPathing_ComputePointInfo D_8013E2EC
+#define SubS_ActorPathing_Init SubS_ActorPathing_Init
+#define SubS_ActorPathing_MoveWithoutGravityReverse D_8013E42C
+#define SubS_ActorPathing_SetNextPoint D_8013E454
+#define SubS_ActorPathing_Update SubS_ActorPathing_Update
 #define SubS_GetObjectSlot SubS_GetObjectSlot
+#define SubS_IsObjectLoaded SubS_IsObjectLoaded
 #define func_80AF6EA8 func_800000C8
 #define func_80AF705C func_8000027C
 #define func_80AF71FC func_8000041C
 #define func_80AF72F8 func_80000518
 #define func_80AF7354 func_80000574
 #define func_80AF746C func_8000068C
+#define gSaveContext D_801E6EF0
+#define gSegments D_801EFA00
 #define ref_D_80AF7530 D_80ADC260
-#define ref_func_80AF6EA8 D_80ADBBD8
+#define ref_D_80AF7534 D_80ADC264
+#define ref_D_80AF7538 D_80ADC268
+#define ref_func_80AF6DE0 D_80ADBB10
+#define ref_func_80AF6EA8 func_800000C8
+#define ref_func_80AF705C func_8000027C
+#define ref_func_80AF70FC D_80ADBE2C
+#define ref_func_80AF71FC func_8000041C
+#define ref_func_80AF72F8 func_80000518
+#define ref_func_80AF7354 func_80000574
+#define ref_func_80AF746C func_8000068C
+#define ref_func_80AF74CC D_80ADC1FC
+#define sInitChain D_80ADC26C
 
 #include "overlays/actors/ovl_Bg_Danpei_Movebg/z_bg_danpei_movebg.h"
 #include "assets/objects/object_d_lift/object_d_lift.h"

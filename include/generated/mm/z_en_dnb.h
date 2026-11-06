@@ -6,6 +6,12 @@
 #define EnDnb_Draw func_80000998
 #define EnDnb_Init func_800004D0
 #define EnDnb_Update func_800005B0
+#define Lib_Vec3f_TranslateAndRotateY func_800FFF1C
+#define Math_ApproachF Math_ApproachF
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Rand_ZeroOne func_8008704C
 #define func_80A4FDD0 func_80000000
 #define func_80A4FEBC func_800000EC
 #define func_80A4FFE8 func_80000218
@@ -15,13 +21,17 @@
 #define func_80A507C0 func_800009F0
 #define func_80A5086C func_80000A9C
 #define func_80A50950 func_80000B80
-#define ref_func_80A4FEBC func_80A34C1C
-#define ref_func_80A4FFE8 func_80A34D48
-#define ref_func_80A500F8 func_80A34E58
-#define ref_func_80A50510 func_80A35270
-#define ref_func_80A5063C func_80A3539C
-#define ref_func_80A5086C func_80A355CC
-#define ref_func_80A50950 func_80A356B0
+#define gZeroVec3f D_801C9EE0
+#define gZeroVec3s D_801C9EEC
+#define ref_func_80A4FDD0 func_80000000
+#define ref_func_80A4FEBC func_800000EC
+#define ref_func_80A4FFE8 func_80000218
+#define ref_func_80A500F8 func_80000328
+#define ref_func_80A50510 func_80000740
+#define ref_func_80A5063C func_8000086C
+#define ref_func_80A507C0 func_800009F0
+#define ref_func_80A5086C func_80000A9C
+#define ref_func_80A50950 func_80000B80
 
 #include "overlays/actors/ovl_En_Dnb/z_en_dnb.h"
 #include "assets/objects/object_hanareyama_obj/object_hanareyama_obj.h"

@@ -17,7 +17,7 @@
 #define OceffStorm_Update func_80000408
 #define func_8098176C func_8000000C
 #define gSaveContext D_801E6EF0
-#define ref_func_8098176C func_809664AC
+#define ref_func_8098176C func_8000000C
 #define ref_func_80981B48 D_80966888
 #define sSongOfStormsCylinderMaterialDL D_80967F28
 #define sSongOfStormsCylinderModelDL D_80967FD0

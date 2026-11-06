@@ -16,7 +16,15 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_SetSwitch Flags_SetSwitch
+#define Math_SinS Math_SinS
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateYS Matrix_RotateYS
+#define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
+#define gZeroVec3f D_801C9EE0
+#define ref_func_800B12F0 func_800B1810
 
 #include "overlays/actors/ovl_Bg_Dkjail_Ivy/z_bg_dkjail_ivy.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

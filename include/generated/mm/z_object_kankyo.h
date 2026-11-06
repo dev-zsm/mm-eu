@@ -3,8 +3,15 @@
 #define MM_Z_OBJECT_KANKYO_H
 
 /* names of ours that symbols of the reference stand for */
+#define Camera_GetCamDirPitch Camera_GetCamDirPitch
+#define Math_Vec3f_DistXZ Math_Vec3f_DistXZ
+#define Math_Vec3f_Pitch Math_Vec3f_Pitch
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define ObjectKankyo_Draw func_800014E4
 #define ObjectKankyo_Init func_8000023C
+#define ObjectKankyo_SetupAction func_808DB550
+#define Rand_ZeroOne func_8008704C
+#define cosf func_800920E0
 #define func_808DBEB0 func_80000030
 #define func_808DBFB0 func_80000130
 #define func_808DC038 func_800001B8
@@ -16,13 +23,22 @@
 #define func_808DD3C8 func_80001548
 #define func_808DD970 func_80001AF0
 #define func_808DDE9C func_8000201C
+#define gZeroVec3f D_801C9EE0
+#define ref_D_808DE340 D_808DDA10
+#define ref_D_808DE5B0 D_808DDC80
 #define ref_func_808DBE8C func_808DB55C
-#define ref_func_808DBEB0 func_808DB580
-#define ref_func_808DBFB0 func_808DB680
-#define ref_func_808DC038 func_808DB708
-#define ref_func_808DD3C8 func_808DCA98
-#define ref_func_808DD970 func_808DD040
-#define ref_func_808DDE9C func_808DD56C
+#define ref_func_808DBEB0 func_80000030
+#define ref_func_808DBFB0 func_80000130
+#define ref_func_808DC038 func_800001B8
+#define ref_func_808DC18C func_8000030C
+#define ref_func_808DC454 func_800005D4
+#define ref_func_808DCB7C func_80000CFC
+#define ref_func_808DCBF8 func_80000D78
+#define ref_func_808DCDB4 func_80000F34
+#define ref_func_808DD3C8 func_80001548
+#define ref_func_808DD970 func_80001AF0
+#define ref_func_808DDE9C func_8000201C
+#define sinf func_800884F0
 
 #include "overlays/actors/ovl_Object_Kankyo/z_object_kankyo.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

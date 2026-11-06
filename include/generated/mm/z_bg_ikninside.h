@@ -7,9 +7,28 @@
 #define BgIkninside_Draw func_800004D8
 #define BgIkninside_Init func_80000000
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsHahen_Spawn EffectSsHahen_Spawn
+#define Flags_SetSwitch Flags_SetSwitch
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Rand_Next func_80087010
+#define Rand_S16Offset Rand_S16Offset
+#define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80C07230 func_80000120
 #define func_80C072D0 func_800001C0
+#define ref_D_80C076A0 D_80BEC440
+#define ref_D_80C076D4 D_80BEC474
+#define ref_func_80C07220 D_80BEBFC0
+#define ref_func_80C07230 func_80000120
+#define ref_func_80C072D0 func_800001C0
 
 #include "overlays/actors/ovl_Bg_Ikninside/z_bg_ikninside.h"
 #include "assets/objects/object_ikninside_obj/object_ikninside_obj.h"

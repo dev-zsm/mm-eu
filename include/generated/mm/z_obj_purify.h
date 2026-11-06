@@ -4,15 +4,29 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_SetObjectDependency Actor_SetObjectDependency
 #define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define ObjPurify_Init func_80000098
 #define ObjPurify_IsPurified func_80000028
+#define ObjPurify_SetSysMatrix func_80A69950
 #define Object_GetSlot Object_GetSlot
+#define Object_IsLoaded Object_IsLoaded
 #define func_80A84EC0 func_800001F0
 #define func_80A851C8 func_800004F8
 #define func_80A85304 func_80000634
 #define ref_func_80A84EAC func_80A69B2C
+#define ref_func_80A84EC0 func_800001F0
+#define ref_func_80A84FA0 func_80A69C20
+#define ref_func_80A84FEC func_80A69C6C
+#define ref_func_80A8515C func_80A69DDC
+#define ref_func_80A851C8 func_800004F8
+#define ref_func_80A85304 func_80000634
 #define sObjPurifyInfo D_80A6A100
 
 #include "overlays/actors/ovl_Obj_Purify/z_obj_purify.h"

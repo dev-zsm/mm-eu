@@ -4,18 +4,27 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
+#define Actor_WorldDistXZToActor Actor_WorldDistXZToActor
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
 #define Lib_SegmentedToVirtual func_80100304
 #define ObjBigicicle_Draw func_80000C10
 #define ObjBigicicle_Init func_80000000
 #define ObjBigicicle_Update func_80000A04
+#define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
 #define func_80AE8DE4 func_80000274
@@ -29,7 +38,12 @@
 #define ref_D_80AE9890 D_80ACE5C0
 #define ref_D_80AE9894 D_80ACE5C4
 #define ref_D_80AE9898 D_80ACE5C8
-#define ref_func_80AE8FD4 D_80ACDD04
+#define ref_func_80AE8DE4 func_80000274
+#define ref_func_80AE8FD4 func_80000464
+#define ref_func_80AE9090 func_80000520
+#define ref_func_80AE9180 func_80000610
+#define ref_func_80AE9258 func_800006E8
+#define ref_func_80AE939C func_8000082C
 #define sCylinderInit1 D_80ACE550
 #define sCylinderInit2 D_80ACE57C
 #define sInitChain D_80ACE5B8

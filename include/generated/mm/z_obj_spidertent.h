@@ -4,19 +4,38 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Collider_InitTris Collider_InitTris
 #define Collider_SetTris Collider_SetTris
 #define Collider_SetTrisVertices func_800E7C8C
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
+#define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsDeadDb_Spawn EffectSsDeadDb_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch Flags_SetSwitch
+#define Math3D_LineSegVsPlane Math3D_LineSegVsPlane
+#define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
+#define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
+#define Math3D_Vec3f_Cross func_8017BA68
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateAxisF Matrix_RotateAxisF
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Matrix_Translate Matrix_Translate
 #define ObjSpidertent_Draw func_800013E8
 #define ObjSpidertent_Init func_80000A6C
+#define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
+#define Rand_S16Offset Rand_S16Offset
+#define Rand_ZeroOne func_8008704C
+#define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80B2FB10 func_80000000
 #define func_80B2FB94 func_80000084
 #define func_80B2FC98 func_80000188
@@ -27,8 +46,23 @@
 #define func_80B30A4C func_80000F3C
 #define func_80B30AF8 func_80000FE8
 #define gSetupDLs D_801C1BB0
+#define gZeroVec3f D_801C9EE0
 #define ref_D_80B31350 D_80B16080
+#define ref_D_80B313A0 D_80B160D0
+#define ref_D_80B31400 D_80B16130
+#define ref_D_80B3140C D_80B1613C
+#define ref_func_80B2FB10 func_80000000
+#define ref_func_80B2FB94 func_80000084
+#define ref_func_80B2FC98 func_80000188
+#define ref_func_80B300F4 func_800005E4
+#define ref_func_80B30410 func_80000900
+#define ref_func_80B30480 func_80000970
 #define ref_func_80B307E0 func_80B15510
+#define ref_func_80B30808 func_80000CF8
+#define ref_func_80B30A2C func_80B1575C
+#define ref_func_80B30A4C func_80000F3C
+#define ref_func_80B30AD4 func_80B15804
+#define ref_func_80B30AF8 func_80000FE8
 #define sInitChain D_80B16148
 
 #include "overlays/actors/ovl_Obj_Spidertent/z_obj_spidertent.h"

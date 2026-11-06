@@ -3,6 +3,7 @@
 #define MM_Z_EFF_SS_KAKERA_H
 
 /* names of ours that symbols of the reference stand for */
+#define BgCheck_SphVsFirstPoly BgCheck_SphVsFirstPoly
 #define EffectSsKakera_CheckForObject func_80000490
 #define EffectSsKakera_Draw func_800001CC
 #define EffectSsKakera_Init func_80000000
@@ -24,6 +25,16 @@
 #define func_8097E698 func_800009F8
 #define func_8097E7E0 func_80000B40
 #define ref_D_8097EAD8 D_80963818
+#define ref_func_8097DE30 func_80962B70
+#define ref_func_8097E19C func_800004FC
+#define ref_func_8097E34C func_8096308C
+#define ref_func_8097E420 func_80000780
+#define ref_func_8097E4B0 func_809631F0
+#define ref_func_8097E4F0 func_80000850
+#define ref_func_8097E584 func_800008E4
+#define ref_func_8097E660 func_809633A0
+#define ref_func_8097E698 func_800009F8
+#define ref_func_8097E7E0 func_80000B40
 
 #include "overlays/effects/ovl_Effect_Ss_Kakera/z_eff_ss_kakera.h"
 #include "libu64/debug.h"

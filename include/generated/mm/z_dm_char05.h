@@ -3,15 +3,33 @@
 #define MM_Z_DM_CHAR05_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
 #define Animation_Change Animation_Change
 #define Animation_GetLastFrame Animation_GetLastFrame
+#define Animation_OnFrame func_80137C58
+#define Cutscene_ActorTranslate Cutscene_ActorTranslate
+#define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DmChar05_ChangeAnim func_80000000
 #define DmChar05_Draw func_80001748
 #define DmChar05_Init func_80000300
+#define DmChar05_OverrideLimbDraw D_80A92694
+#define DmChar05_PostLimbDraw D_80A926B0
 #define DmChar05_Update func_800011EC
+#define GetItem_Draw GetItem_Draw
+#define Gfx_SetFog Gfx_SetFog
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Item_Give func_80112D7C
+#define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define Object_GetSlot Object_GetSlot
+#define Object_IsLoaded Object_IsLoaded
+#define SkelAnime_DrawFlexOpa SkelAnime_DrawFlexOpa
+#define SkelAnime_DrawOpa SkelAnime_DrawOpa
 #define SkelAnime_Update SkelAnime_Update
 #define func_80AAC63C func_8000009C
 #define func_80AAC9DC func_8000043C
@@ -30,20 +48,33 @@
 #define func_80AADF54 func_800019B4
 #define func_80AAE030 func_80001A90
 #define func_80AAE114 func_80001B74
-#define ref_func_80AAC63C func_80A9136C
+#define gSaveContext D_801E6EF0
+#define ref_func_80AAC63C func_8000009C
 #define ref_func_80AAC6E4 func_80A91414
 #define ref_func_80AAC770 func_80A914A0
 #define ref_func_80AAC7FC func_80A9152C
 #define ref_func_80AAC888 func_80A915B8
-#define ref_func_80AACBE4 D_80A91914
-#define ref_func_80AACF04 func_80A91C34
-#define ref_func_80AAD4A8 func_80A921D8
-#define ref_func_80AAD998 func_80A926C8
-#define ref_func_80AADA90 func_80A927C0
-#define ref_func_80AADB4C func_80A9287C
-#define ref_func_80AADC00 func_80A92930
-#define ref_func_80AAE030 func_80A92D60
-#define ref_func_80AAE114 func_80A92E44
+#define ref_func_80AAC990 D_80A916C0
+#define ref_func_80AAC9DC func_8000043C
+#define ref_func_80AACAE4 func_80000544
+#define ref_func_80AACBE4 func_80000644
+#define ref_func_80AACD0C D_80A91A3C
+#define ref_func_80AACD1C D_80A91A4C
+#define ref_func_80AACE10 D_80A91B40
+#define ref_func_80AACF04 func_80000964
+#define ref_func_80AAD3F8 func_80000E58
+#define ref_func_80AAD450 func_80000EB0
+#define ref_func_80AAD4A8 func_80000F08
+#define ref_func_80AAD998 func_800013F8
+#define ref_func_80AADA90 func_800014F0
+#define ref_func_80AADB4C func_800015AC
+#define ref_func_80AADC00 func_80001660
+#define ref_func_80AADD9C func_800017FC
+#define ref_func_80AADE78 func_800018D8
+#define ref_func_80AADF54 func_800019B4
+#define ref_func_80AAE030 func_80001A90
+#define ref_func_80AAE114 func_80001B74
+#define sAnimationInfo D_80A92F90
 
 #include "overlays/actors/ovl_Dm_Char05/z_dm_char05.h"
 #include "z64draw.h"

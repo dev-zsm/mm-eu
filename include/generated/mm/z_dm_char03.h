@@ -3,8 +3,12 @@
 #define MM_Z_DM_CHAR03_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_PlaySfx Actor_PlaySfx
 #define Animation_Change Animation_Change
 #define Animation_GetLastFrame Animation_GetLastFrame
+#define Animation_OnFrame func_80137C58
+#define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DmChar03_ChangeAnim func_80000000
@@ -14,16 +18,25 @@
 #define DmChar03_PostLimbDraw D_80A906C0
 #define DmChar03_TransformLimbDraw D_80A906D8
 #define DmChar03_Update func_8000043C
+#define GetItem_Draw GetItem_Draw
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Item_Give func_80112D7C
+#define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define Object_IsLoaded Object_IsLoaded
 #define SkelAnime_DrawTransformFlexOpa SkelAnime_DrawTransformFlexOpa
 #define SkelAnime_Update SkelAnime_Update
 #define func_80AAB644 func_800001A4
 #define func_80AAB710 func_80000270
 #define func_80AAB838 func_80000398
 #define func_80AABA84 func_800005E4
-#define ref_func_80AAB710 func_80A90440
-#define ref_func_80AAB838 func_80A90568
-#define ref_func_80AABA84 func_80A907B4
+#define ref_func_80AAB5F8 D_80A90328
+#define ref_func_80AAB644 func_800001A4
+#define ref_func_80AAB710 func_80000270
+#define ref_func_80AAB838 func_80000398
+#define ref_func_80AABA84 func_800005E4
+#define sAnimationInfo D_80A908B0
 
 #include "overlays/actors/ovl_Dm_Char03/z_dm_char03.h"
 #include "z64draw.h"

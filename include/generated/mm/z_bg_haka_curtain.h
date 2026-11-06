@@ -3,11 +3,15 @@
 #define MM_Z_BG_HAKA_CURTAIN_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define BgHakaCurtain_Update func_800002D8
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define Math_StepToF Math_StepToF
 #define func_80B6DD9C func_800001BC
 #define ref_func_80B6DD80 func_80B52AB0
+#define ref_func_80B6DD9C func_800001BC
+#define ref_func_80B6DE80 func_80B52BB0
 
 #include "overlays/actors/ovl_Bg_Haka_Curtain/z_bg_haka_curtain.h"
 #include "assets/objects/object_haka_obj/object_haka_obj.h"

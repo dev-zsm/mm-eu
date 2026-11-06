@@ -4,11 +4,35 @@
 
 /* names of ours that symbols of the reference stand for */
 #define EnSda_Draw func_8000005C
+#define Gfx_SetupDL44_Xlu func_8012C8F8
+#define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
+#define Matrix_Mult Matrix_Mult
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateXFNew Matrix_RotateXFNew
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYF Matrix_RotateYF
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define func_809469C0 func_800000F0
 #define func_8094702C func_8000075C
 #define func_80947668 func_80000D98
-#define ref_func_8094702C func_8092BB1C
-#define ref_func_80947668 func_8092C158
+#define ovl_En_Sda_DL_1498 D_8092C858
+#define ovl_En_Sda_DL_14B8 D_8092C878
+#define ref_D_80947A60 D_8092C550
+#define ref_D_80947A6C D_8092C55C
+#define ref_D_80947A78 D_8092C568
+#define ref_D_80947A88 D_8092C578
+#define ref_D_80947A98 D_8092C588
+#define ref_D_80947AB0 D_8092C5A0
+#define ref_D_80947ACC D_8092C5BC
+#define ref_D_80947AEC D_8092C5DC
+#define ref_D_80947AFC D_8092C5EC
+#define ref_D_80947B10 D_8092C600
+#define ref_D_80947EA0 D_8092C990
+#define ref_func_809469C0 func_800000F0
+#define ref_func_8094702C func_8000075C
+#define ref_func_80947668 func_80000D98
 
 #include "overlays/actors/ovl_En_Sda/z_en_sda.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)

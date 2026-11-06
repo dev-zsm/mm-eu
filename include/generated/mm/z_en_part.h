@@ -8,10 +8,13 @@
 #define EnPart_Update func_80000430
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Matrix_RotateZF Matrix_RotateZF
+#define Rand_ZeroOne func_8008704C
 #define func_80865390 func_80000020
 #define func_808654C4 func_80000154
 #define gEmptyDL D_801C29C0
 #define ref_func_800B8050 func_800B7DD4
+#define ref_func_80865390 func_80000020
+#define ref_func_808654C4 func_80000154
 #define sActionFuncs D_8086502C
 
 #include "overlays/actors/ovl_En_Part/z_en_part.h"

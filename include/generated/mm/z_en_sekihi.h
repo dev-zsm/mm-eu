@@ -4,16 +4,27 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_OfferTalk Actor_OfferTalk
+#define Actor_SetObjectDependency Actor_SetObjectDependency
 #define Actor_SetScale Actor_SetScale
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
+#define EnSekihi_DoNothing D_80A29E90
 #define EnSekihi_Draw func_800004E4
 #define EnSekihi_Init func_80000000
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Object_GetSlot Object_GetSlot
+#define Object_IsLoaded Object_IsLoaded
+#define Player_IsFacingActor Player_IsFacingActor
 #define func_80A44DE8 func_80000168
 #define func_80A450B0 func_80000430
 #define gSaveContext D_801E6EF0
-#define ref_func_80A44DE8 D_80A29B48
+#define ref_func_80A44DE8 func_80000168
+#define ref_func_80A44F40 D_80A29CA0
+#define ref_func_80A450B0 func_80000430
 #define sObjectIds D_80A29FD0
 #define sOpaDLists D_80A29FDC
 #define sTextIds D_80A2A004

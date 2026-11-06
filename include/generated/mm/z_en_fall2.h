@@ -13,9 +13,9 @@
 #define Keyframe_UpdateFlex Keyframe_UpdateFlex
 #define func_80C1B724 func_800000E4
 #define func_80C1B8F0 func_800002B0
-#define ref_func_80C1B724 func_80C004C4
+#define ref_func_80C1B724 func_800000E4
 #define ref_func_80C1B8B4 func_80C00654
-#define ref_func_80C1B8F0 func_80C00690
+#define ref_func_80C1B8F0 func_800002B0
 
 #include "overlays/actors/ovl_En_Fall2/z_en_fall2.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
