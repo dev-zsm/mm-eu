@@ -2,6 +2,7 @@
 # Unattended daily run, no agent needed. In WSL:  tools/run/daily.sh [hours=3]
 #   1. permuter over every boot, code and overlay draft (the overlay ones: wip files and m2c drafts of what the passes missed), closest to a match first
 #   2. overlays: the m2c draft of every function is tried (tools/search/overlay_auto.py), then the mechanical recipes, then promoted
+#   2b. the functions of the reference that compile to the bytes of the ROM (tools/search/ref_import.py), code and overlays
 #   3. what matched is tidied into src/, then names, srcsort and the full check (tools/search/wave_finish.sh)
 #   4. only if the check passed: commit and push (set -e stops everything before that otherwise)
 # Environment: NO_PUSH=1 commits without pushing, NO_COMMIT=1 leaves the result in the working tree.
@@ -33,6 +34,13 @@ nice -n 19 python3 tools/search/overlay_auto.py recipes 0x200 "${MM_JOBS:-$(npro
 python3 tools/search/overlay_auto.py promote
 python3 tools/signatures/retype.py config/overlays/signatures.txt   # type the actor handlers that just matched (kept only if they still match)
 for seg in boot code overlays; do python3 tools/signatures/sig_header.py $seg --apply; done   # prototypes of the new functions into the headers, sources switched to them (kept only if they still match)
+
+# what the reference compiles to the bytes of the functions the passes above have just found: a new name or a new match makes more of its
+# functions pairable. Each function is checked before it is kept; a failure here only skips this step. The first round clones it (NO_REF=1: skip).
+if [ -z "${NO_REF:-}" ]; then
+    { [ -d build/ref/mm ] || python3 tools/search/ref_import.py vendor; } && python3 tools/search/ref_import.py run && python3 tools/search/ref_import.py run overlays \
+        || echo "reference import skipped"
+fi
 
 bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks
 
