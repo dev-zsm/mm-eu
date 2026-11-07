@@ -27,15 +27,33 @@
 #define Collider_SetQuad Collider_SetQuad
 #define CollisionCheck_SpawnShieldParticlesMetal CollisionCheck_SpawnShieldParticlesMetal
 #define DynaPoly_GetActor DynaPoly_GetActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_Atan2S Math_Atan2S
 #define Math_Atan2S_XY Math_Atan2S_XY
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_DistXYZAndStoreDiff Math_Vec3f_DistXYZAndStoreDiff
 #define Math_Vec3f_Sum Math_Vec3f_Sum
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Player_IsHoldingHookshot Player_IsHoldingHookshot
 #define SurfaceType_IsHookshotSurface SurfaceType_IsHookshotSurface
+#define gHookshotChainDL D_40008D0
+#define object_link_child_DL_01D960 D_601D960
 #define ref_D_808C1BC0 D_808C12A0
+#define ref_D_808C1C10 D_808C12F0
+#define ref_D_808C1C1C D_808C12FC
+#define ref_D_808C1C28 D_808C1308
+#define ref_D_808C1C34 D_808C1314
+#define ref_D_808C1C40 D_808C1320
+#define ref_D_808C1C4C D_808C132C
 #define ref_func_800B90AC func_800B8E30
+#define ref_func_80122868 func_80122D18
+#define ref_func_801229A0 func_80122E50
+#define ref_func_80126440 func_801268F0
 
 #include "overlays/actors/ovl_Arms_Hook/z_arms_hook.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

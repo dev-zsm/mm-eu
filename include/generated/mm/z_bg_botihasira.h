@@ -3,15 +3,24 @@
 #define MM_Z_BG_BOTIHASIRA_H
 
 /* names of ours that symbols of the reference stand for */
+#define BgBotihasira_DoNothing D_80B0CE8C
 #define BgBotihasira_Draw func_800001C0
 #define BgBotihasira_Init func_80000000
 #define BgBotihasira_Update func_800000EC
+#define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define object_botihasira_Colheader_001BD8 D_6001BD8
+#define object_botihasira_DL_000638 D_6000638
+#define sCylinderInit D_80B0D020
 
 #include "overlays/actors/ovl_Bg_Botihasira/z_bg_botihasira.h"
 #include "assets/objects/object_botihasira/object_botihasira.h"

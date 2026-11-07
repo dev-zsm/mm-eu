@@ -10,9 +10,16 @@
 #define EnEncount3_Update func_800002F0
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Player_GetMask Player_GetMask
 #define func_809AD084 func_80000144
 #define func_809AD194 func_80000254
+#define gRingOfFireDL D_60009A0
 #define ref_D_809AD810 D_80992550
 #define ref_func_809AD058 func_80991D98
 #define ref_func_809AD084 func_80000144

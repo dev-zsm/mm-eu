@@ -10,10 +10,21 @@
 #define EffectSs_LerpInv EffectSs_LerpInv
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_MtxToMtxF Matrix_MtxToMtxF
+#define Matrix_Put Matrix_Put
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define SkinMatrix_MtxFMtxFMult SkinMatrix_MtxFMtxFMult
 #define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
 #define SkinMatrix_SetScale SkinMatrix_SetScale
 #define SkinMatrix_SetTranslate SkinMatrix_SetTranslate
+#define gEffBombExplosion1DL D_401A4D0
+#define gEffBombExplosion2DL D_401A538
+#define gEffBombExplosion3DL D_401A590
+#define sDrawFuncs D_8095D538
+#define sLayeredTextures D_8095D560
 #define sTextures D_8095D540
 
 #include "overlays/effects/ovl_Effect_Ss_Bomb2/z_eff_ss_bomb2.h"

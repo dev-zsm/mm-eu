@@ -4,10 +4,18 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define AnimatedMat_DrawXlu AnimatedMat_DrawXlu
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define EffZoraband_Draw func_8000017C
 #define EffZoraband_MikauFadeOut func_80000050
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_RotateYS Matrix_RotateYS
+#define object_zoraband_DL_000180 D_6000180
+#define object_zoraband_DL_0002A8 D_60002A8
+#define object_zoraband_Matanimheader_000F38 D_6000F38
 
 #include "overlays/actors/ovl_Eff_Zoraband/z_eff_zoraband.h"
 #include "assets/objects/object_zoraband/object_zoraband.h"

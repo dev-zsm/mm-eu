@@ -13,12 +13,17 @@
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetInfo2 CollisionCheck_SetInfo2
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Item_DropCollectible Item_DropCollectible
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Matrix_Translate Matrix_Translate
 #define ObjDora_Draw func_800005E8
 #define ObjDora_Init func_80000000
 #define ObjDora_IsHalfHour func_80000384
@@ -27,6 +32,8 @@
 #define ObjDora_SetupWait func_80B459CC
 #define ObjDora_UpdateCollision func_80000418
 #define Rand_Centered func_800870A0
+#define gDoraChainDL D_6004160
+#define gDoraGongDL D_6003FD0
 #define sColChkInfoInit D_80B461D8
 #define sDamageTable D_80B461B8
 #define sTrisElementsInit D_80B46040

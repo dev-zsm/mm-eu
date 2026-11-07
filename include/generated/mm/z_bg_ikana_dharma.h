@@ -5,17 +5,24 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define BgIkanaDharma_Destroy func_80000320
 #define BgIkanaDharma_Init func_800001B4
 #define BgIkanaDharma_SetupStartCutscene func_80BD14F8
+#define BgIkanaDharma_SetupWaitForHit func_80BD1364
 #define BgIkanaDharma_SpawnEffects func_80000000
 #define BgIkanaDharma_Update func_80000680
 #define BgIkanaDharma_WaitForCutsceneToEnd func_800005C8
 #define BgIkanaDharma_WaitForHit func_800003A0
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define EffectSsKirakira_SpawnSmallYellow EffectSsKirakira_SpawnSmallYellow
 #define Flags_SetSwitch Flags_SetSwitch
@@ -24,7 +31,10 @@
 #define Math_StepToF Math_StepToF
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
+#define gStoneTowerTemplePunchablePillarCol D_6000C50
+#define sCylinderInit D_80BD1870
 #define sFirstHitBgIkanaDharma D_80BD1970
+#define sInitChain D_80BD189C
 
 #include "overlays/actors/ovl_Bg_Ikana_Dharma/z_bg_ikana_dharma.h"
 #include "z64quake.h"

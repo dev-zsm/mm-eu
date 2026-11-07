@@ -14,6 +14,8 @@
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_GetTreasure Flags_GetTreasure
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_StepToF Math_StepToF
 #define ObjFireshield_Draw func_80000C14
 #define ObjFireshield_Init func_8000075C
@@ -26,6 +28,7 @@
 #define func_80A4CD34 func_800002A4
 #define func_80A4CE28 func_80000398
 #define func_80A4D174 func_800006E4
+#define gameplay_keep_DL_02E510 D_402E510
 #define ref_D_80A4D84C D_80A325AC
 #define ref_D_80A4D864 D_80A325C4
 #define ref_D_80A4D874 D_80A325D4

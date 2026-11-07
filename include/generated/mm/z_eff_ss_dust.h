@@ -9,12 +9,16 @@
 #define EffectSsDust_UpdateFire func_800005A4
 #define Gfx_SetupDL Gfx_SetupDL
 #define Lib_SegmentedToVirtual func_80100304
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Rand_ZeroOne func_8008704C
 #define SkinMatrix_MtxFMtxFMult SkinMatrix_MtxFMtxFMult
 #define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
 #define SkinMatrix_SetScale SkinMatrix_SetScale
 #define SkinMatrix_SetTranslate SkinMatrix_SetTranslate
+#define gEffDustDL D_4023130
 #define gIdentityMtx D_801CA710
 #define sDustTextures D_8095C660
+#define sUpdateFuncs D_8095C658
 
 #include "overlays/effects/ovl_Effect_Ss_Dust/z_eff_ss_dust.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

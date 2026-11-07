@@ -4,18 +4,29 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointSetColorAndRadius Lights_PointSetColorAndRadius
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjJgameLight_Destroy func_8000013C
 #define ObjJgameLight_Draw func_80000538
 #define ObjJgameLight_Init func_80000000
 #define ObjJgameLight_UpdateCollision func_800003D4
 #define ObjJgameLight_UpdateFlame func_80000184
 #define Rand_ZeroOne func_8008704C
+#define gEffFire1DL D_407D590
+#define gObjJgameLightCorrectDL D_80BFAE50
+#define gObjJgameLightIncorrectDL D_80BFADD0
+#define gObjectSyokudaiTypeSwitchCausesFlameDL D_60003A0
 
 #include "overlays/actors/ovl_Obj_Jgame_Light/z_obj_jgame_light.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

@@ -3,10 +3,14 @@
 #define MM_Z_BG_OPEN_SPOT_H
 
 /* names of ours that symbols of the reference stand for */
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgOpenSpot_Draw func_800000D0
 #define BgOpenSpot_Update func_80000050
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define gSpotlightLeftDL D_6001A60
+#define gSpotlightRightDL D_6001B40
 
 #include "overlays/actors/ovl_Bg_Open_Spot/z_bg_open_spot.h"
 #include "assets/objects/object_open_obj/object_open_obj.h"

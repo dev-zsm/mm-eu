@@ -4,10 +4,14 @@
 
 /* names of ours that symbols of the reference stand for */
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Matrix_MultVec3fXZ Matrix_MultVec3fXZ
 #define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Matrix_Translate Matrix_Translate
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations
@@ -15,6 +19,8 @@
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
 #define gZeroVec3f D_801C9EE0
+#define object_dhouse_DL_004928 D_6004928
+#define object_dhouse_DL_0081D8 D_60081D8
 #define ref_D_80B13E90 D_80AF8BC0
 #define ref_D_80B13FA8 D_80AF8CD8
 #define ref_D_80B13FC4 D_80AF8CF4

@@ -6,13 +6,20 @@
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define AnimatedMat_DrawStep AnimatedMat_DrawStep
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPolyActor_SetActorOnTop DynaPolyActor_SetActorOnTop
 #define DynaPolyActor_SetSwitchPressed DynaPolyActor_SetSwitchPressed
 #define DynaPoly_GetActor DynaPoly_GetActor
 #define Flags_GetSwitch Flags_GetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
+#define Matrix_Translate Matrix_Translate
 #define ObjOshihiki_CheckFloor func_800008B4
 #define ObjOshihiki_CheckGround func_8000090C
 #define ObjOshihiki_CheckWall func_80000984
@@ -28,8 +35,10 @@
 #define ObjOshihiki_Push func_800010BC
 #define ObjOshihiki_ResetFloors func_808FBE3C
 #define ObjOshihiki_RotateXZ func_80000000
+#define ObjOshihiki_SetColor func_808FC17C
 #define ObjOshihiki_SetFloors func_800005B0
 #define ObjOshihiki_SetGround func_8000085C
+#define ObjOshihiki_SetScale func_808FC0F4
 #define ObjOshihiki_SetTextureStep func_800003AC
 #define ObjOshihiki_SetupFall func_808FD00C
 #define ObjOshihiki_SetupOnActor func_808FCBB8
@@ -40,6 +49,10 @@
 #define ObjOshihiki_UpdateInitPos func_80000178
 #define Player_GetStrength Player_GetStrength
 #define SurfaceType_GetSfxOffset SurfaceType_GetSfxOffset
+#define gameplay_dangeon_keep_Colheader_007498 D_5007498
+#define gameplay_dangeon_keep_DL_0182A8 D_50182A8
+#define gameplay_dangeon_keep_Matanimheader_01B370 D_501B370
+#define sInitChain D_808FD388
 
 #include "overlays/actors/ovl_Obj_Oshihiki/z_obj_oshihiki.h"
 #include "overlays/actors/ovl_Obj_Switch/z_obj_switch.h"

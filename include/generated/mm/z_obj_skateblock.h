@@ -5,9 +5,15 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define BgCheck_EntityRaycastFloor6 BgCheck_EntityRaycastFloor6
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_GetActor DynaPoly_GetActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
@@ -15,10 +21,16 @@
 #define ObjSkateblock_Init func_800010E0
 #define Player_InCsMode Player_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
+#define gameplay_dangeon_keep_Colheader_007498 D_5007498
+#define gameplay_dangeon_keep_DL_0182A8 D_50182A8
+#define gameplay_dangeon_keep_Matanimheader_01B370 D_501B370
 #define ref_D_80A22A10 D_80A07740
+#define ref_D_80A22A14 D_80A07744
+#define ref_D_80A22A18 D_80A07748
 #define ref_D_80A22A1C D_80A0774C
 #define ref_D_80A22A44 D_80A07774
 #define ref_D_80A22AF8 D_80A07828
+#define ref_D_80A22B08 D_80A07838
 #define ref_func_80A21150 func_80000000
 #define ref_func_80A211F4 func_800000A4
 #define ref_func_80A212F0 func_800001A0
@@ -42,6 +54,7 @@
 #define ref_func_80A22628 func_80A07358
 #define ref_func_80A2273C func_800015EC
 #define ref_func_80A227A4 func_80A074D4
+#define sInitChain D_80A07810
 
 #include "overlays/actors/ovl_Obj_Skateblock/z_obj_skateblock.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"

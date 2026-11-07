@@ -8,7 +8,7 @@ How a function becomes a file: the includes, defines and types of the reference 
 (initialisers dropped), the function itself. A symbol that the reference calls or reads under another name than the one our code
 uses gets a `#define` to ours (found by pairing the relocations of the reference object with the ones in our assembly, so the evidence is
 the identical code). Nothing is kept unless tools/lib/match.py says MATCH on the file, and the full check still has the last word."""
-import collections, functools, re, shutil, struct, subprocess, sys, tempfile
+import bisect, collections, functools, os, re, shutil, struct, subprocess, sys, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -32,28 +32,65 @@ REF_FLAGS = ["-c", "-G", "0", "-non_shared", "-Xcpluscomm", "-nostdinc", "-Wab,-
              "-Ibuild/n64-us", "-I.", "-Iextracted/n64-us", "-EB", "-O2", "-g3", "-mips2"]
 
 
+_T0 = [time.perf_counter()]
+
+
+def lap(label):
+    """How long the last phase took (printed with --time)."""
+    now = time.perf_counter()
+    if "--time" in sys.argv:
+        print(f"  [{now - _T0[0]:6.1f} s] {label}", flush=True)
+    _T0[0] = now
+
+
 def run(*a, **k):
     return subprocess.run(a, capture_output=True, text=True, **k)
 
 
+@functools.lru_cache(maxsize=1)
+def ref_commit():
+    return run("git", "-C", str(REF), "rev-parse", "HEAD").stdout.strip()
+
+
+def ref_compile(f):
+    """(object, error) of a reference file compiled with the flags of the reference. The object is kept while the file and the version
+    of the reference stay the same: a stand-in written later cannot change a file that already compiled, so only the files that failed
+    are compiled again when the stand-ins grow, and a second run does not compile anything."""
+    key = objcache.digest(ref_commit().encode(), str(f.relative_to(REF)).encode(), f.read_bytes())
+    obj = objcache.CACHE / "ref" / f"{key}.o"
+    if obj.exists():
+        return obj, ""
+    obj.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory() as d:
+        r = run(str(objcache._compiler("71")), *REF_FLAGS, "-o", d + "/x.o", str(f.relative_to(REF)), cwd=REF)
+        if r.returncode:
+            return None, r.stderr
+        tmp = obj.with_suffix(f".{os.getpid()}.tmp")
+        shutil.move(d + "/x.o", tmp)
+        os.replace(tmp, obj)   # atomic: threads may compile the same file
+    return obj, ""
+
+
 # ---------------------------------------------------------------- vendor
+def copy_new(src, dst):
+    """Copy a file unless the same one is already there (the copy of ~1500 small files took a minute on the Windows disk)."""
+    if dst.exists() and dst.stat().st_size == src.stat().st_size and dst.read_bytes() == src.read_bytes():
+        return
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(src, dst)
+
+
 def vendor():
     """include/mm/: the headers of the reference and the stand-ins for the generated asset headers."""
     if not REF.exists():
         REF.parent.mkdir(parents=True, exist_ok=True)
         run("git", "clone", "--depth", "1", "https://github.com/zeldaret/mm", str(REF))
-    shutil.copytree(REF / "include", MM, dirs_exist_ok=True)   # additive: the stand-ins of earlier runs stay
-    for h in (REF / "src").rglob("*.h"):   # the headers of the overlays that z64*.h include (the reference adds -Isrc)
-        dst = MM / h.relative_to(REF / "src")
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(h, dst)
-    for h in (REF / "assets").rglob("*.h"):   # the asset headers that are part of the reference repository itself
-        dst = MM / h.relative_to(REF)
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(h, dst)
-    stub = REF / "extracted" / "n64-us"   # only the stand-ins written by stub_loop live there
-    if stub.exists():
-        shutil.copytree(stub, MM, dirs_exist_ok=True)
+    # additive: the stand-ins of earlier runs stay
+    for base, dst_base in ((REF / "include", MM), (REF / "src", MM), (REF / "assets", MM / "assets"),
+                           (REF / "extracted" / "n64-us", MM)):   # the last one holds only the stand-ins written by stub_loop
+        for h in base.rglob("*"):
+            if h.is_file() and (base != REF / "src" and base != REF / "assets" or h.suffix == ".h"):
+                copy_new(h, dst_base / h.relative_to(base))
     commit = run("git", "-C", str(REF), "rev-parse", "HEAD").stdout.strip()
     (MM / "REFERENCE_COMMIT").write_text(commit + "\n")   # the import can be redone exactly
     print(f"{sum(1 for _ in MM.rglob('*') if _.is_file())} files in {MM.relative_to(ROOT)} (reference {commit[:8]})")
@@ -72,11 +109,10 @@ def stub_loop(files):
         errs, failed = [], []
 
         def one(f):
-            with tempfile.TemporaryDirectory() as d:
-                r = run(str(objcache._compiler("71")), *REF_FLAGS, "-o", d + "/x.o", str(f.relative_to(REF)), cwd=REF)
-                if r.returncode:
-                    errs.append(r.stderr)
-                    failed.append(f)
+            obj, err = ref_compile(f)
+            if obj is None:
+                errs.append(err)
+                failed.append(f)
 
         with ThreadPoolExecutor(objcache.JOBS) as ex:
             list(ex.map(one, todo))
@@ -103,21 +139,11 @@ def stub_loop(files):
 
 def ref_functions(obj):
     """{name: (offset, bytes, [(offset in function, relocation type, symbol)])} of the functions of a reference object."""
-    nm = run("mips-linux-gnu-nm", "-S", "--defined-only", str(obj)).stdout
-    with tempfile.TemporaryDirectory() as d:
-        run("mips-linux-gnu-objcopy", "-O", "binary", "--only-section=.text", str(obj), d + "/t.bin")
-        blob = Path(d, "t.bin").read_bytes() if Path(d, "t.bin").exists() else b""
-    rel = run("mips-linux-gnu-readelf", "-rW", str(obj)).stdout.split("Relocation section")
-    rels = []
-    for sec in rel:
-        if sec.startswith(" '.rel.text'"):
-            rels = [(int(m.group(1), 16), m.group(2), m.group(3)) for m in
-                    re.finditer(r"^([0-9a-f]{8})\s+[0-9a-f]+\s+(R_MIPS_\w+)\s+[0-9a-f]+\s+(\S+)", sec, re.M)]
-    out = {}
-    for m in re.finditer(r"^([0-9a-f]{8}) ([0-9a-f]{8}) [Tt] (\w+)$", nm, re.M):
-        off, size, name = int(m.group(1), 16), int(m.group(2), 16), m.group(3)
-        out[name] = (off, blob[off:off + size], [(o - off, t, s) for o, t, s in rels if off <= o < off + size])
-    return out
+    text, _, inside, relocs = match.elf_text(str(obj))
+    relocs = sorted(relocs)
+    offsets = [r[0] for r in relocs]
+    return {name: (off, text[off:off + size], [(o - off, t, sym) for o, t, sym in relocs[bisect.bisect_left(offsets, off):bisect.bisect_left(offsets, off + size)]])
+            for name, (off, size) in inside.items() if size}
 
 
 # ---------------------------------------------------------------- our side
@@ -158,7 +184,7 @@ def s16(v):
 
 
 def address_of(sym):
-    m = re.fullmatch(r"(?:func|D)_([0-9A-F]{8})", sym)
+    m = re.fullmatch(r"(?:func|D|jtbl)_([0-9A-F]{7,8})", sym)   # splat names a rodata table of code pointers jtbl_
     return int(m.group(1), 16) if m else None
 
 
@@ -190,7 +216,7 @@ def pair(seg, fn, relocs, blob):
             raise PairError("our assembly has no relocated operand where the object has one")
         addr = address_of(ours[off])
         if addr is None:
-            raise PairError("our operand is not a func_/D_ name (jump table, label)")
+            raise PairError("our operand is not a func_/D_/jtbl_ name: " + re.sub("[0-9A-F]{8}", "X", ours[off]))
         word = struct.unpack(">I", blob[off:off + 4])[0]
         if typ == "R_MIPS_26":
             add = (word & 0x3FFFFFF) * 4
@@ -401,10 +427,8 @@ def code_candidates(only=None):
     vendor()   # after the stand-ins: our compile of the imported files reads include/mm
 
     def scan(f):
-        with tempfile.TemporaryDirectory() as d:
-            obj = Path(d) / "x.o"
-            r = run(str(objcache._compiler("71")), *REF_FLAGS, "-o", str(obj), str(f.relative_to(REF)), cwd=REF)
-            return (f, ref_functions(obj)) if r.returncode == 0 else (f, None)
+        obj, _ = ref_compile(f)
+        return (f, ref_functions(obj)) if obj else (f, None)
 
     with ThreadPoolExecutor(objcache.JOBS) as ex:
         scans = [s for s in ex.map(scan, files) if s[1]]
@@ -437,6 +461,11 @@ def code_candidates(only=None):
     return {relkey(f): (top_chunks(f.read_text()), items[relkey(f)]) for f, _ in scans if items.get(relkey(f))}
 
 
+def opcodes(code):
+    """The opcode of every instruction: a relocation changes the operands only, so two functions with the same bytes agree on this."""
+    return bytes(w >> 26 for w in struct.unpack(f">{len(code) // 4}I", code))
+
+
 def overlay_candidates(only=None):
     """{reference file: (chunks, [(overlay segment, our function, reference name)])} for the overlay functions that are byte-identical
     to ours. The reference file is matched to one of our overlays by vote: every function of the file that has the same bytes as functions
@@ -445,18 +474,20 @@ def overlay_candidates(only=None):
     files = sorted(f for f in (REF / "src" / "overlays").rglob("*.c") if not f.name.endswith(".inc.c"))
     if only:
         files = [f for f in files if f.name == only]
+    lap("start")
     stub_loop(files)
+    lap("stand-ins")
     vendor()
+    lap("vendor")
 
     def scan(f):
-        with tempfile.TemporaryDirectory() as d:
-            obj = Path(d) / "x.o"
-            r = run(str(objcache._compiler("71")), *REF_FLAGS, "-o", str(obj), str(f.relative_to(REF)), cwd=REF)
-            return (f, ref_functions(obj)) if r.returncode == 0 else (f, None)
+        obj, _ = ref_compile(f)
+        return (f, ref_functions(obj)) if obj else (f, None)
 
     with ThreadPoolExecutor(objcache.JOBS) as ex:
         scans = [s for s in ex.map(scan, files) if s[1]]
-    free = collections.defaultdict(list)   # size -> [(overlay segment, function)] without verified C
+    lap("reference objects read")
+    free = collections.defaultdict(list)   # (size, opcodes) -> [(overlay segment, function, its bytes)] without verified C
     for line in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines():
         if not line.strip():
             continue
@@ -464,7 +495,9 @@ def overlay_candidates(only=None):
         seg = f"ovl{idx}"
         for fn, size in match._sizes(seg).items():
             if size >= 8 and not source_path(seg, fn).exists():
-                free[size].append((seg, fn))
+                code = match.original(seg, fn)[0]
+                free[(size, opcodes(code))].append((seg, fn, code))
+    lap("our functions indexed")
     items = collections.defaultdict(list)
     claims = collections.defaultdict(list)
     for f, fns in scans:
@@ -472,7 +505,7 @@ def overlay_candidates(only=None):
         for real, (off, blob, relocs) in fns.items():
             masks = {o: match.MASKS[t] for o, t, s in relocs if t in match.MASKS}
             key = match.mask(blob, masks)
-            found = [(seg, fn) for seg, fn in free[len(blob)] if match.mask(match.original(seg, fn)[0], masks) == key]
+            found = [(seg, fn) for seg, fn, code in free[(len(blob), opcodes(blob))] if match.mask(code, masks) == key]
             hits[real] = found
             if 1 <= len(found) <= 4:
                 for seg in {seg for seg, _ in found}:
@@ -631,10 +664,12 @@ def main():
         return vendor()
     only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
     cands = overlay_candidates(only) if sys.argv[2:3] == ["overlays"] else code_candidates(only)
+    lap("candidates found")
     reasons = collections.Counter()
     total = sum(len(items) for _, items in cands.values())
     with ThreadPoolExecutor(objcache.JOBS) as ex:
         ok = sum(ex.map(lambda kv: import_module(kv[0], kv[1][0], kv[1][1], reasons), cands.items()))
+    lap("functions imported")
     if sys.argv[2:3] != ["overlays"]:
         save_bases()
         print(f"{save_names()} functions named from the reference by their bytes")

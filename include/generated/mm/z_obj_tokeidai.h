@@ -6,6 +6,8 @@
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetScale Actor_SetScale
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Audio_SetCutsceneFlag Audio_SetCutsceneFlag
@@ -17,8 +19,11 @@
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Translate Matrix_Translate
 #define ObjTokeidai_Clock_Draw func_80001C04
 #define ObjTokeidai_Clock_Init func_800000A4
@@ -41,6 +46,7 @@
 #define ObjTokeidai_RotateOnMinuteChange func_80000880
 #define ObjTokeidai_SetupClockOrExteriorGear func_80000024
 #define ObjTokeidai_SetupTowerOpening func_80A988E0
+#define ObjTokeidai_StaircaseToRooftop_Idle D_80A98918
 #define ObjTokeidai_TerminaFieldWalls_Collapse D_80A9836C
 #define ObjTokeidai_TerminaFieldWalls_Idle func_80000ECC
 #define ObjTokeidai_TowerClock_Fall D_80A98020
@@ -54,7 +60,21 @@
 #define ObjTokeidai_TowerOpening_RaiseTower func_800012EC
 #define ObjTokeidai_TowerOpening_Start func_800013A4
 #define ObjTokeidai_TowerOpening_Wait D_80A985B0
+#define ObjTokeidai_WallClock_Idle D_80A98D70
+#define gClockTowerClockCenterAndHandDL D_600BEE8
+#define gClockTowerClockFaceDL D_600E818
+#define gClockTowerCounterweightDL D_600B208
+#define gClockTowerEmptyDL D_600D8E0
+#define gClockTowerExteriorGearDL D_600BA78
+#define gClockTowerMinuteRingDL D_600CF28
+#define gClockTowerSpotlightDL D_600B0C0
+#define gClockTowerStaircaseToRooftopDL D_600D8E8
+#define gClockTowerSunAndMoonPanelDL D_600C368
+#define gClockTowerTerminaFieldWallsDL D_6009A08
+#define gClockTowerUnusedTowerWallDL D_600D388
 #define gSaveContext D_801E6EF0
+#define gWallClockClockFaceDL D_600F518
+#define sInitChain D_80A99710
 
 #include "overlays/actors/ovl_Obj_Tokeidai/z_obj_tokeidai.h"
 #include "assets/objects/object_obj_tokeidai/object_obj_tokeidai.h"

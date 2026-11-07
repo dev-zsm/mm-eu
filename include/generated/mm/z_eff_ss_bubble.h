@@ -9,12 +9,19 @@
 #define EffectSsBubble_Init func_80000000
 #define EffectSsBubble_Update func_8000029C
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
 #define SurfaceType_GetConveyorDirection SurfaceType_GetConveyorDirection
 #define SurfaceType_GetConveyorSpeed SurfaceType_GetConveyorSpeed
 #define SurfaceType_IsFloorConveyor SurfaceType_IsFloorConveyor
+#define gEffBubble1Tex D_4091BE0
+#define gEffBubble2Tex D_4091CE0
+#define gEffBubbleDL D_40301B0
 #define sVecAdjMaximums D_8095E7F8
 
 #include "overlays/effects/ovl_Effect_Ss_Bubble/z_eff_ss_bubble.h"

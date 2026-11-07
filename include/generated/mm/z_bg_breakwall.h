@@ -36,9 +36,15 @@
 #define func_808B7D34 func_800009D4
 #define gSaveContext D_801E6EF0
 #define gZeroVec3f D_801C9EE0
+#define object_kumo30_DL_000A50 D_6000A50
+#define object_kumo30_DL_000C98 D_6000C98
 #define ref_D_808B8140 D_808B7820
 #define ref_D_808B82F0 D_808B79D0
 #define ref_D_808B8300 D_808B79E0
+#define ref_D_808B8310 D_808B79F0
+#define ref_D_808B8320 D_808B7A00
+#define ref_D_808B8330 D_808B7A10
+#define ref_D_808B8340 D_808B7A20
 #define ref_func_800FEA50 func_800FE848
 #define ref_func_808B73C4 func_80000064
 #define ref_func_808B7410 func_800000B0

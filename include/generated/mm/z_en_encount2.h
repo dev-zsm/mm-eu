@@ -3,26 +3,48 @@
 #define MM_Z_EN_ENCOUNT2_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init ActorShape_Init
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_SetScale Actor_SetScale
 #define Actor_Spawn Actor_Spawn
+#define Collider_InitAndSetJntSph Collider_InitAndSetJntSph
 #define Collider_UpdateSpheresElement func_800E7ED0
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
 #define EnEncount2_Die func_80000348
 #define EnEncount2_DrawEffects func_8000073C
 #define EnEncount2_Init func_80000000
 #define EnEncount2_InitEffects func_800004C4
 #define EnEncount2_Popped func_80000264
+#define EnEncount2_SetupIdle func_808E0DCC
 #define EnEncount2_Update func_80000398
 #define EnEncount2_UpdateEffects func_800005EC
+#define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL Gfx_SetupDL
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_Mult Matrix_Mult
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define gSun1Tex D_4079B10
+#define gSunSparkleMaterialDL D_407AB10
+#define gSunSparkleModelDL D_407AB58
+#define object_fusen_Colheader_002420 D_6002420
+#define sDamageTable D_808E15F4
+#define sJntSphInit D_808E15E4
 
 #include "overlays/actors/ovl_En_Encount2/z_en_encount2.h"
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"

@@ -6,6 +6,7 @@
 #define ActorShape_Init ActorShape_Init
 #define Actor_PlaySfx_Flagged2 Actor_PlaySfx_Flagged2
 #define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_AnyLineTest1 BgCheck_AnyLineTest1
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_InitQuad Collider_InitQuad
@@ -15,10 +16,15 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_LineSegVsPlane Math3D_LineSegVsPlane
 #define Math_ApproachF Math_ApproachF
 #define Math_ApproachZeroF Math_ApproachZeroF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_Mult Matrix_Mult
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define MirRay3_Draw func_80000CB0
 #define MirRay3_Init func_80000000
 #define MirRay3_Update func_80000158
@@ -27,6 +33,9 @@
 #define func_80B9E5F4 func_80000334
 #define func_80B9E7D0 func_80000510
 #define func_80B9E8D4 func_80000614
+#define object_mir_ray_DL_000168 D_6000168
+#define object_mir_ray_DL_0004B0 D_60004B0
+#define object_mir_ray_Matanimheader_0003F8 D_60003F8
 #define ref_func_80B9E544 func_80000284
 #define ref_func_80B9E5F4 func_80000334
 #define ref_func_80B9E7D0 func_80000510

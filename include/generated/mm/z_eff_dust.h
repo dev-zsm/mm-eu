@@ -5,8 +5,15 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define EffDust_Init func_80000078
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_Mult Matrix_Mult
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
@@ -17,6 +24,8 @@
 #define func_80919230 func_800006F0
 #define func_80919768 func_80000C28
 #define func_809199FC func_80000EBC
+#define gEffSparklesDL D_4054A90
+#define ref_D_80919DB0 D_808FE8A0
 #define ref_func_80918B40 func_80000000
 #define ref_func_80918D64 func_80000224
 #define ref_func_80918FE4 func_800004A4

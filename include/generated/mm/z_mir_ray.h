@@ -7,6 +7,7 @@
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx_Flagged2 Actor_PlaySfx_Flagged2
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_AnyLineTest1 BgCheck_AnyLineTest1
 #define Collider_DestroyJntSph Collider_DestroyJntSph
 #define Collider_DestroyQuad Collider_DestroyQuad
@@ -16,6 +17,8 @@
 #define Collider_SetQuad Collider_SetQuad
 #define Collider_SetQuadVertices func_800E7C1C
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
@@ -24,6 +27,9 @@
 #define Math3D_LineSegVsPlane Math3D_LineSegVsPlane
 #define Math_StepToS Math_StepToS
 #define Math_Vec3f_Diff Math_Vec3f_Diff
+#define Matrix_Mult Matrix_Mult
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define MirRay_CheckInFrustum func_80001384
 #define MirRay_Destroy func_80000504
 #define MirRay_Draw func_800010A4
@@ -35,6 +41,10 @@
 #define MirRay_SetupCollider func_80000000
 #define MirRay_SetupReflectionPolys func_8000081C
 #define MirRay_Update func_8000057C
+#define Player_IsHoldingMirrorShield Player_IsHoldingMirrorShield
+#define object_mir_ray_DL_000168 D_6000168
+#define object_mir_ray_DL_0004B0 D_60004B0
+#define object_mir_ray_Matanimheader_0003F8 D_60003F8
 #define ref_D_808E3BF0 D_808E32C0
 #define sInitChain D_808E3488
 #define sJntSphInit D_808E3338

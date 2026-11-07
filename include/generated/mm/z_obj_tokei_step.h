@@ -4,8 +4,11 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateYS Matrix_RotateYS
@@ -19,6 +22,9 @@
 #define ObjTokeiStep_Open func_8000087C
 #define ObjTokeiStep_OpenProcess func_80000400
 #define ObjTokeiStep_RequestQuakeAndRumble func_80000038
+#define ObjTokeiStep_SetMatrixTranslation func_80ABA8E0
+#define ObjTokeiStep_SetupBeginOpen func_80ABB078
+#define ObjTokeiStep_SetupDoNothing func_80ABB104
 #define ObjTokeiStep_SetupDoNothingOpen func_80ABB1B0
 #define ObjTokeiStep_SetupOpen func_80ABB128
 #define ObjTokeiStep_SpawnDust func_800000C0
@@ -28,10 +34,15 @@
 #define Quake_SetSpeed Quake_SetSpeed
 #define Rand_ZeroOne func_8008704C
 #define Rumble_Request Rumble_Request
+#define gClocktowerPanelCol D_6000968
+#define gClocktowerPanelDL D_6000088
+#define gSaveContext D_801E6EF0
+#define gSetupDLs D_801C1BB0
 #define gZeroVec3f D_801C9EE0
 #define ref_func_800B1210 func_800B1730
 #define sDustEffectAccel D_80ABB388
 #define sDustSpawnXOffsets D_80ABB36C
+#define sInitChain D_80ABB394
 #define sPanelXOffsets D_80ABB350
 
 #include "overlays/actors/ovl_Obj_Tokei_Step/z_obj_tokei_step.h"

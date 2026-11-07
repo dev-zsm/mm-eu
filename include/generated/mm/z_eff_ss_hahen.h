@@ -17,6 +17,8 @@
 #define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
+#define Rand_ZeroOne func_8008704C
+#define gEffFragments1DL D_401A620
 
 #include "overlays/effects/ovl_Effect_Ss_Hahen/z_eff_ss_hahen.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

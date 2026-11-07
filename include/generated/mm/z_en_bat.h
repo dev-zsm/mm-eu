@@ -6,6 +6,7 @@
 #define ActorShadow_DrawCircle D_800B3F30
 #define ActorShape_Init ActorShape_Init
 #define Actor_ApplyDamage Actor_ApplyDamage
+#define Actor_DrawDamageEffects func_800BE404
 #define Actor_IsFacingPlayer Actor_IsFacingPlayer
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
@@ -52,11 +53,17 @@
 #define Math_SmoothStepToS Math_SmoothStepToS
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_MultVecX Matrix_MultVecX
+#define Matrix_MultZero Matrix_MultZero
+#define Matrix_RotateZS Matrix_RotateZS
 #define Player_GetMask Player_GetMask
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define SubS_FindActor SubS_FindActor
+#define gBadBatBodyDL D_60000C8
+#define gBadBatSetupDL D_60000A0
+#define gSetupDLs D_801C1BB0
 #define gZeroVec3f D_801C9EE0
 #define ref_func_800B3030 func_800B3550
 #define sAlreadySpawned D_80A299D4
@@ -65,6 +72,7 @@
 #define sInitChain D_80A297B4
 #define sNumberAttacking D_80A299D0
 #define sSphereInit D_80A29760
+#define sWingsDLs D_80A297C4
 
 #include "overlays/actors/ovl_En_Bat/z_en_bat.h"
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"

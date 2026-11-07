@@ -3,11 +3,16 @@
 #define MM_Z_DOOR_WARP1_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShape_Init ActorShape_Init
 #define Actor_HasParent Actor_HasParent
 #define Actor_OfferGetItem Actor_OfferGetItem
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
 #define Actor_SpawnAsChild Actor_SpawnAsChild
+#define AnimatedMat_Draw AnimatedMat_Draw
+#define Animation_ChangeImpl Animation_ChangeImpl
+#define Animation_GetLastFrame Animation_GetLastFrame
 #define AudioSfx_PlaySfx AudioSfx_PlaySfx
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
@@ -19,19 +24,32 @@
 #define DoorWarp1_GetRemains func_8000000C
 #define DoorWarp1_Init func_80000248
 #define DoorWarp1_SetupAction func_808B7B70
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define Environment_StopTime Environment_StopTime
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Item_Give func_80112D7C
+#define Lib_SegmentedToVirtual func_80100304
 #define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_StepToF Math_StepToF
+#define Matrix_Finalize Matrix_Finalize
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Message_StartTextbox func_80151DF4
 #define Play_InCsMode Play_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define Scene_SetExitFade Scene_SetExitFade
 #define SkelAnime_Draw SkelAnime_Draw
+#define SkelAnime_Init SkelAnime_Init
 #define SkelAnime_Update SkelAnime_Update
 #define func_808B8568 func_800000D8
 #define func_808B866C func_800001DC
@@ -59,6 +77,16 @@
 #define gSaveContext D_801E6EF0
 #define gSfxDefaultFreqAndVolScale D_801D3DE0
 #define gSfxDefaultReverb D_801D3DE8
+#define gWarpBossWarpActivationBeamDL D_6003230
+#define gWarpBossWarpActivationBeamTexAnim D_60044D8
+#define gWarpBossWarpGlowDL D_60058C8
+#define gWarpBossWarpGlowTexAnim D_6007238
+#define gWarpBossWarpLightShaftsDL D_6004690
+#define gWarpBossWarpLightShaftsTexAnim D_60057D8
+#define gWarpBossWarpPlatformCol D_6008BD4
+#define gWarpCrystalAnim D_6001374
+#define gWarpCrystalSkel D_6002CA8
+#define gWarpPortalDL D_60001A0
 #define ref_D_808BC000 D_808BB6E0
 #define ref_D_808BC004 D_808BB6E4
 #define ref_func_80169FDC func_8016B164
@@ -67,6 +95,7 @@
 #define ref_func_808B8924 func_80000494
 #define ref_func_808B8A7C func_800005EC
 #define ref_func_808B8C48 func_800007B8
+#define ref_func_808B8E78 func_808B8558
 #define ref_func_808B900C func_80000B7C
 #define ref_func_808B90CC func_80000C3C
 #define ref_func_808B921C func_80000D8C
@@ -91,6 +120,7 @@
 #define ref_func_808BB4C4 func_808BABA4
 #define ref_func_808BB4F4 func_80003064
 #define ref_func_808BB8D4 func_80003444
+#define sInitChain D_808BB220
 
 #include "overlays/actors/ovl_Door_Warp1/z_door_warp1.h"
 #include "assets/objects/object_warp1/object_warp1.h"

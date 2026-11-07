@@ -8,10 +8,14 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
 #define Flags_GetCollectible Flags_GetCollectible
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define ItemBHeart_Draw func_800001D4
 #define ItemBHeart_Init func_80000000
 #define ItemBHeart_UpdateModel func_80000164
 #define Math_ApproachF Math_ApproachF
+#define gGiHeartBorderDL D_6001290
+#define gGiHeartContainerDL D_6001470
 #define sInitChain D_808BC860
 
 #include "overlays/actors/ovl_Item_B_Heart/z_item_b_heart.h"

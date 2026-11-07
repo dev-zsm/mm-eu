@@ -3,10 +3,19 @@
 #define MM_Z_OBJ_GHAKA_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_OfferTalkNearColChkInfoCylinder Actor_OfferTalkNearColChkInfoCylinder
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetScale Actor_SetScale
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Audio_PlaySfx_AtPos Audio_PlaySfx_AtPos
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_StepToS Math_StepToS
 #define ObjGhaka_Draw func_800005F8
 #define ObjGhaka_Init func_80000498
@@ -14,7 +23,11 @@
 #define func_80B3C2C4 func_80000064
 #define func_80B3C39C func_8000013C
 #define func_80B3C624 func_800003C4
+#define object_ghaka_Colheader_003CD0 D_6003CD0
+#define object_ghaka_DL_001980 D_6001980
+#define object_ghaka_DL_001A20 D_6001A20
 #define ref_D_80B3C960 D_80B21690
+#define ref_D_80B3C96C D_80B2169C
 #define ref_func_80B3C260 func_80B20F90
 #define ref_func_80B3C29C func_80B20FCC
 #define ref_func_80B3C2B0 func_80B20FE0

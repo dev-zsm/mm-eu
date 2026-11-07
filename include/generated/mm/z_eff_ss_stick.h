@@ -6,9 +6,15 @@
 #define EffectSsStick_Draw func_80000114
 #define EffectSsStick_Init func_80000000
 #define EffectSsStick_Update D_80960798
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
+#define gCullBackDList D_801C1510
+#define gDekuStickDL D_40032B0
 
 #include "overlays/effects/ovl_Effect_Ss_Stick/z_eff_ss_stick.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

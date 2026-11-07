@@ -5,6 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define BgDblueWaterfall_Draw func_800013CC
@@ -18,6 +19,8 @@
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
@@ -28,6 +31,12 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
+#define gActorSetupOpaDL D_801AFAD0
+#define gActorSetupXluDL D_801AFAB8
+#define gGreatBayTempleObjectFrozenWaterfallDL D_6003770
+#define gGreatBayTempleObjectIceStalactiteDL D_6003358
+#define gGreatBayTempleObjectIceStalactiteRimDL D_6003250
+#define gGreatBayTempleObjectWaterfallDL D_600B280
 #define gZeroVec3f D_801C9EE0
 #define ref_D_80B8539C D_80B6A0BC
 #define ref_D_80B853A0 D_80B6A0C0

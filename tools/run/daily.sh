@@ -38,7 +38,11 @@ bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a seg
 
 [ -n "${NO_COMMIT:-}" ] && exit 0
 git add README.md docs/PROGRESS.md include src/boot src/code src/overlays
-if git diff --cached --quiet; then echo "nothing new today"; exit 0; fi
+# the counters of docs/PROGRESS.md and README.md change with every check: a round that found no function is not worth a commit
+if ! git diff --cached --name-only | grep -qv '^\(README.md\|docs/PROGRESS.md\)$'; then
+    git reset -q README.md docs/PROGRESS.md; git checkout -q -- README.md docs/PROGRESS.md
+    echo "nothing new today"; exit 0
+fi
 git commit -q -m "daily run: more verified functions
 
 Found by the permuter and the automatic passes. make check: boot, code and overlays identical to the ROM, style rules OK."

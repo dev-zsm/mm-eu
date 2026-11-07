@@ -4,14 +4,19 @@
 
 /* names of ours that symbols of the reference stand for */
 #define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init ActorShape_Init
+#define Actor_ChangeCategory Actor_ChangeCategory
 #define Actor_Kill Actor_Kill
 #define Actor_OfferTalkExchangeEquiCylinder Actor_OfferTalkExchangeEquiCylinder
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
 #define Audio_PlaySfx Audio_PlaySfx
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
@@ -19,11 +24,15 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math_CosS Math_CosS
@@ -35,6 +44,8 @@
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjBean_Init func_80000B74
 #define ObjBean_Update func_80001F9C
 #define Player_GetExchangeItemAction Player_GetExchangeItemAction
@@ -60,6 +71,10 @@
 #define func_80938AD8 func_80001DE8
 #define func_80938C1C func_80001F2C
 #define func_80938E00 func_80002110
+#define object_mamenoki_Colheader_0004BC D_60004BC
+#define object_mamenoki_DL_000090 D_6000090
+#define object_mamenoki_DL_0002D0 D_60002D0
+#define object_mamenoki_DL_000530 D_6000530
 #define ref_D_80938FF8 D_8091DAE8
 #define ref_func_800FE9B4 func_800FE7AC
 #define ref_func_80936CF0 func_80000000
@@ -69,6 +84,8 @@
 #define ref_func_80937130 func_8091BC20
 #define ref_func_80937160 func_80000470
 #define ref_func_80937238 func_8091BD28
+#define ref_func_80937268 func_8091BD58
+#define ref_func_809372A8 func_8091BD98
 #define ref_func_809372D0 func_800005E0
 #define ref_func_80937468 func_8091BF58
 #define ref_func_809374F8 func_80000808
@@ -77,6 +94,7 @@
 #define ref_func_80937B54 func_80000E64
 #define ref_func_80937C10 func_8091C700
 #define ref_func_80937C30 func_8091C720
+#define ref_func_80937DD8 func_8091C8C8
 #define ref_func_80937DEC func_800010FC
 #define ref_func_80937FB0 func_8091CAA0
 #define ref_func_80937FC8 func_800012D8
@@ -92,6 +110,7 @@
 #define ref_func_809385A8 func_800018B8
 #define ref_func_80938670 func_8091D160
 #define ref_func_8093868C func_8000199C
+#define ref_func_80938704 func_8091D1F4
 #define ref_func_80938780 func_80001A90
 #define ref_func_80938804 func_8091D2F4
 #define ref_func_80938998 func_8091D488
@@ -100,6 +119,9 @@
 #define ref_func_80938C1C func_80001F2C
 #define ref_func_80938E00 func_80002110
 #define ref_func_80938F50 D_8091DA40
+#define sCylinderInit1 D_8091DA90
+#define sCylinderInit2 D_8091DABC
+#define sInitChain D_8091DB1C
 
 #include "overlays/actors/ovl_Obj_Bean/z_obj_bean.h"
 #include "assets/objects/object_mamenoki/object_mamenoki.h"

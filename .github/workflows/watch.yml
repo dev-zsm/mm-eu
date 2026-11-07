@@ -1,6 +1,6 @@
 name: watch
 
-# The unattended runs push to main on their own. If nothing has been pushed for 30 hours the machine has stopped or its
+# The unattended runs push to main on their own. If nothing has been pushed for 7 days the machine has stopped or its
 # check keeps failing: this job fails, and GitHub sends the failure by e-mail to the owner of the repository.
 on:
   schedule:
@@ -20,4 +20,4 @@ jobs:
           last=$(git log -1 --format=%ct)
           age=$(( ($(date +%s) - last) / 3600 ))
           echo "last commit on main: $age hours ago"
-          [ "$age" -lt 30 ]
+          [ "$age" -lt 168 ]

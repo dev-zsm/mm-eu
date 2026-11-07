@@ -15,11 +15,15 @@
 #define EnNutsball_Draw func_800004E0
 #define EnNutsball_InitColliderParams func_8096AA7C
 #define EnNutsball_Update func_80000128
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Atan2S_XY Math_Atan2S_XY
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
+#define Matrix_Mult Matrix_Mult
+#define Matrix_RotateZS Matrix_RotateZS
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define SurfaceType_GetWallFlags SurfaceType_GetWallFlags
+#define gameplay_keep_DL_058BA0 D_4058BA0
 
 #include "overlays/actors/ovl_En_Nutsball/z_en_nutsball.h"
 #include "overlays/effects/ovl_Effect_Ss_Hahen/z_eff_ss_hahen.h"

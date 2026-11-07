@@ -3,10 +3,20 @@
 #define MM_Z_EFF_STK_H
 
 /* names of ours that symbols of the reference stand for */
+#define AnimatedMat_DrawAlphaStep func_80131CC0
+#define Camera_GetQuakeOffset Camera_GetQuakeOffset
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define EffStk_Draw func_80000180
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_SinS Math_SinS
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define object_stk2_DL_008920 D_6008920
+#define object_stk2_DL_008A38 D_6008A38
+#define object_stk2_Matanimheader_009F60 D_6009F60
 #define ref_func_80BF0DE0 func_80000050
 
 #include "overlays/actors/ovl_Eff_Stk/z_eff_stk.h"

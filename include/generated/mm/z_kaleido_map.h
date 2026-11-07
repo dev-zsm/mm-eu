@@ -4,11 +4,14 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx Audio_PlaySfx
+#define Gfx_DrawTexRectI8 Gfx_DrawTexRectI8
 #define Interface_SetHudVisibility func_8010EE64
 #define KaleidoScope_DrawDungeonStrayFairyCount func_80004880
 #define KaleidoScope_MoveCursorToSpecialPos func_80820FA8
 #define KaleidoScope_UpdateWorldMapCursor func_80007044
+#define gCounterDigit0Tex D_20041A0
 #define gSaveContext D_801E6EF0
+#define gStrayFairyMapCounterSlashTex D_2004720
 #define sOwlWarpPauseItems D_8082ADC0
 
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"

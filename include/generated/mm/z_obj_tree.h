@@ -4,18 +4,33 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionCheck_SetInfo2 CollisionCheck_SetInfo2
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
+#define Matrix_RotateZYX Matrix_RotateZYX
 #define ObjTree_Draw func_80000374
 #define ObjTree_Init func_80000000
 #define ObjTree_SetupDoNothing func_80B7EFAC
 #define ObjTree_SetupSway func_80000180
 #define ObjTree_Sway func_800001CC
 #define ObjTree_UpdateCollision func_80000298
+#define gTreeBodyDL D_6000680
+#define gTreeLeavesDL D_60007C8
+#define gTreeTopCol D_6001B2C
+#define sColchkInfoInit D_80B7F35C
+#define sCylinderInit D_80B7F310
+#define sDamageTable D_80B7F33C
 
 #include "overlays/actors/ovl_Obj_Tree/z_obj_tree.h"
 #include "assets/objects/object_tree/object_tree.h"

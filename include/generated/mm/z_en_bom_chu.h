@@ -32,6 +32,7 @@
 #define EnBomChu_UpdateRotation func_80000334
 #define EnBomChu_WaitForDeath D_808F7660
 #define EnBomChu_WaitForRelease func_800003B8
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math3D_Vec3f_Cross func_8017BA68
 #define Math_CosS Math_CosS
@@ -48,9 +49,12 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
 #define SurfaceType_GetWallFlags SurfaceType_GetWallFlags
 #define SurfaceType_IsWallDamage SurfaceType_IsWallDamage
+#define gBombchuDL D_4016360
+#define ref_func_800B8050 func_800B7DD4
 #define ref_func_800BE3D0 func_800BE154
 
 #include "overlays/actors/ovl_En_Bom_Chu/z_en_bom_chu.h"

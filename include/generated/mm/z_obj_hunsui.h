@@ -4,13 +4,22 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define AnimatedMat_Draw AnimatedMat_Draw
+#define AnimatedMat_DrawXlu AnimatedMat_DrawXlu
+#define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_ApproachF Math_ApproachF
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
@@ -23,6 +32,7 @@
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define SubS_FillCutscenesList SubS_FillCutscenesList
 #define SubS_FindActorCustom SubS_FindActorCustom
 #define SubS_StartCutscene SubS_StartCutscene
 #define func_80B9C450 func_80000000
@@ -34,6 +44,13 @@
 #define func_80B9D508 func_800010B8
 #define func_80B9D714 func_800012C4
 #define func_80B9DA60 func_80001610
+#define object_hunsui_Colheader_000C74 D_6000C74
+#define object_hunsui_DL_000220 D_6000220
+#define object_hunsui_DL_000EC0 D_6000EC0
+#define object_hunsui_Matanimheader_000BF0 D_6000BF0
+#define object_hunsui_Matanimheader_001888 D_6001888
+#define ref_D_80B9DED0 D_80B82C70
+#define ref_D_80B9DED4 D_80B82C74
 #define ref_D_80B9DED8 D_80B82C78
 #define ref_func_800F22C4 func_800F2074
 #define ref_func_80B9C450 func_80000000
@@ -49,6 +66,7 @@
 #define ref_func_80B9D508 func_800010B8
 #define ref_func_80B9D714 func_800012C4
 #define ref_func_80B9DA60 func_80001610
+#define sInitChain D_80B82A4C
 
 #include "overlays/actors/ovl_Obj_Hunsui/z_obj_hunsui.h"
 #include "attributes.h"

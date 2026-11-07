@@ -10,6 +10,9 @@
 #define EnHanabi_Draw D_80B08768
 #define EnHanabi_Init func_80000718
 #define EnHanabi_Update func_80000DFC
+#define Gfx_SetupDL Gfx_SetupDL
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
@@ -17,6 +20,10 @@
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80B22C00 func_80000000
@@ -30,7 +37,11 @@
 #define func_80B236C8 func_80000AC8
 #define func_80B23934 func_80000D34
 #define gSaveContext D_801E6EF0
+#define gSun1Tex D_4079B10
+#define gSunSparkleMaterialDL D_407AB10
+#define gSunSparkleModelDL D_407AB58
 #define ref_D_80B23C2C D_80B0895C
+#define ref_D_80B23C40 D_80B08970
 #define ref_func_80B22C00 func_80000000
 #define ref_func_80B22C2C func_8000002C
 #define ref_func_80B22C80 func_80000080

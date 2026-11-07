@@ -3,19 +3,38 @@
 #define MM_Z_DEMO_MOONEND_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
+#define AnimatedMat_DrawXlu AnimatedMat_DrawXlu
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define DemoMoonend_DoNothing D_80BFC8F0
 #define DemoMoonend_Draw func_8000050C
 #define DemoMoonend_Init func_80000000
 #define DemoMoonend_OverrideLimbDraw func_80000460
+#define DemoMoonend_PostLimbDraw D_80BFCC80
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Keyframe_DrawFlex Keyframe_DrawFlex
+#define Keyframe_FlexPlayOnce Keyframe_FlexPlayOnce
+#define Keyframe_InitFlex Keyframe_InitFlex
+#define Keyframe_UpdateFlex Keyframe_UpdateFlex
+#define Lib_SegmentedToVirtual func_80100304
 #define Matrix_Push Matrix_Push
 #define Matrix_RotateYS Matrix_RotateYS
 #define func_80C17B60 func_80000150
 #define func_80C17C48 func_80000238
 #define func_80C17FCC func_800005BC
+#define gSaveContext D_801E6EF0
+#define object_moonend_DL_010C40 D_6010C40
+#define object_moonend_KFSkel_00B5A0 D_600B5A0
+#define object_moonend_Matanimheader_00B540 D_600B540
+#define object_moonend_Matanimheader_0129F0 D_60129F0
+#define object_moonened_KFAnim_001214 D_6001214
 #define ref_func_80C17B60 func_80000150
 #define ref_func_80C17C48 func_80000238
 #define ref_func_80C17FCC func_800005BC

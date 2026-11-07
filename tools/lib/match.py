@@ -3,7 +3,7 @@
 Run inside WSL.  usage: match.py <boot|code> <function> <file.c>
 Relocated fields (jal targets, %hi/%lo, gp-relative) are masked on both sides, since the
 original bytes are already linked and the .o is not."""
-import collections, functools, re, struct, subprocess, sys, threading
+import collections, functools, json, re, struct, subprocess, sys, threading
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -40,9 +40,23 @@ def run(*a):
 
 @functools.lru_cache(maxsize=None)
 def _sizes(seg: str) -> dict:
-    """{function: size} from the splat asm (`nonmatching name, size`), read once."""
-    text = asm_file(seg).read_text()
-    return {m.group(1): int(m.group(2), 16) for m in re.finditer(r"^nonmatching (\w+), (0x[0-9A-Fa-f]+)", text, re.M)}
+    """{function: size} from the splat asm (`nonmatching name, size`), read once per process and kept on disk while the file stays the same."""
+    path = asm_file(seg)
+    st = path.stat()
+    cache = objcache.CACHE / "sizes" / f"{seg}.json"
+    try:
+        saved = json.loads(cache.read_text())
+        if saved["key"] == [st.st_size, st.st_mtime_ns]:
+            return saved["sizes"]
+    except (OSError, ValueError, KeyError):
+        pass
+    sizes = {m.group(1): int(m.group(2), 16) for m in re.finditer(r"^nonmatching (\w+), (0x[0-9A-Fa-f]+)", path.read_text(), re.M)}
+    try:
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache.write_text(json.dumps({"key": [st.st_size, st.st_mtime_ns], "sizes": sizes}))
+    except OSError:
+        pass
+    return sizes
 
 
 @functools.lru_cache(maxsize=None)
@@ -137,6 +151,8 @@ def elf_text(path: str):
 
     shstr = secs[shstrndx][4]
     names = [cstr(shstr, s[0]) for s in secs]
+    if ".text" not in names:   # a file of data only
+        return b"", 0, {}, []
     ti = names.index(".text")
     symtab = next(i for i, s in enumerate(secs) if s[1] == 2)
     strtab = secs[secs[symtab][6]][4]

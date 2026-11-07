@@ -3,20 +3,29 @@
 #define MM_Z_BG_INGATE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
 #define BgIngate_Draw func_80000D78
 #define BgIngate_FindActor func_80000000
 #define BgIngate_Init func_80000B10
 #define Camera_ChangeSetting Camera_ChangeSetting
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Environment_StartTime Environment_StartTime
 #define Environment_StopTime Environment_StopTime
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Interface_InitMinigame func_801129F8
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Message_StartTextbox func_80151DF4
 #define Play_GetCamera Play_GetCamera
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define SubS_FindActor SubS_FindActor
+#define SubS_GetAdditionalPath SubS_GetAdditionalPath
 #define SubS_TimePathing_FillKnots SubS_TimePathing_FillKnots
 #define SubS_TimePathing_Update SubS_TimePathing_Update
 #define func_80953B40 func_800000B0
@@ -28,6 +37,8 @@
 #define func_809542A0 func_80000810
 #define func_80954340 func_800008B0
 #define gSaveContext D_801E6EF0
+#define gSichitaiBoatCol D_60016DC
+#define gSichitaiBoatDL D_60006B0
 #define gZeroVec3f D_801C9EE0
 #define ref_func_80953B40 func_800000B0
 #define ref_func_80953BEC func_8000015C

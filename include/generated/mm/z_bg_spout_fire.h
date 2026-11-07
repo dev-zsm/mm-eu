@@ -10,17 +10,21 @@
 #define BgSpoutFire_Update func_80000448
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define Gfx_SetupDL Gfx_SetupDL
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
+#define Matrix_Translate Matrix_Translate
 #define func_80A60C24 func_80000104
 #define func_80A60D10 func_800001F0
 #define func_80A60E08 func_800002E8
+#define object_fwall_DL_000040 D_6000040
 #define ref_func_80A60C24 func_80000104
 #define ref_func_80A60C94 D_80A459F4
 #define ref_func_80A60D10 func_800001F0
 #define ref_func_80A60DA0 func_80A45B00
 #define ref_func_80A60E08 func_800002E8
+#define sFlameTextures D_80A45EF4
 
 #include "overlays/actors/ovl_Bg_Spout_Fire/z_bg_spout_fire.h"
 #include "assets/objects/object_fwall/object_fwall.h"

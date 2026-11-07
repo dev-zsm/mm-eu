@@ -2,7 +2,7 @@
 # Runs tools/run/daily.sh again and again, for a machine that stays on (see docs/TOOLS.md). tools/run/forever.sh [hours per round=3]
 # A failed round (a check that does not pass) is thrown away so the next one starts from the last commit.
 # Every round leaves a line in build/rounds.log (tools/run/status.sh shows them). A round that fails three times in a row is
-# reported by the workflow of GitHub, which complains when nothing has been pushed for 30 hours.
+# reported by the workflow of GitHub, which complains when nothing has been pushed for 7 days.
 # shortcut: nothing stops it but the service or a kill, and a push that fails is only retried by the next round.
 cd "$(dirname "$0")/../.."
 hours="${1:-3}"

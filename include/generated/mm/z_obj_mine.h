@@ -8,8 +8,11 @@
 #define Actor_WorldYawTowardActor Actor_WorldYawTowardActor
 #define BgCheck_EntityLineTest1 BgCheck_EntityLineTest1
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math3D_Cos Math3D_Cos
 #define Math3D_Dist2DSq Math3D_Dist2DSq
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
@@ -39,6 +42,7 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
 #define ObjMine_AirWater_CheckOC func_80A6608C
 #define ObjMine_AirWater_Noop func_80A662C0
 #define ObjMine_AirWater_SpawnBomb func_800001B4
@@ -60,6 +64,7 @@
 #define ObjMine_Path_SpawnBomb func_8000014C
 #define ObjMine_Path_Update func_80002BBC
 #define ObjMine_SetMatrixRotation func_800004B4
+#define ObjMine_SetMatrixTranslation func_80A662CC
 #define ObjMine_SetupExplode func_80002044
 #define ObjMine_StepUntilParallel func_80000544
 #define ObjMine_UpdateCollider func_80A66498
@@ -74,7 +79,13 @@
 #define ObjMine_Water_WallCheck func_80000CAC
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
+#define gSetupDLs D_801C1BB0
 #define gZeroVec3f D_801C9EE0
+#define object_ny_DL_000030 D_6000030
+#define object_ny_DL_002068 D_6002068
+#define object_ny_DL_002188 D_6002188
+#define ref_func_800B8050 func_800B7DD4
+#define ref_func_800B8118 func_800B7E9C
 #define sLastLinkAccel D_80A69650
 #define sStandardBasis D_80A69244
 

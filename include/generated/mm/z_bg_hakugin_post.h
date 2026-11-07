@@ -3,7 +3,9 @@
 #define MM_Z_BG_HAKUGIN_POST_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx_FlaggedCentered2 Actor_PlaySfx_FlaggedCentered2
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Audio_PlaySfx_2 Audio_PlaySfx_2
 #define BgHakuginPost_Init func_80001C9C
 #define BgHakuginPost_RequestQuakeAndRumble func_800014BC
@@ -18,6 +20,8 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
@@ -67,6 +71,7 @@
 #define func_80A9D360 func_80002690
 #define func_80A9D61C func_8000294C
 #define gZeroVec3f D_801C9EE0
+#define object_hakugin_obj_Colheader_00D3B0 D_600D3B0
 #define ref_D_80A9D880 D_80A82500
 #define ref_D_80A9D8E4 D_80A82564
 #define ref_D_80A9D8E8 D_80A82568
@@ -75,6 +80,8 @@
 #define ref_D_80A9E028 D_80A82CA8
 #define ref_func_800B0DE0 func_800B1300
 #define ref_func_800B0E48 func_800B1368
+#define ref_func_80A9ACD0 func_80A7F950
+#define ref_func_80A9ACF0 func_80A7F970
 #define ref_func_80A9AD18 func_80000048
 #define ref_func_80A9AE3C func_8000016C
 #define ref_func_80A9AEB8 func_800001E8
@@ -93,6 +100,7 @@
 #define ref_func_80A9C228 func_80001558
 #define ref_func_80A9C634 func_80001964
 #define ref_func_80A9C854 func_80001B84
+#define ref_func_80A9CA94 func_80A81714
 #define ref_func_80A9CAA8 func_80001DD8
 #define ref_func_80A9CC84 func_80A81904
 #define ref_func_80A9CCA0 func_80001FD0
@@ -110,6 +118,7 @@
 #define ref_func_80A9D434 D_80A820B4
 #define ref_func_80A9D61C func_8000294C
 #define sCylinderInit D_80A82538
+#define sInitChain D_80A82578
 
 #include "overlays/actors/ovl_Bg_Hakugin_Post/z_bg_hakugin_post.h"
 #include "z64quake.h"

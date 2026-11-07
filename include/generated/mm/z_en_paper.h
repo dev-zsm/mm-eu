@@ -11,14 +11,17 @@
 #define EnPaper_InitConfettiPiece func_8000018C
 #define EnPaper_SetupSpreadConfettiGroup func_80C0420C
 #define EnPaper_UpdateWind func_800004AC
+#define Gfx_SetupDL37_Opa func_8012CA60
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateAxisS Matrix_RotateAxisS
 #define Matrix_RotateZYX Matrix_RotateZYX
+#define Mtx_SetTranslationRotationScaleMtx Mtx_SetTranslationRotationScaleMtx
 #define Rand_Centered func_800870A0
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
+#define gTingleConfettiDL D_600D5A0
 #define sUnitVecZ D_80C04A00
 
 #include "overlays/actors/ovl_En_Paper/z_en_paper.h"

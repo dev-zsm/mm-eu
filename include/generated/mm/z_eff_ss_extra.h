@@ -6,9 +6,16 @@
 #define EffectSsExtra_Draw func_80000144
 #define EffectSsExtra_Init func_80000000
 #define EffectSsExtra_Update func_800002AC
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
 #define gSegments D_801EFA00
+#define gYabusamePointDL D_6000DC0
+#define sPointTextures D_80965630
 #define sScores D_80965620
 
 #include "overlays/effects/ovl_Effect_Ss_Extra/z_eff_ss_extra.h"

@@ -13,6 +13,8 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define Flags_GetSwitch Flags_GetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_CosS Math_CosS
 #define Math_ScaledStepToS Math_ScaledStepToS
 #define Math_SinS Math_SinS
@@ -25,6 +27,9 @@
 #define func_809A0F78 func_80000058
 #define func_809A10F4 func_800001D4
 #define func_809A13A0 func_80000480
+#define gActorSetupOpaDL D_801AFAD0
+#define gActorSetupXluDL D_801AFAB8
+#define gFieldSilverBoulderDL D_50061E8
 #define ref_func_809A0F20 func_80000000
 #define ref_func_809A0F78 func_80000058
 #define ref_func_809A10F4 func_800001D4

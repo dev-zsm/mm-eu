@@ -5,22 +5,34 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_Sum Math_Vec3f_Sum
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjLift_Draw D_80922750
 #define ObjLift_Init func_80000268
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations
 #define Quake_SetSpeed Quake_SetSpeed
+#define Rand_Next func_80087010
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
+#define gDampeGraveBrownElevatorCol D_6000F00
+#define gDampeGraveBrownElevatorDL D_6000D10
 #define ref_D_8093DD50 D_80922840
+#define ref_D_8093DD98 D_80922888
 #define ref_func_8093D3C0 func_80000000
 #define ref_func_8093D760 func_80922250
 #define ref_func_8093D7A0 func_800003E0
@@ -31,6 +43,7 @@
 #define ref_func_8093DB70 func_80922660
 #define ref_func_8093DB90 func_800007D0
 #define ref_func_8093DC90 func_800008D0
+#define sInitChain D_80922874
 #define yOffsets D_80922890
 
 #include "overlays/actors/ovl_Obj_Lift/z_obj_lift.h"

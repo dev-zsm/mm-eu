@@ -3,10 +3,24 @@
 #define MM_Z_EFF_CHANGE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_SetScale Actor_SetScale
+#define AnimatedMat_DrawStepXlu func_80131C94
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
+#define CutsceneManager_Queue CutsceneManager_Queue
 #define EffChange_Draw func_80000320
 #define EffChange_Init func_80000000
 #define EffChange_SetColors func_800000E8
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Keyframe_DrawFlex Keyframe_DrawFlex
+#define Keyframe_FlexPlayOnce Keyframe_FlexPlayOnce
+#define Keyframe_InitFlex Keyframe_InitFlex
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_RotateYS Matrix_RotateYS
+#define gameplay_keep_KFAnim_0281DC D_40281DC
+#define gameplay_keep_KFSkel_02900C D_402900C
+#define gameplay_keep_Matanimheader_028FEC D_4028FEC
 #define ref_D_80A4C920 D_80A31680
+#define ref_func_80A4C5CC D_80A3132C
 
 #include "overlays/actors/ovl_Eff_Change/z_eff_change.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)

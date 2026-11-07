@@ -10,6 +10,7 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
@@ -17,9 +18,14 @@
 #define EffectSsBubble_Spawn EffectSsBubble_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define EffectSsIceSmoke_Spawn func_800B372C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_Vec3f_StepTo func_80100248
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
 #define ObjAqua_Draw func_800009A8
 #define ObjAqua_Init func_80000438
 #define ObjAqua_IsUnderwater func_80AB0790
@@ -32,6 +38,7 @@
 #define func_80ACBA10 func_80000370
 #define func_80ACBC8C func_800005EC
 #define func_80ACBDFC func_8000075C
+#define gEffFire1DL D_407D590
 #define gZeroVec3f D_801C9EE0
 #define ref_D_80ACC308 D_80AB1038
 #define ref_D_80ACC314 D_80AB1044

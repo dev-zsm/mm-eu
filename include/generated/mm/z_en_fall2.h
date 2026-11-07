@@ -4,15 +4,28 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_SetScale Actor_SetScale
+#define AnimatedMat_DrawXlu AnimatedMat_DrawXlu
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define EnFall2_DoNothing D_80C00644
 #define EnFall2_Draw func_800004AC
 #define EnFall2_HandleCutscene func_80000394
 #define EnFall2_Init func_80000000
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Keyframe_DrawFlex Keyframe_DrawFlex
+#define Keyframe_FlexPlayLoop Keyframe_FlexPlayLoop
+#define Keyframe_InitFlex Keyframe_InitFlex
 #define Keyframe_UpdateFlex Keyframe_UpdateFlex
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_RotateYS Matrix_RotateYS
 #define func_80C1B724 func_800000E4
 #define func_80C1B8F0 func_800002B0
+#define object_fall2_KFAnim_005EF4 D_6005EF4
+#define object_fall2_KFSkel_008898 D_6008898
+#define object_fall2_Matanimheader_008840 D_6008840
 #define ref_func_80C1B724 func_800000E4
 #define ref_func_80C1B8B4 func_80C00654
 #define ref_func_80C1B8F0 func_800002B0

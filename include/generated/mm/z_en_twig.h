@@ -14,6 +14,7 @@
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define EnTwig_Draw func_80000800
 #define EnTwig_Init func_80000000
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Math3D_LineSegVsPlane Math3D_LineSegVsPlane
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math_SmoothStepToF Math_SmoothStepToF
@@ -25,6 +26,8 @@
 #define func_80AC0AC8 func_80000298
 #define func_80AC0CC4 func_80000494
 #define func_80AC0D2C func_800004FC
+#define object_twig_DL_0014C8 D_60014C8
+#define object_twig_DL_001C38 D_6001C38
 #define ref_func_80AC0A54 func_80AA5784
 #define ref_func_80AC0A7C func_8000024C
 #define ref_func_80AC0AC8 func_80000298

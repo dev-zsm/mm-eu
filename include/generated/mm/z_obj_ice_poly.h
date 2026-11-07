@@ -20,6 +20,8 @@
 #define EffectSsEnIce_Spawn EffectSsEnIce_Spawn
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define Flags_GetSwitch Flags_GetSwitch
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define ObjIcePoly_Destroy func_80000244
 #define ObjIcePoly_Draw func_80000C5C
 #define ObjIcePoly_Init func_80000000
@@ -31,9 +33,11 @@
 #define func_80931A38 func_800004D8
 #define func_80931E58 func_800008F8
 #define func_80931EEC func_8000098C
+#define gEffIceFragment3DL D_4050D10
 #define gZeroVec3f D_801C9EE0
 #define ref_D_80932378 D_80916E68
 #define ref_D_8093237C D_80916E6C
+#define ref_func_800B8118 func_800B7E9C
 #define ref_func_80931828 func_800002C8
 #define ref_func_80931A38 func_800004D8
 #define ref_func_80931E58 func_800008F8

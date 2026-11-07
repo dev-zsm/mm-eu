@@ -9,11 +9,15 @@
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EnSnowwd_Draw func_80000370
 #define EnSnowwd_Idle func_800000B0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
+#define gSnowTreeDL D_6000198
+#define gSnowTreeSnowLeavesTex D_6001AA0
 #define ref_func_800B0EB0 func_800B13D0
 
 #include "overlays/actors/ovl_En_Snowwd/z_en_snowwd.h"

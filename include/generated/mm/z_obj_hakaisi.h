@@ -15,7 +15,9 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsHahen_SpawnBurst EffectSsHahen_SpawnBurst
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_ApproachZeroF Math_ApproachZeroF
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
@@ -27,11 +29,17 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
 #define ObjHakaisi_Draw func_80000EE0
 #define ObjHakaisi_Init func_80000000
 #define Rand_Centered func_800870A0
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
+#define object_hakaisi_DL_001F10 D_6001F10
+#define object_hakaisi_DL_0021B0 D_60021B0
+#define object_hakaisi_DL_002650 D_6002650
+#define object_hakaisi_DL_0029C0 D_60029C0
+#define object_hakaisi_DL_002CC0 D_6002CC0
 #define ref_func_800B0EB0 func_800B13D0
 #define ref_func_80B14460 func_800002E0
 #define ref_func_80B14510 func_80AF9240

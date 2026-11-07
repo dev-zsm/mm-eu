@@ -4,9 +4,12 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_Spawn Actor_Spawn
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define AudioSfx_StopByPosAndId AudioSfx_StopByPosAndId
 #define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
+#define Audio_PlaySfx_AtPosWithFreqAndChannelIO Audio_PlaySfx_AtPosWithFreqAndChannelIO
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define BgDblueBalance_Draw func_80001234
 #define BgDblueBalance_Init func_800007B0
@@ -15,7 +18,11 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_StepToS Math_StepToS
 #define Matrix_MultVec3f Matrix_MultVec3f
@@ -26,6 +33,8 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Matrix_Translate Matrix_Translate
 #define func_80B823B0 func_80000000
 #define func_80B82454 func_800000A4
@@ -38,6 +47,13 @@
 #define func_80B833C4 func_80001014
 #define func_80B83518 func_80001168
 #define func_80B83758 func_800013A8
+#define gGreatBayTempleObjectSeesawSplashDL D_600D110
+#define gGreatBayTempleObjectSeesawSplashTexAnim D_600D250
+#define gGreatBayTempleObjectWaterwheelSplashDL D_600CD10
+#define gGreatBayTempleObjectWaterwheelSplashTexAnim D_600CE00
+#define gSetupDLs D_801C1BB0
+#define ref_D_80B83C70 D_80B68990
+#define ref_D_80B83C74 D_80B68994
 #define ref_func_80B823B0 func_80000000
 #define ref_func_80B82454 func_800000A4
 #define ref_func_80B8259C func_800001EC
@@ -45,11 +61,15 @@
 #define ref_func_80B828E4 func_80000534
 #define ref_func_80B8296C func_800005BC
 #define ref_func_80B82B00 func_80000750
+#define ref_func_80B82DC4 func_80B67AE4
 #define ref_func_80B82DE0 func_80000A30
 #define ref_func_80B83344 func_80B68064
+#define ref_func_80B833A8 func_80B680C8
 #define ref_func_80B833C4 func_80001014
 #define ref_func_80B83518 func_80001168
 #define ref_func_80B83758 func_800013A8
+#define sInitChain D_80B687B8
+#define sTypeInfo D_80B68740
 
 #include "overlays/actors/ovl_Bg_Dblue_Balance/z_bg_dblue_balance.h"
 #include "assets/objects/object_dblue_object/object_dblue_object.h"

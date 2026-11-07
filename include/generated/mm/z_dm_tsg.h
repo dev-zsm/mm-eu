@@ -5,16 +5,24 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_SetScale Actor_SetScale
+#define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DmTsg_Draw func_80000268
 #define DmTsg_Init func_80000000
 #define DmTsg_Update func_800000E8
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_Mult Matrix_Mult
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
 #define gSaveContext D_801E6EF0
+#define object_open_obj_DL_002D30 D_6002D30
+#define object_open_obj_Matanimheader_011458 D_6011458
 
 #include "overlays/actors/ovl_Dm_Tsg/z_dm_tsg.h"
 #include "assets/objects/object_open_obj/object_open_obj.h"

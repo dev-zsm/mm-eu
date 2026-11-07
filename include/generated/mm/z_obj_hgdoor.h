@@ -8,6 +8,7 @@
 #define CutsceneManager_Stop func_800F1D6C
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define ObjHgdoor_Draw func_800004E0
 #define ObjHgdoor_HandleCutscene func_800002C8
 #define ObjHgdoor_Idle func_8000016C
@@ -17,6 +18,10 @@
 #define ObjHgdoor_SetupCutscene func_80BB904C
 #define ObjHgdoor_SetupStopCs func_80BB9200
 #define ObjHgdoor_StopCs func_800003E8
+#define object_hgdoor_DL_001670 D_6001670
+#define object_hgdoor_DL_001768 D_6001768
+#define object_hgdoor_DL_001AB0 D_6001AB0
+#define object_hgdoor_DL_001BA8 D_6001BA8
 #define sOpenFlag D_80BB9430
 
 #include "overlays/actors/ovl_Obj_Hgdoor/z_obj_hgdoor.h"

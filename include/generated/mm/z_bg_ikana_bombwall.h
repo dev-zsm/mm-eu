@@ -4,14 +4,21 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgIkanaBombwall_Draw func_80000AE0
 #define BgIkanaBombwall_Init func_800005D4
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
@@ -19,12 +26,19 @@
 #define func_80BD4A14 func_800002F4
 #define func_80BD503C func_8000091C
 #define func_80BD5134 func_80000A14
+#define object_ikana_obj_Colheader_000128 D_6000128
+#define object_ikana_obj_Colheader_000488 D_6000488
 #define ref_D_80BD52E0 D_80BBA080
 #define ref_func_80BD4720 func_80000000
 #define ref_func_80BD4A14 func_800002F4
+#define ref_func_80BD4F18 func_80BB9CB8
+#define ref_func_80BD4F88 func_80BB9D28
 #define ref_func_80BD503C func_8000091C
 #define ref_func_80BD5118 func_80BB9EB8
 #define ref_func_80BD5134 func_80000A14
+#define sCylinderInit1 D_80BBA010
+#define sCylinderInit2 D_80BBA03C
+#define sInitChain D_80BBA070
 
 #include "overlays/actors/ovl_Bg_Ikana_Bombwall/z_bg_ikana_bombwall.h"
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"

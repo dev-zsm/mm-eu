@@ -4,6 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_ApplyDamage Actor_ApplyDamage
+#define Actor_DrawDamageEffects func_800BE404
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
@@ -26,6 +27,8 @@
 #define EnRr_Init func_80000000
 #define EnRr_Update func_80001A88
 #define Enemy_StartFinishingBlow Enemy_StartFinishingBlow
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Item_DropCollectible Item_DropCollectible
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Math_CosS Math_CosS
@@ -33,6 +36,16 @@
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToS Math_SmoothStepToS
 #define Math_StepToF Math_StepToF
+#define Matrix_MultVecX Matrix_MultVecX
+#define Matrix_MultVecZ Matrix_MultVecZ
+#define Matrix_MultZero Matrix_MultZero
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
+#define Matrix_ToMtx Matrix_ToMtx
+#define Matrix_Translate Matrix_Translate
 #define Player_GetMask Player_GetMask
 #define Rumble_Request Rumble_Request
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
@@ -59,6 +72,7 @@
 #define func_808FB398 func_80001598
 #define func_808FB42C func_8000162C
 #define func_808FB794 func_80001994
+#define gLikeLikeDL D_6000470
 #define gZeroVec3f D_801C9EE0
 #define ref_func_800B3030 func_800B3550
 #define ref_func_808FA01C func_8000021C

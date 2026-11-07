@@ -11,11 +11,13 @@
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Rand_ZeroOne func_8008704C
 #define SkinMatrix_MtxFMtxFMult SkinMatrix_MtxFMtxFMult
 #define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
 #define SkinMatrix_SetScale SkinMatrix_SetScale
 #define SkinMatrix_SetTranslate SkinMatrix_SetTranslate
+#define gEffSparkDL D_4037850
 #define sSparkTextures D_8095DE78
 
 #include "overlays/effects/ovl_Effect_Ss_G_Spk/z_eff_ss_g_spk.h"

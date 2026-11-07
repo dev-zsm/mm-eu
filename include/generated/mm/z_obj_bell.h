@@ -5,6 +5,8 @@
 /* names of ours that symbols of the reference stand for */
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_ApproachF Math_ApproachF
 #define Math_SinS Math_SinS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
@@ -12,6 +14,10 @@
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjBell_Draw func_800008E8
 #define ObjBell_Update func_8000089C
 #define func_80A35510 func_80000000
@@ -20,6 +26,12 @@
 #define func_80A359B4 func_800004C0
 #define func_80A35B18 func_80000624
 #define func_80A35BD4 func_800006E0
+#define object_f52_obj_DL_000570 D_6000570
+#define object_f52_obj_DL_000698 D_6000698
+#define object_f52_obj_DL_0007A8 D_60007A8
+#define object_f52_obj_DL_000840 D_6000840
+#define object_f52_obj_DL_0008D0 D_60008D0
+#define object_f52_obj_DL_000960 D_6000960
 #define ref_func_80A35510 func_80000000
 #define ref_func_80A356D8 func_800001C8
 #define ref_func_80A357A8 func_80A1A4D8

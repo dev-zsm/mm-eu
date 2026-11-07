@@ -3,6 +3,8 @@
 #define MM_Z_BG_DBLUE_ELEVATOR_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define BgDblueElevator_CheckWaterBoxInfo func_80B76C40
 #define BgDblueElevator_Init func_80000484
 #define BgDblueElevator_Move func_80000740
 #define BgDblueElevator_Pause func_80000698
@@ -11,12 +13,16 @@
 #define BgDblueElevator_SetupWaitActivation func_80B771FC
 #define BgDblueElevator_SpawnRipplesAndSplashes func_80000054
 #define BgDblueElevator_WaitActivation func_800005D8
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateYS Matrix_RotateYS
+#define gGreatBayTempleObjectElevatorCol D_60005C4
 #define ref_D_80B92960 D_80B77680
+#define sInitChain D_80B7770C
 
 #include "overlays/actors/ovl_Bg_Dblue_Elevator/z_bg_dblue_elevator.h"
 #include "assets/objects/object_dblue_object/object_dblue_object.h"

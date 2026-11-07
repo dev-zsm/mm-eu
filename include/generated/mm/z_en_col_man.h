@@ -19,6 +19,11 @@
 #define EnColMan_Init func_80000000
 #define EnColMan_SetHeartPieceCollectedAndKill D_80AE2C30
 #define EnColMan_Update func_80000730
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_SetupDL66 Gfx_SetupDL66
+#define Lib_SegmentedToVirtual func_80100304
+#define Play_SetFog Play_SetFog
 #define func_80AFDE00 func_800001C0
 #define func_80AFDF60 func_80000320
 #define func_80AFDFB4 func_80000374
@@ -27,6 +32,12 @@
 #define func_80AFE4AC func_8000086C
 #define func_80AFE584 func_80000944
 #define func_80AFE650 func_80000A10
+#define gDropBombTex D_405CEF0
+#define gDropRecoveryHeartTex D_405E6F0
+#define gHeartPieceInteriorDL D_405AAB0
+#define gItemDropDL D_405F6F0
+#define gameplay_keep_DL_06AB30 D_406AB30
+#define ref_func_800B8118 func_800B7E9C
 #define ref_func_80AFDD60 func_80AE2A90
 #define ref_func_80AFDE00 func_800001C0
 #define ref_func_80AFDF60 func_80000320

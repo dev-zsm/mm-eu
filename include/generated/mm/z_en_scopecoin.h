@@ -12,6 +12,11 @@
 #define EnScopecoin_Init func_80000070
 #define EnScopecoin_Spin D_80BE1D40
 #define Flags_GetCollectible Flags_GetCollectible
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
+#define gRupeeDL D_40622C0
+#define ref_func_800B8050 func_800B7DD4
+#define sRupeeTextures D_80BE2020
 
 #include "overlays/actors/ovl_En_Scopecoin/z_en_scopecoin.h"
 #include "z_en_item00.h"

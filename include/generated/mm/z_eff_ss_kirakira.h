@@ -17,7 +17,9 @@
 #define func_80977DB4 func_800003B4
 #define func_80977E6C func_8000046C
 #define func_80977F28 func_80000528
+#define gEffSparklesDL D_4054A90
 #define gIdentityMtx D_801CA710
+#define gameplay_keep_DL_06A800 D_406A800
 #define ref_func_80977DB4 func_800003B4
 #define ref_func_80977E6C func_8000046C
 #define ref_func_80977F28 func_80000528

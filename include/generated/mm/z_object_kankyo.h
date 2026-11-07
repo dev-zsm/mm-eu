@@ -4,12 +4,21 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Camera_GetCamDirPitch Camera_GetCamDirPitch
+#define Camera_GetWaterYPos Camera_GetWaterYPos
+#define Gfx_SetupDL Gfx_SetupDL
+#define Lib_SegmentedToVirtual func_80100304
+#define Math_SmoothStepToF Math_SmoothStepToF
+#define Math_Vec3f_DistXYZ Math_Vec3f_DistXYZ
 #define Math_Vec3f_DistXZ Math_Vec3f_DistXZ
 #define Math_Vec3f_Pitch Math_Vec3f_Pitch
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_Mult Matrix_Mult
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjectKankyo_Draw func_800014E4
 #define ObjectKankyo_Init func_8000023C
 #define ObjectKankyo_SetupAction func_808DB550
+#define Play_GetScreenPos Play_GetScreenPos
 #define Rand_ZeroOne func_8008704C
 #define cosf func_800920E0
 #define func_808DBEB0 func_80000030
@@ -23,9 +32,12 @@
 #define func_808DD3C8 func_80001548
 #define func_808DD970 func_80001AF0
 #define func_808DDE9C func_8000201C
+#define gEffDust5Tex D_408EBE0
+#define gEffDustDL D_4023130
 #define gZeroVec3f D_801C9EE0
 #define ref_D_808DE340 D_808DDA10
 #define ref_D_808DE5B0 D_808DDC80
+#define ref_func_80173B48 func_80174D08
 #define ref_func_808DBE8C func_808DB55C
 #define ref_func_808DBEB0 func_80000030
 #define ref_func_808DBFB0 func_80000130

@@ -5,9 +5,12 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetFocus Actor_SetFocus
 #define AudioSfx_StopById AudioSfx_StopById
 #define BgSpdweb_Draw func_80001070
 #define BgSpdweb_Init func_80000000
+#define Collider_InitAndSetTris Collider_InitAndSetTris
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_GetLength CutsceneManager_GetLength
@@ -15,8 +18,11 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define EffectSsDeadDb_Spawn EffectSsDeadDb_Spawn
+#define Flags_GetSwitch Flags_GetSwitch
 #define Math_ApproachZeroF Math_ApproachZeroF
 #define Math_CosS Math_CosS
 #define Math_SinF Math_SinF
@@ -27,12 +33,19 @@
 #define Math_Vec3f_DistXZ Math_Vec3f_DistXZ
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Matrix_Translate Matrix_Translate
 #define Player_IsBurningStickInRange Player_IsBurningStickInRange
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
+#define gSetupDLs D_801C1BB0
 #define gZeroVec3f D_801C9EE0
+#define object_spdweb_Colheader_0011C0 D_60011C0
+#define object_spdweb_Colheader_002678 D_6002678
+#define object_spdweb_DL_000060 D_6000060
+#define object_spdweb_DL_0012F0 D_60012F0
 #define ref_D_809CF208 D_809B3F38
 #define ref_D_809CF20C D_809B3F3C
 #define ref_func_809CE068 func_800001A8
@@ -44,6 +57,9 @@
 #define ref_func_809CEBC0 func_80000D00
 #define ref_func_809CEE74 func_809B3BA4
 #define ref_func_809CEEAC func_80000FEC
+#define sInitChain D_809B3F40
+#define sTrisInit1 D_809B3E28
+#define sTrisInit2 D_809B3F28
 
 #include "overlays/actors/ovl_Bg_Spdweb/z_bg_spdweb.h"
 #include "assets/objects/object_spdweb/object_spdweb.h"

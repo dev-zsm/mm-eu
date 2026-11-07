@@ -11,8 +11,16 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_StepToF Math_StepToF
 #define Math_StepToS Math_StepToS
+#define Matrix_Mult Matrix_Mult
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjWarpstone_BeginOpeningCutscene func_80000138
 #define ObjWarpstone_ClosedIdle func_800000F0
 #define ObjWarpstone_Draw func_80000430
@@ -21,8 +29,10 @@
 #define ObjWarpstone_PlayOpeningCutscene func_800001C0
 #define ObjWarpstone_SetupAction func_80B77830
 #define Sram_ActivateOwl Sram_ActivateOwl
+#define gEffFlash1DL D_4023210
 #define sCylinderInit D_80B77F40
 #define sInitChain D_80B77F6C
+#define sOwlStatueDLs D_80B77F70
 
 #include "overlays/actors/ovl_Obj_Warpstone/z_obj_warpstone.h"
 #include "assets/objects/object_sek/object_sek.h"

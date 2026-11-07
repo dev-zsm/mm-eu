@@ -3,9 +3,14 @@
 #define MM_Z_OBJ_SHUTTER_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjShutter_Draw func_8000016C
 #define ObjShutter_Update func_80000020
 #define Schedule_RunScript Schedule_RunScript
+#define gBankShutterDL D_60011E0
 #define sScheduleScript D_80A1CE80
 
 #include "overlays/actors/ovl_Obj_Shutter/z_obj_shutter.h"

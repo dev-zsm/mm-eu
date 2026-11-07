@@ -3,12 +3,20 @@
 #define MM_Z_OBJ_SPINYROLL_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgCheck_EntityCheckCeiling BgCheck_EntityCheckCeiling
 #define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Collider_InitTris Collider_InitTris
+#define Collider_SetTris Collider_SetTris
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
@@ -20,6 +28,9 @@
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjSpinyroll_Draw func_800013CC
 #define ObjSpinyroll_Init func_80000CD8
 #define ObjSpinyroll_Update func_80001320
@@ -37,7 +48,10 @@
 #define func_80A1E3D8 func_80000988
 #define func_80A1E648 func_80000BF8
 #define gZeroVec3f D_801C9EE0
+#define object_spinyroll_Colheader_000E68 D_6000E68
+#define object_spinyroll_DL_000460 D_6000460
 #define ref_D_80A1F1B8 D_80A03EE8
+#define ref_D_80A1F1C4 D_80A03EF4
 #define ref_D_80A1F1F4 D_80A03F24
 #define ref_D_80A1F1FC D_80A03F2C
 #define ref_func_80A1DA50 func_80A02780
@@ -47,6 +61,7 @@
 #define ref_func_80A1DCCC func_80A029FC
 #define ref_func_80A1DD18 func_800002C8
 #define ref_func_80A1DE10 func_800003C0
+#define ref_func_80A1DE58 func_80A02B88
 #define ref_func_80A1DEB8 func_80000468
 #define ref_func_80A1DFA0 func_80000550
 #define ref_func_80A1E074 func_80000624
@@ -55,6 +70,9 @@
 #define ref_func_80A1E394 func_80000944
 #define ref_func_80A1E3D8 func_80000988
 #define ref_func_80A1E648 func_80000BF8
+#define ref_func_80A1E9C4 func_80A036F4
+#define ref_func_80A1EAAC func_80A037DC
+#define sInitChain D_80A03F34
 #define sTrisInit D_80A03ED8
 
 #include "overlays/actors/ovl_Obj_Spinyroll/z_obj_spinyroll.h"

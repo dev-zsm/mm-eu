@@ -9,6 +9,7 @@
 #define Actor_SetScale Actor_SetScale
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Actor_WorldDistXZToActor Actor_WorldDistXZToActor
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
@@ -17,9 +18,11 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define EffectSsHahen_Spawn EffectSsHahen_Spawn
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Lib_SegmentedToVirtual func_80100304
 #define ObjBigicicle_Draw func_80000C10
 #define ObjBigicicle_Init func_80000000
@@ -27,6 +30,7 @@
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80AE8DE4 func_80000274
 #define func_80AE8FD4 func_80000464
 #define func_80AE9090 func_80000520
@@ -34,10 +38,15 @@
 #define func_80AE9258 func_800006E8
 #define func_80AE939C func_8000082C
 #define gZeroVec3f D_801C9EE0
+#define object_bigicicle_DL_0009B0 D_60009B0
+#define object_bigicicle_DL_0014F0 D_60014F0
 #define ref_D_80AE9878 D_80ACE5A8
+#define ref_D_80AE987C D_80ACE5AC
 #define ref_D_80AE9890 D_80ACE5C0
 #define ref_D_80AE9894 D_80ACE5C4
 #define ref_D_80AE9898 D_80ACE5C8
+#define ref_D_80AE989C D_80ACE5CC
+#define ref_D_80AE98A8 D_80ACE5D8
 #define ref_func_80AE8DE4 func_80000274
 #define ref_func_80AE8FD4 func_80000464
 #define ref_func_80AE9090 func_80000520

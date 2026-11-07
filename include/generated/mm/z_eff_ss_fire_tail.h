@@ -3,9 +3,22 @@
 #define MM_Z_EFF_SS_FIRE_TAIL_H
 
 /* names of ours that symbols of the reference stand for */
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define EffectSsFireTail_Draw func_8000011C
 #define EffectSsFireTail_Init func_80000000
 #define EffectSsFireTail_Update D_80964BCC
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_Vec3f_DistXZ Math_Vec3f_DistXZ
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define gEffFire1DL D_407D590
+#define gEffFire2DL D_407D650
 
 #include "overlays/effects/ovl_Effect_Ss_Fire_Tail/z_eff_ss_fire_tail.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

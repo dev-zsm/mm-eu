@@ -18,12 +18,17 @@
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_SetJntSph Collider_SetJntSph
+#define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define EnBombf_Draw func_80001014
 #define EnBombf_Init func_8000000C
 #define EnBombf_SetupAction func_808ADFE0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Player_IsBurningStickInRange Player_IsBurningStickInRange
 #define Rumble_Request Rumble_Request
 #define func_808AEAE0 func_80000220
@@ -31,6 +36,9 @@
 #define func_808AEF68 func_800006A8
 #define func_808AEFD4 func_80000714
 #define func_808AF86C func_80000F88
+#define gBombFlowerBaseLeavesDL D_6000530
+#define gBombFlowerBombAndSparkDL D_6000408
+#define gBombFlowerLeavesDL D_6000340
 #define ref_func_800B8C20 func_800B89A4
 #define ref_func_808AEAB8 func_808AE1D8
 #define ref_func_808AEAE0 func_80000220

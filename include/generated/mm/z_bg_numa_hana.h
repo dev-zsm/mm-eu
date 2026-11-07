@@ -3,24 +3,31 @@
 #define MM_Z_BG_NUMA_HANA_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgNumaHana_ClosedIdle func_8000054C
 #define BgNumaHana_Destroy func_800004AC
 #define BgNumaHana_Draw func_80000A68
 #define BgNumaHana_Init func_800002CC
 #define BgNumaHana_OpenedIdle func_8000091C
 #define BgNumaHana_RaiseFlower func_800007E0
+#define BgNumaHana_SetupClosedIdle func_809FF768
+#define BgNumaHana_SetupDoNothing func_809FF744
 #define BgNumaHana_SetupOpenedIdle func_809FFB38
 #define BgNumaHana_SetupRaiseFlower func_809FF9FC
 #define BgNumaHana_SetupUnfoldInnerPetals func_809FF818
 #define BgNumaHana_SetupUnfoldOuterPetals func_809FF908
+#define BgNumaHana_SpawnOpenFlowerCollisionChild func_809FF230
 #define BgNumaHana_UnfoldInnerPetals func_80000600
 #define BgNumaHana_UnfoldOuterPetals func_800006F0
 #define BgNumaHana_Update func_8000096C
 #define BgNumaHana_UpdatePetalPosRots func_8000006C
 #define BgNumaHana_UpdateSettleRotation func_80000250
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
@@ -28,18 +35,38 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define FireObj_Destroy FireObj_Destroy
+#define FireObj_Draw FireObj_Draw
+#define FireObj_Init FireObj_Init
 #define FireObj_SetPosition FireObj_SetPosition
+#define FireObj_SetState2 FireObj_SetState2
 #define FireObj_Update FireObj_Update
 #define Flags_SetSwitch Flags_SetSwitch
+#define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_ScaledStepToS Math_ScaledStepToS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
 #define Math_StepToS Math_StepToS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Object_GetSlot Object_GetSlot
+#define Object_IsLoaded Object_IsLoaded
+#define gObjectSyokudaiTypeNoSwitchDL D_6000870
+#define gWoodenFlowerClosedFlowerCol D_600A740
+#define gWoodenFlowerInnerPetalDL D_600AB88
+#define gWoodenFlowerOpenedFlowerCol D_6009FE0
+#define gWoodenFlowerOuterPetalDL D_600BE58
+#define gWoodenFlowerStalkDL D_600B928
+#define sCylinderInit D_809FFF90
+#define sFireObjInit D_809FFFBC
+#define sInitChain D_809FFFD8
 #define sInitialAnglePerPetal D_809FFFCC
 
 #include "overlays/actors/ovl_Bg_Numa_Hana/z_bg_numa_hana.h"

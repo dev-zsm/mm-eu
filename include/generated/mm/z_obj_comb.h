@@ -14,6 +14,7 @@
 #define Audio_PlaySfx Audio_PlaySfx
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_SetJntSph Collider_SetJntSph
+#define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
@@ -23,11 +24,19 @@
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetTreasure Flags_GetTreasure
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Item_CanDropBigFairy Item_CanDropBigFairy
 #define Item_DropCollectible Item_DropCollectible
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Math_Vec3f_Sum Math_Vec3f_Sum
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjComb_Draw func_800014B8
 #define ObjComb_Init func_80000CA0
 #define ObjComb_Update func_8000131C
@@ -46,6 +55,8 @@
 #define func_8098DC60 func_80000E20
 #define func_8098DEA0 func_80001060
 #define func_8098E0B8 func_80001278
+#define gBeehiveDL D_6000CB0
+#define gBeehiveFragmentDL D_6001040
 #define ref_func_800A8150 func_800A8670
 #define ref_func_8098CE40 func_80000000
 #define ref_func_8098CEAC func_8000006C

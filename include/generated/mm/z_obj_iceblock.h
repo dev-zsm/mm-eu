@@ -6,21 +6,31 @@
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
 #define BgCheck_EntityRaycastFloor6 BgCheck_EntityRaycastFloor6
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_GetActor DynaPoly_GetActor
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define EffectSsIceBlock_Spawn func_800B378C
 #define EffectSsIceSmoke_Spawn func_800B372C
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Math_CosS Math_CosS
@@ -36,6 +46,9 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define ObjIceBlock_SetupAttemptSpawnCutscene func_80A0A4D0
 #define ObjIceblock_Init func_80002508
 #define ObjIceblock_Update func_800037C0
 #define Player_InCsMode Player_InCsMode
@@ -83,6 +96,11 @@
 #define func_80A266E0 func_80003650
 #define func_80A26B74 func_80003AE4
 #define func_80A26BF8 func_80003B68
+#define gIceBlockCol D_6000438
+#define gIceBlockCubeDL D_60001A0
+#define gIceBlockCubeSublimatingAirTexAnim D_6000328
+#define gIceBlockIceBergDL D_60007F0
+#define gIceBlockIceBergSublimatingAirTexAnim D_60009D0
 #define gZeroVec3f D_801C9EE0
 #define ref_func_80A23090 func_80000000
 #define ref_func_80A2311C func_8000008C
@@ -135,8 +153,12 @@
 #define ref_func_80A265C0 func_80003530
 #define ref_func_80A266C4 func_80A0B3F4
 #define ref_func_80A266E0 func_80003650
+#define ref_func_80A26B64 D_80A0B894
 #define ref_func_80A26B74 func_80003AE4
 #define ref_func_80A26BF8 func_80003B68
+#define sCubeSublimatingAirTexMat D_80A0BBAC
+#define sCylinderInit D_80A0BB80
+#define sInitChain D_80A0BCD4
 
 #include "overlays/actors/ovl_Obj_Iceblock/z_obj_iceblock.h"
 #include "assets/objects/object_ice_block/object_ice_block.h"

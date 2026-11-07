@@ -10,8 +10,11 @@
 #define EnStream_SetupAction func_8094A140
 #define EnStream_SuckPlayer func_800001A4
 #define EnStream_WaitForPlayer func_8000032C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_Atan2S Math_Atan2S
 #define Math_SmoothStepToF Math_SmoothStepToF
+#define gWaterVortexDL D_6000950
 #define sInitChain D_8094A610
 
 #include "overlays/actors/ovl_En_Stream/z_en_stream.h"

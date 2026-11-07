@@ -3,7 +3,11 @@
 #define MM_Z_DM_CHAR02_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init ActorShape_Init
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
 #define Animation_Change Animation_Change
 #define Animation_GetLastFrame Animation_GetLastFrame
 #define Animation_OnFrame func_80137C58
@@ -21,6 +25,9 @@
 #define DmChar02_TransformLimbDraw D_80A8FFA0
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define SkelAnime_DrawTransformFlexOpa SkelAnime_DrawTransformFlexOpa
+#define SkelAnime_InitFlex SkelAnime_InitFlex
+#define gClockTowerOcarinaOfTimeSkel D_600AD68
+#define gSaveContext D_801E6EF0
 #define sAnimationInfo D_80A900E0
 
 #include "overlays/actors/ovl_Dm_Char02/z_dm_char02.h"

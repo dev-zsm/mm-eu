@@ -5,10 +5,12 @@
 /* names of ours that symbols of the reference stand for */
 #define EffectSsBlast_Draw func_8000012C
 #define EffectSsBlast_Init func_80000000
+#define EffectSsBlast_Update D_8095D8A8
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Matrix_Put Matrix_Put
 #define Matrix_Scale Matrix_Scale
 #define Play_GetFloorSurface Play_GetFloorSurface
+#define gEffShockwaveDL D_4030100
 
 #include "overlays/effects/ovl_Effect_Ss_Blast/z_eff_ss_blast.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

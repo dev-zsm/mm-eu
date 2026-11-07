@@ -4,16 +4,27 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx Audio_PlaySfx
+#define Gfx_DrawTexQuadIA8 func_8010DA58
+#define Gfx_SetupDL42_Opa func_8012CD5C
 #define Interface_LoadItemIcon func_80112AE0
 #define Interface_LoadItemIconImpl func_80112A3C
 #define KaleidoScope_DrawMaskSelect func_800074B0
+#define KaleidoScope_DrawTexQuadRGBA32 func_808210F8
+#define KaleidoScope_SetCursorVtxPos func_8081ACAC
 #define KaleidoScope_UpdateMaskEquip func_800084D4
+#define gEquippedItemOutlineTex D_2001360
+#define gItemIcons D_801C2B2C
+#define gMaskPlayerFormSlotRestrictions D_8082ADEC
 #define gSaveContext D_801E6EF0
 #define sMaskCButtonPosX D_8082AEB4
 #define sMaskCButtonPosY D_8082AEBC
 #define sMaskEquipAnimTimer D_8082ADE8
 #define sMaskEquipMagicArrowSlotHoldTimer D_8082ADE4
 #define sMaskEquipState D_8082ADE0
+#define sMaskMagicArrowEffectsB D_8082AEA4
+#define sMaskMagicArrowEffectsG D_8082AE9C
+#define sMaskMagicArrowEffectsR D_8082AE94
+#define sMasksGivenOnMoonBits D_8082AE64
 
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
 #include "assets/interface/parameter_static/parameter_static.h"

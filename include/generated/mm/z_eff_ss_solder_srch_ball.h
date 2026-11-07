@@ -7,6 +7,17 @@
 #define EffectSsSolderSrchBall_Draw func_800000A4
 #define EffectSsSolderSrchBall_Init func_80000000
 #define EffectSsSolderSrchBall_Update func_8000029C
+#define Gfx_SetupDL Gfx_SetupDL
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_Mult Matrix_Mult
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define gSun1Tex D_4079B10
+#define gSunSparkleMaterialDL D_407AB10
+#define gSunSparkleModelDL D_407AB58
 
 #include "overlays/effects/ovl_Effect_Ss_Solder_Srch_Ball/z_eff_ss_solder_srch_ball.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

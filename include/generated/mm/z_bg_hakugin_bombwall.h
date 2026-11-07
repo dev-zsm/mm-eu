@@ -20,6 +20,7 @@
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
@@ -40,9 +41,12 @@
 #define func_80ABCCE4 func_80000D24
 #define func_80ABCD98 func_80000DD8
 #define func_80ABCE60 func_80000EA0
+#define object_hakugin_obj_DL_009830 D_6009830
 #define ref_D_80ABCFAC D_80AA1CDC
 #define ref_D_80ABCFB0 D_80AA1CE0
+#define ref_D_80ABCFB4 D_80AA1CE4
 #define ref_D_80ABCFC0 D_80AA1CF0
+#define ref_D_80ABD034 D_80AA1D64
 #define ref_func_800B0E48 func_800B1368
 #define ref_func_80ABBFC0 func_80000000
 #define ref_func_80ABC2E0 func_80000320

@@ -3,9 +3,14 @@
 #define MM_Z_EN_EGBLOCK_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_SetScale Actor_SetScale
 #define Actor_SpawnFloorDustRing Actor_SpawnFloorDustRing
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
 #define EnEgblock_Active func_80000104
+#define EnEgblock_DoNothing D_80A9F6E8
 #define EnEgblock_Draw func_80000274
 #define EnEgblock_DrawEffects func_800006C4
 #define EnEgblock_Inactive D_80A9F6B8
@@ -13,9 +18,21 @@
 #define EnEgblock_SpawnEffect func_80000354
 #define EnEgblock_Update func_80000228
 #define EnEgblock_UpdateEffects func_80000514
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define gEyegoreBlockCol D_6001820
+#define gEyegoreBlockDL D_6001698
+#define gEyegoreEffectFlatDebrisDL D_6001BF8
+#define gEyegoreEffectSolidDebrisDL D_6001918
 
 #include "overlays/actors/ovl_En_Egblock/z_en_egblock.h"
 #include "assets/objects/object_eg/object_eg.h"

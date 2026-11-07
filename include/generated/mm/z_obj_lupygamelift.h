@@ -3,11 +3,23 @@
 #define MM_Z_OBJ_LUPYGAMELIFT_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawSquare D_800B3F94
+#define ActorShape_Init ActorShape_Init
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_Spawn Actor_Spawn
+#define Actor_SpawnAsChild Actor_SpawnAsChild
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_Vec3f_StepTo func_80100248
 #define ObjLupygamelift_Init func_80000000
 #define ObjLupygamelift_Move func_800003C0
+#define ObjLupygamelift_SetupWait func_80AD51EC
 #define ObjLupygamelift_UpdateShadow func_80000224
+#define object_raillift_Colheader_0048D0 D_60048D0
+#define sInitChain D_80AD5470
 
 #include "overlays/actors/ovl_Obj_Lupygamelift/z_obj_lupygamelift.h"
 #include "overlays/actors/ovl_En_Gamelupy/z_en_gamelupy.h"

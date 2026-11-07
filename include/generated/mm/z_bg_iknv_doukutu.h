@@ -3,6 +3,9 @@
 #define MM_Z_BG_IKNV_DOUKUTU_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgIknvDoukutu_Cleanse func_8000025C
 #define BgIknvDoukutu_Cursed func_800002AC
 #define BgIknvDoukutu_DoNothing D_80BBC170
@@ -15,8 +18,31 @@
 #define BgIknvDoukutu_FadeInWater func_800003AC
 #define BgIknvDoukutu_FillSpring D_80BBBFF0
 #define BgIknvDoukutu_Init func_80000000
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_SetupDL72 func_8012C7B4
+#define Lib_SegmentedToVirtual func_80100304
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_Vec3f_Pitch Math_Vec3f_Pitch
+#define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_Translate Matrix_Translate
+#define Scene_SetRenderModeXlu Scene_SetRenderModeXlu
+#define gIkanaCaveCursedDL D_600DDD8
+#define gIkanaCaveFogDL D_600DB60
+#define gIkanaCaveInteriorTexAnim D_600F1C0
+#define gIkanaCavePurifiedDL D_6010D98
+#define gIkanaCaveSpringWaterCol D_60117C8
+#define gIkanaCaveSpringWaterDL D_60115E0
+#define gIkanaCaveSpringWaterTexAnim D_60117A0
+#define gIkanaStreamCol D_6012788
+#define gIkanaStreamDL D_6012700
+#define gIkanaStreamTexAnim D_6012728
 
 #include "overlays/actors/ovl_Bg_Iknv_Doukutu/z_bg_iknv_doukutu.h"
 #include "assets/objects/object_iknv_obj/object_iknv_obj.h"

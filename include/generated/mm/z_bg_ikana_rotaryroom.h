@@ -4,11 +4,15 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
 #define BgIkanaRotaryroom_Draw func_80001D50
 #define BgIkanaRotaryroom_Init func_80001418
 #define BgIkanaRotaryroom_Update func_80001BC8
+#define Collider_InitJntSph Collider_InitJntSph
+#define Collider_SetJntSph Collider_SetJntSph
 #define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_GetAdditionalCsId CutsceneManager_GetAdditionalCsId
@@ -17,9 +21,14 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math_ScaledStepToS Math_ScaledStepToS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
@@ -61,10 +70,16 @@
 #define func_80B81A80 func_800017A0
 #define func_80B81BA0 func_800018C0
 #define func_80B81DC8 func_80001AE8
+#define object_ikana_obj_DL_004710 D_6004710
+#define object_ikana_obj_DL_0048A0 D_60048A0
+#define object_ikana_obj_DL_007360 D_6007360
+#define object_ikana_obj_DL_007448 D_6007448
+#define object_ikana_obj_Matanimheader_007B68 D_6007B68
 #define ref_D_80B8216C D_80B66E8C
 #define ref_D_80B82178 D_80B66E98
 #define ref_D_80B82184 D_80B66EA4
 #define ref_D_80B82200 D_80B66F20
+#define ref_D_80B82218 D_80B66F38
 #define ref_func_80B802E0 func_80000000
 #define ref_func_80B80358 func_80000078
 #define ref_func_80B80440 func_80000160
@@ -88,6 +103,9 @@
 #define ref_func_80B81BA0 func_800018C0
 #define ref_func_80B81DAC func_80B66ACC
 #define ref_func_80B81DC8 func_80001AE8
+#define sInitChain D_80B66F34
+#define sJntSphInit1 D_80B66E48
+#define sJntSphInit2 D_80B66E7C
 
 #include "overlays/actors/ovl_Bg_Ikana_Rotaryroom/z_bg_ikana_rotaryroom.h"
 #include "z64quake.h"

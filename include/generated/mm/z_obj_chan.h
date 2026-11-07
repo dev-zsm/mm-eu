@@ -8,6 +8,7 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define BgCheck_EntityLineTest1 BgCheck_EntityLineTest1
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
@@ -15,6 +16,9 @@
 #define CutsceneManager_Stop func_800F1D6C
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL Gfx_SetupDL
+#define Gfx_SetupDL71 Gfx_SetupDL71
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_CosS Math_CosS
 #define Math_FAtan2F func_80086BA0
 #define Math_SinS Math_SinS
@@ -26,9 +30,13 @@
 #define Math_Vec3s_Copy Math_Vec3s_Copy
 #define Matrix_MultVecX Matrix_MultVecX
 #define Matrix_MultVecY Matrix_MultVecY
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjChan_CalculatePotPosition func_80000260
 #define ObjChan_ChandelierAction func_80000644
 #define ObjChan_CreateSmashEffects func_80000BA8
@@ -44,9 +52,15 @@
 #define SubS_FillCutscenesList SubS_FillCutscenesList
 #define SubS_StartCutscene SubS_StartCutscene
 #define func_80BB9A1C func_8000013C
+#define gChandelierCenterDL D_6000AF0
+#define gChandelierPotDL D_6002358
+#define gChandelierPotHolderDL D_6000A10
+#define gEffFire1DL D_407D590
 #define ref_func_80BB9A1C func_8000013C
 #define sInitChain D_80B9F8FC
 #define sObjChanCylinderInit D_80B9F8D0
+#define sObjChanFlameSize D_80B9F900
+#define sObjChanFlameYOffset D_80B9F918
 #define sObjChanLoaded D_80B9FA30
 
 #include "overlays/actors/ovl_Obj_Chan/z_obj_chan.h"

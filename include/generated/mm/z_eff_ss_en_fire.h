@@ -3,9 +3,13 @@
 #define MM_Z_EFF_SS_EN_FIRE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define EffectSsEnFire_Draw func_8000016C
 #define EffectSsEnFire_Init func_80000000
 #define EffectSsEnFire_Update func_8000045C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Math_SinS Math_SinS
 #define Math_SmoothStepToS Math_SmoothStepToS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_DistXYZ Math_Vec3f_DistXYZ
@@ -14,8 +18,11 @@
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
+#define gEffFire1DL D_407D590
+#define gEffFire2DL D_407D650
 #define gZeroVec3f D_801C9EE0
 
 #include "overlays/effects/ovl_Effect_Ss_En_Fire/z_eff_ss_en_fire.h"

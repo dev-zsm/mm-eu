@@ -3,12 +3,32 @@
 #define MM_Z_DM_OPSTAGE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetScale Actor_SetScale
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DmOpstage_Draw func_80000268
 #define DmOpstage_HandleCutscene func_80000108
 #define DmOpstage_Init func_8000000C
+#define DmOpstage_SetupAction func_80A845D0
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define gKeikokuDemoFloorCol D_6001C98
+#define gKeikokuDemoFloorDL D_6000978
+#define gKeikokuDemoFloorEmptyDL D_6000970
+#define gKeikokuDemoTallTreeCutDL D_6003068
+#define gKeikokuDemoTallTreeCutEmptyDL D_6003060
+#define gKeikokuDemoTallTreeStraightDL D_6003728
+#define gKeikokuDemoTallTreeStraightEmptyDL D_6003720
+#define gKeikokuDemoTallTreeWithRootBaseDL D_6002878
+#define gKeikokuDemoTallTreeWithRootBaseEmptyDL D_6002870
+#define sInitChain D_80A849B0
 
 #include "overlays/actors/ovl_Dm_Opstage/z_dm_opstage.h"
 #include "assets/objects/object_keikoku_demo/object_keikoku_demo.h"

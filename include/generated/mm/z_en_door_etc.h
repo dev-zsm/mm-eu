@@ -19,11 +19,16 @@
 #define EnDoorEtc_WaitForObject func_800001D8
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
 #define Player_InCsMode Player_InCsMode
 #define func_80AC21A0 func_800002D0
 #define func_80AC2354 func_80000484
+#define gDoorLeftDL D_4020BB8
+#define gDoorRightDL D_4020D00
 #define ref_func_80AC2154 D_80AA6E84
 #define ref_func_80AC21A0 func_800002D0
 #define ref_func_80AC2354 func_80000484

@@ -24,6 +24,8 @@
 #define EnMThunder_UnkType_Attack func_80000F50
 #define EnMThunder_UnkType_Setup func_80000000
 #define EnMThunder_UnkType_Update D_808B5C9C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
@@ -33,16 +35,27 @@
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_StepToF Math_StepToF
+#define Matrix_Mult Matrix_Mult
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Play_InCsMode Play_InCsMode
 #define Rumble_Request Rumble_Request
 #define func_808B5EEC func_80000B2C
+#define gGreatSpinAttackCylinderDL D_4025EF0
+#define gGreatSpinAttackDiskDL D_4025DD0
 #define gSaveContext D_801E6EF0
 #define gSfxDefaultFreqAndVolScale D_801D3DE0
 #define gSfxDefaultReverb D_801D3DE8
+#define gSpinAttackChargingDL D_40268F0
+#define gSpinAttackCylinderDL D_4025970
+#define gSpinAttackDiskDL D_4025850
+#define gSwordBeamDL D_4027CA0
 #define ref_func_808B5EEC func_80000B2C
 #define sChargingSfxIds D_808B6834
 #define sCylinderInit D_808B6800
 #define sDamages D_808B682C
+#define sScales D_808B683C
 
 #include "overlays/actors/ovl_En_M_Thunder/z_en_m_thunder.h"
 #include "z64rumble.h"

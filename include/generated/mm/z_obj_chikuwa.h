@@ -3,10 +3,16 @@
 #define MM_Z_OBJ_CHIKUWA_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjChikuwa_Draw func_80000840
 #define ObjChikuwa_Init func_800000DC
 #define ObjChikuwa_Update func_80000698
@@ -17,9 +23,12 @@
 #define func_809B1550 func_80000000
 #define func_809B17D0 func_80000280
 #define func_809B1AA0 func_80000550
+#define gDampeGraveBrownElevatorCol D_6000F00
+#define gDampeGraveBrownElevatorDL D_6000D10
 #define ref_func_809B1550 func_80000000
 #define ref_func_809B17D0 func_80000280
 #define ref_func_809B1AA0 func_80000550
+#define sInitChain D_80996D00
 
 #include "overlays/actors/ovl_Obj_Chikuwa/z_obj_chikuwa.h"
 #include "z64quake.h"

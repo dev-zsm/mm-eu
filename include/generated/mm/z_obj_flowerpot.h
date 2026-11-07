@@ -18,11 +18,16 @@
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define DynaPoly_GetActor DynaPoly_GetActor
+#define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
+#define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Item_DropCollectible Item_DropCollectible
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToS Math_StepToS
+#define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_GetCurrent Matrix_GetCurrent
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
@@ -45,6 +50,10 @@
 #define func_80A1CC0C func_8000183C
 #define func_80A1CD10 func_80001940
 #define func_80A1CEF4 func_80001B24
+#define object_flowerpot_DL_0012E0 D_60012E0
+#define object_flowerpot_DL_001408 D_6001408
+#define object_flowerpot_DL_0014F0 D_60014F0
+#define object_flowerpot_DL_0015B0 D_60015B0
 #define ref_D_80A1D3F8 D_80A02128
 #define ref_D_80A1D3FC D_80A0212C
 #define ref_D_80A1D400 D_80A02130
@@ -63,6 +72,7 @@
 #define ref_func_80A1B914 func_80000544
 #define ref_func_80A1B994 func_80A006C4
 #define ref_func_80A1B9CC func_80A006FC
+#define ref_func_80A1BA04 func_80A00734
 #define ref_func_80A1BA44 func_80000674
 #define ref_func_80A1BD80 func_800009B0
 #define ref_func_80A1C0FC func_80000D2C

@@ -25,7 +25,9 @@
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define EnKusa2_Draw func_80003760
 #define EnKusa2_Init func_8000228C
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Item_DropCollectible Item_DropCollectible
 #define Math3D_Dist1DSq Math3D_Dist1DSq
 #define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
@@ -82,6 +84,8 @@
 #define func_80A5E80C func_800036AC
 #define func_80A5E9B4 func_80003854
 #define func_80A5EA48 func_800038E8
+#define gKusaBushType1DL D_50078A0
+#define gKusaBushType2DL D_5007938
 #define gZeroVec3f D_801C9EE0
 #define ref_D_80A5EAEC D_80A4384C
 #define ref_D_80A5EAF0 D_80A43850

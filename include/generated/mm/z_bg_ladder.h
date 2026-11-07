@@ -3,19 +3,31 @@
 #define MM_Z_BG_LADDER_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgLadder_DoNothing D_80A32A2C
 #define BgLadder_Draw func_80000310
 #define BgLadder_FadeIn func_80000258
 #define BgLadder_Init func_80000000
 #define BgLadder_StartCutscene func_800001E8
+#define BgLadder_Wait D_80A328E8
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define Flags_GetSwitch Flags_GetSwitch
 #define Scene_SetRenderModeXlu Scene_SetRenderModeXlu
 #define gSetupDLs D_801C1BB0
+#define gWoodenLadder12RungCol D_60001D8
+#define gWoodenLadder16RungCol D_6000408
+#define gWoodenLadder20RungCol D_6000638
+#define gWoodenLadder24RungCol D_6000868
+#define sInitChain D_80A32BA0
 #define sLadderDLists D_80A32BA4
 
 #include "overlays/actors/ovl_Bg_Ladder/z_bg_ladder.h"

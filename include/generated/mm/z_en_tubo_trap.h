@@ -17,6 +17,8 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define EnTuboTrap_DropCollectible func_800000BC
 #define EnTuboTrap_FlyAtPlayer func_800009E4
 #define EnTuboTrap_HandleImpact func_800005FC
@@ -28,7 +30,11 @@
 #define EnTuboTrap_Update func_80000AB0
 #define Item_DropCollectible Item_DropCollectible
 #define Math_ApproachF Math_ApproachF
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
+#define gameplay_dangeon_keep_DL_018090 D_5018090
 #define ref_func_800A8150 func_800A8670
 #define sCylinderInit D_80915F00
 #define sInitChain D_80915F4C

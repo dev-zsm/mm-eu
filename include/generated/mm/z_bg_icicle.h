@@ -6,17 +6,23 @@
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define BgIcicle_Break func_8000013C
+#define BgIcicle_DoNothing D_809AEAAC
 #define BgIcicle_Fall func_800004C8
 #define BgIcicle_Init func_80000000
 #define BgIcicle_Regrow D_809AED9C
 #define BgIcicle_Shiver func_80000364
 #define BgIcicle_Update func_80000798
 #define BgIcicle_UpdateAttacked func_8000065C
+#define BgIcicle_Wait D_809AEABC
+#define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define EffectSsEnIce_Spawn EffectSsEnIce_Spawn
@@ -25,7 +31,10 @@
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
+#define gIcicleCol D_6000294
 #define ref_func_800A8150 func_800A8670
+#define sCylinderInit D_809AEFE0
+#define sInitChain D_809AF02C
 
 #include "overlays/actors/ovl_Bg_Icicle/z_bg_icicle.h"
 #include "z_en_item00.h"

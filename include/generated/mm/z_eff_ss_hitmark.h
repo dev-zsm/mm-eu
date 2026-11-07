@@ -13,6 +13,7 @@
 #define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
 #define SkinMatrix_SetScale SkinMatrix_SetScale
 #define SkinMatrix_SetTranslate SkinMatrix_SetTranslate
+#define gEffHitmarkDL D_4035710
 #define gIdentityMtx D_801CA710
 #define sColors D_809615C0
 #define sTextures D_809615F0

@@ -3,9 +3,14 @@
 #define MM_Z_OBJ_DRIFTICE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetScale Actor_SetScale
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math_CosS Math_CosS
 #define Math_ScaledStepToS Math_ScaledStepToS
@@ -26,6 +31,9 @@
 #define func_80A66E30 func_800008C0
 #define func_80A671E0 func_80000C70
 #define func_80A67450 func_80000EE0
+#define object_driftice_Colheader_001AA8 D_6001AA8
+#define ref_D_80A67620 D_80A4C380
+#define ref_D_80A67644 D_80A4C3A4
 #define ref_D_80A67664 D_80A4C3C4
 #define ref_D_80A67694 D_80A4C3F4
 #define ref_D_80A676B8 D_80A4C418
@@ -37,11 +45,13 @@
 #define ref_func_80A66930 func_800003C0
 #define ref_func_80A66C4C func_800006DC
 #define ref_func_80A66E30 func_800008C0
+#define ref_func_80A671A8 func_80A4BF08
 #define ref_func_80A671CC func_80A4BF2C
 #define ref_func_80A671E0 func_80000C70
 #define ref_func_80A6743C func_80A4C19C
 #define ref_func_80A67450 func_80000EE0
 #define ref_func_80A674A8 func_80A4C208
+#define sInitChain D_80A4C454
 
 #include "overlays/actors/ovl_Obj_Driftice/z_obj_driftice.h"
 #include "assets/objects/object_driftice/object_driftice.h"

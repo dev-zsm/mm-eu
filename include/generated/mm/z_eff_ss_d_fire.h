@@ -9,11 +9,13 @@
 #define EffectSsDFire_Update func_80000324
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_Mult Matrix_Mult
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
+#define gDodongoFireDL D_60098A0
 #define gSegments D_801EFA00
 #define sFireTextures D_8095E2A8
 

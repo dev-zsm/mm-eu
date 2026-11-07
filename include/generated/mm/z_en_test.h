@@ -4,18 +4,30 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define EnTest_Draw func_80000B38
 #define EnTest_Init func_80000618
 #define EnTest_OverrideLimbDraw func_80000948
 #define EnTest_Update func_800007CC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Keyframe_DrawFlex Keyframe_DrawFlex
 #define Keyframe_UpdateFlex Keyframe_UpdateFlex
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_Finalize Matrix_Finalize
+#define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
 #define func_80862B70 func_80000000
 #define func_80862CBC func_8000014C
 #define func_80862EDC func_8000036C
 #define func_80863048 func_800004D8
+#define gameplay_keep_DL_06AB30 D_406AB30
+#define gameplay_keep_Matanimheader_06B6A0 D_406B6A0
+#define gameplay_keep_Matanimheader_06B730 D_406B730
 #define ref_func_80862B70 func_80000000
 #define ref_func_80862CBC func_8000014C
 #define ref_func_80862EDC func_8000036C

@@ -4,11 +4,16 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define Flags_GetSwitch Flags_GetSwitch
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Diff Math_Vec3f_Diff
@@ -18,13 +23,16 @@
 #define ObjOcarinalift_Update func_800007EC
 #define func_80AC96D0 func_80000210
 #define func_80AC99D4 func_80000514
+#define object_raillift_Colheader_0048D0 D_60048D0
 #define ref_func_80AC94C0 func_80AAE1F0
+#define ref_func_80AC9680 func_80AAE3B0
 #define ref_func_80AC96B4 func_80AAE3E4
 #define ref_func_80AC96D0 func_80000210
 #define ref_func_80AC99C0 func_80AAE6F0
 #define ref_func_80AC99D4 func_80000514
 #define ref_func_80AC9A68 func_80AAE798
 #define ref_func_80AC9AB8 func_80AAE7E8
+#define sInitChain D_80AAEAA0
 
 #include "overlays/actors/ovl_Obj_Ocarinalift/z_obj_ocarinalift.h"
 #include "assets/objects/object_raillift/object_raillift.h"

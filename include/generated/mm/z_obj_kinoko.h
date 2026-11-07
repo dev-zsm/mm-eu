@@ -8,9 +8,12 @@
 #define Actor_OfferGetItem Actor_OfferGetItem
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Flags_SetCollectible Flags_SetCollectible
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_SmoothStepToF Math_SmoothStepToF
+#define Matrix_RotateXS Matrix_RotateXS
 #define ObjKinoko_Draw func_800001E4
 #define ObjKinoko_Update func_80000030
+#define gameplay_keep_DL_029D10 D_04029D1E
 
 #include "overlays/actors/ovl_Obj_Kinoko/z_obj_kinoko.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

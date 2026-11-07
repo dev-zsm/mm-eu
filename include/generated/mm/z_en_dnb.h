@@ -3,14 +3,29 @@
 #define MM_Z_EN_DNB_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_SetScale Actor_SetScale
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define EnDnb_Draw func_80000998
 #define EnDnb_Init func_800004D0
 #define EnDnb_Update func_800005B0
+#define Gfx_SetupDL Gfx_SetupDL
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Lib_Vec3f_TranslateAndRotateY func_800FFF1C
 #define Math_ApproachF Math_ApproachF
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
 #define func_80A4FDD0 func_80000000
 #define func_80A4FEBC func_800000EC
@@ -23,6 +38,11 @@
 #define func_80A50950 func_80000B80
 #define gZeroVec3f D_801C9EE0
 #define gZeroVec3s D_801C9EEC
+#define object_hanareyama_obj_Colheader_004D8C D_6004D8C
+#define object_hanareyama_obj_DLArray_004638 D_6004638
+#define object_hanareyama_obj_DL_000000 D_6000000
+#define object_hanareyama_obj_DL_000020 D_6000020
+#define object_hanareyama_obj_Vec_004710 D_6004710
 #define ref_func_80A4FDD0 func_80000000
 #define ref_func_80A4FEBC func_800000EC
 #define ref_func_80A4FFE8 func_80000218

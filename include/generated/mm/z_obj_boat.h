@@ -5,10 +5,13 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsActorOnTop DynaPolyActor_IsActorOnTop
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_ScaledStepToS Math_ScaledStepToS
 #define Math_SinS Math_SinS
@@ -22,6 +25,8 @@
 #define ObjBoat_SetRotations func_800001D4
 #define ObjBoat_Update func_80000268
 #define ObjBoat_UpdateCutscene func_800004D8
+#define object_kaizoku_obj_Colheader_009A88 D_6009A88
+#define sInitChain D_80B80420
 
 #include "overlays/actors/ovl_Obj_Boat/z_obj_boat.h"
 #include "assets/objects/object_kaizoku_obj/object_kaizoku_obj.h"

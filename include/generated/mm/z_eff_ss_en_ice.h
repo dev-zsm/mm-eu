@@ -7,6 +7,8 @@
 #define EffectSsEnIce_Init func_80000000
 #define EffectSsEnIce_Update D_8096452C
 #define EffectSsEnIce_UpdateFlying func_8000055C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_Atan2S_XY Math_Atan2S_XY
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
@@ -14,9 +16,16 @@
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroOne func_8008704C
+#define gEffIceFragment2MaterialDL D_4050648
+#define gEffIceFragment2ModelDL D_40506E0
 #define gZeroVec3f D_801C9EE0
+#define ref_func_800BCC68 func_800BC9EC
 
 #include "overlays/effects/ovl_Effect_Ss_En_Ice/z_eff_ss_en_ice.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

@@ -10,6 +10,8 @@
 #define Actor_Spawn Actor_Spawn
 #define Actor_SpawnAsChild Actor_SpawnAsChild
 #define Actor_WorldDistXYZToPoint Actor_WorldDistXYZToPoint
+#define AnimatedMat_Draw AnimatedMat_Draw
+#define AnimatedMat_DrawXlu AnimatedMat_DrawXlu
 #define Audio_PlaySfx_2 Audio_PlaySfx_2
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
@@ -47,6 +49,11 @@
 #define EnFall_StoppedClosedMouthMoon_PerformCutsceneActions func_80000BE4
 #define EnFall_StoppedOpenMouthMoon_PerformCutsceneActions func_80000B0C
 #define EnFall_Update D_80A51E3C
+#define Gfx_SetFog Gfx_SetFog
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_Vec3f_Copy Math_Vec3f_Copy
@@ -54,16 +61,30 @@
 #define Math_Vec3f_Pitch Math_Vec3f_Pitch
 #define Math_Vec3f_StepTo func_80100248
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
+#define Play_SetFog Play_SetFog
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define debrisEffects D_80A536F0
+#define gFallingMoonsTearDL D_6000400
+#define gFallingMoonsTearFireDL D_60004C8
+#define gFallingMoonsTearTexAnim D_6001220
+#define gLodmoonEyesDL D_60010E0
+#define gLodmoonMoonDL D_6001158
+#define gMoonDL D_60077F0
+#define gMoonDebrisMaterialDL D_6000198
+#define gMoonFireRingDL D_6003C30
+#define gMoonFireRingTexAnim D_6004E38
+#define gMoonFireballDL D_60011D0
+#define gOpenMouthMoonDL D_6002970
 #define gSaveContext D_801E6EF0
 
 #include "overlays/actors/ovl_En_Fall/z_en_fall.h"

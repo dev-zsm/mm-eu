@@ -4,6 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
+#define Actor_SpawnAsChild Actor_SpawnAsChild
 #define AnimatedMat_DrawAlphaStep func_80131CC0
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
@@ -12,9 +14,20 @@
 #define EffLastday_Init func_80000000
 #define EffLastday_SetVtxAlpha func_80BD0E44
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu
+#define Lib_SegmentedToVirtual func_80100304
 #define func_80BEBD0C func_8000024C
 #define func_80BEBF78 func_800004B8
+#define object_lastday_DL_000060 D_6000060
+#define object_lastday_DL_000210 D_6000210
+#define object_lastday_DL_000370 D_6000370
+#define object_lastday_DL_000510 D_6000510
+#define object_lastday_Matanimheader_000148 D_6000148
+#define object_lastday_Matanimheader_000308 D_6000308
+#define object_lastday_Matanimheader_000448 D_6000448
+#define object_lastday_Matanimheader_000608 D_6000608
 #define ref_func_80BEBD0C func_8000024C
+#define ref_func_80BEBDF8 D_80BD0B98
+#define ref_func_80BEBEB8 D_80BD0C58
 #define ref_func_80BEBF78 func_800004B8
 
 #include "overlays/actors/ovl_Eff_Lastday/z_eff_lastday.h"

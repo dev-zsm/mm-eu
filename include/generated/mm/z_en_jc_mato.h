@@ -16,6 +16,9 @@
 #define EnJcMato_Init func_80000150
 #define EnJcMato_SetupIdle func_80B82D68
 #define EnJcMato_Update func_8000021C
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define gKoumeTargetDL D_6000390
 #define sDamageTable D_80B82FDC
 #define sSphereInit D_80B82FB0
 

@@ -23,10 +23,23 @@
 #define EnEstone_SpawnEffect func_800008D4
 #define EnEstone_Update func_80000640
 #define EnEstone_UpdateEffects func_800009D0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateXFApply Matrix_RotateXFApply
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYF Matrix_RotateYF
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define gEyegoreStoneDL D_6010240
+#define gameplay_keep_DL_06AB30 D_406AB30
 #define sCylinderInit D_80A7F7F0
 
 #include "overlays/actors/ovl_En_Estone/z_en_estone.h"

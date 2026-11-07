@@ -8,6 +8,9 @@
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define EffectSsGSplash_Update func_800002C0
 #define EffectSs_DrawGEffect EffectSs_DrawGEffect
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define gEffWaterSplashDL D_403A0F0
+#define gZeroVec3f D_801C9EE0
 #define sWaterSplashTextures D_8095F128
 
 #include "overlays/effects/ovl_Effect_Ss_G_Splash/z_eff_ss_g_splash.h"

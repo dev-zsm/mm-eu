@@ -6,6 +6,13 @@
 #define EffectSsStone1_Draw func_8000008C
 #define EffectSsStone1_Init func_80000000
 #define EffectSsStone1_Update D_809610D4
+#define Gfx_SetupDL61_Xlu Gfx_SetupDL61_Xlu
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define SkinMatrix_Vec3fMtxFMultXYZW SkinMatrix_Vec3fMtxFMultXYZW
+#define gEffStoneDL D_403C190
+#define sDrawInfo D_80961118
 
 #include "overlays/effects/ovl_Effect_Ss_Stone1/z_eff_ss_stone1.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

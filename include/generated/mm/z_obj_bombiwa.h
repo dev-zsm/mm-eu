@@ -16,8 +16,13 @@
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjBombiwa_Init func_8000024C
 #define ObjBombiwa_IsUnderwater func_8091E00C
 #define Rand_Next func_80087010
@@ -32,6 +37,13 @@
 #define func_8093A1F0 func_80000E40
 #define func_8093A418 func_80001068
 #define func_8093A608 func_80001258
+#define gActorSetupOpaDL D_801AFAD0
+#define gActorSetupXluDL D_801AFAB8
+#define object_bombiwa_DL_0009E0 D_60009E0
+#define object_bombiwa_DL_000AF0 D_6000AF0
+#define object_bombiwa_DL_004560 D_6004560
+#define object_bombiwa_DL_004688 D_6004688
+#define object_bombiwa_DL_005990 D_6005990
 #define ref_D_8093A998 D_8091F488
 #define ref_func_80939594 func_800001E4
 #define ref_func_80939794 func_800003E4

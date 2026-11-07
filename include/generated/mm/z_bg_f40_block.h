@@ -5,14 +5,19 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgCheck_AnyLineTest1 BgCheck_AnyLineTest1
 #define BgF40Block_Init func_800006D8
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Flags_GetSwitch Flags_GetSwitch
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_StepTo func_80100248
+#define gStoneTowerBlockCol D_6004640
 #define ref_D_80BC4620 D_80BA93C0
 #define ref_func_80BC3980 func_80000000
 #define ref_func_80BC3A2C func_800000AC
@@ -21,7 +26,10 @@
 #define ref_func_80BC3D08 func_80000388
 #define ref_func_80BC41AC D_80BA8F4C
 #define ref_func_80BC4228 func_800008A8
+#define ref_func_80BC4380 D_80BA9120
 #define ref_func_80BC4530 D_80BA92D0
+#define ref_func_80BC457C D_80BA931C
+#define sInitChain D_80BA9408
 
 #include "overlays/actors/ovl_Bg_F40_Block/z_bg_f40_block.h"
 #include "assets/objects/object_f40_obj/object_f40_obj.h"

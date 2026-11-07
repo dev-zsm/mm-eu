@@ -4,6 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
 #define BgTobira01_Action func_80000000
 #define BgTobira01_Draw func_80000338
 #define BgTobira01_Init func_8000025C
@@ -12,7 +13,13 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define SurfaceType_GetSceneExitIndex SurfaceType_GetSceneExitIndex
+#define gGoronDoorCol D_60011C0
+#define gGoronDoorDL D_6000088
+#define gSaveContext D_801E6EF0
 
 #include "overlays/actors/ovl_Bg_Tobira01/z_bg_tobira01.h"
 #include "assets/objects/object_spot11_obj/object_spot11_obj.h"

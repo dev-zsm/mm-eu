@@ -4,6 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DmChar06_Draw func_800001F8
@@ -11,6 +12,11 @@
 #define DmChar06_Init func_8000000C
 #define DmChar06_SetupAction func_80A933B0
 #define Environment_LerpWeight Environment_LerpWeight
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
+#define Scene_SetRenderModeXlu Scene_SetRenderModeXlu
+#define object_yukiyama_DL_0013A8 D_60013A8
+#define object_yukiyama_Matanimheader_006868 D_6006868
 
 #include "overlays/actors/ovl_Dm_Char06/z_dm_char06.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)

@@ -8,10 +8,12 @@
 #define EffectSsDeadDb_Update func_80000294
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define SkinMatrix_MtxFMtxFMult SkinMatrix_MtxFMtxFMult
 #define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
 #define SkinMatrix_SetScale SkinMatrix_SetScale
 #define SkinMatrix_SetTranslate SkinMatrix_SetTranslate
+#define gEffEnemyDeathFlameDL D_4044300
 #define sTextures D_80965A18
 
 #include "overlays/effects/ovl_Effect_Ss_Dead_Db/z_eff_ss_dead_db.h"

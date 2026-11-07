@@ -4,22 +4,39 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetScale Actor_SetScale
 #define Actor_Spawn Actor_Spawn
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define ObjLightblock_Draw func_800003D4
 #define ObjLightblock_FadeAway func_80000324
 #define ObjLightblock_Init func_8000006C
 #define ObjLightblock_PlayCutscene func_80000290
 #define ObjLightblock_SetupFadeAway func_80AD8948
 #define ObjLightblock_SetupPlayCutscene func_80AD88BC
+#define ObjLightblock_SetupWait func_80AD87F8
 #define ObjLightblock_SpawnEffect func_80000000
 #define ObjLightblock_Wait func_800001CC
+#define gActorSetupOpaDL D_801AFAD0
+#define gActorSetupXluDL D_801AFAB8
+#define gSunBlockCol D_6000B80
+#define gSunBlockDL D_6000178
+#define sCylinderInit D_80AD8BD0
+#define sInitChain D_80AD8C1C
 #define sLightblockTypeVars D_80AD8BFC
 
 #include "overlays/actors/ovl_Obj_Lightblock/z_obj_lightblock.h"

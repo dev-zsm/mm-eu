@@ -5,8 +5,16 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_OfferTalk Actor_OfferTalk
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define AnimatedMat_Draw AnimatedMat_Draw
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
 #define Message_StartTextbox func_80151DF4
 #define ObjMoonStone_Draw func_80000400
+#define gGiMoonsTearGlowDL D_6000C80
+#define gGiMoonsTearItemDL D_6000D78
+#define gGiMoonsTearTexAnim D_6001C60
 #define ref_func_80C06640 func_80000130
 #define ref_func_80C066F8 func_80BEB498
 

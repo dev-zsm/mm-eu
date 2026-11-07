@@ -3,6 +3,8 @@
 #define MM_Z_DM_CHAR05_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init ActorShape_Init
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
@@ -20,6 +22,7 @@
 #define DmChar05_PostLimbDraw D_80A926B0
 #define DmChar05_Update func_800011EC
 #define GetItem_Draw GetItem_Draw
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_SetFog Gfx_SetFog
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Item_Give func_80112D7C
@@ -30,6 +33,7 @@
 #define Object_IsLoaded Object_IsLoaded
 #define SkelAnime_DrawFlexOpa SkelAnime_DrawFlexOpa
 #define SkelAnime_DrawOpa SkelAnime_DrawOpa
+#define SkelAnime_Init SkelAnime_Init
 #define SkelAnime_Update SkelAnime_Update
 #define func_80AAC63C func_8000009C
 #define func_80AAC9DC func_8000043C
@@ -49,6 +53,8 @@
 #define func_80AAE030 func_80001A90
 #define func_80AAE114 func_80001B74
 #define gSaveContext D_801E6EF0
+#define object_dmask_DL_001E70 D_6001E70
+#define object_dmask_Skel_010B0 D_60010B0
 #define ref_func_80AAC63C func_8000009C
 #define ref_func_80AAC6E4 func_80A91414
 #define ref_func_80AAC770 func_80A914A0
@@ -58,6 +64,7 @@
 #define ref_func_80AAC9DC func_8000043C
 #define ref_func_80AACAE4 func_80000544
 #define ref_func_80AACBE4 func_80000644
+#define ref_func_80AACC48 D_80A91978
 #define ref_func_80AACD0C D_80A91A3C
 #define ref_func_80AACD1C D_80A91A4C
 #define ref_func_80AACE10 D_80A91B40

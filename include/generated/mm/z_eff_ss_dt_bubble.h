@@ -6,7 +6,16 @@
 #define EffectSsDtBubble_Draw func_800001F0
 #define EffectSsDtBubble_Init func_80000000
 #define EffectSsDtBubble_Update func_80000400
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
+#define gEffBubble1Tex D_4091BE0
+#define gEffBubble2Tex D_4091CE0
+#define gEffBubbleDL D_40301B0
+#define sEnvColors D_8095FF30
+#define sPrimColors D_8095FF20
 
 #include "overlays/effects/ovl_Effect_Ss_Dt_Bubble/z_eff_ss_dt_bubble.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

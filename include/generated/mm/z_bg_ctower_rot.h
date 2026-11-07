@@ -5,6 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define Audio_PlaySfx Audio_PlaySfx
 #define BgCtowerRot_CorridorRotate func_8000018C
@@ -17,9 +18,19 @@
 #define Camera_ChangeSetting Camera_ChangeSetting
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
+#define gClockTowerCorridorCol D_60142E8
+#define gClockTowerCorridorFoliageDL D_60129D0
+#define gClockTowerStoneDoorCol D_6017650
+#define gClockTowerStoneDoorMainCol D_6017410
+#define sDLists D_808E1C34
+#define sInitChain D_808E1C30
 
 #include "overlays/actors/ovl_Bg_Ctower_Rot/z_bg_ctower_rot.h"
 #include "assets/objects/object_ctower_rot/object_ctower_rot.h"

@@ -7,10 +7,16 @@
 #define EffectEnIceBlock_Draw func_80000154
 #define EffectEnIceBlock_Init func_80000078
 #define EffectEnIceBlock_Update D_80A07D14
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_Mult Matrix_Mult
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
 #define Rand_ZeroOne func_8008704C
+#define gIceBlockShardEffectDL D_6000A38
 
 #include "overlays/effects/ovl_Effect_En_Ice_Block/z_eff_en_ice_block.h"
 #include "assets/objects/object_ice_block/object_ice_block.h"

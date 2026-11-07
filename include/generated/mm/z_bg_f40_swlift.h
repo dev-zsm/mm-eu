@@ -3,12 +3,18 @@
 #define MM_Z_BG_F40_SWLIFT_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgF40Swlift_Init func_80000000
 #define BgF40Swlift_Update func_80000100
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
 #define Math_SinF Math_SinF
 #define Math_StepToF Math_StepToF
+#define gStoneTowerVerticallyOscillatingPlatformCol D_6003E80
 #define sHeights D_80954310
+#define sInitChain D_80954280
 #define sSwitchFlags D_80954250
 
 #include "overlays/actors/ovl_Bg_F40_Swlift/z_bg_f40_swlift.h"

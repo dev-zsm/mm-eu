@@ -25,12 +25,33 @@
 #define EnTest6_SetupInvertedSoTCutscene func_80A76310
 #define EnTest6_SharedSoTCutscene func_80A775D0
 #define EnTest6_StartCutscene func_80000E3C
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_SetupDL66 Gfx_SetupDL66
+#define Lib_SegmentedToVirtual func_80100304
 #define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
 #define Lights_PointNoGlowSetInfo Lights_PointNoGlowSetInfo
+#define Lights_PointSetColorAndRadius Lights_PointSetColorAndRadius
+#define Lights_PointSetPosition Lights_PointSetPosition
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Matrix_Mult Matrix_Mult
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Play_EnableMotionBlur Play_EnableMotionBlur
+#define Play_SetFog Play_SetFog
 #define Rand_ZeroOne func_8008704C
+#define gEffFlash1DL D_4023210
+#define gEffSparklesDL D_4054A90
+#define gItemDropDL D_405F6F0
+#define gRupeeDL D_40622C0
 #define gSaveContext D_801E6EF0
+#define gSongOfTimeClockDL D_407AFB0
+#define ref_func_800BCBF4 func_800BC978
+#define sSoTCsAmmoDropTextures D_80A78CAC
 #define sSoTCsAmmoDrops D_80A79590
 
 #include "overlays/actors/ovl_En_Test6/z_en_test6.h"

@@ -3,20 +3,29 @@
 #define MM_Z_BG_IKNINSIDE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
+#define Actor_SetScale Actor_SetScale
 #define BgIkninside_Destroy func_800000C8
 #define BgIkninside_Draw func_800004D8
 #define BgIkninside_Init func_80000000
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
 #define EffectSsHahen_Spawn EffectSsHahen_Spawn
+#define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Rand_Next func_80087010
@@ -24,11 +33,14 @@
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80C07230 func_80000120
 #define func_80C072D0 func_800001C0
+#define object_ikninside_obj_Colheader_00DE48 D_600DE48
+#define object_ikninside_obj_DL_00CC78 D_600CC78
 #define ref_D_80C076A0 D_80BEC440
 #define ref_D_80C076D4 D_80BEC474
 #define ref_func_80C07220 D_80BEBFC0
 #define ref_func_80C07230 func_80000120
 #define ref_func_80C072D0 func_800001C0
+#define sCylinderInit D_80BEC448
 
 #include "overlays/actors/ovl_Bg_Ikninside/z_bg_ikninside.h"
 #include "assets/objects/object_ikninside_obj/object_ikninside_obj.h"

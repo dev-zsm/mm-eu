@@ -29,6 +29,7 @@
 #define EnMm_Init func_8000005C
 #define EnMm_SetupAction func_8094A6A0
 #define EnMm_Update func_8000060C
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Atan2S_XY Math_Atan2S_XY
 #define Math_CosS Math_CosS
 #define Math_ScaledStepToS Math_ScaledStepToS
@@ -36,12 +37,15 @@
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_ToVec3s Math_Vec3f_ToVec3s
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
 #define SurfaceType_GetFloorEffect SurfaceType_GetFloorEffect
 #define func_80965BBC func_8000000C
 #define func_80965D3C func_8000018C
 #define func_80965DB4 func_80000204
 #define func_8096611C func_8000056C
 #define gSaveContext D_801E6EF0
+#define gameplay_keep_DL_055628 D_4055628
 #define ref_func_80965BBC func_8000000C
 #define ref_func_80965D3C func_8000018C
 #define ref_func_80965DB4 func_80000204

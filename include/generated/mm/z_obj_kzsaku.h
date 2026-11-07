@@ -4,15 +4,24 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_SetScale Actor_SetScale
+#define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPoly_SetBgActor DynaPoly_SetBgActor
+#define Flags_GetSwitch Flags_GetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define ObjKzsaku_Draw func_800002C4
 #define ObjKzsaku_Init func_80000000
 #define ObjKzsaku_Rise func_80000150
+#define ObjKzsaku_SetupIdle func_80BED900
 #define func_80C08CB0 func_80000230
+#define gUnderwaterGrateCol D_6001118
+#define gUnderwaterGrateDL D_6000040
 #define ref_func_80C08C84 func_80BEDA24
 #define ref_func_80C08CB0 func_80000230
 

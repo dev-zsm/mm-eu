@@ -3,6 +3,7 @@
 #define MM_Z_BG_IKANA_MIRROR_H
 
 /* names of ours that symbols of the reference stand for */
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgIkanaMirror_Destroy func_800002D0
 #define BgIkanaMirror_Draw func_800005AC
 #define BgIkanaMirror_EmitLight func_80000474
@@ -17,10 +18,15 @@
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_Pop Matrix_Pop
 #define Matrix_Push Matrix_Push
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define gStoneTowerTempleMirrorDL D_6001E18
+#define gStoneTowerTempleMirrorLightAbsorptionDL D_60014B0
+#define gStoneTowerTempleMirrorLightEmissionDL D_6001880
 #define sLightRaysCollidersInit D_80B64E9C
 
 #include "overlays/actors/ovl_Bg_Ikana_Mirror/z_bg_ikana_mirror.h"

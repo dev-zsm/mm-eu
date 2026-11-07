@@ -3,10 +3,15 @@
 #define MM_Z_OBJ_YASI_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Item_DropCollectible Item_DropCollectible
 #define ObjYasi_Init func_80000000
 #define ObjYasi_Update func_800000B0
 #define Rand_ZeroOne func_8008704C
+#define gPalmTreeCol D_6001428
+#define sInitChain D_80B99B30
 
 #include "overlays/actors/ovl_Obj_Yasi/z_obj_yasi.h"
 #include "z_en_item00.h"

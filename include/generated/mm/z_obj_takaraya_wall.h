@@ -6,12 +6,14 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define AudioSfx_StopByPos AudioSfx_StopByPos
+#define Audio_PlaySfx_AtPos Audio_PlaySfx_AtPos
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Flags_SetSwitch Flags_SetSwitch
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_StepToF Math_StepToF
+#define Matrix_GetCurrent Matrix_GetCurrent
 #define ObjTakarayaWall_CanCarvePath func_80000118
 #define ObjTakarayaWall_CarvePath func_80000248
 #define ObjTakarayaWall_Destroy func_8000082C
@@ -22,6 +24,10 @@
 #define ObjTakarayaWall_PosToCell func_80000000
 #define ObjTakarayaWall_Update func_80000D50
 #define Rand_ZeroFloat Rand_ZeroFloat
+#define SkinMatrix_Vec3fMtxFMultXYZ SkinMatrix_Vec3fMtxFMultXYZ
+#define gSetupDLs D_801C1BB0
+#define gTreasureChestShopWallBlackDL D_6000B70
+#define gTreasureChestShopWallWhiteDL D_6000D60
 #define sCylinderInit D_80ABEFD0
 #define sInitChain D_80ABEFFC
 #define sTakarayaWallAudioPositions D_80ABF3A0

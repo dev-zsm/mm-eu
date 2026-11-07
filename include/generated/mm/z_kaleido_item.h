@@ -4,16 +4,28 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx Audio_PlaySfx
+#define Gfx_DrawTexQuadIA8 func_8010DA58
+#define Gfx_SetupDL39_Opa Gfx_SetupDL39_Opa
+#define Gfx_SetupDL42_Opa func_8012CD5C
 #define Interface_LoadItemIcon func_80112AE0
 #define Interface_LoadItemIconImpl func_80112A3C
 #define KaleidoScope_DrawAmmoCount func_80002880
 #define KaleidoScope_DrawItemSelect func_80002D2C
+#define KaleidoScope_DrawTexQuadRGBA32 func_808210F8
 #define KaleidoScope_UpdateItemEquip func_80003CC4
+#define gAmmoItems D_801C7C70
+#define gEquippedItemOutlineTex D_2001360
+#define gItemIcons D_801C2B2C
+#define gPlayerFormSlotRestrictions D_8082AB7C
+#define gSaveContext D_801E6EF0
 #define sCButtonPosX D_8082AC34
 #define sCButtonPosY D_8082AC3C
 #define sEquipAnimTimer D_8082AB78
 #define sEquipMagicArrowSlotHoldTimer D_8082AB74
 #define sEquipState D_8082AB70
+#define sMagicArrowEffectsB D_8082AC24
+#define sMagicArrowEffectsG D_8082AC1C
+#define sMagicArrowEffectsR D_8082AC14
 
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
 #include "assets/interface/parameter_static/parameter_static.h"

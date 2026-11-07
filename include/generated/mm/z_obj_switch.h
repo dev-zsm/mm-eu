@@ -3,6 +3,7 @@
 #define MM_Z_OBJ_SWITCH_H
 
 /* names of ours that symbols of the reference stand for */
+#define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_InitTris Collider_InitTris
 #define Collider_SetJntSph Collider_SetJntSph
@@ -19,6 +20,7 @@
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math3D_Cos Math3D_Cos
@@ -68,8 +70,16 @@
 #define ObjSwitch_TryPlayCutsceneInit func_80920138
 #define ObjSwitch_Update func_80001A2C
 #define Player_InCsMode Player_InCsMode
+#define gCrystalSwitchBaseDL D_501C058
+#define gCrystalSwitchCoreDL D_501BEE0
+#define gCrystalSwitchDiamondDL D_501BFB8
+#define gFloorSwitch1DL D_501B508
+#define gSetupDLs D_801C1BB0
+#define ref_func_800B8118 func_800B7E9C
+#define sCrystalSwitchAnimatedMat D_80921EA0
 #define sEyeSwitchDL D_80921930
 #define sEyeSwitchTextures D_80921750
+#define sFloorSwitchDL D_8092191C
 #define sJntSphInit D_809218F8
 
 #include "overlays/actors/ovl_Obj_Switch/z_obj_switch.h"

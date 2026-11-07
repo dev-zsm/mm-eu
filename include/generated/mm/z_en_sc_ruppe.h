@@ -17,10 +17,14 @@
 #define EnScRuppe_Draw func_80000408
 #define EnScRuppe_Init func_800002D8
 #define EnScRuppe_UpdateCollision func_80000000
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Rupees_ChangeBy func_80115C10
 #define func_80BD697C func_8000006C
 #define func_80BD6A8C func_8000017C
 #define func_80BD6B18 func_80000208
+#define gRupeeDL D_40622C0
+#define ref_func_800B8050 func_800B7DD4
 #define ref_func_80BD697C func_8000006C
 #define ref_func_80BD6A8C func_8000017C
 #define ref_func_80BD6B18 func_80000208

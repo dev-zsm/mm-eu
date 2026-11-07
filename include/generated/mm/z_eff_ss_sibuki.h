@@ -7,10 +7,16 @@
 #define EffectSsSibuki_Draw func_8000017C
 #define EffectSsSibuki_Init func_80000000
 #define EffectSsSibuki_Update func_800002FC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Play_GetCamera Play_GetCamera
 #define Rand_ZeroOne func_8008704C
+#define gEffBubble1Tex D_4091BE0
+#define gEffBubble2Tex D_4091CE0
+#define gEffBubbleDL D_40301B0
 
 #include "overlays/effects/ovl_Effect_Ss_Sibuki/z_eff_ss_sibuki.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

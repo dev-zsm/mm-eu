@@ -6,8 +6,16 @@
 #define EffectSsIcePiece_Draw func_8000014C
 #define EffectSsIcePiece_Init func_80000000
 #define EffectSsIcePiece_Update func_80000350
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_Atan2S_XY Math_Atan2S_XY
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroFloat Rand_ZeroFloat
+#define gEffIceFragment1DL D_4050550
+#define ref_func_800BCC68 func_800BC9EC
 
 #include "overlays/effects/ovl_Effect_Ss_Ice_Piece/z_eff_ss_ice_piece.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

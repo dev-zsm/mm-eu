@@ -4,6 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgF40Switch_CheckAll func_80000000
 #define BgF40Switch_IdlePressed D_80BA9934
 #define BgF40Switch_IdleUnpressed D_80BA9AD0
@@ -12,12 +13,17 @@
 #define BgF40Switch_Unpress func_80000370
 #define BgF40Switch_WaitToPress func_800004B8
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsSwitchPressed func_800CAD48
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Player_InCsMode Player_InCsMode
 #define Rumble_Request Rumble_Request
+#define gStoneTowerFloorSwitchCol D_6000118
+#define sBgF40SwitchGlobalsInitialized D_80BA9B90
 #define sBgF40SwitchLastUpdateFrame D_80BA9CC0
+#define sInitChain D_80BA9BA4
 
 #include "overlays/actors/ovl_Bg_F40_Switch/z_bg_f40_switch.h"
 #include "z64rumble.h"

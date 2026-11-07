@@ -15,7 +15,11 @@
 #define EnNimotsu_Init func_8000006C
 #define EnNimotsu_Update func_80000108
 #define EnNimotsu_UpdateCollision func_80000000
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Rand_CenteredFloat Rand_CenteredFloat
+#define gBombShopBagDL D_6013380
+#define ref_func_800BC620 func_800BC3A4
 #define sCylinderInit D_80BC6D50
 
 #include "overlays/actors/ovl_En_Nimotsu/z_en_nimotsu.h"

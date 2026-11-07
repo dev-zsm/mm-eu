@@ -3,28 +3,42 @@
 #define MM_Z_BG_DKJAIL_IVY_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgDkjailIvy_BeginCutscene func_80000518
 #define BgDkjailIvy_Draw func_80000644
 #define BgDkjailIvy_Init func_80000374
 #define BgDkjailIvy_IvyCutEffects func_80000000
 #define BgDkjailIvy_SetupCutscene func_80AC3464
 #define BgDkjailIvy_SetupFadeOut func_80AC3510
+#define BgDkjailIvy_SetupWaitForCut func_80AC33DC
 #define BgDkjailIvy_WaitForCut func_80000490
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define EffectSsKakera_Spawn EffectSsKakera_Spawn
+#define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_SinS Math_SinS
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateYS Matrix_RotateYS
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
+#define gDkjailCol D_60011A8
+#define gDkjailIvyDL D_6000080
 #define gZeroVec3f D_801C9EE0
 #define ref_func_800B12F0 func_800B1810
+#define sCylinderInit D_80AC3680
+#define sInitChain D_80AC36BC
 
 #include "overlays/actors/ovl_Bg_Dkjail_Ivy/z_bg_dkjail_ivy.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

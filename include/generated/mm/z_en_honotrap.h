@@ -18,7 +18,9 @@
 #define Actor_UpdateVelocityWithGravity Actor_UpdateVelocityWithGravity
 #define Actor_WorldDistXYZToPoint Actor_WorldDistXYZToPoint
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
+#define Camera_GetCamDir Camera_GetCamDir
 #define Camera_GetCamDirPitch Camera_GetCamDirPitch
+#define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_DestroyTris Collider_DestroyTris
 #define Collider_InitCylinder Collider_InitCylinder
@@ -62,6 +64,9 @@
 #define EnHonotrap_Update func_8000185C
 #define EnHonotrap_UpdateFlame D_80914934
 #define EnHonotrap_UpdateFlameGroup func_800019EC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math3D_Vec3fReflect Math3D_Vec3fReflect
@@ -72,8 +77,13 @@
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define gEffFire1DL D_407D590
+#define gEyeSwitchSilverDL D_50085F0
 #define sColChkInfoInit D_80914FC8
 #define sCylinderInit D_80914F9C
 #define sInitChain D_80914FD0

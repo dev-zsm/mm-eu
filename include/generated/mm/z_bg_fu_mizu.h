@@ -3,7 +3,12 @@
 #define MM_Z_BG_FU_MIZU_H
 
 /* names of ours that symbols of the reference stand for */
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define BgFuMizu_Draw func_800001EC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
+#define object_fu_kaiten_DL_002FC0 D_6002FC0
+#define object_fu_kaiten_Matanimheader_0037D8 D_60037D8
 #define ref_func_80ADABA4 func_800000B4
 
 #include "overlays/actors/ovl_Bg_Fu_Mizu/z_bg_fu_mizu.h"

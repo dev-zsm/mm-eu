@@ -20,6 +20,9 @@
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToS Math_StepToS
@@ -44,11 +47,17 @@
 #define ObjLightswitch_Update func_800008A4
 #define ObjLightswitch_UpdateSwitchFlags func_800000A4
 #define Rand_ZeroOne func_8008704C
+#define gActorSetupOpaDL D_801AFAD0
+#define gActorSetupXluDL D_801AFAB8
 #define gZeroVec3f D_801C9EE0
+#define object_lightswitch_DL_000260 D_6000260
+#define object_lightswitch_DL_000398 D_6000398
+#define object_lightswitch_DL_000408 D_6000408
 #define sInitChain D_809456C8
 #define sJntSphInit D_809456A4
 #define sLightswitchEffectEnvColor D_809456C4
 #define sLightswitchEffectPrimColor D_809456C0
+#define sLightswitchFaceGfx D_809456B4
 
 #include "overlays/actors/ovl_Obj_Lightswitch/z_obj_lightswitch.h"
 #include "assets/objects/object_lightswitch/object_lightswitch.h"

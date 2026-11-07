@@ -16,6 +16,9 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define gAstralObservatoryBombWallCrackDL D_60022E0
+#define gAstralObservatoryBombWallDL D_6002380
+#define gSetupDLs D_801C1BB0
 
 #include "overlays/actors/ovl_Bg_Astr_Bombwall/z_bg_astr_bombwall.h"
 #include "assets/objects/object_astr_obj/object_astr_obj.h"

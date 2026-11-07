@@ -6,7 +6,14 @@
 #define EffectSsKFire_Draw func_800000D8
 #define EffectSsKFire_Init func_80000000
 #define EffectSsKFire_Update D_80962490
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Matrix_ReplaceRotation Matrix_ReplaceRotation
+#define Matrix_RotateYF Matrix_RotateYF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define Rand_ZeroFloat Rand_ZeroFloat
+#define gEffFire1DL D_407D590
 
 #include "overlays/effects/ovl_Effect_Ss_K_Fire/z_eff_ss_k_fire.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

@@ -7,6 +7,8 @@
 #define Actor_OfferTalk Actor_OfferTalk
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetObjectDependency Actor_SetObjectDependency
+#define Actor_SetScale Actor_SetScale
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
 #define Actor_TextboxIsClosing Actor_TextboxIsClosing
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
@@ -17,6 +19,7 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
 #define GetItem_Draw GetItem_Draw
@@ -28,6 +31,8 @@
 #define ObjNozoki_Draw func_80001014
 #define ObjNozoki_Init func_8000000C
 #define ObjNozoki_SetupAction func_80B871C0
+#define Object_GetSlot Object_GetSlot
+#define Object_IsLoaded Object_IsLoaded
 #define Play_InCsMode Play_InCsMode
 #define SubS_FindActor SubS_FindActor
 #define func_80BA2514 func_800000F4
@@ -43,6 +48,9 @@
 #define func_80BA3230 func_80000E10
 #define func_80BA3344 func_80000F24
 #define gSfxDefaultPos D_801D3DD4
+#define object_secom_obj_Colheader_0001C0 D_60001C0
+#define ref_D_80BA34C0 D_80B88260
+#define ref_D_80BA34CC D_80B8826C
 #define ref_D_80BA34D8 D_80B88278
 #define ref_D_80BA34E4 D_80B88284
 #define ref_D_80BA34FC D_80B8829C
@@ -65,6 +73,7 @@
 #define ref_func_80BA3230 func_80000E10
 #define ref_func_80BA3344 func_80000F24
 #define sInitChain D_80B88250
+#define sObjectIds D_80B88258
 
 #include "overlays/actors/ovl_Obj_Nozoki/z_obj_nozoki.h"
 #include "z64draw.h"

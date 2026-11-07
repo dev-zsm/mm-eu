@@ -4,16 +4,28 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define EffKamejimaWave_Draw func_800003EC
 #define EffKamejimaWave_Init func_80000000
 #define EffKamejimaWave_SetVtxAlpha func_8000039C
+#define Environment_LerpSandstormColors Environment_LerpSandstormColors
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
+#define Matrix_Scale Matrix_Scale
+#define gTurtleWaveDL D_6000140
+#define gTurtleWaveTexAnim D_6001AF0
+#define gTurtleWaveVtx D_6000000
+#define ref_D_80BCF1C4 D_80BB3F64
 #define ref_func_80BCEBC0 func_800000A0
 #define ref_func_80BCEC6C func_8000014C
 #define ref_func_80BCED34 func_80000214
 #define ref_func_80BCEDE0 func_800002C0
+#define sEnvColors D_80BB3E40
+#define sPrimColors D_80BB3E30
 #define sVtxAlpha D_80BB3F60
 
 #include "overlays/actors/ovl_Eff_Kamejima_Wave/z_eff_kamejima_wave.h"

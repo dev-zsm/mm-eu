@@ -3,7 +3,11 @@
 #define MM_Z_OBJ_HSSTUMP_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define EffectSsIceSmoke_Spawn func_800B372C
 #define Flags_GetSwitch Flags_GetSwitch
@@ -16,7 +20,9 @@
 #define ObjHsStump_SetupAppear func_80BBF90C
 #define ObjHsStump_SetupIdle func_80BBF8A0
 #define gZeroVec3f D_801C9EE0
+#define object_hsstump_Colheader_0011B0 D_60011B0
 #define sIceSmokeAccel D_80BBFD24
+#define sInitChain D_80BBFD20
 
 #include "overlays/actors/ovl_Obj_HsStump/z_obj_hsstump.h"
 #include "attributes.h"

@@ -3,8 +3,11 @@
 #define MM_Z_DM_CHAR03_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init ActorShape_Init
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_SetScale Actor_SetScale
 #define Animation_Change Animation_Change
 #define Animation_GetLastFrame Animation_GetLastFrame
 #define Animation_OnFrame func_80137C58
@@ -12,6 +15,7 @@
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DmChar03_ChangeAnim func_80000000
+#define DmChar03_DoNothing D_80A90430
 #define DmChar03_Draw func_8000051C
 #define DmChar03_Init func_8000009C
 #define DmChar03_OverrideLimbDraw D_80A906A4
@@ -26,11 +30,13 @@
 #define Matrix_Translate Matrix_Translate
 #define Object_IsLoaded Object_IsLoaded
 #define SkelAnime_DrawTransformFlexOpa SkelAnime_DrawTransformFlexOpa
+#define SkelAnime_InitFlex SkelAnime_InitFlex
 #define SkelAnime_Update SkelAnime_Update
 #define func_80AAB644 func_800001A4
 #define func_80AAB710 func_80000270
 #define func_80AAB838 func_80000398
 #define func_80AABA84 func_800005E4
+#define gDekuMaskSkel D_6020550
 #define ref_func_80AAB5F8 D_80A90328
 #define ref_func_80AAB644 func_800001A4
 #define ref_func_80AAB710 func_80000270

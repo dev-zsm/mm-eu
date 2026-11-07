@@ -9,6 +9,7 @@
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_SetScale Actor_SetScale
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define AnimatedMat_Draw AnimatedMat_Draw
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
@@ -32,12 +33,25 @@
 #define EnKujiya_TurnToOpen func_800008A0
 #define EnKujiya_UnsetBoughtTicket func_80B95E98
 #define EnKujiya_Wait func_800000DC
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Inventory_SaveLotteryCodeGuess func_8012F628
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_SmoothStepToS Math_SmoothStepToS
 #define Message_CloseTextbox func_80147CC4
 #define Message_GetState func_801529DC
 #define Message_ShouldAdvance func_80147B34
 #define Message_StartTextbox func_80151DF4
+#define gLotteryShopBackSignDL D_6003030
+#define gLotteryShopBlueRupeesDL D_60036B0
+#define gLotteryShopCylinderDL D_6002A80
+#define gLotteryShopGreenRupeesDL D_60035B8
+#define gLotteryShopMaskDL D_6003D58
+#define gLotteryShopOpenBoxDL D_6003248
+#define gLotteryShopRedRupeesDL D_60034A8
+#define gLotteryShopScrollingArrowDL D_6003C80
+#define gLotteryShopScrollingEffectsDL D_6003358
+#define gLotteryShopTargetArrowAndSignDL D_60037C0
+#define gLotteryShopTexAnim D_6006198
 #define gSaveContext D_801E6EF0
 
 #include "overlays/actors/ovl_En_Kujiya/z_en_kujiya.h"

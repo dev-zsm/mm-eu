@@ -3,11 +3,15 @@
 #define MM_Z_EN_SLIME_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init ActorShape_Init
 #define Actor_ApplyDamage Actor_ApplyDamage
+#define Actor_DrawDamageEffects func_800BE404
 #define Actor_IsFacingPlayer Actor_IsFacingPlayer
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetColorFilter Actor_SetColorFilter
 #define Actor_SetDropFlag Actor_SetDropFlag
 #define Actor_SetFocus Actor_SetFocus
@@ -19,9 +23,12 @@
 #define Actor_WorldDistXZToPoint Actor_WorldDistXZToPoint
 #define Actor_WorldYawTowardActor Actor_WorldYawTowardActor
 #define Actor_WorldYawTowardPoint Actor_WorldYawTowardPoint
+#define AnimatedMat_Draw AnimatedMat_Draw
+#define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EffectSsDtBubble_SpawnCustomColor EffectSsDtBubble_SpawnCustomColor
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
@@ -66,7 +73,11 @@
 #define EnSlime_UpdateDamage func_800021F8
 #define EnSlime_WaitForRevive D_80A1595C
 #define Enemy_StartFinishingBlow Enemy_StartFinishingBlow
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_SetupDL66 Gfx_SetupDL66
 #define Item_DropCollectible Item_DropCollectible
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_ApproachS Math_ApproachS
 #define Math_CosF Math_CosF
 #define Math_CosS Math_CosS
@@ -74,18 +85,44 @@
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateXFApply Matrix_RotateXFApply
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define Play_SetFog Play_SetFog
 #define Player_GetMask Player_GetMask
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C
+#define Scene_SetRenderModeXlu Scene_SetRenderModeXlu
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
+#define gActorSetupOpaDL D_801AFAD0
+#define gChuchuBodyDL D_60004C0
+#define gChuchuEyesDL D_6000650
+#define gChuchuPuddleDL D_6000A10
+#define gChuchuSlimeFlowTexAnim D_6000828
+#define gDropArrows1Tex D_405BEF0
+#define gDropMagicSmallTex D_405FFC0
+#define gDropRecoveryHeartTex D_405E6F0
+#define gItemDropDL D_405F6F0
 #define gZeroVec3f D_801C9EE0
+#define ref_func_800B8118 func_800B7E9C
 #define ref_func_800BE504 func_800BE288
+#define sBodyPartPosOffsets D_80A168C4
 #define sBubbleAccel D_80A16898
 #define sBubbleEnvColor D_80A16894
 #define sBubblePrimColor D_80A16890
 #define sColChkInfoInit D_80A1686C
 #define sCylinderInit D_80A16820
+#define sDamageTable D_80A1684C
+#define sEnvColors D_80A168B4
+#define sEyeTextures D_80A16874
+#define sInitChain D_80A16884
+#define sPrimColors D_80A168A4
+#define sSlimeTexAnim D_80A16F30
+#define sTexturesDesegmented D_80A1688C
 
 #include "overlays/actors/ovl_En_Slime/z_en_slime.h"
 #include "z_en_item00.h"

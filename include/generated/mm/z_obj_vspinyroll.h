@@ -4,11 +4,19 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define EffectSsHitmark_SpawnFixedScale EffectSsHitmark_SpawnFixedScale
+#define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math3D_Vec3fMagnitudeSq Math3D_Vec3fMagnitudeSq
@@ -19,6 +27,12 @@
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
+#define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZS Matrix_RotateZS
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define ObjVspinyroll_Draw func_80000D30
 #define ObjVspinyroll_Init func_800007D4
 #define ObjVspinyroll_Update func_80000CA4
@@ -31,17 +45,26 @@
 #define func_80A3CB94 func_800006B4
 #define func_80A3D2C0 func_80000DE0
 #define gZeroVec3f D_801C9EE0
+#define object_spinyroll_Colheader_000F80 D_6000F80
+#define object_spinyroll_DL_000460 D_6000460
 #define ref_D_80A3D450 D_80A221A0
+#define ref_D_80A3D458 D_80A221A8
 #define ref_D_80A3D4B4 D_80A22204
 #define ref_D_80A3D4C4 D_80A22214
 #define ref_func_80A3C4E0 func_80000000
 #define ref_func_80A3C560 func_80000080
 #define ref_func_80A3C658 func_80000178
+#define ref_func_80A3C6A0 func_80A213F0
 #define ref_func_80A3C700 func_80000220
 #define ref_func_80A3C7E8 func_80000308
 #define ref_func_80A3C8D8 func_800003F8
 #define ref_func_80A3CB94 func_800006B4
+#define ref_func_80A3CC84 func_80A219D4
+#define ref_func_80A3CEC4 func_80A21C14
+#define ref_func_80A3CFAC func_80A21CFC
 #define ref_func_80A3D2C0 func_80000DE0
+#define sCylinderInit D_80A221D8
+#define sInitChain D_80A22224
 
 #include "overlays/actors/ovl_Obj_Vspinyroll/z_obj_vspinyroll.h"
 #include "assets/objects/object_spinyroll/object_spinyroll.h"

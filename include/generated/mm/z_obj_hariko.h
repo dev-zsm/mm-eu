@@ -4,14 +4,21 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_SetScale Actor_SetScale
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
 #define ObjHariko_BobHead func_800000A4
 #define ObjHariko_Draw func_800001BC
 #define ObjHariko_Init func_80000000
 #define ObjHariko_SetupBobHead func_80000080
 #define ObjHariko_SetupWait func_80B4B7AC
+#define gHarikoBodyDL D_6000080
+#define gHarikoFaceDL D_6000110
 
 #include "overlays/actors/ovl_Obj_Hariko/z_obj_hariko.h"
 #include "z64quake.h"
