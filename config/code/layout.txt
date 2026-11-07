@@ -2599,7 +2599,7 @@ func_80173168 PreRender
 func_80173238 PreRender
 func_80173284 unknown
 func_801732BC Prerender
-func_80173918 Prerender
+func_80173918 PreRender
 func_801739B0 THGA
 func_801739D0 THGA
 func_801739F0 THGA
