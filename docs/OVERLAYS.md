@@ -24,7 +24,7 @@ tools/mm match ovl0050 func_8000009C src/overlays/0050/func_8000009C.c
 tools/mm diff  ovl0050 func_8000009C src/overlays/0050/func_8000009C.c
 ```
 
-- Write the file as `src/overlays/<index>/<function>.c`; unfinished attempts go to `src/overlays/<index>/wip/`.
+- Write the file as `src/overlays/<index>[_<name>]/<function>.c`; unfinished attempts go to `src/overlays/<index>[_<name>]/wip/`.
 - Calls into `boot` or `code` keep the address name of the callee (`func_8013F34C`) until names are registered for it.
 - The match is checked per function only, with relocated fields masked, so a wrong callee or data address is not caught:
   the overlay build that links the relocated sections and checks the relocation table is not written yet (see the

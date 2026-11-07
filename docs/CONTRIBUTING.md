@@ -116,7 +116,7 @@ the processor.
 - `wip/` is about the **state of the work**: a function leaves it, flat into `src/<segment>/`, when it matches, and
   `tools/layout/srcsort.py` then files it into its module folder or `unknown/`.
 - Overlays have no `unknown/`: each overlay is its own source file, so its verified functions are in
-  `src/overlays/<file index>/` and its unfinished attempts in `src/overlays/<file index>/wip/`.
+  `src/overlays/<file index>[_<name>]/` and its unfinished attempts in `src/overlays/<file index>/wip/`.
 
 ## Where the code comes from
 
