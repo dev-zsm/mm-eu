@@ -1,0 +1,10 @@
+#include "types.h"
+#include "m2c_compat.h"
+void func_80137070(u8 *a);
+void func_80BB1DA0(u8 *a, s32 b);
+
+void func_80000AB8(u8 *a, s32 b) {
+    M2C_FIELD(a, void (**)(u8 *, s32), 0x188)(a, b);
+    func_80137070(a + 0x144);
+    func_80BB1DA0(a, b);
+}
