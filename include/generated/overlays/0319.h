@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000020(s32 arg0, s32 arg1);
-void func_8000016C(void *arg0, s32 arg1);
+void func_80000020(s32 arg0, s32 arg1);  /* ObjShutter_Update */
+void func_8000016C(void *arg0, s32 arg1);  /* ObjShutter_Draw */
 
 #endif

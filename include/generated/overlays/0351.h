@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgSpoutFire_Init */
 void func_80000104(s32 arg0, void *arg1);
 void func_80000174(u8 *arg0);
 void func_800001F0(s32 arg0);
 void func_80000280(u8 *arg0, s32 arg1);
 void func_800002E8(void *arg0, void *arg1);
-void func_80000448(void *arg0, s32 arg1);
-void func_80000520(s32 arg0, s32 arg1);
+void func_80000448(void *arg0, s32 arg1);  /* BgSpoutFire_Update */
+void func_80000520(s32 arg0, s32 arg1);  /* BgSpoutFire_Draw */
 
 #endif

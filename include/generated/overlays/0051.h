@@ -5,18 +5,18 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);
-void func_80000020(s32 arg0, s32 arg1, s32 arg2);
-void func_80000134(void *arg0);
-void func_80000AA8(void *arg0, s32 arg1);
-void func_80000C84(s32 arg0, s32 arg1);
-void func_80000D10(s32 arg0, s32 arg1, s32 arg2);
-void func_80000DD8(s32 arg0, s32 arg1, s32 arg2);
-void func_8000103C(s32 arg0);
-void func_800010EC(s32 arg0);
-void func_80001154(void *arg0);
-void func_800011EC(s32 arg0);
-void func_80001218(s32 a0);
-void func_8000123C(void *arg0);
+void func_80000000(void *arg0);  /* MapSelect_LoadConsoleLogo */
+void func_80000020(s32 arg0, s32 arg1, s32 arg2);  /* MapSelect_LoadGame */
+void func_80000134(void *arg0);  /* MapSelect_UpdateMenu */
+void func_80000AA8(void *arg0, s32 arg1);  /* MapSelect_PrintMenu */
+void func_80000C84(s32 arg0, s32 arg1);  /* MapSelect_PrintLoadingMessage */
+void func_80000D10(s32 arg0, s32 arg1, s32 arg2);  /* MapSelect_PrintAgeSetting */
+void func_80000DD8(s32 arg0, s32 arg1, s32 arg2);  /* MapSelect_PrintCutsceneSetting */
+void func_8000103C(s32 arg0);  /* MapSelect_DrawMenu */
+void func_800010EC(s32 arg0);  /* MapSelect_DrawLoadingScreen */
+void func_80001154(void *arg0);  /* MapSelect_Draw */
+void func_800011EC(s32 arg0);  /* MapSelect_Main */
+void func_80001218(s32 a0);  /* MapSelect_Destroy */
+void func_8000123C(void *arg0);  /* MapSelect_Init */
 
 #endif

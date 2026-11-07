@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-s32 func_80000000(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);
-void func_800000C4(s32 arg0, s32 arg1, void *arg2);
-void func_80000250(s32 arg0, s32 arg1, u8 *arg2);
+s32 func_80000000(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);  /* EffectSsIceSmoke_Init */
+void func_800000C4(s32 arg0, s32 arg1, void *arg2);  /* EffectSsIceSmoke_Draw */
+void func_80000250(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsIceSmoke_Update */
 
 #endif

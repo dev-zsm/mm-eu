@@ -15,14 +15,14 @@ void func_800002F4(s32 arg0);
 void func_80000364(void *arg0, s32 arg1);
 s32 func_80000410(u8 *arg0);
 void func_80000454(s32 arg0, s32 arg1);
-void func_800004D8(void *arg0, s32 arg1);
+void func_800004D8(void *arg0, s32 arg1);  /* BgIkanaBlock_Init */
 void func_800005AC(u8 *arg0);
 void func_800005D4(void *arg0, s32 arg1);
 void func_80000670(void *arg0, s32 arg1);
 void func_80000748(void *arg0);
 void func_80000830(void *arg0, s32 arg1);
 void func_80000938(void *arg0, s32 arg1);
-void func_80000A14(void *arg0, s32 arg1);
+void func_80000A14(void *arg0, s32 arg1);  /* BgIkanaBlock_Update */
 void func_80000B04(s32 arg0, s32 arg1);
 
 #endif

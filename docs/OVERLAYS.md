@@ -64,6 +64,11 @@ the plan is in [ROADMAP.md](ROADMAP.md).
 
 ## Names
 
-Overlay and function names come only from evidence, as for the other segments: they are registered in
-`config/overlays/names.txt` (`<file index> <name>  # <evidence>`) once that file exists. Until then, folders and
-functions keep their file index and address names.
+Overlay and function names come only from evidence, as for the other segments, and are written by
+`python3 tools/search/ref_import.py run names` from the reference:
+- `config/overlays/actors.txt` (`<file index> <name>`): the name of an overlay is the folder of the reference whose functions have the bytes of its own;
+- `config/overlays/names.txt` (`<file index> <our name> <name>  # <evidence>`): a function whose bytes are those of exactly one function of the reference, or that sits
+  at the same rank and with the same size between two such functions of one file.
+
+The names are shown in `docs/OVERLAYS_INDEX.md` and as a comment next to the prototype in `include/generated/overlays/<index>.h`. They are not applied
+to the folders and to the sources yet: those keep the file index and the address names.

@@ -13,6 +13,6 @@ void func_8000022C(u8 *arg0);
 void func_80000258(u8 *arg0, s32 arg1);
 void func_8000034C(u8 *arg0);
 void func_80000360(s32 arg0, s32 arg1);
-void func_80000400(s32 arg0, void *arg1);
+void func_80000400(s32 arg0, void *arg1);  /* ObjMoonStone_Draw */
 
 #endif

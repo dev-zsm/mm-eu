@@ -9,14 +9,14 @@ void func_80000000(void *arg0, s32 arg1);
 void func_80000154(void *arg0, s32 arg1);
 void func_800002A0(s32 arg0, s32 arg1);
 void func_80000370(void *arg0);
-s32 func_800003C0(u8 *arg0, s32 arg1);
-void func_80000438(void *arg0, s32 arg1);
+s32 func_800003C0(u8 *arg0, s32 arg1);  /* ObjAqua_IsUnderwater */
+void func_80000438(void *arg0, s32 arg1);  /* ObjAqua_Init */
 void func_800005D0(u8 *arg0);
 void func_800005EC(void *arg0);
 void func_80000694(u8 *arg0);
 void func_800006A8(u8 *arg0);
 void func_8000075C(void *arg0, s32 arg1);
-void func_80000840(void *arg0, s32 arg1);
-void func_800009A8(s32 arg0, void *arg1);
+void func_80000840(void *arg0, s32 arg1);  /* ObjAqua_Update */
+void func_800009A8(s32 arg0, void *arg1);  /* ObjAqua_Draw */
 
 #endif

@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000468(void *arg0);
-void func_800004E4(void *arg0, s32 arg1);
-void func_800005F4(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgCtowerGear_Splash */
+void func_80000468(void *arg0);  /* BgCtowerGear_Update */
+void func_800004E4(void *arg0, s32 arg1);  /* BgCtowerGear_UpdateOrgan */
+void func_800005F4(s32 arg0, s32 arg1);  /* BgCtowerGear_DrawOrgan */
 
 #endif

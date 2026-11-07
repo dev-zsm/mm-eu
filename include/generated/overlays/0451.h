@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000F4(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnColMan_Init */
+void func_800000F4(s32 arg0, s32 arg1);  /* EnColMan_Destroy */
 void func_80000120(u8 *arg0);
 void func_800001C0(void *arg0, s32 arg1);
-void func_800002C0(s32 arg0, s32 arg1);
+void func_800002C0(s32 arg0, s32 arg1);  /* EnColMan_SetHeartPieceCollectedAndKill */
 void func_80000320(void *arg0);
 void func_80000374(void *arg0, s32 arg1);
 void func_800005F4(u8 *arg0);
 void func_8000061C(void *arg0, s32 arg1);
-void func_80000730(void *arg0, s32 arg1);
+void func_80000730(void *arg0, s32 arg1);  /* EnColMan_Update */
 void func_800007D4(s32 arg0, s32 arg1);
 void func_8000086C(s32 arg0, void *arg1);
 void func_80000944(s32 arg0, s32 arg1);

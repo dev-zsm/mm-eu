@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* BgIngate_FindActor */
 void func_800000B0(void *arg0);
 void func_8000015C(void *arg0);
 void func_80000318(s32 arg0, s32 arg1);
@@ -18,7 +18,7 @@ void func_80000728(void *arg0, void *arg1);
 void func_80000810(void *arg0, s32 arg1);
 void func_800008B0(void *arg0, s32 arg1);
 void func_80000944(s32 arg0, s32 arg1);
-void func_80000B10(void *arg0, s32 arg1);
-void func_80000D78(s32 arg0, s32 arg1);
+void func_80000B10(void *arg0, s32 arg1);  /* BgIngate_Init */
+void func_80000D78(s32 arg0, s32 arg1);  /* BgIngate_Draw */
 
 #endif

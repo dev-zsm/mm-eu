@@ -5,19 +5,19 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_8000004C(void *arg0, s32 arg1);
-void func_800000F8(void *arg0, s32 arg1);
-void func_8000033C(void *arg0, s32 arg1);
-void func_80000520(u8 *arg0);
-void func_80000534(u8 *arg0, s32 arg1);
-void func_80000604(u8 *arg0);
-void func_80000618(u8 *arg0, s32 arg1);
-void func_8000067C(u8 *arg0);
-void func_800006A0(void *arg0, s32 arg1);
-void func_80000768(u8 *arg0);
-void func_8000078C(void *arg0, s32 arg1);
-void func_80000958(u8 *arg0);
-void func_8000096C(s32 arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* BgKin2Picture_IsSkulltulaCollected */
+void func_8000004C(void *arg0, s32 arg1);  /* BgKin2Picture_SpawnSkulltula */
+void func_800000F8(void *arg0, s32 arg1);  /* BgKin2Picture_SpawnDust */
+void func_8000033C(void *arg0, s32 arg1);  /* BgKin2Picture_Init */
+void func_80000520(u8 *arg0);  /* BgKin2Picture_SetupWait */
+void func_80000534(u8 *arg0, s32 arg1);  /* BgKin2Picture_Wait */
+void func_80000604(u8 *arg0);  /* BgKin2Picture_SetupPlayCutscene */
+void func_80000618(u8 *arg0, s32 arg1);  /* BgKin2Picture_PlayCutscene */
+void func_8000067C(u8 *arg0);  /* BgKin2Picture_SetupShiver */
+void func_800006A0(void *arg0, s32 arg1);  /* BgKin2Picture_Shiver */
+void func_80000768(u8 *arg0);  /* BgKin2Picture_SetupFall */
+void func_8000078C(void *arg0, s32 arg1);  /* BgKin2Picture_Fall */
+void func_80000958(u8 *arg0);  /* BgKin2Picture_SetupDoNothing */
+void func_8000096C(s32 arg0, s32 arg1);  /* BgKin2Picture_DoNothing */
 
 #endif

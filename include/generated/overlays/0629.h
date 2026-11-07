@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1, void *arg2, s32 arg3);
-void func_80000250(void *arg0, s32 arg1);
-void func_800004A8(u8 *arg0);
-void func_800004BC(void *arg0, s32 arg1);
-void func_80000530(u8 *arg0, s32 arg1);
-void func_80000588(u8 *arg0, s32 arg1);
-void func_800005EC(s32 arg0, s32 arg1);
-void func_80000620(s32 arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1, void *arg2, s32 arg3);  /* BgAstrBombwall_InitCollider */
+void func_80000250(void *arg0, s32 arg1);  /* BgAstrBombwall_SpawnFragments */
+void func_800004A8(u8 *arg0);  /* BgAstrBombwall_SetupStanding */
+void func_800004BC(void *arg0, s32 arg1);  /* BgAstrBombwall_Standing */
+void func_80000530(u8 *arg0, s32 arg1);  /* BgAstrBombwall_SetupExploding */
+void func_80000588(u8 *arg0, s32 arg1);  /* BgAstrBombwall_SetupCollapsing */
+void func_800005EC(s32 arg0, s32 arg1);  /* BgAstrBombwall_Collapsing */
+void func_80000620(s32 arg0, void *arg1);  /* BgAstrBombwall_Draw */
 
 #endif

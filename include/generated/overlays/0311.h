@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_80000098(s32 arg0, s32 arg1);
-void func_800000A8(void *arg0, void *arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* DmRavine_Init */
+void func_80000098(s32 arg0, s32 arg1);  /* DmRavine_DoNothing */
+void func_800000A8(void *arg0, void *arg1);  /* DmRavine_Update */
 
 #endif

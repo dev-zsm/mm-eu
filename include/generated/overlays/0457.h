@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnOnpuman_Init */
 void func_80000118(void *arg0, s32 arg1);
 void func_800001CC(void *arg0, s32 arg1);
 void func_8000031C(u8 *arg0, s32 arg1);
 void func_80000378(void *arg0, s32 arg1);
-void func_80000478(void *arg0, s32 arg1);
+void func_80000478(void *arg0, s32 arg1);  /* EnOnpuman_Update */
 
 #endif

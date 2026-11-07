@@ -6,10 +6,10 @@
 #include "types.h"
 
 void func_80000000(s32 arg0);
-void func_800000BC(void *arg0, s32 arg1);
-void func_80000250(void *arg0, s32 arg1);
+void func_800000BC(void *arg0, s32 arg1);  /* EnKanban_Init */
+void func_80000250(void *arg0, s32 arg1);  /* EnKanban_Destroy */
 void func_80000288(void *arg0, s32 arg1);
-void func_80000340(void *arg0, s32 arg1);
-void func_80001FF4(void *arg0, void *arg1);
+void func_80000340(void *arg0, s32 arg1);  /* EnKanban_Update */
+void func_80001FF4(void *arg0, void *arg1);  /* EnKanban_Draw */
 
 #endif

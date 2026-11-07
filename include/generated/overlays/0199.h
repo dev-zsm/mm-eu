@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_800000C8(s32 arg0, s32 arg1, void *arg2);
-void func_80000294(void *arg0, s32 arg1, void *arg2);
-void func_800005B8(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsBomb2_Init */
+void func_800000C8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsBomb2_DrawFade */
+void func_80000294(void *arg0, s32 arg1, void *arg2);  /* EffectSsBomb2_DrawLayered */
+void func_800005B8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsBomb2_Update */
 
 #endif

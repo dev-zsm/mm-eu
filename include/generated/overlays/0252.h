@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000050(u8 *arg0, s32 arg1);
-void func_800000CC(u8 *arg0, s32 arg1);
-void func_80000188(s32 arg0, s32 arg1);
+void func_80000050(u8 *arg0, s32 arg1);  /* EnMm2_Reading */
+void func_800000CC(u8 *arg0, s32 arg1);  /* EnMm2_WaitForRead */
+void func_80000188(s32 arg0, s32 arg1);  /* EnMm2_Draw */
 
 #endif

@@ -7,10 +7,10 @@
 
 void func_80000000(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000098(s32 arg0, void *arg1);
-void func_80000218(s32 arg0, s32 arg1);
+void func_80000218(s32 arg0, s32 arg1);  /* BgOpenShutter_Destroy */
 void func_80000278(void *arg0, void *arg1);
 void func_8000034C(u8 *arg0, s32 arg1);
 void func_800003E0(void *arg0, s32 arg1);
-void func_800004F4(void *arg0, s32 arg1);
+void func_800004F4(void *arg0, s32 arg1);  /* BgOpenShutter_Update */
 
 #endif

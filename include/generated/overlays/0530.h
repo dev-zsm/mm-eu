@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_80000084(void *arg0, s32 arg1);
+void func_80000084(void *arg0, s32 arg1);  /* ObjY2lift_Update */
 
 #endif

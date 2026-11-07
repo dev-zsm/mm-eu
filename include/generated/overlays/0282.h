@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgSpdweb_Init */
 void func_800001A8(void *arg0);
 void func_8000029C(void *arg0);
 void func_80000310(u8 *arg0, s32 arg1);
@@ -15,6 +15,6 @@ void func_80000970(void *arg0, s32 arg1);
 void func_80000D00(void *arg0, s32 arg1);
 void func_80000FB4(u8 *arg0);
 void func_80000FEC(void *arg0, s32 arg1);
-void func_80001070(void *arg0, void *arg1);
+void func_80001070(void *arg0, void *arg1);  /* BgSpdweb_Draw */
 
 #endif

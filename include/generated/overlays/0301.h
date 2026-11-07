@@ -11,6 +11,6 @@ void func_8000019C(u8 *arg0, s32 arg1);
 void func_8000022C(void *arg0, s32 arg1);
 void func_8000034C(void *arg0, void *arg1);
 void func_8000059C(void *arg0, s32 arg1);
-void func_80000840(void *arg0, s32 arg1);
+void func_80000840(void *arg0, s32 arg1);  /* DmHina_Draw */
 
 #endif

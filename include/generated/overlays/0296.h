@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_80000038(s32 arg0, void *arg1);
+void func_80000038(s32 arg0, void *arg1);  /* ObjFunen_Draw */
 
 #endif

@@ -13,7 +13,7 @@ void func_80000338(u8 *arg0);
 void func_8000034C(void *arg0, s32 arg1);
 void func_800003B0(u8 *arg0);
 void func_800003CC(u8 *arg0, s32 arg1);
-void func_80000420(u8 *arg0);
-void func_80000434(s32 arg0, s32 arg1);
+void func_80000420(u8 *arg0);  /* ObjSwprize_SetupDoNothing */
+void func_80000434(s32 arg0, s32 arg1);  /* ObjSwprize_DoNothing */
 
 #endif

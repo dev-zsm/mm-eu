@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_8000000C(void *arg0, s32 arg1);
-void func_80000104(void *arg0, s32 arg1);
-void func_80000218(void *arg0, void *arg1);
-void func_80000424(void *arg0, s32 arg1);
-void func_80000510(void *arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* DoorAna_SetupAction */
+void func_8000000C(void *arg0, s32 arg1);  /* DoorAna_Init */
+void func_80000104(void *arg0, s32 arg1);  /* DoorAna_WaitClosed */
+void func_80000218(void *arg0, void *arg1);  /* DoorAna_WaitOpen */
+void func_80000424(void *arg0, s32 arg1);  /* DoorAna_GrabLink */
+void func_80000510(void *arg0, s32 arg1);  /* DoorAna_Update */
 
 #endif

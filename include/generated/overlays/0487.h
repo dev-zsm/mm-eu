@@ -11,8 +11,8 @@ void func_80000048(s32 arg0, s32 arg1);
 void func_80000080(u8 *arg0, s32 arg1);
 void func_800000E0(void *arg0, s32 arg1);
 void func_80000178(void *arg0, s32 arg1);
-void func_80000288(u8 *arg0, s32 arg1);
-void func_80000314(void *arg0, void *arg1);
-void func_80000618(s32 arg0, s32 arg1);
+void func_80000288(u8 *arg0, s32 arg1);  /* BgGoronOyu_UpdateWaterBoxInfo */
+void func_80000314(void *arg0, void *arg1);  /* BgGoronOyu_SpawnEffects */
+void func_80000618(s32 arg0, s32 arg1);  /* BgGoronOyu_Draw */
 
 #endif

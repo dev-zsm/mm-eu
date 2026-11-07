@@ -6,8 +6,8 @@
 #include "types.h"
 
 void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void func_80000198(void *arg0, s32 arg1);
-void func_80000650(u8 *arg0, s32 arg1);
+void func_80000198(void *arg0, s32 arg1);  /* BgDblueMovebg_Init */
+void func_80000650(u8 *arg0, s32 arg1);  /* BgDblueMovebg_Destroy */
 void func_800006A8(void *arg0, s32 arg1);
 void func_80000760(void *arg0, s32 arg1);
 void func_800008AC(void *arg0, void *arg1);
@@ -20,9 +20,9 @@ void func_80001038(void *arg0, void *arg1);
 void func_80001150(void *arg0, s32 arg1);
 void func_80001450(void *arg0, s32 arg1);
 void func_80001720(u8 *arg0, s32 arg1);
-void func_80001790(u8 *arg0);
+void func_80001790(u8 *arg0);  /* BgDblueMovebg_Update */
 void func_800017F4(void *arg0, s32 arg1);
 void func_80001888(s32 arg0, s32 arg1);
-void func_80001910(void *arg0, s32 arg1);
+void func_80001910(void *arg0, s32 arg1);  /* BgDblueMovebg_Draw */
 
 #endif

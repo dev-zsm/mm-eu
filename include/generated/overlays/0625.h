@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000C8(u8 *arg0);
-void func_800000DC(s32 arg0, s32 arg1);
-void func_80000144(u8 *arg0);
-void func_80000158(s32 arg0);
-void func_8000018C(void *arg0, s32 arg1);
-void func_800001F0(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnNnh_Init */
+void func_800000C8(u8 *arg0);  /* EnNnh_SetupWaitForDialogue */
+void func_800000DC(s32 arg0, s32 arg1);  /* EnNnh_WaitForDialogue */
+void func_80000144(u8 *arg0);  /* EnNnh_SetupDialogue */
+void func_80000158(s32 arg0);  /* EnNnh_Dialogue */
+void func_8000018C(void *arg0, s32 arg1);  /* EnNnh_Update */
+void func_800001F0(s32 arg0, s32 arg1);  /* EnNnh_Draw */
 
 #endif

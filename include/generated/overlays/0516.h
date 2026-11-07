@@ -21,6 +21,6 @@ void func_80000E54(u8 *arg0, s32 arg1);
 void func_80000E6C(u8 *arg0, s32 arg1);
 void func_80000F4C(void *arg0, s32 arg1);
 void func_800012A0(void *arg0);
-void func_800013CC(s32 arg0, s32 arg1);
+void func_800013CC(s32 arg0, s32 arg1);  /* BgDblueWaterfall_Draw */
 
 #endif

@@ -5,36 +5,36 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0);
-void func_80000190(void *arg0);
-void func_80000644(s32 arg0);
-void func_800007C8(s32 arg0);
-void func_8000088C(void *arg0);
-void func_80000D9C(s32 arg0);
-void func_80000E64(s32 arg0);
-void func_80000F88(void *arg0);
-void func_8000124C(s32 arg0);
-void func_800012A0(void *arg0);
-void func_80001494(s32 arg0);
-void func_800015C0(void *arg0);
-void func_80001894(s32 arg0);
-void func_80001908(s32 arg0);
-void func_80001A48(s32 arg0);
-void func_80001B20(s32 arg0);
-void func_80001C0C(void *arg0);
-void func_80002004(s32 arg0);
-void func_80002138(s32 arg0);
-void func_80002300(void *arg0);
-void func_800027D0(void *arg0);
-void func_80002BB8(s32 arg0);
-void func_80002C90(void *arg0);
-void func_80002E74(s32 arg0);
-void func_80002F20(void *arg0);
-void func_800031D4(s32 arg0);
-void func_80003380(s32 arg0);
-void func_8000341C(void *arg0);
-void func_800034A4(void *arg0);
-void func_8000379C(s32 arg0);
+void func_80000000(s32 arg0);  /* FileSelect_SetupCopySource */
+void func_80000190(void *arg0);  /* FileSelect_SelectCopySource */
+void func_80000644(s32 arg0);  /* FileSelect_SetupCopyDest1 */
+void func_800007C8(s32 arg0);  /* FileSelect_SetupCopyDest2 */
+void func_8000088C(void *arg0);  /* FileSelect_SelectCopyDest */
+void func_80000D9C(s32 arg0);  /* FileSelect_ExitToCopySource1 */
+void func_80000E64(s32 arg0);  /* FileSelect_ExitToCopySource2 */
+void func_80000F88(void *arg0);  /* FileSelect_SetupCopyConfirm1 */
+void func_8000124C(s32 arg0);  /* FileSelect_SetupCopyConfirm2 */
+void func_800012A0(void *arg0);  /* FileSelect_CopyConfirm */
+void func_80001494(s32 arg0);  /* FileSelect_CopyWaitForFlashSave */
+void func_800015C0(void *arg0);  /* FileSelect_ReturnToCopyDest */
+void func_80001894(s32 arg0);  /* FileSelect_CopyAnim1 */
+void func_80001908(s32 arg0);  /* FileSelect_CopyAnim2 */
+void func_80001A48(s32 arg0);  /* FileSelect_CopyAnim3 */
+void func_80001B20(s32 arg0);  /* FileSelect_CopyAnim4 */
+void func_80001C0C(void *arg0);  /* FileSelect_CopyAnim5 */
+void func_80002004(s32 arg0);  /* FileSelect_ExitCopyToMain */
+void func_80002138(s32 arg0);  /* FileSelect_SetupEraseSelect */
+void func_80002300(void *arg0);  /* FileSelect_EraseSelect */
+void func_800027D0(void *arg0);  /* FileSelect_SetupEraseConfirm1 */
+void func_80002BB8(s32 arg0);  /* FileSelect_SetupEraseConfirm2 */
+void func_80002C90(void *arg0);  /* FileSelect_EraseConfirm */
+void func_80002E74(s32 arg0);  /* FileSelect_ExitToEraseSelect1 */
+void func_80002F20(void *arg0);  /* FileSelect_ExitToEraseSelect2 */
+void func_800031D4(s32 arg0);  /* FileSelect_EraseAnim1 */
+void func_80003380(s32 arg0);  /* FileSelect_EraseWaitForFlashSave */
+void func_8000341C(void *arg0);  /* FileSelect_EraseAnim2 */
+void func_800034A4(void *arg0);  /* FileSelect_EraseAnim3 */
+void func_8000379C(s32 arg0);  /* FileSelect_ExitEraseToMain */
 void func_80003930(void *arg0, s32 arg1, s32 arg2);
 void func_80003A68(void *arg0);
 void func_80004024(void *arg0);

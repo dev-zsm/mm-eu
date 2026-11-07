@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_800000C8(u8 *arg0);
-void func_800000DC(void *arg0, s32 arg1);
-void func_80000248(u8 *arg0, u8 *arg1);
-void func_80000318(void *arg0, s32 arg1);
-void func_80000564(u8 *arg0);
-void func_80000578(s32 arg0, s32 arg1);
-void func_80000644(u8 *arg0);
-void func_80000658(s32 arg0, s32 arg1);
-void func_800006B4(u8 *arg0);
-void func_800006C8(s32 arg0, s32 arg1);
-void func_80000718();
-void func_800007A8(void);
-void func_80000818(void);
-void func_80000888(u8 *arg0);
-void func_800008A0(void *arg0, s32 arg1);
-void func_80000970(u8 *arg0);
-void func_80000988(void *arg0, s32 arg1);
-void func_80000A7C(s32 arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* EnKujiya_Init */
+void func_800000C8(u8 *arg0);  /* EnKujiya_SetupWait */
+void func_800000DC(void *arg0, s32 arg1);  /* EnKujiya_Wait */
+void func_80000248(u8 *arg0, u8 *arg1);  /* EnKujiya_HandlePlayerChoice */
+void func_80000318(void *arg0, s32 arg1);  /* EnKujiya_ChooseNextDialogue */
+void func_80000564(u8 *arg0);  /* EnKujiya_SetupTalk */
+void func_80000578(s32 arg0, s32 arg1);  /* EnKujiya_Talk */
+void func_80000644(u8 *arg0);  /* EnKujiya_SetupGivePrize */
+void func_80000658(s32 arg0, s32 arg1);  /* EnKujiya_GivePrize */
+void func_800006B4(u8 *arg0);  /* EnKujiya_SetupFinishGivePrize */
+void func_800006C8(s32 arg0, s32 arg1);  /* EnKujiya_FinishGivePrize */
+void func_80000718();  /* EnKujiya_CheckBoughtTicket */
+void func_800007A8(void);  /* EnKujiya_SetBoughtTicket */
+void func_80000818(void);  /* EnKujiya_UnsetBoughtTicket */
+void func_80000888(u8 *arg0);  /* EnKujiya_SetupTurnToOpen */
+void func_800008A0(void *arg0, s32 arg1);  /* EnKujiya_TurnToOpen */
+void func_80000970(u8 *arg0);  /* EnKujiya_SetupTurnToClosed */
+void func_80000988(void *arg0, s32 arg1);  /* EnKujiya_TurnToClosed */
+void func_80000A7C(s32 arg0, s32 arg1);  /* EnKujiya_Draw */
 
 #endif

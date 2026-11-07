@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_8000008C(u8 *arg0, s32 arg1);
-void func_800000C0(void *arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* BgInibsMovebg_Init */
+void func_8000008C(u8 *arg0, s32 arg1);  /* BgInibsMovebg_Destroy */
+void func_800000C0(void *arg0, s32 arg1);  /* BgInibsMovebg_Draw */
 
 #endif

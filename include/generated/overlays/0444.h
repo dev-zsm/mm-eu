@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000F4(void *arg0, s32 arg1);
-void func_800001E4(u8 *arg0);
-void func_800001F8(u8 *arg0, s32 arg1);
-void func_80000234(u8 *arg0);
-void func_80000248(void *arg0, s32 arg1);
-void func_80000318(void *arg0, void *arg1);
-void func_800003E0(s32 arg0, s32 arg1);
-void func_80000498(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnGamelupy_Init */
+void func_800000F4(void *arg0, s32 arg1);  /* EnGamelupy_SpawnSparkles */
+void func_800001E4(u8 *arg0);  /* EnGamelupy_SetupFindSharedMemory */
+void func_800001F8(u8 *arg0, s32 arg1);  /* EnGamelupy_FindSharedMemory */
+void func_80000234(u8 *arg0);  /* EnGamelupy_SetupIdle */
+void func_80000248(void *arg0, s32 arg1);  /* EnGamelupy_Idle */
+void func_80000318(void *arg0, void *arg1);  /* EnGamelupy_Collected */
+void func_800003E0(s32 arg0, s32 arg1);  /* EnGamelupy_UpdateCollision */
+void func_80000498(s32 arg0, s32 arg1);  /* EnGamelupy_Draw */
 
 #endif

@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_8000006C(s32 arg0, s32 arg1);
-void func_80000108(void *arg0, s32 arg1);
-void func_8000021C(s32 arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* EnNimotsu_UpdateCollision */
+void func_8000006C(s32 arg0, s32 arg1);  /* EnNimotsu_Init */
+void func_80000108(void *arg0, s32 arg1);  /* EnNimotsu_Update */
+void func_8000021C(s32 arg0, s32 arg1);  /* EnNimotsu_Draw */
 
 #endif

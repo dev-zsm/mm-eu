@@ -6,8 +6,8 @@
 #include "types.h"
 
 void func_80000000(void *arg0, s32 arg1);
-void func_80000138(s32 arg0);
+void func_80000138(s32 arg0);  /* ElfMsg5_Init */
 void func_800001A8(s32 arg0, s32 arg1);
-void func_800001B8(void *arg0, s32 arg1);
+void func_800001B8(void *arg0, s32 arg1);  /* ElfMsg5_Update */
 
 #endif

@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000030(void *arg0, void *arg1);
-void func_800001E4(s32 arg0, s32 arg1);
+void func_80000030(void *arg0, void *arg1);  /* ObjKinoko_Update */
+void func_800001E4(s32 arg0, s32 arg1);  /* ObjKinoko_Draw */
 
 #endif

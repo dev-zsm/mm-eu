@@ -15,7 +15,7 @@ s32 func_80000778(s32 arg0, u8 *arg1);
 void func_80000808(void *arg0, void *arg1);
 void func_800008D8(void);
 void func_80000904(void *arg0, s32 arg1);
-void func_80000B74(void *arg0, s32 arg1);
+void func_80000B74(void *arg0, s32 arg1);  /* ObjBean_Init */
 void func_80000E64(void *arg0);
 void func_80000F20(u8 *arg0);
 void func_80000F34(s32 arg0);
@@ -59,7 +59,7 @@ void func_80001D6C(u8 *arg0);
 void func_80001DB4(u8 *arg0);
 void func_80001DE8(void *arg0, void *arg1);
 void func_80001F2C(void *arg0, s32 arg1);
-void func_80001F9C(void *arg0, s32 arg1);
+void func_80001F9C(void *arg0, s32 arg1);  /* ObjBean_Update */
 void func_80002110(void *arg0, s32 arg1);
 void func_80002260(s32 arg0, s32 arg1);
 

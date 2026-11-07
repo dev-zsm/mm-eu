@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000224(void *arg0);
-void func_8000034C(u8 *arg0);
-void func_80000368(u8 *arg0, s32 arg1);
-void func_800003A4(u8 *arg0);
-void func_800003C0(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjLupygamelift_Init */
+void func_80000224(void *arg0);  /* ObjLupygamelift_UpdateShadow */
+void func_8000034C(u8 *arg0);  /* ObjLupygamelift_SetupWait */
+void func_80000368(u8 *arg0, s32 arg1);  /* ObjLupygamelift_Wait */
+void func_800003A4(u8 *arg0);  /* ObjLupygamelift_SetupMove */
+void func_800003C0(void *arg0, s32 arg1);  /* ObjLupygamelift_Move */
 
 #endif

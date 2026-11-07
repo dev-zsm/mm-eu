@@ -21,7 +21,7 @@ void func_80000BCC(void *arg0);
 void func_80000D4C(void *arg0, s32 arg1);
 void func_80000E18(u8 *arg0);
 void func_80000E24(void *arg0, s32 arg1);
-void func_800010E0(void *arg0, s32 arg1);
+void func_800010E0(void *arg0, s32 arg1);  /* ObjSkateblock_Init */
 void func_800011B8(u8 *arg0);
 void func_800011E4(void *arg0, s32 arg1);
 void func_800012FC(void *arg0);
@@ -32,6 +32,6 @@ void func_800015D8(u8 *arg0);
 void func_800015EC(s32 arg0, s32 arg1);
 void func_80001654(u8 *arg0);
 void func_80001670(u8 *arg0, s32 arg1);
-void func_80001788(s32 arg0, s32 arg1);
+void func_80001788(s32 arg0, s32 arg1);  /* ObjSkateblock_Draw */
 
 #endif

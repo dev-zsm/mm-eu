@@ -24,7 +24,7 @@ void func_80000988(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000BF8(s32 arg0, s32 arg1, s32 arg2);
 s32 func_80000C44(u8 *arg0, s32 arg1);
 s32 func_80000C84(void);
-void func_80000CD8(void *arg0, s32 arg1);
+void func_80000CD8(void *arg0, s32 arg1);  /* ObjSpinyroll_Init */
 void func_80000F74(u8 *arg0);
 void func_80000F90(u8 *arg0, s32 arg1);
 void func_80000FFC(u8 *arg0, s32 arg1);
@@ -36,7 +36,7 @@ void func_800011D4(u8 *arg0);
 void func_800011E8(u8 *arg0, s32 arg1);
 void func_80001270(u8 *arg0);
 void func_80001284(u8 *arg0, s32 arg1);
-void func_80001320(void *arg0, s32 arg1);
-void func_800013CC(void *arg0, void *arg1);
+void func_80001320(void *arg0, s32 arg1);  /* ObjSpinyroll_Update */
+void func_800013CC(void *arg0, void *arg1);  /* ObjSpinyroll_Draw */
 
 #endif

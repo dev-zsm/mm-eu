@@ -12,7 +12,7 @@ void func_80000280(void *arg0, s32 arg1);
 void func_800003C0(void *arg0, void *arg1, s32 arg2, void *arg3);
 void func_800006DC(void *arg0, s32 arg1, s32 arg2, void *arg3);
 void func_800008C0(s32 arg0, void *arg1);
-void func_80000A24(void *arg0, s32 arg1);
+void func_80000A24(void *arg0, s32 arg1);  /* ObjDriftice_Init */
 void func_80000C38(u8 *arg0);
 void func_80000C4C(s32 arg0, s32 arg1);
 void func_80000C5C(u8 *arg0);
@@ -20,6 +20,6 @@ void func_80000C70(void *arg0, s32 arg1);
 void func_80000ECC(u8 *arg0);
 void func_80000EE0(void *arg0, s32 arg1);
 void func_80000F38(u8 *arg0);
-void func_80000F8C(s32 arg0, s32 arg1);
+void func_80000F8C(s32 arg0, s32 arg1);  /* ObjDriftice_Update */
 
 #endif

@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_800000C8(void *arg0, s32 arg1);
-void func_800001F4(void *arg0, void *arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* EnTest5_SetupAction */
+void func_800000C8(void *arg0, s32 arg1);  /* EnTest5_HandleBottleAction */
+void func_800001F4(void *arg0, void *arg1);  /* EnTest5_Update */
 
 #endif

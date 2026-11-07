@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-s32 func_80000080(s32 arg0);
-void func_800000C0(void);
+void func_80000000(void *arg0, s32 arg1);  /* ObjDowsing_GetFlag */
+s32 func_80000080(s32 arg0);  /* ObjDowsing_CheckValidSpawn */
+void func_800000C0(void);  /* ObjDowsing_Init */
 
 #endif

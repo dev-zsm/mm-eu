@@ -5,60 +5,60 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1, s32 arg2);
-void func_8000009C(void *arg0, s32 arg1, void *arg2);
-void func_800001D8(u8 *arg0, s32 arg1);
-void func_8000024C(void *arg0, s32 arg1, s32 arg2);
-void func_800002A4(u8 *arg0);
-void func_800002B8(u8 *arg0);
-void func_800002F4(u8 *a0);
-void func_80000320(u8 *a);
-void func_8000034C(u8 *arg0, s32 arg1);
-void func_80000384(void *arg0, void *arg1);
-void func_800004B4(void *arg0, void *arg1);
-void func_800009CC(u8 *arg0, s32 arg1);
-void func_80000A78(u8 *a0, s32 a1, s32 a2, s32 a3);
-void func_80000A98(void *arg0, s32 arg1);
-void func_80000B24(u8 *arg0);
-void func_80000B40(void *arg0, s32 arg1);
-void func_80000D5C(u8 *arg0);
-void func_80000D70(u8 *arg0, s32 arg1);
-void func_80000DF0(u8 *arg0);
-void func_80000E14(void *arg0, s32 arg1);
-void func_80000F8C(u8 *arg0);
-void func_80000FA0(u8 *arg0, s32 arg1);
-void func_80001000(void *arg0);
-void func_800010F8(u8 *arg0);
-void func_8000110C(u8 *arg0, s32 arg1);
-void func_80001164(u8 *arg0);
-void func_8000117C(u8 *arg0, s32 arg1);
-void func_800011DC(u8 *arg0);
-void func_800011F0(u8 *arg0, s32 arg1);
-void func_80001240(u8 *arg0);
-void func_8000125C(void *arg0, s32 arg1);
-void func_80001320(u8 *arg0);
-void func_80001334(u8 *arg0, s32 arg1);
-void func_80001380(u8 *arg0);
-void func_800013A0(void *arg0, s32 arg1);
-void func_800014D4(u8 *arg0);
-void func_800014E8(void *arg0, s32 arg1);
-void func_80001568(void *arg0);
-void func_8000158C(void *arg0, s32 arg1);
-void func_8000166C(u8 *arg0);
-void func_80001680(void *arg0, s32 arg1);
-void func_80001704(u8 *arg0, s32 arg1);
-void func_800017F8(u8 *arg0);
-void func_8000180C(u8 *arg0, s32 arg1);
-void func_80001890(void *arg0);
-void func_800018B8(void *arg0, s32 arg1);
-void func_800019B4(u8 *arg0);
-void func_800019C8(u8 *arg0, s32 arg1);
-void func_80001A2C(void *arg0, s32 arg1);
-void func_80001BA8(void *arg0, void *arg1);
-void func_80001CB8(s32 arg0, s32 arg1);
-void func_80001CE8(s32 arg0, s32 arg1);
-void func_80001DCC(s32 arg0, s32 arg1);
-void func_80001EB0(u8 *arg0);
-void func_80001EF4(void *arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1, s32 arg2);  /* ObjSwitch_InitJntSphCollider */
+void func_8000009C(void *arg0, s32 arg1, void *arg2);  /* ObjSwitch_InitTrisCollider */
+void func_800001D8(u8 *arg0, s32 arg1);  /* ObjSwitch_SpawnIce */
+void func_8000024C(void *arg0, s32 arg1, s32 arg2);  /* ObjSwitch_SetSwitchFlagState */
+void func_800002A4(u8 *arg0);  /* ObjSwitch_CrystalUpdateTimer */
+void func_800002B8(u8 *arg0);  /* ObjSwitch_StopCutscene */
+void func_800002F4(u8 *a0);  /* ObjSwitch_PlayFootSwitchSfx */
+void func_80000320(u8 *a);  /* ObjSwitch_PlayDiamondSwitchSfx */
+void func_8000034C(u8 *arg0, s32 arg1);  /* ObjSwitch_SetFloorSwitchSnapPlayerState */
+void func_80000384(void *arg0, void *arg1);  /* ObjSwitch_FloorSwitchSnapPlayerToSwitchEdge */
+void func_800004B4(void *arg0, void *arg1);  /* ObjSwitch_Init */
+void func_800009CC(u8 *arg0, s32 arg1);  /* ObjSwitch_Destroy */
+void func_80000A78(u8 *a0, s32 a1, s32 a2, s32 a3);  /* ObjSwitch_TryPlayCutsceneInit */
+void func_80000A98(void *arg0, s32 arg1);  /* ObjSwitch_TryPlayCutscene */
+void func_80000B24(u8 *arg0);  /* ObjSwitch_FloorSwitchUpInit */
+void func_80000B40(void *arg0, s32 arg1);  /* ObjSwitch_FloorSwitchUp */
+void func_80000D5C(u8 *arg0);  /* ObjSwitch_FloorSwitchPushDownInit */
+void func_80000D70(u8 *arg0, s32 arg1);  /* ObjSwitch_FloorSwitchPushDown */
+void func_80000DF0(u8 *arg0);  /* ObjSwitch_FloorSwitchDownInit */
+void func_80000E14(void *arg0, s32 arg1);  /* ObjSwitch_FloorSwitchDown */
+void func_80000F8C(u8 *arg0);  /* ObjSwitch_FloorSwitchRiseUpInit */
+void func_80000FA0(u8 *arg0, s32 arg1);  /* ObjSwitch_FloorSwitchRiseUp */
+void func_80001000(void *arg0);  /* ObjSwitch_IsEyeSwitchHit */
+void func_800010F8(u8 *arg0);  /* ObjSwitch_EyeSwitchFrozenInit */
+void func_8000110C(u8 *arg0, s32 arg1);  /* ObjSwitch_EyeSwitchUnfrozen */
+void func_80001164(u8 *arg0);  /* ObjSwitch_EyeSwitchOpenInit */
+void func_8000117C(u8 *arg0, s32 arg1);  /* ObjSwitch_EyeSwitchOpen */
+void func_800011DC(u8 *arg0);  /* ObjSwitch_EyeSwitchClosingInit */
+void func_800011F0(u8 *arg0, s32 arg1);  /* ObjSwitch_EyeSwitchClosing */
+void func_80001240(u8 *arg0);  /* ObjSwitch_EyeSwitchClosedInit */
+void func_8000125C(void *arg0, s32 arg1);  /* ObjSwitch_EyeSwitchClosed */
+void func_80001320(u8 *arg0);  /* ObjSwitch_EyeSwitchOpeningInit */
+void func_80001334(u8 *arg0, s32 arg1);  /* ObjSwitch_EyeSwitchOpening */
+void func_80001380(u8 *arg0);  /* ObjSwitch_CrystalSwitchOffInit */
+void func_800013A0(void *arg0, s32 arg1);  /* ObjSwitch_CrystalSwitchOff */
+void func_800014D4(u8 *arg0);  /* ObjSwitch_CrystalSwitchTurnOnInit */
+void func_800014E8(void *arg0, s32 arg1);  /* ObjSwitch_CrystalSwitchTurnOn */
+void func_80001568(void *arg0);  /* ObjSwitch_CrystalSwitchOnInit */
+void func_8000158C(void *arg0, s32 arg1);  /* ObjSwitch_CrystalSwitchOn */
+void func_8000166C(u8 *arg0);  /* ObjSwitch_CrystalSwitchTurnOffInit */
+void func_80001680(void *arg0, s32 arg1);  /* ObjSwitch_CrystalSwitchTurnOff */
+void func_80001704(u8 *arg0, s32 arg1);  /* ObjSwitch_LargeFloorSwitchUp */
+void func_800017F8(u8 *arg0);  /* ObjSwitch_LargeFloorSwitchPushDownInit */
+void func_8000180C(u8 *arg0, s32 arg1);  /* ObjSwitch_LargeFloorSwitchPushDown */
+void func_80001890(void *arg0);  /* ObjSwitch_LargeFloorSwitchDownInit */
+void func_800018B8(void *arg0, s32 arg1);  /* ObjSwitch_LargeFloorSwitchDown */
+void func_800019B4(u8 *arg0);  /* ObjSwitch_LargeFloorSwitchRiseUpInit */
+void func_800019C8(u8 *arg0, s32 arg1);  /* ObjSwitch_LargeFloorSwitchRiseUp */
+void func_80001A2C(void *arg0, s32 arg1);  /* ObjSwitch_Update */
+void func_80001BA8(void *arg0, void *arg1);  /* ObjSwitch_DrawFloorSwitch */
+void func_80001CB8(s32 arg0, s32 arg1);  /* ObjSwitch_DrawRustyFloorSwitch */
+void func_80001CE8(s32 arg0, s32 arg1);  /* ObjSwitch_DrawVisibleEyeSwitch */
+void func_80001DCC(s32 arg0, s32 arg1);  /* ObjSwitch_DrawInvisibleEyeSwitch */
+void func_80001EB0(u8 *arg0);  /* ObjSwitch_DrawEyeSwitch */
+void func_80001EF4(void *arg0, void *arg1);  /* ObjSwitch_DrawCrystalSwitch */
 
 #endif

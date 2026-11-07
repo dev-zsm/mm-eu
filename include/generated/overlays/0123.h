@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);
-void func_800000C8(void *arg0, s32 arg1);
-void func_8000026C(void *arg0, s32 arg1);
-void func_80000504(s32 arg0, s32 arg1);
-void func_8000057C(void *arg0, void *arg1);
-void func_80000668(void *arg0, s32 arg1);
-void func_8000081C(void *arg0, void *arg1, void *arg2);
-void func_800009F8(s32 arg0);
-void func_80000AFC(void *arg0, void *arg1, void *arg2);
-void func_800010A4(void *arg0, void *arg1);
-void func_80001384(void *arg0, void *arg1, s32 arg2, s32 arg3);
+void func_80000000(void *arg0);  /* MirRay_SetupCollider */
+void func_800000C8(void *arg0, s32 arg1);  /* MirRay_MakeShieldLight */
+void func_8000026C(void *arg0, s32 arg1);  /* MirRay_Init */
+void func_80000504(s32 arg0, s32 arg1);  /* MirRay_Destroy */
+void func_8000057C(void *arg0, void *arg1);  /* MirRay_Update */
+void func_80000668(void *arg0, s32 arg1);  /* MirRay_SetIntensity */
+void func_8000081C(void *arg0, void *arg1, void *arg2);  /* MirRay_SetupReflectionPolys */
+void func_800009F8(s32 arg0);  /* MirRay_RemoveSimilarReflections */
+void func_80000AFC(void *arg0, void *arg1, void *arg2);  /* MirRay_ReflectedBeam */
+void func_800010A4(void *arg0, void *arg1);  /* MirRay_Draw */
+void func_80001384(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* MirRay_CheckInFrustum */
 
 #endif

@@ -5,43 +5,43 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_8000000C(u8 *arg0, s32 arg1);
-void func_80000018(void *arg0);
-void func_80000164(void *arg0, s32 arg1, s32 arg2);
-void func_80000410(s32 arg0, s32 arg1, s32 arg2);
-void func_800004BC(s32 arg0, void *arg1);
-void func_800008B8(s32 arg0, void *arg1);
-void func_8000096C(s32 arg0, void *arg1, void *arg2, s32 arg3);
-void func_80000CDC(void *arg0, void *arg1);
-void func_80000F10(u8 *arg0);
-void func_80000F3C(void *arg0, s32 arg1);
-void func_80001140(s32 arg0, s32 arg1);
-void func_80001188(s32 arg0, s32 arg1);
-void func_8000120C(void *arg0, s32 arg1);
-void func_80001348(void *arg0, void *arg1);
-void func_80001480(void *arg0, s32 arg1);
-void func_80001624(void *arg0, s32 arg1);
-void func_80001728(void *arg0, s32 arg1);
-void func_80001810(void *arg0, s32 arg1);
-void func_800019C8(s32 arg0, s32 arg1);
-void func_80001AF8(u8 *a, s32 b);
-void func_80001B30(void *arg0, void *arg1);
-void func_80001CB8(s32 arg0, void *arg1, s32 arg2);
-void func_80001E34(s32 arg0, void *arg1, s32 arg2);
-void func_80001FE8(u8 *arg0, u8 *arg1, f32 arg2);
-void func_80002034(void *arg0, s32 arg1);
-void func_80002118(void *arg0, void *arg1);
-void func_800021A0(s32 arg0, void *arg1);
-void func_800022C8(s32 arg0, s32 arg1);
-void func_8000238C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80002428(void *arg0, s32 arg1);
-void func_80002594(s32 arg0, void *arg1);
-void func_800026A8(void *arg0, s32 arg1);
-void func_80002778(void *arg0, void *arg1);
-void func_800028D4(void *arg0, void *arg1);
-void func_80002924(void *arg0, s32 arg1);
-void func_800029B0(s32 arg0, s32 arg1, s32 arg2, void *arg3);
-void func_80002A28(void *arg0, void *arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* EnTest7_SetupPlayerCamFunc */
+void func_8000000C(u8 *arg0, s32 arg1);  /* EnTest7_SetupAction */
+void func_80000018(void *arg0);  /* EnTest7_InitFeathers */
+void func_80000164(void *arg0, s32 arg1, s32 arg2);  /* EnTest7_AddFeather */
+void func_80000410(s32 arg0, s32 arg1, s32 arg2);  /* EnTest7_AddAndChooseFeather */
+void func_800004BC(s32 arg0, void *arg1);  /* EnTest7_UpdateFeatherType1 */
+void func_800008B8(s32 arg0, void *arg1);  /* EnTest7_UpdateFeatherType2 */
+void func_8000096C(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* EnTest7_UpdateFeathers */
+void func_80000CDC(void *arg0, void *arg1);  /* EnTest7_DrawFeathers */
+void func_80000F10(u8 *arg0);  /* EnTest7_InitWindCapsule */
+void func_80000F3C(void *arg0, s32 arg1);  /* EnTest7_Init */
+void func_80001140(s32 arg0, s32 arg1);  /* EnTest7_Destroy */
+void func_80001188(s32 arg0, s32 arg1);  /* EnTest7_StartWarpCs */
+void func_8000120C(void *arg0, s32 arg1);  /* EnTest7_WarpCsPart1 */
+void func_80001348(void *arg0, void *arg1);  /* EnTest7_UpdateGrowingWindCapsule */
+void func_80001480(void *arg0, s32 arg1);  /* EnTest7_WarpCsPart2 */
+void func_80001624(void *arg0, s32 arg1);  /* EnTest7_WarpCsPart3 */
+void func_80001728(void *arg0, s32 arg1);  /* EnTest7_WarpCsPart4 */
+void func_80001810(void *arg0, s32 arg1);  /* EnTest7_WarpCsPart5 */
+void func_800019C8(s32 arg0, s32 arg1);  /* EnTest7_WarpCsPart6 */
+void func_80001AF8(u8 *a, s32 b);  /* EnTest7_WarpCsWait */
+void func_80001B30(void *arg0, void *arg1);  /* EnTest7_WarpCsWarp */
+void func_80001CB8(s32 arg0, void *arg1, s32 arg2);  /* EnTest7_UpdateSubCamWarpCs2 */
+void func_80001E34(s32 arg0, void *arg1, s32 arg2);  /* EnTest7_UpdateSubCamWarpCs1 */
+void func_80001FE8(u8 *arg0, u8 *arg1, f32 arg2);  /* EnTest7_SpinAndSquishPlayer */
+void func_80002034(void *arg0, s32 arg1);  /* EnTest7_PlayerAndSubCamAction */
+void func_80002118(void *arg0, void *arg1);  /* EnTest7_SetupArriveCs */
+void func_800021A0(s32 arg0, void *arg1);  /* EnTest7_UpdateSubCamArrivalCs1 */
+void func_800022C8(s32 arg0, s32 arg1);  /* EnTest7_StartArriveCs */
+void func_8000238C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnTest7_UpdateSubCamArrivalCs2 */
+void func_80002428(void *arg0, s32 arg1);  /* EnTest7_ArriveCsPart1 */
+void func_80002594(s32 arg0, void *arg1);  /* EnTest7_UpdateSubCamArrivalCs3 */
+void func_800026A8(void *arg0, s32 arg1);  /* EnTest7_StartArriveCsSkip */
+void func_80002778(void *arg0, void *arg1);  /* EnTest7_ArriveCsPart2 */
+void func_800028D4(void *arg0, void *arg1);  /* EnTest7_ArriveCsPart3 */
+void func_80002924(void *arg0, s32 arg1);  /* EnTest7_Update */
+void func_800029B0(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* EnTest7_OverrideLimbDraw */
+void func_80002A28(void *arg0, void *arg1);  /* EnTest7_Draw */
 
 #endif

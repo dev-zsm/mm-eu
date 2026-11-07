@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnFall2_Init */
 void func_800000E4(f32 arg0);
-void func_80000264(s32 arg0, s32 arg1);
+void func_80000264(s32 arg0, s32 arg1);  /* EnFall2_DoNothing */
 void func_800002B0(void *arg0);
-void func_80000394(void *arg0, s32 arg1);
-void func_800004AC(s32 arg0, void *arg1);
+void func_80000394(void *arg0, s32 arg1);  /* EnFall2_HandleCutscene */
+void func_800004AC(s32 arg0, void *arg1);  /* EnFall2_Draw */
 
 #endif

@@ -466,7 +466,7 @@ def opcodes(code):
     return bytes(w >> 26 for w in struct.unpack(f">{len(code) // 4}I", code))
 
 
-def overlay_candidates(only=None):
+def overlay_candidates(only=None, names_mode=False):
     """{reference file: (chunks, [(overlay segment, our function, reference name)])} for the overlay functions that are byte-identical
     to ours. The reference file is matched to one of our overlays by vote: every function of the file that has the same bytes as functions
     of ours votes for the overlays they are in, and the file belongs to the overlay with most votes. Inside that overlay a function counts
@@ -494,12 +494,13 @@ def overlay_candidates(only=None):
         idx = line.split()[0]
         seg = f"ovl{idx}"
         for fn, size in match._sizes(seg).items():
-            if size >= 8 and not source_path(seg, fn).exists():
+            if size >= 8 and (names_mode or not source_path(seg, fn).exists()):   # the names are wanted for every function
                 code = match.original(seg, fn)[0]
                 free[(size, opcodes(code))].append((seg, fn, code))
     lap("our functions indexed")
     items = collections.defaultdict(list)
     claims = collections.defaultdict(list)
+    chosen = []   # (reference file, overlay it was matched to, votes)
     for f, fns in scans:
         hits, votes = {}, collections.Counter()
         for real, (off, blob, relocs) in fns.items():
@@ -514,15 +515,85 @@ def overlay_candidates(only=None):
         if not ranked or (len(ranked) > 1 and ranked[0][1] == ranked[1][1]):
             continue   # no overlay, or two overlays equally likely: no guess
         best = ranked[0][0]
+        chosen.append((f, best, ranked[0][1]))
         for real, found in hits.items():
             inside = [x for x in found if x[0] == best]
             if len(inside) == 1:
                 claims[inside[0]].append((relkey(f), real))
+    if names_mode:
+        return write_overlay_names(claims, chosen, scans)
     for (seg, fn), found in claims.items():
         if len(found) == 1:
             fname, real = found[0]
             items[fname].append((seg, fn, real))
     return {relkey(f): (top_chunks(f.read_text()), items[relkey(f)]) for f, _ in scans if items.get(relkey(f))}
+
+
+def aligned_names(claims, chosen, scans):
+    """{(overlay segment, our function): (name, evidence)} for the functions that sit between two functions with identical bytes, at the same
+    rank and with the same size as a function of the reference file: the functions of a file are in the same order in the ROM and in the source.
+    Only the gaps between two anchors of one file count, and only when both sides have the same number of functions with the same sizes."""
+    out = {}
+    fns_of = {f: fns for f, fns in scans}
+    for f, seg, votes in chosen:
+        if votes < 2:
+            continue
+        ref = sorted(fns_of[f].items(), key=lambda kv: kv[1][0])   # the functions of the file in source order
+        ref_index = {real: i for i, (real, _) in enumerate(ref)}
+        sizes = match._sizes(seg)
+        ours = sorted(sizes, key=lambda n: int(n[-8:], 16))
+        our_index = {fn: i for i, fn in enumerate(ours)}
+        anchors = sorted((our_index[fn], ref_index[found[0][1]]) for (s, fn), found in claims.items()
+                         if s == seg and len(found) == 1 and found[0][0] == relkey(f) and found[0][1] in ref_index and fn in our_index)
+        for (o1, r1), (o2, r2) in zip(anchors, anchors[1:]):
+            if r2 <= r1 or o2 <= o1:
+                continue   # the two orders disagree here
+            gap_o, gap_r = range(o1 + 1, o2), range(r1 + 1, r2)
+            if len(gap_o) == len(gap_r) and all(sizes[ours[a]] == len(ref[b][1][1]) for a, b in zip(gap_o, gap_r)):
+                for a, b in zip(gap_o, gap_r):
+                    out[(seg, ours[a])] = (ref[b][0], "same rank and size between two functions with identical bytes")
+    return out
+
+
+def write_overlay_names(claims, chosen, scans):
+    """config/overlays/names.txt: `<overlay index> <our name> <name of the reference>   # evidence` for every function of the overlays whose
+    bytes are those of exactly one function of the reference, found in the overlay that the vote of its file chose. The file is written
+    whole each time. A name that two functions of one overlay would take is dropped (the same static name in two files of the reference)."""
+    taken = collections.Counter((seg, found[0][1]) for (seg, fn), found in claims.items() if len(found) == 1)
+    rows = []
+    for (seg, fn), found in sorted(claims.items()):
+        if len(found) != 1:
+            continue
+        real = found[0][1]
+        if taken[(seg, real)] != 1 or US.fullmatch(real) or real.startswith("D_"):
+            continue   # ambiguous, or still unnamed in the reference
+        rows.append((seg, fn, real, "bytes identical to the reference function of that name, unique match in its overlay"))
+    known = {(seg, fn) for seg, fn, _, _ in rows}
+    taken_names = collections.Counter((seg, real) for seg, _, real, _ in rows)
+    for (seg, fn), (real, why) in sorted(aligned_names(claims, chosen, scans).items()):
+        if (seg, fn) not in known and not US.fullmatch(real) and not real.startswith("D_") and taken_names[(seg, real)] == 0:
+            rows.append((seg, fn, real, why))
+            taken_names[(seg, real)] += 1
+    rows.sort()
+    rows = [f"{seg[3:]} {fn} {real}   # ref: {why}\n" for seg, fn, real, why in rows]
+    head = ("# Names of the functions of the overlays, taken from the reference when their bytes are identical to exactly one of its functions\n"
+            "# (tools/search/ref_import.py names). `<overlay index> <our name> <name>`. Not applied to the sources yet.\n")
+    (ROOT / "config" / "overlays" / "names.txt").write_text(head + "".join(rows))
+    print(f"{len(rows)} names written to config/overlays/names.txt")
+    # the name of an overlay is the folder of its files in the reference (ovl_En_Test -> En_Test); with several candidates the best voted wins
+    best = {}
+    for f, seg, votes in chosen:
+        folder = f.parent.name
+        if folder.startswith("ovl_") and votes >= 2 and votes > best.get(seg, ("", 0))[1]:
+            best[seg] = (folder[4:], votes)
+    owners = collections.Counter(name for name, _ in best.values())
+    lines = [f"{seg[3:]} {name}   # ref: {votes} functions of its files match this overlay\n"
+             for seg, (name, votes) in sorted(best.items()) if owners[name] == 1]
+    head = ("# Name of each overlay (the actor, the game state, the menu), from the folder of the reference whose functions match it\n"
+            "# (tools/search/ref_import.py names). `<overlay index> <name>`. An overlay two folders claim has no name.\n")
+    (ROOT / "config" / "overlays" / "actors.txt").write_text(head + "".join(lines))
+    print(f"{len(lines)} overlays named in config/overlays/actors.txt")
+    return {}
 
 
 def save_names():
@@ -663,6 +734,9 @@ def main():
     if sys.argv[1:2] == ["vendor"]:
         return vendor()
     only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
+    if sys.argv[1:2] == ["run"] and sys.argv[2:3] == ["names"]:
+        overlay_candidates(only, names_mode=True)
+        return
     cands = overlay_candidates(only) if sys.argv[2:3] == ["overlays"] else code_candidates(only)
     lap("candidates found")
     reasons = collections.Counter()

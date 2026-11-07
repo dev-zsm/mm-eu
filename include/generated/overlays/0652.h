@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_8000009C(u8 *arg0);
-void func_800000B0(s32 arg0, s32 arg1);
-void func_80000118(u8 *arg0);
-void func_8000012C(s32 arg0, s32 arg1);
-void func_8000018C(s32 arg0, void *arg1);
-void func_80000310(s32 arg0, void *arg1);
-void func_800004AC(void *arg0);
-void func_80000600(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnPaper_Init */
+void func_8000009C(u8 *arg0);  /* EnPaper_SetupSpreadConfettiGroup */
+void func_800000B0(s32 arg0, s32 arg1);  /* EnPaper_SpreadConfettiGroup */
+void func_80000118(u8 *arg0);  /* EnPaper_SetupFlyConfettiGroup */
+void func_8000012C(s32 arg0, s32 arg1);  /* EnPaper_FlyConfettiGroup */
+void func_8000018C(s32 arg0, void *arg1);  /* EnPaper_InitConfettiPiece */
+void func_80000310(s32 arg0, void *arg1);  /* EnPaper_FlyConfettiPiece */
+void func_800004AC(void *arg0);  /* EnPaper_UpdateWind */
+void func_80000600(void *arg0, s32 arg1);  /* EnPaper_Draw */
 
 #endif

@@ -6,7 +6,7 @@
 #include "types.h"
 
 void func_80000000(u8 *arg0, s32 arg1);
-void func_8000003C(void *arg0, s32 arg1);
+void func_8000003C(void *arg0, s32 arg1);  /* ObjOcarinalift_Init */
 void func_800001C0(u8 *arg0);
 void func_800001E4(s32 arg0, s32 arg1);
 void func_800001F4(u8 *arg0);
@@ -21,6 +21,6 @@ void func_80000688(u8 *arg0);
 void func_8000069C(void *arg0, s32 arg1);
 void func_80000760(u8 *arg0);
 void func_80000788(u8 *arg0, s32 arg1);
-void func_800007EC(void *arg0);
+void func_800007EC(void *arg0);  /* ObjOcarinalift_Update */
 
 #endif

@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnEncount3_Init */
 void func_80000118(u8 *arg0);
 void func_80000144(void *arg0, s32 arg1);
 void func_80000254(void *arg0, s32 arg1);
 void func_800002AC(u8 *arg0, s32 arg1);
-void func_800002F0(void *arg0, void *arg1);
-void func_800006D4(void *arg0, s32 arg1);
+void func_800002F0(void *arg0, void *arg1);  /* EnEncount3_Update */
+void func_800006D4(void *arg0, s32 arg1);  /* EnEncount3_Draw */
 
 #endif

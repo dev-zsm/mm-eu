@@ -10,14 +10,14 @@ void func_80000068(void *arg0);
 void func_80000100(void *arg0, s32 arg1);
 void func_8000020C(void *arg0, s32 arg1);
 void func_8000038C(void *arg0, s32 arg1);
-void func_80000438(void *arg0, s32 arg1);
+void func_80000438(void *arg0, s32 arg1);  /* ObjPzlblock_Init */
 void func_80000668(u8 *arg0);
 void func_80000694(void *arg0, s32 arg1);
 void func_800007C4(u8 *arg0);
 void func_800007E0(void *arg0, s32 arg1);
 void func_8000093C(u8 *arg0);
 void func_80000958(void *arg0, void *arg1);
-void func_8000099C(void *arg0, s32 arg1);
+void func_8000099C(void *arg0, s32 arg1);  /* ObjPzlblock_Update */
 void func_80000A78(void *arg0, s32 arg1);
 void func_80000B2C(s32 arg0, s32 arg1);
 

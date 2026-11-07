@@ -5,22 +5,22 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0);
-void func_80000038(s32 arg0, void *arg1);
-void func_800000C0(void *arg0, void *arg1, s32 arg2);
-void func_8000024C(void *arg0);
-void func_80000308(void *arg0);
-void func_800003C0(void *arg0);
-void func_80000400(void *arg0, s32 arg1);
-void func_8000063C(void *arg0, s32 arg1);
-void func_80000798(u8 *arg0);
-void func_800007AC(s32 arg0, s32 arg1);
-void func_80000824(u8 *arg0);
-void func_80000838(s32 arg0, s32 arg1);
-void func_80000848(u8 *arg0);
-void func_8000087C(s32 arg0, s32 arg1);
-void func_800008D0(u8 *arg0);
-void func_800008F4(s32 arg0, s32 arg1);
-void func_80000958(s32 arg0, s32 arg1);
+void func_80000000(u8 *arg0);  /* ObjTokeiStep_SetMatrixTranslation */
+void func_80000038(s32 arg0, void *arg1);  /* ObjTokeiStep_RequestQuakeAndRumble */
+void func_800000C0(void *arg0, void *arg1, s32 arg2);  /* ObjTokeiStep_SpawnDust */
+void func_8000024C(void *arg0);  /* ObjTokeiStep_InitSteps */
+void func_80000308(void *arg0);  /* ObjTokeiStep_InitStepsOpen */
+void func_800003C0(void *arg0);  /* ObjTokeiStep_InitTimers */
+void func_80000400(void *arg0, s32 arg1);  /* ObjTokeiStep_OpenProcess */
+void func_8000063C(void *arg0, s32 arg1);  /* ObjTokeiStep_Init */
+void func_80000798(u8 *arg0);  /* ObjTokeiStep_SetupBeginOpen */
+void func_800007AC(s32 arg0, s32 arg1);  /* ObjTokeiStep_BeginOpen */
+void func_80000824(u8 *arg0);  /* ObjTokeiStep_SetupDoNothing */
+void func_80000838(s32 arg0, s32 arg1);  /* ObjTokeiStep_DoNothing */
+void func_80000848(u8 *arg0);  /* ObjTokeiStep_SetupOpen */
+void func_8000087C(s32 arg0, s32 arg1);  /* ObjTokeiStep_Open */
+void func_800008D0(u8 *arg0);  /* ObjTokeiStep_SetupDoNothingOpen */
+void func_800008F4(s32 arg0, s32 arg1);  /* ObjTokeiStep_DoNothingOpen */
+void func_80000958(s32 arg0, s32 arg1);  /* ObjTokeiStep_DrawOpen */
 
 #endif

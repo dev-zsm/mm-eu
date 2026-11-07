@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnTwig_Init */
 void func_80000224(u8 *arg0, s32 arg1);
 void func_8000023C(s32 arg0, s32 arg1);
 void func_8000024C(s32 arg0, void *arg1);
 void func_80000298(void *arg0, void *arg1);
 void func_80000494(void *arg0, s32 arg1);
 void func_800004FC(void *arg0, void *arg1);
-void func_80000800(void *arg0, s32 arg1);
+void func_80000800(void *arg0, s32 arg1);  /* EnTwig_Draw */
 
 #endif

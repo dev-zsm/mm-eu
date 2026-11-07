@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000158(void *arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1);  /* MirRay3_Init */
+void func_80000158(void *arg0, void *arg1);  /* MirRay3_Update */
 void func_80000284(s32 arg0, void *arg1);
 void func_80000334(void *arg0, void *arg1, void *arg2);
 void func_80000510(s32 arg0);
 void func_80000614(s32 arg0, s32 arg1, void *arg2);
-void func_80000CB0(s32 arg0, void *arg1);
+void func_80000CB0(s32 arg0, void *arg1);  /* MirRay3_Draw */
 
 #endif

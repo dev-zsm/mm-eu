@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_800001B8(s32 arg0, s32 arg1, void *arg2);
-void func_800002C0(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsGSplash_Init */
+void func_800001B8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsGSplash_Draw */
+void func_800002C0(s32 arg0, s32 arg1, void *arg2);  /* EffectSsGSplash_Update */
 
 #endif

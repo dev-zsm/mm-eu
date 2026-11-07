@@ -5,19 +5,19 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);
-void func_8000011C(void *arg0, void *arg1);
-void func_8000021C(void *arg0, void *arg1);
-void func_8000035C(void *arg0, s32 arg1);
-void func_800004CC(void *arg0, s32 arg1);
-void func_800005CC(void *arg0);
-void func_80000660(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, void *arg1);  /* ObjMure2_GetBushCircleSpawnPos */
+void func_8000011C(void *arg0, void *arg1);  /* ObjMure2_GetBushScatteredPos */
+void func_8000021C(void *arg0, void *arg1);  /* ObjMure2_GetRocksSpawnPos */
+void func_8000035C(void *arg0, s32 arg1);  /* ObjMure2_SpawnChildren */
+void func_800004CC(void *arg0, s32 arg1);  /* ObjMure2_KillChildren */
+void func_800005CC(void *arg0);  /* ObjMure2_ClearChildrenList */
+void func_80000660(s32 arg0, s32 arg1);  /* ObjMure2_Init */
 void func_800006C0(u8 *arg0);
 void func_800006D4(s32 a0, s32 a1);
-void func_800006F8(u8 *arg0);
-void func_8000070C(void *arg0, s32 arg1);
-void func_8000078C(u8 *arg0);
-void func_800007A0(void *arg0, s32 arg1);
-void func_80000830(u8 *arg0, u8 *arg1);
+void func_800006F8(u8 *arg0);  /* ObjMure2_SetupWaitForPlayerInRange */
+void func_8000070C(void *arg0, s32 arg1);  /* ObjMure2_WaitForPlayerInRange */
+void func_8000078C(u8 *arg0);  /* ObjMure2_SetupWaitForPlayerOutOfRange */
+void func_800007A0(void *arg0, s32 arg1);  /* ObjMure2_WaitForPlayerOutOfRange */
+void func_80000830(u8 *arg0, u8 *arg1);  /* ObjMure2_Update */
 
 #endif

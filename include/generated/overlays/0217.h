@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsKakera_Init */
 f32 func_80000190(f32 arg0, f32 arg1);
-void func_800001CC(void *arg0, s32 arg1, void *arg2);
-void func_80000490(void *arg0, s32 arg1);
+void func_800001CC(void *arg0, s32 arg1, void *arg2);  /* EffectSsKakera_Draw */
+void func_80000490(void *arg0, s32 arg1);  /* EffectSsKakera_CheckForObject */
 void func_800004FC(void *arg0);
 void func_800006AC(u8 *arg0);
 f32 func_800006C8(f32 arg0, s32 arg1);
@@ -21,6 +21,6 @@ void func_800008E4(void *arg0, s32 arg1, s32 arg2);
 s32 func_800009C0(void *a0, s32 a1, s32 a2);
 void func_800009F8(void *arg0);
 void func_80000B40(void *arg0, void *arg1);
-void func_80000D38(s32 arg0, s32 arg1, u8 *arg2);
+void func_80000D38(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsKakera_Update */
 
 #endif

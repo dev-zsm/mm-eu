@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000A4(void *arg0, s32 arg1, s32 arg2);
-void func_800000FC(void *arg0, s32 arg1);
-void func_800002FC(void *arg0, s32 arg1);
-void func_80000408(u8 *arg0, s32 arg1, s32 arg2);
-void func_80000424(void *arg0, s32 arg1);
-void func_80000498(u8 *arg0);
-void func_800004CC(void *arg0, s32 arg1);
-void func_8000053C(u8 *arg0);
-void func_80000558(void *arg0, s32 arg1);
-void func_80000634(u8 *arg0);
-void func_80000670(void *arg0, s32 arg1);
-void func_8000075C(u8 *arg0);
-void func_80000780(void *arg0, s32 arg1);
-void func_80000834(u8 *arg0);
-void func_80000850(u8 *arg0);
-void func_800008A4(void *arg0, s32 arg1);
-void func_80000A04(void *arg0, s32 arg1);
-void func_80000C90(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjLightswitch_InitCollider */
+void func_800000A4(void *arg0, s32 arg1, s32 arg2);  /* ObjLightswitch_UpdateSwitchFlags */
+void func_800000FC(void *arg0, s32 arg1);  /* ObjLightswitch_SpawnEffects */
+void func_800002FC(void *arg0, s32 arg1);  /* ObjLightswitch_Init */
+void func_80000408(u8 *arg0, s32 arg1, s32 arg2);  /* ObjLightswitch_SetAction */
+void func_80000424(void *arg0, s32 arg1);  /* ObjLightswitch_PlayCinema */
+void func_80000498(u8 *arg0);  /* ObjLightswitch_SetupIdle */
+void func_800004CC(void *arg0, s32 arg1);  /* ObjLightswitch_Idle */
+void func_8000053C(u8 *arg0);  /* ObjLightSwitch_SetupAsleep */
+void func_80000558(void *arg0, s32 arg1);  /* ObjLightSwitch_Asleep */
+void func_80000634(u8 *arg0);  /* ObjLightSwitch_SetupEnabled */
+void func_80000670(void *arg0, s32 arg1);  /* ObjLightSwitch_Enabled */
+void func_8000075C(u8 *arg0);  /* ObjLightSwitch_SetupDisabled */
+void func_80000780(void *arg0, s32 arg1);  /* ObjLightSwitch_Disabled */
+void func_80000834(u8 *arg0);  /* ObjLightSwitch_SetupFade */
+void func_80000850(u8 *arg0);  /* ObjLightSwitch_Fade */
+void func_800008A4(void *arg0, s32 arg1);  /* ObjLightswitch_Update */
+void func_80000A04(void *arg0, s32 arg1);  /* ObjLightSwitch_DrawOpa */
+void func_80000C90(void *arg0, s32 arg1);  /* ObjLightSwitch_DrawXlu */
 
 #endif

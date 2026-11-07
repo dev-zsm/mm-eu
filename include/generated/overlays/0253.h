@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* DoorSpiral_SetupAction */
 void func_80000010(void *arg0, s32 arg1);
 void func_80000098(void *arg0);
-void func_80000118(void *arg0, s32 arg1);
+void func_80000118(void *arg0, s32 arg1);  /* DoorSpiral_Init */
 void func_80000250(void *arg0, s32 arg1);
 void func_800002A8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000340(s32 arg0, void *arg1);
 void func_80000498(void *arg0, s32 arg1);
 void func_80000538(s32 arg0, void *arg1);
-void func_80000580(void *arg0, void *arg1);
-void func_800005D4(void *arg0, s32 arg1);
+void func_80000580(void *arg0, void *arg1);  /* DoorSpiral_Update */
+void func_800005D4(void *arg0, s32 arg1);  /* DoorSpiral_Draw */
 
 #endif

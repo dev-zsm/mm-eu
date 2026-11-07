@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_8000006C(void *arg0, s32 arg1);
-void func_800001B8(u8 *arg0);
-void func_800001CC(void *arg0, s32 arg1);
-void func_8000027C(u8 *arg0);
-void func_80000290(void *arg0, s32 arg1);
-void func_80000308(u8 *arg0);
-void func_80000324(void *arg0, s32 arg1);
-void func_800003D4(s32 arg0, void *arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* ObjLightblock_SpawnEffect */
+void func_8000006C(void *arg0, s32 arg1);  /* ObjLightblock_Init */
+void func_800001B8(u8 *arg0);  /* ObjLightblock_SetupWait */
+void func_800001CC(void *arg0, s32 arg1);  /* ObjLightblock_Wait */
+void func_8000027C(u8 *arg0);  /* ObjLightblock_SetupPlayCutscene */
+void func_80000290(void *arg0, s32 arg1);  /* ObjLightblock_PlayCutscene */
+void func_80000308(u8 *arg0);  /* ObjLightblock_SetupFadeAway */
+void func_80000324(void *arg0, s32 arg1);  /* ObjLightblock_FadeAway */
+void func_800003D4(s32 arg0, void *arg1);  /* ObjLightblock_Draw */
 
 #endif

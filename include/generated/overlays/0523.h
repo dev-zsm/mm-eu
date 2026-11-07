@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_8000000C(void *arg0, s32 arg1);
-void func_800000F0(void *arg0, s32 arg1);
-void func_80000138(void *arg0, s32 arg1);
-void func_800001C0(void *arg0, s32 arg1);
-s32 func_800002B4(u8 *arg0, s32 arg1);
-void func_800002CC(void *arg0, s32 arg1);
-void func_80000430(s32 arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* ObjWarpstone_SetupAction */
+void func_8000000C(void *arg0, s32 arg1);  /* ObjWarpstone_Init */
+void func_800000F0(void *arg0, s32 arg1);  /* ObjWarpstone_ClosedIdle */
+void func_80000138(void *arg0, s32 arg1);  /* ObjWarpstone_BeginOpeningCutscene */
+void func_800001C0(void *arg0, s32 arg1);  /* ObjWarpstone_PlayOpeningCutscene */
+s32 func_800002B4(u8 *arg0, s32 arg1);  /* ObjWarpstone_OpenedIdle */
+void func_800002CC(void *arg0, s32 arg1);  /* ObjWarpstone_Update */
+void func_80000430(s32 arg0, s32 arg1);  /* ObjWarpstone_Draw */
 
 #endif

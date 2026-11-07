@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_8000015C(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsKirakira_Init */
+void func_8000015C(s32 arg0, s32 arg1, void *arg2);  /* EffectSsKirakira_Draw */
 void func_800003B4(s32 arg0, s32 arg1, s32 arg2);
 void func_8000046C(s32 arg0, s32 arg1, void *arg2);
 void func_80000528(s32 arg0, s32 arg1, void *arg2);

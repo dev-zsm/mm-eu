@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000B0(void *arg0, void *arg1);
-void func_80000150(u8 *arg0);
-void func_800001BC(u8 *arg0);
-void func_800001F8(void *arg0, s32 arg1);
-void func_800002A4(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnSi_UpdateCollision */
+void func_800000B0(void *arg0, void *arg1);  /* EnSi_GiveToken */
+void func_80000150(u8 *arg0);  /* EnSi_Wait */
+void func_800001BC(u8 *arg0);  /* EnSi_DraggedByHookshot */
+void func_800001F8(void *arg0, s32 arg1);  /* EnSi_Init */
+void func_800002A4(void *arg0, s32 arg1);  /* EnSi_Update */
 
 #endif

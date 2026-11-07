@@ -9,8 +9,8 @@ void func_80000000(s32 arg0, s32 arg1);
 void func_80000058(void *arg0);
 void func_800001D4(void *arg0, s32 arg1);
 void func_80000480(void *arg0, s32 arg1);
-s32 func_800004E8(u8 *arg0, s32 arg1);
-void func_80000560(void *arg0, void *arg1);
-void func_8000089C(void *arg0, void *arg1);
+s32 func_800004E8(u8 *arg0, s32 arg1);  /* ObjHamishi_IsUnderwater */
+void func_80000560(void *arg0, void *arg1);  /* ObjHamishi_Init */
+void func_8000089C(void *arg0, void *arg1);  /* ObjHamishi_Draw */
 
 #endif

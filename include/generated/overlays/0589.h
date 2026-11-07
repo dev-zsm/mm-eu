@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_800000B8(void *arg0, s32 arg1);
+void func_800000B8(void *arg0, s32 arg1);  /* EnHitTag_WaitForHit */
 
 #endif

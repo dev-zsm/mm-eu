@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_80000054(void *arg0, s32 arg1);
-s32 func_800003A0(u8 *arg0, s32 arg1);
-s32 func_800003DC(u8 *arg0, s32 arg1);
-void func_80000484(void *arg0, s32 arg1);
-void func_800005BC(u8 *arg0);
-void func_800005D8(void *arg0);
-void func_80000698(void *arg0);
-void func_80000724(u8 *arg0);
-void func_80000740(void *arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* BgDblueElevator_CheckWaterBoxInfo */
+void func_80000054(void *arg0, s32 arg1);  /* BgDblueElevator_SpawnRipplesAndSplashes */
+s32 func_800003A0(u8 *arg0, s32 arg1);  /* BgDblueElevator_GetWaterFlowFromCeiling */
+s32 func_800003DC(u8 *arg0, s32 arg1);  /* BgDblueElevator_GetWaterFlowFromPipes */
+void func_80000484(void *arg0, s32 arg1);  /* BgDblueElevator_Init */
+void func_800005BC(u8 *arg0);  /* BgDblueElevator_SetupWaitActivation */
+void func_800005D8(void *arg0);  /* BgDblueElevator_WaitActivation */
+void func_80000698(void *arg0);  /* BgDblueElevator_Pause */
+void func_80000724(u8 *arg0);  /* BgDblueElevator_SetupMove */
+void func_80000740(void *arg0, s32 arg1);  /* BgDblueElevator_Move */
 
 #endif

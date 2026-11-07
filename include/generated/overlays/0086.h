@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 a0, s32 a1);
-void func_80000024(u8 *arg0);
-void func_80000038(void *arg0, s32 arg1);
-void func_800000F4(u8 *arg0);
-void func_8000012C(void *arg0, s32 arg1);
-void func_8000017C(void *arg0, s32 arg1);
-void func_80000270(u8 *arg0, s32 arg1);
-void func_800002D4(void *arg0, void *arg1);
-void func_80000348(void *arg0, void *arg1);
+void func_80000000(s32 a0, s32 a1);  /* ObjWturn_Init */
+void func_80000024(u8 *arg0);  /* ObjWturn_SetupIdle */
+void func_80000038(void *arg0, s32 arg1);  /* ObjWturn_Idle */
+void func_800000F4(u8 *arg0);  /* ObjWturn_TriggerInversion */
+void func_8000012C(void *arg0, s32 arg1);  /* ObjWturn_AwaitInversion */
+void func_8000017C(void *arg0, s32 arg1);  /* ObjWturn_SetupInversionCs */
+void func_80000270(u8 *arg0, s32 arg1);  /* ObjWturn_InversionCs */
+void func_800002D4(void *arg0, void *arg1);  /* ObjWturn_SetupFallingCs */
+void func_80000348(void *arg0, void *arg1);  /* ObjWturn_FallingCs */
 
 #endif

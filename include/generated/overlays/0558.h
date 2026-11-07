@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);
-void func_8000028C(s32 arg0, s32 arg1);
-void func_80000370(void *arg0, s32 arg1);
-void func_800003E4(u8 *arg0, s32 arg1);
-void func_80000408(void *arg0, s32 arg1);
-void func_800004B8(void *arg0, s32 arg1);
-void func_80000580(u8 *arg0, s32 arg1);
+void func_80000000(void *arg0, void *arg1);  /* BgF40Switch_CheckAll */
+void func_8000028C(s32 arg0, s32 arg1);  /* BgF40Switch_Init */
+void func_80000370(void *arg0, s32 arg1);  /* BgF40Switch_Unpress */
+void func_800003E4(u8 *arg0, s32 arg1);  /* BgF40Switch_IdlePressed */
+void func_80000408(void *arg0, s32 arg1);  /* BgF40Switch_Press */
+void func_800004B8(void *arg0, s32 arg1);  /* BgF40Switch_WaitToPress */
+void func_80000580(u8 *arg0, s32 arg1);  /* BgF40Switch_IdleUnpressed */
 
 #endif

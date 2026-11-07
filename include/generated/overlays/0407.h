@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, s32 arg3);
-void func_8000037C(s32 arg0, s32 arg1, void *arg2);
-void func_80000614(s32 arg0, s32 arg1, void *arg2);
-void func_800007EC(s32 arg0, s32 arg1, u8 *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* EffectSsSbn_Init */
+void func_8000037C(s32 arg0, s32 arg1, void *arg2);  /* EffectSsSbn_DrawSliding */
+void func_80000614(s32 arg0, s32 arg1, void *arg2);  /* EffectSsSbn_Draw */
+void func_800007EC(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsSbn_Update */
 
 #endif

@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjBigicicle_Init */
 void func_80000274(void *arg0, s32 arg1);
 void func_80000464(void *arg0);
 void func_80000520(void *arg0, s32 arg1);
 void func_80000610(void *arg0, s32 arg1);
 void func_800006E8(void *arg0, s32 arg1);
 void func_8000082C(void *arg0, s32 arg1);
-void func_80000A04(void *arg0, s32 arg1);
-void func_80000C10(s32 arg0, s32 arg1);
+void func_80000A04(void *arg0, s32 arg1);  /* ObjBigicicle_Update */
+void func_80000C10(s32 arg0, s32 arg1);  /* ObjBigicicle_Draw */
 
 #endif

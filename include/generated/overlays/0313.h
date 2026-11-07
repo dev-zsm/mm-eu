@@ -5,44 +5,44 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_8000020C(void *arg0);
-void func_80000288(void *arg0, s32 arg1);
-void func_80000308(void *arg0);
-void func_80000370(void *arg0);
-void func_800003A0(u8 *arg0, s32 arg1);
-void func_800003E0(u8 *arg0);
-void func_80000404(void *arg0, s32 arg1);
-void func_800005B4(void *arg0);
-void func_80000678(void *arg0, s32 arg1);
-void func_800008E4(void *arg0);
-void func_8000092C(void *arg0, s32 arg1);
-void func_80000B14(u8 *arg0);
-void func_80000B40(void *arg0, s32 arg1);
-void func_80000C00(void *arg0);
-void func_80000CE8(void *arg0, s32 arg1);
-void func_80000DC0(void *arg0);
-void func_80000E00(void *arg0, s32 arg1);
-void func_80000FF4(void *arg0);
-void func_80001098(void *arg0, s32 arg1);
-void func_80001278(void *arg0, s32 arg1, s32 arg2);
-void func_800015A4(void *arg0, s32 arg1);
-void func_800016B4(void *arg0);
-void func_80001718(void *arg0, s32 arg1);
-void func_8000198C(f32 arg0);
-void func_800019D8(void *arg0);
-void func_80001A80(void *arg0, s32 arg1);
-void func_80001BA4(void *arg0, s32 arg1);
-void func_80001C28(void *arg0);
-void func_80001C80(void *arg0, s32 arg1);
-void func_80001CF0(void *arg0);
-void func_80001D44(void *arg0, s32 arg1);
-void func_80001E40(void *arg0);
-void func_80001E8C(u8 *arg0, s32 arg1);
-void func_80001EC8(void *arg0);
-void func_80001F4C(void *arg0, s32 arg1);
-void func_800021F8(void *arg0, s32 arg1);
-void func_80002448(void *arg0, void *arg1);
-void func_800026EC(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnSlime_Init */
+void func_8000020C(void *arg0);  /* EnSlime_Freeze */
+void func_80000288(void *arg0, s32 arg1);  /* EnSlime_Thaw */
+void func_80000308(void *arg0);  /* EnSlime_Blink */
+void func_80000370(void *arg0);  /* EnSlime_SetupInitializeIdle */
+void func_800003A0(u8 *arg0, s32 arg1);  /* EnSlime_InitializeIdle */
+void func_800003E0(u8 *arg0);  /* EnSlime_SetupIdle */
+void func_80000404(void *arg0, s32 arg1);  /* EnSlime_Idle */
+void func_800005B4(void *arg0);  /* EnSlime_SetupMoveInDirection */
+void func_80000678(void *arg0, s32 arg1);  /* EnSlime_MoveInDirection */
+void func_800008E4(void *arg0);  /* EnSlime_SetupMoveToHome */
+void func_8000092C(void *arg0, s32 arg1);  /* EnSlime_MoveToHome */
+void func_80000B14(u8 *arg0);  /* EnSlime_SetupTurnToPlayer */
+void func_80000B40(void *arg0, s32 arg1);  /* EnSlime_TurnToPlayer */
+void func_80000C00(void *arg0);  /* EnSlime_SetupJump */
+void func_80000CE8(void *arg0, s32 arg1);  /* EnSlime_Jump */
+void func_80000DC0(void *arg0);  /* EnSlime_SetupLand */
+void func_80000E00(void *arg0, s32 arg1);  /* EnSlime_Land */
+void func_80000FF4(void *arg0);  /* EnSlime_SetupReactToBluntHit */
+void func_80001098(void *arg0, s32 arg1);  /* EnSlime_ReactToBluntHit */
+void func_80001278(void *arg0, s32 arg1, s32 arg2);  /* EnSlime_SetupDamaged */
+void func_800015A4(void *arg0, s32 arg1);  /* EnSlime_Damaged */
+void func_800016B4(void *arg0);  /* EnSlime_SetupDead */
+void func_80001718(void *arg0, s32 arg1);  /* EnSlime_Dead */
+void func_8000198C(f32 arg0);  /* EnSlime_SnapIceBlockPosition */
+void func_800019D8(void *arg0);  /* EnSlime_SetupSpawnIceBlock */
+void func_80001A80(void *arg0, s32 arg1);  /* EnSlime_SpawnIceBlock */
+void func_80001BA4(void *arg0, s32 arg1);  /* EnSlime_IceBlock */
+void func_80001C28(void *arg0);  /* EnSlime_SetupStun */
+void func_80001C80(void *arg0, s32 arg1);  /* EnSlime_Stun */
+void func_80001CF0(void *arg0);  /* EnSlime_SetupIceBlockThaw */
+void func_80001D44(void *arg0, s32 arg1);  /* EnSlime_IceBlockThaw */
+void func_80001E40(void *arg0);  /* EnSlime_SetupWaitForRevive */
+void func_80001E8C(u8 *arg0, s32 arg1);  /* EnSlime_WaitForRevive */
+void func_80001EC8(void *arg0);  /* EnSlime_SetupRevive */
+void func_80001F4C(void *arg0, s32 arg1);  /* EnSlime_Revive */
+void func_800021F8(void *arg0, s32 arg1);  /* EnSlime_UpdateDamage */
+void func_80002448(void *arg0, void *arg1);  /* EnSlime_Update */
+void func_800026EC(void *arg0, s32 arg1);  /* EnSlime_Draw */
 
 #endif

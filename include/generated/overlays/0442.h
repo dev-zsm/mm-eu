@@ -7,7 +7,7 @@
 
 void func_80000000(void *arg0);
 void func_80000070(u8 *arg0, s32 arg1);
-void func_80000144(void *arg0, s32 arg1);
-void func_800002D8(void *arg0, s32 arg1);
+void func_80000144(void *arg0, s32 arg1);  /* MirRay2_Init */
+void func_800002D8(void *arg0, s32 arg1);  /* MirRay2_Update */
 
 #endif

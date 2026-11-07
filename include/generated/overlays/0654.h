@@ -5,17 +5,17 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DmTag_FindActor */
 s32 func_800000B0(s32 arg0, s16 arg1);
 void func_8000012C(void *arg0, s32 arg1);
 void func_80000188(void *arg0, s32 arg1);
 void func_80000498(void *arg0, s32 arg1);
-void func_80000530(void *arg0, s32 arg1);
+void func_80000530(void *arg0, s32 arg1);  /* DmTag_GetMsgScript */
 void func_800005CC(void *arg0, s32 arg1);
 void func_8000065C(u8 *arg0, s32 arg1);
-void func_8000069C(s32 arg0, s32 arg1);
+void func_8000069C(s32 arg0, s32 arg1);  /* DmTag_DoNothing */
 void func_800006AC(void *arg0);
-void func_800006F0(s32 arg0, void *arg1);
-void func_800007F0(void *arg0, s32 arg1);
+void func_800006F0(s32 arg0, void *arg1);  /* DmTag_Init */
+void func_800007F0(void *arg0, s32 arg1);  /* DmTag_Update */
 
 #endif

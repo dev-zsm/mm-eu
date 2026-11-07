@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000084(void *arg0, s32 arg1);
-void func_80000164(u8 *arg0, s32 arg1);
+void func_80000084(void *arg0, s32 arg1);  /* ObjSound_Update */
+void func_80000164(u8 *arg0, s32 arg1);  /* ObjSound_Draw */
 
 #endif

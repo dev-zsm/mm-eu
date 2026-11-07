@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_8000000C(u8 *arg0, s32 arg1);
-void func_80000088(s32 arg0, s32 arg1);
-void func_800000AC(void *arg0, s32 arg1);
-void func_800001A0(void *arg0, void *arg1, s32 arg2);
-void func_800001F8(void *arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* ArrowIce_SetupAction */
+void func_8000000C(u8 *arg0, s32 arg1);  /* ArrowIce_Init */
+void func_80000088(s32 arg0, s32 arg1);  /* ArrowIce_Destroy */
+void func_800000AC(void *arg0, s32 arg1);  /* ArrowIce_Charge */
+void func_800001A0(void *arg0, void *arg1, s32 arg2);  /* ArrowIce_LerpFiredPosition */
+void func_800001F8(void *arg0, s32 arg1);  /* ArrowIce_Hit */
 void func_800003C4(void *arg0, s32 arg1);
 void func_80000518(u8 *arg0, u8 *arg1);
 void func_8000056C(void *arg0, void *arg1);

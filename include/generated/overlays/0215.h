@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_800000D8(s32 arg0, s32 arg1, void *arg2);
-void func_80000340(s32 arg0, s32 arg1, u8 *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsKFire_Init */
+void func_800000D8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsKFire_Draw */
+void func_80000340(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsKFire_Update */
 
 #endif

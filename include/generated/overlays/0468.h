@@ -11,15 +11,15 @@ void func_80000080(s32 arg0, void *arg1, s32 arg2);
 void func_8000020C(void *arg0);
 void func_80000334(void *arg0);
 void func_800003A8(void *arg0, void *arg1);
-void func_80000718(void *arg0, s32 arg1);
-void func_80000850(void *arg0, s32 arg1);
+void func_80000718(void *arg0, s32 arg1);  /* EnHanabi_Init */
+void func_80000850(void *arg0, s32 arg1);  /* EnHanabi_Destroy */
 void func_800008C8(void *arg0);
 void func_800009CC(s32 arg0, s32 arg1, s32 arg2);
 void func_80000AC8(void *arg0, s32 arg1);
 void func_80000C94(s32 arg0);
 void func_80000D10(u8 *arg0, s32 arg1);
 void func_80000D34(s32 arg0, void *arg1);
-void func_80000DFC(void *arg0);
-void func_80000E38(s32 arg0, s32 arg1);
+void func_80000DFC(void *arg0);  /* EnHanabi_Update */
+void func_80000E38(s32 arg0, s32 arg1);  /* EnHanabi_Draw */
 
 #endif

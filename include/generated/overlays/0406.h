@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);
-s32 func_80000084(s32 arg0);
-void func_800000B0(s32 arg0);
-void func_800000BC(void *arg0, s32 arg1);
-void func_8000012C(void *arg0, s32 arg1);
-u8 func_80000360(u8 *arg0);
-void func_8000036C(u8 *arg0, u32 arg1);
-void func_800003A4(s32 *arg0, s32 arg1);
-void func_800003B0(u8 *arg0, s32 arg1);
+void func_80000000(void *arg0);  /* TransitionWipe5_Start */
+s32 func_80000084(s32 arg0);  /* TransitionWipe5_Init */
+void func_800000B0(s32 arg0);  /* TransitionWipe5_Destroy */
+void func_800000BC(void *arg0, s32 arg1);  /* TransitionWipe5_Update */
+void func_8000012C(void *arg0, s32 arg1);  /* TransitionWipe5_Draw */
+u8 func_80000360(u8 *arg0);  /* TransitionWipe5_IsDone */
+void func_8000036C(u8 *arg0, u32 arg1);  /* TransitionWipe5_SetType */
+void func_800003A4(s32 *arg0, s32 arg1);  /* TransitionWipe5_SetColor */
+void func_800003B0(u8 *arg0, s32 arg1);  /* TransitionWipe5_SetEnvColor */
 
 #endif

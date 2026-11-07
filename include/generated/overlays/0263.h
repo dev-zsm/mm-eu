@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000028(s32 arg0, s32 arg1);
-void func_80000070(void *arg0, s32 arg1);
+void func_80000028(s32 arg0, s32 arg1);  /* EnBu_DoNothing */
+void func_80000070(void *arg0, s32 arg1);  /* EnBu_Draw */
 
 #endif

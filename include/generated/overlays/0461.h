@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjHakaisi_Init */
 void func_800002CC(u8 *arg0);
 void func_800002E0(void *arg0, s32 arg1);
 void func_80000390(u8 *arg0);
@@ -20,7 +20,7 @@ void func_800008A4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800009EC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000B78(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000DCC(void *arg0, s32 arg1, s32 arg2);
-void func_80000EE0(s32 arg0, s32 arg1);
+void func_80000EE0(s32 arg0, s32 arg1);  /* ObjHakaisi_Draw */
 void func_80001060(void *arg0, s32 arg1);
 void func_800010D4(s32 arg0, s32 arg1);
 void func_800010E4(void *arg0);

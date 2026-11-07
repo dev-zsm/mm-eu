@@ -10,7 +10,7 @@ void func_800000AC(void *arg0, s32 arg1);
 void func_80000180(void *arg0);
 void func_80000324(void *arg0);
 void func_80000388(void *arg0, s32 arg1, s32 arg2);
-void func_800006D8(void *arg0, s32 arg1);
+void func_800006D8(void *arg0, s32 arg1);  /* BgF40Block_Init */
 void func_8000082C(u8 *arg0, s32 arg1);
 void func_800008A8(void *arg0, s32 arg1);
 void func_800009C4(u8 *arg0, s32 arg1);

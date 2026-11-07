@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_800000D0(s32 arg0, s32 arg1, void *arg2);
-void func_800002BC(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsHitmark_Init */
+void func_800000D0(s32 arg0, s32 arg1, void *arg2);  /* EffectSsHitmark_Draw */
+void func_800002BC(s32 arg0, s32 arg1, void *arg2);  /* EffectSsHitmark_Update */
 
 #endif

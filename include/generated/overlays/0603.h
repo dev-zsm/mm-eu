@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800001B4(void *arg0, s32 arg1);
-void func_80000320(s32 arg0, s32 arg1);
-void func_80000384(u8 *arg0);
-void func_800003A0(void *arg0, s32 arg1);
-void func_80000518(u8 *arg0);
-void func_80000550(u8 *arg0, s32 arg1);
-void func_800005AC(u8 *arg0);
-void func_800005C8(void *arg0, s32 arg1);
-void func_80000680(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgIkanaDharma_SpawnEffects */
+void func_800001B4(void *arg0, s32 arg1);  /* BgIkanaDharma_Init */
+void func_80000320(s32 arg0, s32 arg1);  /* BgIkanaDharma_Destroy */
+void func_80000384(u8 *arg0);  /* BgIkanaDharma_SetupWaitForHit */
+void func_800003A0(void *arg0, s32 arg1);  /* BgIkanaDharma_WaitForHit */
+void func_80000518(u8 *arg0);  /* BgIkanaDharma_SetupStartCutscene */
+void func_80000550(u8 *arg0, s32 arg1);  /* BgIkanaDharma_StartCutscene */
+void func_800005AC(u8 *arg0);  /* BgIkanaDharma_SetupWaitForCutsceneToEnd */
+void func_800005C8(void *arg0, s32 arg1);  /* BgIkanaDharma_WaitForCutsceneToEnd */
+void func_80000680(void *arg0, s32 arg1);  /* BgIkanaDharma_Update */
 
 #endif

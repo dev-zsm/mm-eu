@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-void func_80000034(s32 arg0, s32 arg1);
-void func_800000B8(s32 arg0);
-void func_800000F8(s32 arg0, s32 arg1);
-void func_8000013C(s32 arg0, s16 arg1, s32 arg2);
-void func_80000188(void *arg0, s32 arg1);
-void func_80000490(void *arg0, s32 arg1);
-void func_80000500(s32 arg0, s32 arg1);
-void func_80000564(u8 *arg0);
-void func_80000578(u8 *arg0, s32 arg1);
-void func_800005C8(u8 *arg0);
-void func_800005DC(u8 *arg0, s32 arg1);
-void func_80000614(u8 *arg0);
-void func_80000648(void *arg0, s32 arg1);
-void func_8000079C(u8 *arg0);
-void func_800007B0(void *arg0, s32 arg1);
-void func_8000089C(u8 *arg0);
-void func_8000091C(void *arg0, s32 arg1);
-void func_80000CBC(void *arg0);
-void func_80000D1C(s32 arg0, s32 arg1);
+void func_80000034(s32 arg0, s32 arg1);  /* ObjGrassCarry_RandScaleVecToZero */
+void func_800000B8(s32 arg0);  /* ObjGrassCarry_UpdatePos */
+void func_800000F8(s32 arg0, s32 arg1);  /* ObjGrassCarry_UpdateBgCheckInfo */
+void func_8000013C(s32 arg0, s16 arg1, s32 arg2);  /* ObjGrassCarry_DropCollectible */
+void func_80000188(void *arg0, s32 arg1);  /* ObjGrassCarry_SpawnFragments */
+void func_80000490(void *arg0, s32 arg1);  /* ObjGrassCarry_Init */
+void func_80000500(s32 arg0, s32 arg1);  /* ObjGrassCarry_Destroy */
+void func_80000564(u8 *arg0);  /* ObjGrassCarry_SetupAwaitSpawnManager */
+void func_80000578(u8 *arg0, s32 arg1);  /* ObjGrassCarry_AwaitSpawnManager */
+void func_800005C8(u8 *arg0);  /* ObjGrassCarry_SetupIdle */
+void func_800005DC(u8 *arg0, s32 arg1);  /* ObjGrassCarry_Idle */
+void func_80000614(u8 *arg0);  /* ObjGrassCarry_Reset */
+void func_80000648(void *arg0, s32 arg1);  /* ObjGrassCarry_Main */
+void func_8000079C(u8 *arg0);  /* ObjGrassCarry_SetupLiftedUp */
+void func_800007B0(void *arg0, s32 arg1);  /* ObjGrassCarry_LiftedUp */
+void func_8000089C(u8 *arg0);  /* ObjGrassCarry_SetupFall */
+void func_8000091C(void *arg0, s32 arg1);  /* ObjGrassCarry_Fall */
+void func_80000CBC(void *arg0);  /* ObjGrassCarry_Update */
+void func_80000D1C(s32 arg0, s32 arg1);  /* ObjGrassCarry_Draw */
 
 #endif

@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);
-void func_80000174(void *arg0, void *arg1, s32 arg2);
-void func_800001D8(void *arg0, s32 arg1);
+void func_80000000(void *arg0, void *arg1);  /* EnDoorEtc_Init */
+void func_80000174(void *arg0, void *arg1, s32 arg2);  /* EnDoorEtc_IsDistanceGreater */
+void func_800001D8(void *arg0, s32 arg1);  /* EnDoorEtc_WaitForObject */
 void func_80000248(u8 *arg0, s32 arg1);
 void func_80000284(u8 *arg0, s32 arg1);
 void func_800002D0(void *arg0, s32 arg1);
 void func_80000484(void *arg0, void *arg1);
-void func_80000560(void *arg0, s32 arg1);
-void func_800005D8(s32 arg0, s32 arg1);
+void func_80000560(void *arg0, s32 arg1);  /* EnDoorEtc_Update */
+void func_800005D8(s32 arg0, s32 arg1);  /* EnDoorEtc_Draw */
 
 #endif

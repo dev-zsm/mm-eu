@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_8000013C(s32 arg0, s32 arg1);
-void func_80000184(void *arg0, s32 arg1);
-void func_800003D4(s32 arg0, s32 arg1);
-void func_80000428(u8 *arg0, s32 arg1);
-void func_80000538(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjJgameLight_Init */
+void func_8000013C(s32 arg0, s32 arg1);  /* ObjJgameLight_Destroy */
+void func_80000184(void *arg0, s32 arg1);  /* ObjJgameLight_UpdateFlame */
+void func_800003D4(s32 arg0, s32 arg1);  /* ObjJgameLight_UpdateCollision */
+void func_80000428(u8 *arg0, s32 arg1);  /* ObjJgameLight_UpdateSignal */
+void func_80000538(s32 arg0, s32 arg1);  /* ObjJgameLight_Draw */
 
 #endif

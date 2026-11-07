@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_8000033C(void *arg0, s32 arg1);
-void func_80000610(u8 *arg0, s32 arg1);
-void func_80000640(void *arg0, s32 arg1);
-void func_80000760(void *arg0, s32 arg1);
-void func_800008D4(void *arg0, void *arg1, void *arg2, void *arg3);
-void func_800009D0(void *arg0, s32 arg1);
-void func_80000B20(void *arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnEstone_Init */
+void func_8000033C(void *arg0, s32 arg1);  /* EnEstone_Active */
+void func_80000610(u8 *arg0, s32 arg1);  /* EnEstone_Inactive */
+void func_80000640(void *arg0, s32 arg1);  /* EnEstone_Update */
+void func_80000760(void *arg0, s32 arg1);  /* EnEstone_Draw */
+void func_800008D4(void *arg0, void *arg1, void *arg2, void *arg3);  /* EnEstone_SpawnEffect */
+void func_800009D0(void *arg0, s32 arg1);  /* EnEstone_UpdateEffects */
+void func_80000B20(void *arg0, void *arg1);  /* EnEstone_DrawEffects */
 
 #endif

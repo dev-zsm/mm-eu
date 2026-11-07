@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* BgBreakwall_SetupAction */
 s32 func_8000000C(s32 arg0, s32 arg1);
 s32 func_80000020(s32 arg0, s32 arg1);
 void func_80000064(s32 arg0, s32 arg1);
@@ -15,8 +15,8 @@ s32 func_80000100(u8 *arg0, s32 arg1);
 s32 func_80000148(s32 arg0, s32 arg1);
 s32 func_80000178(s32 arg0, s32 arg1);
 void func_800001BC(s32 arg0, s32 arg1);
-void func_80000250(void *arg0, s32 arg1);
-void func_8000031C(void *arg0, s32 arg1);
+void func_80000250(void *arg0, s32 arg1);  /* BgBreakwall_Init */
+void func_8000031C(void *arg0, s32 arg1);  /* BgBreakwall_Destroy */
 void func_8000036C(void *arg0, s32 arg1);
 void func_80000470(s32 arg0, s32 arg1);
 void func_80000480(u8 *arg0, s32 arg1);
@@ -28,6 +28,6 @@ void func_800006B0(u8 *arg0, s32 arg1);
 void func_80000730(s32 arg0, void *arg1);
 void func_800007F4(s32 arg0, s32 arg1);
 void func_800009D4(s32 arg0, s32 arg1);
-void func_80000C84(void *arg0, void *arg1);
+void func_80000C84(void *arg0, void *arg1);  /* BgBreakwall_Draw */
 
 #endif

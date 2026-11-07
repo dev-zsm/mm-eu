@@ -5,26 +5,26 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);
-void func_800004D8(s32 arg0);
-void func_80000504(void);
-void func_80000524(s32 arg0, s32 arg1);
-void func_800005F0(u8 *arg0);
-void func_80000604(s32 arg0, s32 arg1, void *arg2);
-void func_80000890(s32 arg0, void *arg1, void *arg2);
-void func_80000BF4(u8 *arg0, s32 arg1);
-void func_80000C00(void *arg0, s32 arg1);
-void func_80000D6C(void *arg0, s32 arg1);
-void func_80000E3C(s32 arg0, s32 arg1);
-void func_80000F60(u8 *arg0, s32 arg1);
-void func_80000FC0(s32 arg0, void *arg1);
-void func_80001030(void *arg0, void *arg1);
-void func_80001998(void *arg0, void *arg1);
-void func_800019E8(s32 arg0, void *arg1);
-void func_80001A58(void *arg0, void *arg1);
-void func_80002220(void *arg0, void *arg1);
-void func_80002B68(void *arg0, void *arg1);
-void func_80002F6C(void *arg0, void *arg1);
-void func_800032B8(void *arg0, void *arg1);
+void func_80000000(void *arg0, void *arg1);  /* EnTest6_SetupCutscene */
+void func_800004D8(s32 arg0);  /* EnTest6_EnableMotionBlur */
+void func_80000504(void);  /* EnTest6_DisableMotionBlur */
+void func_80000524(s32 arg0, s32 arg1);  /* EnTest6_EnableWhiteFillScreen */
+void func_800005F0(u8 *arg0);  /* EnTest6_DisableWhiteFillScreen */
+void func_80000604(s32 arg0, s32 arg1, void *arg2);  /* EnTest6_DrawAmmoDropDefault */
+void func_80000890(s32 arg0, void *arg1, void *arg2);  /* EnTest6_DrawAmmoDropRupee */
+void func_80000BF4(u8 *arg0, s32 arg1);  /* EnTest6_SetupAction */
+void func_80000C00(void *arg0, s32 arg1);  /* EnTest6_Init */
+void func_80000D6C(void *arg0, s32 arg1);  /* EnTest6_Destroy */
+void func_80000E3C(s32 arg0, s32 arg1);  /* EnTest6_StartCutscene */
+void func_80000F60(u8 *arg0, s32 arg1);  /* EnTest6_SetupInvertedSoTCutscene */
+void func_80000FC0(s32 arg0, void *arg1);  /* EnTest6_StopInvertedSoTCutscene */
+void func_80001030(void *arg0, void *arg1);  /* EnTest6_InvertedSoTCutscene */
+void func_80001998(void *arg0, void *arg1);  /* EnTest6_SetupDoubleSoTCutscene */
+void func_800019E8(s32 arg0, void *arg1);  /* EnTest6_StopDoubleSoTCutscene */
+void func_80001A58(void *arg0, void *arg1);  /* EnTest6_DoubleSoTCutscene */
+void func_80002220(void *arg0, void *arg1);  /* EnTest6_SharedSoTCutscene */
+void func_80002B68(void *arg0, void *arg1);  /* EnTest6_DrawThreeDayResetSoTCutscene */
+void func_80002F6C(void *arg0, void *arg1);  /* EnTest6_DrawDoubleSoTCutscene */
+void func_800032B8(void *arg0, void *arg1);  /* EnTest6_DrawInvertedSoTCutscene */
 
 #endif

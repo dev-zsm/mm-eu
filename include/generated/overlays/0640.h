@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, s32 arg3);
-void func_8000014C(void *arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* BgLastBwall_InitCollider */
+void func_8000014C(void *arg0, s32 arg1);  /* BgLastBwall_Init */
 void func_800002AC(void *arg0, s32 arg1);
 void func_800005A4(u8 *arg0);
 void func_800005B8(void *arg0, s32 arg1);
 void func_8000062C(u8 *arg0, s32 arg1);
 void func_80000684(u8 *arg0, s32 arg1);
-void func_800006E8(s32 arg0, s32 arg1);
-void func_8000071C(void *arg0, s32 arg1);
+void func_800006E8(s32 arg0, s32 arg1);  /* BgLastBwall_DoNothing */
+void func_8000071C(void *arg0, s32 arg1);  /* BgLastBwall_Draw */
 
 #endif

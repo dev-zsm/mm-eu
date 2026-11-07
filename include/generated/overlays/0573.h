@@ -7,7 +7,7 @@
 
 void func_80000000(void *arg0, s32 arg1);
 void func_800002F4(void *arg0, s32 arg1);
-void func_800005D4(void *arg0, s32 arg1);
+void func_800005D4(void *arg0, s32 arg1);  /* BgIkanaBombwall_Init */
 s32 func_80000724(u8 *arg0);
 s32 func_8000078C(u8 *arg0);
 void func_800007F8(u8 *arg0);
@@ -18,6 +18,6 @@ void func_800008D8(u8 *arg0);
 void func_8000091C(void *arg0, s32 arg1);
 void func_800009F8(u8 *arg0);
 void func_80000A14(void *arg0, s32 arg1);
-void func_80000AE0(void *arg0, s32 arg1);
+void func_80000AE0(void *arg0, s32 arg1);  /* BgIkanaBombwall_Draw */
 
 #endif

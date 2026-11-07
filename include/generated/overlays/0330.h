@@ -5,21 +5,21 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-s32 func_800002EC(u8 *arg0);
-void func_80000330(void *arg0, s32 arg1);
-void func_80000390(void *arg0);
-void func_800003F4(s32 a0, s32 a1);
-void func_80000418(u8 *arg0);
-void func_8000044C(void *arg0, s32 arg1);
-void func_800007C0(u8 *arg0);
-void func_80000808(void *arg0, s32 arg1);
-void func_80000A80(void *arg0, s32 arg1);
-void func_80000C34(void *arg0, s32 arg1);
-void func_80000DB4(void *arg0);
-void func_80000E3C(s32 arg0, s32 arg1);
-void func_80000EF8(void *arg0, s32 arg1);
-void func_80000FD8(void *arg0, s32 arg1);
-void func_80001338(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnBat_Init */
+s32 func_800002EC(u8 *arg0);  /* EnBat_IsGraveyardOnSecondDay */
+void func_80000330(void *arg0, s32 arg1);  /* EnBat_StepAnimation */
+void func_80000390(void *arg0);  /* EnBat_SetupPerch */
+void func_800003F4(s32 a0, s32 a1);  /* EnBat_Perch */
+void func_80000418(u8 *arg0);  /* EnBat_SetupFlyIdle */
+void func_8000044C(void *arg0, s32 arg1);  /* EnBat_FlyIdle */
+void func_800007C0(u8 *arg0);  /* EnBat_SetupDiveAttack */
+void func_80000808(void *arg0, s32 arg1);  /* EnBat_DiveAttack */
+void func_80000A80(void *arg0, s32 arg1);  /* EnBat_SetupDie */
+void func_80000C34(void *arg0, s32 arg1);  /* EnBat_Die */
+void func_80000DB4(void *arg0);  /* EnBat_SetupStunned */
+void func_80000E3C(s32 arg0, s32 arg1);  /* EnBat_Stunned */
+void func_80000EF8(void *arg0, s32 arg1);  /* EnBat_UpdateDamage */
+void func_80000FD8(void *arg0, s32 arg1);  /* EnBat_Update */
+void func_80001338(void *arg0, s32 arg1);  /* EnBat_Draw */
 
 #endif

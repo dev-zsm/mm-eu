@@ -5,50 +5,50 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-s32 func_8000003C(u8 *arg0, u8 *arg1);
-s32 func_800000B8(u8 *arg0, u8 *arg1, f32 *arg2, f32 *arg3);
-void func_8000014C(s32 arg0, s32 arg1);
-void func_800001B4(s32 arg0, s32 arg1);
-s32 func_8000023C(u8 *arg0);
-void func_8000029C(void *arg0, s32 arg1, s32 arg2);
-void func_80000374(void *arg0, s32 arg1);
-void func_80000470(s32 arg0);
-void func_8000047C(u8 *arg0);
-void func_800004B4(s32 arg0);
-void func_80000544(s32 arg0, s32 arg1, s32 arg2);
-void func_80000648(u8 *arg0);
-void func_80000698(void *arg0, s32 arg1);
-void func_800007D4(u8 *arg0, s32 arg1);
-void func_80000830(void *arg0);
-void func_800008D4(void *arg0);
-void func_80000944(void *arg0);
-void func_800009AC(void *arg0, s32 arg1);
-void func_80000BA0(u8 *arg0, s32 arg1);
-void func_80000C1C(void *arg0);
-void func_80000CAC(void *arg0, s32 arg1);
-void func_80000E2C(void *arg0);
-void func_800016D8(void *arg0);
-void func_80001A58(s32 arg0);
-void func_80001A8C(void *arg0, s32 arg1);
-void func_80001DB4(u8 *arg0);
-void func_80001DC8(s32 arg0, s32 arg1);
-void func_80001DF8(void *arg0, s32 arg1);
-void func_80002044(void *arg0);
-void func_80002088(void *arg0, s32 arg1);
-void func_800020EC(u8 *arg0);
-void func_80002100(void *arg0, s32 arg1);
-void func_800028A4(u8 *arg0);
-void func_800028B8(s32 arg0, s32 arg1);
-void func_80002944(u8 *arg0);
-void func_80002958(void *arg0, s32 arg1);
-void func_80002B1C(u8 *arg0);
-void func_80002B30(s32 arg0, s32 arg1);
-void func_80002BBC(void *arg0, s32 arg1);
-void func_80002CAC(u8 *arg0);
-void func_80002CD0(void *arg0, s32 arg1);
-void func_80002DEC(s32 arg0, void *arg1);
-void func_80002EB8(void *arg0, void *arg1);
-void func_80003168(void *arg0, void *arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* ObjMine_Path_MoveToWaypoint */
+s32 func_8000003C(u8 *arg0, u8 *arg1);  /* ObjMine_GetUnitVec3f */
+s32 func_800000B8(u8 *arg0, u8 *arg1, f32 *arg2, f32 *arg3);  /* ObjMine_GetUnitVec3fNorm */
+void func_8000014C(s32 arg0, s32 arg1);  /* ObjMine_Path_SpawnBomb */
+void func_800001B4(s32 arg0, s32 arg1);  /* ObjMine_AirWater_SpawnBomb */
+s32 func_8000023C(u8 *arg0);  /* ObjMine_AirWater_CheckOC */
+void func_8000029C(void *arg0, s32 arg1, s32 arg2);  /* ObjMine_Air_CheckAC */
+void func_80000374(void *arg0, s32 arg1);  /* ObjMine_Water_CheckAC */
+void func_80000470(s32 arg0);  /* ObjMine_AirWater_Noop */
+void func_8000047C(u8 *arg0);  /* ObjMine_SetMatrixTranslation */
+void func_800004B4(s32 arg0);  /* ObjMine_SetMatrixRotation */
+void func_80000544(s32 arg0, s32 arg1, s32 arg2);  /* ObjMine_StepUntilParallel */
+void func_80000648(u8 *arg0);  /* ObjMine_UpdateCollider */
+void func_80000698(void *arg0, s32 arg1);  /* ObjMine_Air_InitChain */
+void func_800007D4(u8 *arg0, s32 arg1);  /* ObjMine_Air_InitCollider */
+void func_80000830(void *arg0);  /* ObjMine_Air_SetBasis */
+void func_800008D4(void *arg0);  /* ObjMine_Air_SetWorld */
+void func_80000944(void *arg0);  /* ObjMine_Air_SetChainXZ */
+void func_800009AC(void *arg0, s32 arg1);  /* ObjMine_Water_InitChain */
+void func_80000BA0(u8 *arg0, s32 arg1);  /* ObjMine_Water_InitCollider */
+void func_80000C1C(void *arg0);  /* ObjMine_Water_SetWorld */
+void func_80000CAC(void *arg0, s32 arg1);  /* ObjMine_Water_WallCheck */
+void func_80000E2C(void *arg0);  /* ObjMine_Water_ApplyForces */
+void func_800016D8(void *arg0);  /* ObjMine_Water_UpdateLinks */
+void func_80001A58(s32 arg0);  /* ObjMine_Water_UpdateChain */
+void func_80001A8C(void *arg0, s32 arg1);  /* ObjMine_Init */
+void func_80001DB4(u8 *arg0);  /* ObjMine_Path_SetupStationary */
+void func_80001DC8(s32 arg0, s32 arg1);  /* ObjMine_Path_Stationary */
+void func_80001DF8(void *arg0, s32 arg1);  /* ObjMine_Path_Move */
+void func_80002044(void *arg0);  /* ObjMine_SetupExplode */
+void func_80002088(void *arg0, s32 arg1);  /* ObjMine_Explode */
+void func_800020EC(u8 *arg0);  /* ObjMine_Air_SetupChained */
+void func_80002100(void *arg0, s32 arg1);  /* ObjMine_Air_Chained */
+void func_800028A4(u8 *arg0);  /* ObjMine_Air_SetupStationary */
+void func_800028B8(s32 arg0, s32 arg1);  /* ObjMine_Air_Stationary */
+void func_80002944(u8 *arg0);  /* ObjMine_Water_SetupChained */
+void func_80002958(void *arg0, s32 arg1);  /* ObjMine_Water_Chained */
+void func_80002B1C(u8 *arg0);  /* ObjMine_Water_SetupStationary */
+void func_80002B30(s32 arg0, s32 arg1);  /* ObjMine_Water_Stationary */
+void func_80002BBC(void *arg0, s32 arg1);  /* ObjMine_Path_Update */
+void func_80002CAC(u8 *arg0);  /* ObjMine_AirWater_Update */
+void func_80002CD0(void *arg0, s32 arg1);  /* ObjMine_Path_Draw */
+void func_80002DEC(s32 arg0, void *arg1);  /* ObjMine_DrawExplosion */
+void func_80002EB8(void *arg0, void *arg1);  /* ObjMine_Air_Draw */
+void func_80003168(void *arg0, void *arg1);  /* ObjMine_Water_Draw */
 
 #endif

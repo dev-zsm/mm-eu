@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-s32 func_80000000(u8 *arg0, s32 arg1);
-void func_8000006C(void *arg0);
-void func_80000250(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_800002CC(void *arg0, s32 arg1);
-void func_800004AC(s32 arg0, s32 arg1);
-void func_80000514(u8 *arg0);
-void func_80000528(s32 arg0, s32 arg1);
-void func_80000538(u8 *arg0);
-void func_8000054C(void *arg0, s32 arg1);
-void func_800005E8(u8 *arg0);
-void func_80000600(void *arg0, s32 arg1);
-void func_800006D8(u8 *arg0);
-void func_800006F0(void *arg0, s32 arg1);
-void func_800007CC(u8 *arg0);
-void func_800007E0(void *arg0, s32 arg1);
-void func_80000908(u8 *arg0);
-void func_8000091C(void *arg0, s32 arg1);
-void func_8000096C(void *arg0, s32 arg1);
-void func_80000A68(s32 arg0, void *arg1);
+s32 func_80000000(u8 *arg0, s32 arg1);  /* BgNumaHana_SpawnOpenFlowerCollisionChild */
+void func_8000006C(void *arg0);  /* BgNumaHana_UpdatePetalPosRots */
+void func_80000250(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* BgNumaHana_UpdateSettleRotation */
+void func_800002CC(void *arg0, s32 arg1);  /* BgNumaHana_Init */
+void func_800004AC(s32 arg0, s32 arg1);  /* BgNumaHana_Destroy */
+void func_80000514(u8 *arg0);  /* BgNumaHana_SetupDoNothing */
+void func_80000528(s32 arg0, s32 arg1);  /* BgNumaHana_DoNothing */
+void func_80000538(u8 *arg0);  /* BgNumaHana_SetupClosedIdle */
+void func_8000054C(void *arg0, s32 arg1);  /* BgNumaHana_ClosedIdle */
+void func_800005E8(u8 *arg0);  /* BgNumaHana_SetupUnfoldInnerPetals */
+void func_80000600(void *arg0, s32 arg1);  /* BgNumaHana_UnfoldInnerPetals */
+void func_800006D8(u8 *arg0);  /* BgNumaHana_SetupUnfoldOuterPetals */
+void func_800006F0(void *arg0, s32 arg1);  /* BgNumaHana_UnfoldOuterPetals */
+void func_800007CC(u8 *arg0);  /* BgNumaHana_SetupRaiseFlower */
+void func_800007E0(void *arg0, s32 arg1);  /* BgNumaHana_RaiseFlower */
+void func_80000908(u8 *arg0);  /* BgNumaHana_SetupOpenedIdle */
+void func_8000091C(void *arg0, s32 arg1);  /* BgNumaHana_OpenedIdle */
+void func_8000096C(void *arg0, s32 arg1);  /* BgNumaHana_Update */
+void func_80000A68(s32 arg0, void *arg1);  /* BgNumaHana_Draw */
 
 #endif

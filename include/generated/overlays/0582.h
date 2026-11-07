@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000D0(u8 *arg0, s32 arg1);
-void func_800000E8(void *arg0, s32 arg1);
-void func_8000013C(u8 *arg0, s32 arg1);
-void func_8000019C(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjHsStump_Init */
+void func_800000D0(u8 *arg0, s32 arg1);  /* ObjHsStump_SetupIdle */
+void func_800000E8(void *arg0, s32 arg1);  /* ObjHsStump_Idle */
+void func_8000013C(u8 *arg0, s32 arg1);  /* ObjHsStump_SetupAppear */
+void func_8000019C(s32 arg0, s32 arg1);  /* ObjHsStump_Appear */
 
 #endif

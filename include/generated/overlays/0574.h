@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_800000D8(u8 *arg0);
-void func_800000FC(u8 *arg0, s32 arg1);
-void func_80000140(u8 *arg0);
-void func_80000170(s32 arg0, s32 arg1);
+void func_800000D8(u8 *arg0);  /* BgIkanaRay_SetDeactivated */
+void func_800000FC(u8 *arg0, s32 arg1);  /* BgIkanaRay_UpdateCheckForActivation */
+void func_80000140(u8 *arg0);  /* BgIkanaRay_SetActivated */
+void func_80000170(s32 arg0, s32 arg1);  /* BgIkanaRay_UpdateActivated */
 
 #endif

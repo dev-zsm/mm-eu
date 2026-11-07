@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000090(void *arg0, s32 arg1);
-void func_800001D4(void *arg0);
-void func_80000268(void *arg0, void *arg1);
-void func_800004D8(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjBoat_GetNextPoint */
+void func_80000090(void *arg0, s32 arg1);  /* ObjBoat_Init */
+void func_800001D4(void *arg0);  /* ObjBoat_SetRotations */
+void func_80000268(void *arg0, void *arg1);  /* ObjBoat_Update */
+void func_800004D8(void *arg0, s32 arg1);  /* ObjBoat_UpdateCutscene */
 
 #endif

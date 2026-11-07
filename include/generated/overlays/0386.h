@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_8000000C(void *arg0, s32 arg1);
-void func_800000FC(s32 arg0, s32 arg1);
-void func_80000130(s32 arg0, s32 arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* DmChar07_SetupAction */
+void func_8000000C(void *arg0, s32 arg1);  /* DmChar07_Init */
+void func_800000FC(s32 arg0, s32 arg1);  /* DmChar07_DoNothing */
+void func_80000130(s32 arg0, s32 arg1);  /* DmChar07_Draw */
 
 #endif

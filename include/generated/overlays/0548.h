@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000B0(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ObjYasi_Init */
+void func_800000B0(void *arg0, s32 arg1);  /* ObjYasi_Update */
 
 #endif

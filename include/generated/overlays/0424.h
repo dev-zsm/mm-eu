@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1, void *arg2);
-void func_800000BC(s32 arg0, s32 arg1);
-void func_80000118(s32 arg0, s32 arg1, s32 arg2);
-void func_80000248(s32 arg0, s32 arg1);
-void func_8000059C(void *arg0, s32 arg1);
-void func_8000082C(s32 arg0, s32 arg1);
-void func_800008C4(s32 arg0, void *arg1);
-void func_80000D50(void *arg0, s32 arg1);
-void func_80000DB8(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, void *arg1, void *arg2);  /* ObjTakarayaWall_PosToCell */
+void func_800000BC(s32 arg0, s32 arg1);  /* ObjTakarayaWall_IsCellOpen */
+void func_80000118(s32 arg0, s32 arg1, s32 arg2);  /* ObjTakarayaWall_CanCarvePath */
+void func_80000248(s32 arg0, s32 arg1);  /* ObjTakarayaWall_CarvePath */
+void func_8000059C(void *arg0, s32 arg1);  /* ObjTakarayaWall_Init */
+void func_8000082C(s32 arg0, s32 arg1);  /* ObjTakarayaWall_Destroy */
+void func_800008C4(s32 arg0, void *arg1);  /* ObjTakarayaWall_Manage */
+void func_80000D50(void *arg0, s32 arg1);  /* ObjTakarayaWall_Update */
+void func_80000DB8(s32 arg0, s32 arg1);  /* ObjTakarayaWall_Draw */
 
 #endif

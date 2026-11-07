@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000164(void *arg0, s32 arg1);
-void func_800001D4(void *arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1);  /* ItemBHeart_Init */
+void func_80000164(void *arg0, s32 arg1);  /* ItemBHeart_UpdateModel */
+void func_800001D4(void *arg0, void *arg1);  /* ItemBHeart_Draw */
 
 #endif

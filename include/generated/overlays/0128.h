@@ -5,18 +5,18 @@
 
 #include "types.h"
 
-void func_80000120(void *arg0, void *arg1, s32 arg2);
-void func_80000334(void *arg0);
-void func_800003B8(void *arg0, void *arg1);
-void func_80000494(s32 arg0);
-void func_80000524(void *arg0);
-void func_800005D4(void *arg0, s32 arg1);
-void func_800009C4(void *arg0, s32 arg1);
-void func_80000AF0(u8 *arg0, s32 arg1);
-void func_80000B20(void *arg0, void *arg1, void *arg2);
-void func_80000BD0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000CDC(void *arg0, s32 arg1);
-void func_80000F08(void *arg0, s32 arg1);
-void func_80001264(void *arg0, s32 arg1);
+void func_80000120(void *arg0, void *arg1, s32 arg2);  /* EnBomChu_UpdateFloorPoly */
+void func_80000334(void *arg0);  /* EnBomChu_UpdateRotation */
+void func_800003B8(void *arg0, void *arg1);  /* EnBomChu_WaitForRelease */
+void func_80000494(s32 arg0);  /* EnBomChu_IsOnCollisionPoly */
+void func_80000524(void *arg0);  /* EnBomChu_SetupMove */
+void func_800005D4(void *arg0, s32 arg1);  /* EnBomChu_Move */
+void func_800009C4(void *arg0, s32 arg1);  /* EnBomChu_Explode */
+void func_80000AF0(u8 *arg0, s32 arg1);  /* EnBomChu_WaitForDeath */
+void func_80000B20(void *arg0, void *arg1, void *arg2);  /* EnBomChu_ActorCoordsToWorld */
+void func_80000BD0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnBomChu_SpawnRipplesAndSplashes */
+void func_80000CDC(void *arg0, s32 arg1);  /* EnBomChu_HandleNonSceneCollision */
+void func_80000F08(void *arg0, s32 arg1);  /* EnBomChu_Update */
+void func_80001264(void *arg0, s32 arg1);  /* EnBomChu_Draw */
 
 #endif

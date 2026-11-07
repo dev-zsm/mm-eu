@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_8000005C(u8 *arg0);
-void func_80000070(s32 arg0, s32 arg1);
-void func_80000080(void *arg0);
-void func_800000A4(void *arg0, s32 arg1);
-void func_80000158(s32 arg0);
-void func_800001BC(s32 arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* ObjHariko_Init */
+void func_8000005C(u8 *arg0);  /* ObjHariko_SetupWait */
+void func_80000070(s32 arg0, s32 arg1);  /* ObjHariko_Wait */
+void func_80000080(void *arg0);  /* ObjHariko_SetupBobHead */
+void func_800000A4(void *arg0, s32 arg1);  /* ObjHariko_BobHead */
+void func_80000158(s32 arg0);  /* ObjHariko_CheckForQuakes */
+void func_800001BC(s32 arg0, s32 arg1);  /* ObjHariko_Draw */
 
 #endif

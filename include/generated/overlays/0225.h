@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_800000E8(s32 arg0, s32 arg1, void *arg2);
-void func_800003B8(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsDeadDs_Init */
+void func_800000E8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDeadDs_Draw */
+void func_800003B8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDeadDs_Update */
 
 #endif

@@ -7,9 +7,9 @@
 
 void func_80000000(void *arg0, void *arg1, s32 arg2);
 void func_80000168(void *arg0, void *arg1, void *arg2, s32 arg3);
-void func_800002F4(void *arg0, s32 arg1);
-void func_80000558(void *arg0, void *arg1);
-void func_80000C80(void *arg0, void *arg1);
+void func_800002F4(void *arg0, s32 arg1);  /* EnWaterEffect_Init */
+void func_80000558(void *arg0, void *arg1);  /* EnWaterEffect_Update */
+void func_80000C80(void *arg0, void *arg1);  /* EnWaterEffect_Draw */
 void func_80001248(void *arg0, void *arg1, s32 arg2);
 void func_80001464(void *arg0, void *arg1);
 void func_800019E4(void *arg0, void *arg1);

@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* DayTelop_Update */
 void func_80000138(s32 arg0);
-void func_80000848(void *arg0);
-void func_800008E0(s32 a);
-void func_80000904(s32 arg0);
+void func_80000848(void *arg0);  /* DayTelop_Main */
+void func_800008E0(s32 a);  /* DayTelop_Destroy */
+void func_80000904(s32 arg0);  /* DayTelop_Noop */
 void func_80000910(void *arg0);
-void func_80000AB0(u8 *arg0);
+void func_80000AB0(u8 *arg0);  /* DayTelop_Init */
 
 #endif

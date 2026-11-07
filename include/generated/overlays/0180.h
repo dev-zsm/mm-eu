@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);
-void func_8000000C(void *arg0, s32 arg1);
-void func_80000084(void *arg0, void *arg1, void *arg2, s32 arg3);
-void func_800001A4(void *arg0, s32 arg1);
-void func_8000032C(s32 arg0, s32 arg1);
-void func_800003B4(s32 arg0, void *arg1);
+void func_80000000(u8 *arg0, s32 arg1);  /* EnStream_SetupAction */
+void func_8000000C(void *arg0, s32 arg1);  /* EnStream_Init */
+void func_80000084(void *arg0, void *arg1, void *arg2, s32 arg3);  /* EnStream_PlayerIsInRange */
+void func_800001A4(void *arg0, s32 arg1);  /* EnStream_SuckPlayer */
+void func_8000032C(s32 arg0, s32 arg1);  /* EnStream_WaitForPlayer */
+void func_800003B4(s32 arg0, void *arg1);  /* EnStream_Draw */
 
 #endif

@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* EffKamejimaWave_Init */
 void func_800000A0(void *arg0, s32 arg1);
 void func_8000014C(void *arg0, s32 arg1);
 void func_80000214(void *arg0, s32 arg1);
 void func_800002C0(void *arg0, s32 arg1);
-void func_8000039C(s32 arg0);
-void func_800003EC(s32 arg0, s32 arg1);
+void func_8000039C(s32 arg0);  /* EffKamejimaWave_SetVtxAlpha */
+void func_800003EC(s32 arg0, s32 arg1);  /* EffKamejimaWave_Draw */
 
 #endif

@@ -9,9 +9,9 @@ s32 func_80000000(u8 *arg0);
 void func_8000006C(void *arg0, s32 arg1);
 void func_80000460(u8 *arg0);
 void func_80000474(s32 arg0, s32 arg1);
-void func_800004D0(u8 *arg0);
-void func_80000514(void *arg0, s32 arg1);
-void func_800005B4(u8 *arg0);
-void func_800005D0(u8 *arg0, s32 arg1);
+void func_800004D0(u8 *arg0);  /* BgHakaBombwall_SetupPlayCutscene */
+void func_80000514(void *arg0, s32 arg1);  /* BgHakaBombwall_PlayCutscene */
+void func_800005B4(u8 *arg0);  /* BgHakaBombwall_SetupEndCutscene */
+void func_800005D0(u8 *arg0, s32 arg1);  /* BgHakaBombwall_EndCutscene */
 
 #endif

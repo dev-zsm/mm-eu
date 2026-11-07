@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000374(void *arg0, s32 arg1);
-void func_8000047C(u8 *arg0);
-void func_80000490(void *arg0, s32 arg1);
-void func_80000504(u8 *arg0);
-void func_80000518(void *arg0, s32 arg1);
-void func_800005B0(u8 *arg0);
-void func_800005C4(u8 *arg0, s32 arg1);
-void func_80000644(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgDkjailIvy_IvyCutEffects */
+void func_80000374(void *arg0, s32 arg1);  /* BgDkjailIvy_Init */
+void func_8000047C(u8 *arg0);  /* BgDkjailIvy_SetupWaitForCut */
+void func_80000490(void *arg0, s32 arg1);  /* BgDkjailIvy_WaitForCut */
+void func_80000504(u8 *arg0);  /* BgDkjailIvy_SetupCutscene */
+void func_80000518(void *arg0, s32 arg1);  /* BgDkjailIvy_BeginCutscene */
+void func_800005B0(u8 *arg0);  /* BgDkjailIvy_SetupFadeOut */
+void func_800005C4(u8 *arg0, s32 arg1);  /* BgDkjailIvy_FadeOut */
+void func_80000644(s32 arg0, s32 arg1);  /* BgDkjailIvy_Draw */
 
 #endif

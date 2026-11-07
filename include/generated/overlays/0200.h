@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_8000012C(s32 arg0, s32 arg1, void *arg2);
-void func_80000298(s32 arg0, s32 arg1, u8 *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsBlast_Init */
+void func_8000012C(s32 arg0, s32 arg1, void *arg2);  /* EffectSsBlast_Draw */
+void func_80000298(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsBlast_Update */
 
 #endif

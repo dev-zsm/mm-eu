@@ -5,17 +5,17 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);
-void func_80000050(s32 arg0, s32 arg1, s32 arg2);
-void func_800000C0(s32 arg0, s32 arg1);
-void func_80000118(void *arg0, s32 arg1);
-void func_8000016C(s32 arg0);
-void func_80000228(void *arg0, s32 arg1);
-void func_800005D0(s32 arg0, void *arg1);
-void func_80000760(void *arg0, s32 arg1);
-void func_800008D8(void *arg0, s32 arg1);
-void func_800009D0(s32 arg0, s32 arg1);
-void func_80000A40(void *arg0, void *arg1);
-void func_80000A9C(void *arg0, s32 arg1);
+void func_80000000(void *arg0);  /* EnHoll_SetupAction */
+void func_80000050(s32 arg0, s32 arg1, s32 arg2);  /* EnHoll_SetPlayerSide */
+void func_800000C0(s32 arg0, s32 arg1);  /* EnHoll_Init */
+void func_80000118(void *arg0, s32 arg1);  /* EnHoll_Destroy */
+void func_8000016C(s32 arg0);  /* EnHoll_ChangeRooms */
+void func_80000228(void *arg0, s32 arg1);  /* EnHoll_VisibleIdle */
+void func_800005D0(s32 arg0, void *arg1);  /* EnHoll_TransparentIdle */
+void func_80000760(void *arg0, s32 arg1);  /* EnHoll_VerticalBgCoverIdle */
+void func_800008D8(void *arg0, s32 arg1);  /* EnHoll_VerticalIdle */
+void func_800009D0(s32 arg0, s32 arg1);  /* EnHoll_RoomTransitionIdle */
+void func_80000A40(void *arg0, void *arg1);  /* EnHoll_Update */
+void func_80000A9C(void *arg0, s32 arg1);  /* EnHoll_Draw */
 
 #endif

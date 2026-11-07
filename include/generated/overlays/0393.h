@@ -9,12 +9,12 @@ void func_80000000(void *arg0, s32 arg1);
 void func_80000320(void *arg0, s32 arg1);
 void func_800005CC(void *arg0, s32 arg1);
 void func_8000083C(void *arg0, s32 arg1);
-void func_80000A40(void *arg0, s32 arg1);
+void func_80000A40(void *arg0, s32 arg1);  /* BgHakuginBombwall_Init */
 void func_80000B9C(void *arg0, s32 arg1);
 void func_80000C40(void *arg0, s32 arg1);
 void func_80000D24(void *arg0, s32 arg1);
 void func_80000DD8(void *arg0, s32 arg1);
 void func_80000EA0(void *arg0);
-void func_80000F4C(void *arg0, s32 arg1);
+void func_80000F4C(void *arg0, s32 arg1);  /* BgHakuginBombwall_Draw */
 
 #endif

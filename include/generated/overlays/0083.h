@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_8000008C(u8 *arg0, s32 arg1);
-void func_80000100(void *arg0, s32 arg1);
-void func_80000278(u8 *arg0, s32 arg1);
-void func_800002A8(u8 *arg0, s32 arg1);
-void func_80000308(s32 arg0, void *arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* EnTorch2_Init */
+void func_8000008C(u8 *arg0, s32 arg1);  /* EnTorch2_Destroy */
+void func_80000100(void *arg0, s32 arg1);  /* EnTorch2_Update */
+void func_80000278(u8 *arg0, s32 arg1);  /* EnTorch2_UpdateIdle */
+void func_800002A8(u8 *arg0, s32 arg1);  /* EnTorch2_UpdateDeath */
+void func_80000308(s32 arg0, void *arg1);  /* EnTorch2_Draw */
 
 #endif

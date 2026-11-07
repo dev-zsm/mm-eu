@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);
-void func_800002A8(void *arg0, s32 arg1);
-void func_80000724(void *arg0, s32 arg1);
-void func_80000808(void *arg0, s32 arg1);
-void func_80000BF8(void *arg0, void *arg1);
-void func_80001544(void *arg0, s32 arg1);
+void func_80000000(void *arg0, void *arg1);  /* EnBom_Init */
+void func_800002A8(void *arg0, s32 arg1);  /* EnBom_Move */
+void func_80000724(void *arg0, s32 arg1);  /* EnBom_WaitForRelease */
+void func_80000808(void *arg0, s32 arg1);  /* EnBom_Explode */
+void func_80000BF8(void *arg0, void *arg1);  /* EnBom_Update */
+void func_80001544(void *arg0, s32 arg1);  /* EnBom_Draw */
 void func_80001898(s32 arg0, s32 arg1);
 void func_8000192C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80001E10(void *arg0, s32 arg1);
+void func_80001E10(void *arg0, s32 arg1);  /* EnBom_DrawKeg */
 
 #endif

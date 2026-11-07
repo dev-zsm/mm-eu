@@ -18,7 +18,7 @@ void func_80000F54(s32 arg0, s32 arg1);
 void func_800011D8(u8 *arg0, u8 *arg1);
 void func_80001290(void *arg0, s32 arg1);
 void func_800013C4(void *arg0);
-void func_80001418(void *arg0, s32 arg1);
+void func_80001418(void *arg0, s32 arg1);  /* BgIkanaRotaryroom_Init */
 void func_800015D4(u8 *arg0);
 void func_800015E8(void *arg0, s32 arg1);
 void func_80001698(u8 *arg0);
@@ -31,7 +31,7 @@ void func_800018A4(u8 *arg0);
 void func_800018C0(void *arg0, s32 arg1);
 void func_80001ACC(u8 *arg0);
 void func_80001AE8(void *arg0, s32 arg1);
-void func_80001BC8(void *arg0, s32 arg1);
-void func_80001D50(void *arg0, s32 arg1);
+void func_80001BC8(void *arg0, s32 arg1);  /* BgIkanaRotaryroom_Update */
+void func_80001D50(void *arg0, s32 arg1);  /* BgIkanaRotaryroom_Draw */
 
 #endif

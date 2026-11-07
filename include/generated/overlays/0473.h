@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000DC(s32 arg0, s32 arg1);
-void func_800000EC(void *arg0, s32 arg1);
-void func_800001C0(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgBotihasira_Init */
+void func_800000DC(s32 arg0, s32 arg1);  /* BgBotihasira_DoNothing */
+void func_800000EC(void *arg0, s32 arg1);  /* BgBotihasira_Update */
+void func_800001C0(s32 arg0, s32 arg1);  /* BgBotihasira_Draw */
 
 #endif

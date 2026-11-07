@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void func_8000009C(void *arg0, s32 arg1);
-void func_8000015C(s32 arg0, s32 arg1);
-void func_8000016C(s32 arg0, s32 arg1);
-void func_800001B0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800001F4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8000020C(s32 arg0, s32 arg1, s32 arg2);
+void func_80000000(s32 arg0, s32 arg1, s32 arg2);  /* EnZl4_ChangeAnim */
+void func_8000009C(void *arg0, s32 arg1);  /* EnZl4_Init */
+void func_8000015C(s32 arg0, s32 arg1);  /* EnZl4_DoNothing */
+void func_8000016C(s32 arg0, s32 arg1);  /* EnZl4_Update */
+void func_800001B0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnZl4_OverrideLimbDraw */
+void func_800001F4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnZl4_PostLimbDraw */
+void func_8000020C(s32 arg0, s32 arg1, s32 arg2);  /* EnZl4_TransformLimbDraw */
 void func_80000220(void *arg0, s32 arg1);
 void func_80000278(void *arg0, s32 arg1);
-void func_800002B0(void *arg0, s32 arg1);
+void func_800002B0(void *arg0, s32 arg1);  /* EnZl4_Draw */
 
 #endif

@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *a0, s32 a1);
-void func_80000028(void *arg0, s32 arg1);
+void func_80000000(void *a0, s32 a1);  /* BgMarketStep_Init */
+void func_80000028(void *arg0, s32 arg1);  /* BgMarketStep_Draw */
 
 #endif

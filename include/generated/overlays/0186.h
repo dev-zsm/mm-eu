@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_800002E4(s32 arg0, s32 arg1);
-void func_800002F4(s32 arg0);
+void func_80000000(s32 arg0, s32 arg1);  /* EnMag_Init */
+void func_800002E4(s32 arg0, s32 arg1);  /* EnMag_Destroy */
+void func_800002F4(s32 arg0);  /* EnMag_UpdateDisplayEffectColors */
 void func_8000063C(s32 arg0, s32 arg1);
-void func_800016E0(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800018F8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80001B10(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80001F78(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80002354(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void func_800016E0(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnMag_DrawTextureI8 */
+void func_800018F8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnMag_DrawTextureIA8 */
+void func_80001B10(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnMag_DrawEffectTextures */
+void func_80001F78(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnMag_DrawImageRGBA32 */
+void func_80002354(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* EnMag_DrawCharTexture */
 void func_80002494(s32 arg0, s32 arg1, s32 arg2);
-void func_800036EC(s32 arg0, s32 arg1);
+void func_800036EC(s32 arg0, s32 arg1);  /* EnMag_Draw */
 
 #endif

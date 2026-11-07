@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnMkk_Init */
 void func_800001FC(u8 *arg0);
 void func_80000230(void *arg0, s32 arg1);
 void func_800002C0(s32 arg0);
@@ -18,13 +18,13 @@ void func_800007AC(void *arg0);
 void func_8000085C(void *arg0, s32 arg1);
 void func_8000097C(void *arg0);
 void func_80000CEC(void *arg0, s32 arg1);
-void func_80000D44(void *arg0, void *arg1);
+void func_80000D44(void *arg0, void *arg1);  /* EnMkk_Update */
 void func_80000F20(void *arg0);
 void func_80000F78(void *arg0, s32 arg1);
 void func_80001024(void *arg0);
 void func_800010A4(void *arg0, s32 arg1);
 void func_8000129C(u8 *arg0);
-void func_800012C0(void *arg0, s32 arg1);
+void func_800012C0(void *arg0, s32 arg1);  /* EnMkk_Draw */
 void func_800015F8(void *arg0, void *arg1);
 
 #endif

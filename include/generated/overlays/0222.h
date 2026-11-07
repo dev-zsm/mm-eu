@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000144(void *arg0, s32 arg1, void *arg2);
-void func_800002AC(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EffectSsExtra_Init */
+void func_80000144(void *arg0, s32 arg1, void *arg2);  /* EffectSsExtra_Draw */
+void func_800002AC(s32 arg0, s32 arg1, void *arg2);  /* EffectSsExtra_Update */
 
 #endif

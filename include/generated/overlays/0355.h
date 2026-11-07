@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
+void func_80000000(s32 arg0, s32 arg1);  /* EnWarpUzu_Init */
 void func_80000088(u8 *arg0, s32 arg1);
 void func_800000F8(void *arg0, void *arg1);
 void func_80000204(s32 arg0, s32 arg1);
-void func_80000268(s32 arg0, s32 arg1);
-void func_80000278(void *arg0, s32 arg1);
+void func_80000268(s32 arg0, s32 arg1);  /* EnWarpUzu_DoNothing */
+void func_80000278(void *arg0, s32 arg1);  /* EnWarpUzu_Update */
 
 #endif

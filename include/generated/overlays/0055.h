@@ -5,22 +5,22 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0);
-void func_80001ABC(s32 arg0);
-s32 func_80002864(u8 *arg0, s16 arg1);
-void func_80002880(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_80002D2C(void *arg0);
-void func_800032E8(s32 arg0);
-void func_80003CC4(s32 arg0);
-void func_80004880(void *arg0);
+void func_80000000(s32 arg0);  /* KaleidoScope_DrawQuestStatus */
+void func_80001ABC(s32 arg0);  /* KaleidoScope_UpdateQuestCursor */
+s32 func_80002864(u8 *arg0, s16 arg1);  /* KaleidoScope_UpdateQuestStatusPoint */
+void func_80002880(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* KaleidoScope_DrawAmmoCount */
+void func_80002D2C(void *arg0);  /* KaleidoScope_DrawItemSelect */
+void func_800032E8(s32 arg0);  /* KaleidoScope_UpdateItemCursor */
+void func_80003CC4(s32 arg0);  /* KaleidoScope_UpdateItemEquip */
+void func_80004880(void *arg0);  /* KaleidoScope_DrawDungeonStrayFairyCount */
 void func_80004D1C(void *arg0);
 void func_8000576C(s32 arg0);
 void func_80005E2C(void *arg0);
-void func_80007044(s32 arg0);
-void func_800074B0(void *arg0);
-void func_800079DC(s32 arg0);
-void func_800084D4(s32 arg0);
-void func_80008C60(void *arg0);
+void func_80007044(s32 arg0);  /* KaleidoScope_UpdateWorldMapCursor */
+void func_800074B0(void *arg0);  /* KaleidoScope_DrawMaskSelect */
+void func_800079DC(s32 arg0);  /* KaleidoScope_UpdateMaskCursor */
+void func_800084D4(s32 arg0);  /* KaleidoScope_UpdateMaskEquip */
+void func_80008C60(void *arg0);  /* KaleidoScope_UpdatePrompt */
 void func_80008E30(s32 arg0);
 void func_80008EC8(s32 arg0);
 void func_80008F60(s32 arg0);

@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000140(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* DemoMoonend_Init */
+void func_80000140(s32 arg0, s32 arg1);  /* DemoMoonend_DoNothing */
 void func_80000150(void *arg0, s32 arg1);
 void func_80000238(void *arg0, s32 arg1);
-void func_80000460(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 func_800004D0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8000050C(s32 arg0, void *arg1);
+void func_80000460(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DemoMoonend_OverrideLimbDraw */
+s32 func_800004D0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DemoMoonend_PostLimbDraw */
+void func_8000050C(s32 arg0, void *arg1);  /* DemoMoonend_Draw */
 void func_800005BC(s32 arg0, s32 arg1);
 
 #endif

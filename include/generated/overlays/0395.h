@@ -6,6 +6,6 @@
 #include "types.h"
 
 void func_800000FC(void *arg0, s32 arg1);
-void func_8000038C(s32 arg0, void *arg1);
+void func_8000038C(s32 arg0, void *arg1);  /* BgHakuginElvpole_Draw */
 
 #endif

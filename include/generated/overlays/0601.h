@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_8000009C(s32 arg0, s32 arg1);
+void func_8000009C(s32 arg0, s32 arg1);  /* ObjDinner_Draw */
 
 #endif

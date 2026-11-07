@@ -9,11 +9,11 @@ void func_80000000(void *arg0, s32 arg1);
 void func_800000E0(void *arg0, s32 arg1);
 void func_800001E8(u8 *arg0);
 void func_8000022C(void *arg0, void *arg1);
-void func_800002CC(void *arg0, s32 arg1);
+void func_800002CC(void *arg0, s32 arg1);  /* ObjToge_Init */
 void func_800005BC(void *arg0, s32 arg1);
 void func_80000644(u8 *arg0);
 void func_8000065C(void *arg0);
 void func_800006EC(void *arg0, s32 arg1);
-void func_8000090C(void *arg0, s32 arg1);
+void func_8000090C(void *arg0, s32 arg1);  /* ObjToge_Update */
 
 #endif

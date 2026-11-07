@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_8000017C(void *arg0, s32 arg1, void *arg2);
-void func_800002FC(void *arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsSibuki_Init */
+void func_8000017C(void *arg0, s32 arg1, void *arg2);  /* EffectSsSibuki_Draw */
+void func_800002FC(void *arg0, s32 arg1, void *arg2);  /* EffectSsSibuki_Update */
 
 #endif

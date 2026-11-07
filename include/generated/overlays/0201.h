@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_80000140(s32 arg0, s32 arg1, void *arg2);
-void func_80000310(s32 arg0, s32 arg1, s32 arg2);
-void func_80000438(s32 arg0, s32 arg1, void *arg2);
+void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsGSpk_Init */
+void func_80000140(s32 arg0, s32 arg1, void *arg2);  /* EffectSsGSpk_Draw */
+void func_80000310(s32 arg0, s32 arg1, s32 arg2);  /* EffectSsGSpk_Update */
+void func_80000438(s32 arg0, s32 arg1, void *arg2);  /* EffectSsGSpk_UpdateNoAccel */
 
 #endif

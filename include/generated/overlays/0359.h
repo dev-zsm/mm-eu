@@ -5,33 +5,33 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_8000024C(void *arg0);
-void func_8000029C(void *arg0, s32 arg1);
-void func_8000041C(void *arg0);
-void func_8000046C(void *arg0, s32 arg1);
-void func_80000830(s32 arg0, void *arg1);
-void func_80000A18(void *arg0, s32 arg1);
-void func_80000B0C(void *arg0, s32 arg1);
-void func_80000BE4(s32 arg0, void *arg1);
-void func_80000DE4(void *arg0, s32 arg1);
-void func_80000F3C(void *arg0);
-void func_80000FD0(s32 arg0, s32 arg1);
-void func_80000FE0(void *arg0, s32 arg1);
-void func_80001170(f32 arg0);
-void func_80001290(void *arg0, void *arg1);
-void func_800014B4(void *arg0);
-void func_80001574(void *arg0);
-void func_80001708(void *arg0, s32 arg1);
-void func_800017CC(void *arg0, s32 arg1);
-void func_800018FC(s32 arg0, s32 arg1);
-void func_800019FC(s32 arg0, s32 arg1);
-void func_80001AEC(s32 arg0, s32 arg1);
-void func_80001C90(void);
-void func_80001CB0(void *arg0, void *arg1);
-void func_80001DAC(void *arg0, void *arg1);
-void func_800020EC(void *arg0, void *arg1);
-void func_80002284(void *arg0, s32 arg1);
-void func_800023EC(s32 arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnFall_Moon_AdjustScaleAndPosition */
+void func_8000024C(void *arg0);  /* EnFall_RisingDebris_ResetEffects */
+void func_8000029C(void *arg0, s32 arg1);  /* EnFall_Init */
+void func_8000041C(void *arg0);  /* EnFall_MoonsTear_GetTerminaFieldMoon */
+void func_8000046C(void *arg0, s32 arg1);  /* EnFall_Setup */
+void func_80000830(s32 arg0, void *arg1);  /* EnFall_CrashingMoon_HandleGiantsCutscene */
+void func_80000A18(void *arg0, s32 arg1);  /* EnFall_CrashingMoon_PerformCutsceneActions */
+void func_80000B0C(void *arg0, s32 arg1);  /* EnFall_StoppedOpenMouthMoon_PerformCutsceneActions */
+void func_80000BE4(s32 arg0, void *arg1);  /* EnFall_StoppedClosedMouthMoon_PerformCutsceneActions */
+void func_80000DE4(void *arg0, s32 arg1);  /* EnFall_Moon_PerformDefaultActions */
+void func_80000F3C(void *arg0);  /* EnFall_MoonsTear_Initialize */
+void func_80000FD0(s32 arg0, s32 arg1);  /* EnFall_MoonsTear_DoNothing */
+void func_80000FE0(void *arg0, s32 arg1);  /* EnFall_MoonsTear_Fall */
+void func_80001170(f32 arg0);  /* EnFall_Fireball_SetPerVertexAlpha */
+void func_80001290(void *arg0, void *arg1);  /* EnFall_Fireball_Update */
+void func_800014B4(void *arg0);  /* EnFall_RisingDebris_UpdateEffects */
+void func_80001574(void *arg0);  /* EnFall_RisingDebris_InitializeEffect */
+void func_80001708(void *arg0, s32 arg1);  /* EnFall_RisingDebris_Update */
+void func_800017CC(void *arg0, s32 arg1);  /* EnFall_FireRing_Update */
+void func_800018FC(s32 arg0, s32 arg1);  /* EnFall_Moon_Draw */
+void func_800019FC(s32 arg0, s32 arg1);  /* EnFall_OpenMouthMoon_Draw */
+void func_80001AEC(s32 arg0, s32 arg1);  /* EnFall_LodMoon_Draw */
+void func_80001C90(void);  /* EnFall_LodMoon_DrawWithoutLerp */
+void func_80001CB0(void *arg0, void *arg1);  /* EnFall_LodMoon_DrawWithLerp */
+void func_80001DAC(void *arg0, void *arg1);  /* EnFall_Fireball_Draw */
+void func_800020EC(void *arg0, void *arg1);  /* EnFall_RisingDebris_Draw */
+void func_80002284(void *arg0, s32 arg1);  /* EnFall_FireRing_Draw */
+void func_800023EC(s32 arg0, void *arg1);  /* EnFall_MoonsTear_Draw */
 
 #endif

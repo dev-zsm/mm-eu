@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000198(u8 *arg0, s32 arg1);
-void func_800001E8(void *arg0, s32 arg1);
-void func_80000258(void *arg0, s32 arg1);
-void func_800002DC(s32 arg0, s32 arg1);
-void func_80000310(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgLadder_Init */
+void func_80000198(u8 *arg0, s32 arg1);  /* BgLadder_Wait */
+void func_800001E8(void *arg0, s32 arg1);  /* BgLadder_StartCutscene */
+void func_80000258(void *arg0, s32 arg1);  /* BgLadder_FadeIn */
+void func_800002DC(s32 arg0, s32 arg1);  /* BgLadder_DoNothing */
+void func_80000310(s32 arg0, s32 arg1);  /* BgLadder_Draw */
 
 #endif

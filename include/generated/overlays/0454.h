@@ -15,7 +15,7 @@ void func_800009B8(void *arg0, s32 arg1);
 void func_80000DB0(s32 arg0, s32 arg1, void *arg2);
 void func_8000115C(void *arg0, s32 arg1);
 void func_80001328(s32 arg0, s32 arg1);
-void func_800013B4(void *arg0, s32 arg1);
+void func_800013B4(void *arg0, s32 arg1);  /* ObjSnowball_Init */
 void func_80001668(u8 *arg0, s32 arg1);
 void func_80001680(void *arg0, s32 arg1);
 void func_80001870(u8 *arg0, s32 arg1);
@@ -26,7 +26,7 @@ void func_80001A14(void *arg0, s32 arg1);
 void func_80001AF0(void *arg0, s32 arg1);
 void func_80001E78(u8 *arg0, s32 arg1);
 void func_80001E90(s32 arg0, s32 arg1);
-void func_80001EA0(void *arg0, s32 arg1);
+void func_80001EA0(void *arg0, s32 arg1);  /* ObjSnowball_Update */
 void func_80002064(void *arg0, void *arg1);
 
 #endif

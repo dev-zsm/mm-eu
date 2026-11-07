@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000CC(u8 *arg0, s32 arg1);
-void func_80000100(void *arg0, s32 arg1);
-void func_8000037C(s32 arg0, s32 arg1);
+void func_80000000(void *arg0, s32 arg1);  /* BgF40Swlift_Init */
+void func_800000CC(u8 *arg0, s32 arg1);  /* BgF40Swlift_Destroy */
+void func_80000100(void *arg0, s32 arg1);  /* BgF40Swlift_Update */
+void func_8000037C(s32 arg0, s32 arg1);  /* BgF40Swlift_Draw */
 
 #endif

@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(f32 arg0);
-void func_80000028(void *arg0);
-void func_80000098(void *arg0, s32 arg1);
+void func_80000000(f32 arg0);  /* ObjPurify_SetSysMatrix */
+void func_80000028(void *arg0);  /* ObjPurify_IsPurified */
+void func_80000098(void *arg0, s32 arg1);  /* ObjPurify_Init */
 void func_800001DC(u8 *arg0);
 void func_800001F0(void *arg0, s32 arg1);
 void func_800002D0(u8 *arg0);
@@ -19,7 +19,7 @@ void func_800003A4(u8 *arg0, s32 arg1);
 void func_800003E0(u8 *arg0);
 void func_80000418(u8 *arg0, s32 arg1);
 void func_8000048C(u8 *arg0);
-void func_800004C4(s32 arg0, s32 arg1);
+void func_800004C4(s32 arg0, s32 arg1);  /* ObjPurify_DoNothing */
 void func_800004F8(void *arg0, void *arg1);
 void func_80000634(void *arg0, void *arg1);
 

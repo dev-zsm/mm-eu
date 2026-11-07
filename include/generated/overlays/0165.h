@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_8000005C(void *arg0, void *arg1);
+void func_8000005C(void *arg0, void *arg1);  /* EnSda_Draw */
 void func_800000F0(void *arg0, s32 arg1, s32 arg2);
 void func_8000075C(void *arg0, void *arg1, void *arg2, s32 arg3);
 void func_80000D98(s32 arg0, void *arg1, void *arg2);

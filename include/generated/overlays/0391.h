@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000104(void *arg0, s32 arg1);
-void func_800001E8(u8 *arg0, s32 arg1);
-void func_80000218(s32 arg0, s32 arg1);
-void func_80000228(void *arg0, s32 arg1);
-void func_80000274(s32 arg0, s32 arg1);
-void func_80000354(void *arg0, void *arg1, s32 arg2, s32 arg3);
-void func_80000514(void *arg0, s32 arg1);
-void func_800006C4(void *arg0, void *arg1);
+void func_80000000(void *arg0, s32 arg1);  /* EnEgblock_Init */
+void func_80000104(void *arg0, s32 arg1);  /* EnEgblock_Active */
+void func_800001E8(u8 *arg0, s32 arg1);  /* EnEgblock_Inactive */
+void func_80000218(s32 arg0, s32 arg1);  /* EnEgblock_DoNothing */
+void func_80000228(void *arg0, s32 arg1);  /* EnEgblock_Update */
+void func_80000274(s32 arg0, s32 arg1);  /* EnEgblock_Draw */
+void func_80000354(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* EnEgblock_SpawnEffect */
+void func_80000514(void *arg0, s32 arg1);  /* EnEgblock_UpdateEffects */
+void func_800006C4(void *arg0, void *arg1);  /* EnEgblock_DrawEffects */
 
 #endif

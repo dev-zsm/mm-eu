@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_800000B0(void *arg0, s32 arg1);
-void func_80000370(s32 arg0, void *arg1);
+void func_800000B0(void *arg0, s32 arg1);  /* EnSnowwd_Idle */
+void func_80000370(s32 arg0, void *arg1);  /* EnSnowwd_Draw */
 
 #endif

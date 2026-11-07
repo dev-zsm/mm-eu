@@ -7,7 +7,7 @@
 
 void func_80000000(void *arg0, s32 arg1);
 void func_80000034(void *arg0, s32 arg1);
-void func_80000068(void *arg0, s32 arg1);
+void func_80000068(void *arg0, s32 arg1);  /* BgHakuginSwitch_Init */
 void func_800002BC(u8 *arg0, s32 arg1, s32 arg2);
 void func_800002D8(void *arg0, s32 arg1);
 void func_8000038C(void *arg0, s32 arg1);
@@ -26,6 +26,6 @@ void func_80000C70(void *arg0, s32 arg1);
 void func_80000D04(void *arg0, s32 arg1);
 void func_80000D90(u8 *arg0, s32 arg1);
 void func_80000E50(u8 *arg0, s32 arg1);
-void func_80000E98(void *arg0, s32 arg1);
+void func_80000E98(void *arg0, s32 arg1);  /* BgHakuginSwitch_Update */
 
 #endif

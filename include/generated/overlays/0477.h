@@ -11,12 +11,12 @@ void func_80000188(void *arg0, void *arg1);
 void func_800005E4(s32 arg0, s32 arg1, void *arg2, void *arg3);
 void func_80000900(s32 arg0);
 void func_80000970(void *arg0, void *arg1, s32 arg2);
-void func_80000A6C(void *arg0, s32 arg1);
+void func_80000A6C(void *arg0, s32 arg1);  /* ObjSpidertent_Init */
 void func_80000CF8(void *arg0, s32 arg1);
 void func_80000F1C(u8 *a0);
 void func_80000F3C(void *arg0, s32 arg1);
 void func_80000FC4(u8 *arg0);
 void func_80000FE8(void *arg0, s32 arg1);
-void func_800013E8(void *arg0, void *arg1);
+void func_800013E8(void *arg0, void *arg1);  /* ObjSpidertent_Draw */
 
 #endif
