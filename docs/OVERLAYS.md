@@ -32,6 +32,21 @@ tools/mm diff  ovl0050 func_8000009C src/overlays/0050/func_8000009C.c
 - `make split` runs step 3 of the setup, and `make check` needs its output.
 - The flags, `// COMPILER: ido53` and the idioms are those of the other segments.
 
+## Functions from the reference
+
+`python3 tools/search/ref_import.py run overlays` compiles the reference sources of the overlays with this project's flags and keeps the
+functions whose bytes are the ROM's (see [TOOLS.md](TOOLS.md)). The file of such a function includes the header of its reference file
+(`include/generated/mm/`), which holds the context once; the function is defined under the address name of ours by an alias, and the
+symbols it calls or reads are aliases to ours. Many of the functions of an actor are `static` in the reference: the tool removes that,
+because IDO drops a static function that nobody calls in a file that holds only that function.
+
+## What the check does and does not see
+
+`tools/check/verify_src.py overlays` compares the bytes with the relocated fields masked, then where every call or data reference of the
+code would link to against the ROM's. Inside an overlay the ROM holds the link-time value of such a field (`jal 0x008623DC`), which the
+relocation table of the overlay corrects when it is loaded: those references are not compared (they are counted as "of unknown
+address"). The ones towards the code and boot segments are.
+
 ## Order of work
 
 Start with the smallest overlays: they match fastest and show the structure shared by many of them (initialisation,

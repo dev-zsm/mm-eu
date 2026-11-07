@@ -34,6 +34,13 @@ for p in sorted(TOOLS.glob("*/*.py")):
     if m:
         check(p.parents[int(m.group(1))] == ROOT, f"{rel}: parents[{m.group(1)}] is not the project root")
 
+# the workflow of GitHub runs pyflakes on the tools and fails on an unused import: so do the rounds, before they push
+r = subprocess.run([sys.executable, "-m", "pyflakes", *map(str, sorted(TOOLS.glob("*/*.py")))], capture_output=True, text=True)
+if "No module named pyflakes" not in r.stderr:
+    for line in (r.stdout + r.stderr).splitlines():
+        if "unable to detect undefined names" not in line:
+            check(False, f"pyflakes: {line}")
+
 # 3: shell scripts
 for p in sorted(TOOLS.glob("*/*.sh")) + [TOOLS / "mm"]:
     r = subprocess.run(["bash", "-n", str(p)], capture_output=True, text=True)

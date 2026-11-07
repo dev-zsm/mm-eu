@@ -3,7 +3,7 @@
 Run inside WSL.  usage: match.py <boot|code> <function> <file.c>
 Relocated fields (jal targets, %hi/%lo, gp-relative) are masked on both sides, since the
 original bytes are already linked and the .o is not."""
-import collections, functools, re, struct, subprocess, sys, tempfile, threading
+import collections, functools, re, struct, subprocess, sys, threading
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]

@@ -33,6 +33,14 @@ tools/mm diff  code func_800BDE3C src/code/func_800BDE3C.c
 - `tools/mm match` checks one function (a "match" at the wrong size or with extra code is possible). Only
   `make check` proves the segment.
 
+## Functions from the reference
+
+Functions that the reference decompilation compiles to the bytes of this ROM are written by `tools/search/ref_import.py` (see
+[TOOLS.md](TOOLS.md)). Their file is the function, with an include of the header of its reference file in `include/generated/mm/`; the
+headers of the reference are in `include/mm/`. A name found that way is registered in `config/code/names.txt` with the tag `ref:`. The
+signature step (`tools/signatures/sig_header.py`) leaves these files and their lines in `include/generated/code_funcs.h` alone.
+`config/code/bases.txt` holds the symbols the linker needs for them (the start of an array that is reached with an offset, `__ull_div`).
+
 ## Working in waves
 
 1. `python3 tools/search/wave.py code 80 4` writes `build/wave/code.chunkNN` with the smallest functions that have no C yet.

@@ -62,6 +62,7 @@ the address.
   header, not literals. The "Typed signatures" column of [PROGRESS.md](PROGRESS.md) counts the functions that follow this rule.
   Rewriting a signature must keep `tools/mm match` at `MATCH`: when it no longer does, the previous
   form was compensating for a wrong type, so look at the difference before going back.
+* `config/code/bases.txt` is not debt: it names the start of an array that imported code reaches with an offset, and the symbols the compiler calls itself, so that the link finds them (written by `tools/search/ref_import.py`).
 * `config/<segment>/aliases.txt` (an extra symbol at a known address, only to steer IDO) is technical debt: each entry
   has a comment saying why and is removed once the real expression is found.
 * Keep generated and ROM-derived content out of git (`baserom/`, `extracted/`, `asm/`, `decomp/`, `build/`).
