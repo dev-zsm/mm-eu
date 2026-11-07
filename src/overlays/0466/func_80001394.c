@@ -1,0 +1,14 @@
+#include "types.h"
+#include "m2c_compat.h"
+extern u8 D_80B03FCC[];
+void func_80B032D8(u8 *a, s32 b);
+
+void func_80001394(u8 *a) {
+    M2C_FIELD(a, s16 *, 0x2D2) = 0;
+    M2C_FIELD(a, s16 *, 0x2CA) = 0x14;
+    M2C_FIELD(a, s16 *, 0x2CC) = 0;
+    M2C_FIELD(a, f32 *, 0x2DC) = 14.0f;
+    func_80B032D8(a, 6);
+    M2C_FIELD(a, s16 *, 0x2C8) = 4;
+    M2C_FIELD(a, void **, 0x2C0) = D_80B03FCC;
+}
