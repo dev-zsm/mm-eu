@@ -7,7 +7,7 @@
 #define DynaPolyActor_IsActorOnTop DynaPolyActor_IsActorOnTop
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
 #define Math_StepToF Math_StepToF
-#define ObjY2lift_Update func_80000084
+#define ObjY2lift_Update ObjY2lift_Update
 
 #include "overlays/actors/ovl_Obj_Y2lift/z_obj_y2lift.h"
 #include "assets/objects/object_kaizoku_obj/object_kaizoku_obj.h"

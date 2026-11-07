@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define BgCheck_SphVsFirstPoly BgCheck_SphVsFirstPoly
-#define EffectSsKakera_CheckForObject func_80000490
-#define EffectSsKakera_Draw func_800001CC
-#define EffectSsKakera_Init func_80000000
+#define EffectSsKakera_CheckForObject EffectSsKakera_CheckForObject
+#define EffectSsKakera_Draw EffectSsKakera_Draw
+#define EffectSsKakera_Init EffectSsKakera_Init
 #define EffectSsKakera_Update D_80963718
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

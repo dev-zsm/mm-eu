@@ -3,10 +3,10 @@
 #define MM_Z_EFF_SS_DUST_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsDust_Draw func_80000184
-#define EffectSsDust_Init func_80000000
-#define EffectSsDust_Update func_800004AC
-#define EffectSsDust_UpdateFire func_800005A4
+#define EffectSsDust_Draw EffectSsDust_Draw
+#define EffectSsDust_Init EffectSsDust_Init
+#define EffectSsDust_Update EffectSsDust_Update
+#define EffectSsDust_UpdateFire EffectSsDust_UpdateFire
 #define Gfx_SetupDL Gfx_SetupDL
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_Copy Math_Vec3f_Copy

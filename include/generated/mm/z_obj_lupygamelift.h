@@ -14,10 +14,10 @@
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_Vec3f_StepTo func_80100248
-#define ObjLupygamelift_Init func_80000000
-#define ObjLupygamelift_Move func_800003C0
+#define ObjLupygamelift_Init ObjLupygamelift_Init
+#define ObjLupygamelift_Move ObjLupygamelift_Move
 #define ObjLupygamelift_SetupWait func_80AD51EC
-#define ObjLupygamelift_UpdateShadow func_80000224
+#define ObjLupygamelift_UpdateShadow ObjLupygamelift_UpdateShadow
 #define object_raillift_Colheader_0048D0 D_60048D0
 #define sInitChain D_80AD5470
 

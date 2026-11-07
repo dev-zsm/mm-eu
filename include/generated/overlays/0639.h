@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* BgLbfshot_Init */
-void func_8000005C(u8 *arg0, s32 arg1);  /* BgLbfshot_Destroy */
-void func_80000090(s32 arg0, s32 arg1);  /* BgLbfshot_Draw */
+void BgLbfshot_Init(u8 *arg0, s32 arg1);  /* 80000000 */
+void BgLbfshot_Destroy(u8 *arg0, s32 arg1);  /* 8000005C */
+void BgLbfshot_Draw(s32 arg0, s32 arg1);  /* 80000090 */
 
 #endif

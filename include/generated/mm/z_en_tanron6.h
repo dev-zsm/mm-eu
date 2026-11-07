@@ -8,8 +8,8 @@
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define EnTanron6_DoNothing func_80BCAE5C
-#define EnTanron6_Init func_80000000
-#define EnTanron6_Update func_800000A0
+#define EnTanron6_Init EnTanron6_Init
+#define EnTanron6_Update EnTanron6_Update
 #define sDamageTable D_80BCAF10
 
 #include "overlays/actors/ovl_En_Tanron6/z_en_tanron6.h"

@@ -5,22 +5,22 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0);  /* ObjTokeiStep_SetMatrixTranslation */
-void func_80000038(s32 arg0, void *arg1);  /* ObjTokeiStep_RequestQuakeAndRumble */
-void func_800000C0(void *arg0, void *arg1, s32 arg2);  /* ObjTokeiStep_SpawnDust */
-void func_8000024C(void *arg0);  /* ObjTokeiStep_InitSteps */
-void func_80000308(void *arg0);  /* ObjTokeiStep_InitStepsOpen */
-void func_800003C0(void *arg0);  /* ObjTokeiStep_InitTimers */
-void func_80000400(void *arg0, s32 arg1);  /* ObjTokeiStep_OpenProcess */
-void func_8000063C(void *arg0, s32 arg1);  /* ObjTokeiStep_Init */
-void func_80000798(u8 *arg0);  /* ObjTokeiStep_SetupBeginOpen */
-void func_800007AC(s32 arg0, s32 arg1);  /* ObjTokeiStep_BeginOpen */
-void func_80000824(u8 *arg0);  /* ObjTokeiStep_SetupDoNothing */
-void func_80000838(s32 arg0, s32 arg1);  /* ObjTokeiStep_DoNothing */
-void func_80000848(u8 *arg0);  /* ObjTokeiStep_SetupOpen */
-void func_8000087C(s32 arg0, s32 arg1);  /* ObjTokeiStep_Open */
-void func_800008D0(u8 *arg0);  /* ObjTokeiStep_SetupDoNothingOpen */
-void func_800008F4(s32 arg0, s32 arg1);  /* ObjTokeiStep_DoNothingOpen */
-void func_80000958(s32 arg0, s32 arg1);  /* ObjTokeiStep_DrawOpen */
+void ObjTokeiStep_SetMatrixTranslation(u8 *arg0);  /* 80000000 */
+void ObjTokeiStep_RequestQuakeAndRumble(s32 arg0, void *arg1);  /* 80000038 */
+void ObjTokeiStep_SpawnDust(void *arg0, void *arg1, s32 arg2);  /* 800000C0 */
+void ObjTokeiStep_InitSteps(void *arg0);  /* 8000024C */
+void ObjTokeiStep_InitStepsOpen(void *arg0);  /* 80000308 */
+void ObjTokeiStep_InitTimers(void *arg0);  /* 800003C0 */
+void ObjTokeiStep_OpenProcess(void *arg0, s32 arg1);  /* 80000400 */
+void ObjTokeiStep_Init(void *arg0, s32 arg1);  /* 8000063C */
+void ObjTokeiStep_SetupBeginOpen(u8 *arg0);  /* 80000798 */
+void ObjTokeiStep_BeginOpen(s32 arg0, s32 arg1);  /* 800007AC */
+void ObjTokeiStep_SetupDoNothing(u8 *arg0);  /* 80000824 */
+void ObjTokeiStep_DoNothing(s32 arg0, s32 arg1);  /* 80000838 */
+void ObjTokeiStep_SetupOpen(u8 *arg0);  /* 80000848 */
+void ObjTokeiStep_Open(s32 arg0, s32 arg1);  /* 8000087C */
+void ObjTokeiStep_SetupDoNothingOpen(u8 *arg0);  /* 800008D0 */
+void ObjTokeiStep_DoNothingOpen(s32 arg0, s32 arg1);  /* 800008F4 */
+void ObjTokeiStep_DrawOpen(s32 arg0, s32 arg1);  /* 80000958 */
 
 #endif

@@ -6,10 +6,10 @@
 #include "types.h"
 
 void func_80000000(void *arg0, s32 arg1);
-void func_800000DC(void *arg0, s32 arg1);  /* ObjChikuwa_Init */
+void ObjChikuwa_Init(void *arg0, s32 arg1);  /* 800000DC */
 void func_80000280(s32 arg0, void *arg1, void *arg2);
 void func_80000550(void *arg0);
-void func_80000698(void *arg0, void *arg1);  /* ObjChikuwa_Update */
-void func_80000840(void *arg0, s32 arg1);  /* ObjChikuwa_Draw */
+void ObjChikuwa_Update(void *arg0, void *arg1);  /* 80000698 */
+void ObjChikuwa_Draw(void *arg0, s32 arg1);  /* 80000840 */
 
 #endif

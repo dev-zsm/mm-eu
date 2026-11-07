@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjDemo_Init */
+void ObjDemo_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_80000114(u8 *arg0);
 void func_80000158(void *arg0, s32 arg1);
 void func_800001E4(u8 *arg0, u8 *arg1);
-void func_80000304(void *arg0, s32 arg1);  /* ObjDemo_Update */
+void ObjDemo_Update(void *arg0, s32 arg1);  /* 80000304 */
 
 #endif

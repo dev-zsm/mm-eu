@@ -20,8 +20,8 @@
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
-#define ObjToge_Init func_800002CC
-#define ObjToge_Update func_8000090C
+#define ObjToge_Init ObjToge_Init
+#define ObjToge_Update ObjToge_Update
 #define Rand_ZeroOne func_8008704C
 #define func_809A41C0 func_80000000
 #define func_809A42A0 func_800000E0

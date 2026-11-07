@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnWizBrock_Init */
-void func_800000D0(u8 *arg0, s32 arg1);  /* EnWizBrock_Destroy */
-void func_80000104(u8 *arg0, s32 arg1);  /* EnWizBrock_SetupUpdateStatus */
-void func_8000011C(u8 *arg0, s32 arg1);  /* EnWizBrock_UpdateStatus */
-void func_80000304(u8 *arg0);  /* EnWizBrock_Update */
-void func_80000328(void *arg0, s32 arg1);  /* EnWizBrock_Draw */
+void EnWizBrock_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnWizBrock_Destroy(u8 *arg0, s32 arg1);  /* 800000D0 */
+void EnWizBrock_SetupUpdateStatus(u8 *arg0, s32 arg1);  /* 80000104 */
+void EnWizBrock_UpdateStatus(u8 *arg0, s32 arg1);  /* 8000011C */
+void EnWizBrock_Update(u8 *arg0);  /* 80000304 */
+void EnWizBrock_Draw(void *arg0, s32 arg1);  /* 80000328 */
 
 #endif

@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnTanron6_Init */
-void func_8000007C(u8 *arg0);  /* EnTanron6_DoNothing */
+void EnTanron6_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnTanron6_DoNothing(u8 *arg0);  /* 8000007C */
 void func_80000090(s32 arg0, s32 arg1);
-void func_800000A0(void *arg0, s32 arg1);  /* EnTanron6_Update */
+void EnTanron6_Update(void *arg0, s32 arg1);  /* 800000A0 */
 
 #endif

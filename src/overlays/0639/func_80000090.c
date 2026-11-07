@@ -6,6 +6,6 @@
 M2C_UNK func_800BDD44(M2C_UNK, M2C_UNK *, M2C_UNK); /* extern */
 extern M2C_UNK D_6000228;
 
-void func_80000090(s32 arg0, M2C_UNK arg1) {
+void BgLbfshot_Draw(s32 arg0, M2C_UNK arg1) {
     func_800BDD44(arg1, &D_6000228, arg1);
 }

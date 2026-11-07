@@ -7,7 +7,7 @@
 #define Actor_SetScale Actor_SetScale
 #define Audio_PlaySfx Audio_PlaySfx
 #define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
-#define BgKin2Shelf_Init func_80000460
+#define BgKin2Shelf_Init BgKin2Shelf_Init
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Math_CosS Math_CosS

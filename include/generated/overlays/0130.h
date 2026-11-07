@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnRr_Init */
+void EnRr_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_8000021C(void *arg0, s32 arg1, s32 arg2);
 void func_8000031C(void *arg0);
 void func_8000039C(void *arg0, s32 arg1);
@@ -32,7 +32,7 @@ void func_8000162C(void *arg0, s32 arg1);
 void func_80001880(u8 *arg0, s32 arg1);
 void func_80001910(u8 *arg0);
 void func_80001994(void *arg0, s32 arg1);
-void func_80001A88(void *arg0, void *arg1);  /* EnRr_Update */
-void func_80001F54(void *arg0, void *arg1);  /* EnRr_Draw */
+void EnRr_Update(void *arg0, void *arg1);  /* 80001A88 */
+void EnRr_Draw(void *arg0, void *arg1);  /* 80001F54 */
 
 #endif

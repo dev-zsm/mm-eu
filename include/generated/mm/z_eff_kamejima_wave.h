@@ -9,9 +9,9 @@
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define EffKamejimaWave_Draw func_800003EC
-#define EffKamejimaWave_Init func_80000000
-#define EffKamejimaWave_SetVtxAlpha func_8000039C
+#define EffKamejimaWave_Draw EffKamejimaWave_Draw
+#define EffKamejimaWave_Init EffKamejimaWave_Init
+#define EffKamejimaWave_SetVtxAlpha EffKamejimaWave_SetVtxAlpha
 #define Environment_LerpSandstormColors Environment_LerpSandstormColors
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304

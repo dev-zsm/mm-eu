@@ -7,10 +7,10 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgLadder_DoNothing D_80A32A2C
-#define BgLadder_Draw func_80000310
-#define BgLadder_FadeIn func_80000258
-#define BgLadder_Init func_80000000
-#define BgLadder_StartCutscene func_800001E8
+#define BgLadder_Draw BgLadder_Draw
+#define BgLadder_FadeIn BgLadder_FadeIn
+#define BgLadder_Init BgLadder_Init
+#define BgLadder_StartCutscene BgLadder_StartCutscene
 #define BgLadder_Wait D_80A328E8
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue

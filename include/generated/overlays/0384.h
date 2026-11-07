@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);  /* DmChar05_ChangeAnim */
+void DmChar05_ChangeAnim(s32 arg0, s32 arg1, s32 arg2);  /* 80000000 */
 void func_8000009C(void *arg0, s32 arg1);
 void func_80000144(s32 arg0, s32 arg1);
 void func_800001D0(s32 arg0, s32 arg1);
 void func_8000025C(s32 arg0, s32 arg1);
 void func_800002E8(u8 *arg0, s32 arg1);
-void func_80000300(void *arg0);  /* DmChar05_Init */
+void DmChar05_Init(void *arg0);  /* 80000300 */
 void func_800003F0(u8 *arg0, s32 arg1);
 void func_8000043C(s32 arg0, s32 arg1);
 void func_800004F8(u8 *arg0, s32 arg1);
@@ -29,14 +29,14 @@ void func_80000964(void *arg0, void *arg1);
 void func_80000E58(s32 arg0, void *arg1);
 void func_80000EB0(s32 arg0, void *arg1);
 void func_80000F08(void *arg0, s32 arg1);
-void func_800011EC(void *arg0, s32 arg1);  /* DmChar05_Update */
-s32 func_800013C4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DmChar05_OverrideLimbDraw */
-void func_800013E0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DmChar05_PostLimbDraw */
+void DmChar05_Update(void *arg0, s32 arg1);  /* 800011EC */
+s32 DmChar05_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800013C4 */
+void DmChar05_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800013E0 */
 void func_800013F8(void *arg0, void *arg1);
 void func_800014F0(void *arg0, void *arg1);
 void func_800015AC(void *arg0, void *arg1);
 void func_80001660(s32 arg0, void *arg1);
-void func_80001748(void *arg0, s32 arg1);  /* DmChar05_Draw */
+void DmChar05_Draw(void *arg0, s32 arg1);  /* 80001748 */
 void func_800017FC(s32 arg0, void *arg1);
 void func_800018D8(s32 arg0, void *arg1);
 void func_800019B4(s32 arg0, void *arg1);

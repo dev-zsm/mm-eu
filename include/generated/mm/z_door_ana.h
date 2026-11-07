@@ -16,12 +16,12 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
-#define DoorAna_GrabLink func_80000424
-#define DoorAna_Init func_8000000C
+#define DoorAna_GrabLink DoorAna_GrabLink
+#define DoorAna_Init DoorAna_Init
 #define DoorAna_SetupAction func_808DF870
-#define DoorAna_Update func_80000510
-#define DoorAna_WaitClosed func_80000104
-#define DoorAna_WaitOpen func_80000218
+#define DoorAna_Update DoorAna_Update
+#define DoorAna_WaitClosed DoorAna_WaitClosed
+#define DoorAna_WaitOpen DoorAna_WaitOpen
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF

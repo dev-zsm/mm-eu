@@ -5,13 +5,13 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define BgF40Switch_CheckAll func_80000000
+#define BgF40Switch_CheckAll BgF40Switch_CheckAll
 #define BgF40Switch_IdlePressed D_80BA9934
 #define BgF40Switch_IdleUnpressed D_80BA9AD0
-#define BgF40Switch_Init func_8000028C
-#define BgF40Switch_Press func_80000408
-#define BgF40Switch_Unpress func_80000370
-#define BgF40Switch_WaitToPress func_800004B8
+#define BgF40Switch_Init BgF40Switch_Init
+#define BgF40Switch_Press BgF40Switch_Press
+#define BgF40Switch_Unpress BgF40Switch_Unpress
+#define BgF40Switch_WaitToPress BgF40Switch_WaitToPress
 #define CutsceneManager_Stop func_800F1D6C
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsSwitchPressed func_800CAD48

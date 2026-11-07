@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ObjNozoki_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* ObjNozoki_Init */
+void ObjNozoki_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void ObjNozoki_Init(void *arg0, s32 arg1);  /* 8000000C */
 void func_800000F4(void *arg0, s32 arg1);
 void func_80000288(void *arg0);
 void func_800002E8(s32 arg0, void *arg1);
@@ -21,6 +21,6 @@ void func_80000C24(void *arg0, s32 arg1);
 void func_80000CFC(void *arg0, s32 arg1);
 void func_80000E10(void *arg0, void *arg1);
 void func_80000F24(void *arg0, s32 arg1);
-void func_80001014(void *arg0, s32 arg1);  /* ObjNozoki_Draw */
+void ObjNozoki_Draw(void *arg0, s32 arg1);  /* 80001014 */
 
 #endif

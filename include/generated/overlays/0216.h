@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsSolderSrchBall_Init */
-void func_800000A4(s32 arg0, s32 arg1, void *arg2);  /* EffectSsSolderSrchBall_Draw */
-void func_8000029C(void *arg0, s32 arg1, void *arg2);  /* EffectSsSolderSrchBall_Update */
+void EffectSsSolderSrchBall_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsSolderSrchBall_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800000A4 */
+void EffectSsSolderSrchBall_Update(void *arg0, s32 arg1, void *arg2);  /* 8000029C */
 
 #endif

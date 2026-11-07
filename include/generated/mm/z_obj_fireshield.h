@@ -17,9 +17,9 @@
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_StepToF Math_StepToF
-#define ObjFireshield_Draw func_80000C14
-#define ObjFireshield_Init func_8000075C
-#define ObjFireshield_Update func_8000090C
+#define ObjFireshield_Draw ObjFireshield_Draw
+#define ObjFireshield_Init ObjFireshield_Init
+#define ObjFireshield_Update ObjFireshield_Update
 #define Rand_ZeroOne func_8008704C
 #define func_80A4CABC func_8000002C
 #define func_80A4CB7C func_800000EC

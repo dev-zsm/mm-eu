@@ -7,7 +7,7 @@
 #define Camera_GetQuakeOffset Camera_GetQuakeOffset
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define EffStk_Draw func_80000180
+#define EffStk_Draw EffStk_Draw
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_SinS Math_SinS

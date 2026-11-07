@@ -14,10 +14,10 @@
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
-#define ObjDanpeilift_Init func_8000003C
-#define ObjDanpeilift_Move func_800001D4
+#define ObjDanpeilift_Init ObjDanpeilift_Init
+#define ObjDanpeilift_Move ObjDanpeilift_Move
 #define ObjDanpeilift_Teleport D_80BFFFB0
-#define ObjDanpeilift_Update func_800004E4
+#define ObjDanpeilift_Update ObjDanpeilift_Update
 #define ObjDanpeilift_UpdatePosition func_80BFFB60
 #define ObjDanpeilift_Wait D_80C0000C
 

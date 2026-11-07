@@ -5,25 +5,25 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnBubble_SetDimensions */
+void EnBubble_SetDimensions(void *arg0, s32 arg1);  /* 80000000 */
 s32 func_800000BC(u8 *arg0);
 s32 func_800000F0(void *a);
-void func_80000114(s32 arg0, s32 arg1);  /* EnBubble_DamagePlayer */
-void func_80000180(void *arg0, s32 arg1);  /* EnBubble_Explosion */
+void EnBubble_DamagePlayer(s32 arg0, s32 arg1);  /* 80000114 */
+void EnBubble_Explosion(void *arg0, s32 arg1);  /* 80000180 */
 s32 func_800003DC(u8 *arg0);
 void func_80000428(void *arg0);
-void func_8000047C(s32 arg0, s32 arg1, s32 arg2);  /* EnBubble_Vec3fNormalizedReflect */
-void func_80000504(void *arg0);  /* EnBubble_Vec3fNormalize */
-void func_80000574(void *arg0, s32 arg1);  /* EnBubble_Fly */
+void EnBubble_Vec3fNormalizedReflect(s32 arg0, s32 arg1, s32 arg2);  /* 8000047C */
+void EnBubble_Vec3fNormalize(void *arg0);  /* 80000504 */
+void EnBubble_Fly(void *arg0, s32 arg1);  /* 80000574 */
 void func_80000A50(void *arg0);
-void func_80000AEC(void *arg0);  /* EnBubble_IsPopped */
+void EnBubble_IsPopped(void *arg0);  /* 80000AEC */
 void func_80000B7C(void *arg0);
-void func_80000C90(void *arg0, s32 arg1);  /* EnBubble_Init */
-void func_80000DBC(void *arg0, s32 arg1);  /* EnBubble_Wait */
-void func_80000E70(s32 arg0, s32 arg1);  /* EnBubble_Pop */
-void func_80000EC0(u8 *arg0, s32 arg1);  /* EnBubble_Disappear */
-void func_80000F08(s32 arg0, s32 arg1);  /* EnBubble_Regrow */
-void func_80000F78(void *arg0, s32 arg1);  /* EnBubble_Update */
-void func_80000FF4(void *arg0, void *arg1);  /* EnBubble_Draw */
+void EnBubble_Init(void *arg0, s32 arg1);  /* 80000C90 */
+void EnBubble_Wait(void *arg0, s32 arg1);  /* 80000DBC */
+void EnBubble_Pop(s32 arg0, s32 arg1);  /* 80000E70 */
+void EnBubble_Disappear(u8 *arg0, s32 arg1);  /* 80000EC0 */
+void EnBubble_Regrow(s32 arg0, s32 arg1);  /* 80000F08 */
+void EnBubble_Update(void *arg0, s32 arg1);  /* 80000F78 */
+void EnBubble_Draw(void *arg0, void *arg1);  /* 80000FF4 */
 
 #endif

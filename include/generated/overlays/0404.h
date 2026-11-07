@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);  /* TransitionWipe3_Start */
-s32 func_8000013C(s32 arg0);  /* TransitionWipe3_Init */
-void func_80000168(s32 arg0);  /* TransitionWipe3_Destroy */
-void func_80000174(u8 *arg0, f32 arg1);  /* TransitionWipe3_UpdateScrollY */
-void func_800001A0(void *arg0, s32 arg1);  /* TransitionWipe3_Update */
-void func_800002B8(void *arg0, s32 arg1);  /* TransitionWipe3_Draw */
-u8 func_800004A4(u8 *arg0);  /* TransitionWipe3_IsDone */
-void func_800004B0(void *arg0, s32 arg1);  /* TransitionWipe3_SetType */
-void func_800004FC(s32 *arg0, s32 arg1);  /* TransitionWipe3_SetColor */
-void func_80000508(u8 *arg0, s32 arg1);  /* TransitionWipe3_SetEnvColor */
+void TransitionWipe3_Start(void *arg0);  /* 80000000 */
+s32 TransitionWipe3_Init(s32 arg0);  /* 8000013C */
+void TransitionWipe3_Destroy(s32 arg0);  /* 80000168 */
+void TransitionWipe3_UpdateScrollY(u8 *arg0, f32 arg1);  /* 80000174 */
+void TransitionWipe3_Update(void *arg0, s32 arg1);  /* 800001A0 */
+void TransitionWipe3_Draw(void *arg0, s32 arg1);  /* 800002B8 */
+u8 TransitionWipe3_IsDone(u8 *arg0);  /* 800004A4 */
+void TransitionWipe3_SetType(void *arg0, s32 arg1);  /* 800004B0 */
+void TransitionWipe3_SetColor(s32 *arg0, s32 arg1);  /* 800004FC */
+void TransitionWipe3_SetEnvColor(u8 *arg0, s32 arg1);  /* 80000508 */
 
 #endif

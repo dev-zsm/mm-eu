@@ -26,10 +26,10 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
-#define ObjAqua_Draw func_800009A8
-#define ObjAqua_Init func_80000438
+#define ObjAqua_Draw ObjAqua_Draw
+#define ObjAqua_Init ObjAqua_Init
 #define ObjAqua_IsUnderwater func_80AB0790
-#define ObjAqua_Update func_80000840
+#define ObjAqua_Update ObjAqua_Update
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80ACB6A0 func_80000000

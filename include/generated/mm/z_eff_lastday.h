@@ -10,8 +10,8 @@
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define EffLastday_Draw func_8000061C
-#define EffLastday_Init func_80000000
+#define EffLastday_Draw EffLastday_Draw
+#define EffLastday_Init EffLastday_Init
 #define EffLastday_SetVtxAlpha func_80BD0E44
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Lib_SegmentedToVirtual func_80100304

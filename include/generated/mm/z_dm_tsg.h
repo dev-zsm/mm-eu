@@ -9,9 +9,9 @@
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define DmTsg_Draw func_80000268
-#define DmTsg_Init func_80000000
-#define DmTsg_Update func_800000E8
+#define DmTsg_Draw DmTsg_Draw
+#define DmTsg_Init DmTsg_Init
+#define DmTsg_Update DmTsg_Update
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS

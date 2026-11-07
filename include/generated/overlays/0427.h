@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgDkjailIvy_IvyCutEffects */
-void func_80000374(void *arg0, s32 arg1);  /* BgDkjailIvy_Init */
-void func_8000047C(u8 *arg0);  /* BgDkjailIvy_SetupWaitForCut */
-void func_80000490(void *arg0, s32 arg1);  /* BgDkjailIvy_WaitForCut */
-void func_80000504(u8 *arg0);  /* BgDkjailIvy_SetupCutscene */
-void func_80000518(void *arg0, s32 arg1);  /* BgDkjailIvy_BeginCutscene */
-void func_800005B0(u8 *arg0);  /* BgDkjailIvy_SetupFadeOut */
-void func_800005C4(u8 *arg0, s32 arg1);  /* BgDkjailIvy_FadeOut */
-void func_80000644(s32 arg0, s32 arg1);  /* BgDkjailIvy_Draw */
+void BgDkjailIvy_IvyCutEffects(void *arg0, s32 arg1);  /* 80000000 */
+void BgDkjailIvy_Init(void *arg0, s32 arg1);  /* 80000374 */
+void BgDkjailIvy_SetupWaitForCut(u8 *arg0);  /* 8000047C */
+void BgDkjailIvy_WaitForCut(void *arg0, s32 arg1);  /* 80000490 */
+void BgDkjailIvy_SetupCutscene(u8 *arg0);  /* 80000504 */
+void BgDkjailIvy_BeginCutscene(void *arg0, s32 arg1);  /* 80000518 */
+void BgDkjailIvy_SetupFadeOut(u8 *arg0);  /* 800005B0 */
+void BgDkjailIvy_FadeOut(u8 *arg0, s32 arg1);  /* 800005C4 */
+void BgDkjailIvy_Draw(s32 arg0, s32 arg1);  /* 80000644 */
 
 #endif

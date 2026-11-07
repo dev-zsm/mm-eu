@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0);  /* ObjUsiyane_GetAlienSpawnTime */
+void ObjUsiyane_GetAlienSpawnTime(s32 arg0);  /* 80000000 */
 void func_80000050();
 void func_80000144(s32 arg0, s32 arg1);
 void func_8000017C(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -13,6 +13,6 @@ void func_800002B0(void *arg0, s32 arg1);
 void func_80000548(void *arg0, s32 arg1);
 void func_8000064C(u8 *arg0, s32 arg1);
 void func_80000660(void *arg0, s32 arg1);
-void func_80000800(void *arg0, s32 arg1);  /* ObjUsiyane_Draw */
+void ObjUsiyane_Draw(void *arg0, s32 arg1);  /* 80000800 */
 
 #endif

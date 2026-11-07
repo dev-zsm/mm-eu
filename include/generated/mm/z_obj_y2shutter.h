@@ -16,10 +16,10 @@
 #define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Math_StepToF Math_StepToF
-#define ObjY2shutter_Draw func_80000480
-#define ObjY2shutter_Init func_80000000
+#define ObjY2shutter_Draw ObjY2shutter_Draw
+#define ObjY2shutter_Init ObjY2shutter_Init
 #define ObjY2shutter_SetupOpen func_80B7F7C0
-#define ObjY2shutter_Update func_800000D4
+#define ObjY2shutter_Update ObjY2shutter_Update
 #define ref_func_800F22C4 func_800F2074
 #define sInitChain D_80B7FC50
 #define sShutterInfo D_80B7FC10

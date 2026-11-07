@@ -7,8 +7,8 @@
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
-#define ObjTokeiTurret_Draw func_80000104
-#define ObjTokeiTurret_Init func_80000000
+#define ObjTokeiTurret_Draw ObjTokeiTurret_Draw
+#define ObjTokeiTurret_Init ObjTokeiTurret_Init
 #define gClockTownFlagsDL D_6003038
 #define gClockTownTurretBaseCol D_60026A0
 #define gClockTownTurretPlatformBaseDL D_6002508

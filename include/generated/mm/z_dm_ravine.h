@@ -6,8 +6,8 @@
 #define Actor_Kill Actor_Kill
 #define Actor_SetScale Actor_SetScale
 #define DmRavine_DoNothing D_80A13568
-#define DmRavine_Init func_80000000
-#define DmRavine_Update func_800000A8
+#define DmRavine_Init DmRavine_Init
+#define DmRavine_Update DmRavine_Update
 
 #include "overlays/actors/ovl_Dm_Ravine/z_dm_ravine.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)

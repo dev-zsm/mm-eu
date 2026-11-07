@@ -11,10 +11,10 @@
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetInfo2 CollisionCheck_SetInfo2
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnSi_GiveToken func_800000B0
-#define EnSi_Init func_800001F8
-#define EnSi_Update func_800002A4
-#define EnSi_UpdateCollision func_80000000
+#define EnSi_GiveToken EnSi_GiveToken
+#define EnSi_Init EnSi_Init
+#define EnSi_Update EnSi_Update
+#define EnSi_UpdateCollision EnSi_UpdateCollision
 #define EnSi_Wait D_809718B0
 #define Flags_SetTreasure Flags_SetTreasure
 #define Inventory_GetSkullTokenCount func_8012F5DC

@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000050(s32 arg0, s32 arg1);  /* BgOpenSpot_Update */
-void func_800000D0(void *arg0, s32 arg1);  /* BgOpenSpot_Draw */
+void BgOpenSpot_Update(s32 arg0, s32 arg1);  /* 80000050 */
+void BgOpenSpot_Draw(void *arg0, s32 arg1);  /* 800000D0 */
 
 #endif

@@ -11,8 +11,8 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EnWarpUzu_DoNothing D_80A4B148
-#define EnWarpUzu_Init func_80000000
-#define EnWarpUzu_Update func_80000278
+#define EnWarpUzu_Init EnWarpUzu_Init
+#define EnWarpUzu_Update EnWarpUzu_Update
 #define func_80A66278 func_800000F8
 #define func_80A66384 func_80000204
 #define gSaveContext D_801E6EF0

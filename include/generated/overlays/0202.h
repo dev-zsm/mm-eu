@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* EffectSsDFire_CheckForObject */
-void func_80000078(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsDFire_Init */
-void func_8000015C(void *arg0, s32 arg1, void *arg2);  /* EffectSsDFire_Draw */
-void func_80000324(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDFire_Update */
+void EffectSsDFire_CheckForObject(s32 arg0, s32 arg1);  /* 80000000 */
+void EffectSsDFire_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000078 */
+void EffectSsDFire_Draw(void *arg0, s32 arg1, void *arg2);  /* 8000015C */
+void EffectSsDFire_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000324 */
 
 #endif

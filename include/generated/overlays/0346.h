@@ -9,9 +9,9 @@ void func_80000000(s32 arg0, void *arg1);
 void func_80000280(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void func_80000614(void *arg0, s32 arg1);
 void func_80000A20(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_80000DA0(s32 arg0, void *arg1, s32 arg2);  /* ObjHugebombiwa_RequestQuakeAndRumble */
+void ObjHugebombiwa_RequestQuakeAndRumble(s32 arg0, void *arg1, s32 arg2);  /* 80000DA0 */
 void func_80000E2C(void *arg0);
-void func_80000EE0(void *arg0, s32 arg1);  /* ObjHugebombiwa_Init */
+void ObjHugebombiwa_Init(void *arg0, s32 arg1);  /* 80000EE0 */
 void func_80001010(u8 *arg0);
 void func_80001024(void *arg0, s32 arg1);
 void func_800010F8(u8 *arg0);
@@ -20,7 +20,7 @@ void func_80001230(void *arg0);
 void func_80001484(void *arg0, s32 arg1);
 void func_80001730(void *arg0);
 void func_80001984(void *arg0, s32 arg1);
-void func_80001C40(void *arg0, void *arg1);  /* ObjHugebombiwa_Draw */
+void ObjHugebombiwa_Draw(void *arg0, void *arg1);  /* 80001C40 */
 void func_80001F54(void *arg0, void *arg1);
 
 #endif

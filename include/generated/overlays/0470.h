@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000090(void *arg0, s32 arg1);  /* ObjWind_Update */
-void func_800004F0(s32 arg0, s32 arg1);  /* ObjWind_Draw */
+void ObjWind_Update(void *arg0, s32 arg1);  /* 80000090 */
+void ObjWind_Draw(s32 arg0, s32 arg1);  /* 800004F0 */
 
 #endif

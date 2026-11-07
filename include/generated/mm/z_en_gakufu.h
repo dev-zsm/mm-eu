@@ -12,12 +12,12 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define EnGakufu_DoNothing D_80AE1944
-#define EnGakufu_Draw func_80000534
-#define EnGakufu_GiveReward func_800002F8
+#define EnGakufu_Draw EnGakufu_Draw
+#define EnGakufu_GiveReward EnGakufu_GiveReward
 #define EnGakufu_IsPlayerInRange func_80AE1954
-#define EnGakufu_PlayRewardCutscene func_800003E4
-#define EnGakufu_ProcessNotes func_80000000
-#define EnGakufu_WaitForSong func_80000468
+#define EnGakufu_PlayRewardCutscene EnGakufu_PlayRewardCutscene
+#define EnGakufu_ProcessNotes EnGakufu_ProcessNotes
+#define EnGakufu_WaitForSong EnGakufu_WaitForSong
 #define Item_DropCollectible Item_DropCollectible
 #define Matrix_Pop Matrix_Pop
 #define Matrix_Push Matrix_Push

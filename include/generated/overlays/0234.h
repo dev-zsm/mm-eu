@@ -14,13 +14,13 @@ void func_80000A30(void *arg0, s32 arg1);
 void func_80000A88(void *arg0, s32 arg1);
 void func_80000B5C(void *arg0, s32 arg1);
 void func_80000C34(u8 *arg0);
-void func_80000CA0(void *arg0, s32 arg1);  /* ObjComb_Init */
+void ObjComb_Init(void *arg0, s32 arg1);  /* 80000CA0 */
 void func_80000E04(u8 *arg0);
 void func_80000E20(void *arg0, s32 arg1);
 void func_80001018(u8 *arg0);
 void func_80001060(void *arg0, s32 arg1);
 void func_80001278(void *arg0, s32 arg1);
-void func_8000131C(void *arg0, s32 arg1);  /* ObjComb_Update */
-void func_800014B8(void *arg0, s32 arg1);  /* ObjComb_Draw */
+void ObjComb_Update(void *arg0, s32 arg1);  /* 8000131C */
+void ObjComb_Draw(void *arg0, s32 arg1);  /* 800014B8 */
 
 #endif

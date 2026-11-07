@@ -22,9 +22,9 @@
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EffectSsDeadDb_Spawn EffectSsDeadDb_Spawn
-#define EnMkk_Draw func_800012C0
-#define EnMkk_Init func_80000000
-#define EnMkk_Update func_80000D44
+#define EnMkk_Draw EnMkk_Draw
+#define EnMkk_Init EnMkk_Init
+#define EnMkk_Update EnMkk_Update
 #define Enemy_StartFinishingBlow Enemy_StartFinishingBlow
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Math_CosS Math_CosS

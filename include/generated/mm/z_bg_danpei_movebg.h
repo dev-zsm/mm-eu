@@ -6,7 +6,7 @@
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define BgDanpeiMovebg_Init func_8000004C
+#define BgDanpeiMovebg_Init BgDanpeiMovebg_Init
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsActorOnTop DynaPolyActor_IsActorOnTop
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop

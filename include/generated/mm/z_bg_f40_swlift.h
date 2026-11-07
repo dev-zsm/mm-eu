@@ -5,8 +5,8 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define BgF40Swlift_Init func_80000000
-#define BgF40Swlift_Update func_80000100
+#define BgF40Swlift_Init BgF40Swlift_Init
+#define BgF40Swlift_Update BgF40Swlift_Update
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch

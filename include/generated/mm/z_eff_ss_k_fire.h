@@ -3,8 +3,8 @@
 #define MM_Z_EFF_SS_K_FIRE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsKFire_Draw func_800000D8
-#define EffectSsKFire_Init func_80000000
+#define EffectSsKFire_Draw EffectSsKFire_Draw
+#define EffectSsKFire_Init EffectSsKFire_Init
 #define EffectSsKFire_Update D_80962490
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll

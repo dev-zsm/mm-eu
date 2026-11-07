@@ -10,9 +10,9 @@
 #define Flags_GetCollectible Flags_GetCollectible
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
-#define ItemBHeart_Draw func_800001D4
-#define ItemBHeart_Init func_80000000
-#define ItemBHeart_UpdateModel func_80000164
+#define ItemBHeart_Draw ItemBHeart_Draw
+#define ItemBHeart_Init ItemBHeart_Init
+#define ItemBHeart_UpdateModel ItemBHeart_UpdateModel
 #define Math_ApproachF Math_ApproachF
 #define gGiHeartBorderDL D_6001290
 #define gGiHeartContainerDL D_6001470

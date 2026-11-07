@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsGRipple_Init */
-void func_80000108(void *arg0, void *arg1, s32 arg2);  /* EffectSsGRipple_DrawRipple */
-void func_80000318(void *a0, s32 a1, u8 *a2);  /* EffectSsGRipple_Draw */
-void func_80000350(s32 arg0, s32 arg1, void *arg2);  /* EffectSsGRipple_Update */
+void EffectSsGRipple_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsGRipple_DrawRipple(void *arg0, void *arg1, s32 arg2);  /* 80000108 */
+void EffectSsGRipple_Draw(void *a0, s32 a1, u8 *a2);  /* 80000318 */
+void EffectSsGRipple_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000350 */
 
 #endif

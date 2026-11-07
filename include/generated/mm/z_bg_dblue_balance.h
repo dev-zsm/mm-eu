@@ -11,9 +11,9 @@
 #define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
 #define Audio_PlaySfx_AtPosWithFreqAndChannelIO Audio_PlaySfx_AtPosWithFreqAndChannelIO
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
-#define BgDblueBalance_Draw func_80001234
-#define BgDblueBalance_Init func_800007B0
-#define BgDblueBalance_Update func_80000F18
+#define BgDblueBalance_Draw BgDblueBalance_Draw
+#define BgDblueBalance_Init BgDblueBalance_Init
+#define BgDblueBalance_Update BgDblueBalance_Update
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08

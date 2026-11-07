@@ -19,9 +19,9 @@
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define EffectSsIceSmoke_Spawn func_800B372C
 #define Effect_Add Effect_Add
-#define EnGoroiwa_Draw func_80004494
-#define EnGoroiwa_Init func_80002A0C
-#define EnGoroiwa_Update func_80003DC8
+#define EnGoroiwa_Draw EnGoroiwa_Draw
+#define EnGoroiwa_Init EnGoroiwa_Init
+#define EnGoroiwa_Update EnGoroiwa_Update
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Lib_SegmentedToVirtual func_80100304

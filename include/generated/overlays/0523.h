@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ObjWarpstone_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* ObjWarpstone_Init */
-void func_800000F0(void *arg0, s32 arg1);  /* ObjWarpstone_ClosedIdle */
-void func_80000138(void *arg0, s32 arg1);  /* ObjWarpstone_BeginOpeningCutscene */
-void func_800001C0(void *arg0, s32 arg1);  /* ObjWarpstone_PlayOpeningCutscene */
-s32 func_800002B4(u8 *arg0, s32 arg1);  /* ObjWarpstone_OpenedIdle */
-void func_800002CC(void *arg0, s32 arg1);  /* ObjWarpstone_Update */
-void func_80000430(s32 arg0, s32 arg1);  /* ObjWarpstone_Draw */
+void ObjWarpstone_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void ObjWarpstone_Init(void *arg0, s32 arg1);  /* 8000000C */
+void ObjWarpstone_ClosedIdle(void *arg0, s32 arg1);  /* 800000F0 */
+void ObjWarpstone_BeginOpeningCutscene(void *arg0, s32 arg1);  /* 80000138 */
+void ObjWarpstone_PlayOpeningCutscene(void *arg0, s32 arg1);  /* 800001C0 */
+s32 ObjWarpstone_OpenedIdle(u8 *arg0, s32 arg1);  /* 800002B4 */
+void ObjWarpstone_Update(void *arg0, s32 arg1);  /* 800002CC */
+void ObjWarpstone_Draw(s32 arg0, s32 arg1);  /* 80000430 */
 
 #endif

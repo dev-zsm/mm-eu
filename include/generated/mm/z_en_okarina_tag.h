@@ -5,7 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_OcarinaInteractionAccepted Actor_OcarinaInteractionAccepted
 #define Actor_OfferOcarinaInteraction Actor_OfferOcarinaInteraction
-#define EnOkarinaTag_Init func_80000010
+#define EnOkarinaTag_Init EnOkarinaTag_Init
 #define Flags_GetSwitch Flags_GetSwitch
 #define Message_DisplayOcarinaStaff func_80152978
 #define func_8093E518 func_800000F8

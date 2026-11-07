@@ -3,10 +3,10 @@
 #define MM_Z_EFF_SS_D_FIRE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsDFire_CheckForObject func_80000000
-#define EffectSsDFire_Draw func_8000015C
-#define EffectSsDFire_Init func_80000078
-#define EffectSsDFire_Update func_80000324
+#define EffectSsDFire_CheckForObject EffectSsDFire_CheckForObject
+#define EffectSsDFire_Draw EffectSsDFire_Draw
+#define EffectSsDFire_Init EffectSsDFire_Init
+#define EffectSsDFire_Update EffectSsDFire_Update
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_Copy Math_Vec3f_Copy

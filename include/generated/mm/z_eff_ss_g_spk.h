@@ -3,10 +3,10 @@
 #define MM_Z_EFF_SS_G_SPK_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsGSpk_Draw func_80000140
-#define EffectSsGSpk_Init func_80000000
-#define EffectSsGSpk_Update func_80000310
-#define EffectSsGSpk_UpdateNoAccel func_80000438
+#define EffectSsGSpk_Draw EffectSsGSpk_Draw
+#define EffectSsGSpk_Init EffectSsGSpk_Init
+#define EffectSsGSpk_Update EffectSsGSpk_Update
+#define EffectSsGSpk_UpdateNoAccel EffectSsGSpk_UpdateNoAccel
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS

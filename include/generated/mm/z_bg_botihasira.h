@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define BgBotihasira_DoNothing D_80B0CE8C
-#define BgBotihasira_Draw func_800001C0
-#define BgBotihasira_Init func_80000000
-#define BgBotihasira_Update func_800000EC
+#define BgBotihasira_Draw BgBotihasira_Draw
+#define BgBotihasira_Init BgBotihasira_Init
+#define BgBotihasira_Update BgBotihasira_Update
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC

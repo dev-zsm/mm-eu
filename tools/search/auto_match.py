@@ -30,7 +30,7 @@ def same(want: bytes, cfile: Path, fn: str, flags: list) -> bool:
 def have_c(seg: str, fn: str) -> bool:
     """A verified C file or an attempt already exists for the function."""
     if seg.startswith("ovl"):
-        d = ROOT / "src" / "overlays" / seg[3:]
+        d = srcpath.overlay_dir(seg[3:])
         return (d / f"{fn}.c").exists() or (d / "wip" / f"{fn}.c").exists()
     return srcpath.path(seg, fn).exists()
 

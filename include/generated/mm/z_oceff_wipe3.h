@@ -13,9 +13,9 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define OceffWipe3_Draw func_800000F0
-#define OceffWipe3_Init func_80000000
-#define OceffWipe3_Update func_80000090
+#define OceffWipe3_Draw OceffWipe3_Draw
+#define OceffWipe3_Init OceffWipe3_Init
+#define OceffWipe3_Update OceffWipe3_Update
 #define sSariaSongFrustrumMaterialDL D_8096DCB0
 #define sSariaSongFrustumModelDL D_8096DD38
 #define sSariaSongFrustumVtx D_8096DB50

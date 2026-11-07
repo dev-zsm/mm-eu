@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define BgLastBwall_Draw func_8000071C
-#define BgLastBwall_Init func_8000014C
-#define BgLastBwall_InitCollider func_80000000
+#define BgLastBwall_Draw BgLastBwall_Draw
+#define BgLastBwall_Init BgLastBwall_Init
+#define BgLastBwall_InitCollider BgLastBwall_InitCollider
 #define Collider_InitTris Collider_InitTris
 #define Collider_SetTris Collider_SetTris
 #define Collider_SetTrisVertices func_800E7C8C

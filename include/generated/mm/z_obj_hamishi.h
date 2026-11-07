@@ -19,8 +19,8 @@
 #define Math_ScaledStepToS Math_ScaledStepToS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
-#define ObjHamishi_Draw func_8000089C
-#define ObjHamishi_Init func_80000560
+#define ObjHamishi_Draw ObjHamishi_Draw
+#define ObjHamishi_Init ObjHamishi_Init
 #define ObjHamishi_IsUnderwater func_80986148
 #define Rand_Next func_80087010
 #define func_809A0F20 func_80000000

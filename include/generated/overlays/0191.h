@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* OceffSpot_SetupAction */
-void func_8000000C(void *arg0, void *arg1);  /* OceffSpot_Init */
-void func_8000016C(s32 arg0, s32 arg1);  /* OceffSpot_Destroy */
-void func_800001C4(u8 *arg0, u8 *arg1);  /* OceffSpot_End */
-void func_800002B4(void *arg0, s32 arg1);  /* OceffSpot_GrowCylinder */
-void func_80000318(void *arg0, s32 arg1);  /* OceffSpot_Update */
-void func_800005D4(s32 arg0, void *arg1);  /* OceffSpot_Draw */
+void OceffSpot_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void OceffSpot_Init(void *arg0, void *arg1);  /* 8000000C */
+void OceffSpot_Destroy(s32 arg0, s32 arg1);  /* 8000016C */
+void OceffSpot_End(u8 *arg0, u8 *arg1);  /* 800001C4 */
+void OceffSpot_GrowCylinder(void *arg0, s32 arg1);  /* 800002B4 */
+void OceffSpot_Update(void *arg0, s32 arg1);  /* 80000318 */
+void OceffSpot_Draw(s32 arg0, void *arg1);  /* 800005D4 */
 
 #endif

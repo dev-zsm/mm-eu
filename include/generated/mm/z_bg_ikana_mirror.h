@@ -4,14 +4,14 @@
 
 /* names of ours that symbols of the reference stand for */
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgIkanaMirror_Destroy func_800002D0
-#define BgIkanaMirror_Draw func_800005AC
-#define BgIkanaMirror_EmitLight func_80000474
-#define BgIkanaMirror_Init func_80000120
-#define BgIkanaMirror_SetQuadVertices func_80000000
+#define BgIkanaMirror_Destroy BgIkanaMirror_Destroy
+#define BgIkanaMirror_Draw BgIkanaMirror_Draw
+#define BgIkanaMirror_EmitLight BgIkanaMirror_EmitLight
+#define BgIkanaMirror_Init BgIkanaMirror_Init
+#define BgIkanaMirror_SetQuadVertices BgIkanaMirror_SetQuadVertices
 #define BgIkanaMirror_SetupEmitLight func_80B648A4
 #define BgIkanaMirror_SetupWait func_80B647A4
-#define BgIkanaMirror_Wait func_8000036C
+#define BgIkanaMirror_Wait BgIkanaMirror_Wait
 #define Collider_DestroyQuad Collider_DestroyQuad
 #define Collider_DestroyTris Collider_DestroyTris
 #define Collider_SetQuadVertices func_800E7C1C

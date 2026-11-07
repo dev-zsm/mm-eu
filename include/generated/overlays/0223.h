@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsDeadDb_Init */
-void func_800000E4(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDeadDb_Draw */
-void func_80000294(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDeadDb_Update */
+void EffectSsDeadDb_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsDeadDb_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800000E4 */
+void EffectSsDeadDb_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000294 */
 
 #endif

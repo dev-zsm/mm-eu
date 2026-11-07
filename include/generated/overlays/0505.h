@@ -11,7 +11,7 @@ void func_800002D8(u8 *arg0);
 void func_80000318(void *arg0, s32 arg1);
 void func_8000038C(void *arg0, s32 arg1);
 void func_800003F8(void *arg0, s32 arg1);
-void func_80000460(void *arg0, s32 arg1);  /* BgKin2Shelf_Init */
+void BgKin2Shelf_Init(void *arg0, s32 arg1);  /* 80000460 */
 void func_80000578(u8 *arg0);
 void func_80000590(void *arg0, s32 arg1);
 void func_800006E4(u8 *arg0);

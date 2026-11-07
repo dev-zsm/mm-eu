@@ -30,8 +30,8 @@
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
-#define ObjHakaisi_Draw func_80000EE0
-#define ObjHakaisi_Init func_80000000
+#define ObjHakaisi_Draw ObjHakaisi_Draw
+#define ObjHakaisi_Init ObjHakaisi_Init
 #define Rand_Centered func_800870A0
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C

@@ -12,9 +12,9 @@
 #define DynaPoly_GetActor DynaPoly_GetActor
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateYS Matrix_RotateYS
-#define ObjTokeiTobira_Init func_80000000
+#define ObjTokeiTobira_Init ObjTokeiTobira_Init
 #define ObjTokeiTobira_StartCutscene D_80AA20E0
-#define ObjTokeiTobira_Update func_80000254
+#define ObjTokeiTobira_Update ObjTokeiTobira_Update
 #define gSaveContext D_801E6EF0
 #define ref_D_80ABD760 D_80AA2490
 #define ref_D_80ABD76C D_80AA249C

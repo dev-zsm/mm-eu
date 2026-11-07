@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1, s32 arg2);  /* EnWood02_SpawnZoneCheck */
-void func_80000128(void *arg0, s32 arg1);  /* EnWood02_SpawnOffspring */
-void func_80000330(void *arg0, s32 arg1);  /* EnWood02_Init */
-void func_80000814(void *arg0, s32 arg1);  /* EnWood02_Destroy */
+void EnWood02_SpawnZoneCheck(void *arg0, s32 arg1, s32 arg2);  /* 80000000 */
+void EnWood02_SpawnOffspring(void *arg0, s32 arg1);  /* 80000128 */
+void EnWood02_Init(void *arg0, s32 arg1);  /* 80000330 */
+void EnWood02_Destroy(void *arg0, s32 arg1);  /* 80000814 */
 void func_80000858(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000984(void *arg0, void *arg1);  /* EnWood02_Update */
-void func_80000E3C(s32 arg0, s32 arg1);  /* EnWood02_Draw */
+void EnWood02_Update(void *arg0, void *arg1);  /* 80000984 */
+void EnWood02_Draw(s32 arg0, s32 arg1);  /* 80000E3C */
 
 #endif

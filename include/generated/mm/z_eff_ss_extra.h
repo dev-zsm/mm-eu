@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_EXTRA_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsExtra_Draw func_80000144
-#define EffectSsExtra_Init func_80000000
-#define EffectSsExtra_Update func_800002AC
+#define EffectSsExtra_Draw EffectSsExtra_Draw
+#define EffectSsExtra_Init EffectSsExtra_Init
+#define EffectSsExtra_Update EffectSsExtra_Update
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
 #define Matrix_ReplaceRotation Matrix_ReplaceRotation

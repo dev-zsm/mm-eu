@@ -6,8 +6,8 @@
 #include "types.h"
 
 void func_80000050(void *arg0, void *arg1, s32 arg2);
-void func_80000128(void *arg0, s32 arg1);  /* EnTanron1_Update */
-void func_800004F8(void);  /* EnTanron1_Draw */
+void EnTanron1_Update(void *arg0, s32 arg1);  /* 80000128 */
+void EnTanron1_Draw(void);  /* 800004F8 */
 void func_80000518(void *arg0, void *arg1);
 void func_80000CAC(void *arg0, void *arg1);
 

@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgIcicle_Init */
-void func_800000F4(u8 *arg0, s32 arg1);  /* BgIcicle_Destroy */
-void func_8000013C(void *arg0, s32 arg1, s32 arg2);  /* BgIcicle_Break */
-void func_8000031C(s32 arg0, s32 arg1);  /* BgIcicle_DoNothing */
-void func_8000032C(u8 *arg0, s32 arg1);  /* BgIcicle_Wait */
-void func_80000364(void *arg0, s32 arg1);  /* BgIcicle_Shiver */
-void func_800004C8(void *arg0, s32 arg1);  /* BgIcicle_Fall */
-void func_8000060C(u8 *arg0, s32 arg1);  /* BgIcicle_Regrow */
-void func_8000065C(void *arg0, s32 arg1);  /* BgIcicle_UpdateAttacked */
-void func_80000798(void *arg0, s32 arg1);  /* BgIcicle_Update */
-void func_8000081C(s32 arg0, s32 arg1);  /* BgIcicle_Draw */
+void BgIcicle_Init(void *arg0, s32 arg1);  /* 80000000 */
+void BgIcicle_Destroy(u8 *arg0, s32 arg1);  /* 800000F4 */
+void BgIcicle_Break(void *arg0, s32 arg1, s32 arg2);  /* 8000013C */
+void BgIcicle_DoNothing(s32 arg0, s32 arg1);  /* 8000031C */
+void BgIcicle_Wait(u8 *arg0, s32 arg1);  /* 8000032C */
+void BgIcicle_Shiver(void *arg0, s32 arg1);  /* 80000364 */
+void BgIcicle_Fall(void *arg0, s32 arg1);  /* 800004C8 */
+void BgIcicle_Regrow(u8 *arg0, s32 arg1);  /* 8000060C */
+void BgIcicle_UpdateAttacked(void *arg0, s32 arg1);  /* 8000065C */
+void BgIcicle_Update(void *arg0, s32 arg1);  /* 80000798 */
+void BgIcicle_Draw(s32 arg0, s32 arg1);  /* 8000081C */
 
 #endif

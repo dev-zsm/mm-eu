@@ -3,10 +3,10 @@
 #define MM_Z_EFF_SS_EN_ICE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsEnIce_Draw func_80000220
-#define EffectSsEnIce_Init func_80000000
+#define EffectSsEnIce_Draw EffectSsEnIce_Draw
+#define EffectSsEnIce_Init EffectSsEnIce_Init
 #define EffectSsEnIce_Update D_8096452C
-#define EffectSsEnIce_UpdateFlying func_8000055C
+#define EffectSsEnIce_UpdateFlying EffectSsEnIce_UpdateFlying
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_Atan2S_XY Math_Atan2S_XY

@@ -3,15 +3,15 @@
 #define MM_Z_EN_MAG_H
 
 /* names of ours that symbols of the reference stand for */
-#define EnMag_Draw func_800036EC
-#define EnMag_DrawCharTexture func_80002354
-#define EnMag_DrawEffectTextures func_80001B10
-#define EnMag_DrawImageRGBA32 func_80001F78
+#define EnMag_Draw EnMag_Draw
+#define EnMag_DrawCharTexture EnMag_DrawCharTexture
+#define EnMag_DrawEffectTextures EnMag_DrawEffectTextures
+#define EnMag_DrawImageRGBA32 EnMag_DrawImageRGBA32
 #define EnMag_DrawInner func_80952294
-#define EnMag_DrawTextureI8 func_800016E0
-#define EnMag_DrawTextureIA8 func_800018F8
-#define EnMag_Init func_80000000
-#define EnMag_UpdateDisplayEffectColors func_800002F4
+#define EnMag_DrawTextureI8 EnMag_DrawTextureI8
+#define EnMag_DrawTextureIA8 EnMag_DrawTextureIA8
+#define EnMag_Init EnMag_Init
+#define EnMag_UpdateDisplayEffectColors EnMag_UpdateDisplayEffectColors
 #define Font_LoadOrderedFont Font_LoadOrderedFont
 #define Gfx_Close Gfx_Close
 #define Gfx_Open Gfx_Open

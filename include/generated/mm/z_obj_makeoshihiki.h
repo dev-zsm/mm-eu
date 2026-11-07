@@ -11,10 +11,10 @@
 #define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
-#define ObjMakeoshihiki_GetChildSpawnPointIndex func_80000000
-#define ObjMakeoshihiki_Init func_80000104
-#define ObjMakeoshihiki_SetSwitchFlags func_80000074
-#define ObjMakeoshihiki_Update func_800001F8
+#define ObjMakeoshihiki_GetChildSpawnPointIndex ObjMakeoshihiki_GetChildSpawnPointIndex
+#define ObjMakeoshihiki_Init ObjMakeoshihiki_Init
+#define ObjMakeoshihiki_SetSwitchFlags ObjMakeoshihiki_SetSwitchFlags
+#define ObjMakeoshihiki_Update ObjMakeoshihiki_Update
 
 #include "overlays/actors/ovl_Obj_Makeoshihiki/z_obj_makeoshihiki.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)

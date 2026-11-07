@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjLightswitch_InitCollider */
-void func_800000A4(void *arg0, s32 arg1, s32 arg2);  /* ObjLightswitch_UpdateSwitchFlags */
-void func_800000FC(void *arg0, s32 arg1);  /* ObjLightswitch_SpawnEffects */
-void func_800002FC(void *arg0, s32 arg1);  /* ObjLightswitch_Init */
-void func_80000408(u8 *arg0, s32 arg1, s32 arg2);  /* ObjLightswitch_SetAction */
-void func_80000424(void *arg0, s32 arg1);  /* ObjLightswitch_PlayCinema */
-void func_80000498(u8 *arg0);  /* ObjLightswitch_SetupIdle */
-void func_800004CC(void *arg0, s32 arg1);  /* ObjLightswitch_Idle */
-void func_8000053C(u8 *arg0);  /* ObjLightSwitch_SetupAsleep */
-void func_80000558(void *arg0, s32 arg1);  /* ObjLightSwitch_Asleep */
-void func_80000634(u8 *arg0);  /* ObjLightSwitch_SetupEnabled */
-void func_80000670(void *arg0, s32 arg1);  /* ObjLightSwitch_Enabled */
-void func_8000075C(u8 *arg0);  /* ObjLightSwitch_SetupDisabled */
-void func_80000780(void *arg0, s32 arg1);  /* ObjLightSwitch_Disabled */
-void func_80000834(u8 *arg0);  /* ObjLightSwitch_SetupFade */
-void func_80000850(u8 *arg0);  /* ObjLightSwitch_Fade */
-void func_800008A4(void *arg0, s32 arg1);  /* ObjLightswitch_Update */
-void func_80000A04(void *arg0, s32 arg1);  /* ObjLightSwitch_DrawOpa */
-void func_80000C90(void *arg0, s32 arg1);  /* ObjLightSwitch_DrawXlu */
+void ObjLightswitch_InitCollider(void *arg0, s32 arg1);  /* 80000000 */
+void ObjLightswitch_UpdateSwitchFlags(void *arg0, s32 arg1, s32 arg2);  /* 800000A4 */
+void ObjLightswitch_SpawnEffects(void *arg0, s32 arg1);  /* 800000FC */
+void ObjLightswitch_Init(void *arg0, s32 arg1);  /* 800002FC */
+void ObjLightswitch_SetAction(u8 *arg0, s32 arg1, s32 arg2);  /* 80000408 */
+void ObjLightswitch_PlayCinema(void *arg0, s32 arg1);  /* 80000424 */
+void ObjLightswitch_SetupIdle(u8 *arg0);  /* 80000498 */
+void ObjLightswitch_Idle(void *arg0, s32 arg1);  /* 800004CC */
+void ObjLightSwitch_SetupAsleep(u8 *arg0);  /* 8000053C */
+void ObjLightSwitch_Asleep(void *arg0, s32 arg1);  /* 80000558 */
+void ObjLightSwitch_SetupEnabled(u8 *arg0);  /* 80000634 */
+void ObjLightSwitch_Enabled(void *arg0, s32 arg1);  /* 80000670 */
+void ObjLightSwitch_SetupDisabled(u8 *arg0);  /* 8000075C */
+void ObjLightSwitch_Disabled(void *arg0, s32 arg1);  /* 80000780 */
+void ObjLightSwitch_SetupFade(u8 *arg0);  /* 80000834 */
+void ObjLightSwitch_Fade(u8 *arg0);  /* 80000850 */
+void ObjLightswitch_Update(void *arg0, s32 arg1);  /* 800008A4 */
+void ObjLightSwitch_DrawOpa(void *arg0, s32 arg1);  /* 80000A04 */
+void ObjLightSwitch_DrawXlu(void *arg0, s32 arg1);  /* 80000C90 */
 
 #endif

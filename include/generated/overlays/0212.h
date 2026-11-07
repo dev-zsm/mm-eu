@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsStone1_Init */
-void func_8000008C(s32 arg0, s32 arg1, s32 arg2);  /* EffectSsStone1_Draw */
-void func_80000264(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsStone1_Update */
+void EffectSsStone1_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsStone1_Draw(s32 arg0, s32 arg1, s32 arg2);  /* 8000008C */
+void EffectSsStone1_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 80000264 */
 
 #endif

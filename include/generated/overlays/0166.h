@@ -5,18 +5,18 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1, void *arg2, void *arg3);  /* EnClearTag_CreateDebrisEffect */
-void func_80000168(void *arg0, s32 arg1, s32 arg2);  /* EnClearTag_CreateSmokeEffect */
-void func_80000304(void *arg0, s32 arg1, s32 arg2);  /* EnClearTag_CreateIsolatedSmokeEffect */
-void func_8000058C(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* EnClearTag_CreateFlashEffect */
-void func_80000648(void *arg0, void *arg1, void *arg2, void *arg3);  /* EnClearTag_CreateLightRayEffect */
-void func_80000828(void *arg0, void *arg1, void *arg2, void *arg3);  /* EnClearTag_CreateIsolatedLightRayEffect */
-void func_80000A3C(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* EnClearTag_CreateShockwaveEffect */
-void func_80000AF4(void *arg0, s32 arg1, s32 arg2);  /* EnClearTag_CreateSplashEffect */
-void func_80000C64(void *arg0, s32 arg1);  /* EnClearTag_Init */
-void func_80001328(void *arg0, void *arg1);  /* EnClearTag_UpdateCamera */
-void func_80001678(void);  /* EnClearTag_Draw */
-void func_80001698(void *arg0, s32 arg1);  /* EnClearTag_UpdateEffects */
-void func_80001C74(void *arg0, s32 arg1);  /* EnClearTag_DrawEffects */
+void EnClearTag_CreateDebrisEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80000000 */
+void EnClearTag_CreateSmokeEffect(void *arg0, s32 arg1, s32 arg2);  /* 80000168 */
+void EnClearTag_CreateIsolatedSmokeEffect(void *arg0, s32 arg1, s32 arg2);  /* 80000304 */
+void EnClearTag_CreateFlashEffect(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 8000058C */
+void EnClearTag_CreateLightRayEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80000648 */
+void EnClearTag_CreateIsolatedLightRayEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80000828 */
+void EnClearTag_CreateShockwaveEffect(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000A3C */
+void EnClearTag_CreateSplashEffect(void *arg0, s32 arg1, s32 arg2);  /* 80000AF4 */
+void EnClearTag_Init(void *arg0, s32 arg1);  /* 80000C64 */
+void EnClearTag_UpdateCamera(void *arg0, void *arg1);  /* 80001328 */
+void EnClearTag_Draw(void);  /* 80001678 */
+void EnClearTag_UpdateEffects(void *arg0, s32 arg1);  /* 80001698 */
+void EnClearTag_DrawEffects(void *arg0, s32 arg1);  /* 80001C74 */
 
 #endif

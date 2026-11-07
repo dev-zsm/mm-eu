@@ -3,10 +3,10 @@
 #define MM_Z_EFF_SS_BOMB2_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsBomb2_DrawFade func_800000C8
-#define EffectSsBomb2_DrawLayered func_80000294
-#define EffectSsBomb2_Init func_80000000
-#define EffectSsBomb2_Update func_800005B8
+#define EffectSsBomb2_DrawFade EffectSsBomb2_DrawFade
+#define EffectSsBomb2_DrawLayered EffectSsBomb2_DrawLayered
+#define EffectSsBomb2_Init EffectSsBomb2_Init
+#define EffectSsBomb2_Update EffectSsBomb2_Update
 #define EffectSs_LerpInv EffectSs_LerpInv
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304

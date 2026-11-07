@@ -37,9 +37,9 @@
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjComb_Draw func_800014B8
-#define ObjComb_Init func_80000CA0
-#define ObjComb_Update func_8000131C
+#define ObjComb_Draw ObjComb_Draw
+#define ObjComb_Init ObjComb_Init
+#define ObjComb_Update ObjComb_Update
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C

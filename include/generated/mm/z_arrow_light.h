@@ -7,11 +7,11 @@
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetScale Actor_SetScale
-#define ArrowLight_Charge func_800000AC
+#define ArrowLight_Charge ArrowLight_Charge
 #define ArrowLight_Fly D_809091B4
-#define ArrowLight_Hit func_800001F8
-#define ArrowLight_Init func_8000000C
-#define ArrowLight_Lerp func_800001A0
+#define ArrowLight_Hit ArrowLight_Hit
+#define ArrowLight_Init ArrowLight_Init
+#define ArrowLight_Lerp ArrowLight_Lerp
 #define ArrowLight_SetupAction func_80908DF0
 #define sInitChain D_8090AB90
 

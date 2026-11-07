@@ -10,10 +10,10 @@
 #define CutsceneManager_Start func_800F1B24
 #define EnWeatherTag_Die D_8094B5D4
 #define EnWeatherTag_DoNothing D_8094BC98
-#define EnWeatherTag_Init func_8000001C
+#define EnWeatherTag_Init EnWeatherTag_Init
 #define EnWeatherTag_SetupAction func_8094AF00
-#define EnWeatherTag_Unused_809671B8 func_80000DA8
-#define EnWeatherTag_Unused_80967250 func_80000E40
+#define EnWeatherTag_Unused_809671B8 EnWeatherTag_Unused_809671B8
+#define EnWeatherTag_Unused_80967250 EnWeatherTag_Unused_80967250
 #define Environment_PlayStormNatureAmbience Environment_PlayStormNatureAmbience
 #define Environment_StopStormNatureAmbience Environment_StopStormNatureAmbience
 #define Play_GetScreenPos Play_GetScreenPos

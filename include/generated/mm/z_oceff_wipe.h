@@ -13,9 +13,9 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define OceffWipe_Draw func_800000F0
-#define OceffWipe_Init func_80000000
-#define OceffWipe_Update func_80000090
+#define OceffWipe_Draw OceffWipe_Draw
+#define OceffWipe_Init OceffWipe_Init
+#define OceffWipe_Update OceffWipe_Update
 #define sAlphaIndices D_8095BEA0
 #define sSongOfTimeFrustumMaterialDL D_8095BD60
 #define sSongOfTimeFrustumModelDL D_8095BDE8

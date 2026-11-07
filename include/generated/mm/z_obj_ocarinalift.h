@@ -19,8 +19,8 @@
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
-#define ObjOcarinalift_Init func_8000003C
-#define ObjOcarinalift_Update func_800007EC
+#define ObjOcarinalift_Init ObjOcarinalift_Init
+#define ObjOcarinalift_Update ObjOcarinalift_Update
 #define func_80AC96D0 func_80000210
 #define func_80AC99D4 func_80000514
 #define object_raillift_Colheader_0048D0 D_60048D0

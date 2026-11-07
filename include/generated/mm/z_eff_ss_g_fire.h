@@ -3,7 +3,7 @@
 #define MM_Z_EFF_SS_G_FIRE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsGFire_Draw func_800000D8
+#define EffectSsGFire_Draw EffectSsGFire_Draw
 #define EffectSs_DrawGEffect EffectSs_DrawGEffect
 
 #include "overlays/effects/ovl_Effect_Ss_G_Fire/z_eff_ss_g_fire.h"

@@ -3,7 +3,7 @@
 #define MM_Z_EFF_SS_ICE_SMOKE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsIceSmoke_Draw func_800000C4
+#define EffectSsIceSmoke_Draw EffectSsIceSmoke_Draw
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Matrix_Finalize Matrix_Finalize

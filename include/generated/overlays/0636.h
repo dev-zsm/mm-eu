@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_8000007C(void *arg0, void *arg1);  /* ObjYado_Draw */
+void ObjYado_Draw(void *arg0, void *arg1);  /* 8000007C */
 
 #endif

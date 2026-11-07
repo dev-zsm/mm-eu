@@ -6,12 +6,12 @@
 #include "types.h"
 
 void func_80000000(void *arg0, s32 arg1);
-void func_80000098(u8 *arg0, u8 *arg1);  /* BgUmajump_StopCutscene */
-void func_80000114(u8 *arg0, s32 arg1);  /* BgUmajump_PlayCutscene */
-void func_80000188(void *arg0, void *arg1);  /* BgUmajump_CheckDistance */
-void func_800001F4(void *arg0, s32 arg1);  /* BgUmajump_Init */
-void func_800003DC(void *arg0, s32 arg1);  /* BgUmajump_Update */
+void BgUmajump_StopCutscene(u8 *arg0, u8 *arg1);  /* 80000098 */
+void BgUmajump_PlayCutscene(u8 *arg0, s32 arg1);  /* 80000114 */
+void BgUmajump_CheckDistance(void *arg0, void *arg1);  /* 80000188 */
+void BgUmajump_Init(void *arg0, s32 arg1);  /* 800001F4 */
+void BgUmajump_Update(void *arg0, s32 arg1);  /* 800003DC */
 void func_80000670(void *arg0, s32 arg1);
-void func_80000880(void *arg0, s32 arg1);  /* BgUmajump_Draw */
+void BgUmajump_Draw(void *arg0, s32 arg1);  /* 80000880 */
 
 #endif

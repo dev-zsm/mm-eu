@@ -12,8 +12,8 @@
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPoly_SetBgActor DynaPoly_SetBgActor
 #define EnSekihi_DoNothing D_80A29E90
-#define EnSekihi_Draw func_800004E4
-#define EnSekihi_Init func_80000000
+#define EnSekihi_Draw EnSekihi_Draw
+#define EnSekihi_Init EnSekihi_Init
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Object_GetSlot Object_GetSlot

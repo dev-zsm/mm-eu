@@ -17,11 +17,11 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjJgameLight_Destroy func_8000013C
-#define ObjJgameLight_Draw func_80000538
-#define ObjJgameLight_Init func_80000000
-#define ObjJgameLight_UpdateCollision func_800003D4
-#define ObjJgameLight_UpdateFlame func_80000184
+#define ObjJgameLight_Destroy ObjJgameLight_Destroy
+#define ObjJgameLight_Draw ObjJgameLight_Draw
+#define ObjJgameLight_Init ObjJgameLight_Init
+#define ObjJgameLight_UpdateCollision ObjJgameLight_UpdateCollision
+#define ObjJgameLight_UpdateFlame ObjJgameLight_UpdateFlame
 #define Rand_ZeroOne func_8008704C
 #define gEffFire1DL D_407D590
 #define gObjJgameLightCorrectDL D_80BFAE50

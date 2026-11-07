@@ -6,7 +6,7 @@
 #include "types.h"
 
 s32 func_80000000(s32 arg0, u8 *arg1);
-void func_8000004C(void *arg0, s32 arg1);  /* BgDanpeiMovebg_Init */
+void BgDanpeiMovebg_Init(void *arg0, s32 arg1);  /* 8000004C */
 void func_800000C8(void *arg0, s32 arg1);
 void func_8000027C(s32 arg0, s32 arg1);
 void func_8000031C(u8 *arg0, s32 arg1);

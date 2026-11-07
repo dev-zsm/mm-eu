@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_80000048(s32 arg0, void *arg1);  /* BgKeikokuSpr_Draw */
+void BgKeikokuSpr_Draw(s32 arg0, void *arg1);  /* 80000048 */
 
 #endif

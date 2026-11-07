@@ -6,7 +6,7 @@
 #define Actor_Kill Actor_Kill
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAT CollisionCheck_SetAT
-#define EnMFire1_Update func_80000090
+#define EnMFire1_Update EnMFire1_Update
 #define Math_StepToF Math_StepToF
 
 #include "overlays/actors/ovl_En_M_Fire1/z_en_m_fire1.h"

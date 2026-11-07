@@ -11,7 +11,7 @@
 #define Lib_SegmentedToVirtual func_80100304
 #define Matrix_ReplaceRotation Matrix_ReplaceRotation
 #define Message_StartTextbox func_80151DF4
-#define ObjMoonStone_Draw func_80000400
+#define ObjMoonStone_Draw ObjMoonStone_Draw
 #define gGiMoonsTearGlowDL D_6000C80
 #define gGiMoonsTearItemDL D_6000D78
 #define gGiMoonsTearTexAnim D_6001C60

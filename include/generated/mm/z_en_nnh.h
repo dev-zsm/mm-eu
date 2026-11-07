@@ -10,12 +10,12 @@
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnNnh_Draw func_800001F0
-#define EnNnh_Init func_80000000
+#define EnNnh_Draw EnNnh_Draw
+#define EnNnh_Init EnNnh_Init
 #define EnNnh_SetupDialogue func_80BED644
 #define EnNnh_SetupWaitForDialogue func_80BED5C8
-#define EnNnh_Update func_8000018C
-#define EnNnh_WaitForDialogue func_800000DC
+#define EnNnh_Update EnNnh_Update
+#define EnNnh_WaitForDialogue EnNnh_WaitForDialogue
 #define Message_StartTextbox func_80151DF4
 #define sCylinderInit D_80BED7A0
 

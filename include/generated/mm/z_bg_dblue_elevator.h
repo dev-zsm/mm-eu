@@ -5,14 +5,14 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgDblueElevator_CheckWaterBoxInfo func_80B76C40
-#define BgDblueElevator_Init func_80000484
-#define BgDblueElevator_Move func_80000740
-#define BgDblueElevator_Pause func_80000698
+#define BgDblueElevator_Init BgDblueElevator_Init
+#define BgDblueElevator_Move BgDblueElevator_Move
+#define BgDblueElevator_Pause BgDblueElevator_Pause
 #define BgDblueElevator_SetupMove func_80B77364
 #define BgDblueElevator_SetupPause func_80B7729C
 #define BgDblueElevator_SetupWaitActivation func_80B771FC
-#define BgDblueElevator_SpawnRipplesAndSplashes func_80000054
-#define BgDblueElevator_WaitActivation func_800005D8
+#define BgDblueElevator_SpawnRipplesAndSplashes BgDblueElevator_SpawnRipplesAndSplashes
+#define BgDblueElevator_WaitActivation BgDblueElevator_WaitActivation
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Math_SmoothStepToF Math_SmoothStepToF

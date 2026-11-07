@@ -10,13 +10,13 @@
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_SetScale Actor_SetScale
 #define Audio_PlaySfx_2 Audio_PlaySfx_2
-#define BgIknvObj_Destroy func_800001CC
+#define BgIknvObj_Destroy BgIknvObj_Destroy
 #define BgIknvObj_DoNothing D_80BBCEAC
-#define BgIknvObj_Draw func_80000690
-#define BgIknvObj_Init func_80000000
+#define BgIknvObj_Draw BgIknvObj_Draw
+#define BgIknvObj_Init BgIknvObj_Init
 #define BgIknvObj_UpdateRaisedDoor D_80BBCE9C
 #define BgIknvObj_UpdateSakonDoor D_80BBCE38
-#define BgIknvObj_UpdateWaterwheel func_800002BC
+#define BgIknvObj_UpdateWaterwheel BgIknvObj_UpdateWaterwheel
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder

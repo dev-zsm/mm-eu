@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, u8 *arg1);  /* ObjHgdoor_SetChild */
-void func_80000040(u8 *arg0, u8 *arg1);  /* ObjHgdoor_SetParent */
-void func_80000158(u8 *arg0);  /* ObjHgdoor_SetupIdle */
-void func_8000016C(void *arg0, s32 arg1);  /* ObjHgdoor_Idle */
-void func_8000021C(u8 *arg0);  /* ObjHgdoor_SetupCutscene */
-void func_80000230(u8 *arg0, s32 arg1);  /* ObjHgdoor_PlayCutscene */
-void func_800002AC(u8 *arg0);  /* ObjHgdoor_SetupHandleCutscene */
-void func_800002C8(void *arg0, s32 arg1);  /* ObjHgdoor_HandleCutscene */
-void func_800003D0(u8 *arg0);  /* ObjHgdoor_SetupStopCs */
-void func_800003E8(void *arg0, s32 arg1);  /* ObjHgdoor_StopCs */
-void func_800004E0(s32 arg0, s32 arg1);  /* ObjHgdoor_Draw */
+void ObjHgdoor_SetChild(u8 *arg0, u8 *arg1);  /* 80000000 */
+void ObjHgdoor_SetParent(u8 *arg0, u8 *arg1);  /* 80000040 */
+void ObjHgdoor_SetupIdle(u8 *arg0);  /* 80000158 */
+void ObjHgdoor_Idle(void *arg0, s32 arg1);  /* 8000016C */
+void ObjHgdoor_SetupCutscene(u8 *arg0);  /* 8000021C */
+void ObjHgdoor_PlayCutscene(u8 *arg0, s32 arg1);  /* 80000230 */
+void ObjHgdoor_SetupHandleCutscene(u8 *arg0);  /* 800002AC */
+void ObjHgdoor_HandleCutscene(void *arg0, s32 arg1);  /* 800002C8 */
+void ObjHgdoor_SetupStopCs(u8 *arg0);  /* 800003D0 */
+void ObjHgdoor_StopCs(void *arg0, s32 arg1);  /* 800003E8 */
+void ObjHgdoor_Draw(s32 arg0, s32 arg1);  /* 800004E0 */
 
 #endif

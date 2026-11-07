@@ -34,8 +34,8 @@
 #define Math_SinS Math_SinS
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateZYX Matrix_RotateZYX
-#define ObjSnowball_Init func_800013B4
-#define ObjSnowball_Update func_80001EA0
+#define ObjSnowball_Init ObjSnowball_Init
+#define ObjSnowball_Update ObjSnowball_Update
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
 #define func_80B02CD0 func_80000000

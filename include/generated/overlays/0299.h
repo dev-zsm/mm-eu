@@ -18,14 +18,14 @@ void func_80000F58(s32 arg0, s32 arg1);
 void func_80001184(void *arg0);
 void func_80001218(s32 arg0, s32 arg1);
 void func_8000125C(u8 *arg0, u8 *arg1);
-void func_80001294(void *arg0, s32 arg1);  /* ObjFlowerpot_Init */
+void ObjFlowerpot_Init(void *arg0, s32 arg1);  /* 80001294 */
 void func_80001448(u8 *a0);
 void func_80001468(void *arg0, void *arg1);
 void func_80001828(u8 *arg0);
 void func_8000183C(void *arg0, void *arg1);
 void func_80001940(void *arg0);
 void func_80001B24(void *arg0, s32 arg1);
-void func_80001D7C(void *arg0, s32 arg1);  /* ObjFlowerpot_Update */
-void func_80001DFC(void *arg0, s32 arg1);  /* ObjFlowerpot_Draw */
+void ObjFlowerpot_Update(void *arg0, s32 arg1);  /* 80001D7C */
+void ObjFlowerpot_Draw(void *arg0, s32 arg1);  /* 80001DFC */
 
 #endif

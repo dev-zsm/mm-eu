@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);  /* DmChar02_ChangeAnim */
-void func_8000009C(s32 arg0, void *arg1);  /* DmChar02_PlaySfxForDroppingOcarinaCutscene */
-void func_800000FC(s32 arg0, void *arg1);  /* DmChar02_PlaySfxForCutscenes */
-void func_80000148(void *arg0, s32 arg1);  /* DmChar02_Init */
-void func_8000021C(void *arg0, s32 arg1);  /* DmChar02_HandleCutscene */
-s32 func_8000040C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DmChar02_OverrideLimbDraw */
-void func_80000428(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* DmChar02_PostLimbDraw */
-void func_80000440(s32 arg0, s32 arg1, s32 arg2);  /* DmChar02_TransformLimbDraw */
-void func_80000454(void *arg0, void *arg1);  /* DmChar02_Draw */
+void DmChar02_ChangeAnim(s32 arg0, s32 arg1, s32 arg2);  /* 80000000 */
+void DmChar02_PlaySfxForDroppingOcarinaCutscene(s32 arg0, void *arg1);  /* 8000009C */
+void DmChar02_PlaySfxForCutscenes(s32 arg0, void *arg1);  /* 800000FC */
+void DmChar02_Init(void *arg0, s32 arg1);  /* 80000148 */
+void DmChar02_HandleCutscene(void *arg0, s32 arg1);  /* 8000021C */
+s32 DmChar02_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000040C */
+void DmChar02_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000428 */
+void DmChar02_TransformLimbDraw(s32 arg0, s32 arg1, s32 arg2);  /* 80000440 */
+void DmChar02_Draw(void *arg0, void *arg1);  /* 80000454 */
 
 #endif

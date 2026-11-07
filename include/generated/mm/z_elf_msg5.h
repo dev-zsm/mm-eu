@@ -4,8 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define ElfMsg5_Init func_80000138
-#define ElfMsg5_Update func_800001B8
+#define ElfMsg5_Init ElfMsg5_Init
+#define ElfMsg5_Update ElfMsg5_Update
 #define Flags_GetSwitch Flags_GetSwitch
 #define func_80AFD990 func_80000000
 #define ref_func_80AFD990 func_80AE26C0

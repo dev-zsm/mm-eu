@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgKeikokuSpr_Draw func_80000048
+#define BgKeikokuSpr_Draw BgKeikokuSpr_Draw
 #define Lib_SegmentedToVirtual func_80100304
 #define object_keikoku_obj_DL_000100 D_6000100
 #define object_keikoku_obj_DL_000300 D_6000300

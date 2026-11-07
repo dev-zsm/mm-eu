@@ -4,8 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
-#define EffectSsFireTail_Draw func_8000011C
-#define EffectSsFireTail_Init func_80000000
+#define EffectSsFireTail_Draw EffectSsFireTail_Draw
+#define EffectSsFireTail_Init EffectSsFireTail_Init
 #define EffectSsFireTail_Update D_80964BCC
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll

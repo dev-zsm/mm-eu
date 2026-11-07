@@ -31,9 +31,9 @@
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
-#define ObjSpinyroll_Draw func_800013CC
-#define ObjSpinyroll_Init func_80000CD8
-#define ObjSpinyroll_Update func_80001320
+#define ObjSpinyroll_Draw ObjSpinyroll_Draw
+#define ObjSpinyroll_Init ObjSpinyroll_Init
+#define ObjSpinyroll_Update ObjSpinyroll_Update
 #define func_80A1DAAC func_8000005C
 #define func_80A1DB2C func_800000DC
 #define func_80A1DC5C func_8000020C

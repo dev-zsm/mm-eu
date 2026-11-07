@@ -9,12 +9,12 @@
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_SetupDL64 func_8012C854
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
-#define OceffStorm_DefaultAction func_800001C8
-#define OceffStorm_Draw func_80000608
-#define OceffStorm_Draw2 func_80000458
-#define OceffStorm_Init func_80000084
+#define OceffStorm_DefaultAction OceffStorm_DefaultAction
+#define OceffStorm_Draw OceffStorm_Draw
+#define OceffStorm_Draw2 OceffStorm_Draw2
+#define OceffStorm_Init OceffStorm_Init
 #define OceffStorm_SetupAction func_809664A0
-#define OceffStorm_Update func_80000408
+#define OceffStorm_Update OceffStorm_Update
 #define func_8098176C func_8000000C
 #define gSaveContext D_801E6EF0
 #define ref_func_8098176C func_8000000C

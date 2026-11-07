@@ -8,10 +8,10 @@
 #define Gfx_SetupDL42_Opa func_8012CD5C
 #define Interface_LoadItemIcon func_80112AE0
 #define Interface_LoadItemIconImpl func_80112A3C
-#define KaleidoScope_DrawMaskSelect func_800074B0
+#define KaleidoScope_DrawMaskSelect KaleidoScope_DrawMaskSelect
 #define KaleidoScope_DrawTexQuadRGBA32 func_808210F8
 #define KaleidoScope_SetCursorVtxPos func_8081ACAC
-#define KaleidoScope_UpdateMaskEquip func_800084D4
+#define KaleidoScope_UpdateMaskEquip KaleidoScope_UpdateMaskEquip
 #define gEquippedItemOutlineTex D_2001360
 #define gItemIcons D_801C2B2C
 #define gMaskPlayerFormSlotRestrictions D_8082ADEC

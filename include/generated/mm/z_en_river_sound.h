@@ -8,9 +8,9 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Audio_PlaySfx_River Audio_PlaySfx_River
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
-#define EnRiverSound_Draw func_800001A0
-#define EnRiverSound_Init func_80000000
-#define EnRiverSound_Update func_80000088
+#define EnRiverSound_Draw EnRiverSound_Draw
+#define EnRiverSound_Init EnRiverSound_Init
+#define EnRiverSound_Update EnRiverSound_Update
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define SurfaceType_GetConveyorSpeed SurfaceType_GetConveyorSpeed

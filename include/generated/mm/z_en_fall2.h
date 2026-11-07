@@ -11,9 +11,9 @@
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define EnFall2_DoNothing D_80C00644
-#define EnFall2_Draw func_800004AC
-#define EnFall2_HandleCutscene func_80000394
-#define EnFall2_Init func_80000000
+#define EnFall2_Draw EnFall2_Draw
+#define EnFall2_HandleCutscene EnFall2_HandleCutscene
+#define EnFall2_Init EnFall2_Init
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Keyframe_DrawFlex Keyframe_DrawFlex
 #define Keyframe_FlexPlayLoop Keyframe_FlexPlayLoop

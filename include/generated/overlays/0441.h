@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* ObjLightblock_SpawnEffect */
-void func_8000006C(void *arg0, s32 arg1);  /* ObjLightblock_Init */
-void func_800001B8(u8 *arg0);  /* ObjLightblock_SetupWait */
-void func_800001CC(void *arg0, s32 arg1);  /* ObjLightblock_Wait */
-void func_8000027C(u8 *arg0);  /* ObjLightblock_SetupPlayCutscene */
-void func_80000290(void *arg0, s32 arg1);  /* ObjLightblock_PlayCutscene */
-void func_80000308(u8 *arg0);  /* ObjLightblock_SetupFadeAway */
-void func_80000324(void *arg0, s32 arg1);  /* ObjLightblock_FadeAway */
-void func_800003D4(s32 arg0, void *arg1);  /* ObjLightblock_Draw */
+void ObjLightblock_SpawnEffect(s32 arg0, s32 arg1);  /* 80000000 */
+void ObjLightblock_Init(void *arg0, s32 arg1);  /* 8000006C */
+void ObjLightblock_SetupWait(u8 *arg0);  /* 800001B8 */
+void ObjLightblock_Wait(void *arg0, s32 arg1);  /* 800001CC */
+void ObjLightblock_SetupPlayCutscene(u8 *arg0);  /* 8000027C */
+void ObjLightblock_PlayCutscene(void *arg0, s32 arg1);  /* 80000290 */
+void ObjLightblock_SetupFadeAway(u8 *arg0);  /* 80000308 */
+void ObjLightblock_FadeAway(void *arg0, s32 arg1);  /* 80000324 */
+void ObjLightblock_Draw(s32 arg0, void *arg1);  /* 800003D4 */
 
 #endif

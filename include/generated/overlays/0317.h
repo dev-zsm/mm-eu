@@ -12,7 +12,7 @@ void func_80000408(void *arg0, s32 arg1);
 void func_800004C0(void *arg0, s32 arg1);
 void func_80000624(void *arg0, s32 arg1);
 void func_800006E0(void *arg0, s32 arg1);
-void func_8000089C(void *arg0, s32 arg1);  /* ObjBell_Update */
-void func_800008E8(s32 arg0, s32 arg1);  /* ObjBell_Draw */
+void ObjBell_Update(void *arg0, s32 arg1);  /* 8000089C */
+void ObjBell_Draw(s32 arg0, s32 arg1);  /* 800008E8 */
 
 #endif

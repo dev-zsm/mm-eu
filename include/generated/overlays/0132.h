@@ -5,30 +5,30 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* ObjOshihiki_RotateXZ */
-void func_80000054(void *arg0, s32 arg1);  /* ObjOshihiki_StrongEnough */
-void func_800000E8(void *arg0, s32 arg1);  /* ObjOshihiki_GetBlockUnder */
-void func_80000178(void *arg0);  /* ObjOshihiki_UpdateInitPos */
-void func_800002A8(void *arg0, void *arg1, s32 arg2);  /* ObjOshihiki_NoSwitchPress */
-void func_800003AC(void *arg0, s32 arg1);  /* ObjOshihiki_SetTextureStep */
-void func_800003FC(u8 *a, s32 b);  /* ObjOshihiki_SetColor */
-void func_80000440(void *arg0, s32 arg1);  /* ObjOshihiki_Init */
-void func_800005B0(void *arg0, s32 arg1);  /* ObjOshihiki_SetFloors */
-void func_80000710(void *arg0);  /* ObjOshihiki_GetHighestFloor */
-void func_8000085C(void *arg0, s32 arg1);  /* ObjOshihiki_SetGround */
-void func_800008B4(s32 arg0);  /* ObjOshihiki_CheckFloor */
-void func_8000090C(void *arg0, s32 arg1);  /* ObjOshihiki_CheckGround */
-void func_80000984(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* ObjOshihiki_CheckWall */
-void func_80000BFC(s32 arg0, s32 arg1);  /* ObjOshihiki_MoveWithBlockUnder */
-void func_80000CF8(u8 *arg0, s32 arg1);  /* ObjOshihiki_SetupOnScene */
-void func_80000D30(void *arg0, void *arg1);  /* ObjOshihiki_OnScene */
-void func_80000E38(u8 *arg0, s32 arg1);  /* ObjOshihiki_SetupOnActor */
-void func_80000E78(void *arg0, void *arg1);  /* ObjOshihiki_OnActor */
-void func_80001084(u8 *arg0, s32 arg1);  /* ObjOshihiki_SetupPush */
-void func_800010BC(void *arg0, void *arg1);  /* ObjOshihiki_Push */
-void func_8000128C(u8 *arg0);  /* ObjOshihiki_SetupFall */
-void func_800012E4(void *arg0, void *arg1);  /* ObjOshihiki_Fall */
-void func_800013E8(void *arg0, s32 arg1);  /* ObjOshihiki_Update */
-void func_80001470(void *arg0, void *arg1);  /* ObjOshihiki_Draw */
+void ObjOshihiki_RotateXZ(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000000 */
+void ObjOshihiki_StrongEnough(void *arg0, s32 arg1);  /* 80000054 */
+void ObjOshihiki_GetBlockUnder(void *arg0, s32 arg1);  /* 800000E8 */
+void ObjOshihiki_UpdateInitPos(void *arg0);  /* 80000178 */
+void ObjOshihiki_NoSwitchPress(void *arg0, void *arg1, s32 arg2);  /* 800002A8 */
+void ObjOshihiki_SetTextureStep(void *arg0, s32 arg1);  /* 800003AC */
+void ObjOshihiki_SetColor(u8 *a, s32 b);  /* 800003FC */
+void ObjOshihiki_Init(void *arg0, s32 arg1);  /* 80000440 */
+void ObjOshihiki_SetFloors(void *arg0, s32 arg1);  /* 800005B0 */
+void ObjOshihiki_GetHighestFloor(void *arg0);  /* 80000710 */
+void ObjOshihiki_SetGround(void *arg0, s32 arg1);  /* 8000085C */
+void ObjOshihiki_CheckFloor(s32 arg0);  /* 800008B4 */
+void ObjOshihiki_CheckGround(void *arg0, s32 arg1);  /* 8000090C */
+void ObjOshihiki_CheckWall(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 80000984 */
+void ObjOshihiki_MoveWithBlockUnder(s32 arg0, s32 arg1);  /* 80000BFC */
+void ObjOshihiki_SetupOnScene(u8 *arg0, s32 arg1);  /* 80000CF8 */
+void ObjOshihiki_OnScene(void *arg0, void *arg1);  /* 80000D30 */
+void ObjOshihiki_SetupOnActor(u8 *arg0, s32 arg1);  /* 80000E38 */
+void ObjOshihiki_OnActor(void *arg0, void *arg1);  /* 80000E78 */
+void ObjOshihiki_SetupPush(u8 *arg0, s32 arg1);  /* 80001084 */
+void ObjOshihiki_Push(void *arg0, void *arg1);  /* 800010BC */
+void ObjOshihiki_SetupFall(u8 *arg0);  /* 8000128C */
+void ObjOshihiki_Fall(void *arg0, void *arg1);  /* 800012E4 */
+void ObjOshihiki_Update(void *arg0, s32 arg1);  /* 800013E8 */
+void ObjOshihiki_Draw(void *arg0, void *arg1);  /* 80001470 */
 
 #endif

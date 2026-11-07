@@ -6,10 +6,10 @@
 #include "types.h"
 
 void func_80000000(void *arg0);
-void func_8000009C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* ConsoleLogo_RenderView */
+void ConsoleLogo_RenderView(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000009C */
 void func_80000134(void *arg0);
 void func_8000066C(void *arg0);
-void func_80000738(s32 a0);  /* ConsoleLogo_Destroy */
+void ConsoleLogo_Destroy(s32 a0);  /* 80000738 */
 void func_80000768(void *arg0);
 
 #endif

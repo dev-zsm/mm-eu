@@ -26,7 +26,7 @@ FIRST_FIELD = {"PlayState": "gfxCtx"}  # structures whose first field is known: 
 
 def source(seg: str, fn: str) -> Path:
     if seg.startswith("ovl"):
-        return ROOT / "src" / "overlays" / seg[3:] / f"{fn}.c"
+        return srcpath.overlay_dir(seg[3:]) / f"{fn}.c"
     return srcpath.path(seg, fn)
 
 

@@ -14,9 +14,9 @@
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define DemoSyoten_Draw func_800010A8
-#define DemoSyoten_Init func_80000000
-#define DemoSyoten_OverrideLimbDraw func_80000C78
+#define DemoSyoten_Draw DemoSyoten_Draw
+#define DemoSyoten_Init DemoSyoten_Init
+#define DemoSyoten_OverrideLimbDraw DemoSyoten_OverrideLimbDraw
 #define Environment_LerpSandstormColors Environment_LerpSandstormColors
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Keyframe_DrawFlex Keyframe_DrawFlex

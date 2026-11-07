@@ -25,9 +25,9 @@
 #define Matrix_Mult Matrix_Mult
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define MirRay3_Draw func_80000CB0
-#define MirRay3_Init func_80000000
-#define MirRay3_Update func_80000158
+#define MirRay3_Draw MirRay3_Draw
+#define MirRay3_Init MirRay3_Init
+#define MirRay3_Update MirRay3_Update
 #define Player_HasMirrorShieldEquipped Player_HasMirrorShieldEquipped
 #define func_80B9E544 func_80000284
 #define func_80B9E5F4 func_80000334

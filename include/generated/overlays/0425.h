@@ -6,6 +6,6 @@
 #include "types.h"
 
 void func_800000B4(s32 arg0, void *arg1);
-void func_800001EC(s32 arg0, s32 arg1);  /* BgFuMizu_Draw */
+void BgFuMizu_Draw(s32 arg0, s32 arg1);  /* 800001EC */
 
 #endif

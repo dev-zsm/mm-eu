@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ObjBlockstop_Init */
-void func_80000050(void *arg0, void *arg1);  /* ObjBlockstop_CheckForBlock */
-void func_80000148(u8 *arg0, s32 arg1);  /* ObjBlockstop_TryPlayCutscene */
-void func_800001BC(u8 *arg0);  /* ObjBlockstop_Update */
+void ObjBlockstop_Init(u8 *arg0, s32 arg1);  /* 80000000 */
+void ObjBlockstop_CheckForBlock(void *arg0, void *arg1);  /* 80000050 */
+void ObjBlockstop_TryPlayCutscene(u8 *arg0, s32 arg1);  /* 80000148 */
+void ObjBlockstop_Update(u8 *arg0);  /* 800001BC */
 
 #endif

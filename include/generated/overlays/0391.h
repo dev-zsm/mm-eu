@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnEgblock_Init */
-void func_80000104(void *arg0, s32 arg1);  /* EnEgblock_Active */
-void func_800001E8(u8 *arg0, s32 arg1);  /* EnEgblock_Inactive */
-void func_80000218(s32 arg0, s32 arg1);  /* EnEgblock_DoNothing */
-void func_80000228(void *arg0, s32 arg1);  /* EnEgblock_Update */
-void func_80000274(s32 arg0, s32 arg1);  /* EnEgblock_Draw */
-void func_80000354(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* EnEgblock_SpawnEffect */
-void func_80000514(void *arg0, s32 arg1);  /* EnEgblock_UpdateEffects */
-void func_800006C4(void *arg0, void *arg1);  /* EnEgblock_DrawEffects */
+void EnEgblock_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnEgblock_Active(void *arg0, s32 arg1);  /* 80000104 */
+void EnEgblock_Inactive(u8 *arg0, s32 arg1);  /* 800001E8 */
+void EnEgblock_DoNothing(s32 arg0, s32 arg1);  /* 80000218 */
+void EnEgblock_Update(void *arg0, s32 arg1);  /* 80000228 */
+void EnEgblock_Draw(s32 arg0, s32 arg1);  /* 80000274 */
+void EnEgblock_SpawnEffect(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000354 */
+void EnEgblock_UpdateEffects(void *arg0, s32 arg1);  /* 80000514 */
+void EnEgblock_DrawEffects(void *arg0, void *arg1);  /* 800006C4 */
 
 #endif

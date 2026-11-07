@@ -172,11 +172,21 @@ def elf_text(path: str):
     return text, secs[ti][5], inside, relocs
 
 
+def real_name(cfile: Path, name: str) -> str:
+    """The name the C file defines for the function the ROM table calls `name` (an overlay folder has names of its own)."""
+    parts = Path(cfile).parts
+    if "overlays" in parts and "src" in parts:
+        return _names.load("ovl" + parts[parts.index("overlays") + 1][:4]).get(name, name)
+    return NAMES.get(name, name)
+
+
 def compiled(cfile: Path, name: str, flags: list[str], want_len: int = 0):
-    name = NAMES.get(name, name)  # the C file defines the real name; files and the ROM table use the splat name
+    orig, name = name, real_name(cfile, name)  # the C file defines the real name; files and the ROM table use the splat name
     RELOCS[threading.get_ident()] = []
     obj = objcache.compile_obj(cfile, flags)  # cached by content: an unchanged file is not compiled again
     blob, tsize, inside, relocs = elf_text(str(obj))
+    if name not in inside and orig in inside:   # a draft that still has the address name
+        name = orig
     if name not in inside:   # a static function nobody calls is not emitted at all
         raise KeyError(f"{name} is not defined in the object")
     start = inside[name][0]

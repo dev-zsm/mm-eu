@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ObjHsblock_SetupAction */
+void ObjHsblock_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_8000000C(u8 *arg0, s32 arg1);
-void func_80000090(void *arg0, s32 arg1);  /* ObjHsblock_Init */
+void ObjHsblock_Init(void *arg0, s32 arg1);  /* 80000090 */
 void func_8000019C(s32 a0);
 void func_800001BC(void *arg0);
 void func_80000200(u8 *arg0, s32 arg1);
 void func_80000248(void *a0);
 void func_8000026C(void *arg0, s32 arg1);
-void func_80000314(void *arg0);  /* ObjHsblock_Update */
-void func_80000360(s32 arg0, s32 arg1);  /* ObjHsblock_Draw */
+void ObjHsblock_Update(void *arg0);  /* 80000314 */
+void ObjHsblock_Draw(s32 arg0, s32 arg1);  /* 80000360 */
 
 #endif

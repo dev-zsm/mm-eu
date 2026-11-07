@@ -8,7 +8,7 @@
 void func_80000000(s32 arg0, void *arg1);
 void func_800000C4(u8 *arg0, s32 arg1);
 void func_800000F8(u8 *arg0, s32 arg1);
-void func_8000012C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* BgIkninSusceil_RequestQuakeAndRumble */
+void BgIkninSusceil_RequestQuakeAndRumble(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000012C */
 void func_8000021C(s32 arg0, void *arg1);
 void func_800003D4(u8 *a0);
 void func_80000404(u8 *arg0);
@@ -20,6 +20,6 @@ void func_800005A8(u8 *arg0, s32 arg1);
 void func_80000604(u8 *a);
 void func_80000624(void *arg0, s32 arg1);
 void func_8000071C(void *arg0);
-void func_800007D8(void *arg0, s32 arg1);  /* BgIkninSusceil_Update */
+void BgIkninSusceil_Update(void *arg0, s32 arg1);  /* 800007D8 */
 
 #endif

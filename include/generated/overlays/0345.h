@@ -8,7 +8,7 @@
 void func_800000CC(u8 *arg0, s32 arg1);
 void func_80000110(s32 arg0, s32 arg1);
 void func_800001C4(u8 *arg0, s32 arg1);
-void func_800001E8(void *arg0);  /* BgKeikokuSaku_Update */
-void func_800002EC(s32 arg0, s32 arg1);  /* BgKeikokuSaku_Draw */
+void BgKeikokuSaku_Update(void *arg0);  /* 800001E8 */
+void BgKeikokuSaku_Draw(s32 arg0, s32 arg1);  /* 800002EC */
 
 #endif

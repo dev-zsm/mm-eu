@@ -15,8 +15,8 @@ void func_800002A4(void *arg0, s32 arg1);
 void func_80000398(void *arg0, s32 arg1);
 void func_800006E4(void *arg0);
 void func_8000073C();
-void func_8000075C(void *arg0, s32 arg1);  /* ObjFireshield_Init */
-void func_8000090C(void *arg0, s32 arg1);  /* ObjFireshield_Update */
-void func_80000C14(s32 arg0, s32 arg1);  /* ObjFireshield_Draw */
+void ObjFireshield_Init(void *arg0, s32 arg1);  /* 8000075C */
+void ObjFireshield_Update(void *arg0, s32 arg1);  /* 8000090C */
+void ObjFireshield_Draw(s32 arg0, s32 arg1);  /* 80000C14 */
 
 #endif

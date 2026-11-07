@@ -21,12 +21,12 @@
 #define Matrix_RotateZF Matrix_RotateZF
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjWarpstone_BeginOpeningCutscene func_80000138
-#define ObjWarpstone_ClosedIdle func_800000F0
-#define ObjWarpstone_Draw func_80000430
-#define ObjWarpstone_Init func_8000000C
+#define ObjWarpstone_BeginOpeningCutscene ObjWarpstone_BeginOpeningCutscene
+#define ObjWarpstone_ClosedIdle ObjWarpstone_ClosedIdle
+#define ObjWarpstone_Draw ObjWarpstone_Draw
+#define ObjWarpstone_Init ObjWarpstone_Init
 #define ObjWarpstone_OpenedIdle D_80B77AE4
-#define ObjWarpstone_PlayOpeningCutscene func_800001C0
+#define ObjWarpstone_PlayOpeningCutscene ObjWarpstone_PlayOpeningCutscene
 #define ObjWarpstone_SetupAction func_80B77830
 #define Sram_ActivateOwl Sram_ActivateOwl
 #define gEffFlash1DL D_4023210

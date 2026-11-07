@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsDtBubble_Init */
-void func_800001F0(void *arg0, s32 arg1, void *arg2);  /* EffectSsDtBubble_Draw */
-void func_80000400(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDtBubble_Update */
+void EffectSsDtBubble_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsDtBubble_Draw(void *arg0, s32 arg1, void *arg2);  /* 800001F0 */
+void EffectSsDtBubble_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000400 */
 
 #endif

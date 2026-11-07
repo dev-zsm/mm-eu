@@ -13,12 +13,12 @@
 #define Magic_Reset func_80115F80
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
-#define OceffSpot_Destroy func_8000016C
-#define OceffSpot_Draw func_800005D4
-#define OceffSpot_GrowCylinder func_800002B4
-#define OceffSpot_Init func_8000000C
+#define OceffSpot_Destroy OceffSpot_Destroy
+#define OceffSpot_Draw OceffSpot_Draw
+#define OceffSpot_GrowCylinder OceffSpot_GrowCylinder
+#define OceffSpot_Init OceffSpot_Init
 #define OceffSpot_SetupAction func_809573C0
-#define OceffSpot_Update func_80000318
+#define OceffSpot_Update OceffSpot_Update
 #define OceffSpot_Wait D_80957638
 #define cosf func_800920E0
 #define sInitChain D_809581B8

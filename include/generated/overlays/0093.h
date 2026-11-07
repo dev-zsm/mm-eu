@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_80000090(s32 arg0, s32 arg1);  /* EnMFire1_Update */
+void EnMFire1_Update(s32 arg0, s32 arg1);  /* 80000090 */
 
 #endif

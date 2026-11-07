@@ -8,8 +8,8 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define ObjMilkBin_Init func_80000000
-#define ObjMilkBin_Update func_800000B4
+#define ObjMilkBin_Init ObjMilkBin_Init
+#define ObjMilkBin_Update ObjMilkBin_Update
 #define gSaveContext D_801E6EF0
 #define sCylinderInit D_80BEDDF0
 

@@ -4,11 +4,11 @@
 
 /* names of ours that symbols of the reference stand for */
 #define BgKin2Bombwall_IsHitFromNearby func_80B52D50
-#define BgKin2Bombwall_PlayCutscene func_80000538
+#define BgKin2Bombwall_PlayCutscene BgKin2Bombwall_PlayCutscene
 #define BgKin2Bombwall_SetupEndCutscene func_80B53328
 #define BgKin2Bombwall_SetupPlayCutscene func_80B53274
-#define BgKin2Bombwall_SpawnEffects func_80000070
-#define BgKin2Bombwall_Wait func_800004AC
+#define BgKin2Bombwall_SpawnEffects BgKin2Bombwall_SpawnEffects
+#define BgKin2Bombwall_Wait BgKin2Bombwall_Wait
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue

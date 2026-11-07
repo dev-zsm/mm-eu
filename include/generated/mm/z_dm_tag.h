@@ -11,10 +11,10 @@
 #define CutsceneManager_GetCurrentSubCamId CutsceneManager_GetCurrentSubCamId
 #define CutsceneManager_Stop func_800F1D6C
 #define DmTag_DoNothing D_80C0778C
-#define DmTag_FindActor func_80000000
-#define DmTag_GetMsgScript func_80000530
-#define DmTag_Init func_800006F0
-#define DmTag_Update func_800007F0
+#define DmTag_FindActor DmTag_FindActor
+#define DmTag_GetMsgScript DmTag_GetMsgScript
+#define DmTag_Init DmTag_Init
+#define DmTag_Update DmTag_Update
 #define MsgEvent_RunScript MsgEvent_RunScript
 #define Play_GetCamera Play_GetCamera
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors

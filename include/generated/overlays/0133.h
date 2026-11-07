@@ -6,7 +6,7 @@
 #include "types.h"
 
 void func_80000000(void *arg0);
-void func_80000078(void *arg0, s32 arg1);  /* EffDust_Init */
+void EffDust_Init(void *arg0, s32 arg1);  /* 80000078 */
 void func_80000224(void *arg0, s32 arg1);
 void func_800004A4(void *arg0, s32 arg1);
 void func_800006F0(void *arg0, void *arg1);

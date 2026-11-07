@@ -4,12 +4,12 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define EnStream_Draw func_800003B4
-#define EnStream_Init func_8000000C
-#define EnStream_PlayerIsInRange func_80000084
+#define EnStream_Draw EnStream_Draw
+#define EnStream_Init EnStream_Init
+#define EnStream_PlayerIsInRange EnStream_PlayerIsInRange
 #define EnStream_SetupAction func_8094A140
-#define EnStream_SuckPlayer func_800001A4
-#define EnStream_WaitForPlayer func_8000032C
+#define EnStream_SuckPlayer EnStream_SuckPlayer
+#define EnStream_WaitForPlayer EnStream_WaitForPlayer
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_Atan2S Math_Atan2S

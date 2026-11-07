@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_SpawnAsChild Actor_SpawnAsChild
-#define EnEncount3_Draw func_800006D4
-#define EnEncount3_Init func_80000000
-#define EnEncount3_Update func_800002F0
+#define EnEncount3_Draw EnEncount3_Draw
+#define EnEncount3_Init EnEncount3_Init
+#define EnEncount3_Update EnEncount3_Update
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL25_Xlu func_8012C78C

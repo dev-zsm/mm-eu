@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnBombal_Init */
+void EnBombal_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_800000B4(u8 *arg0);
 void func_800000CC(void *arg0, s32 arg1);
 void func_800001D4(void *arg0, s32 arg1);
 void func_80000378(void *arg0, s32 arg1);
-void func_8000040C(void *arg0, s32 arg1);  /* EnBombal_Update */
-void func_80000520(void *arg0, void *arg1, s32 arg2);  /* EnBombal_InitEffects */
-void func_80000648(void *arg0, s32 arg1);  /* EnBombal_UpdateEffects */
-void func_80000798(void *arg0, void *arg1);  /* EnBombal_DrawEffects */
+void EnBombal_Update(void *arg0, s32 arg1);  /* 8000040C */
+void EnBombal_InitEffects(void *arg0, void *arg1, s32 arg2);  /* 80000520 */
+void EnBombal_UpdateEffects(void *arg0, s32 arg1);  /* 80000648 */
+void EnBombal_DrawEffects(void *arg0, void *arg1);  /* 80000798 */
 
 #endif

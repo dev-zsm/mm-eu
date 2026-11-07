@@ -3,8 +3,8 @@
 #define MM_Z_EFF_SS_STONE1_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsStone1_Draw func_8000008C
-#define EffectSsStone1_Init func_80000000
+#define EffectSsStone1_Draw EffectSsStone1_Draw
+#define EffectSsStone1_Init EffectSsStone1_Init
 #define EffectSsStone1_Update D_809610D4
 #define Gfx_SetupDL61_Xlu Gfx_SetupDL61_Xlu
 #define Lib_SegmentedToVirtual func_80100304

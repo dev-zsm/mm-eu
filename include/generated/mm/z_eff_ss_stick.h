@@ -3,8 +3,8 @@
 #define MM_Z_EFF_SS_STICK_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsStick_Draw func_80000114
-#define EffectSsStick_Init func_80000000
+#define EffectSsStick_Draw EffectSsStick_Draw
+#define EffectSsStick_Init EffectSsStick_Init
 #define EffectSsStick_Update D_80960798
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS

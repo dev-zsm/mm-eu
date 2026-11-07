@@ -8,8 +8,8 @@
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Lib_SegmentedToVirtual func_80100304
-#define ObjEnding_Draw func_80000084
-#define ObjEnding_Init func_80000000
+#define ObjEnding_Draw ObjEnding_Draw
+#define ObjEnding_Init ObjEnding_Init
 #define sInitChain D_80C0AA98
 #define sModelInfo D_80C0AA80
 

@@ -9,7 +9,7 @@
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnInvisibleRuppe_Init func_8000016C
+#define EnInvisibleRuppe_Init EnInvisibleRuppe_Init
 #define Flags_GetSwitch Flags_GetSwitch
 #define func_80C258A0 func_80000000
 #define ref_func_80C258A0 func_80000000

@@ -13,12 +13,17 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def load(seg: str) -> dict:
-    path = ROOT / "config" / seg / "names.txt"
+    """{old: new} of a segment. An overlay (`ovlNNNN`) reads its own lines of config/overlays/names.txt (`NNNN old new`)."""
+    ovl = re.fullmatch(r"ovl(\d{4})", seg)
+    path = ROOT / "config" / ("overlays" if ovl else seg) / "names.txt"
     out = {}
     if path.exists():
         for line in path.read_text().splitlines():
             line = line.split("#", 1)[0].split()
-            if len(line) >= 2:
+            if ovl:
+                if len(line) == 3 and line[0] == ovl.group(1):
+                    out[line[1]] = line[2]
+            elif len(line) >= 2:
                 out[line[0]] = line[1]
     return out
 
@@ -45,13 +50,24 @@ def check(seg: str):
 
 
 
+def _context_headers(sources):
+    """File names of the generated/mm headers that the given sources include."""
+    return sorted({m for p in sources for m in re.findall(r'#include "generated/mm/([^"]+)"', p.read_text())})
+
+
 def apply_sources(seg: str) -> int:
     """Rewrite src/<seg>/**/*.c and the generated prototype header so they use the real names (idempotent). Returns the number of files changed."""
     names = load(seg)
     n = 0
     gen = ROOT / "include" / "generated"   # the prototypes and the aliases of the imported functions follow the names too
-    extra = [gen / f"{seg}_funcs.h", *(gen / "mm").glob("*.h")] if seg == "code" else [gen / f"{seg}_funcs.h"]
-    for f in [*(ROOT / "src" / seg).rglob("*.c"), *[g for g in extra if g.exists()]]:
+    if seg.startswith("ovl"):   # the overlay's folder, its prototypes, and the context headers of its reference file
+        import srcpath
+        sources = [p for p in srcpath.overlay_dir(seg[3:]).rglob("*.c")]
+        hdrs = [gen / "overlays" / f"{seg[3:]}.h", *(gen / "mm" / h for h in _context_headers(sources))]
+    else:
+        sources = list((ROOT / "src" / seg).rglob("*.c"))
+        hdrs = [gen / f"{seg}_funcs.h", *(gen / "mm").glob("*.h")] if seg == "code" else [gen / f"{seg}_funcs.h"]
+    for f in [*sources, *[g for g in hdrs if g.exists()]]:
         old = f.read_text()
         new = apply(old, names)
         if new != old:
@@ -60,8 +76,28 @@ def apply_sources(seg: str) -> int:
     return n
 
 
+def name_overlay_folders() -> int:
+    """src/overlays/NNNN -> src/overlays/NNNN_<name> for the overlays config/overlays/actors.txt names (idempotent)."""
+    n = 0
+    for line in (ROOT / "config" / "overlays" / "actors.txt").read_text().splitlines():
+        parts = line.split("#", 1)[0].split()
+        if len(parts) == 2:
+            old = ROOT / "src" / "overlays" / parts[0]
+            if old.is_dir() and not list(old.parent.glob(parts[0] + "_*")):
+                old.rename(old.parent / f"{parts[0]}_{parts[1]}")
+                n += 1
+    return n
+
+
 if __name__ == "__main__":
     import sys
+    if sys.argv[1] == "overlays":   # every overlay: folders named, then the function names applied to the sources
+        print(f"{name_overlay_folders()} folders named")
+        for idx in sorted({l.split()[0] for l in (ROOT / "config" / "overlays" / "names.txt").read_text().splitlines() if l[:4].isdigit()}):
+            check("ovl" + idx)
+            if "--apply-src" in sys.argv:
+                apply_sources("ovl" + idx)
+        sys.exit()
     print(f"{sys.argv[1]}: {check(sys.argv[1])} names OK")
     if "--apply-src" in sys.argv:
         print(f"{apply_sources(sys.argv[1])} source files updated")

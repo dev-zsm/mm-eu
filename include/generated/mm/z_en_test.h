@@ -5,10 +5,10 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
-#define EnTest_Draw func_80000B38
-#define EnTest_Init func_80000618
-#define EnTest_OverrideLimbDraw func_80000948
-#define EnTest_Update func_800007CC
+#define EnTest_Draw EnTest_Draw
+#define EnTest_Init EnTest_Init
+#define EnTest_OverrideLimbDraw EnTest_OverrideLimbDraw
+#define EnTest_Update EnTest_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Keyframe_DrawFlex Keyframe_DrawFlex

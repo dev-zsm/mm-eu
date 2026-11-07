@@ -3,7 +3,7 @@
 #define MM_Z_EN_BU_H
 
 /* names of ours that symbols of the reference stand for */
-#define EnBu_Draw func_80000070
+#define EnBu_Draw EnBu_Draw
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS

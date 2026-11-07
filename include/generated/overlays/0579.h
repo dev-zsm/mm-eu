@@ -5,17 +5,17 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgIknvDoukutu_Init */
-void func_8000025C(void *arg0, s32 arg1);  /* BgIknvDoukutu_Cleanse */
-void func_800002AC(s32 arg0, s32 arg1);  /* BgIknvDoukutu_Cursed */
-void func_80000340(u8 *arg0, s32 arg1);  /* BgIknvDoukutu_FillSpring */
-void func_800003AC(void *arg0, s32 arg1);  /* BgIknvDoukutu_FadeInWater */
-void func_80000450(s32 arg0, s32 arg1);  /* BgIknvDoukutu_Dry */
-void func_800004C0(s32 arg0, s32 arg1);  /* BgIknvDoukutu_DoNothing */
-void func_800004F4(s32 arg0, void *arg1);  /* BgIknvDoukutu_Draw */
-void func_80000628(s32 arg0, void *arg1);  /* BgIknvDoukutu_DrawCleansing */
-void func_80000858(s32 arg0, void *arg1);  /* BgIknvDoukutu_DrawPurified */
-void func_80000910(s32 arg0, s32 arg1);  /* BgIknvDoukutu_DrawStream */
-void func_800009B4(void *arg0, s32 arg1);  /* BgIknvDoukutu_DrawSpringWater */
+void BgIknvDoukutu_Init(void *arg0, s32 arg1);  /* 80000000 */
+void BgIknvDoukutu_Cleanse(void *arg0, s32 arg1);  /* 8000025C */
+void BgIknvDoukutu_Cursed(s32 arg0, s32 arg1);  /* 800002AC */
+void BgIknvDoukutu_FillSpring(u8 *arg0, s32 arg1);  /* 80000340 */
+void BgIknvDoukutu_FadeInWater(void *arg0, s32 arg1);  /* 800003AC */
+void BgIknvDoukutu_Dry(s32 arg0, s32 arg1);  /* 80000450 */
+void BgIknvDoukutu_DoNothing(s32 arg0, s32 arg1);  /* 800004C0 */
+void BgIknvDoukutu_Draw(s32 arg0, void *arg1);  /* 800004F4 */
+void BgIknvDoukutu_DrawCleansing(s32 arg0, void *arg1);  /* 80000628 */
+void BgIknvDoukutu_DrawPurified(s32 arg0, void *arg1);  /* 80000858 */
+void BgIknvDoukutu_DrawStream(s32 arg0, s32 arg1);  /* 80000910 */
+void BgIknvDoukutu_DrawSpringWater(void *arg0, s32 arg1);  /* 800009B4 */
 
 #endif

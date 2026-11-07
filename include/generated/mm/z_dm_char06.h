@@ -7,9 +7,9 @@
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define DmChar06_Draw func_800001F8
-#define DmChar06_HandleCutscene func_80000070
-#define DmChar06_Init func_8000000C
+#define DmChar06_Draw DmChar06_Draw
+#define DmChar06_HandleCutscene DmChar06_HandleCutscene
+#define DmChar06_Init DmChar06_Init
 #define DmChar06_SetupAction func_80A933B0
 #define Environment_LerpWeight Environment_LerpWeight
 #define Gfx_SetupDL25_Xlu func_8012C78C

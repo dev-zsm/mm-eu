@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, void *arg1);  /* ObjJgGakki_Init */
+void ObjJgGakki_Init(s32 arg0, void *arg1);  /* 80000000 */
 
 #endif

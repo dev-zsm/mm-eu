@@ -7,8 +7,8 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_Stop func_800F1D6C
 #define Flags_GetSwitch Flags_GetSwitch
-#define ObjDemo_Init func_80000000
-#define ObjDemo_Update func_80000304
+#define ObjDemo_Init ObjDemo_Init
+#define ObjDemo_Update ObjDemo_Update
 #define func_80983678 func_80000158
 #define ref_func_80983634 func_80968374
 #define ref_func_80983678 func_80000158

@@ -4,8 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgOpenSpot_Draw func_800000D0
-#define BgOpenSpot_Update func_80000050
+#define BgOpenSpot_Draw BgOpenSpot_Draw
+#define BgOpenSpot_Update BgOpenSpot_Update
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define Gfx_SetupDL25_Xlu func_8012C78C

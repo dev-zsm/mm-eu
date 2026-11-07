@@ -12,8 +12,8 @@ void func_80000064(s32 arg0, s32 arg1);
 void func_8000013C(void *arg0, void *arg1);
 void func_80000280(void *arg0, s32 arg1);
 void func_800003C4(s32 arg0, s32 arg1);
-void func_80000498(void *arg0, s32 arg1);  /* ObjGhaka_Init */
-void func_800005AC(void *arg0);  /* ObjGhaka_Update */
-void func_800005F8(s32 arg0, s32 arg1);  /* ObjGhaka_Draw */
+void ObjGhaka_Init(void *arg0, s32 arg1);  /* 80000498 */
+void ObjGhaka_Update(void *arg0);  /* 800005AC */
+void ObjGhaka_Draw(s32 arg0, s32 arg1);  /* 800005F8 */
 
 #endif

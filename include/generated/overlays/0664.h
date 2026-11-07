@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* ObjEnding_Init */
-void func_80000074(s32 arg0, s32 arg1);  /* ObjEnding_Update */
-void func_80000084(void *arg0, s32 arg1);  /* ObjEnding_Draw */
+void ObjEnding_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void ObjEnding_Update(s32 arg0, s32 arg1);  /* 80000074 */
+void ObjEnding_Draw(void *arg0, s32 arg1);  /* 80000084 */
 
 #endif

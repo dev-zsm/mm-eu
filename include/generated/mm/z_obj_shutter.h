@@ -7,8 +7,8 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjShutter_Draw func_8000016C
-#define ObjShutter_Update func_80000020
+#define ObjShutter_Draw ObjShutter_Draw
+#define ObjShutter_Update ObjShutter_Update
 #define Schedule_RunScript Schedule_RunScript
 #define gBankShutterDL D_60011E0
 #define sScheduleScript D_80A1CE80

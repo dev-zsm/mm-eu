@@ -20,8 +20,8 @@
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
-#define ObjDriftice_Init func_80000A24
-#define ObjDriftice_Update func_80000F8C
+#define ObjDriftice_Init ObjDriftice_Init
+#define ObjDriftice_Update ObjDriftice_Update
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C
 #define func_80A665EC func_8000007C

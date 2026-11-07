@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-s32 func_80000000(u8 *arg0, s32 arg1);  /* BgKin2Bombwall_IsHitFromNearby */
-void func_80000070(void *arg0, s32 arg1);  /* BgKin2Bombwall_SpawnEffects */
-void func_80000498(u8 *arg0);  /* BgKin2Bombwall_SetupWait */
-void func_800004AC(s32 arg0, s32 arg1);  /* BgKin2Bombwall_Wait */
-void func_80000524(u8 *arg0);  /* BgKin2Bombwall_SetupPlayCutscene */
-void func_80000538(void *arg0, s32 arg1);  /* BgKin2Bombwall_PlayCutscene */
-void func_800005D8(u8 *arg0);  /* BgKin2Bombwall_SetupEndCutscene */
-void func_800005F4(u8 *arg0, s32 arg1);  /* BgKin2Bombwall_EndCutscene */
+s32 BgKin2Bombwall_IsHitFromNearby(u8 *arg0, s32 arg1);  /* 80000000 */
+void BgKin2Bombwall_SpawnEffects(void *arg0, s32 arg1);  /* 80000070 */
+void BgKin2Bombwall_SetupWait(u8 *arg0);  /* 80000498 */
+void BgKin2Bombwall_Wait(s32 arg0, s32 arg1);  /* 800004AC */
+void BgKin2Bombwall_SetupPlayCutscene(u8 *arg0);  /* 80000524 */
+void BgKin2Bombwall_PlayCutscene(void *arg0, s32 arg1);  /* 80000538 */
+void BgKin2Bombwall_SetupEndCutscene(u8 *arg0);  /* 800005D8 */
+void BgKin2Bombwall_EndCutscene(u8 *arg0, s32 arg1);  /* 800005F4 */
 
 #endif

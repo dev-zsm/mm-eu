@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EffLastday_Init */
+void EffLastday_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_8000024C(void *arg0, s32 arg1);
 void func_80000338(void *arg0, s32 arg1);
 void func_800003F8(void *arg0, s32 arg1);
 void func_800004B8(void *arg0, s32 arg1);
-void func_800005E4(s16 a0);  /* EffLastday_SetVtxAlpha */
-void func_8000061C(void *arg0, s32 arg1);  /* EffLastday_Draw */
+void EffLastday_SetVtxAlpha(s16 a0);  /* 800005E4 */
+void EffLastday_Draw(void *arg0, s32 arg1);  /* 8000061C */
 
 #endif

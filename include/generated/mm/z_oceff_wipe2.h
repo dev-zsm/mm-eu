@@ -13,9 +13,9 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define OceffWipe2_Draw func_800000F0
-#define OceffWipe2_Init func_80000000
-#define OceffWipe2_Update func_80000090
+#define OceffWipe2_Draw OceffWipe2_Draw
+#define OceffWipe2_Init OceffWipe2_Init
+#define OceffWipe2_Update OceffWipe2_Update
 #define sEponaSongFrustumMaterialDL D_8096C530
 #define sEponaSongFrustumModelDL D_8096C5D8
 #define sEponaSongFrustumVtx D_8096C3D0

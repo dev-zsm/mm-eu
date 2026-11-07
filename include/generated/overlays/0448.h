@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0);  /* EnGakufu_ProcessNotes */
-void func_80000234(u8 *arg0, s32 arg1);  /* EnGakufu_DisplayOnTimer */
-void func_80000274(u8 *arg0, s32 arg1);  /* EnGakufu_WaitForTimer */
-void func_800002B4(s32 arg0, s32 arg1);  /* EnGakufu_DoNothing */
-s32 func_800002C4(u8 *arg0, s32 arg1);  /* EnGakufu_IsPlayerInRange */
-void func_800002F8(s32 arg0, s32 arg1);  /* EnGakufu_GiveReward */
-void func_800003E4(void *arg0, s32 arg1);  /* EnGakufu_PlayRewardCutscene */
-void func_80000468(void *arg0);  /* EnGakufu_WaitForSong */
-void func_80000534(void *arg0, void *arg1);  /* EnGakufu_Draw */
+void EnGakufu_ProcessNotes(s32 arg0);  /* 80000000 */
+void EnGakufu_DisplayOnTimer(u8 *arg0, s32 arg1);  /* 80000234 */
+void EnGakufu_WaitForTimer(u8 *arg0, s32 arg1);  /* 80000274 */
+void EnGakufu_DoNothing(s32 arg0, s32 arg1);  /* 800002B4 */
+s32 EnGakufu_IsPlayerInRange(u8 *arg0, s32 arg1);  /* 800002C4 */
+void EnGakufu_GiveReward(s32 arg0, s32 arg1);  /* 800002F8 */
+void EnGakufu_PlayRewardCutscene(void *arg0, s32 arg1);  /* 800003E4 */
+void EnGakufu_WaitForSong(void *arg0);  /* 80000468 */
+void EnGakufu_Draw(void *arg0, void *arg1);  /* 80000534 */
 
 #endif

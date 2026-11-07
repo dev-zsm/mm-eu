@@ -28,6 +28,17 @@ def path(seg, fn):
     return ROOT / "src" / seg / bucket(seg, fn) / f"{fn}.c"
 
 
+def overlay_dir(index):
+    """src/overlays/<index>[_<Name>]: the one folder of an overlay, whether or not it carries the name of the overlay."""
+    base = ROOT / "src" / "overlays"
+    return next(iter(sorted(base.glob(index + "_*"))), base / index)
+
+
+def overlay_index(folder):
+    """The file index (four digits) of an overlay folder name."""
+    return folder[:4]
+
+
 def files(seg):
     """Every verified C file of the segment (not wip), sorted by name."""
     d = ROOT / "src" / seg

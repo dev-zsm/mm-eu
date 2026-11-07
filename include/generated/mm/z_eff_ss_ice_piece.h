@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_ICE_PIECE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsIcePiece_Draw func_8000014C
-#define EffectSsIcePiece_Init func_80000000
-#define EffectSsIcePiece_Update func_80000350
+#define EffectSsIcePiece_Draw EffectSsIcePiece_Draw
+#define EffectSsIcePiece_Init EffectSsIcePiece_Init
+#define EffectSsIcePiece_Update EffectSsIcePiece_Update
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_Atan2S_XY Math_Atan2S_XY

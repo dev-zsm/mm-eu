@@ -25,11 +25,11 @@
 #define Effect_Add Effect_Add
 #define Effect_Destroy Effect_Destroy
 #define Effect_GetByIndex Effect_GetByIndex
-#define EnBoom_Destroy func_80000398
-#define EnBoom_Draw func_8000099C
-#define EnBoom_Init func_80000230
+#define EnBoom_Destroy EnBoom_Destroy
+#define EnBoom_Draw EnBoom_Draw
+#define EnBoom_Init EnBoom_Init
 #define EnBoom_SetupAction func_808A1BF0
-#define EnBoom_Update func_800008C4
+#define EnBoom_Update EnBoom_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_ScaledStepToS Math_ScaledStepToS
 #define Math_Vec3f_Copy Math_Vec3f_Copy

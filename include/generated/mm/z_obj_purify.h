@@ -12,8 +12,8 @@
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
-#define ObjPurify_Init func_80000098
-#define ObjPurify_IsPurified func_80000028
+#define ObjPurify_Init ObjPurify_Init
+#define ObjPurify_IsPurified ObjPurify_IsPurified
 #define ObjPurify_SetSysMatrix func_80A69950
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded

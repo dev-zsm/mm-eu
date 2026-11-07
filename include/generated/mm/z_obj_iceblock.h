@@ -49,8 +49,8 @@
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjIceBlock_SetupAttemptSpawnCutscene func_80A0A4D0
-#define ObjIceblock_Init func_80002508
-#define ObjIceblock_Update func_800037C0
+#define ObjIceblock_Init ObjIceblock_Init
+#define ObjIceblock_Update ObjIceblock_Update
 #define Player_InCsMode Player_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define Rand_Next func_80087010

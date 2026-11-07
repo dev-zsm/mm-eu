@@ -4,12 +4,12 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
-#define DemoKakyo_DrawLostWoodsSparkle func_80001520
-#define DemoKakyo_GiantObjectCheck func_80000C1C
-#define DemoKakyo_LostWoodsSparkleActionFunc func_8000000C
-#define DemoKakyo_MoonSparklesActionFunc func_80000C7C
-#define DemoKankyo_DrawMoonAndGiant func_800019B4
-#define DemoKankyo_Init func_800013B8
+#define DemoKakyo_DrawLostWoodsSparkle DemoKakyo_DrawLostWoodsSparkle
+#define DemoKakyo_GiantObjectCheck DemoKakyo_GiantObjectCheck
+#define DemoKakyo_LostWoodsSparkleActionFunc DemoKakyo_LostWoodsSparkleActionFunc
+#define DemoKakyo_MoonSparklesActionFunc DemoKakyo_MoonSparklesActionFunc
+#define DemoKankyo_DrawMoonAndGiant DemoKankyo_DrawMoonAndGiant
+#define DemoKankyo_Init DemoKankyo_Init
 #define DemoKankyo_SetupAction func_808CDB20
 #define Gfx_SetupDL Gfx_SetupDL
 #define Gfx_SetupDL25_Xlu func_8012C78C

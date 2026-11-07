@@ -6,10 +6,10 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_FlaggedCentered2 Actor_PlaySfx_FlaggedCentered2
 #define Actor_SetScale Actor_SetScale
-#define EnHanabi_Destroy func_80000850
+#define EnHanabi_Destroy EnHanabi_Destroy
 #define EnHanabi_Draw D_80B08768
-#define EnHanabi_Init func_80000718
-#define EnHanabi_Update func_80000DFC
+#define EnHanabi_Init EnHanabi_Init
+#define EnHanabi_Update EnHanabi_Update
 #define Gfx_SetupDL Gfx_SetupDL
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304

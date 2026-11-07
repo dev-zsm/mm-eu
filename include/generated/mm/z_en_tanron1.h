@@ -3,7 +3,7 @@
 #define MM_Z_EN_TANRON1_H
 
 /* names of ours that symbols of the reference stand for */
-#define EnTanron1_Update func_80000128
+#define EnTanron1_Update EnTanron1_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS

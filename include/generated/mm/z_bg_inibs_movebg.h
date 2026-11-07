@@ -5,8 +5,8 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgInibsMovebg_Draw func_800000C0
-#define BgInibsMovebg_Init func_80000000
+#define BgInibsMovebg_Draw BgInibsMovebg_Draw
+#define BgInibsMovebg_Init BgInibsMovebg_Init
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu

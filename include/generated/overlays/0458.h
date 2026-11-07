@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgTobira01_Action */
-void func_8000025C(void *arg0, s32 arg1);  /* BgTobira01_Init */
-void func_80000338(s32 arg0, s32 arg1);  /* BgTobira01_Draw */
+void BgTobira01_Action(void *arg0, s32 arg1);  /* 80000000 */
+void BgTobira01_Init(void *arg0, s32 arg1);  /* 8000025C */
+void BgTobira01_Draw(s32 arg0, s32 arg1);  /* 80000338 */
 
 #endif

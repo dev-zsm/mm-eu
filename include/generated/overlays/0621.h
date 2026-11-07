@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgIkninside_Init */
-void func_800000C8(s32 arg0, s32 arg1);  /* BgIkninside_Destroy */
+void BgIkninside_Init(void *arg0, s32 arg1);  /* 80000000 */
+void BgIkninside_Destroy(s32 arg0, s32 arg1);  /* 800000C8 */
 void func_80000110(s32 arg0, s32 arg1);
 void func_80000120(void *arg0, s32 arg1);
 void func_800001C0(void *arg0, s32 arg1);
-void func_800004D8(s32 arg0, void *arg1);  /* BgIkninside_Draw */
+void BgIkninside_Draw(s32 arg0, void *arg1);  /* 800004D8 */
 
 #endif

@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000050(void *arg0, s32 arg1);  /* EffZoraband_MikauFadeOut */
-void func_8000017C(s32 arg0, s32 arg1);  /* EffZoraband_Draw */
+void EffZoraband_MikauFadeOut(void *arg0, s32 arg1);  /* 80000050 */
+void EffZoraband_Draw(s32 arg0, s32 arg1);  /* 8000017C */
 
 #endif

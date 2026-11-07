@@ -37,9 +37,9 @@ void func_8000224C(void *arg0, s32 arg1);
 void func_80002374(u8 *arg0);
 void func_8000238C(u8 *arg0, u8 *arg1);
 void func_800023B0(void *arg0);
-void func_80002508(void *arg0, s32 arg1);  /* ObjIceblock_Init */
-void func_80002710(u8 *arg0);  /* ObjIceBlock_SetupAttemptSpawnCutscene */
-void func_80002724(u8 *arg0, s32 arg1);  /* ObjIceBlock_AttemptSpawnCutscene */
+void ObjIceblock_Init(void *arg0, s32 arg1);  /* 80002508 */
+void ObjIceBlock_SetupAttemptSpawnCutscene(u8 *arg0);  /* 80002710 */
+void ObjIceBlock_AttemptSpawnCutscene(u8 *arg0, s32 arg1);  /* 80002724 */
 void func_80002794(void *arg0);
 void func_800027DC(u8 *arg0, s32 arg1);
 void func_800028E8(u8 *arg0);
@@ -63,7 +63,7 @@ void func_800034E4(u8 *arg0);
 void func_80003530(void *arg0, s32 arg1);
 void func_80003634(u8 *arg0);
 void func_80003650(void *arg0, s32 arg1);
-void func_800037C0(void *arg0, s32 arg1);  /* ObjIceblock_Update */
+void ObjIceblock_Update(void *arg0, s32 arg1);  /* 800037C0 */
 void func_80003AD4(s32 arg0, s32 arg1);
 void func_80003AE4(s32 arg0, s32 arg1);
 void func_80003B68(void *arg0, s32 arg1);

@@ -17,8 +17,8 @@
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_StepToF Math_StepToF
-#define ObjPzlblock_Init func_80000438
-#define ObjPzlblock_Update func_8000099C
+#define ObjPzlblock_Init ObjPzlblock_Init
+#define ObjPzlblock_Update ObjPzlblock_Update
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
 #define func_809A33E0 func_80000000
@@ -45,7 +45,7 @@
 #define ref_func_809A3BA4 func_809888E4
 #define ref_func_809A3BC0 func_800007E0
 #define ref_func_809A3D1C func_80988A5C
-#define ref_func_809A3D38 func_800009F4
+#define ref_func_809A3D38 func_80000958
 #define ref_func_809A3E58 func_80000A78
 #define ref_func_809A3F0C func_80000B2C
 #define sInitChain D_80988DB8

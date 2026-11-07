@@ -1,0 +1,10 @@
+// FLAGS: -O2 -g3 -mips2
+#include "types.h"
+#include "m2c_compat.h"
+#include "generated/overlays/0220.h"
+
+extern f32 D_80964C34;
+
+void EffectSsFireTail_Update(s32 arg0, M2C_UNK arg1, u8 *arg2) {
+    M2C_FIELD(arg2, s16 *, 0x40) = (s16) (s32) ((f32) M2C_FIELD(arg2, s16 *, 0x40) * D_80964C34);
+}

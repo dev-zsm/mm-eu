@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* OceffWipe_Init */
-void func_80000090(void *arg0, void *arg1);  /* OceffWipe_Update */
-void func_800000F0(s32 arg0, void *arg1);  /* OceffWipe_Draw */
+void OceffWipe_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void OceffWipe_Update(void *arg0, void *arg1);  /* 80000090 */
+void OceffWipe_Draw(s32 arg0, void *arg1);  /* 800000F0 */
 
 #endif

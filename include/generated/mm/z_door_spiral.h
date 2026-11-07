@@ -7,10 +7,10 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
-#define DoorSpiral_Draw func_800005D4
-#define DoorSpiral_Init func_80000118
+#define DoorSpiral_Draw DoorSpiral_Draw
+#define DoorSpiral_Init DoorSpiral_Init
 #define DoorSpiral_SetupAction func_809878A0
-#define DoorSpiral_Update func_80000580
+#define DoorSpiral_Update DoorSpiral_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded

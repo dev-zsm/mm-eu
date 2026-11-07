@@ -13,9 +13,9 @@
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DemoMoonend_DoNothing D_80BFC8F0
-#define DemoMoonend_Draw func_8000050C
-#define DemoMoonend_Init func_80000000
-#define DemoMoonend_OverrideLimbDraw func_80000460
+#define DemoMoonend_Draw DemoMoonend_Draw
+#define DemoMoonend_Init DemoMoonend_Init
+#define DemoMoonend_OverrideLimbDraw DemoMoonend_OverrideLimbDraw
 #define DemoMoonend_PostLimbDraw D_80BFCC80
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

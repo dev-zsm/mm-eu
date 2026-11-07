@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_SetScale Actor_SetScale
-#define OceffWipe4_Draw func_800000F0
-#define OceffWipe4_Init func_80000000
-#define OceffWipe4_Update func_80000090
+#define OceffWipe4_Draw OceffWipe4_Draw
+#define OceffWipe4_Init OceffWipe4_Init
+#define OceffWipe4_Update OceffWipe4_Update
 
 #include "overlays/actors/ovl_Oceff_Wipe4/z_oceff_wipe4.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_UPDATE_DURING_OCARINA)

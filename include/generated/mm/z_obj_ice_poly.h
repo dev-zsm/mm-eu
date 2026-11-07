@@ -22,9 +22,9 @@
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
-#define ObjIcePoly_Destroy func_80000244
-#define ObjIcePoly_Draw func_80000C5C
-#define ObjIcePoly_Init func_80000000
+#define ObjIcePoly_Destroy ObjIcePoly_Destroy
+#define ObjIcePoly_Draw ObjIcePoly_Draw
+#define ObjIcePoly_Init ObjIcePoly_Init
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C

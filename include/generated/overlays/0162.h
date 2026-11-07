@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_80000044(u8 *arg0, s32 arg1);  /* ItemInbox_Idle */
+void ItemInbox_Idle(u8 *arg0, s32 arg1);  /* 80000044 */
 
 #endif

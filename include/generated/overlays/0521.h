@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjTokeiTurret_Init */
-void func_80000104(void *arg0, void *arg1);  /* ObjTokeiTurret_Draw */
+void ObjTokeiTurret_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjTokeiTurret_Draw(void *arg0, void *arg1);  /* 80000104 */
 
 #endif

@@ -5,18 +5,18 @@
 
 #include "types.h"
 
-s32 func_80000000(u8 *arg0);  /* BgKin2Fence_CheckHitMask */
-void func_80000070(void *arg0, s32 arg1, s32 arg2);  /* BgKin2Fence_SpawnEyeSparkles */
-void func_80000160(void *arg0, s32 arg1);  /* BgKin2Fence_Init */
-void func_800002BC(u8 *arg0);  /* BgKin2Fence_SetupHandleMaskCode */
-void func_800002D4(void *arg0, s32 arg1);  /* BgKin2Fence_HandleMaskCode */
-void func_800003D4(u8 *arg0);  /* BgKin2Fence_SetupPlayOpenCutscene */
-void func_800003E8(void *arg0, s32 arg1);  /* BgKin2Fence_PlayOpenCutscene */
-void func_80000450(u8 *arg0);  /* BgKin2Fence_SetupWaitBeforeOpen */
-void func_8000046C(u8 *arg0, s32 arg1);  /* BgKin2Fence_WaitBeforeOpen */
-void func_800004A4(u8 *arg0);  /* BgKin2Fence_SetupRaiseFence */
-void func_800004B8(u8 *arg0, s32 arg1);  /* BgKin2Fence_RaiseFence */
-void func_80000510(u8 *arg0);  /* BgKin2Fence_SetupDoNothing */
-void func_80000538(s32 arg0, s32 arg1);  /* BgKin2Fence_DoNothing */
+s32 BgKin2Fence_CheckHitMask(u8 *arg0);  /* 80000000 */
+void BgKin2Fence_SpawnEyeSparkles(void *arg0, s32 arg1, s32 arg2);  /* 80000070 */
+void BgKin2Fence_Init(void *arg0, s32 arg1);  /* 80000160 */
+void BgKin2Fence_SetupHandleMaskCode(u8 *arg0);  /* 800002BC */
+void BgKin2Fence_HandleMaskCode(void *arg0, s32 arg1);  /* 800002D4 */
+void BgKin2Fence_SetupPlayOpenCutscene(u8 *arg0);  /* 800003D4 */
+void BgKin2Fence_PlayOpenCutscene(void *arg0, s32 arg1);  /* 800003E8 */
+void BgKin2Fence_SetupWaitBeforeOpen(u8 *arg0);  /* 80000450 */
+void BgKin2Fence_WaitBeforeOpen(u8 *arg0, s32 arg1);  /* 8000046C */
+void BgKin2Fence_SetupRaiseFence(u8 *arg0);  /* 800004A4 */
+void BgKin2Fence_RaiseFence(u8 *arg0, s32 arg1);  /* 800004B8 */
+void BgKin2Fence_SetupDoNothing(u8 *arg0);  /* 80000510 */
+void BgKin2Fence_DoNothing(s32 arg0, s32 arg1);  /* 80000538 */
 
 #endif

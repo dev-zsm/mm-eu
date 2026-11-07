@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_DEAD_DD_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsDeadDd_Draw func_800002C8
-#define EffectSsDeadDd_Init func_80000000
-#define EffectSsDeadDd_Update func_80000498
+#define EffectSsDeadDd_Draw EffectSsDeadDd_Draw
+#define EffectSsDeadDd_Init EffectSsDeadDd_Init
+#define EffectSsDeadDd_Update EffectSsDeadDd_Update
 #define Rand_ZeroOne func_8008704C
 
 #include "overlays/effects/ovl_Effect_Ss_Dead_Dd/z_eff_ss_dead_dd.h"

@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ArrowFire_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* ArrowFire_Init */
-void func_800000B8(s32 arg0, s32 arg1);  /* ArrowFire_Destroy */
-void func_80000100(void *arg0, s32 arg1);  /* FireArrow_ChargeAndWait */
-void func_800001F4(void *arg0, void *arg1, s32 arg2);  /* FireArrow_Lerp */
-void func_8000024C(void *arg0, s32 arg1);  /* FireArrow_Hit */
-void func_80000460(void *arg0, s32 arg1);  /* FireArrow_Fly */
-void func_800005B4(u8 *arg0, u8 *arg1);  /* ArrowFire_Update */
-void func_80000608(s32 arg0);  /* FireArrow_SetQuadVerticies */
+void ArrowFire_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void ArrowFire_Init(void *arg0, s32 arg1);  /* 8000000C */
+void ArrowFire_Destroy(s32 arg0, s32 arg1);  /* 800000B8 */
+void FireArrow_ChargeAndWait(void *arg0, s32 arg1);  /* 80000100 */
+void FireArrow_Lerp(void *arg0, void *arg1, s32 arg2);  /* 800001F4 */
+void FireArrow_Hit(void *arg0, s32 arg1);  /* 8000024C */
+void FireArrow_Fly(void *arg0, s32 arg1);  /* 80000460 */
+void ArrowFire_Update(u8 *arg0, u8 *arg1);  /* 800005B4 */
+void FireArrow_SetQuadVerticies(s32 arg0);  /* 80000608 */
 void func_800006E4(void *arg0, void *arg1);
 
 #endif

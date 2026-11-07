@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
-#define BgHakaCurtain_Update func_800002D8
+#define BgHakaCurtain_Update BgHakaCurtain_Update
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define Math_StepToF Math_StepToF

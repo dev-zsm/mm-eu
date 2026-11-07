@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
-#define BgSpoutFire_Draw func_80000520
-#define BgSpoutFire_Init func_80000000
-#define BgSpoutFire_Update func_80000448
+#define BgSpoutFire_Draw BgSpoutFire_Draw
+#define BgSpoutFire_Init BgSpoutFire_Init
+#define BgSpoutFire_Update BgSpoutFire_Update
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Gfx_SetupDL Gfx_SetupDL

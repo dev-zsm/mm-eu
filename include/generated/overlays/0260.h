@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-void func_80000034(s32 arg0, s32 arg1);  /* ObjGrassCarry_RandScaleVecToZero */
-void func_800000B8(s32 arg0);  /* ObjGrassCarry_UpdatePos */
-void func_800000F8(s32 arg0, s32 arg1);  /* ObjGrassCarry_UpdateBgCheckInfo */
-void func_8000013C(s32 arg0, s16 arg1, s32 arg2);  /* ObjGrassCarry_DropCollectible */
-void func_80000188(void *arg0, s32 arg1);  /* ObjGrassCarry_SpawnFragments */
-void func_80000490(void *arg0, s32 arg1);  /* ObjGrassCarry_Init */
-void func_80000500(s32 arg0, s32 arg1);  /* ObjGrassCarry_Destroy */
-void func_80000564(u8 *arg0);  /* ObjGrassCarry_SetupAwaitSpawnManager */
-void func_80000578(u8 *arg0, s32 arg1);  /* ObjGrassCarry_AwaitSpawnManager */
-void func_800005C8(u8 *arg0);  /* ObjGrassCarry_SetupIdle */
-void func_800005DC(u8 *arg0, s32 arg1);  /* ObjGrassCarry_Idle */
-void func_80000614(u8 *arg0);  /* ObjGrassCarry_Reset */
-void func_80000648(void *arg0, s32 arg1);  /* ObjGrassCarry_Main */
-void func_8000079C(u8 *arg0);  /* ObjGrassCarry_SetupLiftedUp */
-void func_800007B0(void *arg0, s32 arg1);  /* ObjGrassCarry_LiftedUp */
-void func_8000089C(u8 *arg0);  /* ObjGrassCarry_SetupFall */
-void func_8000091C(void *arg0, s32 arg1);  /* ObjGrassCarry_Fall */
-void func_80000CBC(void *arg0);  /* ObjGrassCarry_Update */
-void func_80000D1C(s32 arg0, s32 arg1);  /* ObjGrassCarry_Draw */
+void ObjGrassCarry_RandScaleVecToZero(s32 arg0, s32 arg1);  /* 80000034 */
+void ObjGrassCarry_UpdatePos(s32 arg0);  /* 800000B8 */
+void ObjGrassCarry_UpdateBgCheckInfo(s32 arg0, s32 arg1);  /* 800000F8 */
+void ObjGrassCarry_DropCollectible(s32 arg0, s16 arg1, s32 arg2);  /* 8000013C */
+void ObjGrassCarry_SpawnFragments(void *arg0, s32 arg1);  /* 80000188 */
+void ObjGrassCarry_Init(void *arg0, s32 arg1);  /* 80000490 */
+void ObjGrassCarry_Destroy(s32 arg0, s32 arg1);  /* 80000500 */
+void ObjGrassCarry_SetupAwaitSpawnManager(u8 *arg0);  /* 80000564 */
+void ObjGrassCarry_AwaitSpawnManager(u8 *arg0, s32 arg1);  /* 80000578 */
+void ObjGrassCarry_SetupIdle(u8 *arg0);  /* 800005C8 */
+void ObjGrassCarry_Idle(u8 *arg0, s32 arg1);  /* 800005DC */
+void ObjGrassCarry_Reset(u8 *arg0);  /* 80000614 */
+void ObjGrassCarry_Main(void *arg0, s32 arg1);  /* 80000648 */
+void ObjGrassCarry_SetupLiftedUp(u8 *arg0);  /* 8000079C */
+void ObjGrassCarry_LiftedUp(void *arg0, s32 arg1);  /* 800007B0 */
+void ObjGrassCarry_SetupFall(u8 *arg0);  /* 8000089C */
+void ObjGrassCarry_Fall(void *arg0, s32 arg1);  /* 8000091C */
+void ObjGrassCarry_Update(void *arg0);  /* 80000CBC */
+void ObjGrassCarry_Draw(s32 arg0, s32 arg1);  /* 80000D1C */
 
 #endif

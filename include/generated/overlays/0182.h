@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* EnWeatherTag_SetupAction */
-void func_8000001C(void *arg0, s32 arg1);  /* EnWeatherTag_Init */
+void EnWeatherTag_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void EnWeatherTag_Init(void *arg0, s32 arg1);  /* 8000001C */
 void func_800001F8(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void func_80000348(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void func_8000048C(s32 arg0, void *arg1);
 void func_800005F8(void *arg0, s32 arg1);
 void func_80000658(void *arg0, s32 arg1);
-void func_800006D4(void *a0, s32 a1);  /* EnWeatherTag_Die */
+void EnWeatherTag_Die(void *a0, s32 a1);  /* 800006D4 */
 void func_800006F8(s32 arg0, s32 arg1);
 void func_800007E4(s32 arg0, void *arg1);
 void func_80000910(s32 arg0, s32 arg1);
@@ -23,9 +23,9 @@ void func_80000B64(s32 arg0, u8 *arg1);
 void func_80000BDC(void *arg0, void *arg1);
 void func_80000C50(s32 arg0, s32 arg1);
 void func_80000D38(s32 arg0, s32 arg1);
-void func_80000D98(s32 arg0, s32 arg1);  /* EnWeatherTag_DoNothing */
-void func_80000DA8(s32 arg0, s32 arg1);  /* EnWeatherTag_Unused_809671B8 */
-void func_80000E40(s32 arg0, s32 arg1);  /* EnWeatherTag_Unused_80967250 */
+void EnWeatherTag_DoNothing(s32 arg0, s32 arg1);  /* 80000D98 */
+void EnWeatherTag_Unused_809671B8(s32 arg0, s32 arg1);  /* 80000DA8 */
+void EnWeatherTag_Unused_80967250(s32 arg0, s32 arg1);  /* 80000E40 */
 void func_80000ECC(void *arg0, void *arg1);
 void func_800010B8(s32 arg0, void *arg1);
 void func_800011F8(s32 arg0, void *arg1);

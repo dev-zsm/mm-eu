@@ -6,9 +6,9 @@
 #define Actor_SetScale Actor_SetScale
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
-#define EnDnb_Draw func_80000998
-#define EnDnb_Init func_800004D0
-#define EnDnb_Update func_800005B0
+#define EnDnb_Draw EnDnb_Draw
+#define EnDnb_Init EnDnb_Init
+#define EnDnb_Update EnDnb_Update
 #define Gfx_SetupDL Gfx_SetupDL
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

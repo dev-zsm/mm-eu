@@ -5,18 +5,18 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgIknvObj_Init */
-void func_800001CC(void *arg0, s32 arg1);  /* BgIknvObj_Destroy */
+void BgIknvObj_Init(void *arg0, s32 arg1);  /* 80000000 */
+void BgIknvObj_Destroy(void *arg0, s32 arg1);  /* 800001CC */
 void func_8000023C(void *arg0);
-void func_800002BC(void *arg0, void *arg1);  /* BgIknvObj_UpdateWaterwheel */
+void BgIknvObj_UpdateWaterwheel(void *arg0, void *arg1);  /* 800002BC */
 void func_8000035C(void *arg0, s32 arg1, s32 arg2);
 void func_80000428(void *arg0, s32 arg1);
 void func_8000049C(void *arg0, s32 arg1);
 void func_8000052C(void *arg0, s32 arg1);
 void func_80000590(s32 arg0, s32 arg1);
-void func_800005E8(u8 *arg0, s32 arg1);  /* BgIknvObj_UpdateSakonDoor */
-void func_8000064C(s32 arg0, s32 arg1);  /* BgIknvObj_UpdateRaisedDoor */
-void func_8000065C(s32 arg0, s32 arg1);  /* BgIknvObj_DoNothing */
-void func_80000690(s32 arg0, void *arg1);  /* BgIknvObj_Draw */
+void BgIknvObj_UpdateSakonDoor(u8 *arg0, s32 arg1);  /* 800005E8 */
+void BgIknvObj_UpdateRaisedDoor(s32 arg0, s32 arg1);  /* 8000064C */
+void BgIknvObj_DoNothing(s32 arg0, s32 arg1);  /* 8000065C */
+void BgIknvObj_Draw(s32 arg0, void *arg1);  /* 80000690 */
 
 #endif

@@ -5,13 +5,13 @@
 /* names of ours that symbols of the reference stand for */
 #define Animation_Change Animation_Change
 #define Animation_GetLastFrame Animation_GetLastFrame
-#define EnZl4_ChangeAnim func_80000000
-#define EnZl4_Draw func_800002B0
-#define EnZl4_Init func_8000009C
-#define EnZl4_OverrideLimbDraw func_800001B0
+#define EnZl4_ChangeAnim EnZl4_ChangeAnim
+#define EnZl4_Draw EnZl4_Draw
+#define EnZl4_Init EnZl4_Init
+#define EnZl4_OverrideLimbDraw EnZl4_OverrideLimbDraw
 #define EnZl4_PostLimbDraw D_80986AE4
 #define EnZl4_TransformLimbDraw D_80986AFC
-#define EnZl4_Update func_8000016C
+#define EnZl4_Update EnZl4_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define SkelAnime_DrawTransformFlexOpa SkelAnime_DrawTransformFlexOpa
 #define SkelAnime_Update SkelAnime_Update

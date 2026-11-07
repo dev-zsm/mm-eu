@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* ObjMuPict_Init */
+void ObjMuPict_Init(s32 arg0, s32 arg1);  /* 80000000 */
 void func_800000BC(u8 *arg0);
 void func_800000D0(void *arg0, s32 arg1);
 void func_800001B4(u8 *arg0);

@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
-#define BgIcefloe_Destroy func_80000114
-#define BgIcefloe_Grow func_800001F8
-#define BgIcefloe_Init func_80000000
+#define BgIcefloe_Destroy BgIcefloe_Destroy
+#define BgIcefloe_Grow BgIcefloe_Grow
+#define BgIcefloe_Init BgIcefloe_Init
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define EffectSsIceBlock_Spawn func_800B378C
 #define EffectSsIceSmoke_Spawn func_800B372C

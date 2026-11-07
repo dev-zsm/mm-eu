@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* EffectEnIceBlock_CheckIceBlockObject */
-void func_80000078(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* EffectEnIceBlock_Init */
-void func_80000154(void *arg0, s32 arg1, void *arg2);  /* EffectEnIceBlock_Draw */
-void func_800002A4(s32 a, s32 b, u8 *c);  /* EffectEnIceBlock_Update */
+void EffectEnIceBlock_CheckIceBlockObject(s32 arg0, s32 arg1);  /* 80000000 */
+void EffectEnIceBlock_Init(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000078 */
+void EffectEnIceBlock_Draw(void *arg0, s32 arg1, void *arg2);  /* 80000154 */
+void EffectEnIceBlock_Update(s32 a, s32 b, u8 *c);  /* 800002A4 */
 
 #endif

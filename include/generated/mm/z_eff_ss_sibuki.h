@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Camera_GetInputDirYaw Camera_GetInputDirYaw
-#define EffectSsSibuki_Draw func_8000017C
-#define EffectSsSibuki_Init func_80000000
-#define EffectSsSibuki_Update func_800002FC
+#define EffectSsSibuki_Draw EffectSsSibuki_Draw
+#define EffectSsSibuki_Init EffectSsSibuki_Init
+#define EffectSsSibuki_Update EffectSsSibuki_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS

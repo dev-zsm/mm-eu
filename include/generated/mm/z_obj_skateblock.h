@@ -17,8 +17,8 @@
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
-#define ObjSkateblock_Draw func_80001788
-#define ObjSkateblock_Init func_800010E0
+#define ObjSkateblock_Draw ObjSkateblock_Draw
+#define ObjSkateblock_Init ObjSkateblock_Init
 #define Player_InCsMode Player_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define gameplay_dangeon_keep_Colheader_007498 D_5007498

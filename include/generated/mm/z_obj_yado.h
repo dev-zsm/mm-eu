@@ -7,7 +7,7 @@
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Gfx_PrimColor Gfx_PrimColor
-#define ObjYado_Draw func_8000007C
+#define ObjYado_Draw ObjYado_Draw
 #define object_yado_obj_DL_000320 D_6000320
 #define object_yado_obj_DL_000430 D_6000430
 #define ref_D_80C16470 D_80BFB210

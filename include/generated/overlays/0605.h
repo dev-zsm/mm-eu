@@ -6,6 +6,6 @@
 #include "types.h"
 
 void func_80000050(void *arg0, s32 arg1);
-void func_80000180(s32 arg0, void *arg1);  /* EffStk_Draw */
+void EffStk_Draw(s32 arg0, void *arg1);  /* 80000180 */
 
 #endif

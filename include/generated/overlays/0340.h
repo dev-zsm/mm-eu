@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* DemoGetitem_Init */
-void func_800000D0(void *arg0, s32 arg1);  /* DemoGetitem_Wait */
-void func_80000128(void *arg0, s32 arg1);  /* DemoGetitem_PerformCutsceneActions */
-void func_800002B0(u8 *arg0, s32 arg1);  /* DemoGetitem_Draw */
+void DemoGetitem_Init(void *arg0, s32 arg1);  /* 80000000 */
+void DemoGetitem_Wait(void *arg0, s32 arg1);  /* 800000D0 */
+void DemoGetitem_PerformCutsceneActions(void *arg0, s32 arg1);  /* 80000128 */
+void DemoGetitem_Draw(u8 *arg0, s32 arg1);  /* 800002B0 */
 
 #endif

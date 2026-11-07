@@ -19,12 +19,12 @@
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Matrix_RotateZYX Matrix_RotateZYX
-#define ObjTree_Draw func_80000374
-#define ObjTree_Init func_80000000
+#define ObjTree_Draw ObjTree_Draw
+#define ObjTree_Init ObjTree_Init
 #define ObjTree_SetupDoNothing func_80B7EFAC
-#define ObjTree_SetupSway func_80000180
-#define ObjTree_Sway func_800001CC
-#define ObjTree_UpdateCollision func_80000298
+#define ObjTree_SetupSway ObjTree_SetupSway
+#define ObjTree_Sway ObjTree_Sway
+#define ObjTree_UpdateCollision ObjTree_UpdateCollision
 #define gTreeBodyDL D_6000680
 #define gTreeLeavesDL D_60007C8
 #define gTreeTopCol D_6001B2C

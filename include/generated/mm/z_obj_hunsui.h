@@ -26,9 +26,9 @@
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
-#define ObjHunsui_Draw func_80001574
-#define ObjHunsui_Init func_800005B4
-#define ObjHunsui_Update func_8000096C
+#define ObjHunsui_Draw ObjHunsui_Draw
+#define ObjHunsui_Init ObjHunsui_Init
+#define ObjHunsui_Update ObjHunsui_Update
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C

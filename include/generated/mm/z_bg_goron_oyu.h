@@ -8,8 +8,8 @@
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define Audio_PlaySfx_AtPos Audio_PlaySfx_AtPos
 #define BgCheck_EntityRaycastFloor2 BgCheck_EntityRaycastFloor2
-#define BgGoronOyu_Draw func_80000618
-#define BgGoronOyu_SpawnEffects func_80000314
+#define BgGoronOyu_Draw BgGoronOyu_Draw
+#define BgGoronOyu_SpawnEffects BgGoronOyu_SpawnEffects
 #define BgGoronOyu_UpdateWaterBoxInfo func_80B25038
 #define CutsceneManager_Stop func_800F1D6C
 #define EffectSsIceSmoke_Spawn func_800B372C

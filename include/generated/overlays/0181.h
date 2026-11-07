@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* EnMm_SetupAction */
+void EnMm_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_8000000C(s32 arg0);
-void func_8000005C(void *arg0, s32 arg1);  /* EnMm_Init */
+void EnMm_Init(void *arg0, s32 arg1);  /* 8000005C */
 void func_8000018C(s32 arg0, s32 arg1);
 void func_80000204(void *arg0, s32 arg1);
 void func_8000056C(void *arg0, s32 arg1);
-void func_8000060C(void *arg0, s32 arg1);  /* EnMm_Update */
-void func_80000688(s32 arg0, s32 arg1);  /* EnMm_Draw */
+void EnMm_Update(void *arg0, s32 arg1);  /* 8000060C */
+void EnMm_Draw(s32 arg0, s32 arg1);  /* 80000688 */
 
 #endif

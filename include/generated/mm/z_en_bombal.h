@@ -19,11 +19,11 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define CutsceneManager_Stop func_800F1D6C
-#define EnBombal_DrawEffects func_80000798
-#define EnBombal_Init func_80000000
-#define EnBombal_InitEffects func_80000520
-#define EnBombal_Update func_8000040C
-#define EnBombal_UpdateEffects func_80000648
+#define EnBombal_DrawEffects EnBombal_DrawEffects
+#define EnBombal_Init EnBombal_Init
+#define EnBombal_InitEffects EnBombal_InitEffects
+#define EnBombal_Update EnBombal_Update
+#define EnBombal_UpdateEffects EnBombal_UpdateEffects
 #define Gfx_SetupDL Gfx_SetupDL
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

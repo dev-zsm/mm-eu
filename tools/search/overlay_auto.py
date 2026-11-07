@@ -9,6 +9,8 @@ import subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") if d.name != "vendor"]
+import srcpath  # noqa: E402
 
 
 def overlays():
@@ -43,12 +45,12 @@ def confirm(f):
 def promote():
     from multiprocessing import Pool
     todo = [f for f in sorted((ROOT / "build" / "auto_match").glob("ovl[0-9][0-9][0-9][0-9]*/func_*.c"))
-            if not (ROOT / "src" / "overlays" / f.parent.name[3:7] / f.name).exists()]
+            if not (srcpath.overlay_dir(f.parent.name[3:7]) / f.name).exists()]
     n = 0
     with Pool(6) as pool:
         for f, ok in pool.imap_unordered(confirm, todo):
             if ok:
-                dst = ROOT / "src" / "overlays" / f.parent.name[3:7] / f.name
+                dst = srcpath.overlay_dir(f.parent.name[3:7]) / f.name
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 dst.write_text(project_form(f))
                 n += 1

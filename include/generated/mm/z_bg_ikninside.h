@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_SetScale Actor_SetScale
-#define BgIkninside_Destroy func_800000C8
-#define BgIkninside_Draw func_800004D8
-#define BgIkninside_Init func_80000000
+#define BgIkninside_Destroy BgIkninside_Destroy
+#define BgIkninside_Draw BgIkninside_Draw
+#define BgIkninside_Init BgIkninside_Init
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder

@@ -4,8 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define DayTelop_Draw func_80816D28
-#define DayTelop_Main func_80000848
-#define DayTelop_Update func_80000000
+#define DayTelop_Main DayTelop_Main
+#define DayTelop_Update DayTelop_Update
 #define Play_Init D_8016B450
 #define gSaveContext D_801E6EF0
 #define gSceneSeqState D_801BE718

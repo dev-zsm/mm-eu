@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define BgCheck_EntityRaycastFloor2_1 BgCheck_EntityRaycastFloor2_1
 #define BgCheck_GetWaterSurfaceNoBgIdAlt BgCheck_GetWaterSurfaceNoBgIdAlt
-#define EffectSsBubble_Draw func_80000178
-#define EffectSsBubble_Init func_80000000
-#define EffectSsBubble_Update func_8000029C
+#define EffectSsBubble_Draw EffectSsBubble_Draw
+#define EffectSsBubble_Init EffectSsBubble_Init
+#define EffectSsBubble_Update EffectSsBubble_Update
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS

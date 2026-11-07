@@ -9,8 +9,8 @@
 #define Actor_SetScale Actor_SetScale
 #define GetItem_Draw GetItem_Draw
 #define ItemEtcetera_Draw D_80904CAC
-#define ItemEtcetera_DrawThroughLens func_80000274
-#define ItemEtcetera_Init func_8000000C
+#define ItemEtcetera_DrawThroughLens ItemEtcetera_DrawThroughLens
+#define ItemEtcetera_Init ItemEtcetera_Init
 #define ItemEtcetera_SetupAction func_809049E0
 #define ItemEtcetera_WaitForObject D_80904B34
 #define Object_GetSlot Object_GetSlot

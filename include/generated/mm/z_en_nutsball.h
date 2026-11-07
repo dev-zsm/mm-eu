@@ -12,9 +12,9 @@
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EffectSsHahen_SpawnBurst EffectSsHahen_SpawnBurst
-#define EnNutsball_Draw func_800004E0
+#define EnNutsball_Draw EnNutsball_Draw
 #define EnNutsball_InitColliderParams func_8096AA7C
-#define EnNutsball_Update func_80000128
+#define EnNutsball_Update EnNutsball_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Atan2S_XY Math_Atan2S_XY
 #define Math_Vec3f_Copy Math_Vec3f_Copy

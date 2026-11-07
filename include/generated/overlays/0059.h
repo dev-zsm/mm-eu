@@ -7,7 +7,7 @@
 
 void func_80000020(void *arg0, s32 arg1);
 void func_80000154(void *arg0, s32 arg1);
-void func_80000430(s32 arg0, s32 arg1);  /* EnPart_Update */
-void func_80000478(void *arg0, s32 arg1);  /* EnPart_Draw */
+void EnPart_Update(s32 arg0, s32 arg1);  /* 80000430 */
+void EnPart_Draw(void *arg0, s32 arg1);  /* 80000478 */
 
 #endif

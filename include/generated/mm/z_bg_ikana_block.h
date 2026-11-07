@@ -10,8 +10,8 @@
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
 #define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
-#define BgIkanaBlock_Init func_800004D8
-#define BgIkanaBlock_Update func_80000A14
+#define BgIkanaBlock_Init BgIkanaBlock_Init
+#define BgIkanaBlock_Update BgIkanaBlock_Update
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08

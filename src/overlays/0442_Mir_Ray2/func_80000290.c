@@ -1,0 +1,12 @@
+// FLAGS: -O2 -g3 -mips2
+#include "types.h"
+#include "m2c_compat.h"
+#include "actor.h"
+
+M2C_UNK func_800E09D8(s32, u8 *);                 /* extern */
+M2C_UNK func_80102484(s32, s32, s32, s32);          /* extern */
+
+void MirRay2_Destroy(Actor *thisx, PlayState *play) {
+    func_80102484(play, (u8 *)play + 0x818, M2C_FIELD(thisx, s32 *, 0x1AC), play);
+    func_800E09D8(play, (u8 *)thisx + 0x144);
+}

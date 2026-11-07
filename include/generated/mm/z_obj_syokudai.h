@@ -10,8 +10,8 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjSyokudai_Draw func_800009C4
-#define ObjSyokudai_Init func_80000000
+#define ObjSyokudai_Draw ObjSyokudai_Draw
+#define ObjSyokudai_Init ObjSyokudai_Init
 #define gEffFire1DL D_407D590
 #define sDLists D_808BC40C
 

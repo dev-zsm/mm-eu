@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
-#define DmHina_Draw func_80000840
+#define DmHina_Draw DmHina_Draw
 #define GetItem_Draw GetItem_Draw
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_SinS Math_SinS

@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
-#define EffectSsEnFire_Draw func_8000016C
-#define EffectSsEnFire_Init func_80000000
-#define EffectSsEnFire_Update func_8000045C
+#define EffectSsEnFire_Draw EffectSsEnFire_Draw
+#define EffectSsEnFire_Init EffectSsEnFire_Init
+#define EffectSsEnFire_Update EffectSsEnFire_Update
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Math_SinS Math_SinS

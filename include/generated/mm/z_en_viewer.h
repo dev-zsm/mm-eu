@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
-#define EnViewer_Init func_8000000C
+#define EnViewer_Init EnViewer_Init
 #define EnViewer_SetupAction func_8089E540
-#define EnViewer_Update func_80000560
+#define EnViewer_Update EnViewer_Update
 #define Environment_ChangeLightSetting Environment_ChangeLightSetting
 #define SurfaceType_GetLightSettingIndex SurfaceType_GetLightSettingIndex
 #define func_8089F014 func_800001F4

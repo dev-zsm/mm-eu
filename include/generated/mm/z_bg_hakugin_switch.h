@@ -6,8 +6,8 @@
 #define Actor_ChangeCategory Actor_ChangeCategory
 #define Actor_PlaySfx_FlaggedTimer Actor_PlaySfx_FlaggedTimer
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define BgHakuginSwitch_Init func_80000068
-#define BgHakuginSwitch_Update func_80000E98
+#define BgHakuginSwitch_Init BgHakuginSwitch_Init
+#define BgHakuginSwitch_Update BgHakuginSwitch_Update
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder

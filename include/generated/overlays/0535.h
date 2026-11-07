@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnJcMato_CheckForHit */
-void func_800000E8(u8 *arg0);  /* EnJcMato_SetupIdle */
-void func_800000FC(u8 *arg0, s32 arg1);  /* EnJcMato_Idle */
-void func_80000150(void *arg0, s32 arg1);  /* EnJcMato_Init */
-void func_8000021C(void *arg0, s32 arg1);  /* EnJcMato_Update */
-void func_8000026C(s32 arg0, s32 arg1);  /* EnJcMato_Draw */
+void EnJcMato_CheckForHit(void *arg0, s32 arg1);  /* 80000000 */
+void EnJcMato_SetupIdle(u8 *arg0);  /* 800000E8 */
+void EnJcMato_Idle(u8 *arg0, s32 arg1);  /* 800000FC */
+void EnJcMato_Init(void *arg0, s32 arg1);  /* 80000150 */
+void EnJcMato_Update(void *arg0, s32 arg1);  /* 8000021C */
+void EnJcMato_Draw(s32 arg0, s32 arg1);  /* 8000026C */
 
 #endif

@@ -19,10 +19,10 @@
 #define CutsceneManager_Start func_800F1B24
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define DoorWarp1_Destroy func_800003E8
-#define DoorWarp1_Draw func_800033BC
-#define DoorWarp1_GetRemains func_8000000C
-#define DoorWarp1_Init func_80000248
+#define DoorWarp1_Destroy DoorWarp1_Destroy
+#define DoorWarp1_Draw DoorWarp1_Draw
+#define DoorWarp1_GetRemains DoorWarp1_GetRemains
+#define DoorWarp1_Init DoorWarp1_Init
 #define DoorWarp1_SetupAction func_808B7B70
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh

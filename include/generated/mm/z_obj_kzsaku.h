@@ -15,9 +15,9 @@
 #define DynaPoly_SetBgActor DynaPoly_SetBgActor
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
-#define ObjKzsaku_Draw func_800002C4
-#define ObjKzsaku_Init func_80000000
-#define ObjKzsaku_Rise func_80000150
+#define ObjKzsaku_Draw ObjKzsaku_Draw
+#define ObjKzsaku_Init ObjKzsaku_Init
+#define ObjKzsaku_Rise ObjKzsaku_Rise
 #define ObjKzsaku_SetupIdle func_80BED900
 #define func_80C08CB0 func_80000230
 #define gUnderwaterGrateCol D_6001118

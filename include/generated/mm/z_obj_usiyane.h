@@ -8,8 +8,8 @@
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define Math3D_Normalize Math3D_Normalize
-#define ObjUsiyane_Draw func_80000800
-#define ObjUsiyane_GetAlienSpawnTime func_80000000
+#define ObjUsiyane_Draw ObjUsiyane_Draw
+#define ObjUsiyane_GetAlienSpawnTime ObjUsiyane_GetAlienSpawnTime
 #define Rand_Centered func_800870A0
 #define Rand_Next func_80087010
 #define func_80C07CD0 func_80000050

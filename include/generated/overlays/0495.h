@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjDora_Init */
-void func_800001CC(u8 *arg0);  /* ObjDora_SetupWait */
-void func_800001E0(s32 arg0, s32 arg1);  /* ObjDora_Wait */
-void func_800001F0(u8 *arg0);  /* ObjDora_SetupMoveGong */
-void func_80000264(void *arg0, s32 arg1);  /* ObjDora_MoveGong */
-void func_80000384(s32 arg0);  /* ObjDora_IsHalfHour */
-void func_80000418(void *arg0, s32 arg1);  /* ObjDora_UpdateCollision */
-void func_800005E8(s32 arg0, s32 arg1);  /* ObjDora_Draw */
+void ObjDora_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjDora_SetupWait(u8 *arg0);  /* 800001CC */
+void ObjDora_Wait(s32 arg0, s32 arg1);  /* 800001E0 */
+void ObjDora_SetupMoveGong(u8 *arg0);  /* 800001F0 */
+void ObjDora_MoveGong(void *arg0, s32 arg1);  /* 80000264 */
+void ObjDora_IsHalfHour(s32 arg0);  /* 80000384 */
+void ObjDora_UpdateCollision(void *arg0, s32 arg1);  /* 80000418 */
+void ObjDora_Draw(s32 arg0, s32 arg1);  /* 800005E8 */
 
 #endif

@@ -8,6 +8,6 @@
 void func_80000000(s32 arg0, s32 arg1);
 void func_8000006C(u8 *arg0, s32 arg1);
 void func_80000148(s32 a0, s32 a1);
-void func_8000016C(void *arg0, s32 arg1);  /* EnInvisibleRuppe_Init */
+void EnInvisibleRuppe_Init(void *arg0, s32 arg1);  /* 8000016C */
 
 #endif

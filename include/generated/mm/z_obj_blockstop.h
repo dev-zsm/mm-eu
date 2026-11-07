@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define CutsceneManager_Queue CutsceneManager_Queue
-#define ObjBlockstop_CheckForBlock func_80000050
+#define ObjBlockstop_CheckForBlock ObjBlockstop_CheckForBlock
 #define ObjBlockstop_TryPlayCutscene D_8092B2D8
 
 #include "overlays/actors/ovl_Obj_Blockstop/z_obj_blockstop.h"

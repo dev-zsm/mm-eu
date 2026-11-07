@@ -1,0 +1,10 @@
+// FLAGS: -O2 -g0 -mips2
+#include "types.h"
+#include "generated/overlays/0440.h"
+extern u8 D_80AD7080;
+void func_80AD555C();
+void EnTest7_WarpCsWait(u8 *a, s32 b) {
+    if (*(s32 *)(a + 0x1E54) >= 0x82) {
+        func_80AD555C(a, &D_80AD7080);
+    }
+}

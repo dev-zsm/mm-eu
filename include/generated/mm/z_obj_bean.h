@@ -46,8 +46,8 @@
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
-#define ObjBean_Init func_80000B74
-#define ObjBean_Update func_80001F9C
+#define ObjBean_Init ObjBean_Init
+#define ObjBean_Update ObjBean_Update
 #define Player_GetExchangeItemAction Player_GetExchangeItemAction
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define Rand_ZeroOne func_8008704C

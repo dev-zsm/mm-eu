@@ -24,9 +24,9 @@
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu
 #define Lib_SegmentedToVirtual func_80100304
-#define ObjBigicicle_Draw func_80000C10
-#define ObjBigicicle_Init func_80000000
-#define ObjBigicicle_Update func_80000A04
+#define ObjBigicicle_Draw ObjBigicicle_Draw
+#define ObjBigicicle_Init ObjBigicicle_Init
+#define ObjBigicicle_Update ObjBigicicle_Update
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C

@@ -19,6 +19,7 @@ import match  # noqa: E402
 import names  # noqa: E402
 import objcache  # noqa: E402
 import retype  # noqa: E402
+import srcpath  # noqa: E402
 import tidy_perm  # noqa: E402
 
 BASIC = {"void", "s8", "u8", "s16", "u16", "s32", "u32", "s64", "u64", "f32", "f64", "char", "short", "int", "long",
@@ -196,7 +197,7 @@ EXTERN = re.compile(r"^(?:extern\s+)?(?P<ret>(?:[A-Za-z_]\w*[\s\*]+)+)(?P<name>\
 def declared_in_sources(seg: str) -> dict:
     """{name: (ret, args)}: the `extern` declarations that the verified files of the segment already carry. They compile to the
     ROM's bytes, so they are better evidence of a function's prototype than the assembly alone."""
-    base = ROOT / "src" / ("overlays/" + seg[3:] if seg.startswith("ovl") else seg)
+    base = srcpath.overlay_dir(seg[3:]) if seg.startswith("ovl") else ROOT / "src" / seg
     seen = {}   # name -> {(ret, args): how many files declare it so}
     for f in sorted(base.rglob("func_*.c")):
         if "wip" in f.parts:

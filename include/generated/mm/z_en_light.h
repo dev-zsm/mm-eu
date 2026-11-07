@@ -6,9 +6,9 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
-#define EnLight_Draw func_80000A08
-#define EnLight_Init func_80000000
-#define EnLight_Update func_800002E4
+#define EnLight_Draw EnLight_Draw
+#define EnLight_Init EnLight_Init
+#define EnLight_Update EnLight_Update
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll

@@ -7,8 +7,8 @@
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Item_DropCollectible Item_DropCollectible
-#define ObjYasi_Init func_80000000
-#define ObjYasi_Update func_800000B0
+#define ObjYasi_Init ObjYasi_Init
+#define ObjYasi_Update ObjYasi_Update
 #define Rand_ZeroOne func_8008704C
 #define gPalmTreeCol D_6001428
 #define sInitChain D_80B99B30

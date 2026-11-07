@@ -159,7 +159,7 @@ def asm_text(seg):
 
 def source_path(seg, fn):
     """Where the C file of one of our functions lives: src/overlays/<index>/ for an overlay, else src/<seg>/<module>/."""
-    return ROOT / "src" / "overlays" / seg[3:] / f"{fn}.c" if seg.startswith("ovl") else srcpath.path(seg, fn)
+    return srcpath.overlay_dir(seg[3:]) / f"{fn}.c" if seg.startswith("ovl") else srcpath.path(seg, fn)
 
 
 def our_symbols(seg, fn):

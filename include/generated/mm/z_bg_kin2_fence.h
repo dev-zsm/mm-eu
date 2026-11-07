@@ -5,12 +5,12 @@
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx Audio_PlaySfx
 #define BgKin2Fence_CheckHitMask func_80B53550
-#define BgKin2Fence_HandleMaskCode func_800002D4
-#define BgKin2Fence_Init func_80000160
-#define BgKin2Fence_PlayOpenCutscene func_800003E8
+#define BgKin2Fence_HandleMaskCode BgKin2Fence_HandleMaskCode
+#define BgKin2Fence_Init BgKin2Fence_Init
+#define BgKin2Fence_PlayOpenCutscene BgKin2Fence_PlayOpenCutscene
 #define BgKin2Fence_SetupPlayOpenCutscene func_80B53924
 #define BgKin2Fence_SetupWaitBeforeOpen func_80B539A0
-#define BgKin2Fence_SpawnEyeSparkles func_80000070
+#define BgKin2Fence_SpawnEyeSparkles BgKin2Fence_SpawnEyeSparkles
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue

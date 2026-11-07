@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PERMUTER = ROOT / "tools/vendor/decomp-permuter/permuter.py"
 sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") if d.name != "vendor"]
 import names  # noqa: E402
+import srcpath  # noqa: E402
 import objcache  # noqa: E402
 import wave  # noqa: E402
 import match  # noqa: E402
@@ -68,7 +69,7 @@ def auto_queue(tried: set):
 def overlay_drafts(seg: str):
     """Overlay functions with a draft to measure: the wip files, then the m2c drafts of what the automatic passes missed
     (m2c is run here, on demand, and the draft kept in build/auto_drafts/<seg>/)."""
-    base = ROOT / "src" / "overlays" / seg[3:]
+    base = srcpath.overlay_dir(seg[3:])
     for p in sorted((base / "wip").glob("func_*.c")):
         yield p.stem, None
     log = ROOT / "build/auto_match" / f"{seg}.txt"

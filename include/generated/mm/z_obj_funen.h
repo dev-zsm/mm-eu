@@ -7,7 +7,7 @@
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Matrix_RotateYS Matrix_RotateYS
-#define ObjFunen_Draw func_80000038
+#define ObjFunen_Draw ObjFunen_Draw
 #define gStoneTowerSmokeDL D_60000D0
 
 #include "overlays/actors/ovl_Obj_Funen/z_obj_funen.h"

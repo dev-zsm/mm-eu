@@ -5,10 +5,10 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
-#define ArrowIce_Charge func_800000AC
+#define ArrowIce_Charge ArrowIce_Charge
 #define ArrowIce_Fly D_809072E4
-#define ArrowIce_Hit func_800001F8
-#define ArrowIce_LerpFiredPosition func_800001A0
+#define ArrowIce_Hit ArrowIce_Hit
+#define ArrowIce_LerpFiredPosition ArrowIce_LerpFiredPosition
 #define ArrowIce_SetupAction func_80906F20
 
 #include "overlays/actors/ovl_Arrow_Ice/z_arrow_ice.h"

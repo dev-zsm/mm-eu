@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsEnIce_Init */
-void func_80000220(void *arg0, s32 arg1, void *arg2);  /* EffectSsEnIce_Draw */
-void func_8000055C(s32 arg0, s32 arg1, void *arg2);  /* EffectSsEnIce_UpdateFlying */
+void EffectSsEnIce_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsEnIce_Draw(void *arg0, s32 arg1, void *arg2);  /* 80000220 */
+void EffectSsEnIce_UpdateFlying(s32 arg0, s32 arg1, void *arg2);  /* 8000055C */
 
 #endif

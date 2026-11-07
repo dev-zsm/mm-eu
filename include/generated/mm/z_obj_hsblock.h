@@ -10,10 +10,10 @@
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_SmoothStepToF Math_SmoothStepToF
-#define ObjHsblock_Draw func_80000360
-#define ObjHsblock_Init func_80000090
+#define ObjHsblock_Draw ObjHsblock_Draw
+#define ObjHsblock_Init ObjHsblock_Init
 #define ObjHsblock_SetupAction func_80922990
-#define ObjHsblock_Update func_80000314
+#define ObjHsblock_Update ObjHsblock_Update
 #define func_8093E05C func_800001BC
 #define func_8093E10C func_8000026C
 #define ref_func_8093DEAC func_8092299C

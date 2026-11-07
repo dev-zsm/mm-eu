@@ -5,17 +5,17 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjChan_Init */
+void ObjChan_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_8000013C(void *arg0, s32 arg1);
-void func_80000260(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* ObjChan_CalculatePotPosition */
-void func_80000328(void *arg0, s32 arg1);  /* ObjChan_InitChandelier */
-void func_80000644(void *arg0, s32 arg1);  /* ObjChan_ChandelierAction */
-void func_80000A1C(u8 *arg0, s32 arg1);  /* ObjChan_InitPot */
-void func_80000A34(void *arg0, s32 arg1);  /* ObjChan_PotAction */
-void func_80000BA8(s32 arg0, s32 arg1);  /* ObjChan_CreateSmashEffects */
-void func_80000E58(void *arg0, s32 arg1);  /* ObjChan_Update */
-void func_80000EAC(s32 arg0, s32 arg1);  /* ObjChan_Draw */
-void func_80000FB4(s32 arg0, s32 arg1);  /* ObjChan_DrawPot */
-void func_80001050(void *arg0, void *arg1);  /* ObjChan_DrawFire */
+void ObjChan_CalculatePotPosition(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000260 */
+void ObjChan_InitChandelier(void *arg0, s32 arg1);  /* 80000328 */
+void ObjChan_ChandelierAction(void *arg0, s32 arg1);  /* 80000644 */
+void ObjChan_InitPot(u8 *arg0, s32 arg1);  /* 80000A1C */
+void ObjChan_PotAction(void *arg0, s32 arg1);  /* 80000A34 */
+void ObjChan_CreateSmashEffects(s32 arg0, s32 arg1);  /* 80000BA8 */
+void ObjChan_Update(void *arg0, s32 arg1);  /* 80000E58 */
+void ObjChan_Draw(s32 arg0, s32 arg1);  /* 80000EAC */
+void ObjChan_DrawPot(s32 arg0, s32 arg1);  /* 80000FB4 */
+void ObjChan_DrawFire(void *arg0, void *arg1);  /* 80001050 */
 
 #endif

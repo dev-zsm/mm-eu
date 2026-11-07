@@ -5,45 +5,45 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* EnGirlA_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* EnGirlA_InitObjIndex */
-void func_800000B0(void);  /* EnGirlA_Init */
-void func_800000E0(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyPotionRed */
-void func_80000140(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyPotionGreen */
-void func_800001A0(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyPotionBlue */
-void func_8000023C(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyArrows */
-void func_800002DC(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyNuts */
-void func_80000398(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyShieldHero */
-void func_800003FC(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyStick */
-s32 func_800004B8(u8 *arg0, s32 arg1);  /* EnGirlA_CanBuyMaskAllNight */
-void func_800004F0(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyBombBagCuriosityShop */
-void func_80000558(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyBombBag20BombShop */
-void func_800005D8(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyBombBag30BombShop */
-void func_80000658(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyBombchus */
-void func_80000724(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyBombs */
-s32 func_800007C4(u8 *arg0, s32 arg1);  /* EnGirlA_CanBuyBottleStolen */
-s32 func_800007FC(u8 *arg0, s32 arg1);  /* EnGirlA_CanBuySword */
-void func_80000834(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyShieldMirror */
-void func_80000898(s32 arg0, s32 arg1);  /* EnGirlA_CanBuyFairy */
-void func_800008F8(s32 arg0, void *arg1);  /* EnGirlA_BuyBottleItem */
-void func_800009A0(u8 *arg0, u8 *arg1);  /* EnGirlA_BuyArrows */
-void func_800009EC(u8 *arg0, u8 *arg1);  /* EnGirlA_BuyNuts */
-void func_80000A64(u8 *arg0, s32 arg1);  /* EnGirlA_BuyShieldHero */
-void func_80000AB0(u8 *arg0, s32 arg1);  /* EnGirlA_BuyStick */
-void func_80000AFC(u8 *arg0, s32 arg1);  /* EnGirlA_BuyMaskAllNight */
-void func_80000B48(u8 *arg0, u8 *arg1);  /* EnGirlA_BuyBombBag */
-void func_80000BDC(u8 *arg0, u8 *arg1);  /* EnGirlA_BuyBombchus */
-void func_80000C34(u8 *arg0, u8 *arg1);  /* EnGirlA_BuyBombs */
-void func_80000CE8(u8 *arg0, s32 arg1);  /* EnGirlA_BuyBottle */
-void func_80000D34(u8 *arg0, u8 *arg1);  /* EnGirlA_BuySword */
-void func_80000DE8(u8 *arg0, s32 arg1);  /* EnGirlA_BuyShieldMirror */
-void func_80000E34(u8 *arg0, s32 arg1);  /* EnGirlA_BuyFanfare */
-void func_80000E74(s32 arg0, s32 arg1);  /* EnGirlA_DoNothing */
-void func_80000EBC(s32 arg0, u8 *arg1);  /* EnGirlA_Bought */
-void func_80000ED4(s32 arg0, u8 *arg1);  /* EnGirlA_Restock */
-s32 func_80000EF0(s32 arg0, s32 arg1);  /* EnGirlA_TrySetMaskItemDescription */
-void func_80000F04(void *arg0, s32 arg1);  /* EnGirlA_InitialUpdate */
-void func_80001088(u8 *arg0, s32 arg1);  /* EnGirlA_Update2 */
-void func_80001158(void *arg0, s32 arg1);  /* EnGirlA_Draw */
+void EnGirlA_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void EnGirlA_InitObjIndex(void *arg0, s32 arg1);  /* 8000000C */
+void EnGirlA_Init(void);  /* 800000B0 */
+void EnGirlA_CanBuyPotionRed(s32 arg0, s32 arg1);  /* 800000E0 */
+void EnGirlA_CanBuyPotionGreen(s32 arg0, s32 arg1);  /* 80000140 */
+void EnGirlA_CanBuyPotionBlue(s32 arg0, s32 arg1);  /* 800001A0 */
+void EnGirlA_CanBuyArrows(s32 arg0, s32 arg1);  /* 8000023C */
+void EnGirlA_CanBuyNuts(s32 arg0, s32 arg1);  /* 800002DC */
+void EnGirlA_CanBuyShieldHero(s32 arg0, s32 arg1);  /* 80000398 */
+void EnGirlA_CanBuyStick(s32 arg0, s32 arg1);  /* 800003FC */
+s32 EnGirlA_CanBuyMaskAllNight(u8 *arg0, s32 arg1);  /* 800004B8 */
+void EnGirlA_CanBuyBombBagCuriosityShop(s32 arg0, s32 arg1);  /* 800004F0 */
+void EnGirlA_CanBuyBombBag20BombShop(s32 arg0, s32 arg1);  /* 80000558 */
+void EnGirlA_CanBuyBombBag30BombShop(s32 arg0, s32 arg1);  /* 800005D8 */
+void EnGirlA_CanBuyBombchus(s32 arg0, s32 arg1);  /* 80000658 */
+void EnGirlA_CanBuyBombs(s32 arg0, s32 arg1);  /* 80000724 */
+s32 EnGirlA_CanBuyBottleStolen(u8 *arg0, s32 arg1);  /* 800007C4 */
+s32 EnGirlA_CanBuySword(u8 *arg0, s32 arg1);  /* 800007FC */
+void EnGirlA_CanBuyShieldMirror(s32 arg0, s32 arg1);  /* 80000834 */
+void EnGirlA_CanBuyFairy(s32 arg0, s32 arg1);  /* 80000898 */
+void EnGirlA_BuyBottleItem(s32 arg0, void *arg1);  /* 800008F8 */
+void EnGirlA_BuyArrows(u8 *arg0, u8 *arg1);  /* 800009A0 */
+void EnGirlA_BuyNuts(u8 *arg0, u8 *arg1);  /* 800009EC */
+void EnGirlA_BuyShieldHero(u8 *arg0, s32 arg1);  /* 80000A64 */
+void EnGirlA_BuyStick(u8 *arg0, s32 arg1);  /* 80000AB0 */
+void EnGirlA_BuyMaskAllNight(u8 *arg0, s32 arg1);  /* 80000AFC */
+void EnGirlA_BuyBombBag(u8 *arg0, u8 *arg1);  /* 80000B48 */
+void EnGirlA_BuyBombchus(u8 *arg0, u8 *arg1);  /* 80000BDC */
+void EnGirlA_BuyBombs(u8 *arg0, u8 *arg1);  /* 80000C34 */
+void EnGirlA_BuyBottle(u8 *arg0, s32 arg1);  /* 80000CE8 */
+void EnGirlA_BuySword(u8 *arg0, u8 *arg1);  /* 80000D34 */
+void EnGirlA_BuyShieldMirror(u8 *arg0, s32 arg1);  /* 80000DE8 */
+void EnGirlA_BuyFanfare(u8 *arg0, s32 arg1);  /* 80000E34 */
+void EnGirlA_DoNothing(s32 arg0, s32 arg1);  /* 80000E74 */
+void EnGirlA_Bought(s32 arg0, u8 *arg1);  /* 80000EBC */
+void EnGirlA_Restock(s32 arg0, u8 *arg1);  /* 80000ED4 */
+s32 EnGirlA_TrySetMaskItemDescription(s32 arg0, s32 arg1);  /* 80000EF0 */
+void EnGirlA_InitialUpdate(void *arg0, s32 arg1);  /* 80000F04 */
+void EnGirlA_Update2(u8 *arg0, s32 arg1);  /* 80001088 */
+void EnGirlA_Draw(void *arg0, s32 arg1);  /* 80001158 */
 
 #endif

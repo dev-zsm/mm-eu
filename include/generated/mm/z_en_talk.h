@@ -6,7 +6,7 @@
 #define Actor_OfferTalk Actor_OfferTalk
 #define Actor_SetScale Actor_SetScale
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
-#define EnTalk_Init func_80000000
+#define EnTalk_Init EnTalk_Init
 #define Player_IsFacingActor Player_IsFacingActor
 #define func_80BDE090 func_800000B0
 #define ref_func_80BDE058 D_80BC2DF8

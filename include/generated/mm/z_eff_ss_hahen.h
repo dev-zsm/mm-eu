@@ -3,12 +3,12 @@
 #define MM_Z_EFF_SS_HAHEN_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsHahen_CheckForObject func_80000000
-#define EffectSsHahen_Draw func_80000374
-#define EffectSsHahen_DrawOpa func_800001B4
-#define EffectSsHahen_DrawXlu func_80000294
-#define EffectSsHahen_Init func_80000074
-#define EffectSsHahen_Update func_80000498
+#define EffectSsHahen_CheckForObject EffectSsHahen_CheckForObject
+#define EffectSsHahen_Draw EffectSsHahen_Draw
+#define EffectSsHahen_DrawOpa EffectSsHahen_DrawOpa
+#define EffectSsHahen_DrawXlu EffectSsHahen_DrawXlu
+#define EffectSsHahen_Init EffectSsHahen_Init
+#define EffectSsHahen_Update EffectSsHahen_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Matrix_RotateXFApply Matrix_RotateXFApply

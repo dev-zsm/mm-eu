@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* ObjGrassUnit_SpawnObjGrass */
-void func_80000074(s32 arg0, s32 arg1);  /* ObjGrassUnit_SpawnObjGrassCarry0 */
-void func_800000E4(s32 arg0, s32 arg1);  /* ObjGrassUnit_SpawnObjGrassCarry1 */
-void func_80000158(s32 arg0, s32 arg1);  /* ObjGrassUnit_IsUnderwater */
-void func_800001C8(void *arg0, s32 arg1);  /* ObjGrassUnit_Init */
+void ObjGrassUnit_SpawnObjGrass(s32 arg0, s32 arg1);  /* 80000000 */
+void ObjGrassUnit_SpawnObjGrassCarry0(s32 arg0, s32 arg1);  /* 80000074 */
+void ObjGrassUnit_SpawnObjGrassCarry1(s32 arg0, s32 arg1);  /* 800000E4 */
+void ObjGrassUnit_IsUnderwater(s32 arg0, s32 arg1);  /* 80000158 */
+void ObjGrassUnit_Init(void *arg0, s32 arg1);  /* 800001C8 */
 
 #endif

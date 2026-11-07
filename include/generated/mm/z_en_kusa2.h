@@ -23,8 +23,8 @@
 #define EffectSsBubble_Spawn EffectSsBubble_Spawn
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
-#define EnKusa2_Draw func_80003760
-#define EnKusa2_Init func_8000228C
+#define EnKusa2_Draw EnKusa2_Draw
+#define EnKusa2_Init EnKusa2_Init
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

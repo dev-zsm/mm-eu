@@ -3,7 +3,7 @@
 #define MM_Z_TITLE_H
 
 /* names of ours that symbols of the reference stand for */
-#define ConsoleLogo_RenderView func_8000009C
+#define ConsoleLogo_RenderView ConsoleLogo_RenderView
 #define View_Apply View_Apply
 #define View_LookAt View_LookAt
 #define View_SetPerspective View_SetPerspective

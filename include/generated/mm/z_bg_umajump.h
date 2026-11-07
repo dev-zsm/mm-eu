@@ -8,11 +8,11 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetObjectDependency Actor_SetObjectDependency
 #define Actor_Spawn Actor_Spawn
-#define BgUmajump_CheckDistance func_80000188
-#define BgUmajump_Draw func_80000880
-#define BgUmajump_Init func_800001F4
+#define BgUmajump_CheckDistance BgUmajump_CheckDistance
+#define BgUmajump_Draw BgUmajump_Draw
+#define BgUmajump_Init BgUmajump_Init
 #define BgUmajump_PlayCutscene D_808FEB34
-#define BgUmajump_Update func_800003DC
+#define BgUmajump_Update BgUmajump_Update
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor

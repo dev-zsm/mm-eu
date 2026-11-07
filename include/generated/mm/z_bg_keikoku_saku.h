@@ -4,8 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
-#define BgKeikokuSaku_Draw func_800002EC
-#define BgKeikokuSaku_Update func_800001E8
+#define BgKeikokuSaku_Draw BgKeikokuSaku_Draw
+#define BgKeikokuSaku_Update BgKeikokuSaku_Update
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define func_80A538E0 func_80000110
 #define object_keikoku_obj_DL_001640 D_6001640

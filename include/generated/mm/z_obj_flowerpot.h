@@ -31,9 +31,9 @@
 #define Matrix_GetCurrent Matrix_GetCurrent
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
-#define ObjFlowerpot_Draw func_80001DFC
-#define ObjFlowerpot_Init func_80001294
-#define ObjFlowerpot_Update func_80001D7C
+#define ObjFlowerpot_Draw ObjFlowerpot_Draw
+#define ObjFlowerpot_Init ObjFlowerpot_Init
+#define ObjFlowerpot_Update ObjFlowerpot_Update
 #define Player_PlaySfx Player_PlaySfx
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C

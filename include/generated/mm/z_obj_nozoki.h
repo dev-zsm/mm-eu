@@ -28,8 +28,8 @@
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_StepToXZ Math_Vec3f_StepToXZ
-#define ObjNozoki_Draw func_80001014
-#define ObjNozoki_Init func_8000000C
+#define ObjNozoki_Draw ObjNozoki_Draw
+#define ObjNozoki_Init ObjNozoki_Init
 #define ObjNozoki_SetupAction func_80B871C0
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded

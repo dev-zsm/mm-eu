@@ -3,9 +3,9 @@
 #define MM_Z_EFF_EN_ICE_BLOCK_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectEnIceBlock_CheckIceBlockObject func_80000000
-#define EffectEnIceBlock_Draw func_80000154
-#define EffectEnIceBlock_Init func_80000078
+#define EffectEnIceBlock_CheckIceBlockObject EffectEnIceBlock_CheckIceBlockObject
+#define EffectEnIceBlock_Draw EffectEnIceBlock_Draw
+#define EffectEnIceBlock_Init EffectEnIceBlock_Init
 #define EffectEnIceBlock_Update D_80A07D14
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_Vec3f_Copy Math_Vec3f_Copy

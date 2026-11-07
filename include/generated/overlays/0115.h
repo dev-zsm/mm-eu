@@ -5,18 +5,18 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ObjectKankyo_SetupAction */
+void ObjectKankyo_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_8000000C(s32 a0);
 void func_80000030(void *arg0, s32 arg1);
 void func_80000130(void *arg0, s32 arg1);
 void func_800001B8(s32 arg0, s32 arg1);
-void func_8000023C(void *arg0);  /* ObjectKankyo_Init */
+void ObjectKankyo_Init(void *arg0);  /* 8000023C */
 void func_8000030C(void *arg0, void *arg1);
 void func_800005D4(void *arg0, void *arg1);
 void func_80000CFC(s32 arg0, void *arg1);
 void func_80000D78(void *arg0, void *arg1);
 void func_80000F34(void *arg0, void *arg1);
-void func_800014E4(void *arg0);  /* ObjectKankyo_Draw */
+void ObjectKankyo_Draw(void *arg0);  /* 800014E4 */
 void func_80001548(void *arg0, void *arg1);
 void func_80001AF0(s32 arg0, void *arg1);
 f32 func_80001FF4(void);

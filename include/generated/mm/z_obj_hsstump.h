@@ -14,9 +14,9 @@
 #define Lib_Vec3f_TranslateAndRotateY func_800FFF1C
 #define Math_SinS Math_SinS
 #define Math_SmoothStepToF Math_SmoothStepToF
-#define ObjHsStump_Appear func_8000019C
-#define ObjHsStump_Idle func_800000E8
-#define ObjHsStump_Init func_80000000
+#define ObjHsStump_Appear ObjHsStump_Appear
+#define ObjHsStump_Idle ObjHsStump_Idle
+#define ObjHsStump_Init ObjHsStump_Init
 #define ObjHsStump_SetupAppear func_80BBF90C
 #define ObjHsStump_SetupIdle func_80BBF8A0
 #define gZeroVec3f D_801C9EE0

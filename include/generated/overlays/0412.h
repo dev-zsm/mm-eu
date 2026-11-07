@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_800000B4(void *arg0);  /* BgFuKaiten_UpdateRotation */
-void func_8000010C(void *arg0);  /* BgFuKaiten_UpdateHeight */
-void func_800001A0(s32 arg0, s32 arg1);  /* BgFuKaiten_Draw */
+void BgFuKaiten_UpdateRotation(void *arg0);  /* 800000B4 */
+void BgFuKaiten_UpdateHeight(void *arg0);  /* 8000010C */
+void BgFuKaiten_Draw(s32 arg0, s32 arg1);  /* 800001A0 */
 
 #endif

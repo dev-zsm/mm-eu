@@ -23,9 +23,9 @@
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
-#define EnRr_Draw func_80001F54
-#define EnRr_Init func_80000000
-#define EnRr_Update func_80001A88
+#define EnRr_Draw EnRr_Draw
+#define EnRr_Init EnRr_Init
+#define EnRr_Update EnRr_Update
 #define Enemy_StartFinishingBlow Enemy_StartFinishingBlow
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll

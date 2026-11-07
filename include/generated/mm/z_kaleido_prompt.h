@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx Audio_PlaySfx
-#define KaleidoScope_UpdatePrompt func_80008C60
+#define KaleidoScope_UpdatePrompt KaleidoScope_UpdatePrompt
 #define sPromptAlphaTargets D_8082AED0
 
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"

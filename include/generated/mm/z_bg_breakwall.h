@@ -8,9 +8,9 @@
 #define Actor_SetObjectDependency Actor_SetObjectDependency
 #define Actor_SetScale Actor_SetScale
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgBreakwall_Destroy func_8000031C
-#define BgBreakwall_Draw func_80000C84
-#define BgBreakwall_Init func_80000250
+#define BgBreakwall_Destroy BgBreakwall_Destroy
+#define BgBreakwall_Draw BgBreakwall_Draw
+#define BgBreakwall_Init BgBreakwall_Init
 #define BgBreakwall_SetupAction func_808B6A40
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh

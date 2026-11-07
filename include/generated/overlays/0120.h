@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnEncount2_Init */
-void func_8000019C(u8 *arg0);  /* EnEncount2_SetupIdle */
-void func_800001B4(u8 *arg0, s32 arg1);  /* EnEncount2_Idle */
-void func_80000264(void *arg0, s32 arg1);  /* EnEncount2_Popped */
-void func_80000348(void *arg0, s32 arg1);  /* EnEncount2_Die */
-void func_80000398(void *arg0, s32 arg1);  /* EnEncount2_Update */
-void func_800004C4(void *arg0, void *arg1, s32 arg2);  /* EnEncount2_InitEffects */
-void func_800005EC(void *arg0, s32 arg1);  /* EnEncount2_UpdateEffects */
-void func_8000073C(void *arg0, void *arg1);  /* EnEncount2_DrawEffects */
+void EnEncount2_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnEncount2_SetupIdle(u8 *arg0);  /* 8000019C */
+void EnEncount2_Idle(u8 *arg0, s32 arg1);  /* 800001B4 */
+void EnEncount2_Popped(void *arg0, s32 arg1);  /* 80000264 */
+void EnEncount2_Die(void *arg0, s32 arg1);  /* 80000348 */
+void EnEncount2_Update(void *arg0, s32 arg1);  /* 80000398 */
+void EnEncount2_InitEffects(void *arg0, void *arg1, s32 arg2);  /* 800004C4 */
+void EnEncount2_UpdateEffects(void *arg0, s32 arg1);  /* 800005EC */
+void EnEncount2_DrawEffects(void *arg0, void *arg1);  /* 8000073C */
 
 #endif

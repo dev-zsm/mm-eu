@@ -9,7 +9,7 @@
 #define Actor_SetScale Actor_SetScale
 #define Animation_Change Animation_Change
 #define Animation_GetLastFrame Animation_GetLastFrame
-#define ObjJgGakki_Init func_80000000
+#define ObjJgGakki_Init ObjJgGakki_Init
 #define SkelAnime_Init SkelAnime_Init
 #define gGoronElderDrumSkel D_601B210
 #define gGoronElderDrumTakeOutAnim D_601B1E8

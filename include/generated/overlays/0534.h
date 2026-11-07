@@ -7,9 +7,9 @@
 
 void func_80000000(s32 arg0, s32 arg1, s32 arg2);
 void func_80000198(void *arg0, s32 arg1);
-void func_800005B4(void *arg0, s32 arg1);  /* ObjHunsui_Init */
-void func_80000938(u8 *arg0, s32 arg1);  /* ObjHunsui_Destroy */
-void func_8000096C(void *arg0);  /* ObjHunsui_Update */
+void ObjHunsui_Init(void *arg0, s32 arg1);  /* 800005B4 */
+void ObjHunsui_Destroy(u8 *arg0, s32 arg1);  /* 80000938 */
+void ObjHunsui_Update(void *arg0);  /* 8000096C */
 void func_80000A14(void *arg0, s32 arg1);
 void func_80000C44(void *arg0, s32 arg1);
 void func_80000CAC(u8 *arg0, s32 arg1);
@@ -20,7 +20,7 @@ void func_80000EE4(void *arg0, s32 arg1);
 void func_80001080(u8 *a0, s32 a1);
 void func_800010B8(void *arg0, s32 arg1);
 void func_800012C4(void *arg0, void *arg1);
-void func_80001574(void *arg0, s32 arg1);  /* ObjHunsui_Draw */
+void ObjHunsui_Draw(void *arg0, s32 arg1);  /* 80001574 */
 void func_80001610(void *arg0, void *arg1);
 
 #endif

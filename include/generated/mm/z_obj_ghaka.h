@@ -17,9 +17,9 @@
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_StepToS Math_StepToS
-#define ObjGhaka_Draw func_800005F8
-#define ObjGhaka_Init func_80000498
-#define ObjGhaka_Update func_800005AC
+#define ObjGhaka_Draw ObjGhaka_Draw
+#define ObjGhaka_Init ObjGhaka_Init
+#define ObjGhaka_Update ObjGhaka_Update
 #define func_80B3C2C4 func_80000064
 #define func_80B3C39C func_8000013C
 #define func_80B3C624 func_800003C4

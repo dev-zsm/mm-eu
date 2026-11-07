@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1, void *arg2, s32 arg3);  /* BgAstrBombwall_InitCollider */
-void func_80000250(void *arg0, s32 arg1);  /* BgAstrBombwall_SpawnFragments */
-void func_800004A8(u8 *arg0);  /* BgAstrBombwall_SetupStanding */
-void func_800004BC(void *arg0, s32 arg1);  /* BgAstrBombwall_Standing */
-void func_80000530(u8 *arg0, s32 arg1);  /* BgAstrBombwall_SetupExploding */
-void func_80000588(u8 *arg0, s32 arg1);  /* BgAstrBombwall_SetupCollapsing */
-void func_800005EC(s32 arg0, s32 arg1);  /* BgAstrBombwall_Collapsing */
-void func_80000620(s32 arg0, void *arg1);  /* BgAstrBombwall_Draw */
+void BgAstrBombwall_InitCollider(void *arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000000 */
+void BgAstrBombwall_SpawnFragments(void *arg0, s32 arg1);  /* 80000250 */
+void BgAstrBombwall_SetupStanding(u8 *arg0);  /* 800004A8 */
+void BgAstrBombwall_Standing(void *arg0, s32 arg1);  /* 800004BC */
+void BgAstrBombwall_SetupExploding(u8 *arg0, s32 arg1);  /* 80000530 */
+void BgAstrBombwall_SetupCollapsing(u8 *arg0, s32 arg1);  /* 80000588 */
+void BgAstrBombwall_Collapsing(s32 arg0, s32 arg1);  /* 800005EC */
+void BgAstrBombwall_Draw(s32 arg0, void *arg1);  /* 80000620 */
 
 #endif

@@ -15,6 +15,6 @@ void func_800001A0(u8 *arg0);
 void func_800001BC(void *arg0, s32 arg1);
 void func_800002A0(u8 *arg0);
 void func_800002C8(s32 arg0, s32 arg1);
-void func_800002D8(s32 arg0, void *arg1);  /* BgHakaCurtain_Update */
+void BgHakaCurtain_Update(s32 arg0, void *arg1);  /* 800002D8 */
 
 #endif

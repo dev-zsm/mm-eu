@@ -3,7 +3,7 @@
 #define MM_Z_BG_HAKA_BOMBWALL_H
 
 /* names of ours that symbols of the reference stand for */
-#define BgHakaBombwall_PlayCutscene func_80000514
+#define BgHakaBombwall_PlayCutscene BgHakaBombwall_PlayCutscene
 #define BgHakaBombwall_SetupEndCutscene func_80BBB154
 #define BgHakaBombwall_SetupPlayCutscene func_80BBB070
 #define CollisionCheck_SetAC CollisionCheck_SetAC

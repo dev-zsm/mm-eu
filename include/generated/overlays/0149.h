@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnTuboTrap_Init */
-void func_80000090(s32 arg0, s32 arg1);  /* EnTuboTrap_Destroy */
-void func_800000BC(void *arg0, s32 arg1);  /* EnTuboTrap_DropCollectible */
-void func_80000114(void *arg0, s32 arg1);  /* EnTuboTrap_SpawnEffectsOnLand */
-void func_80000380(void *arg0, s32 arg1);  /* EnTuboTrap_SpawnEffectsInWater */
-void func_800005FC(void *arg0, void *arg1);  /* EnTuboTrap_HandleImpact */
-void func_80000824(void *arg0, s32 arg1);  /* EnTuboTrap_Idle */
-void func_80000958(void *arg0, s32 arg1);  /* EnTuboTrap_Levitate */
-void func_800009E4(void *arg0, s32 arg1);  /* EnTuboTrap_FlyAtPlayer */
-void func_80000AB0(void *arg0, s32 arg1);  /* EnTuboTrap_Update */
-void func_80000BF8(s32 arg0, s32 arg1);  /* EnTuboTrap_Draw */
+void EnTuboTrap_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnTuboTrap_Destroy(s32 arg0, s32 arg1);  /* 80000090 */
+void EnTuboTrap_DropCollectible(void *arg0, s32 arg1);  /* 800000BC */
+void EnTuboTrap_SpawnEffectsOnLand(void *arg0, s32 arg1);  /* 80000114 */
+void EnTuboTrap_SpawnEffectsInWater(void *arg0, s32 arg1);  /* 80000380 */
+void EnTuboTrap_HandleImpact(void *arg0, void *arg1);  /* 800005FC */
+void EnTuboTrap_Idle(void *arg0, s32 arg1);  /* 80000824 */
+void EnTuboTrap_Levitate(void *arg0, s32 arg1);  /* 80000958 */
+void EnTuboTrap_FlyAtPlayer(void *arg0, s32 arg1);  /* 800009E4 */
+void EnTuboTrap_Update(void *arg0, s32 arg1);  /* 80000AB0 */
+void EnTuboTrap_Draw(s32 arg0, s32 arg1);  /* 80000BF8 */
 
 #endif

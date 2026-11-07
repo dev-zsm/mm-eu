@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* DoorShutter_SetupAction */
+void DoorShutter_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_80000010(void *arg0, s32 arg1);
-void func_80000084(void *arg0, s32 arg1);  /* DoorShutter_SetupDoor */
-void func_80000220(void *arg0, s32 arg1);  /* DoorShutter_Init */
-void func_8000041C(void *arg0, s32 arg1);  /* DoorShutter_SetupType */
+void DoorShutter_SetupDoor(void *arg0, s32 arg1);  /* 80000084 */
+void DoorShutter_Init(void *arg0, s32 arg1);  /* 80000220 */
+void DoorShutter_SetupType(void *arg0, s32 arg1);  /* 8000041C */
 void func_800004A0(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000538(s32 arg0, void *arg1);
 void func_80000698(void *arg0, s32 arg1);
@@ -26,8 +26,8 @@ void func_80000F94(void *arg0, void *arg1);
 void func_80001180(void *arg0);
 void func_80001258(u8 *arg0, s32 arg1);
 void func_80001360(void *arg0, s32 arg1);
-void func_800013D4(void *arg0, void *arg1);  /* DoorShutter_Update */
+void DoorShutter_Update(void *arg0, void *arg1);  /* 800013D4 */
 void func_80001478(s32 arg0, s32 arg1);
-void func_80001524(void *arg0, s32 arg1);  /* DoorShutter_Draw */
+void DoorShutter_Draw(void *arg0, s32 arg1);  /* 80001524 */
 
 #endif

@@ -6,9 +6,9 @@
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
-#define BgIngate_Draw func_80000D78
-#define BgIngate_FindActor func_80000000
-#define BgIngate_Init func_80000B10
+#define BgIngate_Draw BgIngate_Draw
+#define BgIngate_FindActor BgIngate_FindActor
+#define BgIngate_Init BgIngate_Init
 #define Camera_ChangeSetting Camera_ChangeSetting
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define DynaPolyActor_Init DynaPolyActor_Init

@@ -3,9 +3,9 @@
 #define MM_Z_FBDEMO_WIPE5_H
 
 /* names of ours that symbols of the reference stand for */
-#define TransitionWipe5_Draw func_8000012C
-#define TransitionWipe5_Start func_80000000
-#define TransitionWipe5_Update func_800000BC
+#define TransitionWipe5_Draw TransitionWipe5_Draw
+#define TransitionWipe5_Start TransitionWipe5_Start
+#define TransitionWipe5_Update TransitionWipe5_Update
 
 #include "global.h"
 #include "PR/gs2dex.h"

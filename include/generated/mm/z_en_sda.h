@@ -3,7 +3,7 @@
 #define MM_Z_EN_SDA_H
 
 /* names of ours that symbols of the reference stand for */
-#define EnSda_Draw func_8000005C
+#define EnSda_Draw EnSda_Draw
 #define Gfx_SetupDL44_Xlu func_8012C8F8
 #define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
 #define Matrix_Mult Matrix_Mult

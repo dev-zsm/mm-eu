@@ -5,44 +5,44 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnSlime_Init */
-void func_8000020C(void *arg0);  /* EnSlime_Freeze */
-void func_80000288(void *arg0, s32 arg1);  /* EnSlime_Thaw */
-void func_80000308(void *arg0);  /* EnSlime_Blink */
-void func_80000370(void *arg0);  /* EnSlime_SetupInitializeIdle */
-void func_800003A0(u8 *arg0, s32 arg1);  /* EnSlime_InitializeIdle */
-void func_800003E0(u8 *arg0);  /* EnSlime_SetupIdle */
-void func_80000404(void *arg0, s32 arg1);  /* EnSlime_Idle */
-void func_800005B4(void *arg0);  /* EnSlime_SetupMoveInDirection */
-void func_80000678(void *arg0, s32 arg1);  /* EnSlime_MoveInDirection */
-void func_800008E4(void *arg0);  /* EnSlime_SetupMoveToHome */
-void func_8000092C(void *arg0, s32 arg1);  /* EnSlime_MoveToHome */
-void func_80000B14(u8 *arg0);  /* EnSlime_SetupTurnToPlayer */
-void func_80000B40(void *arg0, s32 arg1);  /* EnSlime_TurnToPlayer */
-void func_80000C00(void *arg0);  /* EnSlime_SetupJump */
-void func_80000CE8(void *arg0, s32 arg1);  /* EnSlime_Jump */
-void func_80000DC0(void *arg0);  /* EnSlime_SetupLand */
-void func_80000E00(void *arg0, s32 arg1);  /* EnSlime_Land */
-void func_80000FF4(void *arg0);  /* EnSlime_SetupReactToBluntHit */
-void func_80001098(void *arg0, s32 arg1);  /* EnSlime_ReactToBluntHit */
-void func_80001278(void *arg0, s32 arg1, s32 arg2);  /* EnSlime_SetupDamaged */
-void func_800015A4(void *arg0, s32 arg1);  /* EnSlime_Damaged */
-void func_800016B4(void *arg0);  /* EnSlime_SetupDead */
-void func_80001718(void *arg0, s32 arg1);  /* EnSlime_Dead */
-void func_8000198C(f32 arg0);  /* EnSlime_SnapIceBlockPosition */
-void func_800019D8(void *arg0);  /* EnSlime_SetupSpawnIceBlock */
-void func_80001A80(void *arg0, s32 arg1);  /* EnSlime_SpawnIceBlock */
-void func_80001BA4(void *arg0, s32 arg1);  /* EnSlime_IceBlock */
-void func_80001C28(void *arg0);  /* EnSlime_SetupStun */
-void func_80001C80(void *arg0, s32 arg1);  /* EnSlime_Stun */
-void func_80001CF0(void *arg0);  /* EnSlime_SetupIceBlockThaw */
-void func_80001D44(void *arg0, s32 arg1);  /* EnSlime_IceBlockThaw */
-void func_80001E40(void *arg0);  /* EnSlime_SetupWaitForRevive */
-void func_80001E8C(u8 *arg0, s32 arg1);  /* EnSlime_WaitForRevive */
-void func_80001EC8(void *arg0);  /* EnSlime_SetupRevive */
-void func_80001F4C(void *arg0, s32 arg1);  /* EnSlime_Revive */
-void func_800021F8(void *arg0, s32 arg1);  /* EnSlime_UpdateDamage */
-void func_80002448(void *arg0, void *arg1);  /* EnSlime_Update */
-void func_800026EC(void *arg0, s32 arg1);  /* EnSlime_Draw */
+void EnSlime_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnSlime_Freeze(void *arg0);  /* 8000020C */
+void EnSlime_Thaw(void *arg0, s32 arg1);  /* 80000288 */
+void EnSlime_Blink(void *arg0);  /* 80000308 */
+void EnSlime_SetupInitializeIdle(void *arg0);  /* 80000370 */
+void EnSlime_InitializeIdle(u8 *arg0, s32 arg1);  /* 800003A0 */
+void EnSlime_SetupIdle(u8 *arg0);  /* 800003E0 */
+void EnSlime_Idle(void *arg0, s32 arg1);  /* 80000404 */
+void EnSlime_SetupMoveInDirection(void *arg0);  /* 800005B4 */
+void EnSlime_MoveInDirection(void *arg0, s32 arg1);  /* 80000678 */
+void EnSlime_SetupMoveToHome(void *arg0);  /* 800008E4 */
+void EnSlime_MoveToHome(void *arg0, s32 arg1);  /* 8000092C */
+void EnSlime_SetupTurnToPlayer(u8 *arg0);  /* 80000B14 */
+void EnSlime_TurnToPlayer(void *arg0, s32 arg1);  /* 80000B40 */
+void EnSlime_SetupJump(void *arg0);  /* 80000C00 */
+void EnSlime_Jump(void *arg0, s32 arg1);  /* 80000CE8 */
+void EnSlime_SetupLand(void *arg0);  /* 80000DC0 */
+void EnSlime_Land(void *arg0, s32 arg1);  /* 80000E00 */
+void EnSlime_SetupReactToBluntHit(void *arg0);  /* 80000FF4 */
+void EnSlime_ReactToBluntHit(void *arg0, s32 arg1);  /* 80001098 */
+void EnSlime_SetupDamaged(void *arg0, s32 arg1, s32 arg2);  /* 80001278 */
+void EnSlime_Damaged(void *arg0, s32 arg1);  /* 800015A4 */
+void EnSlime_SetupDead(void *arg0);  /* 800016B4 */
+void EnSlime_Dead(void *arg0, s32 arg1);  /* 80001718 */
+void EnSlime_SnapIceBlockPosition(f32 arg0);  /* 8000198C */
+void EnSlime_SetupSpawnIceBlock(void *arg0);  /* 800019D8 */
+void EnSlime_SpawnIceBlock(void *arg0, s32 arg1);  /* 80001A80 */
+void EnSlime_IceBlock(void *arg0, s32 arg1);  /* 80001BA4 */
+void EnSlime_SetupStun(void *arg0);  /* 80001C28 */
+void EnSlime_Stun(void *arg0, s32 arg1);  /* 80001C80 */
+void EnSlime_SetupIceBlockThaw(void *arg0);  /* 80001CF0 */
+void EnSlime_IceBlockThaw(void *arg0, s32 arg1);  /* 80001D44 */
+void EnSlime_SetupWaitForRevive(void *arg0);  /* 80001E40 */
+void EnSlime_WaitForRevive(u8 *arg0, s32 arg1);  /* 80001E8C */
+void EnSlime_SetupRevive(void *arg0);  /* 80001EC8 */
+void EnSlime_Revive(void *arg0, s32 arg1);  /* 80001F4C */
+void EnSlime_UpdateDamage(void *arg0, s32 arg1);  /* 800021F8 */
+void EnSlime_Update(void *arg0, void *arg1);  /* 80002448 */
+void EnSlime_Draw(void *arg0, s32 arg1);  /* 800026EC */
 
 #endif

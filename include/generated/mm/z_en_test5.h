@@ -7,8 +7,8 @@
 #define Actor_OfferGetItem Actor_OfferGetItem
 #define BgCheck_EntityRaycastFloor2 BgCheck_EntityRaycastFloor2
 #define EffectSsIceSmoke_Spawn func_800B372C
-#define EnTest5_HandleBottleAction func_800000C8
-#define EnTest5_Update func_800001F4
+#define EnTest5_HandleBottleAction EnTest5_HandleBottleAction
+#define EnTest5_Update EnTest5_Update
 #define Math_Vec3f_DistXYZAndStoreDiff Math_Vec3f_DistXYZAndStoreDiff
 #define Rand_ZeroOne func_8008704C
 #define gZeroVec3f D_801C9EE0

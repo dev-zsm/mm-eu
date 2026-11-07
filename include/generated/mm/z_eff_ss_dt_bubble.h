@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_DT_BUBBLE_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsDtBubble_Draw func_800001F0
-#define EffectSsDtBubble_Init func_80000000
-#define EffectSsDtBubble_Update func_80000400
+#define EffectSsDtBubble_Draw EffectSsDtBubble_Draw
+#define EffectSsDtBubble_Init EffectSsDtBubble_Init
+#define EffectSsDtBubble_Update EffectSsDtBubble_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_Scale Matrix_Scale

@@ -4,10 +4,10 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Camera_GetInputDirYaw Camera_GetInputDirYaw
-#define EffectSsLightning_Draw func_800001B8
-#define EffectSsLightning_Init func_80000000
-#define EffectSsLightning_NewLightning func_80000114
-#define EffectSsLightning_Update func_80000418
+#define EffectSsLightning_Draw EffectSsLightning_Draw
+#define EffectSsLightning_Init EffectSsLightning_Init
+#define EffectSsLightning_NewLightning EffectSsLightning_NewLightning
+#define EffectSsLightning_Update EffectSsLightning_Update
 #define EffectSs_Delete EffectSs_Delete
 #define EffectSs_Insert EffectSs_Insert
 #define Math_CosS Math_CosS

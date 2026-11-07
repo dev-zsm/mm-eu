@@ -5,10 +5,10 @@
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx_2 Audio_PlaySfx_2
 #define Gfx_BranchTexScroll Gfx_BranchTexScroll
-#define TransitionWipe3_Draw func_800002B8
-#define TransitionWipe3_SetType func_800004B0
-#define TransitionWipe3_Start func_80000000
-#define TransitionWipe3_Update func_800001A0
+#define TransitionWipe3_Draw TransitionWipe3_Draw
+#define TransitionWipe3_SetType TransitionWipe3_SetType
+#define TransitionWipe3_Start TransitionWipe3_Start
+#define TransitionWipe3_Update TransitionWipe3_Update
 #define guScale func_80088440
 #define sTransWipe3DL D_80AACFB0
 

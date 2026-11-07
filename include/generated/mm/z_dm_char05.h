@@ -15,12 +15,12 @@
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define DmChar05_ChangeAnim func_80000000
-#define DmChar05_Draw func_80001748
-#define DmChar05_Init func_80000300
+#define DmChar05_ChangeAnim DmChar05_ChangeAnim
+#define DmChar05_Draw DmChar05_Draw
+#define DmChar05_Init DmChar05_Init
 #define DmChar05_OverrideLimbDraw D_80A92694
 #define DmChar05_PostLimbDraw D_80A926B0
-#define DmChar05_Update func_800011EC
+#define DmChar05_Update DmChar05_Update
 #define GetItem_Draw GetItem_Draw
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_SetFog Gfx_SetFog

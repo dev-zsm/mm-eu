@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* DmTsg_Init */
-void func_800000E8(void *arg0, s32 arg1);  /* DmTsg_Update */
-void func_80000268(void *arg0, s32 arg1);  /* DmTsg_Draw */
+void DmTsg_Init(void *arg0, s32 arg1);  /* 80000000 */
+void DmTsg_Update(void *arg0, s32 arg1);  /* 800000E8 */
+void DmTsg_Draw(void *arg0, s32 arg1);  /* 80000268 */
 
 #endif

@@ -33,9 +33,9 @@
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjVspinyroll_Draw func_80000D30
-#define ObjVspinyroll_Init func_800007D4
-#define ObjVspinyroll_Update func_80000CA4
+#define ObjVspinyroll_Draw ObjVspinyroll_Draw
+#define ObjVspinyroll_Init ObjVspinyroll_Init
+#define ObjVspinyroll_Update ObjVspinyroll_Update
 #define func_80A3C4E0 func_80000000
 #define func_80A3C560 func_80000080
 #define func_80A3C658 func_80000178

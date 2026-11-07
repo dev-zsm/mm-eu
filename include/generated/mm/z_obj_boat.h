@@ -20,11 +20,11 @@
 #define Math_Vec3f_StepTo func_80100248
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
-#define ObjBoat_GetNextPoint func_80000000
-#define ObjBoat_Init func_80000090
-#define ObjBoat_SetRotations func_800001D4
-#define ObjBoat_Update func_80000268
-#define ObjBoat_UpdateCutscene func_800004D8
+#define ObjBoat_GetNextPoint ObjBoat_GetNextPoint
+#define ObjBoat_Init ObjBoat_Init
+#define ObjBoat_SetRotations ObjBoat_SetRotations
+#define ObjBoat_Update ObjBoat_Update
+#define ObjBoat_UpdateCutscene ObjBoat_UpdateCutscene
 #define object_kaizoku_obj_Colheader_009A88 D_6009A88
 #define sInitChain D_80B80420
 

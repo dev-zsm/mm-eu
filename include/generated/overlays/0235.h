@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjKibako2_ContainsSkulltula */
-void func_8000006C(void *arg0, s32 arg1);  /* ObjKibako2_Break */
-void func_800002E8(void *arg0, s32 arg1);  /* ObjKibako2_SpawnCollectible */
-void func_80000340(void *arg0, s32 arg1);  /* ObjKibako2_SpawnSkulltula */
-void func_80000404(u8 *arg0);  /* ObjKibako2_SpawnContents */
-void func_80000448(void *arg0, s32 arg1);  /* ObjKibako2_Init */
-void func_80000570(s32 arg0, s32 arg1);  /* ObjKibako2_Destroy */
-void func_800005B8(void *arg0);  /* ObjKibako2_ShouldBreak */
-void func_800006A8(u8 *arg0, s32 arg1);  /* ObjKibako2_Idle */
-void func_80000760(s32 arg0);  /* ObjKibako2_Kill */
-void func_8000078C(void *arg0, s32 arg1);  /* ObjKibako2_Update */
+void ObjKibako2_ContainsSkulltula(void *arg0, s32 arg1);  /* 80000000 */
+void ObjKibako2_Break(void *arg0, s32 arg1);  /* 8000006C */
+void ObjKibako2_SpawnCollectible(void *arg0, s32 arg1);  /* 800002E8 */
+void ObjKibako2_SpawnSkulltula(void *arg0, s32 arg1);  /* 80000340 */
+void ObjKibako2_SpawnContents(u8 *arg0);  /* 80000404 */
+void ObjKibako2_Init(void *arg0, s32 arg1);  /* 80000448 */
+void ObjKibako2_Destroy(s32 arg0, s32 arg1);  /* 80000570 */
+void ObjKibako2_ShouldBreak(void *arg0);  /* 800005B8 */
+void ObjKibako2_Idle(u8 *arg0, s32 arg1);  /* 800006A8 */
+void ObjKibako2_Kill(s32 arg0);  /* 80000760 */
+void ObjKibako2_Update(void *arg0, s32 arg1);  /* 8000078C */
 
 #endif

@@ -9,9 +9,9 @@ void func_80000000(void *arg0);
 void func_8000014C(void *arg0, s32 arg1);
 void func_8000036C(void *arg0);
 void func_800004D8(void *arg0, void *arg1);
-void func_80000618(void *arg0, s32 arg1);  /* EnTest_Init */
-void func_800007CC(void *arg0, s32 arg1);  /* EnTest_Update */
-void func_80000948(void *arg0, s32 arg1, s32 arg2, void *arg3);  /* EnTest_OverrideLimbDraw */
-void func_80000B38(void *arg0, void *arg1);  /* EnTest_Draw */
+void EnTest_Init(void *arg0, s32 arg1);  /* 80000618 */
+void EnTest_Update(void *arg0, s32 arg1);  /* 800007CC */
+void EnTest_OverrideLimbDraw(void *arg0, s32 arg1, s32 arg2, void *arg3);  /* 80000948 */
+void EnTest_Draw(void *arg0, void *arg1);  /* 80000B38 */
 
 #endif

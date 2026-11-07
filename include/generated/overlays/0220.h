@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsFireTail_Init */
-void func_8000011C(void *arg0, s32 arg1, void *arg2);  /* EffectSsFireTail_Draw */
-void func_8000060C(s32 arg0, s32 arg1, u8 *arg2);  /* EffectSsFireTail_Update */
+void EffectSsFireTail_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsFireTail_Draw(void *arg0, s32 arg1, void *arg2);  /* 8000011C */
+void EffectSsFireTail_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 8000060C */
 
 #endif

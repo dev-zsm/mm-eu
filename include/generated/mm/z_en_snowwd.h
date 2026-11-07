@@ -7,8 +7,8 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnSnowwd_Draw func_80000370
-#define EnSnowwd_Idle func_800000B0
+#define EnSnowwd_Draw EnSnowwd_Draw
+#define EnSnowwd_Idle EnSnowwd_Idle
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Lib_SegmentedToVirtual func_80100304

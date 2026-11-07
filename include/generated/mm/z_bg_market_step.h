@@ -3,7 +3,7 @@
 #define MM_Z_BG_MARKET_STEP_H
 
 /* names of ours that symbols of the reference stand for */
-#define BgMarketStep_Draw func_80000028
+#define BgMarketStep_Draw BgMarketStep_Draw
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define sBankAdvertisementsAndDoorDLs D_80AD4E58
 #define sMarketDLs D_80AD4E50

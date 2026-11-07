@@ -7,9 +7,9 @@
 #define AnimatedMat_DrawStepXlu func_80131C94
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define CutsceneManager_Queue CutsceneManager_Queue
-#define EffChange_Draw func_80000320
-#define EffChange_Init func_80000000
-#define EffChange_SetColors func_800000E8
+#define EffChange_Draw EffChange_Draw
+#define EffChange_Init EffChange_Init
+#define EffChange_SetColors EffChange_SetColors
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Keyframe_DrawFlex Keyframe_DrawFlex
 #define Keyframe_FlexPlayOnce Keyframe_FlexPlayOnce

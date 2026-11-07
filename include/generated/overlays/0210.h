@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* EffectSsStick_Init */
-void func_80000114(s32 arg0, s32 arg1, void *arg2);  /* EffectSsStick_Draw */
-void func_80000248(s32 arg0, s32 arg1, s32 arg2);  /* EffectSsStick_Update */
+void EffectSsStick_Init(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000000 */
+void EffectSsStick_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000114 */
+void EffectSsStick_Update(s32 arg0, s32 arg1, s32 arg2);  /* 80000248 */
 
 #endif

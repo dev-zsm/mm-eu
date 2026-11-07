@@ -25,10 +25,10 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
-#define EnMm_Draw func_80000688
-#define EnMm_Init func_8000005C
+#define EnMm_Draw EnMm_Draw
+#define EnMm_Init EnMm_Init
 #define EnMm_SetupAction func_8094A6A0
-#define EnMm_Update func_8000060C
+#define EnMm_Update EnMm_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_Atan2S_XY Math_Atan2S_XY
 #define Math_CosS Math_CosS

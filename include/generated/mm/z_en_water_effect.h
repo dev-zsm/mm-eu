@@ -11,9 +11,9 @@
 #define Camera_GetInputDirYaw Camera_GetInputDirYaw
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
-#define EnWaterEffect_Draw func_80000C80
-#define EnWaterEffect_Init func_800002F4
-#define EnWaterEffect_Update func_80000558
+#define EnWaterEffect_Draw EnWaterEffect_Draw
+#define EnWaterEffect_Init EnWaterEffect_Init
+#define EnWaterEffect_Update EnWaterEffect_Update
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetFog Gfx_SetFog
 #define Gfx_SetupDL Gfx_SetupDL

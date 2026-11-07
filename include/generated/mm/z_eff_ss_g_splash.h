@@ -3,10 +3,10 @@
 #define MM_Z_EFF_SS_G_SPLASH_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsGSplash_Draw func_800001B8
-#define EffectSsGSplash_Init func_80000000
+#define EffectSsGSplash_Draw EffectSsGSplash_Draw
+#define EffectSsGSplash_Init EffectSsGSplash_Init
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
-#define EffectSsGSplash_Update func_800002C0
+#define EffectSsGSplash_Update EffectSsGSplash_Update
 #define EffectSs_DrawGEffect EffectSs_DrawGEffect
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define gEffWaterSplashDL D_403A0F0

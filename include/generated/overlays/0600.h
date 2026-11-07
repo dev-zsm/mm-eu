@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnCha_Init */
-void func_800000BC(void *arg0);  /* EnCha_Ring */
-void func_80000134(void *arg0, s32 arg1);  /* EnCha_Idle */
-void func_8000024C(s32 arg0, s32 arg1);  /* EnCha_Update */
+void EnCha_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnCha_Ring(void *arg0);  /* 800000BC */
+void EnCha_Idle(void *arg0, s32 arg1);  /* 80000134 */
+void EnCha_Update(s32 arg0, s32 arg1);  /* 8000024C */
 
 #endif

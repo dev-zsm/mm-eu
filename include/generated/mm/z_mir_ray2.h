@@ -12,8 +12,8 @@
 #define CollisionCheck_SetAT CollisionCheck_SetAT
 #define Flags_GetSwitch Flags_GetSwitch
 #define LightContext_InsertLight LightContext_InsertLight
-#define MirRay2_Init func_80000144
-#define MirRay2_Update func_800002D8
+#define MirRay2_Init MirRay2_Init
+#define MirRay2_Update MirRay2_Update
 #define func_80AF3F70 func_80000000
 #define ref_func_80AF3F70 func_80000000
 #define ref_func_80AF3FE0 func_80AD8D10

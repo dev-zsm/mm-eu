@@ -9,7 +9,7 @@
 #define AudioOcarina_StartDefault AudioOcarina_StartDefault
 #define Gfx_DrawTexQuadIA8 func_8010DA58
 #define Inventory_GetSkullTokenCount func_8012F5DC
-#define KaleidoScope_DrawQuestStatus func_80000000
+#define KaleidoScope_DrawQuestStatus KaleidoScope_DrawQuestStatus
 #define KaleidoScope_DrawTexQuadRGBA32 func_808210F8
 #define KaleidoScope_SetCursorVtxPos func_8081ACAC
 #define gCounterDigit0Tex D_20041A0

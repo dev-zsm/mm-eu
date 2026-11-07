@@ -15,8 +15,8 @@
 #define Matrix_Mult Matrix_Mult
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjectKankyo_Draw func_800014E4
-#define ObjectKankyo_Init func_8000023C
+#define ObjectKankyo_Draw ObjectKankyo_Draw
+#define ObjectKankyo_Init ObjectKankyo_Init
 #define ObjectKankyo_SetupAction func_808DB550
 #define Play_GetScreenPos Play_GetScreenPos
 #define Rand_ZeroOne func_8008704C

@@ -7,7 +7,7 @@
 #define Actor_PlaySfx_FlaggedCentered2 Actor_PlaySfx_FlaggedCentered2
 #define Audio_PlayObjSoundBgm Audio_PlayObjSoundBgm
 #define Audio_PlaySfx_AtFixedPos Audio_PlaySfx_AtFixedPos
-#define ObjSound_Update func_80000084
+#define ObjSound_Update ObjSound_Update
 #define gAudioEnvironmentalSfx D_801D8460
 
 #include "overlays/actors/ovl_Obj_Sound/z_obj_sound.h"

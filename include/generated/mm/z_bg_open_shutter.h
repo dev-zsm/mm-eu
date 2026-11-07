@@ -6,8 +6,8 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SpawnFloorDustRing Actor_SpawnFloorDustRing
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
-#define BgOpenShutter_Destroy func_80000218
-#define BgOpenShutter_Update func_800004F4
+#define BgOpenShutter_Destroy BgOpenShutter_Destroy
+#define BgOpenShutter_Update BgOpenShutter_Update
 #define Camera_ChangeDoorCam Camera_ChangeDoorCam
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel

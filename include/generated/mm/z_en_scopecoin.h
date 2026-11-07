@@ -8,8 +8,8 @@
 #define Actor_Kill Actor_Kill
 #define Actor_SetScale Actor_SetScale
 #define EnScopecoin_CheckCollectible D_80BE1D58
-#define EnScopecoin_Draw func_800001DC
-#define EnScopecoin_Init func_80000070
+#define EnScopecoin_Draw EnScopecoin_Draw
+#define EnScopecoin_Init EnScopecoin_Init
 #define EnScopecoin_Spin D_80BE1D40
 #define Flags_GetCollectible Flags_GetCollectible
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa

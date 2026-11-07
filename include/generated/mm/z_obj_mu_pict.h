@@ -13,7 +13,7 @@
 #define Message_GetState func_801529DC
 #define Message_ShouldAdvance func_80147B34
 #define Message_StartTextbox func_80151DF4
-#define ObjMuPict_Init func_80000000
+#define ObjMuPict_Init ObjMuPict_Init
 #define func_80C06B70 func_800000D0
 #define func_80C06CD8 func_80000238
 #define func_80C06DC8 func_80000328

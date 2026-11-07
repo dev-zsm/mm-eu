@@ -14,9 +14,9 @@
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnScRuppe_Draw func_80000408
-#define EnScRuppe_Init func_800002D8
-#define EnScRuppe_UpdateCollision func_80000000
+#define EnScRuppe_Draw EnScRuppe_Draw
+#define EnScRuppe_Init EnScRuppe_Init
+#define EnScRuppe_UpdateCollision EnScRuppe_UpdateCollision
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304
 #define Rupees_ChangeBy func_80115C10

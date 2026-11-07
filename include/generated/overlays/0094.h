@@ -5,17 +5,17 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnMThunder_UnkType_Setup */
-void func_8000009C(void *arg0, void *arg1);  /* EnMThunder_Init */
-void func_80000460(s32 arg0, s32 arg1);  /* EnMThunder_Destroy */
-void func_800004D0(s32 a0, f32 a1);  /* EnMThunder_AdjustLights */
-void func_8000050C(s32 arg0, void *arg1);  /* EnMThunder_Spin_AttackNoMagic */
-void func_800005C4(void *arg0, s32 arg1);  /* EnMThunder_Charge */
+void EnMThunder_UnkType_Setup(void *arg0, s32 arg1);  /* 80000000 */
+void EnMThunder_Init(void *arg0, void *arg1);  /* 8000009C */
+void EnMThunder_Destroy(s32 arg0, s32 arg1);  /* 80000460 */
+void EnMThunder_AdjustLights(s32 a0, f32 a1);  /* 800004D0 */
+void EnMThunder_Spin_AttackNoMagic(s32 arg0, void *arg1);  /* 8000050C */
+void EnMThunder_Charge(void *arg0, s32 arg1);  /* 800005C4 */
 void func_80000B2C(void *arg0, s32 arg1);
-void func_80000BA8(void *arg0, s32 arg1);  /* EnMThunder_Spin_Attack */
-void func_80000D14(void *arg0, s32 arg1);  /* EnMThunder_SwordBeam_Attack */
-void func_80000F50(void *arg0, s32 arg1);  /* EnMThunder_UnkType_Attack */
-void func_800011FC(u8 *arg0);  /* EnMThunder_UnkType_Update */
-void func_800013BC(s32 arg0, void *arg1);  /* EnMThunder_Draw */
+void EnMThunder_Spin_Attack(void *arg0, s32 arg1);  /* 80000BA8 */
+void EnMThunder_SwordBeam_Attack(void *arg0, s32 arg1);  /* 80000D14 */
+void EnMThunder_UnkType_Attack(void *arg0, s32 arg1);  /* 80000F50 */
+void EnMThunder_UnkType_Update(u8 *arg0);  /* 800011FC */
+void EnMThunder_Draw(s32 arg0, void *arg1);  /* 800013BC */
 
 #endif

@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EffectSsHahen_CheckForObject */
-void func_80000074(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsHahen_Init */
-void func_800001B4(void *arg0, void *arg1);  /* EffectSsHahen_DrawOpa */
-void func_80000294(void *arg0, void *arg1);  /* EffectSsHahen_DrawXlu */
-void func_80000374(s32 arg0, s32 arg1, void *arg2);  /* EffectSsHahen_Draw */
-void func_80000498(void *arg0, s32 arg1, void *arg2);  /* EffectSsHahen_Update */
+void EffectSsHahen_CheckForObject(void *arg0, s32 arg1);  /* 80000000 */
+void EffectSsHahen_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000074 */
+void EffectSsHahen_DrawOpa(void *arg0, void *arg1);  /* 800001B4 */
+void EffectSsHahen_DrawXlu(void *arg0, void *arg1);  /* 80000294 */
+void EffectSsHahen_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000374 */
+void EffectSsHahen_Update(void *arg0, s32 arg1, void *arg2);  /* 80000498 */
 
 #endif

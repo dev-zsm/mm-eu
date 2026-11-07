@@ -6,8 +6,8 @@
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
-#define ObjWind_Draw func_800004F0
-#define ObjWind_Update func_80000090
+#define ObjWind_Draw ObjWind_Draw
+#define ObjWind_Update ObjWind_Update
 #define gameplay_keep_DL_07E8C0 D_407E8C0
 #define gameplay_keep_Matanimheader_07F218 D_407F218
 

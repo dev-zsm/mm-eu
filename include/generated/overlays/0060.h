@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnLight_Init */
+void EnLight_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_80000268(s32 arg0, void *arg1);
-void func_800002E4(void *arg0, s32 arg1);  /* EnLight_Update */
+void EnLight_Update(void *arg0, s32 arg1);  /* 800002E4 */
 void func_800005A8(void *arg0, s32 arg1);
-void func_80000A08(s32 arg0, s32 arg1);  /* EnLight_Draw */
+void EnLight_Draw(s32 arg0, s32 arg1);  /* 80000A08 */
 
 #endif

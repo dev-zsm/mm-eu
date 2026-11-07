@@ -6,10 +6,10 @@
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
-#define BgCtowerGear_DrawOrgan func_800005F4
-#define BgCtowerGear_Splash func_80000000
-#define BgCtowerGear_Update func_80000468
-#define BgCtowerGear_UpdateOrgan func_800004E4
+#define BgCtowerGear_DrawOrgan BgCtowerGear_DrawOrgan
+#define BgCtowerGear_Splash BgCtowerGear_Splash
+#define BgCtowerGear_Update BgCtowerGear_Update
+#define BgCtowerGear_UpdateOrgan BgCtowerGear_UpdateOrgan
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision

@@ -8,8 +8,8 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
 #define AudioSfx_StopById AudioSfx_StopById
-#define BgSpdweb_Draw func_80001070
-#define BgSpdweb_Init func_80000000
+#define BgSpdweb_Draw BgSpdweb_Draw
+#define BgSpdweb_Init BgSpdweb_Init
 #define Collider_InitAndSetTris Collider_InitAndSetTris
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC

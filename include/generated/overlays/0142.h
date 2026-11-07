@@ -5,23 +5,23 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjKibako_SpawnCollectible */
-void func_80000074(void *arg0);  /* ObjKibako_SetShadow */
+void ObjKibako_SpawnCollectible(void *arg0, s32 arg1);  /* 80000000 */
+void ObjKibako_SetShadow(void *arg0);  /* 80000074 */
 void func_8000010C(u8 *arg0);
 void func_80000168(void *arg0, void *arg1);
 void func_800001E4(u8 *arg0, u8 *arg1);
-void func_80000218(void *arg0, s32 arg1);  /* ObjKibako_Init */
-void func_80000330(s32 arg0, s32 arg1);  /* ObjKibako_Destroy */
-void func_8000035C(s32 arg0, s32 arg1);  /* ObjKibako_AirBreak */
-void func_8000063C(void *arg0, s32 arg1);  /* ObjKibako_WaterBreak */
+void ObjKibako_Init(void *arg0, s32 arg1);  /* 80000218 */
+void ObjKibako_Destroy(s32 arg0, s32 arg1);  /* 80000330 */
+void ObjKibako_AirBreak(s32 arg0, s32 arg1);  /* 8000035C */
+void ObjKibako_WaterBreak(void *arg0, s32 arg1);  /* 8000063C */
 void func_80000990(u8 *arg0);
 void func_800009A4(u8 *arg0, s32 arg1);
-void func_80000A30(u8 *arg0);  /* ObjKibako_SetupIdle */
-void func_80000A44(void *arg0, s32 arg1);  /* ObjKibako_Idle */
-void func_80000D44(u8 *arg0);  /* ObjKibako_SetupHeld */
-void func_80000D58(void *arg0, s32 arg1);  /* ObjKibako_Held */
-void func_80000E8C(u8 *arg0);  /* ObjKibako_SetupThrown */
-void func_80000F48(void *arg0, s32 arg1);  /* ObjKibako_Thrown */
-void func_80001154(u8 *arg0);  /* ObjKibako_Update */
+void ObjKibako_SetupIdle(u8 *arg0);  /* 80000A30 */
+void ObjKibako_Idle(void *arg0, s32 arg1);  /* 80000A44 */
+void ObjKibako_SetupHeld(u8 *arg0);  /* 80000D44 */
+void ObjKibako_Held(void *arg0, s32 arg1);  /* 80000D58 */
+void ObjKibako_SetupThrown(u8 *arg0);  /* 80000E8C */
+void ObjKibako_Thrown(void *arg0, s32 arg1);  /* 80000F48 */
+void ObjKibako_Update(u8 *arg0);  /* 80001154 */
 
 #endif

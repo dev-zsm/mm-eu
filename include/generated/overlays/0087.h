@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnRiverSound_Init */
-void func_80000088(void *arg0, s32 arg1);  /* EnRiverSound_Update */
-void func_800001A0(void *arg0, s32 arg1);  /* EnRiverSound_Draw */
+void EnRiverSound_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnRiverSound_Update(void *arg0, s32 arg1);  /* 80000088 */
+void EnRiverSound_Draw(void *arg0, s32 arg1);  /* 800001A0 */
 
 #endif

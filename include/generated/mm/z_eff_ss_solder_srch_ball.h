@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define BgCheck_SphVsFirstWall BgCheck_SphVsFirstWall
-#define EffectSsSolderSrchBall_Draw func_800000A4
-#define EffectSsSolderSrchBall_Init func_80000000
-#define EffectSsSolderSrchBall_Update func_8000029C
+#define EffectSsSolderSrchBall_Draw EffectSsSolderSrchBall_Draw
+#define EffectSsSolderSrchBall_Init EffectSsSolderSrchBall_Init
+#define EffectSsSolderSrchBall_Update EffectSsSolderSrchBall_Update
 #define Gfx_SetupDL Gfx_SetupDL
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

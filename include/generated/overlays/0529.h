@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjTree_Init */
-void func_8000015C(u8 *arg0);  /* ObjTree_SetupDoNothing */
-void func_80000170(s32 arg0, s32 arg1);  /* ObjTree_DoNothing */
-void func_80000180(void *arg0);  /* ObjTree_SetupSway */
-void func_800001CC(void *arg0, s32 arg1);  /* ObjTree_Sway */
-void func_80000298(s32 arg0, s32 arg1);  /* ObjTree_UpdateCollision */
-void func_80000374(void *arg0, s32 arg1);  /* ObjTree_Draw */
+void ObjTree_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjTree_SetupDoNothing(u8 *arg0);  /* 8000015C */
+void ObjTree_DoNothing(s32 arg0, s32 arg1);  /* 80000170 */
+void ObjTree_SetupSway(void *arg0);  /* 80000180 */
+void ObjTree_Sway(void *arg0, s32 arg1);  /* 800001CC */
+void ObjTree_UpdateCollision(s32 arg0, s32 arg1);  /* 80000298 */
+void ObjTree_Draw(void *arg0, s32 arg1);  /* 80000374 */
 
 #endif

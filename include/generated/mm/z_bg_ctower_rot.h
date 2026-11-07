@@ -8,12 +8,12 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define Audio_PlaySfx Audio_PlaySfx
-#define BgCtowerRot_CorridorRotate func_8000018C
-#define BgCtowerRot_DoorClose func_8000027C
+#define BgCtowerRot_CorridorRotate BgCtowerRot_CorridorRotate
+#define BgCtowerRot_DoorClose BgCtowerRot_DoorClose
 #define BgCtowerRot_DoorDoNothing D_808E19AC
-#define BgCtowerRot_DoorIdle func_80000360
-#define BgCtowerRot_Draw func_80000468
-#define BgCtowerRot_Init func_80000000
+#define BgCtowerRot_DoorIdle BgCtowerRot_DoorIdle
+#define BgCtowerRot_Draw BgCtowerRot_Draw
+#define BgCtowerRot_Init BgCtowerRot_Init
 #define BgCtowerRot_SetupDoorClose D_808E1B14
 #define Camera_ChangeSetting Camera_ChangeSetting
 #define CutsceneManager_Queue CutsceneManager_Queue

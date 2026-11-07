@@ -5,26 +5,26 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);  /* EnTest6_SetupCutscene */
-void func_800004D8(s32 arg0);  /* EnTest6_EnableMotionBlur */
-void func_80000504(void);  /* EnTest6_DisableMotionBlur */
-void func_80000524(s32 arg0, s32 arg1);  /* EnTest6_EnableWhiteFillScreen */
-void func_800005F0(u8 *arg0);  /* EnTest6_DisableWhiteFillScreen */
-void func_80000604(s32 arg0, s32 arg1, void *arg2);  /* EnTest6_DrawAmmoDropDefault */
-void func_80000890(s32 arg0, void *arg1, void *arg2);  /* EnTest6_DrawAmmoDropRupee */
-void func_80000BF4(u8 *arg0, s32 arg1);  /* EnTest6_SetupAction */
-void func_80000C00(void *arg0, s32 arg1);  /* EnTest6_Init */
-void func_80000D6C(void *arg0, s32 arg1);  /* EnTest6_Destroy */
-void func_80000E3C(s32 arg0, s32 arg1);  /* EnTest6_StartCutscene */
-void func_80000F60(u8 *arg0, s32 arg1);  /* EnTest6_SetupInvertedSoTCutscene */
-void func_80000FC0(s32 arg0, void *arg1);  /* EnTest6_StopInvertedSoTCutscene */
-void func_80001030(void *arg0, void *arg1);  /* EnTest6_InvertedSoTCutscene */
-void func_80001998(void *arg0, void *arg1);  /* EnTest6_SetupDoubleSoTCutscene */
-void func_800019E8(s32 arg0, void *arg1);  /* EnTest6_StopDoubleSoTCutscene */
-void func_80001A58(void *arg0, void *arg1);  /* EnTest6_DoubleSoTCutscene */
-void func_80002220(void *arg0, void *arg1);  /* EnTest6_SharedSoTCutscene */
-void func_80002B68(void *arg0, void *arg1);  /* EnTest6_DrawThreeDayResetSoTCutscene */
-void func_80002F6C(void *arg0, void *arg1);  /* EnTest6_DrawDoubleSoTCutscene */
-void func_800032B8(void *arg0, void *arg1);  /* EnTest6_DrawInvertedSoTCutscene */
+void EnTest6_SetupCutscene(void *arg0, void *arg1);  /* 80000000 */
+void EnTest6_EnableMotionBlur(s32 arg0);  /* 800004D8 */
+void EnTest6_DisableMotionBlur(void);  /* 80000504 */
+void EnTest6_EnableWhiteFillScreen(s32 arg0, s32 arg1);  /* 80000524 */
+void EnTest6_DisableWhiteFillScreen(u8 *arg0);  /* 800005F0 */
+void EnTest6_DrawAmmoDropDefault(s32 arg0, s32 arg1, void *arg2);  /* 80000604 */
+void EnTest6_DrawAmmoDropRupee(s32 arg0, void *arg1, void *arg2);  /* 80000890 */
+void EnTest6_SetupAction(u8 *arg0, s32 arg1);  /* 80000BF4 */
+void EnTest6_Init(void *arg0, s32 arg1);  /* 80000C00 */
+void EnTest6_Destroy(void *arg0, s32 arg1);  /* 80000D6C */
+void EnTest6_StartCutscene(s32 arg0, s32 arg1);  /* 80000E3C */
+void EnTest6_SetupInvertedSoTCutscene(u8 *arg0, s32 arg1);  /* 80000F60 */
+void EnTest6_StopInvertedSoTCutscene(s32 arg0, void *arg1);  /* 80000FC0 */
+void EnTest6_InvertedSoTCutscene(void *arg0, void *arg1);  /* 80001030 */
+void EnTest6_SetupDoubleSoTCutscene(void *arg0, void *arg1);  /* 80001998 */
+void EnTest6_StopDoubleSoTCutscene(s32 arg0, void *arg1);  /* 800019E8 */
+void EnTest6_DoubleSoTCutscene(void *arg0, void *arg1);  /* 80001A58 */
+void EnTest6_SharedSoTCutscene(void *arg0, void *arg1);  /* 80002220 */
+void EnTest6_DrawThreeDayResetSoTCutscene(void *arg0, void *arg1);  /* 80002B68 */
+void EnTest6_DrawDoubleSoTCutscene(void *arg0, void *arg1);  /* 80002F6C */
+void EnTest6_DrawInvertedSoTCutscene(void *arg0, void *arg1);  /* 800032B8 */
 
 #endif

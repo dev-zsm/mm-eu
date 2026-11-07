@@ -5,8 +5,8 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define BgIkanaBombwall_Draw func_80000AE0
-#define BgIkanaBombwall_Init func_800005D4
+#define BgIkanaBombwall_Draw BgIkanaBombwall_Draw
+#define BgIkanaBombwall_Init BgIkanaBombwall_Init
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder

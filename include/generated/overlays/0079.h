@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* EnViewer_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* EnViewer_Init */
-void func_800001D0(s32 a, s32 b);  /* EnViewer_Destroy */
+void EnViewer_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void EnViewer_Init(void *arg0, s32 arg1);  /* 8000000C */
+void EnViewer_Destroy(s32 a, s32 b);  /* 800001D0 */
 void func_800001F4(void *arg0, s32 arg1, s32 arg2);
 void func_80000280(s32 arg0, void *arg1);
 void func_8000035C(void *arg0, void *arg1);
 void func_800003F8(void *arg0, void *arg1);
 void func_800004A4(s32 arg0, void *arg1);
-void func_80000560(void *arg0, void *arg1);  /* EnViewer_Update */
-void func_800005A8(s32 arg0, s32 arg1);  /* EnViewer_Draw */
+void EnViewer_Update(void *arg0, void *arg1);  /* 80000560 */
+void EnViewer_Draw(s32 arg0, s32 arg1);  /* 800005A8 */
 
 #endif

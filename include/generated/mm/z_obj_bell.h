@@ -18,8 +18,8 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define ObjBell_Draw func_800008E8
-#define ObjBell_Update func_8000089C
+#define ObjBell_Draw ObjBell_Draw
+#define ObjBell_Update ObjBell_Update
 #define func_80A35510 func_80000000
 #define func_80A356D8 func_800001C8
 #define func_80A358FC func_80000408

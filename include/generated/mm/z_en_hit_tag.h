@@ -6,7 +6,7 @@
 #define Actor_Kill Actor_Kill
 #define Audio_PlaySfx Audio_PlaySfx
 #define CollisionCheck_SetAC CollisionCheck_SetAC
-#define EnHitTag_WaitForHit func_800000B8
+#define EnHitTag_WaitForHit EnHitTag_WaitForHit
 #define Item_DropCollectible Item_DropCollectible
 
 #include "overlays/actors/ovl_En_Hit_Tag/z_en_hit_tag.h"

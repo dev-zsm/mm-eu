@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);  /* TransitionWipe1_Start */
-s32 func_800000B8(s32 arg0);  /* TransitionWipe1_Init */
-void func_800000E4(s32 arg0);  /* TransitionWipe1_Destroy */
-void func_800000F0(void *arg0, s32 arg1);  /* TransitionWipe1_Update */
-void func_800001D0(void *arg0, s32 arg1);  /* TransitionWipe1_Draw */
-u8 func_8000040C(u8 *arg0);  /* TransitionWipe1_IsDone */
-void func_80000418(u8 *arg0, s32 arg1);  /* TransitionWipe1_SetType */
-void func_80000458(s32 *arg0, s32 arg1);  /* TransitionWipe1_SetColor */
-void func_80000464(u8 *arg0, s32 arg1);  /* TransitionWipe1_SetEnvColor */
+void TransitionWipe1_Start(void *arg0);  /* 80000000 */
+s32 TransitionWipe1_Init(s32 arg0);  /* 800000B8 */
+void TransitionWipe1_Destroy(s32 arg0);  /* 800000E4 */
+void TransitionWipe1_Update(void *arg0, s32 arg1);  /* 800000F0 */
+void TransitionWipe1_Draw(void *arg0, s32 arg1);  /* 800001D0 */
+u8 TransitionWipe1_IsDone(u8 *arg0);  /* 8000040C */
+void TransitionWipe1_SetType(u8 *arg0, s32 arg1);  /* 80000418 */
+void TransitionWipe1_SetColor(s32 *arg0, s32 arg1);  /* 80000458 */
+void TransitionWipe1_SetEnvColor(u8 *arg0, s32 arg1);  /* 80000464 */
 
 #endif

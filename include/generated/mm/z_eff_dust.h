@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
-#define EffDust_Init func_80000078
+#define EffDust_Init EffDust_Init
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS

@@ -11,7 +11,7 @@ M2C_UNK func_800FF8DC(u8 *, M2C_UNK *);           /* extern */
 extern M2C_UNK D_600805C;
 extern M2C_UNK D_80BEC9E0;
 
-void func_80000000(Actor *thisx, PlayState *play) {
+void ObjKepnKoya_Init(Actor *thisx, PlayState *play) {
     func_800FF8DC(thisx, &D_80BEC9E0);
     func_800B6564(thisx, 0x3DCCCCCD);
     func_800CABA0(thisx, 0);

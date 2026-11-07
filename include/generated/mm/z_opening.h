@@ -5,7 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Play_Init D_8016B450
 #define Sram_InitNewSave Sram_InitNewSave
-#define TitleSetup_SetupTitleScreen func_80000000
+#define TitleSetup_SetupTitleScreen TitleSetup_SetupTitleScreen
 #define gOpeningEntranceIndex D_801BBC5C
 #define gSaveContext D_801E6EF0
 

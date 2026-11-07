@@ -3,7 +3,7 @@
 #define MM_Z_BG_IKANA_SHUTTER_H
 
 /* names of ours that symbols of the reference stand for */
-#define BgIkanaShutter_AllSwitchesPressed func_80000000
+#define BgIkanaShutter_AllSwitchesPressed BgIkanaShutter_AllSwitchesPressed
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08

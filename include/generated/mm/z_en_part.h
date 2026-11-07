@@ -4,8 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_MoveWithGravity Actor_MoveWithGravity
-#define EnPart_Draw func_80000478
-#define EnPart_Update func_80000430
+#define EnPart_Draw EnPart_Draw
+#define EnPart_Update EnPart_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Matrix_RotateZF Matrix_RotateZF
 #define Rand_ZeroOne func_8008704C

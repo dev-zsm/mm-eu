@@ -5,12 +5,12 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_SetScale Actor_SetScale
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
-#define EnPaper_Draw func_80000600
-#define EnPaper_FlyConfettiPiece func_80000310
-#define EnPaper_Init func_80000000
-#define EnPaper_InitConfettiPiece func_8000018C
+#define EnPaper_Draw EnPaper_Draw
+#define EnPaper_FlyConfettiPiece EnPaper_FlyConfettiPiece
+#define EnPaper_Init EnPaper_Init
+#define EnPaper_InitConfettiPiece EnPaper_InitConfettiPiece
 #define EnPaper_SetupSpreadConfettiGroup func_80C0420C
-#define EnPaper_UpdateWind func_800004AC
+#define EnPaper_UpdateWind EnPaper_UpdateWind
 #define Gfx_SetupDL37_Opa func_8012CA60
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS

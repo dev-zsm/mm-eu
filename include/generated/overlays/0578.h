@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* EnScRuppe_UpdateCollision */
+void EnScRuppe_UpdateCollision(s32 arg0, s32 arg1);  /* 80000000 */
 void func_8000006C(s32 arg0);
 void func_8000017C(void *arg0, s32 arg1);
 void func_80000208(void *arg0, void *arg1);
-void func_800002D8(void *arg0, s32 arg1);  /* EnScRuppe_Init */
-void func_80000408(s32 arg0, s32 arg1);  /* EnScRuppe_Draw */
+void EnScRuppe_Init(void *arg0, s32 arg1);  /* 800002D8 */
+void EnScRuppe_Draw(s32 arg0, s32 arg1);  /* 80000408 */
 
 #endif

@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(s32 a0, s32 a1);  /* ObjWturn_Init */
-void func_80000024(u8 *arg0);  /* ObjWturn_SetupIdle */
-void func_80000038(void *arg0, s32 arg1);  /* ObjWturn_Idle */
-void func_800000F4(u8 *arg0);  /* ObjWturn_TriggerInversion */
-void func_8000012C(void *arg0, s32 arg1);  /* ObjWturn_AwaitInversion */
-void func_8000017C(void *arg0, s32 arg1);  /* ObjWturn_SetupInversionCs */
-void func_80000270(u8 *arg0, s32 arg1);  /* ObjWturn_InversionCs */
-void func_800002D4(void *arg0, void *arg1);  /* ObjWturn_SetupFallingCs */
-void func_80000348(void *arg0, void *arg1);  /* ObjWturn_FallingCs */
+void ObjWturn_Init(s32 a0, s32 a1);  /* 80000000 */
+void ObjWturn_SetupIdle(u8 *arg0);  /* 80000024 */
+void ObjWturn_Idle(void *arg0, s32 arg1);  /* 80000038 */
+void ObjWturn_TriggerInversion(u8 *arg0);  /* 800000F4 */
+void ObjWturn_AwaitInversion(void *arg0, s32 arg1);  /* 8000012C */
+void ObjWturn_SetupInversionCs(void *arg0, s32 arg1);  /* 8000017C */
+void ObjWturn_InversionCs(u8 *arg0, s32 arg1);  /* 80000270 */
+void ObjWturn_SetupFallingCs(void *arg0, void *arg1);  /* 800002D4 */
+void ObjWturn_FallingCs(void *arg0, void *arg1);  /* 80000348 */
 
 #endif

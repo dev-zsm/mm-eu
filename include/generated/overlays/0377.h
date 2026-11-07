@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* DmOpstage_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* DmOpstage_Init */
-void func_80000108(void *arg0, s32 arg1);  /* DmOpstage_HandleCutscene */
-void func_80000268(void *arg0, s32 arg1);  /* DmOpstage_Draw */
+void DmOpstage_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void DmOpstage_Init(void *arg0, s32 arg1);  /* 8000000C */
+void DmOpstage_HandleCutscene(void *arg0, s32 arg1);  /* 80000108 */
+void DmOpstage_Draw(void *arg0, s32 arg1);  /* 80000268 */
 
 #endif

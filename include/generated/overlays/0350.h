@@ -36,7 +36,7 @@ void func_80001B74(u8 *arg0);
 void func_80001BAC(void *arg0);
 void func_80001DE4(void *arg0);
 void func_80002018(void *arg0);
-void func_8000228C(void *arg0, s32 arg1);  /* EnKusa2_Init */
+void EnKusa2_Init(void *arg0, s32 arg1);  /* 8000228C */
 void func_80002480(u8 *arg0);
 void func_80002494(void *a, s32 b);
 void func_800024B8(u8 *arg0);
@@ -60,7 +60,7 @@ void func_8000335C(void *arg0, s32 arg1);
 void func_800034A4(void *arg0, s32 arg1);
 void func_80003590(s32 arg0, void *arg1);
 void func_800036AC(s32 arg0, s32 arg1);
-void func_80003760(void *arg0, s32 arg1);  /* EnKusa2_Draw */
+void EnKusa2_Draw(void *arg0, s32 arg1);  /* 80003760 */
 void func_80003854(void *arg0, s32 arg1);
 void func_800038E8(void *arg0, s32 arg1);
 

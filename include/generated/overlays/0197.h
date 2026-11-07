@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsDust_Init */
-void func_80000184(s32 arg0, s32 arg1, void *arg2);  /* EffectSsDust_Draw */
-void func_800004AC(s32 arg0, s32 arg1, s32 arg2);  /* EffectSsDust_Update */
-void func_800005A4(s32 arg0, s32 arg1, s32 arg2);  /* EffectSsDust_UpdateFire */
+void EffectSsDust_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsDust_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000184 */
+void EffectSsDust_Update(s32 arg0, s32 arg1, s32 arg2);  /* 800004AC */
+void EffectSsDust_UpdateFire(s32 arg0, s32 arg1, s32 arg2);  /* 800005A4 */
 
 #endif

@@ -9,11 +9,11 @@
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
-#define ObjWturn_AwaitInversion func_8000012C
-#define ObjWturn_FallingCs func_80000348
+#define ObjWturn_AwaitInversion ObjWturn_AwaitInversion
+#define ObjWturn_FallingCs ObjWturn_FallingCs
 #define ObjWturn_InversionCs D_808A72C0
-#define ObjWturn_SetupFallingCs func_800002D4
-#define ObjWturn_SetupInversionCs func_8000017C
+#define ObjWturn_SetupFallingCs ObjWturn_SetupFallingCs
+#define ObjWturn_SetupInversionCs ObjWturn_SetupInversionCs
 #define Play_DisableMotionBlur Play_DisableMotionBlur
 #define Play_EnableMotionBlur Play_EnableMotionBlur
 #define Play_GetCamera Play_GetCamera

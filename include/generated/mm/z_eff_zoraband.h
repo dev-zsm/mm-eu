@@ -8,8 +8,8 @@
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define EffZoraband_Draw func_8000017C
-#define EffZoraband_MikauFadeOut func_80000050
+#define EffZoraband_Draw EffZoraband_Draw
+#define EffZoraband_MikauFadeOut EffZoraband_MikauFadeOut
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
 #define Matrix_RotateYS Matrix_RotateYS

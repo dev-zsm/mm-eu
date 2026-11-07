@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* EnTest2_Init */
-void func_80000054(void *arg0, s32 arg1);  /* EnTest2_Update */
-void func_8000015C(u8 *arg0, u8 *arg1);  /* EnTest2_UpdateForLens */
-void func_80000194(void *arg0, s32 arg1);  /* EnTest2_Draw */
+void EnTest2_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void EnTest2_Update(void *arg0, s32 arg1);  /* 80000054 */
+void EnTest2_UpdateForLens(u8 *arg0, u8 *arg1);  /* 8000015C */
+void EnTest2_Draw(void *arg0, s32 arg1);  /* 80000194 */
 
 #endif

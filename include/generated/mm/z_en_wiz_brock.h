@@ -8,8 +8,8 @@
 #define CollisionHeader_GetVirtual CollisionHeader_GetVirtual
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPoly_SetBgActor DynaPoly_SetBgActor
-#define EnWizBrock_Draw func_80000328
-#define EnWizBrock_Init func_80000000
+#define EnWizBrock_Draw EnWizBrock_Draw
+#define EnWizBrock_Init EnWizBrock_Init
 #define EnWizBrock_SetupUpdateStatus D_80A2DE44
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu

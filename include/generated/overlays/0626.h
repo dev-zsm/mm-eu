@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjKzsaku_Init */
-void func_800000E0(u8 *arg0);  /* ObjKzsaku_SetupIdle */
-void func_800000FC(u8 *arg0, s32 arg1);  /* ObjKzsaku_Idle */
+void ObjKzsaku_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjKzsaku_SetupIdle(u8 *arg0);  /* 800000E0 */
+void ObjKzsaku_Idle(u8 *arg0, s32 arg1);  /* 800000FC */
 void func_8000013C(u8 *arg0);
-void func_80000150(void *arg0, s32 arg1);  /* ObjKzsaku_Rise */
+void ObjKzsaku_Rise(void *arg0, s32 arg1);  /* 80000150 */
 void func_80000204(u8 *arg0);
 void func_80000230(void *arg0, s32 arg1);
-void func_800002C4(s32 arg0, s32 arg1);  /* ObjKzsaku_Draw */
+void ObjKzsaku_Draw(s32 arg0, s32 arg1);  /* 800002C4 */
 
 #endif

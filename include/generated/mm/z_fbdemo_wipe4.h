@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define SysCfb_GetZBuffer func_80179C88
-#define TransitionWipe4_Draw func_80000114
-#define TransitionWipe4_Start func_80000000
-#define TransitionWipe4_Update func_800000BC
+#define TransitionWipe4_Draw TransitionWipe4_Draw
+#define TransitionWipe4_Start TransitionWipe4_Start
+#define TransitionWipe4_Update TransitionWipe4_Update
 #define VisFbuf_Draw VisFbuf_Draw
 
 #include "global.h"

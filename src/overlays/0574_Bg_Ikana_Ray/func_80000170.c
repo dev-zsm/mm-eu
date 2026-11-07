@@ -1,0 +1,10 @@
+// FLAGS: -O2 -g3 -mips2
+#include "types.h"
+#include "m2c_compat.h"
+#include "generated/overlays/0574.h"
+
+M2C_UNK func_800E2318(s32, s32, s32, s32);          /* extern */
+
+void BgIkanaRay_UpdateActivated(s32 arg0, s32 arg1) {
+    func_800E2318(arg1, arg1 + 0x18884, arg0 + 0x144, arg1);
+}

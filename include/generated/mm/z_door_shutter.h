@@ -15,12 +15,12 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
-#define DoorShutter_Draw func_80001524
-#define DoorShutter_Init func_80000220
+#define DoorShutter_Draw DoorShutter_Draw
+#define DoorShutter_Init DoorShutter_Init
 #define DoorShutter_SetupAction func_808A0010
-#define DoorShutter_SetupDoor func_80000084
-#define DoorShutter_SetupType func_8000041C
-#define DoorShutter_Update func_800013D4
+#define DoorShutter_SetupDoor DoorShutter_SetupDoor
+#define DoorShutter_SetupType DoorShutter_SetupType
+#define DoorShutter_Update DoorShutter_Update
 #define Flags_GetClear Flags_GetClear
 #define Flags_GetClearTemp Flags_GetClearTemp
 #define Flags_GetSwitch Flags_GetSwitch

@@ -22,7 +22,7 @@
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjLift_Draw D_80922750
-#define ObjLift_Init func_80000268
+#define ObjLift_Init ObjLift_Init
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations

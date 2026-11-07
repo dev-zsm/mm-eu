@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* EnBombf_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* EnBombf_Init */
+void EnBombf_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void EnBombf_Init(void *arg0, s32 arg1);  /* 8000000C */
 void func_800001F8(s32 a0, s32 a1);
 void func_80000220(void *arg0, void *arg1);
 void func_8000057C(void *arg0, s32 arg1);
@@ -14,6 +14,6 @@ void func_800006A8(s32 arg0, s32 arg1);
 void func_80000714(void *arg0, s32 arg1);
 void func_80000860(void *arg0, s32 arg1);
 void func_80000F88(void *arg0, s32 arg1);
-void func_80001014(void *arg0, s32 arg1);  /* EnBombf_Draw */
+void EnBombf_Draw(void *arg0, s32 arg1);  /* 80001014 */
 
 #endif

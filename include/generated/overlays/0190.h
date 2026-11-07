@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* ObjMakeoshihiki_GetChildSpawnPointIndex */
-void func_80000074(void *arg0, s32 arg1, s32 arg2);  /* ObjMakeoshihiki_SetSwitchFlags */
-void func_80000104(void *arg0, s32 arg1);  /* ObjMakeoshihiki_Init */
-void func_800001F8(void *arg0, s32 arg1);  /* ObjMakeoshihiki_Update */
+void ObjMakeoshihiki_GetChildSpawnPointIndex(s32 arg0, s32 arg1);  /* 80000000 */
+void ObjMakeoshihiki_SetSwitchFlags(void *arg0, s32 arg1, s32 arg2);  /* 80000074 */
+void ObjMakeoshihiki_Init(void *arg0, s32 arg1);  /* 80000104 */
+void ObjMakeoshihiki_Update(void *arg0, s32 arg1);  /* 800001F8 */
 
 #endif

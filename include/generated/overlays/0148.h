@@ -5,46 +5,46 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnHonotrap_FlameCollisionCheck */
-void func_80000094(s32 arg0, s32 arg1);  /* EnHonotrap_GetNormal */
-void func_80000128(s32 arg0, s32 arg1);  /* EnHonotrap_InitEye */
-void func_80000330(void *arg0, s32 arg1);  /* EnHonotrap_InitFlame */
-void func_80000478(void *arg0, s32 arg1);  /* EnHonotrap_InitFlameGroup */
-void func_80000588(void *arg0, s32 arg1);  /* EnHonotrap_Init */
-void func_8000065C(void *arg0, s32 arg1);  /* EnHonotrap_Destroy */
-void func_800006B0(u8 *arg0);  /* EnHonotrap_SetupEyeIdle */
-void func_800006CC(u8 *arg0, s32 arg1);  /* EnHonotrap_EyeIdle */
-void func_8000078C(void *arg0);  /* EnHonotrap_SetupEyeOpen */
-void func_800007E0(void *arg0, s32 arg1);  /* EnHonotrap_EyeOpen */
-void func_800008B0(u8 *arg0);  /* EnHonotrap_SetupEyeAttack */
-void func_800008C8(u8 *arg0, s32 arg1);  /* EnHonotrap_EyeAttack */
-void func_800008F8(u8 *arg0);  /* EnHonotrap_SetupEyeClose */
-void func_8000090C(u8 *arg0, s32 arg1);  /* EnHonotrap_EyeClose */
-void func_80000958(u8 *arg0);  /* EnHonotrap_SetupEyeIdle2 */
-void func_80000980(u8 *arg0, s32 arg1);  /* EnHonotrap_EyeIdle2 */
-void func_80000A2C(u8 *arg0);  /* EnHonotrap_SetupEyeOpen2 */
-void func_80000A88(void *arg0, s32 arg1);  /* EnHonotrap_EyeOpen2 */
-void func_80000B4C(u8 *arg0);  /* EnHonotrap_SetupEyeAttack2 */
-void func_80000B64(u8 *arg0, s32 arg1);  /* EnHonotrap_EyeAttack2 */
-void func_80000B94(u8 *arg0);  /* EnHonotrap_SetupEyeClose2 */
-void func_80000BA8(u8 *arg0, s32 arg1);  /* EnHonotrap_EyeClose2 */
-void func_80000BE8(u8 *arg0);  /* EnHonotrap_SetupFlameGrow */
-void func_80000BFC(u8 *arg0, s32 arg1);  /* EnHonotrap_FlameGrow */
-void func_80000C90(u8 *arg0);  /* EnHonotrap_SetupFlameDrop */
-void func_80000CF8(void *arg0, s32 arg1);  /* EnHonotrap_FlameDrop */
-void func_80000E3C(void *arg0);  /* EnHonotrap_SetupFlameMove */
-void func_80000EC8(void *arg0, s32 arg1);  /* EnHonotrap_FlameMove */
-void func_8000109C(u8 *arg0);  /* EnHonotrap_SetupFlameChase */
-void func_800010DC(void *arg0, s32 arg1);  /* EnHonotrap_FlameChase */
-void func_80001298(u8 *arg0);  /* EnHonotrap_SetupFlameVanish */
-void func_800012AC(void *arg0, s32 arg1);  /* EnHonotrap_FlameVanish */
-void func_80001344(u8 *arg0);  /* EnHonotrap_SetupFlameGroup */
-void func_80001368(void *arg0, void *arg1);  /* EnHonotrap_FlameGroup */
-void func_8000185C(void *arg0, s32 arg1);  /* EnHonotrap_Update */
-void func_80001934(u8 *arg0, s32 arg1);  /* EnHonotrap_UpdateFlame */
-void func_800019EC(void *arg0, s32 arg1);  /* EnHonotrap_UpdateFlameGroup */
-void func_80001A60(s32 arg0, s32 arg1);  /* EnHonotrap_Draw */
-void func_80001B20(s32 arg0, void *arg1);  /* EnHonotrap_DrawFlame */
-void func_80001C80(s32 arg0, void *arg1);  /* EnHonotrap_DrawFlameGroup */
+void EnHonotrap_FlameCollisionCheck(void *arg0, s32 arg1);  /* 80000000 */
+void EnHonotrap_GetNormal(s32 arg0, s32 arg1);  /* 80000094 */
+void EnHonotrap_InitEye(s32 arg0, s32 arg1);  /* 80000128 */
+void EnHonotrap_InitFlame(void *arg0, s32 arg1);  /* 80000330 */
+void EnHonotrap_InitFlameGroup(void *arg0, s32 arg1);  /* 80000478 */
+void EnHonotrap_Init(void *arg0, s32 arg1);  /* 80000588 */
+void EnHonotrap_Destroy(void *arg0, s32 arg1);  /* 8000065C */
+void EnHonotrap_SetupEyeIdle(u8 *arg0);  /* 800006B0 */
+void EnHonotrap_EyeIdle(u8 *arg0, s32 arg1);  /* 800006CC */
+void EnHonotrap_SetupEyeOpen(void *arg0);  /* 8000078C */
+void EnHonotrap_EyeOpen(void *arg0, s32 arg1);  /* 800007E0 */
+void EnHonotrap_SetupEyeAttack(u8 *arg0);  /* 800008B0 */
+void EnHonotrap_EyeAttack(u8 *arg0, s32 arg1);  /* 800008C8 */
+void EnHonotrap_SetupEyeClose(u8 *arg0);  /* 800008F8 */
+void EnHonotrap_EyeClose(u8 *arg0, s32 arg1);  /* 8000090C */
+void EnHonotrap_SetupEyeIdle2(u8 *arg0);  /* 80000958 */
+void EnHonotrap_EyeIdle2(u8 *arg0, s32 arg1);  /* 80000980 */
+void EnHonotrap_SetupEyeOpen2(u8 *arg0);  /* 80000A2C */
+void EnHonotrap_EyeOpen2(void *arg0, s32 arg1);  /* 80000A88 */
+void EnHonotrap_SetupEyeAttack2(u8 *arg0);  /* 80000B4C */
+void EnHonotrap_EyeAttack2(u8 *arg0, s32 arg1);  /* 80000B64 */
+void EnHonotrap_SetupEyeClose2(u8 *arg0);  /* 80000B94 */
+void EnHonotrap_EyeClose2(u8 *arg0, s32 arg1);  /* 80000BA8 */
+void EnHonotrap_SetupFlameGrow(u8 *arg0);  /* 80000BE8 */
+void EnHonotrap_FlameGrow(u8 *arg0, s32 arg1);  /* 80000BFC */
+void EnHonotrap_SetupFlameDrop(u8 *arg0);  /* 80000C90 */
+void EnHonotrap_FlameDrop(void *arg0, s32 arg1);  /* 80000CF8 */
+void EnHonotrap_SetupFlameMove(void *arg0);  /* 80000E3C */
+void EnHonotrap_FlameMove(void *arg0, s32 arg1);  /* 80000EC8 */
+void EnHonotrap_SetupFlameChase(u8 *arg0);  /* 8000109C */
+void EnHonotrap_FlameChase(void *arg0, s32 arg1);  /* 800010DC */
+void EnHonotrap_SetupFlameVanish(u8 *arg0);  /* 80001298 */
+void EnHonotrap_FlameVanish(void *arg0, s32 arg1);  /* 800012AC */
+void EnHonotrap_SetupFlameGroup(u8 *arg0);  /* 80001344 */
+void EnHonotrap_FlameGroup(void *arg0, void *arg1);  /* 80001368 */
+void EnHonotrap_Update(void *arg0, s32 arg1);  /* 8000185C */
+void EnHonotrap_UpdateFlame(u8 *arg0, s32 arg1);  /* 80001934 */
+void EnHonotrap_UpdateFlameGroup(void *arg0, s32 arg1);  /* 800019EC */
+void EnHonotrap_Draw(s32 arg0, s32 arg1);  /* 80001A60 */
+void EnHonotrap_DrawFlame(s32 arg0, void *arg1);  /* 80001B20 */
+void EnHonotrap_DrawFlameGroup(s32 arg0, void *arg1);  /* 80001C80 */
 
 #endif

@@ -3,8 +3,8 @@
 #define MM_Z_EFF_SS_BLAST_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsBlast_Draw func_8000012C
-#define EffectSsBlast_Init func_80000000
+#define EffectSsBlast_Draw EffectSsBlast_Draw
+#define EffectSsBlast_Init EffectSsBlast_Init
 #define EffectSsBlast_Update D_8095D8A8
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Matrix_Put Matrix_Put

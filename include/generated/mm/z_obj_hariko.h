@@ -12,10 +12,10 @@
 #define Matrix_Push Matrix_Push
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
-#define ObjHariko_BobHead func_800000A4
-#define ObjHariko_Draw func_800001BC
-#define ObjHariko_Init func_80000000
-#define ObjHariko_SetupBobHead func_80000080
+#define ObjHariko_BobHead ObjHariko_BobHead
+#define ObjHariko_Draw ObjHariko_Draw
+#define ObjHariko_Init ObjHariko_Init
+#define ObjHariko_SetupBobHead ObjHariko_SetupBobHead
 #define ObjHariko_SetupWait func_80B4B7AC
 #define gHarikoBodyDL D_6000080
 #define gHarikoFaceDL D_6000110

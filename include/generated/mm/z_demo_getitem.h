@@ -10,9 +10,9 @@
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define DemoGetitem_Draw D_80A34A50
-#define DemoGetitem_Init func_80000000
-#define DemoGetitem_PerformCutsceneActions func_80000128
-#define DemoGetitem_Wait func_800000D0
+#define DemoGetitem_Init DemoGetitem_Init
+#define DemoGetitem_PerformCutsceneActions DemoGetitem_PerformCutsceneActions
+#define DemoGetitem_Wait DemoGetitem_Wait
 #define Math_SinS Math_SinS
 #define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded

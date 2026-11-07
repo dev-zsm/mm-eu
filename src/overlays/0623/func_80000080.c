@@ -5,6 +5,6 @@
 
 M2C_UNK func_800C625C(s32, s32, s32, s32);          /* extern */
 
-void func_80000080(Actor *thisx, PlayState *play) {
+void ObjKepnKoya_Destroy(Actor *thisx, PlayState *play) {
     func_800C625C(play, (u8 *)play + 0x880, M2C_FIELD(thisx, s32 *, 0x144), play);
 }

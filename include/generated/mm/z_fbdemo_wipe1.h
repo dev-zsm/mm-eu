@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Gfx_BranchTexScroll Gfx_BranchTexScroll
-#define TransitionWipe1_Draw func_800001D0
-#define TransitionWipe1_Start func_80000000
-#define TransitionWipe1_Update func_800000F0
+#define TransitionWipe1_Draw TransitionWipe1_Draw
+#define TransitionWipe1_Start TransitionWipe1_Start
+#define TransitionWipe1_Update TransitionWipe1_Update
 #define gSaveContext D_801E6EF0
 #define guLookAt func_8008BB14
 #define guPerspective func_8008AE20

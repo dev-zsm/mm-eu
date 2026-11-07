@@ -23,7 +23,7 @@
 #define Math_SinS Math_SinS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
-#define ObjBombiwa_Init func_8000024C
+#define ObjBombiwa_Init ObjBombiwa_Init
 #define ObjBombiwa_IsUnderwater func_8091E00C
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C

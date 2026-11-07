@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjKendoKanban_Init */
-void func_800003C0(u8 *arg0);  /* ObjKendoKanban_SetupDoNothing */
-void func_800003D4(s32 arg0, s32 arg1);  /* ObjKendoKanban_DoNothing */
-void func_800003E4(void *arg0, void *arg1);  /* ObjKendoKanban_SetupTumble */
-void func_80000820(void *arg0, s32 arg1);  /* ObjKendoKanban_Tumble */
-void func_80000894(u8 *arg0);  /* ObjKendoKanban_SetupSettled */
-void func_800008E8(void *arg0, s32 arg1);  /* ObjKendoKanban_HandlePhysics */
-void func_80000CCC(void *arg0, void *arg1);  /* ObjKendoKanban_IsPlayerOnTop */
-void func_80000E44(void *arg0, s32 arg1);  /* ObjKendoKanban_UpdateCollision */
-void func_80000F94(void *arg0, void *arg1);  /* ObjKendoKanban_Draw */
+void ObjKendoKanban_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjKendoKanban_SetupDoNothing(u8 *arg0);  /* 800003C0 */
+void ObjKendoKanban_DoNothing(s32 arg0, s32 arg1);  /* 800003D4 */
+void ObjKendoKanban_SetupTumble(void *arg0, void *arg1);  /* 800003E4 */
+void ObjKendoKanban_Tumble(void *arg0, s32 arg1);  /* 80000820 */
+void ObjKendoKanban_SetupSettled(u8 *arg0);  /* 80000894 */
+void ObjKendoKanban_HandlePhysics(void *arg0, s32 arg1);  /* 800008E8 */
+void ObjKendoKanban_IsPlayerOnTop(void *arg0, void *arg1);  /* 80000CCC */
+void ObjKendoKanban_UpdateCollision(void *arg0, s32 arg1);  /* 80000E44 */
+void ObjKendoKanban_Draw(void *arg0, void *arg1);  /* 80000F94 */
 
 #endif

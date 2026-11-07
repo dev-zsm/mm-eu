@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0);  /* TitleSetup_SetupTitleScreen */
+void TitleSetup_SetupTitleScreen(s32 arg0);  /* 80000000 */
 void func_800000B0(void *a0);
-void func_800000D0(s32 *arg0);  /* TitleSetup_Main */
-void func_8000011C(s32 a0);  /* TitleSetup_Destroy */
-void func_80000140(u8 *arg0);  /* TitleSetup_Init */
+void TitleSetup_Main(s32 *arg0);  /* 800000D0 */
+void TitleSetup_Destroy(s32 a0);  /* 8000011C */
+void TitleSetup_Init(u8 *arg0);  /* 80000140 */
 
 #endif

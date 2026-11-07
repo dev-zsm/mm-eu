@@ -8,9 +8,9 @@
 #define Cutscene_ActorTranslateAndYaw Cutscene_ActorTranslateAndYaw
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
-#define DmOpstage_Draw func_80000268
-#define DmOpstage_HandleCutscene func_80000108
-#define DmOpstage_Init func_8000000C
+#define DmOpstage_Draw DmOpstage_Draw
+#define DmOpstage_HandleCutscene DmOpstage_HandleCutscene
+#define DmOpstage_Init DmOpstage_Init
 #define DmOpstage_SetupAction func_80A845D0
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh

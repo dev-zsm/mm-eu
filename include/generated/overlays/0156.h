@@ -6,7 +6,7 @@
 #include "types.h"
 
 void func_80000000(void *arg0, s32 arg1);
-void func_80000268(void *arg0, s32 arg1);  /* ObjLift_Init */
+void ObjLift_Init(void *arg0, s32 arg1);  /* 80000268 */
 void func_800003E0(void *arg0, s32 arg1);
 void func_800004CC(u8 *arg0);
 void func_800004F4(void *arg0, s32 arg1);

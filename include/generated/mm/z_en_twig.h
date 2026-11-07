@@ -12,8 +12,8 @@
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
-#define EnTwig_Draw func_80000800
-#define EnTwig_Init func_80000000
+#define EnTwig_Draw EnTwig_Draw
+#define EnTwig_Init EnTwig_Init
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Math3D_LineSegVsPlane Math3D_LineSegVsPlane
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq

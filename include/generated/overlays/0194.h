@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjRoomtimer_Init */
+void ObjRoomtimer_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_80000088(s32 arg0, s32 arg1);
 void func_800000EC(u8 *arg0, s32 arg1);
 void func_80000190(u8 *arg0, s32 arg1);

@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, void *arg1);  /* ObjIcePoly_Init */
-void func_80000244(s32 arg0, s32 arg1);  /* ObjIcePoly_Destroy */
+void ObjIcePoly_Init(void *arg0, void *arg1);  /* 80000000 */
+void ObjIcePoly_Destroy(s32 arg0, s32 arg1);  /* 80000244 */
 void func_800002C8(void *arg0, s32 arg1);
 void func_800004D8(void *arg0, void *arg1);
 void func_800008F8(void *arg0, s32 arg1);
 void func_8000098C(void *arg0, s32 arg1);
-void func_80000C5C(s32 arg0, void *arg1);  /* ObjIcePoly_Draw */
+void ObjIcePoly_Draw(s32 arg0, void *arg1);  /* 80000C5C */
 
 #endif

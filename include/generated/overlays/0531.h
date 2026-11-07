@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjY2shutter_Init */
-void func_800000A0(u8 *a0, u8 *a1, s32 a2);  /* ObjY2shutter_SetupOpen */
-void func_800000D4(void *arg0, s32 arg1);  /* ObjY2shutter_Update */
-void func_80000480(void *arg0, s32 arg1);  /* ObjY2shutter_Draw */
+void ObjY2shutter_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjY2shutter_SetupOpen(u8 *a0, u8 *a1, s32 a2);  /* 800000A0 */
+void ObjY2shutter_Update(void *arg0, s32 arg1);  /* 800000D4 */
+void ObjY2shutter_Draw(void *arg0, s32 arg1);  /* 80000480 */
 
 #endif

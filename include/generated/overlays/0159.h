@@ -32,7 +32,7 @@ void func_8000217C(s32 arg0, s32 arg1, void *arg2, s32 arg3);
 void func_80002598(void *arg0, s32 arg1);
 void func_800027C0(void *arg0, s32 arg1);
 void func_800029D4(s32 arg0, s32 arg1);
-void func_80002A0C(void *arg0, s32 arg1);  /* EnGoroiwa_Init */
+void EnGoroiwa_Init(void *arg0, s32 arg1);  /* 80002A0C */
 void func_80002CCC(void *arg0, s32 arg1);
 void func_80003170(void *arg0, void *arg1);
 void func_80003514(void *arg0);
@@ -45,8 +45,8 @@ void func_800037E4(void *arg0);
 void func_80003850(void *arg0, void *arg1);
 void func_8000396C(void *arg0, s32 arg1);
 void func_80003D64(void *arg0, s32 arg1);
-void func_80003DC8(void *arg0, s32 arg1);  /* EnGoroiwa_Update */
+void EnGoroiwa_Update(void *arg0, s32 arg1);  /* 80003DC8 */
 void func_8000427C(void *arg0, void *arg1);
-void func_80004494(void *arg0, s32 arg1);  /* EnGoroiwa_Draw */
+void EnGoroiwa_Draw(void *arg0, s32 arg1);  /* 80004494 */
 
 #endif

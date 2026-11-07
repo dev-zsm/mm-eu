@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
-#define BgFuKaiten_Draw func_800001A0
-#define BgFuKaiten_UpdateHeight func_8000010C
-#define BgFuKaiten_UpdateRotation func_800000B4
+#define BgFuKaiten_Draw BgFuKaiten_Draw
+#define BgFuKaiten_UpdateHeight BgFuKaiten_UpdateHeight
+#define BgFuKaiten_UpdateRotation BgFuKaiten_UpdateRotation
 #define Math_CosS Math_CosS
 
 #include "overlays/actors/ovl_Bg_Fu_Kaiten/z_bg_fu_kaiten.h"

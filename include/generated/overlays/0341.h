@@ -9,11 +9,11 @@ void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800000EC(void *arg0, s32 arg1);
 void func_80000218(void *arg0, s32 arg1);
 void func_80000328(s32 arg0);
-void func_800004D0(s32 arg0, s32 arg1);  /* EnDnb_Init */
-void func_800005B0(void *arg0, s32 arg1);  /* EnDnb_Update */
+void EnDnb_Init(s32 arg0, s32 arg1);  /* 800004D0 */
+void EnDnb_Update(void *arg0, s32 arg1);  /* 800005B0 */
 void func_80000740(void *arg0, void *arg1);
 void func_8000086C(void *arg0, void *arg1);
-void func_80000998(s32 arg0, void *arg1);  /* EnDnb_Draw */
+void EnDnb_Draw(s32 arg0, void *arg1);  /* 80000998 */
 void func_800009F0(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000A9C(void *arg0);
 void func_80000B80(void *arg0, void *arg1);

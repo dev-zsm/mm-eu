@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnWarptag_Init */
-void func_800000FC(void *arg0, s32 arg1);  /* EnWarpTag_CheckDungeonKeepObject */
-void func_80000180(s32 arg0, s32 arg1);  /* EnWarpTag_WaitForPlayer */
-void func_80000240(s32 arg0, s32 arg1);  /* EnWarpTag_Unused809C09A0 */
-void func_800002C0(s32 arg0, s32 arg1);  /* EnWarpTag_Unused809C0A20 */
-void func_80000354(void *arg0, s32 arg1);  /* EnWarpTag_RespawnPlayer */
-void func_800006D0(void *arg0, s32 arg1);  /* EnWarpTag_GrottoReturn */
-void func_800007DC(s32 arg0, s32 arg1);  /* EnWarpTag_Draw */
+void EnWarptag_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnWarpTag_CheckDungeonKeepObject(void *arg0, s32 arg1);  /* 800000FC */
+void EnWarpTag_WaitForPlayer(s32 arg0, s32 arg1);  /* 80000180 */
+void EnWarpTag_Unused809C09A0(s32 arg0, s32 arg1);  /* 80000240 */
+void EnWarpTag_Unused809C0A20(s32 arg0, s32 arg1);  /* 800002C0 */
+void EnWarpTag_RespawnPlayer(void *arg0, s32 arg1);  /* 80000354 */
+void EnWarpTag_GrottoReturn(void *arg0, s32 arg1);  /* 800006D0 */
+void EnWarpTag_Draw(s32 arg0, s32 arg1);  /* 800007DC */
 
 #endif

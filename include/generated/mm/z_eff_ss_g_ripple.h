@@ -6,9 +6,9 @@
 #define BgCheck_FindWaterBox BgCheck_FindWaterBox
 #define BgCheck_GetCollisionHeader BgCheck_GetCollisionHeader
 #define EffectSsGRipple_Draw D_8095EB88
-#define EffectSsGRipple_DrawRipple func_80000108
-#define EffectSsGRipple_Init func_80000000
-#define EffectSsGRipple_Update func_80000350
+#define EffectSsGRipple_DrawRipple EffectSsGRipple_DrawRipple
+#define EffectSsGRipple_Init EffectSsGRipple_Init
+#define EffectSsGRipple_Update EffectSsGRipple_Update
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_Vec3f_Copy Math_Vec3f_Copy

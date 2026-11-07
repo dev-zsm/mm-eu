@@ -5,14 +5,14 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnGamelupy_Init */
-void func_800000F4(void *arg0, s32 arg1);  /* EnGamelupy_SpawnSparkles */
-void func_800001E4(u8 *arg0);  /* EnGamelupy_SetupFindSharedMemory */
-void func_800001F8(u8 *arg0, s32 arg1);  /* EnGamelupy_FindSharedMemory */
-void func_80000234(u8 *arg0);  /* EnGamelupy_SetupIdle */
-void func_80000248(void *arg0, s32 arg1);  /* EnGamelupy_Idle */
-void func_80000318(void *arg0, void *arg1);  /* EnGamelupy_Collected */
-void func_800003E0(s32 arg0, s32 arg1);  /* EnGamelupy_UpdateCollision */
-void func_80000498(s32 arg0, s32 arg1);  /* EnGamelupy_Draw */
+void EnGamelupy_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnGamelupy_SpawnSparkles(void *arg0, s32 arg1);  /* 800000F4 */
+void EnGamelupy_SetupFindSharedMemory(u8 *arg0);  /* 800001E4 */
+void EnGamelupy_FindSharedMemory(u8 *arg0, s32 arg1);  /* 800001F8 */
+void EnGamelupy_SetupIdle(u8 *arg0);  /* 80000234 */
+void EnGamelupy_Idle(void *arg0, s32 arg1);  /* 80000248 */
+void EnGamelupy_Collected(void *arg0, void *arg1);  /* 80000318 */
+void EnGamelupy_UpdateCollision(s32 arg0, s32 arg1);  /* 800003E0 */
+void EnGamelupy_Draw(s32 arg0, s32 arg1);  /* 80000498 */
 
 #endif

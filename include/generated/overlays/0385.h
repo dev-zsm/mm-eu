@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* DmChar06_SetupAction */
-void func_8000000C(s32 arg0, s32 arg1);  /* DmChar06_Init */
-void func_80000070(s32 arg0, s32 arg1);  /* DmChar06_HandleCutscene */
-void func_800001F8(s32 arg0, s32 arg1);  /* DmChar06_Draw */
+void DmChar06_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void DmChar06_Init(s32 arg0, s32 arg1);  /* 8000000C */
+void DmChar06_HandleCutscene(s32 arg0, s32 arg1);  /* 80000070 */
+void DmChar06_Draw(s32 arg0, s32 arg1);  /* 800001F8 */
 
 #endif

@@ -4,7 +4,7 @@
 
 /* names of ours that symbols of the reference stand for */
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgFuMizu_Draw func_800001EC
+#define BgFuMizu_Draw BgFuMizu_Draw
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304
 #define object_fu_kaiten_DL_002FC0 D_6002FC0

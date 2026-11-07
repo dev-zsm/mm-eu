@@ -7,7 +7,7 @@
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgCheck_AnyLineTest1 BgCheck_AnyLineTest1
-#define BgF40Block_Init func_800006D8
+#define BgF40Block_Init BgF40Block_Init
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08

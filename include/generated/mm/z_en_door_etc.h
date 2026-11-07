@@ -12,11 +12,11 @@
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnDoorEtc_Draw func_800005D8
-#define EnDoorEtc_Init func_80000000
-#define EnDoorEtc_IsDistanceGreater func_80000174
-#define EnDoorEtc_Update func_80000560
-#define EnDoorEtc_WaitForObject func_800001D8
+#define EnDoorEtc_Draw EnDoorEtc_Draw
+#define EnDoorEtc_Init EnDoorEtc_Init
+#define EnDoorEtc_IsDistanceGreater EnDoorEtc_IsDistanceGreater
+#define EnDoorEtc_Update EnDoorEtc_Update
+#define EnDoorEtc_WaitForObject EnDoorEtc_WaitForObject
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa

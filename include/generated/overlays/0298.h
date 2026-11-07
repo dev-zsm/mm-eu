@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-s32 func_80000000(u8 *arg0, s32 arg1);  /* BgNumaHana_SpawnOpenFlowerCollisionChild */
-void func_8000006C(void *arg0);  /* BgNumaHana_UpdatePetalPosRots */
-void func_80000250(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* BgNumaHana_UpdateSettleRotation */
-void func_800002CC(void *arg0, s32 arg1);  /* BgNumaHana_Init */
-void func_800004AC(s32 arg0, s32 arg1);  /* BgNumaHana_Destroy */
-void func_80000514(u8 *arg0);  /* BgNumaHana_SetupDoNothing */
-void func_80000528(s32 arg0, s32 arg1);  /* BgNumaHana_DoNothing */
-void func_80000538(u8 *arg0);  /* BgNumaHana_SetupClosedIdle */
-void func_8000054C(void *arg0, s32 arg1);  /* BgNumaHana_ClosedIdle */
-void func_800005E8(u8 *arg0);  /* BgNumaHana_SetupUnfoldInnerPetals */
-void func_80000600(void *arg0, s32 arg1);  /* BgNumaHana_UnfoldInnerPetals */
-void func_800006D8(u8 *arg0);  /* BgNumaHana_SetupUnfoldOuterPetals */
-void func_800006F0(void *arg0, s32 arg1);  /* BgNumaHana_UnfoldOuterPetals */
-void func_800007CC(u8 *arg0);  /* BgNumaHana_SetupRaiseFlower */
-void func_800007E0(void *arg0, s32 arg1);  /* BgNumaHana_RaiseFlower */
-void func_80000908(u8 *arg0);  /* BgNumaHana_SetupOpenedIdle */
-void func_8000091C(void *arg0, s32 arg1);  /* BgNumaHana_OpenedIdle */
-void func_8000096C(void *arg0, s32 arg1);  /* BgNumaHana_Update */
-void func_80000A68(s32 arg0, void *arg1);  /* BgNumaHana_Draw */
+s32 BgNumaHana_SpawnOpenFlowerCollisionChild(u8 *arg0, s32 arg1);  /* 80000000 */
+void BgNumaHana_UpdatePetalPosRots(void *arg0);  /* 8000006C */
+void BgNumaHana_UpdateSettleRotation(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000250 */
+void BgNumaHana_Init(void *arg0, s32 arg1);  /* 800002CC */
+void BgNumaHana_Destroy(s32 arg0, s32 arg1);  /* 800004AC */
+void BgNumaHana_SetupDoNothing(u8 *arg0);  /* 80000514 */
+void BgNumaHana_DoNothing(s32 arg0, s32 arg1);  /* 80000528 */
+void BgNumaHana_SetupClosedIdle(u8 *arg0);  /* 80000538 */
+void BgNumaHana_ClosedIdle(void *arg0, s32 arg1);  /* 8000054C */
+void BgNumaHana_SetupUnfoldInnerPetals(u8 *arg0);  /* 800005E8 */
+void BgNumaHana_UnfoldInnerPetals(void *arg0, s32 arg1);  /* 80000600 */
+void BgNumaHana_SetupUnfoldOuterPetals(u8 *arg0);  /* 800006D8 */
+void BgNumaHana_UnfoldOuterPetals(void *arg0, s32 arg1);  /* 800006F0 */
+void BgNumaHana_SetupRaiseFlower(u8 *arg0);  /* 800007CC */
+void BgNumaHana_RaiseFlower(void *arg0, s32 arg1);  /* 800007E0 */
+void BgNumaHana_SetupOpenedIdle(u8 *arg0);  /* 80000908 */
+void BgNumaHana_OpenedIdle(void *arg0, s32 arg1);  /* 8000091C */
+void BgNumaHana_Update(void *arg0, s32 arg1);  /* 8000096C */
+void BgNumaHana_Draw(s32 arg0, void *arg1);  /* 80000A68 */
 
 #endif

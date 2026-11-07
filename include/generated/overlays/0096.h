@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* DoorWarp1_SetupAction */
-void func_8000000C(s32 arg0, void *arg1);  /* DoorWarp1_GetRemains */
+void DoorWarp1_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void DoorWarp1_GetRemains(s32 arg0, void *arg1);  /* 8000000C */
 void func_800000D8(void *arg0, s32 arg1);
 void func_800001DC(void *arg0, void *arg1);
-void func_80000248(void *arg0, void *arg1);  /* DoorWarp1_Init */
-void func_800003E8(s32 arg0, s32 arg1);  /* DoorWarp1_Destroy */
+void DoorWarp1_Init(void *arg0, void *arg1);  /* 80000248 */
+void DoorWarp1_Destroy(s32 arg0, s32 arg1);  /* 800003E8 */
 void func_80000494(void *arg0, s32 arg1);
 void func_800005EC(void *arg0, s32 arg1);
 void func_800007B8(void *arg0, s32 arg1);
@@ -43,7 +43,7 @@ void func_8000283C(void *arg0, s32 arg1);
 void func_80002A0C(void *arg0, void *arg1);
 void func_80003034(s32 arg0, s32 arg1);
 void func_80003064(void *arg0, void *arg1);
-void func_800033BC(void *arg0);  /* DoorWarp1_Draw */
+void DoorWarp1_Draw(void *arg0);  /* 800033BC */
 void func_80003444(void *arg0, s32 arg1, s32 arg2);
 
 #endif

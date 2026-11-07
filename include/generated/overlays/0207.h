@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsLightning_Init */
-void func_80000114(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* EffectSsLightning_NewLightning */
-void func_800001B8(s32 arg0, s32 arg1, void *arg2);  /* EffectSsLightning_Draw */
-void func_80000418(void *arg0, s32 arg1, void *arg2);  /* EffectSsLightning_Update */
+void EffectSsLightning_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsLightning_NewLightning(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000114 */
+void EffectSsLightning_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800001B8 */
+void EffectSsLightning_Update(void *arg0, s32 arg1, void *arg2);  /* 80000418 */
 
 #endif

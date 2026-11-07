@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* DemoSyoten_Init */
+void DemoSyoten_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_800002E0(void *arg0, s32 arg1);
 void func_80000398(void *arg0);
 void func_80000450(s32 arg0, s32 arg1);
@@ -16,10 +16,10 @@ void func_80000754(void *arg0, s32 arg1);
 void func_80000954(void *arg0, s32 arg1);
 void func_80000A2C(void *arg0, s32 arg1);
 void func_80000B88(void *arg0, s32 arg1);
-void func_80000C78(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* DemoSyoten_OverrideLimbDraw */
+void DemoSyoten_OverrideLimbDraw(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000C78 */
 void func_80000F34(s32 arg0, void *arg1);
 void func_80000FE8(void *arg0);
-void func_800010A8(void *arg0, void *arg1);  /* DemoSyoten_Draw */
+void DemoSyoten_Draw(void *arg0, void *arg1);  /* 800010A8 */
 void func_80001210(void *arg0, void *arg1);
 
 #endif

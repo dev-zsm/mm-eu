@@ -3,8 +3,8 @@
 #define MM_Z_EFF_SS_KIRAKIRA_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsKirakira_Draw func_8000015C
-#define EffectSsKirakira_Init func_80000000
+#define EffectSsKirakira_Draw EffectSsKirakira_Draw
+#define EffectSsKirakira_Init EffectSsKirakira_Init
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Math_SinS Math_SinS
 #define Rand_CenteredFloat Rand_CenteredFloat

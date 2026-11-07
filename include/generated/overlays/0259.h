@@ -6,18 +6,18 @@
 #include "types.h"
 
 void func_80000000(s32 arg0);
-void func_800000EC(s32 arg0);  /* ObjGrass_OverrideMatrixCurrent */
-void func_800001C0(u8 *arg0, s32 arg1);  /* ObjGrass_DropCollectible */
-void func_80000204(void *arg0, s32 arg1);  /* ObjGrass_SpawnFragments */
-void func_8000050C(void *arg0, s32 arg1);  /* ObjGrass_Init */
-void func_800005EC(void *arg0, s32 arg1);  /* ObjGrass_Destroy */
-void func_80000680(u8 *arg0, s32 arg1);  /* ObjGrass_ProcessColliders */
-void func_8000072C(void *arg0, s32 arg1);  /* ObjGrass_UpdateGrass */
-void func_80000CA8(void *arg0);  /* ObjGrass_CalcAnimationMatrices */
-void func_80001128(s32 arg0, s32 arg1);  /* ObjGrass_Update */
-void func_80001168(void *arg0, void *arg1);  /* ObjGrass_InitDraw */
-void func_8000143C(void *arg0, void *arg1);  /* ObjGrass_DrawOpa */
-void func_80001688(void *arg0, s32 arg1);  /* ObjGrass_DrawXlu */
-void func_80001898(s32 arg0, s32 arg1);  /* ObjGrass_Draw */
+void ObjGrass_OverrideMatrixCurrent(s32 arg0);  /* 800000EC */
+void ObjGrass_DropCollectible(u8 *arg0, s32 arg1);  /* 800001C0 */
+void ObjGrass_SpawnFragments(void *arg0, s32 arg1);  /* 80000204 */
+void ObjGrass_Init(void *arg0, s32 arg1);  /* 8000050C */
+void ObjGrass_Destroy(void *arg0, s32 arg1);  /* 800005EC */
+void ObjGrass_ProcessColliders(u8 *arg0, s32 arg1);  /* 80000680 */
+void ObjGrass_UpdateGrass(void *arg0, s32 arg1);  /* 8000072C */
+void ObjGrass_CalcAnimationMatrices(void *arg0);  /* 80000CA8 */
+void ObjGrass_Update(s32 arg0, s32 arg1);  /* 80001128 */
+void ObjGrass_InitDraw(void *arg0, void *arg1);  /* 80001168 */
+void ObjGrass_DrawOpa(void *arg0, void *arg1);  /* 8000143C */
+void ObjGrass_DrawXlu(void *arg0, s32 arg1);  /* 80001688 */
+void ObjGrass_Draw(s32 arg0, s32 arg1);  /* 80001898 */
 
 #endif

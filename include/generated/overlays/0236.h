@@ -5,6 +5,6 @@
 
 #include "types.h"
 
-void func_8000004C(s32 arg0, s32 arg1);  /* EnHs2_DoNothing */
+void EnHs2_DoNothing(s32 arg0, s32 arg1);  /* 8000004C */
 
 #endif

@@ -20,8 +20,8 @@
 #define Collider_SetJntSph Collider_SetJntSph
 #define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAT CollisionCheck_SetAT
-#define EnBombf_Draw func_80001014
-#define EnBombf_Init func_8000000C
+#define EnBombf_Draw EnBombf_Draw
+#define EnBombf_Init EnBombf_Init
 #define EnBombf_SetupAction func_808ADFE0
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304

@@ -6,6 +6,6 @@
 M2C_UNK func_800BDD44(M2C_UNK, M2C_UNK *, M2C_UNK); /* extern */
 extern M2C_UNK D_6003478;
 
-void func_800000C4(Actor *thisx, PlayState *play) {
+void ObjKepnKoya_Draw(Actor *thisx, PlayState *play) {
     func_800BDD44(play, &D_6003478, play);
 }

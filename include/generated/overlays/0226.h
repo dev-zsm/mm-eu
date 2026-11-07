@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* OceffStorm_SetupAction */
+void OceffStorm_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_8000000C(void *arg0);
-void func_80000084(void *arg0, void *arg1);  /* OceffStorm_Init */
-void func_800001C8(void *arg0, s32 arg1);  /* OceffStorm_DefaultAction */
-void func_80000408(s32 arg0, void *arg1);  /* OceffStorm_Update */
-void func_80000458(s32 arg0, void *arg1);  /* OceffStorm_Draw2 */
-void func_80000608(s32 arg0, void *arg1);  /* OceffStorm_Draw */
+void OceffStorm_Init(void *arg0, void *arg1);  /* 80000084 */
+void OceffStorm_DefaultAction(void *arg0, s32 arg1);  /* 800001C8 */
+void OceffStorm_Update(s32 arg0, void *arg1);  /* 80000408 */
+void OceffStorm_Draw2(s32 arg0, void *arg1);  /* 80000458 */
+void OceffStorm_Draw(s32 arg0, void *arg1);  /* 80000608 */
 
 #endif

@@ -6,8 +6,8 @@
 #define Actor_SetScale Actor_SetScale
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define DmChar07_DoNothing D_80A937EC
-#define DmChar07_Draw func_80000130
-#define DmChar07_Init func_8000000C
+#define DmChar07_Draw DmChar07_Draw
+#define DmChar07_Init DmChar07_Init
 #define DmChar07_SetupAction func_80A936F0
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh

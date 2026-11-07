@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ElfMsg2_SetupAction */
+void ElfMsg2_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_8000000C(void *arg0, s32 arg1);
 s32 func_80000210(u8 *arg0);
 void func_80000224(void *arg0, s32 arg1);

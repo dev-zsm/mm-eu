@@ -5,15 +5,15 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* DemoKankyo_SetupAction */
-void func_8000000C(void *arg0, void *arg1);  /* DemoKakyo_LostWoodsSparkleActionFunc */
-void func_80000C1C(void *arg0, s32 arg1);  /* DemoKakyo_GiantObjectCheck */
-void func_80000C7C(s32 arg0, void *arg1);  /* DemoKakyo_MoonSparklesActionFunc */
-void func_800013B8(void *arg0, s32 arg1);  /* DemoKankyo_Init */
-void func_800014D8(void *a0, s32 a1);  /* DemoKankyo_Destroy */
-void func_800014FC(u8 *a0);  /* DemoKankyo_Update */
-void func_80001520(s32 arg0, void *arg1);  /* DemoKakyo_DrawLostWoodsSparkle */
-void func_800019B4(void *arg0, void *arg1);  /* DemoKankyo_DrawMoonAndGiant */
-void func_80001F0C(u8 *arg0);  /* DemoKankyo_Draw */
+void DemoKankyo_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void DemoKakyo_LostWoodsSparkleActionFunc(void *arg0, void *arg1);  /* 8000000C */
+void DemoKakyo_GiantObjectCheck(void *arg0, s32 arg1);  /* 80000C1C */
+void DemoKakyo_MoonSparklesActionFunc(s32 arg0, void *arg1);  /* 80000C7C */
+void DemoKankyo_Init(void *arg0, s32 arg1);  /* 800013B8 */
+void DemoKankyo_Destroy(void *a0, s32 a1);  /* 800014D8 */
+void DemoKankyo_Update(u8 *a0);  /* 800014FC */
+void DemoKakyo_DrawLostWoodsSparkle(s32 arg0, void *arg1);  /* 80001520 */
+void DemoKankyo_DrawMoonAndGiant(void *arg0, void *arg1);  /* 800019B4 */
+void DemoKankyo_Draw(u8 *arg0);  /* 80001F0C */
 
 #endif

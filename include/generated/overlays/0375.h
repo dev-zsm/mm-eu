@@ -5,13 +5,13 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnEstone_Init */
-void func_8000033C(void *arg0, s32 arg1);  /* EnEstone_Active */
-void func_80000610(u8 *arg0, s32 arg1);  /* EnEstone_Inactive */
-void func_80000640(void *arg0, s32 arg1);  /* EnEstone_Update */
-void func_80000760(void *arg0, s32 arg1);  /* EnEstone_Draw */
-void func_800008D4(void *arg0, void *arg1, void *arg2, void *arg3);  /* EnEstone_SpawnEffect */
-void func_800009D0(void *arg0, s32 arg1);  /* EnEstone_UpdateEffects */
-void func_80000B20(void *arg0, void *arg1);  /* EnEstone_DrawEffects */
+void EnEstone_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnEstone_Active(void *arg0, s32 arg1);  /* 8000033C */
+void EnEstone_Inactive(u8 *arg0, s32 arg1);  /* 80000610 */
+void EnEstone_Update(void *arg0, s32 arg1);  /* 80000640 */
+void EnEstone_Draw(void *arg0, s32 arg1);  /* 80000760 */
+void EnEstone_SpawnEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 800008D4 */
+void EnEstone_UpdateEffects(void *arg0, s32 arg1);  /* 800009D0 */
+void EnEstone_DrawEffects(void *arg0, void *arg1);  /* 80000B20 */
 
 #endif

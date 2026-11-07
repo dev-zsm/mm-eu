@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ItemEtcetera_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* ItemEtcetera_Init */
-void func_80000154(u8 *arg0, s32 arg1);  /* ItemEtcetera_WaitForObject */
+void ItemEtcetera_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void ItemEtcetera_Init(void *arg0, s32 arg1);  /* 8000000C */
+void ItemEtcetera_WaitForObject(u8 *arg0, s32 arg1);  /* 80000154 */
 void func_800001AC(s32 arg0, s32 arg1);
 void func_80000208(u8 *arg0, s32 arg1);
-void func_80000274(s32 arg0, void *arg1);  /* ItemEtcetera_DrawThroughLens */
-void func_800002CC(u8 *arg0, s32 arg1);  /* ItemEtcetera_Draw */
+void ItemEtcetera_DrawThroughLens(s32 arg0, void *arg1);  /* 80000274 */
+void ItemEtcetera_Draw(u8 *arg0, s32 arg1);  /* 800002CC */
 
 #endif

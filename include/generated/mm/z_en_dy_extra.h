@@ -6,11 +6,11 @@
 #define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
-#define EnDyExtra_Draw func_80000214
-#define EnDyExtra_Fall func_80000118
-#define EnDyExtra_Init func_80000010
-#define EnDyExtra_Update func_800001C0
-#define EnDyExtra_WaitForTrigger func_80000084
+#define EnDyExtra_Draw EnDyExtra_Draw
+#define EnDyExtra_Fall EnDyExtra_Fall
+#define EnDyExtra_Init EnDyExtra_Init
+#define EnDyExtra_Update EnDyExtra_Update
+#define EnDyExtra_WaitForTrigger EnDyExtra_WaitForTrigger
 #define Math_ApproachF Math_ApproachF
 
 #include "overlays/actors/ovl_En_Dy_Extra/z_en_dy_extra.h"

@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* ObjMilkBin_Init */
-void func_800000B4(void *arg0, s32 arg1);  /* ObjMilkBin_Update */
+void ObjMilkBin_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void ObjMilkBin_Update(void *arg0, s32 arg1);  /* 800000B4 */
 
 #endif

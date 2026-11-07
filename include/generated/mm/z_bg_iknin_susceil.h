@@ -6,8 +6,8 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
-#define BgIkninSusceil_RequestQuakeAndRumble func_8000012C
-#define BgIkninSusceil_Update func_800007D8
+#define BgIkninSusceil_RequestQuakeAndRumble BgIkninSusceil_RequestQuakeAndRumble
+#define BgIkninSusceil_Update BgIkninSusceil_Update
 #define CutsceneManager_Stop func_800F1D6C
 #define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Math_SmoothStepToF Math_SmoothStepToF

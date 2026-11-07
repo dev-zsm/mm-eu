@@ -8,9 +8,9 @@
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
-#define BgIkanaRotaryroom_Draw func_80001D50
-#define BgIkanaRotaryroom_Init func_80001418
-#define BgIkanaRotaryroom_Update func_80001BC8
+#define BgIkanaRotaryroom_Draw BgIkanaRotaryroom_Draw
+#define BgIkanaRotaryroom_Init BgIkanaRotaryroom_Init
+#define BgIkanaRotaryroom_Update BgIkanaRotaryroom_Update
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_SetJntSph Collider_SetJntSph
 #define Collider_UpdateSpheres Collider_UpdateSpheres

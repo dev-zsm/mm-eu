@@ -6,8 +6,8 @@
 #define Actor_Kill Actor_Kill
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
-#define BgHakuginBombwall_Draw func_80000F4C
-#define BgHakuginBombwall_Init func_80000A40
+#define BgHakuginBombwall_Draw BgHakuginBombwall_Draw
+#define BgHakuginBombwall_Init BgHakuginBombwall_Init
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder

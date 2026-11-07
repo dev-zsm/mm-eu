@@ -9,9 +9,9 @@
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnTorch2_Draw func_80000308
-#define EnTorch2_Init func_80000000
-#define EnTorch2_Update func_80000100
+#define EnTorch2_Draw EnTorch2_Draw
+#define EnTorch2_Init EnTorch2_Init
+#define EnTorch2_Update EnTorch2_Update
 #define EnTorch2_UpdateIdle D_808A2B48
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu

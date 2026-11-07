@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EffChange_Init */
-void func_800000E8(void *arg0, s32 arg1);  /* EffChange_SetColors */
+void EffChange_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EffChange_SetColors(void *arg0, s32 arg1);  /* 800000E8 */
 void func_8000013C(u8 *arg0, s32 arg1);
-void func_80000320(void *arg0, void *arg1);  /* EffChange_Draw */
+void EffChange_Draw(void *arg0, void *arg1);  /* 80000320 */
 
 #endif

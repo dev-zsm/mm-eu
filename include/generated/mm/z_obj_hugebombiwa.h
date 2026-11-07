@@ -32,9 +32,9 @@
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Matrix_Translate Matrix_Translate
-#define ObjHugebombiwa_Draw func_80001C40
-#define ObjHugebombiwa_Init func_80000EE0
-#define ObjHugebombiwa_RequestQuakeAndRumble func_80000DA0
+#define ObjHugebombiwa_Draw ObjHugebombiwa_Draw
+#define ObjHugebombiwa_Init ObjHugebombiwa_Init
+#define ObjHugebombiwa_RequestQuakeAndRumble ObjHugebombiwa_RequestQuakeAndRumble
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations

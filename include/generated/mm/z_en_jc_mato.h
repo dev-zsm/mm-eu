@@ -11,11 +11,11 @@
 #define Collider_SetSphere Collider_SetSphere
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnJcMato_CheckForHit func_80000000
-#define EnJcMato_Draw func_8000026C
-#define EnJcMato_Init func_80000150
+#define EnJcMato_CheckForHit EnJcMato_CheckForHit
+#define EnJcMato_Draw EnJcMato_Draw
+#define EnJcMato_Init EnJcMato_Init
 #define EnJcMato_SetupIdle func_80B82D68
-#define EnJcMato_Update func_8000021C
+#define EnJcMato_Update EnJcMato_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define gKoumeTargetDL D_6000390

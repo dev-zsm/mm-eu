@@ -22,11 +22,11 @@ void func_80000884(void *arg0, s32 arg1, s32 arg2, void *arg3);
 void func_80000F3C(void *arg0);
 void func_80001054(s32 arg0, s32 arg1, void *arg2);
 void func_80001388(void *arg0, s32 arg1, void *arg2);
-void func_800014BC(void *arg0, void *arg1);  /* BgHakuginPost_RequestQuakeAndRumble */
+void BgHakuginPost_RequestQuakeAndRumble(void *arg0, void *arg1);  /* 800014BC */
 void func_80001558(void *arg0, s32 arg1, s32 arg2);
 void func_80001964(void *arg0, s32 arg1);
 void func_80001B84(void *arg0, s32 arg1);
-void func_80001C9C(void *arg0, s32 arg1);  /* BgHakuginPost_Init */
+void BgHakuginPost_Init(void *arg0, s32 arg1);  /* 80001C9C */
 void func_80001DC4(u8 *arg0);
 void func_80001DD8(void *arg0, s32 arg1);
 void func_80001FB4(u8 *arg0);
@@ -43,7 +43,7 @@ void func_800025F4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80002690(void *arg0, s32 arg1);
 void func_80002714(u8 *arg0);
 void func_80002764(u8 *arg0, s32 arg1);
-void func_800027C8(void *arg0, s32 arg1);  /* BgHakuginPost_Update */
+void BgHakuginPost_Update(void *arg0, s32 arg1);  /* 800027C8 */
 void func_8000294C(void *arg0, s32 arg1);
 
 #endif

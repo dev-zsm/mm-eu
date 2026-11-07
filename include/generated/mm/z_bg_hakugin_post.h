@@ -7,9 +7,9 @@
 #define Actor_PlaySfx_FlaggedCentered2 Actor_PlaySfx_FlaggedCentered2
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Audio_PlaySfx_2 Audio_PlaySfx_2
-#define BgHakuginPost_Init func_80001C9C
-#define BgHakuginPost_RequestQuakeAndRumble func_800014BC
-#define BgHakuginPost_Update func_800027C8
+#define BgHakuginPost_Init BgHakuginPost_Init
+#define BgHakuginPost_RequestQuakeAndRumble BgHakuginPost_RequestQuakeAndRumble
+#define BgHakuginPost_Update BgHakuginPost_Update
 #define Collider_DestroyCylinder Collider_DestroyCylinder
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder

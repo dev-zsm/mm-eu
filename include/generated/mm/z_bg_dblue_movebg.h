@@ -9,8 +9,8 @@
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define Audio_PlaySfx_AtPosWithFreqAndChannelIO Audio_PlaySfx_AtPosWithFreqAndChannelIO
 #define Audio_PlaySfx_WaterWheel Audio_PlaySfx_WaterWheel
-#define BgDblueMovebg_Draw func_80001910
-#define BgDblueMovebg_Init func_80000198
+#define BgDblueMovebg_Draw BgDblueMovebg_Draw
+#define BgDblueMovebg_Init BgDblueMovebg_Init
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_GetCutsceneCustomValue CutsceneManager_GetCutsceneCustomValue
 #define CutsceneManager_Stop func_800F1D6C

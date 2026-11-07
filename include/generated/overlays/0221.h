@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* EffectSsEnFire_Init */
-void func_8000016C(s32 arg0, s32 arg1, void *arg2);  /* EffectSsEnFire_Draw */
-void func_8000045C(s32 arg0, s32 arg1, void *arg2);  /* EffectSsEnFire_Update */
+void EffectSsEnFire_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+void EffectSsEnFire_Draw(s32 arg0, s32 arg1, void *arg2);  /* 8000016C */
+void EffectSsEnFire_Update(s32 arg0, s32 arg1, void *arg2);  /* 8000045C */
 
 #endif

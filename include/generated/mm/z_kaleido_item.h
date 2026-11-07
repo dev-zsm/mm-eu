@@ -9,10 +9,10 @@
 #define Gfx_SetupDL42_Opa func_8012CD5C
 #define Interface_LoadItemIcon func_80112AE0
 #define Interface_LoadItemIconImpl func_80112A3C
-#define KaleidoScope_DrawAmmoCount func_80002880
-#define KaleidoScope_DrawItemSelect func_80002D2C
+#define KaleidoScope_DrawAmmoCount KaleidoScope_DrawAmmoCount
+#define KaleidoScope_DrawItemSelect KaleidoScope_DrawItemSelect
 #define KaleidoScope_DrawTexQuadRGBA32 func_808210F8
-#define KaleidoScope_UpdateItemEquip func_80003CC4
+#define KaleidoScope_UpdateItemEquip KaleidoScope_UpdateItemEquip
 #define gAmmoItems D_801C7C70
 #define gEquippedItemOutlineTex D_2001360
 #define gItemIcons D_801C2B2C

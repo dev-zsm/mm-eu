@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0);  /* BgIkanaMirror_SetQuadVertices */
-void func_80000120(void *arg0, s32 arg1);  /* BgIkanaMirror_Init */
-void func_800002D0(void *arg0, s32 arg1);  /* BgIkanaMirror_Destroy */
-void func_80000354(u8 *arg0);  /* BgIkanaMirror_SetupWait */
-void func_8000036C(void *arg0, s32 arg1);  /* BgIkanaMirror_Wait */
-void func_80000474(void *arg0, s32 arg1);  /* BgIkanaMirror_EmitLight */
-void func_800005AC(s32 arg0, s32 arg1);  /* BgIkanaMirror_Draw */
+void BgIkanaMirror_SetQuadVertices(void *arg0);  /* 80000000 */
+void BgIkanaMirror_Init(void *arg0, s32 arg1);  /* 80000120 */
+void BgIkanaMirror_Destroy(void *arg0, s32 arg1);  /* 800002D0 */
+void BgIkanaMirror_SetupWait(u8 *arg0);  /* 80000354 */
+void BgIkanaMirror_Wait(void *arg0, s32 arg1);  /* 8000036C */
+void BgIkanaMirror_EmitLight(void *arg0, s32 arg1);  /* 80000474 */
+void BgIkanaMirror_Draw(s32 arg0, s32 arg1);  /* 800005AC */
 
 #endif

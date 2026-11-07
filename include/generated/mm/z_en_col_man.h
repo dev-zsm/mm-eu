@@ -16,9 +16,9 @@
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnColMan_Init func_80000000
+#define EnColMan_Init EnColMan_Init
 #define EnColMan_SetHeartPieceCollectedAndKill D_80AE2C30
-#define EnColMan_Update func_80000730
+#define EnColMan_Update EnColMan_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_SetupDL66 Gfx_SetupDL66

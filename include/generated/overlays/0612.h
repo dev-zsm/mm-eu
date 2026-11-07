@@ -5,9 +5,9 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* EnScopecoin_Spin */
-void func_80000018(u8 *arg0, s32 arg1);  /* EnScopecoin_CheckCollectible */
-void func_80000070(void *arg0, s32 arg1);  /* EnScopecoin_Init */
-void func_800001DC(s32 arg0, s32 arg1);  /* EnScopecoin_Draw */
+void EnScopecoin_Spin(u8 *arg0, s32 arg1);  /* 80000000 */
+void EnScopecoin_CheckCollectible(u8 *arg0, s32 arg1);  /* 80000018 */
+void EnScopecoin_Init(void *arg0, s32 arg1);  /* 80000070 */
+void EnScopecoin_Draw(s32 arg0, s32 arg1);  /* 800001DC */
 
 #endif

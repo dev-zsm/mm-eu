@@ -15,8 +15,8 @@
 #define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnOnpuman_Init func_80000000
-#define EnOnpuman_Update func_80000478
+#define EnOnpuman_Init EnOnpuman_Init
+#define EnOnpuman_Update EnOnpuman_Update
 #define Message_StartTextbox func_80151DF4
 #define func_80B121D8 func_80000378
 #define ref_func_80B11F44 func_80AF6C74

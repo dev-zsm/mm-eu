@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_DEAD_DB_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsDeadDb_Draw func_800000E4
-#define EffectSsDeadDb_Init func_80000000
-#define EffectSsDeadDb_Update func_80000294
+#define EffectSsDeadDb_Draw EffectSsDeadDb_Draw
+#define EffectSsDeadDb_Init EffectSsDeadDb_Init
+#define EffectSsDeadDb_Update EffectSsDeadDb_Update
 #define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_Vec3f_Copy Math_Vec3f_Copy

@@ -8,7 +8,7 @@
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
-#define BgDblueWaterfall_Draw func_800013CC
+#define BgDblueWaterfall_Draw BgDblueWaterfall_Draw
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define CutsceneManager_GetAdditionalCsId CutsceneManager_GetAdditionalCsId

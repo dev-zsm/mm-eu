@@ -16,7 +16,7 @@ void func_800006B4(s32 arg0, s32 arg1, s32 arg2);
 s32 func_80000710(u8 *arg0, s32 arg1);
 s32 func_80000750(void);
 void func_800007A4(f32 arg0);
-void func_800007D4(void *arg0, s32 arg1);  /* ObjVspinyroll_Init */
+void ObjVspinyroll_Init(void *arg0, s32 arg1);  /* 800007D4 */
 void func_800009E4(u8 *arg0);
 void func_80000A00(u8 *arg0, s32 arg1);
 void func_80000A6C(u8 *arg0, s32 arg1);
@@ -25,8 +25,8 @@ void func_80000B44(u8 *arg0);
 void func_80000B58(u8 *arg0, s32 arg1);
 void func_80000C08(u8 *arg0);
 void func_80000C1C(u8 *arg0, s32 arg1);
-void func_80000CA4(void *arg0, s32 arg1);  /* ObjVspinyroll_Update */
-void func_80000D30(void *arg0, s32 arg1);  /* ObjVspinyroll_Draw */
+void ObjVspinyroll_Update(void *arg0, s32 arg1);  /* 80000CA4 */
+void ObjVspinyroll_Draw(void *arg0, s32 arg1);  /* 80000D30 */
 void func_80000DE0(void *arg0, s32 arg1);
 
 #endif

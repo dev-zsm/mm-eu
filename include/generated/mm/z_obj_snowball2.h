@@ -31,8 +31,8 @@
 #define Math_SinS Math_SinS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
-#define ObjSnowball2_Init func_80000D74
-#define ObjSnowball2_Update func_800019A8
+#define ObjSnowball2_Init ObjSnowball2_Init
+#define ObjSnowball2_Update ObjSnowball2_Update
 #define Player_PlaySfx Player_PlaySfx
 #define Rand_Next func_80087010
 #define Rand_S16Offset Rand_S16Offset

@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000010(void *arg0, s32 arg1);  /* EnOkarinaTag_Init */
+void EnOkarinaTag_Init(void *arg0, s32 arg1);  /* 80000010 */
 void func_800000F8(void *arg0, s32 arg1);
 void func_8000026C(s32 arg0, s32 arg1);
 

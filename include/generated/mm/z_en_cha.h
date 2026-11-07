@@ -12,10 +12,10 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
-#define EnCha_Idle func_80000134
-#define EnCha_Init func_80000000
-#define EnCha_Ring func_800000BC
-#define EnCha_Update func_8000024C
+#define EnCha_Idle EnCha_Idle
+#define EnCha_Init EnCha_Init
+#define EnCha_Ring EnCha_Ring
+#define EnCha_Update EnCha_Update
 #define sCylinderInit D_80BD0620
 
 #include "overlays/actors/ovl_En_Cha/z_en_cha.h"

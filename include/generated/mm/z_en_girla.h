@@ -7,10 +7,10 @@
 #define Actor_SetScale Actor_SetScale
 #define EnGirlA_Bought D_80863E4C
 #define EnGirlA_DoNothing D_80863E04
-#define EnGirlA_Draw func_80001158
+#define EnGirlA_Draw EnGirlA_Draw
 #define EnGirlA_InitItem func_80863E14
-#define EnGirlA_InitObjIndex func_8000000C
-#define EnGirlA_InitialUpdate func_80000F04
+#define EnGirlA_InitObjIndex EnGirlA_InitObjIndex
+#define EnGirlA_InitialUpdate EnGirlA_InitialUpdate
 #define EnGirlA_Restock D_80863E64
 #define EnGirlA_SetupAction func_80862F90
 #define EnGirlA_TrySetMaskItemDescription func_80863E80

@@ -5,11 +5,11 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* EnSekihi_Init */
+void EnSekihi_Init(void *arg0, s32 arg1);  /* 80000000 */
 void func_80000168(void *arg0, s32 arg1);
 void func_800002C0(s32 arg0, s32 arg1);
 void func_80000430(s32 arg0, s32 arg1);
-void func_800004B0(s32 arg0, s32 arg1);  /* EnSekihi_DoNothing */
-void func_800004E4(s32 arg0, void *arg1);  /* EnSekihi_Draw */
+void EnSekihi_DoNothing(s32 arg0, s32 arg1);  /* 800004B0 */
+void EnSekihi_Draw(s32 arg0, void *arg1);  /* 800004E4 */
 
 #endif

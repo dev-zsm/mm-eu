@@ -5,9 +5,9 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_SetScale Actor_SetScale
-#define BgTobira01_Action func_80000000
-#define BgTobira01_Draw func_80000338
-#define BgTobira01_Init func_8000025C
+#define BgTobira01_Action BgTobira01_Action
+#define BgTobira01_Draw BgTobira01_Draw
+#define BgTobira01_Init BgTobira01_Init
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue

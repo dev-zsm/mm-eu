@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ArmsHook_SetupAction */
-void func_8000000C(void *arg0, s32 arg1);  /* ArmsHook_Init */
-void func_80000080(void *arg0, s32 arg1);  /* ArmsHook_Destroy */
-void func_800000C8(void *arg0, s32 arg1);  /* ArmsHook_Wait */
-void func_80000124(u8 *arg0);  /* ArmsHook_PullPlayer */
-s32 func_80000138(u8 *arg0, u8 *arg1);  /* ArmsHook_AttachToPlayer */
-void func_80000168(u8 *arg0);  /* ArmsHook_DetachFromActor */
-void func_80000190(s32 arg0);  /* ArmsHook_CheckForCancel */
-void func_8000022C(u8 *arg0, u8 *arg1);  /* ArmsHook_AttachToActor */
-void func_80000274(void *arg0, s32 arg1);  /* ArmsHook_Shoot */
-void func_800008E8(void *arg0, s32 arg1);  /* ArmsHook_Draw */
+void ArmsHook_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
+void ArmsHook_Init(void *arg0, s32 arg1);  /* 8000000C */
+void ArmsHook_Destroy(void *arg0, s32 arg1);  /* 80000080 */
+void ArmsHook_Wait(void *arg0, s32 arg1);  /* 800000C8 */
+void ArmsHook_PullPlayer(u8 *arg0);  /* 80000124 */
+s32 ArmsHook_AttachToPlayer(u8 *arg0, u8 *arg1);  /* 80000138 */
+void ArmsHook_DetachFromActor(u8 *arg0);  /* 80000168 */
+void ArmsHook_CheckForCancel(s32 arg0);  /* 80000190 */
+void ArmsHook_AttachToActor(u8 *arg0, u8 *arg1);  /* 8000022C */
+void ArmsHook_Shoot(void *arg0, s32 arg1);  /* 80000274 */
+void ArmsHook_Draw(void *arg0, s32 arg1);  /* 800008E8 */
 
 #endif

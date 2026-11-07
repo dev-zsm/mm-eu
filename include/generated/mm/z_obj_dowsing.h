@@ -6,7 +6,7 @@
 #define Flags_GetCollectible Flags_GetCollectible
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_GetTreasure Flags_GetTreasure
-#define ObjDowsing_GetFlag func_80000000
+#define ObjDowsing_GetFlag ObjDowsing_GetFlag
 
 #include "overlays/actors/ovl_Obj_Dowsing/z_obj_dowsing.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)

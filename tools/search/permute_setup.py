@@ -20,7 +20,7 @@ def workdir(seg: str, fn: str) -> Path:
 def draft(seg: str, fn: str):
     """The unfinished C of a function: src/<seg>/wip, or for an overlay build/auto_drafts (made by tools/search/permute_list.py)."""
     if seg.startswith("ovl"):
-        for p in (ROOT / "src" / "overlays" / seg[3:] / "wip" / f"{fn}.c", ROOT / "build" / "auto_drafts" / seg / f"{fn}.c"):
+        for p in (srcpath.overlay_dir(seg[3:]) / "wip" / f"{fn}.c", ROOT / "build" / "auto_drafts" / seg / f"{fn}.c"):
             if p.exists():
                 return p
         return None

@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000010(void *arg0, s32 arg1);  /* EnDyExtra_Init */
-void func_80000084(void *arg0, s32 arg1);  /* EnDyExtra_WaitForTrigger */
-void func_80000118(void *arg0, s32 arg1);  /* EnDyExtra_Fall */
-void func_800001C0(void *arg0, s32 arg1);  /* EnDyExtra_Update */
-void func_80000214(s32 arg0, s32 arg1);  /* EnDyExtra_Draw */
+void EnDyExtra_Init(void *arg0, s32 arg1);  /* 80000010 */
+void EnDyExtra_WaitForTrigger(void *arg0, s32 arg1);  /* 80000084 */
+void EnDyExtra_Fall(void *arg0, s32 arg1);  /* 80000118 */
+void EnDyExtra_Update(void *arg0, s32 arg1);  /* 800001C0 */
+void EnDyExtra_Draw(s32 arg0, s32 arg1);  /* 80000214 */
 
 #endif

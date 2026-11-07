@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-void func_80000128(void *arg0, s32 arg1);  /* EnNutsball_Update */
-void func_800004E0(s32 arg0, s32 arg1);  /* EnNutsball_Draw */
+void EnNutsball_Update(void *arg0, s32 arg1);  /* 80000128 */
+void EnNutsball_Draw(s32 arg0, s32 arg1);  /* 800004E0 */
 
 #endif

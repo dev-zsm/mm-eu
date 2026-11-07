@@ -13,9 +13,9 @@
 #define Math_SinS Math_SinS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
-#define ObjChikuwa_Draw func_80000840
-#define ObjChikuwa_Init func_800000DC
-#define ObjChikuwa_Update func_80000698
+#define ObjChikuwa_Draw ObjChikuwa_Draw
+#define ObjChikuwa_Init ObjChikuwa_Init
+#define ObjChikuwa_Update ObjChikuwa_Update
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations

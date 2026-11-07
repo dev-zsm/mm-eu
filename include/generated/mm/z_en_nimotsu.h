@@ -11,10 +11,10 @@
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EnNimotsu_Draw func_8000021C
-#define EnNimotsu_Init func_8000006C
-#define EnNimotsu_Update func_80000108
-#define EnNimotsu_UpdateCollision func_80000000
+#define EnNimotsu_Draw EnNimotsu_Draw
+#define EnNimotsu_Init EnNimotsu_Init
+#define EnNimotsu_Update EnNimotsu_Update
+#define EnNimotsu_UpdateCollision EnNimotsu_UpdateCollision
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Rand_CenteredFloat Rand_CenteredFloat

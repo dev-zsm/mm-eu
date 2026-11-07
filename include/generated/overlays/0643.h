@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(u8 *arg0, s32 arg1);  /* ObjDanpeilift_UpdatePosition */
-void func_8000003C(void *arg0, s32 arg1);  /* ObjDanpeilift_Init */
-void func_800001C4(s32 arg0, s32 arg1);  /* ObjDanpeilift_DoNothing */
-void func_800001D4(void *arg0, s32 arg1);  /* ObjDanpeilift_Move */
-void func_80000450(u8 *arg0, s32 arg1);  /* ObjDanpeilift_Teleport */
-void func_800004AC(u8 *arg0, s32 arg1);  /* ObjDanpeilift_Wait */
-void func_800004E4(void *arg0);  /* ObjDanpeilift_Update */
+void ObjDanpeilift_UpdatePosition(u8 *arg0, s32 arg1);  /* 80000000 */
+void ObjDanpeilift_Init(void *arg0, s32 arg1);  /* 8000003C */
+void ObjDanpeilift_DoNothing(s32 arg0, s32 arg1);  /* 800001C4 */
+void ObjDanpeilift_Move(void *arg0, s32 arg1);  /* 800001D4 */
+void ObjDanpeilift_Teleport(u8 *arg0, s32 arg1);  /* 80000450 */
+void ObjDanpeilift_Wait(u8 *arg0, s32 arg1);  /* 800004AC */
+void ObjDanpeilift_Update(void *arg0);  /* 800004E4 */
 
 #endif

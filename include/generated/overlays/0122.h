@@ -5,12 +5,12 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgCtowerRot_Init */
-void func_8000018C(s32 arg0, s32 arg1);  /* BgCtowerRot_CorridorRotate */
-void func_8000026C(s32 arg0, s32 arg1);  /* BgCtowerRot_DoorDoNothing */
-void func_8000027C(void *arg0, s32 arg1);  /* BgCtowerRot_DoorClose */
-void func_80000360(s32 arg0, void *arg1);  /* BgCtowerRot_DoorIdle */
-void func_800003D4(u8 *arg0, s32 arg1);  /* BgCtowerRot_SetupDoorClose */
-void func_80000468(s32 arg0, s32 arg1);  /* BgCtowerRot_Draw */
+void BgCtowerRot_Init(void *arg0, s32 arg1);  /* 80000000 */
+void BgCtowerRot_CorridorRotate(s32 arg0, s32 arg1);  /* 8000018C */
+void BgCtowerRot_DoorDoNothing(s32 arg0, s32 arg1);  /* 8000026C */
+void BgCtowerRot_DoorClose(void *arg0, s32 arg1);  /* 8000027C */
+void BgCtowerRot_DoorIdle(s32 arg0, void *arg1);  /* 80000360 */
+void BgCtowerRot_SetupDoorClose(u8 *arg0, s32 arg1);  /* 800003D4 */
+void BgCtowerRot_Draw(s32 arg0, s32 arg1);  /* 80000468 */
 
 #endif

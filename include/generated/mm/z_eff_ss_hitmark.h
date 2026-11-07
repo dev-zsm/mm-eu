@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_HITMARK_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsHitmark_Draw func_800000D0
-#define EffectSsHitmark_Init func_80000000
-#define EffectSsHitmark_Update func_800002BC
+#define EffectSsHitmark_Draw EffectSsHitmark_Draw
+#define EffectSsHitmark_Init EffectSsHitmark_Init
+#define EffectSsHitmark_Update EffectSsHitmark_Update
 #define EffectSs_LerpInv EffectSs_LerpInv
 #define Gfx_SetupDL61_Xlu Gfx_SetupDL61_Xlu
 #define Lib_SegmentedToVirtual func_80100304

@@ -5,10 +5,10 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* BgIcefloe_Init */
-void func_80000114(void *arg0, s32 arg1);  /* BgIcefloe_Destroy */
+void BgIcefloe_Init(void *arg0, s32 arg1);  /* 80000000 */
+void BgIcefloe_Destroy(void *arg0, s32 arg1);  /* 80000114 */
 void func_80000190(u8 *arg0, s32 arg1);
-void func_800001F8(void *arg0, s32 arg1);  /* BgIcefloe_Grow */
+void BgIcefloe_Grow(void *arg0, s32 arg1);  /* 800001F8 */
 void func_80000344(void *arg0, s32 arg1);
 void func_80000400(u8 *a);
 void func_8000043C(void *arg0, s32 arg1);

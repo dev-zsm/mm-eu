@@ -5,41 +5,41 @@
 
 #include "types.h"
 
-s32 func_80000000(void);  /* ObjTokeidai_GetTargetSunMoonPanelRotation */
-void func_80000024(void *arg0);  /* ObjTokeidai_SetupClockOrExteriorGear */
-void func_800000A4(s32 arg0);  /* ObjTokeidai_Clock_Init */
-void func_80000138(void *arg0, s32 arg1);  /* ObjTokeidai_ExteriorGear_Init */
-void func_80000268(void *arg0, s32 arg1);  /* ObjTokeidai_TowerClock_Init */
-void func_8000042C(void *arg0, void *arg1);  /* ObjTokeidai_Counterweight_Init */
-void func_8000065C(void *arg0, s32 arg1);  /* ObjTokeidai_Init */
-void func_80000880(void *arg0, s32 arg1);  /* ObjTokeidai_RotateOnMinuteChange */
-void func_80000A0C(void *arg0, s32 arg1);  /* ObjTokeidai_ExteriorGear_Collapse */
-void func_80000AB0(s32 arg0, s32 arg1);  /* ObjTokeidai_ExteriorGear_OpenedIdle */
-void func_80000B60(u8 *arg0, s32 arg1);  /* ObjTokeidai_TowerClock_Fall */
-void func_80000BE0(void *arg0, s32 arg1);  /* ObjTokeidai_TowerClock_SlideOff */
-void func_80000D3C(s32 arg0, s32 arg1);  /* ObjTokeidai_TowerClock_OpenedIdle */
-void func_80000DB4(u8 *arg0, s32 arg1);  /* ObjTokeidai_Counterweight_Collapse */
-void func_80000E08(s32 arg0, s32 arg1);  /* ObjTokeidai_Counterweight_OpenedIdle */
-void func_80000EAC(u8 *a0, s32 a1);  /* ObjTokeidai_TerminaFieldWalls_Collapse */
-void func_80000ECC(s32 arg0, s32 arg1);  /* ObjTokeidai_TerminaFieldWalls_Idle */
-void func_80000F34(s32 arg0, void *arg1);  /* ObjTokeidai_TowerOpening_EndCutscene */
-void func_80001078(u8 *arg0);  /* ObjTokeidai_TowerOpening_FinishOpening */
-void func_800010F0(u8 *arg0, s32 arg1);  /* ObjTokeidai_TowerOpening_Wait */
-void func_80001120(void *arg0, s32 arg1);  /* ObjTokeidai_TowerOpening_DropCounterweight */
-void func_8000122C(void *arg0, s32 arg1);  /* ObjTokeidai_TowerOpening_FinishRaise */
-void func_800012EC(void *arg0, s32 arg1);  /* ObjTokeidai_TowerOpening_RaiseTower */
-void func_800013A4(s32 arg0, s32 arg1);  /* ObjTokeidai_TowerOpening_Start */
-void func_80001420(u8 *arg0);  /* ObjTokeidai_SetupTowerOpening */
-void func_80001448(s32 arg0, s32 arg1);  /* ObjTokeidai_DoNothing */
-void func_80001458(u8 *arg0, s32 arg1);  /* ObjTokeidai_StaircaseToRooftop_Idle */
-void func_800014C0(s32 arg0, s32 arg1);  /* ObjTokeidai_IsPostFirstCycleFinalHours */
-void func_8000153C(void *arg0, s32 arg1);  /* ObjTokeidai_RotateOnHourChange */
-void func_80001740(u8 *arg0, u8 *arg1);  /* ObjTokeidai_TowerClock_Idle */
-void func_800018F0(void *arg0, s32 arg1);  /* ObjTokeidai_ExteriorGear_Idle */
-void func_800019D0(void *arg0, s32 arg1);  /* ObjTokeidai_Counterweight_Idle */
-void func_80001B0C(s32 arg0, void *arg1);  /* ObjTokeidai_Draw */
-void func_80001C04(s32 arg0, s32 arg1);  /* ObjTokeidai_Clock_Draw */
-void func_80001ED4(void *arg0, void *arg1);  /* ObjTokeidai_Counterweight_Draw */
-void func_80002104(void *arg0, s32 arg1);  /* ObjTokeidai_ExteriorGear_Draw */
+s32 ObjTokeidai_GetTargetSunMoonPanelRotation(void);  /* 80000000 */
+void ObjTokeidai_SetupClockOrExteriorGear(void *arg0);  /* 80000024 */
+void ObjTokeidai_Clock_Init(s32 arg0);  /* 800000A4 */
+void ObjTokeidai_ExteriorGear_Init(void *arg0, s32 arg1);  /* 80000138 */
+void ObjTokeidai_TowerClock_Init(void *arg0, s32 arg1);  /* 80000268 */
+void ObjTokeidai_Counterweight_Init(void *arg0, void *arg1);  /* 8000042C */
+void ObjTokeidai_Init(void *arg0, s32 arg1);  /* 8000065C */
+void ObjTokeidai_RotateOnMinuteChange(void *arg0, s32 arg1);  /* 80000880 */
+void ObjTokeidai_ExteriorGear_Collapse(void *arg0, s32 arg1);  /* 80000A0C */
+void ObjTokeidai_ExteriorGear_OpenedIdle(s32 arg0, s32 arg1);  /* 80000AB0 */
+void ObjTokeidai_TowerClock_Fall(u8 *arg0, s32 arg1);  /* 80000B60 */
+void ObjTokeidai_TowerClock_SlideOff(void *arg0, s32 arg1);  /* 80000BE0 */
+void ObjTokeidai_TowerClock_OpenedIdle(s32 arg0, s32 arg1);  /* 80000D3C */
+void ObjTokeidai_Counterweight_Collapse(u8 *arg0, s32 arg1);  /* 80000DB4 */
+void ObjTokeidai_Counterweight_OpenedIdle(s32 arg0, s32 arg1);  /* 80000E08 */
+void ObjTokeidai_TerminaFieldWalls_Collapse(u8 *a0, s32 a1);  /* 80000EAC */
+void ObjTokeidai_TerminaFieldWalls_Idle(s32 arg0, s32 arg1);  /* 80000ECC */
+void ObjTokeidai_TowerOpening_EndCutscene(s32 arg0, void *arg1);  /* 80000F34 */
+void ObjTokeidai_TowerOpening_FinishOpening(u8 *arg0);  /* 80001078 */
+void ObjTokeidai_TowerOpening_Wait(u8 *arg0, s32 arg1);  /* 800010F0 */
+void ObjTokeidai_TowerOpening_DropCounterweight(void *arg0, s32 arg1);  /* 80001120 */
+void ObjTokeidai_TowerOpening_FinishRaise(void *arg0, s32 arg1);  /* 8000122C */
+void ObjTokeidai_TowerOpening_RaiseTower(void *arg0, s32 arg1);  /* 800012EC */
+void ObjTokeidai_TowerOpening_Start(s32 arg0, s32 arg1);  /* 800013A4 */
+void ObjTokeidai_SetupTowerOpening(u8 *arg0);  /* 80001420 */
+void ObjTokeidai_DoNothing(s32 arg0, s32 arg1);  /* 80001448 */
+void ObjTokeidai_StaircaseToRooftop_Idle(u8 *arg0, s32 arg1);  /* 80001458 */
+void ObjTokeidai_IsPostFirstCycleFinalHours(s32 arg0, s32 arg1);  /* 800014C0 */
+void ObjTokeidai_RotateOnHourChange(void *arg0, s32 arg1);  /* 8000153C */
+void ObjTokeidai_TowerClock_Idle(u8 *arg0, u8 *arg1);  /* 80001740 */
+void ObjTokeidai_ExteriorGear_Idle(void *arg0, s32 arg1);  /* 800018F0 */
+void ObjTokeidai_Counterweight_Idle(void *arg0, s32 arg1);  /* 800019D0 */
+void ObjTokeidai_Draw(s32 arg0, void *arg1);  /* 80001B0C */
+void ObjTokeidai_Clock_Draw(s32 arg0, s32 arg1);  /* 80001C04 */
+void ObjTokeidai_Counterweight_Draw(void *arg0, void *arg1);  /* 80001ED4 */
+void ObjTokeidai_ExteriorGear_Draw(void *arg0, s32 arg1);  /* 80002104 */
 
 #endif

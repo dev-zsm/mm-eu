@@ -30,8 +30,8 @@
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Matrix_Translate Matrix_Translate
-#define ObjSpidertent_Draw func_800013E8
-#define ObjSpidertent_Init func_80000A6C
+#define ObjSpidertent_Draw ObjSpidertent_Draw
+#define ObjSpidertent_Init ObjSpidertent_Init
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C

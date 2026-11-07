@@ -5,8 +5,8 @@
 
 #include "types.h"
 
-void func_80000000(void *arg0, s32 arg1);  /* ObjSyokudai_Init */
-void func_800002B4(void *arg0, s32 arg1);  /* ObjSyokudai_Update */
-void func_800009C4(void *arg0, s32 arg1);  /* ObjSyokudai_Draw */
+void ObjSyokudai_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjSyokudai_Update(void *arg0, s32 arg1);  /* 800002B4 */
+void ObjSyokudai_Draw(void *arg0, s32 arg1);  /* 800009C4 */
 
 #endif

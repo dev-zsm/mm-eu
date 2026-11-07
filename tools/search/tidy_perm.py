@@ -11,6 +11,8 @@ import re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") if d.name != "vendor"]
+import srcpath  # noqa: E402
 WINS = ROOT / "build" / "perm_wins"
 TYPEDEF = re.compile(r"^typedef (?:signed char|unsigned char|signed short|unsigned short|signed int|unsigned int|"
                      r"signed long long|unsigned long long|float|double|s32) (?:s8|u8|s16|u16|s32|u32|s64|u64|f32|f64|M2C_UNK);$")
@@ -23,7 +25,7 @@ def wins(seg: str) -> Path:
 
 
 def home(seg: str) -> Path:
-    return ROOT / "src" / ("overlays/" + seg[3:] if seg.startswith("ovl") else seg)
+    return srcpath.overlay_dir(seg[3:]) if seg.startswith("ovl") else ROOT / "src" / seg
 
 
 def matches(seg: str, fn: str, text: str) -> bool:

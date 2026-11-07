@@ -3,11 +3,11 @@
 #define MM_Z_BG_ASTR_BOMBWALL_H
 
 /* names of ours that symbols of the reference stand for */
-#define BgAstrBombwall_Draw func_80000620
-#define BgAstrBombwall_InitCollider func_80000000
+#define BgAstrBombwall_Draw BgAstrBombwall_Draw
+#define BgAstrBombwall_InitCollider BgAstrBombwall_InitCollider
 #define BgAstrBombwall_SetupExploding func_80BEF1A0
-#define BgAstrBombwall_SpawnFragments func_80000250
-#define BgAstrBombwall_Standing func_800004BC
+#define BgAstrBombwall_SpawnFragments BgAstrBombwall_SpawnFragments
+#define BgAstrBombwall_Standing BgAstrBombwall_Standing
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define Flags_SetSwitch Flags_SetSwitch

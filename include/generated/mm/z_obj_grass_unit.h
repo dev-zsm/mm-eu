@@ -9,11 +9,11 @@
 #define BgCheck_GetWaterSurface BgCheck_GetWaterSurface
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
-#define ObjGrassUnit_Init func_800001C8
-#define ObjGrassUnit_IsUnderwater func_80000158
-#define ObjGrassUnit_SpawnObjGrass func_80000000
-#define ObjGrassUnit_SpawnObjGrassCarry0 func_80000074
-#define ObjGrassUnit_SpawnObjGrassCarry1 func_800000E4
+#define ObjGrassUnit_Init ObjGrassUnit_Init
+#define ObjGrassUnit_IsUnderwater ObjGrassUnit_IsUnderwater
+#define ObjGrassUnit_SpawnObjGrass ObjGrassUnit_SpawnObjGrass
+#define ObjGrassUnit_SpawnObjGrassCarry0 ObjGrassUnit_SpawnObjGrassCarry0
+#define ObjGrassUnit_SpawnObjGrassCarry1 ObjGrassUnit_SpawnObjGrassCarry1
 #define Rand_Next func_80087010
 #define sGrassCarry0 D_8099115C
 #define sGrassCarry1 D_80991160

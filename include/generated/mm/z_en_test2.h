@@ -8,9 +8,9 @@
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetObjectDependency Actor_SetObjectDependency
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define EnTest2_Draw func_80000194
-#define EnTest2_Init func_80000000
-#define EnTest2_Update func_80000054
+#define EnTest2_Draw EnTest2_Draw
+#define EnTest2_Init EnTest2_Init
+#define EnTest2_Update EnTest2_Update
 #define EnTest2_UpdateForLens D_80A2323C
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_DrawDListXlu Gfx_DrawDListXlu

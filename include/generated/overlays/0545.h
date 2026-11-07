@@ -5,24 +5,24 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);  /* EnKujiya_Init */
-void func_800000C8(u8 *arg0);  /* EnKujiya_SetupWait */
-void func_800000DC(void *arg0, s32 arg1);  /* EnKujiya_Wait */
-void func_80000248(u8 *arg0, u8 *arg1);  /* EnKujiya_HandlePlayerChoice */
-void func_80000318(void *arg0, s32 arg1);  /* EnKujiya_ChooseNextDialogue */
-void func_80000564(u8 *arg0);  /* EnKujiya_SetupTalk */
-void func_80000578(s32 arg0, s32 arg1);  /* EnKujiya_Talk */
-void func_80000644(u8 *arg0);  /* EnKujiya_SetupGivePrize */
-void func_80000658(s32 arg0, s32 arg1);  /* EnKujiya_GivePrize */
-void func_800006B4(u8 *arg0);  /* EnKujiya_SetupFinishGivePrize */
-void func_800006C8(s32 arg0, s32 arg1);  /* EnKujiya_FinishGivePrize */
-void func_80000718();  /* EnKujiya_CheckBoughtTicket */
-void func_800007A8(void);  /* EnKujiya_SetBoughtTicket */
-void func_80000818(void);  /* EnKujiya_UnsetBoughtTicket */
-void func_80000888(u8 *arg0);  /* EnKujiya_SetupTurnToOpen */
-void func_800008A0(void *arg0, s32 arg1);  /* EnKujiya_TurnToOpen */
-void func_80000970(u8 *arg0);  /* EnKujiya_SetupTurnToClosed */
-void func_80000988(void *arg0, s32 arg1);  /* EnKujiya_TurnToClosed */
-void func_80000A7C(s32 arg0, s32 arg1);  /* EnKujiya_Draw */
+void EnKujiya_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void EnKujiya_SetupWait(u8 *arg0);  /* 800000C8 */
+void EnKujiya_Wait(void *arg0, s32 arg1);  /* 800000DC */
+void EnKujiya_HandlePlayerChoice(u8 *arg0, u8 *arg1);  /* 80000248 */
+void EnKujiya_ChooseNextDialogue(void *arg0, s32 arg1);  /* 80000318 */
+void EnKujiya_SetupTalk(u8 *arg0);  /* 80000564 */
+void EnKujiya_Talk(s32 arg0, s32 arg1);  /* 80000578 */
+void EnKujiya_SetupGivePrize(u8 *arg0);  /* 80000644 */
+void EnKujiya_GivePrize(s32 arg0, s32 arg1);  /* 80000658 */
+void EnKujiya_SetupFinishGivePrize(u8 *arg0);  /* 800006B4 */
+void EnKujiya_FinishGivePrize(s32 arg0, s32 arg1);  /* 800006C8 */
+void EnKujiya_CheckBoughtTicket();  /* 80000718 */
+void EnKujiya_SetBoughtTicket(void);  /* 800007A8 */
+void EnKujiya_UnsetBoughtTicket(void);  /* 80000818 */
+void EnKujiya_SetupTurnToOpen(u8 *arg0);  /* 80000888 */
+void EnKujiya_TurnToOpen(void *arg0, s32 arg1);  /* 800008A0 */
+void EnKujiya_SetupTurnToClosed(u8 *arg0);  /* 80000970 */
+void EnKujiya_TurnToClosed(void *arg0, s32 arg1);  /* 80000988 */
+void EnKujiya_Draw(s32 arg0, s32 arg1);  /* 80000A7C */
 
 #endif

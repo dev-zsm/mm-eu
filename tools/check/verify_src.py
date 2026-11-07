@@ -20,7 +20,7 @@ def listing():
 
 
 def segment_of(f: Path) -> str:
-    return "ovl" + f.parent.name if seg == "overlays" else seg
+    return "ovl" + srcpath.overlay_index(f.parent.name) if seg == "overlays" else seg
 
 
 checker = Path(match.__file__).read_bytes()
@@ -35,7 +35,7 @@ def check(f: Path):
         want, _ = match.original(segment_of(f), name)
         flags = match.file_flags(f)
         key = objcache.digest(b"verdict", checker, " ".join(flags).encode(), f.read_bytes().replace(b"\r\n", b"\n"),
-                              objcache.headers().encode(), want, match.NAMES.get(name, name).encode(),
+                              objcache.headers().encode(), want, match.real_name(f, name).encode(),
                               b"53" if objcache.uses_ido53(f) else b"71")
         if key in known:
             return name, key, True

@@ -3,9 +3,9 @@
 #define MM_Z_EFF_SS_DEAD_DS_H
 
 /* names of ours that symbols of the reference stand for */
-#define EffectSsDeadDs_Draw func_800000E8
-#define EffectSsDeadDs_Init func_80000000
-#define EffectSsDeadDs_Update func_800003B8
+#define EffectSsDeadDs_Draw EffectSsDeadDs_Draw
+#define EffectSsDeadDs_Init EffectSsDeadDs_Init
+#define EffectSsDeadDs_Update EffectSsDeadDs_Update
 
 #include "overlays/effects/ovl_Effect_Ss_Dead_Ds/z_eff_ss_dead_ds.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

@@ -5,7 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
-#define BgHakuginElvpole_Draw func_8000038C
+#define BgHakuginElvpole_Draw BgHakuginElvpole_Draw
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08

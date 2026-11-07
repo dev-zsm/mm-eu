@@ -7,9 +7,9 @@
 
 s32 func_80000000(u8 *arg0);
 s32 func_800000C0(u8 *arg0);
-s32 func_8000016C(u8 *arg0, s32 arg1);  /* ObjBombiwa_IsUnderwater */
+s32 ObjBombiwa_IsUnderwater(u8 *arg0, s32 arg1);  /* 8000016C */
 void func_800001E4(void *arg0, s32 arg1);
-void func_8000024C(void *arg0, s32 arg1);  /* ObjBombiwa_Init */
+void ObjBombiwa_Init(void *arg0, s32 arg1);  /* 8000024C */
 void func_800003E4(void *arg0, s32 arg1);
 void func_800005E4(s32 arg0, void *arg1);
 void func_800008A0(s32 arg0, void *arg1);
