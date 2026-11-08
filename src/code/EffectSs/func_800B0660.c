@@ -7,7 +7,6 @@ typedef struct { u8 pad0[0x10]; s32 unk10; u8 pad14[8]; } Ent;
 extern Tbl D_801AF260;
 extern Ent D_801AF360[0x27];
 void EffectSs_Delete(Ss *);
-void ZeldaArena_Free(s32);
 void EffectSs_ClearAll(s32 play) {
     Ss *p;
     Ent *e;

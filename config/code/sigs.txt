@@ -180,28 +180,22 @@ Collider_SetElementDamageInfoAT s32 Collider_SetElementDamageInfoAT(struct PlayS
 Collider_ResetATElementUnk void Collider_ResetATElementUnk(struct PlayState *play, struct ColliderElement *elem);  # z64collision_check.h
 Collider_DestroyElementDamageInfoAC s32 Collider_DestroyElementDamageInfoAC(struct PlayState *play, struct ColliderElementDamageInfoAC *acDmgInfo);  # z64collision_check.h
 Collider_SetElementDamageInfoAC s32 Collider_SetElementDamageInfoAC(struct PlayState *play, struct ColliderElementDamageInfoAC *dest, struct ColliderElementDamageInfoACInit *src);  # z64collision_check.h
-Collider_DestroyElement s32 Collider_DestroyElement(struct PlayState *play, struct ColliderElement *elem);  # z64collision_check.h
 Collider_ResetOCElement void Collider_ResetOCElement(struct PlayState *play, struct ColliderElement *elem);  # z64collision_check.h
 Collider_DestroyJntSphElementDim s32 Collider_DestroyJntSphElementDim(struct PlayState *play, struct ColliderJntSphElementDim *dim);  # z64collision_check.h
 Collider_InitJntSphElement s32 Collider_InitJntSphElement(struct PlayState *play, struct ColliderJntSphElement *jntSphElem);  # z64collision_check.h
-Collider_DestroyJntSphElement s32 Collider_DestroyJntSphElement(struct PlayState *play, struct ColliderJntSphElement *jntSphElem);  # z64collision_check.h
 Collider_InitAndSetJntSph s32 Collider_InitAndSetJntSph(struct PlayState *play, struct ColliderJntSph *dest, struct Actor *actor, struct ColliderJntSphInit *src, struct ColliderJntSphElement *jntSphElements);  # z64collision_check.h
 Collider_DestroyCylinderDim s32 Collider_DestroyCylinderDim(struct PlayState *play, struct Cylinder16 *dim);  # z64collision_check.h
 Collider_InitCylinder s32 Collider_InitCylinder(struct PlayState *play, struct ColliderCylinder *cyl);  # z64collision_check.h
-Collider_DestroyCylinder s32 Collider_DestroyCylinder(struct PlayState *play, struct ColliderCylinder *cyl);  # z64collision_check.h
 Collider_SetCylinderToActor s32 Collider_SetCylinderToActor(struct PlayState *play, struct ColliderCylinder *dest, struct ColliderCylinderInitToActor *src);  # z64collision_check.h
 Collider_SetCylinderType1 s32 Collider_SetCylinderType1(struct PlayState *play, struct ColliderCylinder *dest, struct Actor *actor, struct ColliderCylinderInitType1 *src);  # z64collision_check.h
-Collider_InitAndSetCylinder s32 Collider_InitAndSetCylinder(struct PlayState *play, struct ColliderCylinder *dest, struct Actor *actor, struct ColliderCylinderInit *src);  # z64collision_check.h
 Collider_ResetCylinderAC s32 Collider_ResetCylinderAC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
 Collider_ResetCylinderOC s32 Collider_ResetCylinderOC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
 Collider_DestroyTrisElementDim s32 Collider_DestroyTrisElementDim(struct PlayState *play, struct TriNorm *dim);  # z64collision_check.h
 Collider_InitTrisElement s32 Collider_InitTrisElement(struct PlayState *play, struct ColliderTrisElement *trisElem);  # z64collision_check.h
-Collider_DestroyTrisElement s32 Collider_DestroyTrisElement(struct PlayState *play, struct ColliderTrisElement *trisElem);  # z64collision_check.h
 Collider_InitAndSetTris s32 Collider_InitAndSetTris(struct PlayState *play, struct ColliderTris *dest, struct Actor *actor, struct ColliderTrisInit *src, struct ColliderTrisElement *trisElements);  # z64collision_check.h
 Collider_DestroyQuadDim s32 Collider_DestroyQuadDim(struct PlayState *play, struct ColliderQuadDim *dim);  # z64collision_check.h
 Collider_ResetQuadACDist s32 Collider_ResetQuadACDist(struct PlayState *play, struct ColliderQuadDim *dim);  # z64collision_check.h
 Collider_InitQuad s32 Collider_InitQuad(struct PlayState *play, struct ColliderQuad *quad);  # z64collision_check.h
-Collider_DestroyQuad s32 Collider_DestroyQuad(struct PlayState *play, struct ColliderQuad *quad);  # z64collision_check.h
 Collider_SetQuadType1 s32 Collider_SetQuadType1(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInitType1 *src);  # z64collision_check.h
 Collider_SetQuad s32 Collider_SetQuad(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInit *src);  # z64collision_check.h
 Collider_InitAndSetQuad s32 Collider_InitAndSetQuad(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInit *src);  # z64collision_check.h
@@ -209,9 +203,7 @@ Collider_ResetQuadAT s32 Collider_ResetQuadAT(struct PlayState *play, struct Col
 Collider_ResetQuadAC s32 Collider_ResetQuadAC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
 Collider_ResetQuadOC s32 Collider_ResetQuadOC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
 Collider_InitSphere s32 Collider_InitSphere(struct PlayState *play, struct ColliderSphere *sph);  # z64collision_check.h
-Collider_DestroySphere s32 Collider_DestroySphere(struct PlayState *play, struct ColliderSphere *sph);  # z64collision_check.h
 Collider_SetSphere s32 Collider_SetSphere(struct PlayState *play, struct ColliderSphere *dest, struct Actor *actor, struct ColliderSphereInit *src);  # z64collision_check.h
-Collider_InitAndSetSphere s32 Collider_InitAndSetSphere(struct PlayState *play, struct ColliderSphere *dest, struct Actor *actor, struct ColliderSphereInit *src);  # z64collision_check.h
 Collider_ResetSphereAC s32 Collider_ResetSphereAC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
 Collider_ResetSphereOC s32 Collider_ResetSphereOC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
 Collider_InitLine s32 Collider_InitLine(struct PlayState *play, struct OcLine *line);  # z64collision_check.h
@@ -310,7 +302,6 @@ Lights_DrawGlow void Lights_DrawGlow(struct PlayState *play);  # z64light.h
 ZeldaArena_Malloc void *ZeldaArena_Malloc(u32 size);  # zelda_arena.h
 ZeldaArena_MallocR void *ZeldaArena_MallocR(u32 size);  # zelda_arena.h
 ZeldaArena_Realloc void *ZeldaArena_Realloc(void *ptr, u32 newSize);  # zelda_arena.h
-ZeldaArena_Free void ZeldaArena_Free(void *ptr);  # zelda_arena.h
 ZeldaArena_GetSizes void ZeldaArena_GetSizes(u32 *outMaxFree, u32 *outFree, u32 *outAlloc);  # zelda_arena.h
 ZeldaArena_Init void ZeldaArena_Init(void *start, u32 size);  # zelda_arena.h
 MapDisp_InitChestData void MapDisp_InitChestData(struct PlayState *play, s32 num, void *segmentAddress);  # z64map.h

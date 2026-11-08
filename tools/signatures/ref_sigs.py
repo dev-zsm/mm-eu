@@ -19,7 +19,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") if d.name != "vendor"]
-import names  # noqa: E402
 import objcache  # noqa: E402
 import retype  # noqa: E402
 import sig_header  # noqa: E402
@@ -39,7 +38,7 @@ def strip_comments(t: str) -> str:
 
 def flatten(t: str):
     """The text with every {...} block taken out: `;` where a function body ended, a marker elsewhere."""
-    out, depth, last = [], 0, ""
+    out, depth = [], 0
     for ch in t:
         if ch == "{":
             if depth == 0:
@@ -199,8 +198,6 @@ def main():
     old_sigs = sigs_file.read_text() if sigs_file.exists() else None
     if sigs_file.exists():
         sigs_file.unlink()   # the table is made from the guesses, not from itself
-    nm = names.load(seg)
-    back = {v: k for k, v in nm.items()}
     protos = sig_header.build(seg)
     table, retypes, skipped = {}, [], {"no reference prototype": 0, "type not spelt": 0, "assembly disagrees": 0}
     for real, (fn, proto) in sorted(protos.items(), key=lambda kv: kv[1][0]):

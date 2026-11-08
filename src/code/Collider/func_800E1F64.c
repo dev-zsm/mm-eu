@@ -4,9 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-M2C_UNK Collider_DestroyBase(s32, s32);                    /* extern */
-M2C_UNK Collider_DestroyElement(s32, s32);                    /* extern */
-M2C_UNK Collider_DestroyJntSphElementDim(s32, s32);                    /* extern */
 
 s32 Collider_DestroySphere(s32 arg0, s32 arg1) {
     Collider_DestroyBase(arg0, arg1);

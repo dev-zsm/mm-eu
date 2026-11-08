@@ -1241,7 +1241,7 @@ void Lights_DrawGlow(struct PlayState *play);  /* 80102864 */
 void *ZeldaArena_Malloc(u32 size);  /* 80102A60 */
 void *ZeldaArena_MallocR(u32 size);  /* 80102A88 */
 void *ZeldaArena_Realloc(void *ptr, u32 newSize);  /* 80102AB0 */
-void ZeldaArena_Free(void *ptr);  /* 80102AE0 */
+void ZeldaArena_Free(s32 arg0);  /* 80102AE0 */
 void *ZeldaArena_Calloc(u32 num, u32 size);  /* 80102B08 */
 void ZeldaArena_GetSizes(u32 *outMaxFree, u32 *outFree, u32 *outAlloc);  /* 80102B60 */
 void ZeldaArena_Check(void);  /* 80102B98 */

@@ -3,7 +3,6 @@
 #include "generated/code_funcs.h"
 s32 func_80095E10(s32);
 s32 PadMgr_VoiceAcquireSerialEventQueue();
-void PadMgr_VoiceReleaseSerialEventQueue(s32);
 s32 func_801A6358(s32 arg0) {
     s32 sp1C;
     s32 sp18;
