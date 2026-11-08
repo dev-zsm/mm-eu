@@ -92,5 +92,51 @@ check("ref_func_80001234" in ref_import.function_file("x", [("func", func)], "F"
 import srcpath  # noqa: E402
 check(srcpath.path("overlays", "func_80000000").name == "func_80000000.c", "srcpath.path")
 
+import score  # noqa: E402
+sc = score.score([1, 2, 3, 4], [1, 2, 3, 4])
+check(sc["diff"] == 0 and sc["score"] == 0, f"score.score identical {sc}")
+sc = score.score([0x01, 0x02, 0x03, 0x04], [0x01, 0x03, 0x02, 0x04])
+check(sc["diff"] == 2 and sc["moved"] == 2 and sc["hard"] == 0 and sc["first"] == [4, 8], f"score.score reordering {sc}")
+sc = score.score([0x8C850000, 0x00A62021], [0x8CA40000, 0x00A62021])   # lw a1,0(a0) against lw a0,0(a1): registers only
+check(sc["reg"] == 1 and sc["hard"] == 0 and sc["score"] == 0.25, f"score.score register-only {sc}")
+sc = score.score([1, 2, 3, 4, 5], [1, 9, 2, 3, 4, 5])   # one inserted instruction: the aligned tail is not a diff of its own
+check(sc["size"] == 1 and sc["edit"] == 1 and sc["score"] == 1, f"score.score insertion {sc}")
+
+import objcache  # noqa: E402
+import tempfile  # noqa: E402
+with tempfile.TemporaryDirectory() as td:
+    empty, full = Path(td, "e.o"), Path(td, "f.o")
+    empty.write_bytes(b"")
+    full.write_bytes(b"x")
+    check(not objcache.good(empty) and not empty.exists() and objcache.good(full), "objcache.good deletes an empty object")
+
+import server  # noqa: E402
+import client  # noqa: E402
+import threading  # noqa: E402
+import time  # noqa: E402
+server.HOME, server.TMP = Path(tempfile.mkdtemp()), Path(tempfile.mkdtemp())
+server.JOBS = 2
+server.SEM = threading.BoundedSemaphore(2)
+peak, cur, lk = [0], [0], threading.Lock()
+
+
+def job():
+    with server.gate():
+        with lk:
+            cur[0] += 1
+            peak[0] = max(peak[0], cur[0])
+        time.sleep(0.05)
+        with lk:
+            cur[0] -= 1
+
+
+ts = [threading.Thread(target=job) for _ in range(6)]
+[t.start() for t in ts]
+[t.join() for t in ts]
+check(peak[0] == 2 and server.STATE["running"] == 0 and server.STATE["waiting"] == 0, f"server.gate runs 2 at a time, peak {peak[0]}")
+check(client.local("C:\\Users\\x\\a.c") == Path("/mnt/c/Users/x/a.c") and client.local("src/a.c") == Path("src/a.c"), "client.local")
+r = server.do_match({"id": 7, "seg": "boot", "fn": "no_such_function", "source": "void f(void) {}\n"})
+check(r["id"] == 7 and r["status"] == "ERROR" and not r["match"], f"server.do_match reports an error {r}")
+
 print(f"{len(failures)} failure(s)" if failures else "selftest: OK")
 sys.exit(1 if failures else 0)

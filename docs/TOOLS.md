@@ -9,6 +9,7 @@ The scripts of `tools/`, grouped by use. The day-to-day commands are in [CONTRIB
 tools/
   mm           Windows-side wrapper for the WSL tools
   lib/         modules the other scripts import: match, objcache, names, srcpath, build_seg
+  fast/        the persistent match server and its client (milliseconds per match instead of a process per match)
   check/       verification and reports: verify_*, fastcheck, check_style, progress, quarantine
   search/      automatic search for matching C: auto_*, flag_sweep, permute_*, tidy_perm, overlay_auto, wave*
   signatures/  prototypes and typing: retype, sig_actors, sig_header
@@ -27,11 +28,48 @@ they run from any directory.
 
 | Tool | Purpose |
 |---|---|
-| `tools/mm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows) |
+| `tools/mm` | `asm`, `m2c`, `match` and `diff` for one function (runs the WSL tools from Windows); `fast ...` talks to the match server below |
 | `tools/lib/match.py` | compile one C function with IDO (7.1, or 5.3 if the file asks for it) and compare it to the ROM bytes |
 | `tools/research/disasm_diff.py` | ROM and compiled instructions side by side for one function (behind `tools/mm diff`) |
 | `tools/lib/names.py` | apply the symbol names of `config/<segment>/names.txt` everywhere |
 | `tools/check/check_style.sh` | source rules: no inline assembly, no `#pragma` but the `sqrtf`/`fabsf` idiom, no web address or project name in the sources (credits live in the README) |
+
+## The match server (`tools/fast`)
+
+`tools/lib/match.py` starts a process, hashes `include/` and reads the ROM and the assembly through `/mnt/c` on every call: tens of
+seconds on a loaded machine. The server does that once and keeps it in memory, on a native copy of the files, and answers in
+milliseconds (a cached object), or in the time of one compile (about 0.15 s on the native disk). Nothing to start by hand: the first
+call starts it (and mirrors the repository to `~/mmfast/<checkout>/tree`, about 20 s the first time).
+
+```
+tools/mm fast match ovl0057 func_80000618 path/to/f.c [--flags "-O1 -g0"] [--json] [--no-disasm]
+tools/mm fast batch ovl0057 func_80000618 a.c b.c c.c          # or cands.jsonl, or - for stdin: one JSON line per candidate, as it finishes
+tools/mm fast sync [--all] | stats | scrub | stop | path
+python3 tools/fast/client.py match ...                          # the same, from inside WSL (stdlib only)
+```
+
+A jsonl line is `{"id": "a", "source": "<C text>"}` or `{"id": "a", "file": "x.c", "flags": "-O1", "seg": "code", "fn": "func_..."}`
+(`seg` and `fn` default to the command's). The flags of a source are its `// FLAGS:` / `// COMPILER:` lines, as for `match.py`;
+`flags` replaces the optimisation flags like that line does. A result carries `status` (`MATCH`, `DIFF`, `SIZE`, `ERROR`), `match`,
+`ms`, `compiled` (false: the object came from the cache), `rom_len`, `our_len`, the score fields below, `first` (byte offsets of the
+first differing instructions), `lines` (`off`, `rom`, `ours` disassembled; single match, or `--disasm` in a batch) and `error`
+(the compiler messages). The exit code is 0 for a match, 1 otherwise (batch: 0 if any candidate matches).
+
+- **Sources are sent with the request**: an edited file needs no sync. Headers, names and tools are read from the mirror: run
+  `fast sync` after changing `include/`, `config/` or `tools/lib/` (a second or two, and the server restarts on the new files);
+  `--all` also refreshes the ROM files and the assembly.
+- **Compilers are capped**: `MM_JOBS` (default 3) compilers at once, counted over every server of the machine (a lock file per slot in
+  `~/mmfast/slots`, released by the system if a process dies); the other requests wait. A batch of 50 new sources takes about
+  50 / 3 compiles; the same source twice is compiled once. The server keeps the object cache of the process that started it
+  (`MM_CACHE`) and exits after `MM_FAST_IDLE` seconds (default 7200) without a request.
+- **Cache**: `tools/lib/objcache.py` now ignores and deletes an empty object, writes through a temporary name private to the
+  thread, and compiles a key once per process; `fast scrub` deletes the empty files and stale temporary files already there.
+- **Scoring** (`tools/lib/score.py`, `score.score(rom_words, our_words)`, usable by any search): `diff` (what `match.py` counts),
+  `reg` (differ only in register fields), `moved` (the ROM has the word elsewhere among the differing ones: an ordering
+  difference), `hard`, `size` (our length minus the ROM's, in words), `edit` (instructions outside the longest common subsequence: one
+  inserted instruction costs 1 here, not the whole shifted tail) and `score = min(hard + |size| + 0.5 moved + 0.25 reg, edit)`
+  (0 is a match, lower is closer).
+- From Python: `import client; client.match(seg, fn, source=text)` and `client.batch(seg, fn, [{"source": ...}, ...])`.
 
 ## Verification and build
 
