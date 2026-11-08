@@ -17,7 +17,7 @@ void ObjKibako_Destroy(Actor *thisx, PlayState *play2);  /* 80000330 */
 void ObjKibako_AirBreak(ObjKibako *this, PlayState *play);  /* 8000035C */
 void ObjKibako_WaterBreak(ObjKibako *this, PlayState *play);  /* 8000063C */
 void func_80000990(ObjKibako *this);
-void func_800009A4(u8 *arg0, s32 arg1);
+void func_800009A4(ObjKibako *this, PlayState *play);
 void ObjKibako_SetupIdle(ObjKibako *this);  /* 80000A30 */
 void ObjKibako_Idle(ObjKibako *this, PlayState *play);  /* 80000A44 */
 void ObjKibako_SetupHeld(ObjKibako *this);  /* 80000D44 */

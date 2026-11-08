@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80B0C4A4;
 
-void func_800014C0(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x1D4) = &D_80B0C4A4;
+void func_800014C0(Actor *thisx) {
+    M2C_FIELD(thisx, M2C_UNK **, 0x1D4) = &D_80B0C4A4;
 }

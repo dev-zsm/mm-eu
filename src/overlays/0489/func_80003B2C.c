@@ -11,14 +11,14 @@ M2C_UNK func_80B29E9C(u8 *);                      /* extern */
 M2C_UNK func_80B2AE48(u8 *);                      /* extern */
 M2C_UNK func_80B2C298(u8 *);                      /* extern */
 
-void func_80003B2C(u8 *arg0, s32 arg1) {
-    func_80B29014(arg0);
-    func_80B294F0(arg0, arg1);
-    func_80B28B04(arg0, 0x320, 0);
-    if (M2C_FIELD(arg0, f32 *, 0x320) > 0.0f) {
-        func_800B6564(arg0, 0x3C23D70A);
-        func_80B29E9C(arg0);
-        func_80B2AE48(arg0 + 0x24);
-        func_80B2C298(arg0);
+void func_80003B2C(Actor *thisx, s32 arg1) {
+    func_80B29014(thisx);
+    func_80B294F0(thisx, arg1);
+    func_80B28B04(thisx, 0x320, 0);
+    if (M2C_FIELD(thisx, f32 *, 0x320) > 0.0f) {
+        func_800B6564(thisx, 0x3C23D70A);
+        func_80B29E9C(thisx);
+        func_80B2AE48((u8 *)thisx + 0x24);
+        func_80B2C298(thisx);
     }
 }

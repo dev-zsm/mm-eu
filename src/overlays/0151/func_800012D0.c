@@ -5,8 +5,8 @@
 
 M2C_UNK func_800B6490();                            /* extern */
 
-void func_800012D0(u8 *arg0, M2C_UNK arg1) {
-    if (M2C_FIELD(arg0, s16 *, 0xBCA) == 0) {
+void func_800012D0(Actor *thisx, s32 arg1) {
+    if (M2C_FIELD(thisx, s16 *, 0xBCA) == 0) {
         func_800B6490();
     }
 }

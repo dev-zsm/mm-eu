@@ -9,10 +9,10 @@ typedef struct ObjHakaisi ObjHakaisi;
 
 void ObjHakaisi_Init(Actor *thisx, PlayState *play);  /* 80000000 */
 void ObjHakaisi_Destroy(Actor *thisx, PlayState *play);  /* 8000028C */
-void func_800002CC(u8 *arg0);
+void func_800002CC(ObjHakaisi *this);
 void func_800002E0(ObjHakaisi *this, PlayState *play);
 void func_80000390(ObjHakaisi *this);
-void func_800003A4(s32 arg0);
+void func_800003A4(ObjHakaisi *this);
 void func_800003D8(ObjHakaisi *this);
 void func_800003EC(ObjHakaisi *this, PlayState *play);
 void func_80000474(ObjHakaisi *this);

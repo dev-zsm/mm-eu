@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/overlays/0390.h"
 
 extern u8 D_80A9EB24[];
 extern u8 D_80A9EB28[];

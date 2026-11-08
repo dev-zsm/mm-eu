@@ -5,6 +5,6 @@
 
 M2C_UNK func_800B763C(s32, s32, M2C_UNK, M2C_UNK, f32, s32); /* extern */
 
-void func_80000C84(s32 arg0, s32 arg1) {
-    func_800B763C(arg1, arg0, 0x41000000, 0x41100000, 0.0f, 0x45);
+void func_80000C84(Actor *thisx, PlayState *play) {
+    func_800B763C(play, thisx, 0x41000000, 0x41100000, 0.0f, 0x45);
 }

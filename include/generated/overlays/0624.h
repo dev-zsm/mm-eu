@@ -9,7 +9,7 @@ typedef struct ObjUsiyane ObjUsiyane;
 
 s32 ObjUsiyane_GetAlienSpawnTime(s32 alienIndex);  /* 80000000 */
 s32 func_80000050(void);
-void func_80000144(s32 arg0, s32 arg1);
+void func_80000144(ObjUsiyane *this, s32 arg1);
 void func_8000017C(Vec3f *arg0, Vec3s *arg1, Vec3f *arg2, Vec3s *arg3, s32 arg4, s32 arg5, Vec3f *arg6, Vec3s *arg7);
 void func_800002B0(ObjUsiyane *this, PlayState *play);
 void func_80000548(ObjUsiyane *this, PlayState *play);

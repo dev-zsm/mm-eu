@@ -9,7 +9,7 @@ typedef struct EnKanban EnKanban;
 
 void func_80000000(s32 arg0);
 void EnKanban_Init(Actor *thisx, PlayState *play);  /* 800000BC */
-void func_80000288(void *arg0, s32 arg1);
+void func_80000288(EnKanban *this, s32 arg1);
 void EnKanban_Update(Actor *thisx, PlayState *play);  /* 80000340 */
 void EnKanban_Draw(Actor *thisx, PlayState *play);  /* 80001FF4 */
 

@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0161.h"
 
 s32 func_800003F4(u8 *arg0, u8 *arg1) {
     u8 *player = M2C_FIELD(arg1, u8 **, 0x1CCC);

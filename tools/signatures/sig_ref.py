@@ -232,6 +232,26 @@ def agrees(seg: str, fn: str, proto_text: str) -> bool:
     return False
 
 
+SPELL = {"struct Actor *": "Actor *", "struct PlayState *": "PlayState *", "struct Vec3f *": "Vec3f *", "struct Vec3s *": "Vec3s *"}
+
+
+@functools.lru_cache(maxsize=None)
+def code_types() -> dict:
+    """{address of a function of boot or code: {parameter: type}} for the parameters typed as one of SPELL in the generated headers."""
+    out = {}
+    for h in ("code_funcs.h", "boot_funcs.h"):
+        for line in (ROOT / "include" / "generated" / h).read_text().splitlines():
+            m = re.match(r"^[^(]*?(\w+)\((.*)\);(?:\s*/\* ([0-9A-F]{8}) \*/)?", line)
+            if not m:
+                continue
+            addr = int(m.group(3), 16) if m.group(3) else int(m.group(1)[5:], 16) if re.fullmatch(r"func_[0-9A-F]{8}", m.group(1)) else None
+            ts = {k: SPELL[re.sub(r"\s*\w+$", "", a.strip())] for k, a in enumerate(m.group(2).split(","))
+                  if re.sub(r"\s*\w+$", "", a.strip()) in SPELL}
+            if addr and ts:
+                out[addr] = ts
+    return out
+
+
 def derive(seg: str, known: dict, structs: set):
     """{function: prototype} for the functions of the overlay that receive, untouched and at every call, a parameter of a function whose
     types are known (the handlers, the functions of the reference): `Actor *thisx` from the handler is the actor itself (`EnTest *this` in
@@ -280,6 +300,16 @@ def derive(seg: str, known: dict, structs: set):
                 for target in sorted(stored.get(off, ())):
                     calls.append((fn, target, {k: v[1] for k, v in args.items() if v[0] == "p"}))
     derived = {}
+    up = {}   # (function, parameter) -> types of the parameter of the boot/code function it is passed to, untouched
+    for fn, (cs, _, _) in tr.items():
+        for t, args in cs:
+            for k, v in args.items():
+                if v[0] == "p" and k in code_types().get(t, {}) and fn in cur and fn not in known:
+                    up.setdefault((fn, v[1]), set()).add(code_types()[t][k])
+    for (fn, j), ts in up.items():
+        if len(ts) == 1:
+            typed.setdefault(fn, {})[j] = next(iter(ts))
+            derived[fn] = True
     for _ in range(6):
         seen = {}   # (callee, k) -> set of the types its call sites give (None: not a typed parameter)
         for caller, callee, args in calls:

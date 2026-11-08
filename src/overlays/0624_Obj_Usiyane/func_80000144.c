@@ -6,8 +6,8 @@
 M2C_UNK func_800B6490(s32);                         /* extern */
 s32 func_80BECA70();                                /* extern */
 
-void func_80000144(s32 arg0, M2C_UNK arg1) {
+void func_80000144(ObjUsiyane *this, s32 arg1) {
     if (func_80BECA70() != 0) {
-        func_800B6490(arg0);
+        func_800B6490(this);
     }
 }

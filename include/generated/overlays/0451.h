@@ -13,7 +13,7 @@ void func_80000120(EnColMan *this);
 void func_800001C0(EnColMan *this, PlayState *play);
 void EnColMan_SetHeartPieceCollectedAndKill(EnColMan *this, PlayState *play);  /* 800002C0 */
 void func_80000320(EnColMan *this);
-void func_80000374(void *arg0, s32 arg1);
+void func_80000374(EnColMan *this, s32 arg1);
 void func_800005F4(EnColMan *this);
 void func_8000061C(EnColMan *this, PlayState *play);
 void EnColMan_Update(Actor *thisx, PlayState *play);  /* 80000730 */

@@ -12,7 +12,7 @@ void func_800000A4(ObjSkateblock *this, s32 arg1);
 void func_800001A0(Vec3f *arg0, Vec3f *arg1, s16 arg2);
 s32 func_80000220(ObjSkateblock *this, PlayState *play);
 s32 func_800003F8(ObjSkateblock *this, PlayState *play);
-void func_80000584(ObjSkateblock *this, PlayState *play, s32 arg2, s32 arg3);
+void func_80000584(ObjSkateblock *this, PlayState *play, s32 arg2, Vec3f *arg3);
 s32 func_800007E4(ObjSkateblock *this, PlayState *play);
 void func_80000840(ObjSkateblock *this, PlayState *play, void *arg2);
 s32 func_80000AE0(ObjSkateblock *this, PlayState *play);

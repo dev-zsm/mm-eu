@@ -67,7 +67,8 @@ written to `config/overlays/protos.txt` by `tools/signatures/sig_ref.py` (same f
   parameter passed on from `play` is a `PlayState *`; the calls follow the straight line of the code, a
   parameter kept in the stack above the argument area and loaded back, and the calls through a word of the actor
   (`this->actionFunc(this, play)`): the functions stored in that word, directly or through the second parameter of a `SetupAction`, are
-  called with the same arguments;
+  called with the same arguments; a parameter passed untouched to a `boot` or `code` function whose
+  prototype types it (`Actor *`, `PlayState *`, `Vec3f *`, `Vec3s *`) takes that type when every such call agrees;
 - the assembly, as before (`arg0`, `void *`), for everything else.
 
 The headers `include/generated/overlays/NNNN.h` print these prototypes. They declare the actor structures without fields

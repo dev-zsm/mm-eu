@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80B75204;
 
-void func_80001FB0(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x188) = &D_80B75204;
+void func_80001FB0(Actor *thisx) {
+    M2C_FIELD(thisx, M2C_UNK **, 0x188) = &D_80B75204;
 }

@@ -38,7 +38,7 @@ void func_8000164C(u8 *arg0);
 void func_80001668(ObjBean *this, PlayState *play);
 void func_800016C4(ObjBean *this);
 void func_800016E0(u8 *arg0, s32 arg1);
-void func_80001718(u8 *arg0);
+void func_80001718(ObjBean *this);
 void func_80001754(ObjBean *this, PlayState *play);
 void func_800017F8(ObjBean *this);
 void func_80001814(ObjBean *this, PlayState *play);

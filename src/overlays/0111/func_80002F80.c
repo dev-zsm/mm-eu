@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0111.h"
 
 s32 func_80002F80(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 *arg4, u8 *arg5) {
     if (arg1 == 0x17) {

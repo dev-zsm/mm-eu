@@ -3,10 +3,10 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0604.h"
 
-s32 func_80000454(u8 *arg0) {
+s32 func_80000454(Actor *thisx) {
     s32 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s16 *, 0x1C) & 3;
+    temp_v0 = M2C_FIELD(thisx, s16 *, 0x1C) & 3;
     switch (temp_v0) {                              /* irregular */
     case 0:
         return 0x35;

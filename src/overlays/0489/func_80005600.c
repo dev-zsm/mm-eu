@@ -23,19 +23,19 @@ extern M2C_UNK D_80B33830;
 extern f32 D_80B33C34;
 extern f32 D_80B33C38;
 
-void func_80005600(u8 *arg0, s32 arg1) {
-    if (func_8012FA08(arg1 + 0x17D88, M2C_FIELD(arg0, s8 *, 0x2F4)) != 0) {
+void func_80005600(u8 *arg0, PlayState *play) {
+    if (func_8012FA08((u8 *)play + 0x17D88, M2C_FIELD(arg0, s8 *, 0x2F4)) != 0) {
         M2C_FIELD(arg0, s8 *, 0x1E) = (s8) M2C_FIELD(arg0, s8 *, 0x2F4);
-        func_800B6580(arg1, arg0);
+        func_800B6580(play, arg0);
         func_80B29C88();
         M2C_FIELD(arg0, M2C_UNK **, 0x138) = &D_80B2DE20;
         M2C_FIELD(arg0, M2C_UNK **, 0x13C) = &D_80B33054;
         M2C_FIELD(arg0, s16 *, 0x116) = 0x3330;
-        func_80136ED0(arg1, arg0 + 0x144, &D_6013928, &D_6009E58, arg0 + 0x188, arg0 + 0x212, 0x17);
-        func_80B2A934(arg0 + 0x324, &D_80B337C0, 6, &D_80B33830, 2, &D_801C9EEC, 0x64, D_80B33C34, D_80B33C38, D_80B33C34);
-        func_80B29224(arg0, arg1);
+        func_80136ED0(play, (u8 *)arg0 + 0x144, &D_6013928, &D_6009E58, (u8 *)arg0 + 0x188, (u8 *)arg0 + 0x212, 0x17);
+        func_80B2A934((u8 *)arg0 + 0x324, &D_80B337C0, 6, &D_80B33830, 2, &D_801C9EEC, 0x64, D_80B33C34, D_80B33C38, D_80B33C34);
+        func_80B29224(arg0, play);
         func_80B28DAC(arg0, 0);
-        func_800B4A5C(arg1, arg0, 0x42480000);
+        func_800B4A5C(play, arg0, 0x42480000);
         func_80B29E9C(arg0);
         func_80B2D4E4(arg0);
     }

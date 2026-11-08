@@ -19,10 +19,10 @@ void func_80000514(ObjOcarinalift *this, PlayState *play);
 void func_800005A8(ObjOcarinalift *this);
 void func_800005BC(u8 *arg0, s32 arg1);
 void func_800005F8(u8 *arg0);
-void func_80000620(s32 arg0, s32 arg1);
-void func_80000688(u8 *arg0);
-void func_8000069C(void *arg0, s32 arg1);
-void func_80000760(u8 *arg0);
+void func_80000620(ObjOcarinalift *this, s32 arg1);
+void func_80000688(ObjOcarinalift *this);
+void func_8000069C(ObjOcarinalift *this, PlayState *play);
+void func_80000760(ObjOcarinalift *this);
 void func_80000788(u8 *arg0, s32 arg1);
 void ObjOcarinalift_Update(Actor *thisx, PlayState *play);  /* 800007EC */
 void ObjOcarinalift_Draw(Actor *thisx, PlayState *play);  /* 80000850 */

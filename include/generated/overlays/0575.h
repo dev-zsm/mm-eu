@@ -19,7 +19,7 @@ void func_8000030C(u8 *arg0);
 void func_80000334(s32 arg0);
 void func_80000388(BgIkanaShutter *this, PlayState *play);
 void func_80000458(BgIkanaShutter *this);
-void func_80000474(u8 *arg0, s32 arg1);
+void func_80000474(u8 *arg0, PlayState *play);
 void func_800004B4(u8 *arg0);
 void func_800004D0(BgIkanaShutter *this, PlayState *play);
 void func_80000534(BgIkanaShutter *this);

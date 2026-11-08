@@ -5,7 +5,7 @@
 
 M2C_UNK func_80B28D54(u8 *);                      /* extern */
 
-void func_80000CB4(u8 *arg0) {
-    func_80B28D54(arg0);
-    M2C_FIELD(arg0, s8 *, 0x30A) = 1;
+void func_80000CB4(Actor *thisx) {
+    func_80B28D54(thisx);
+    M2C_FIELD(thisx, s8 *, 0x30A) = 1;
 }

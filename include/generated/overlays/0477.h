@@ -11,7 +11,6 @@ s32 func_80000000(Vec3f *arg0, Vec3f *arg1);
 s32 func_80000084(Vec3f *arg0, f32 arg1, void *triNorm, Vec3f *arg3, f32 *arg4);
 s32 func_80000188(void *triNorm, Vec3f *arg1);
 void func_800005E4(ObjSpidertent *thisx, PlayState *play, void *triNorm, Vec3f *arg3, f32 arg4, s32 arg5);
-void func_80000900(ObjSpidertent *this);
 s32 func_80000970(ObjSpidertent *this, PlayState *play, Vec3f *arg2);
 void ObjSpidertent_Init(Actor *thisx, PlayState *play);  /* 80000A6C */
 void ObjSpidertent_Destroy(Actor *thisx, PlayState *play);  /* 80000C88 */

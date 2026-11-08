@@ -9,7 +9,7 @@
 void func_80000000(void *arg0, s32 arg1);
 s32 func_80000184(u8 *arg0, s32 arg1);
 s32 func_800001BC(s32 arg0, s32 arg1);
-void func_800001D0(s32 arg0, s32 arg1);
+s32 func_800001D0(s32 arg0, s32 *arg1);
 void func_8000022C(void *arg0, void *arg1);
 s32 func_800003F4(s32 arg0, s32 arg1);
 void func_80000410(s32 arg0, void *arg1);

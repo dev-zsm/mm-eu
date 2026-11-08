@@ -26,7 +26,7 @@ void func_80000D94(u8 *arg0, u8 *arg1);
 void func_80000E94(DoorShutter *this, PlayState *play);
 void func_80000F94(DoorShutter *this, PlayState *play);
 s32 func_80001180(DoorShutter *this);
-void func_80001258(u8 *arg0, s32 arg1);
+void func_80001258(DoorShutter *this, PlayState *play);
 void func_80001360(DoorShutter *this, PlayState *play);
 void DoorShutter_Update(Actor *thisx, PlayState *play);  /* 800013D4 */
 s32 func_80001478(DoorShutter *this, PlayState *play);

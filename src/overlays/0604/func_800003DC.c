@@ -6,10 +6,10 @@
 M2C_UNK func_8011489C(M2C_UNK, u8);                 /* extern */
 extern u8 D_801C2D64;
 
-s32 func_800003DC(u8 *arg0) {
+s32 func_800003DC(Actor *thisx) {
     s32 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s16 *, 0x1C) & 3;
+    temp_v0 = M2C_FIELD(thisx, s16 *, 0x1C) & 3;
     switch (temp_v0) {                              /* irregular */
     case 0:
         return 0x98;

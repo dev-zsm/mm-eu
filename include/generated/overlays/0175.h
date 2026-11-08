@@ -29,7 +29,7 @@ void func_800014FC(void *arg0, void *arg1);
 void func_80001980(u8 *arg0);
 void func_800019C4(void *arg0, s32 arg1);
 void func_80001AA0(u8 *arg0);
-void func_80001AB4(void *arg0, s32 arg1);
+void func_80001AB4(u8 *arg0, s32 arg1);
 void func_80001B0C(u8 *arg0);
 void func_80001B30(void *arg0, s32 arg1);
 void func_80001C8C(void *arg0, void *arg1);

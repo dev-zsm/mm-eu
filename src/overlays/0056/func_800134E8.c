@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/overlays/0056.h"
 
 s32 func_800FEE3C(u8 *, f32, f32, u8 *);
 extern u8 D_801E7DFF;

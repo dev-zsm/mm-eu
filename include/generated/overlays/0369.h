@@ -14,7 +14,7 @@ void ObjPurify_Destroy(Actor *thisx, PlayState *play);  /* 80000198 */
 void func_800001DC(ObjPurify *this);
 void func_800001F0(ObjPurify *this, PlayState *play);
 void func_800002D0(ObjPurify *this);
-void func_800002E4(s32 arg0, s32 arg1);
+void func_800002E4(ObjPurify *this, s32 arg1);
 void func_8000031C(ObjPurify *this);
 void func_80000340(s32 arg0, s32 arg1);
 void func_80000378(u8 *arg0);

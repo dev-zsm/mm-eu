@@ -3,10 +3,10 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0360.h"
 
-s32 func_8000018C(u8 *arg0) {
+s32 func_8000018C(Actor *thisx) {
     s16 var_v0;
 
-    var_v0 = M2C_FIELD(arg0, s16 *, 0x92) - M2C_FIELD(arg0, s16 *, 0xBE);
+    var_v0 = M2C_FIELD(thisx, s16 *, 0x92) - M2C_FIELD(thisx, s16 *, 0xBE);
     if (var_v0 < 0) {
         var_v0 *= -1;
     }

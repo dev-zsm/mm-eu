@@ -14,8 +14,8 @@ void KaleidoScope_DrawItemSelect(PlayState *play);  /* 80002D2C */
 void KaleidoScope_UpdateItemCursor(PlayState *play);  /* 800032E8 */
 void KaleidoScope_UpdateItemEquip(PlayState *play);  /* 80003CC4 */
 void KaleidoScope_DrawDungeonStrayFairyCount(PlayState *play);  /* 80004880 */
-void func_80004D1C(void *arg0);
-void func_8000576C(s32 arg0);
+void func_80004D1C(PlayState *play);
+void func_8000576C(PlayState *play);
 void func_80005E2C(void *arg0);
 void KaleidoScope_UpdateWorldMapCursor(PlayState *play);  /* 80007044 */
 void KaleidoScope_DrawMaskSelect(PlayState *play);  /* 800074B0 */
@@ -26,18 +26,18 @@ void func_80008E30(s32 arg0);
 void func_80008EC8(s32 arg0);
 void func_80008F60(s32 arg0);
 void func_80008FF8(s32 arg0, s32 arg1);
-void func_80009078(s32 arg0);
+void func_80009078(PlayState *play);
 void func_80009148(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80009338(void *arg0, s32 arg1);
-void func_800093F8(s32 arg0, void *arg1);
+void func_800093F8(PlayState *play, void *arg1);
 void func_800095A4(void *arg0, s32 arg1, void *arg2);
-void func_80009850(s32 arg0, void *arg1);
+void func_80009850(PlayState *play, void *arg1);
 void func_8000AA44(s32 arg0);
-void func_8000C060(s32 arg0);
+void func_8000C060(PlayState *play);
 void func_8000C1F8(s32 arg0);
 void func_8000C4C8(s32 arg0);
-void func_8000D01C(s32 arg0);
-void func_8000D194(s32 arg0);
+void func_8000D01C(PlayState *play);
+void func_8000D194(PlayState *play);
 void func_8000D30C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8000D388(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_8000D760(s32 arg0, s32 arg1);
@@ -46,7 +46,7 @@ void func_8000F3C4(void *arg0);
 void func_8000F740(void *arg0);
 void func_8000FD10(void *arg0);
 void func_8000FFF0(s32 arg0, s32 arg1);
-void func_800100A0(s32 arg0);
-void func_80010274(void *arg0);
+void func_800100A0(PlayState *play);
+void func_80010274(PlayState *play);
 
 #endif

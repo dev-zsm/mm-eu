@@ -8,7 +8,7 @@
 void func_80000000(void *arg0, s32 arg1);
 void func_8000006C(u8 *arg0, s32 arg1);
 void func_800000D0(void *arg0, s32 arg1);
-void func_80000154(s32 arg0, s32 arg1, s32 arg2);
+void func_80000154(u8 *arg0, u8 *arg1, s32 arg2);
 void func_800001AC(u8 *arg0, s32 arg1, s32 arg2);
 void func_80000258(u8 *arg0);
 void func_800002CC(u8 *arg0, u8 *arg1);

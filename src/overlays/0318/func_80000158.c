@@ -8,6 +8,6 @@ extern M2C_UNK D_801C9EE0;
 extern M2C_UNK D_80A1C8E0;
 extern M2C_UNK D_80A1C8E4;
 
-void func_80000158(s32 arg0, s32 arg1, s16 arg2, s32 arg3) {
-    func_800B1300(arg3, arg0, arg1, &D_801C9EE0, &D_80A1C8E0, &D_80A1C8E4, 0x190, (s32) arg2);
+void func_80000158(s32 arg0, s32 arg1, s16 arg2, PlayState *play) {
+    func_800B1300(play, arg0, arg1, &D_801C9EE0, &D_80A1C8E0, &D_80A1C8E4, 0x190, (s32) arg2);
 }

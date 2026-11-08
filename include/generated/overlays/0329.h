@@ -7,15 +7,14 @@
 #include "actor.h"
 
 void func_80000000(Actor *thisx, PlayState *play);
-void func_80000234(void *arg0, s32 arg1);
-void func_80000428(void *arg0);
+void func_80000234(Actor *thisx, s32 arg1);
+void func_80000428(Actor *thisx);
 void func_80000874(void *arg0, void *arg1);
 void func_80000A78(Actor *thisx, PlayState *play);
 void func_80000D38(Actor *thisx, PlayState *play);
-void func_80000D48(void *arg0, void *arg1);
+void func_80000D48(Actor *thisx, void *arg1);
 void func_800011B0(void *arg0);
 void func_80001364(Actor *thisx, PlayState *play);
-void func_80001464(Actor *thisx, PlayState *play);
 void func_800014D8(Actor *thisx, PlayState *play);
 void func_80001510(Actor *thisx, PlayState *play);
 

@@ -6,7 +6,7 @@
 #include "types.h"
 #include "actor.h"
 
-void func_80000000(void *arg0, s32 arg1, s32 arg2);
+void func_80000000(Actor *thisx, s32 arg1, PlayState *play);
 void func_80000158(void *arg0, s32 arg1);
 void func_80000228(Actor *thisx, PlayState *play);
 void func_80000684(Actor *thisx, PlayState *play);
@@ -20,18 +20,18 @@ void func_80000AD8(s32 arg0, s32 arg1, s32 arg2);
 void func_80000B90(void *arg0, s32 arg1);
 void func_80001090();
 void func_800010B0(u8 *arg0, s32 arg1);
-void func_800010DC(void *arg0, void *arg1);
+void func_800010DC(Actor *thisx, void *arg1);
 void func_80001160(s32 arg0, s32 arg1);
-void func_8000120C(u8 *arg0, u8 *arg1);
+void func_8000120C(Actor *thisx, u8 *arg1);
 void func_8000130C(u8 *arg0);
 void func_800013A4(u8 *arg0);
 void func_800013EC(void *arg0, s32 arg1);
-void func_80001598(void *arg0, s32 arg1);
+void func_80001598(Actor *thisx, s32 arg1);
 void func_800016F0(void *arg0, s32 arg1);
 void func_8000194C(u8 *arg0);
 void func_800019FC(void *arg0, s32 arg1);
-void func_80001B24(void *arg0, void *arg1);
-void func_80001E18(void *arg0, s32 arg1);
+void func_80001B24(Actor *thisx, PlayState *play);
+void func_80001E18(Actor *thisx, s32 arg1);
 void func_80001F30(void);
 void func_80001F50(Actor *thisx, PlayState *play);
 void func_800021B4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);

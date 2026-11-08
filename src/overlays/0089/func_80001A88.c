@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/overlays/0089.h"
 
 void func_80182BE0();
 void func_800E7D4C();

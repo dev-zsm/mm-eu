@@ -10,13 +10,13 @@ M2C_UNK func_800B8398(u8 *, s32, M2C_UNK);        /* extern */
 M2C_UNK func_80B7BE30(u8 *, s32);                 /* extern */
 extern M2C_UNK D_80B7BEB4;
 
-void func_80000C70(u8 *arg0, s32 arg1) {
-    if (func_800B8254(arg0, arg1) != 0) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x2F8) = &D_80B7BEB4;
-        func_80B7BE30(arg0, arg1);
+void func_80000C70(Actor *thisx, s32 arg1) {
+    if (func_800B8254(thisx, arg1) != 0) {
+        M2C_FIELD(thisx, M2C_UNK **, 0x2F8) = &D_80B7BEB4;
+        func_80B7BE30(thisx, arg1);
         return;
     }
-    if ((M2C_FIELD(arg0, f32 *, 0x98) < 100.0f) && (func_800B70A4(arg0, 0x3000, arg1) != 0) && (func_800B7164(arg0, 0x3000) != 0)) {
-        func_800B8398(arg0, arg1, 0x42F00000);
+    if ((M2C_FIELD(thisx, f32 *, 0x98) < 100.0f) && (func_800B70A4(thisx, 0x3000, arg1) != 0) && (func_800B7164(thisx, 0x3000) != 0)) {
+        func_800B8398(thisx, arg1, 0x42F00000);
     }
 }

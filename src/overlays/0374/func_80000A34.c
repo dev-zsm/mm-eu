@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/overlays/0374.h"
 
 typedef struct G {
     /* 0x0000 */ s32 unk0;

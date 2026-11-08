@@ -3,7 +3,7 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0127.h"
 
-void func_80000528(u8 *arg0, M2C_UNK arg1) {
+void func_80000528(u8 *arg0, PlayState *play) {
     u8 *temp_v0;
 
     temp_v0 = M2C_FIELD(arg0, u8 **, 0x4A4);

@@ -14,7 +14,7 @@ void EnWaterEffect_Destroy(Actor *thisx, PlayState *play);  /* 80000548 */
 void EnWaterEffect_Update(Actor *thisx, PlayState *play);  /* 80000558 */
 void EnWaterEffect_Draw(Actor *thisx, PlayState *play);  /* 80000C80 */
 void func_80001248(EnWaterEffect *this, Vec3f *arg1, u8 arg2);
-void func_80001464(void *arg0, void *arg1);
+void func_80001464(EnWaterEffect *this, PlayState *play);
 void func_800019E4(Actor *thisx, PlayState *play2);
 void func_80001D94(Actor *thisx, PlayState *play);
 void func_80001F18(Actor *thisx, PlayState *play2);

@@ -44,8 +44,8 @@ void ObjIceblock_Destroy(Actor *thisx, PlayState *play);  /* 800026C8 */
 void ObjIceBlock_SetupAttemptSpawnCutscene(ObjIceblock *this);  /* 80002710 */
 void ObjIceBlock_AttemptSpawnCutscene(ObjIceblock *this, PlayState *play);  /* 80002724 */
 void func_80002794(ObjIceblock *this);
-void func_800027DC(u8 *arg0, s32 arg1);
-void func_800028E8(u8 *arg0);
+void func_800027DC(ObjIceblock *this, s32 arg1);
+void func_800028E8(ObjIceblock *this);
 void func_80002904(ObjIceblock *this, PlayState *play);
 void func_800029FC(ObjIceblock *this);
 void func_80002A18(ObjIceblock *this, PlayState *play);

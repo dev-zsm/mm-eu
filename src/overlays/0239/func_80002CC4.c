@@ -7,7 +7,7 @@ M2C_UNK func_80137934(s32, M2C_UNK *, M2C_UNK);     /* extern */
 extern M2C_UNK D_600A3CC;
 extern M2C_UNK D_80977D58;
 
-void func_80002CC4(u8 *arg0) {
-    func_80137934(arg0 + 0x144, &D_600A3CC, 0xC0800000);
-    M2C_FIELD(arg0, M2C_UNK **, 0x290) = &D_80977D58;
+void func_80002CC4(Actor *thisx) {
+    func_80137934((u8 *)thisx + 0x144, &D_600A3CC, 0xC0800000);
+    M2C_FIELD(thisx, M2C_UNK **, 0x290) = &D_80977D58;
 }

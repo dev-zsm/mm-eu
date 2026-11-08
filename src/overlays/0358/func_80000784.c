@@ -11,11 +11,11 @@ extern M2C_UNK D_80A50700;
 extern M2C_UNK D_80A5070C;
 extern M2C_UNK D_80A50718;
 
-void func_80000784(u8 *arg0) {
-    func_80181A3C(M2C_FIELD(arg0, s16 *, 0xBE), 0);
-    func_80181508(M2C_FIELD(arg0, s16 *, 0xBC), 1);
-    func_80181D88(M2C_FIELD(arg0, s16 *, 0xC0), 1);
-    func_80182B28(&D_80A50700, arg0 + 0x310);
-    func_80182B28(&D_80A5070C, arg0 + 0x31C);
-    func_80182B28(&D_80A50718, arg0 + 0x328);
+void func_80000784(Actor *thisx) {
+    func_80181A3C(M2C_FIELD(thisx, s16 *, 0xBE), 0);
+    func_80181508(M2C_FIELD(thisx, s16 *, 0xBC), 1);
+    func_80181D88(M2C_FIELD(thisx, s16 *, 0xC0), 1);
+    func_80182B28(&D_80A50700, (u8 *)thisx + 0x310);
+    func_80182B28(&D_80A5070C, (u8 *)thisx + 0x31C);
+    func_80182B28(&D_80A50718, (u8 *)thisx + 0x328);
 }

@@ -13,7 +13,7 @@ void ElfMsg2_Init(Actor *thisx);  /* 80000144 */
 void ElfMsg2_Destroy(Actor *thisx, PlayState *play);  /* 80000200 */
 s32 func_80000210(u8 *arg0);
 void func_80000224(ElfMsg2 *this, PlayState *play);
-void func_80000358(s32 arg0);
+void func_80000358(ElfMsg2 *this);
 void func_80000390(ElfMsg2 *this, PlayState *play);
 
 #endif

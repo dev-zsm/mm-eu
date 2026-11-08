@@ -10,7 +10,7 @@ typedef struct EnMag EnMag;
 void EnMag_Init(Actor *thisx, PlayState *play);  /* 80000000 */
 void EnMag_Destroy(Actor *thisx, PlayState *play);  /* 800002E4 */
 void EnMag_UpdateDisplayEffectColors(Actor *thisx);  /* 800002F4 */
-void func_8000063C(s32 arg0, s32 arg1);
+void func_8000063C(s32 arg0, PlayState *play);
 void EnMag_DrawTextureI8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800016E0 */
 void EnMag_DrawTextureIA8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800018F8 */
 void EnMag_DrawEffectTextures(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80001B10 */

@@ -7,7 +7,7 @@
 #include "actor.h"
 typedef struct EnGoroiwa EnGoroiwa;
 
-void func_80000000(u8 *arg0);
+void func_80000000(EnGoroiwa *this);
 void func_8000007C(u8 *arg0);
 void func_80000098(EnGoroiwa *this);
 void func_80000110(EnGoroiwa *this, PlayState *play);

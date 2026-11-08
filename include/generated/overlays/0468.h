@@ -18,7 +18,7 @@ void EnHanabi_Destroy(Actor *thisx, PlayState *play2);  /* 80000850 */
 void func_800008C8(EnHanabi *this);
 void func_800009CC(EnHanabi *this, Vec3f *arg1, s32 arg2);
 void func_80000AC8(EnHanabi *this, PlayState *play);
-void func_80000C94(s32 arg0);
+void func_80000C94(EnHanabi *this);
 void func_80000D10(u8 *arg0, s32 arg1);
 void func_80000D34(EnHanabi *this, PlayState *play);
 void EnHanabi_Update(Actor *thisx, PlayState *play);  /* 80000DFC */

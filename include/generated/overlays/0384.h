@@ -9,9 +9,9 @@ typedef struct DmChar05 DmChar05;
 
 void DmChar05_ChangeAnim(void *skelAnime, void *animInfo, u16 animIndex);  /* 80000000 */
 void func_8000009C(Actor *thisx, PlayState *play);
-void func_80000144(DmChar05 *this, s32 arg1);
-void func_800001D0(DmChar05 *this, s32 arg1);
-void func_8000025C(DmChar05 *this, s32 arg1);
+void func_80000144(DmChar05 *this, PlayState *play);
+void func_800001D0(DmChar05 *this, PlayState *play);
+void func_8000025C(DmChar05 *this, PlayState *play);
 void func_800002E8(DmChar05 *this, s32 arg1);
 void DmChar05_Init(Actor *thisx, PlayState *play);  /* 80000300 */
 void DmChar05_Destroy(Actor *thisx, PlayState *play);  /* 800003E0 */

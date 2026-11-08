@@ -13,27 +13,27 @@ extern f32 D_80A0BD8C;
 extern f32 D_80A0BD90;
 extern f32 D_80A0BD94;
 
-void func_800027DC(u8 *arg0, s32 arg1) {
+void func_800027DC(ObjIceblock *this, s32 arg1) {
     s16 temp_v1;
 
-    func_80A08404(arg0, arg0 + 8);
-    temp_v1 = M2C_FIELD(arg0, s16 *, 0x2A0);
+    func_80A08404(this, (u8 *)this + 8);
+    temp_v1 = M2C_FIELD(this, s16 *, 0x2A0);
     if (temp_v1 > 0) {
-        M2C_FIELD(arg0, s16 *, 0x2A0) = (s16) (temp_v1 - 1);
+        M2C_FIELD(this, s16 *, 0x2A0) = (s16) (temp_v1 - 1);
         return;
     }
-    if (func_800FEE3C(arg0 + 0x58, 0x3DCCCCCD, 0x3CA3D70A) != 0) {
-        func_800B6564(arg0, 0.1f);
-        if (M2C_FIELD(arg0, s16 *, 0x1C) & 1) {
-            M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) D_80A0BD8C;
+    if (func_800FEE3C((u8 *)this + 0x58, 0x3DCCCCCD, 0x3CA3D70A) != 0) {
+        func_800B6564(this, 0.1f);
+        if (M2C_FIELD(this, s16 *, 0x1C) & 1) {
+            M2C_FIELD(this, f32 *, 0x2B4) = (f32) D_80A0BD8C;
         }
-        func_80A0A6A8(arg0);
+        func_80A0A6A8(this);
     } else {
-        func_800B6564(arg0, M2C_FIELD(arg0, f32 *, 0x58));
-        M2C_FIELD(arg0, s16 *, 0x2A0) = 2;
+        func_800B6564(this, M2C_FIELD(this, f32 *, 0x58));
+        M2C_FIELD(this, s16 *, 0x2A0) = 2;
     }
-    func_80A07ECC(arg0, M2C_FIELD(arg0, f32 *, 0x58));
-    if (M2C_FIELD(arg0, s32 *, 4) & 0x40) {
-        func_80A080CC(arg1, arg0 + 0x24, (M2C_FIELD(arg0, f32 *, 0x58) + D_80A0BD90) * D_80A0BD94, 0x3F800000, 3);
+    func_80A07ECC(this, M2C_FIELD(this, f32 *, 0x58));
+    if (M2C_FIELD(this, s32 *, 4) & 0x40) {
+        func_80A080CC(arg1, (u8 *)this + 0x24, (M2C_FIELD(this, f32 *, 0x58) + D_80A0BD90) * D_80A0BD94, 0x3F800000, 3);
     }
 }
