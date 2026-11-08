@@ -4,17 +4,17 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Camera_SetCameraData(void *arg0, s16 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5) {
-    if (arg1 & 1) {
-        M2C_FIELD(arg0, s32 *, 0x124) = arg2;
+void Camera_SetCameraData(struct Camera *camera, s16 setDataFlags, void *data0, void *data1, s16 data2, s16 data3) {
+    if (setDataFlags & 1) {
+        M2C_FIELD(camera, s32 *, 0x124) = data0;
     }
-    if (arg1 & 2) {
-        M2C_FIELD(arg0, s32 *, 0x128) = arg3;
+    if (setDataFlags & 2) {
+        M2C_FIELD(camera, s32 *, 0x128) = data1;
     }
-    if (arg1 & 4) {
-        M2C_FIELD(arg0, s16 *, 0x12C) = arg4;
+    if (setDataFlags & 4) {
+        M2C_FIELD(camera, s16 *, 0x12C) = data2;
     }
-    if (arg1 & 8) {
-        M2C_FIELD(arg0, s16 *, 0x12E) = arg5;
+    if (setDataFlags & 8) {
+        M2C_FIELD(camera, s16 *, 0x12E) = data3;
     }
 }

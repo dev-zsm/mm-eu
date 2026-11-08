@@ -3,7 +3,7 @@
 #include "generated/code_funcs.h"
 
 
-void Audio_PlayFanfareWithPlayerIOPort7(u16 arg0, u8 arg1) {
-    Audio_PlayFanfare(arg0);
-    AudioSeq_QueueSeqCmd(arg1 | 0x71070000);
+void Audio_PlayFanfareWithPlayerIOPort7(u16 seqId, u8 ioData) {
+    Audio_PlayFanfare(seqId);
+    AudioSeq_QueueSeqCmd(ioData | 0x71070000);
 }

@@ -3,7 +3,7 @@
 #include "generated/code_funcs.h"
 
 
-void Play_InitEnvironment(void *arg0, s16 arg1) {
-    Skybox_Init(arg0, (u8 *)arg0 + 0x46E0, arg1);
-    Environment_Init(arg0, (u8 *)arg0 + 0x17004, 0);
+void Play_InitEnvironment(struct PlayState *this, s16 skyboxId) {
+    Skybox_Init(this, (u8 *)this + 0x46E0, skyboxId);
+    Environment_Init(this, (u8 *)this + 0x17004, 0);
 }

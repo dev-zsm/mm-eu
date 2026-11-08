@@ -4,7 +4,7 @@
 
 void Math_Vec3f_Copy(void *, s32);
 
-void EffectSsDtBubble_SpawnCustomColor(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, s16 arg7, s16 arg8) {
+void EffectSsDtBubble_SpawnCustomColor(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, struct Color_RGBA8 *primColor, struct Color_RGBA8 *envColor, s16 scale, s16 life, s16 randXZ) {
     struct {
         u8 sp18[12];
         u8 sp24[12];
@@ -18,14 +18,14 @@ void EffectSsDtBubble_SpawnCustomColor(void *arg0, s32 arg1, s32 arg2, s32 arg3,
         u8 sp4C;
     } l;
 
-    Math_Vec3f_Copy(l.sp18, arg1);
-    Math_Vec3f_Copy(l.sp24, arg2);
-    Math_Vec3f_Copy(l.sp30, arg3);
-    Color_RGBA8_Copy(l.sp3C, arg4);
-    Color_RGBA8_Copy(l.sp40, arg5);
-    l.sp44 = arg6;
-    l.sp46 = arg7;
-    l.sp4A = arg8;
+    Math_Vec3f_Copy(l.sp18, pos);
+    Math_Vec3f_Copy(l.sp24, velocity);
+    Math_Vec3f_Copy(l.sp30, accel);
+    Color_RGBA8_Copy(l.sp3C, primColor);
+    Color_RGBA8_Copy(l.sp40, envColor);
+    l.sp44 = scale;
+    l.sp46 = life;
+    l.sp4A = randXZ;
     l.sp4C = 1;
-    EffectSs_Spawn((s32)arg0, 0xE, 0x80, l.sp18);
+    EffectSs_Spawn((s32)play, 0xE, 0x80, l.sp18);
 }

@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Actor_HasRider(s32 arg0, void *arg1) {
-    if (M2C_FIELD(arg1, s32 *, 0x124) != 0) {
+s32 Actor_HasRider(struct PlayState *play, struct Actor *horse) {
+    if (M2C_FIELD(horse, s32 *, 0x124) != 0) {
         return 1;
     }
     return 0;

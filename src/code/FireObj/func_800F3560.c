@@ -6,7 +6,7 @@
 M2C_UNK Collider_DestroyCylinder(s32, s32);                    /* extern */
 M2C_UNK FireObj_DestroyLight(s32, s32);                    /* extern */
 
-void FireObj_Destroy(s32 arg0, s32 arg1) {
-    Collider_DestroyCylinder(arg0, arg1 + 0x2C);
-    FireObj_DestroyLight(arg0, arg1 + 0x78);
+void FireObj_Destroy(struct PlayState *play, struct FireObj *fire) {
+    Collider_DestroyCylinder(play, (u8 *)fire + 0x2C);
+    FireObj_DestroyLight(play, (u8 *)fire + 0x78);
 }

@@ -3,7 +3,7 @@
 #include "generated/code_funcs.h"
 
 
-void Audio_PlayMorningSceneSequence(u16 arg0, u8 arg1) {
-    Audio_StartMorningSceneSequence(arg0);
-    AudioSeq_QueueSeqCmd(arg1 | 0x70040000);
+void Audio_PlayMorningSceneSequence(u16 seqId, u8 dayMinusOne) {
+    Audio_StartMorningSceneSequence(seqId);
+    AudioSeq_QueueSeqCmd(dayMinusOne | 0x70040000);
 }

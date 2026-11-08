@@ -6,15 +6,15 @@
 
 void *Quake_GetRequest(s16);                           /* extern */
 
-s32 Quake_SetPerturbations(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4) {
+u32 Quake_SetPerturbations(s16 index, s16 y, s16 x, s16 fov, s16 roll) {
     void *temp_v0;
 
-    temp_v0 = Quake_GetRequest(arg0);
+    temp_v0 = Quake_GetRequest(index);
     if (temp_v0 != NULL) {
-        M2C_FIELD(temp_v0, s16 *, 0xC) = arg1;
-        M2C_FIELD(temp_v0, s16 *, 0xE) = arg2;
-        M2C_FIELD(temp_v0, s16 *, 0x10) = arg3;
-        M2C_FIELD(temp_v0, s16 *, 0x12) = arg4;
+        M2C_FIELD(temp_v0, s16 *, 0xC) = y;
+        M2C_FIELD(temp_v0, s16 *, 0xE) = x;
+        M2C_FIELD(temp_v0, s16 *, 0x10) = fov;
+        M2C_FIELD(temp_v0, s16 *, 0x12) = roll;
         return 1;
     }
     return 0;

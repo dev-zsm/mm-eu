@@ -6,8 +6,8 @@ extern s8 D_801CEF88;
 extern s8 D_801CEF8C;
 extern s8 D_801CEF90;
 
-void Audio_SetSfxTimerLerpInterval(s8 arg0, s8 arg1) {
+void Audio_SetSfxTimerLerpInterval(s8 timerLerpRange1, s8 timerLerpRange2) {
     D_801CEF88 = 1;
-    D_801CEF8C = arg1;
-    D_801CEF90 = arg0;
+    D_801CEF8C = timerLerpRange2;
+    D_801CEF90 = timerLerpRange1;
 }

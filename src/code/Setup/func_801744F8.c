@@ -6,7 +6,7 @@
 M2C_UNK Setup_InitImpl();                            /* extern */
 extern M2C_UNK Setup_Destroy;
 
-void Setup_Init(void *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 8) = &Setup_Destroy;
+void Setup_Init(struct GameState *thisx) {
+    M2C_FIELD(thisx, M2C_UNK **, 8) = &Setup_Destroy;
     Setup_InitImpl();
 }

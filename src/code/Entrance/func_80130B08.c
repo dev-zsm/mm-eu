@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Entrance_Create(s32 arg0, s32 arg1, s32 arg2) {
-    return ((arg0 << 9) | (arg1 * 0x10) | arg2) & 0xFFFF;
+u16 Entrance_Create(s32 scene, s32 spawn, s32 layer) {
+    return ((scene << 9) | (spawn * 0x10) | layer) & 0xFFFF;
 }

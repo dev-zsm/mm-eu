@@ -1,7 +1,6 @@
 #include "types.h"
+#include "generated/code_funcs.h"
 
-extern f32 Actor_WorldDistXYZToActor(void *a, void *b);
-extern s16 Actor_WorldYawTowardActor(void *a, void *b);
 
 s32 Actor_ActorAIsFacingAndNearActorB(void *a, void *b, f32 range, s16 maxAngle) {
     s16 diff;

@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void RumbleManager_Destroy(s32 arg0) {
+void RumbleManager_Destroy(struct RumbleManager *rumbleMgr) {
 
 }

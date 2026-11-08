@@ -4,7 +4,7 @@
 
 extern s32 D_801EAB9C;
 
-s32 Cutscene_GetSceneLayer(s32 arg0) {
+s32 Cutscene_GetSceneLayer(struct PlayState *play) {
     s32 var_v1;
 
     var_v1 = 0;

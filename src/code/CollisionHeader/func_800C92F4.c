@@ -3,7 +3,7 @@
 
 extern void CollisionHeader_SegmentedToVirtual(s32 arg0);
 
-void CollisionHeader_GetVirtual(s32 arg0, s32 *out) {
-    *out = func_80100304(arg0);
-    CollisionHeader_SegmentedToVirtual(*out);
+void CollisionHeader_GetVirtual(struct CollisionHeader *colHeader, struct CollisionHeader **dest) {
+    *dest = func_80100304(colHeader);
+    CollisionHeader_SegmentedToVirtual(*dest);
 }

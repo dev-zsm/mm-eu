@@ -4,6 +4,6 @@
 
 void func_80087CB0(s32, s32, s32);
 
-void Sched_SendNotifyMsg(s32 arg0) {
-    func_80087CB0(arg0, 0x29E, 1);
+void Sched_SendNotifyMsg(struct Scheduler *sched) {
+    func_80087CB0(sched, 0x29E, 1);
 }

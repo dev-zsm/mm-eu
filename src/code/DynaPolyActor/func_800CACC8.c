@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void DynaPolyActor_SetHeavySwitchPressed(void *arg0) {
-    M2C_FIELD(arg0, u8 *, 0x158) = (u8) (M2C_FIELD(arg0, u8 *, 0x158) | 0x10);
+void DynaPolyActor_SetHeavySwitchPressed(struct DynaPolyActor *dynaActor) {
+    M2C_FIELD(dynaActor, u8 *, 0x158) = (u8) (M2C_FIELD(dynaActor, u8 *, 0x158) | 0x10);
 }

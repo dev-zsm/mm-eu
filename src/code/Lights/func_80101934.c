@@ -4,12 +4,12 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Lights_DirectionalSetInfo(void *arg0, s8 arg1, s8 arg2, s8 arg3, u8 arg4, u8 arg5, u8 arg6) {
-    M2C_FIELD(arg0, s8 *, 0) = 1;
-    M2C_FIELD(arg0, s8 *, 2) = arg1;
-    M2C_FIELD(arg0, s8 *, 3) = arg2;
-    M2C_FIELD(arg0, s8 *, 4) = arg3;
-    M2C_FIELD(arg0, u8 *, 5) = arg4;
-    M2C_FIELD(arg0, u8 *, 6) = arg5;
-    M2C_FIELD(arg0, u8 *, 7) = arg6;
+void Lights_DirectionalSetInfo(struct LightInfo *info, s8 x, s8 y, s8 z, u8 r, u8 g, u8 b) {
+    M2C_FIELD(info, s8 *, 0) = 1;
+    M2C_FIELD(info, s8 *, 2) = x;
+    M2C_FIELD(info, s8 *, 3) = y;
+    M2C_FIELD(info, s8 *, 4) = z;
+    M2C_FIELD(info, u8 *, 5) = r;
+    M2C_FIELD(info, u8 *, 6) = g;
+    M2C_FIELD(info, u8 *, 7) = b;
 }

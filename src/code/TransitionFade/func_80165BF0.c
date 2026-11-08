@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-u8 TransitionFade_IsDone(void *arg0) {
-    return M2C_FIELD(arg0, u8 *, 1);
+s32 TransitionFade_IsDone(void *thisx) {
+    return M2C_FIELD(thisx, u8 *, 1);
 }

@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Flags_GetClearTemp(void *arg0, s32 arg1) {
-    return M2C_FIELD(arg0, s32 *, 0x1E70) & (1 << arg1);
+s32 Flags_GetClearTemp(struct PlayState *play, s32 roomNumber) {
+    return M2C_FIELD(play, s32 *, 0x1E70) & (1 << roomNumber);
 }

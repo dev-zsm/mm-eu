@@ -6,6 +6,6 @@
 
 s32 func_8012C648(s32);                             /* extern */
 
-void Gfx_SetupDL26_Opa(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x2B0) = func_8012C648(M2C_FIELD(arg0, s32 *, 0x2B0));
+void Gfx_SetupDL26_Opa(struct GraphicsContext *gfxCtx) {
+    M2C_FIELD(gfxCtx, s32 *, 0x2B0) = func_8012C648(M2C_FIELD(gfxCtx, s32 *, 0x2B0));
 }

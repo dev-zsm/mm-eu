@@ -47,14 +47,14 @@ typedef struct {
 extern EffectTable D_801DB840;
 extern EffectInit D_801AF1F4[];
 
-void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initParams) {
+void Effect_Add(struct PlayState *play, s32 *pIndex, s32 type, u8 arg3, u8 arg4, void *initParams) {
     s32 pad[2]; // unused: pads the frame to the ROM size
     void *data = NULL;
     EffectInfo *info = NULL;
     s32 found;
     s32 i;
 
-    *index = 0x2E;
+    *pIndex = 0x2E;
     if (func_8016B1A4(play) == 1) {
         return;
     }
@@ -64,7 +64,7 @@ void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initPa
             for (i = 0; i < 3; i++) {
                 if (D_801DB840.a[i].info.active == 0) {
                     found = 1;
-                    *index = i;
+                    *pIndex = i;
                     data = D_801DB840.a[i].data;
                     info = &D_801DB840.a[i].info;
                     break;
@@ -76,7 +76,7 @@ void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initPa
             for (i = 0; i < 25; i++) {
                 if (D_801DB840.b[i].info.active == 0) {
                     found = 1;
-                    *index = i + 3;
+                    *pIndex = i + 3;
                     data = D_801DB840.b[i].data;
                     info = &D_801DB840.b[i].info;
                     break;
@@ -87,7 +87,7 @@ void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initPa
             for (i = 0; i < 3; i++) {
                 if (D_801DB840.c[i].info.active == 0) {
                     found = 1;
-                    *index = i + 0x1C;
+                    *pIndex = i + 0x1C;
                     data = D_801DB840.c[i].data;
                     info = &D_801DB840.c[i].info;
                     break;
@@ -98,7 +98,7 @@ void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initPa
             for (i = 0; i < 15; i++) {
                 if (D_801DB840.d[i].info.active == 0) {
                     found = 1;
-                    *index = i + 0x1F;
+                    *pIndex = i + 0x1F;
                     data = D_801DB840.d[i].data;
                     info = &D_801DB840.d[i].info;
                     break;

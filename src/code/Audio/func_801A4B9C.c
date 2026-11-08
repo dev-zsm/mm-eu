@@ -4,6 +4,6 @@
 
 extern s8 D_801CEFE8;
 
-void Audio_SetEnvReverb(s8 arg0) {
-    D_801CEFE8 = arg0 & 0x7F;
+void Audio_SetEnvReverb(s8 reverb) {
+    D_801CEFE8 = reverb & 0x7F;
 }

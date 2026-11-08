@@ -3,6 +3,6 @@
 
 void VisFbuf_SetBg(s32, s32, s32, s32, s32, f32, f32, f32, f32, s32);
 
-void VisFbuf_SetBgGeneral(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, s32 arg9) {
-    VisFbuf_SetBg(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+void VisFbuf_SetBgGeneral(union Gfx **gfxP, void *source, void *img, s32 width, s32 height, f32 x, f32 y, f32 scaleX, f32 scaleY, s32 cycleMode) {
+    VisFbuf_SetBg(gfxP, source, img, width, height, x, y, scaleX, scaleY, cycleMode);
 }

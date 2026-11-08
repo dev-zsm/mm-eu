@@ -7,9 +7,9 @@ M2C_UNK Collider_SetBaseToActor(s32, s32, s32);               /* extern */
 M2C_UNK Collider_SetElement(s32, s32, s32);               /* extern */
 M2C_UNK Collider_SetCylinderDim(s32, s32, s32);               /* extern */
 
-s32 Collider_SetCylinderToActor(s32 arg0, s32 arg1, s32 arg2) {
-    Collider_SetBaseToActor(arg0, arg1, arg2);
-    Collider_SetElement(arg0, arg1 + 0x18, arg2 + 8);
-    Collider_SetCylinderDim(arg0, arg1 + 0x40, arg2 + 0x20);
+s32 Collider_SetCylinderToActor(struct PlayState *play, struct ColliderCylinder *dest, struct ColliderCylinderInitToActor *src) {
+    Collider_SetBaseToActor(play, dest, src);
+    Collider_SetElement(play, (u8 *)dest + 0x18, (u8 *)src + 8);
+    Collider_SetCylinderDim(play, (u8 *)dest + 0x40, (u8 *)src + 0x20);
     return 1;
 }

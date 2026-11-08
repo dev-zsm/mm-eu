@@ -5,6 +5,6 @@
 
 M2C_UNK Player_MeleeWeaponFromIA(s8, void *);                  /* extern */
 
-void Player_GetMeleeWeaponHeld(void *arg0) {
-    Player_MeleeWeaponFromIA(M2C_FIELD(arg0, s8 *, 0x147), arg0);
+s32 Player_GetMeleeWeaponHeld(struct Player *player) {
+    Player_MeleeWeaponFromIA(M2C_FIELD(player, s8 *, 0x147), player);
 }

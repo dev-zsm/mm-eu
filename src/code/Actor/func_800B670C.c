@@ -4,6 +4,6 @@
 
 extern f32 D_801AF81C;
 
-void Actor_SetMovementScale(s32 arg0) {
-    D_801AF81C = (f32) arg0 * 0.5f;
+void Actor_SetMovementScale(s32 scale) {
+    D_801AF81C = (f32) scale * 0.5f;
 }

@@ -5,7 +5,7 @@
 
 M2C_UNK PlayerAnimation_SetUpdateFunction();                            /* extern */
 
-void PlayerAnimation_EndLoop(void *arg0) {
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+void PlayerAnimation_EndLoop(struct SkelAnime *skelAnime) {
+    M2C_FIELD(skelAnime, s8 *, 1) = 2;
     PlayerAnimation_SetUpdateFunction();
 }

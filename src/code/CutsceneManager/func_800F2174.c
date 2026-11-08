@@ -4,6 +4,6 @@
 
 extern s16 D_801BE3F4;
 
-void CutsceneManager_SetReturnCamera(s16 arg0) {
-    D_801BE3F4 = arg0;
+void CutsceneManager_SetReturnCamera(s16 camId) {
+    D_801BE3F4 = camId;
 }

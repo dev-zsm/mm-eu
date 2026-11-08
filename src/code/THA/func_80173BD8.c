@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 THA_GetTail(void *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0xC);
+void * THA_GetTail(struct TwoHeadArena *tha) {
+    return M2C_FIELD(tha, s32 *, 0xC);
 }

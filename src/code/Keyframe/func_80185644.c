@@ -4,11 +4,11 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Keyframe_ResetStandard(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x18) = 0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x20) = 0.0f;
+void Keyframe_ResetStandard(struct KFSkelAnime *kfSkelAnime) {
+    M2C_FIELD(kfSkelAnime, s32 *, 0x18) = 0;
+    M2C_FIELD(kfSkelAnime, s32 *, 0x1C) = 0;
+    M2C_FIELD(kfSkelAnime, s32 *, 0x24) = 0;
+    M2C_FIELD(kfSkelAnime, s32 *, 0x28) = 0;
+    M2C_FIELD(kfSkelAnime, s32 *, 0x2C) = 0;
+    M2C_FIELD(kfSkelAnime, f32 *, 0x20) = 0.0f;
 }

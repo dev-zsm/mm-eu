@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void EffectSpark_Destroy(s32 arg0) {
+void EffectSpark_Destroy(void *thisx) {
 
 }

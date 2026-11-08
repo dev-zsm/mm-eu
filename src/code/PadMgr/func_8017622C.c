@@ -7,6 +7,6 @@
 M2C_UNK func_80087CB0(s32, s32, M2C_UNK);           /* extern */
 extern s32 D_801C9E40;
 
-void PadMgr_VoiceReleaseSerialEventQueue(s32 arg0) {
-    func_80087CB0(D_801C9E40 + 0x4C, arg0, 1);
+void PadMgr_VoiceReleaseSerialEventQueue(struct OSMesgQueue *serialEventQueue) {
+    func_80087CB0(D_801C9E40 + 0x4C, serialEventQueue, 1);
 }

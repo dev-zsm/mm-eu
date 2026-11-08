@@ -7,20 +7,20 @@ M2C_UNK MapData_GetMapTexOffsetGameplayDangeonKeep(s32, s32 *, s32 *);          
 M2C_UNK MapData_GetMapTexGameplayDangeonKeepOffset(s32, s32 *, s32 *);           /* extern */
 s32 MapData_MID_GetType();                                /* extern */
 
-void MapData_GetMapTexOffset(s32 arg0, s32 *arg1, s32 *arg2) {
+void MapData_GetMapTexOffset(s32 mapId, s32 *offsetX, s32 *offsetY) {
     s32 temp_v0;
 
     temp_v0 = MapData_MID_GetType();
     switch (temp_v0) {                              /* irregular */
     case 0:
-        MapData_GetMapTexOffsetGameplayDangeonKeep(arg0, arg1, arg2);
+        MapData_GetMapTexOffsetGameplayDangeonKeep(mapId, offsetX, offsetY);
         return;
     case 1:
-        MapData_GetMapTexGameplayDangeonKeepOffset(arg0, arg1, arg2);
+        MapData_GetMapTexGameplayDangeonKeepOffset(mapId, offsetX, offsetY);
         return;
     default:
-        *arg2 = 0;
-        *arg1 = 0;
+        *offsetY = 0;
+        *offsetX = 0;
         return;
     }
 }

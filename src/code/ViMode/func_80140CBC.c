@@ -4,27 +4,27 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void ViMode_ConfigureFeatures(void *arg0, s32 arg1) {
+void ViMode_ConfigureFeatures(struct ViMode *viMode, s32 viFeatures) {
     s32 var_v0;
 
-    var_v0 = M2C_FIELD(arg0, s32 *, 4);
-    if (arg1 & 1) {
+    var_v0 = M2C_FIELD(viMode, s32 *, 4);
+    if (viFeatures & 1) {
         var_v0 |= 8;
     }
-    if (arg1 & 2) {
+    if (viFeatures & 2) {
         var_v0 &= ~8;
     }
-    if (arg1 & 4) {
+    if (viFeatures & 4) {
         var_v0 |= 4;
     }
-    if (arg1 & 8) {
+    if (viFeatures & 8) {
         var_v0 &= ~4;
     }
-    if (arg1 & 0x10) {
+    if (viFeatures & 0x10) {
         var_v0 |= 0x10;
     }
-    if (arg1 & 0x20) {
+    if (viFeatures & 0x20) {
         var_v0 &= ~0x10;
     }
-    M2C_FIELD(arg0, s32 *, 4) = var_v0;
+    M2C_FIELD(viMode, s32 *, 4) = var_v0;
 }

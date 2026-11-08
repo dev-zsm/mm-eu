@@ -10,8 +10,8 @@ extern s32 D_801EE494;
 extern M2C_UNK D_80827CC0;
 extern M2C_UNK D_80828224;
 
-void KaleidoScopeCall_Init(s32 arg0) {
+void KaleidoScopeCall_Init(struct PlayState *play) {
     D_801EE490 = KaleidoManager_GetRamAddr(&D_80828224);
     D_801EE494 = KaleidoManager_GetRamAddr(&D_80827CC0);
-    func_800F4BDC(arg0);
+    func_800F4BDC(play);
 }

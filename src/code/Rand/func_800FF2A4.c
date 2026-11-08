@@ -4,6 +4,6 @@
 
 f32 func_8008704C();                                /* extern */
 
-s16 Rand_S16OffsetStride(s16 arg0, s16 arg1, s16 arg2) {
-    return (s16) (((s16) (s32) (func_8008704C() * (f32) arg2) * arg1) + arg0);
+s16 Rand_S16OffsetStride(s16 base, s16 stride, s16 range) {
+    return (s16) (((s16) (s32) (func_8008704C() * (f32) range) * stride) + base);
 }

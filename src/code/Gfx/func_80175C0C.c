@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Gfx_Close(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = 0xDE010000;
-    M2C_FIELD(arg0, s32 *, 4) = arg1;
-    return arg1;
+union Gfx * Gfx_Close(union Gfx *gfx, union Gfx *dst) {
+    M2C_FIELD(gfx, s32 *, 0) = 0xDE010000;
+    M2C_FIELD(gfx, s32 *, 4) = dst;
+    return dst;
 }

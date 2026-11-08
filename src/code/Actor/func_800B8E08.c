@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Actor_PlaySeq_FlaggedKamaroDance(void *arg0) {
-    M2C_FIELD(arg0, u8 *, 0x39) = (u8) (M2C_FIELD(arg0, u8 *, 0x39) | 0x20);
+void Actor_PlaySeq_FlaggedKamaroDance(struct Actor *actor) {
+    M2C_FIELD(actor, u8 *, 0x39) = (u8) (M2C_FIELD(actor, u8 *, 0x39) | 0x20);
 }

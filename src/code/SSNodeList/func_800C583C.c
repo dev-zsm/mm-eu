@@ -4,9 +4,9 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void SSNodeList_Init(void *arg0) {
-    M2C_FIELD(arg0, s16 *, 0) = 0;
-    M2C_FIELD(arg0, s16 *, 2) = 0;
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
+void SSNodeList_Init(struct SSNodeList *this) {
+    M2C_FIELD(this, s16 *, 0) = 0;
+    M2C_FIELD(this, s16 *, 2) = 0;
+    M2C_FIELD(this, s32 *, 4) = 0;
+    M2C_FIELD(this, s32 *, 8) = 0;
 }

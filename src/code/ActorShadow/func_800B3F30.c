@@ -8,9 +8,9 @@ M2C_UNK ActorShadow_Draw(void *, s32, s32, M2C_UNK *, s32); /* extern */
 M2C_UNK func_800B4A5C(s32, void *, M2C_UNK);        /* extern */
 extern M2C_UNK D_4076BC0;
 
-void ActorShadow_DrawCircle(void *arg0, s32 arg1, s32 arg2) {
-    if (M2C_FIELD(arg0, u16 *, 0x90) & 0x400) {
-        func_800B4A5C(arg2, arg0, 0x42480000);
+void ActorShadow_DrawCircle(struct Actor *actor, struct Lights *lights, struct PlayState *play) {
+    if (M2C_FIELD(actor, u16 *, 0x90) & 0x400) {
+        func_800B4A5C(play, actor, 0x42480000);
     }
-    ActorShadow_Draw(arg0, arg1, arg2, &D_4076BC0, 0);
+    ActorShadow_Draw(actor, lights, play, &D_4076BC0, 0);
 }

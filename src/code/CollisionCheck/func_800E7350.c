@@ -6,6 +6,6 @@
 s32 DamageTable_Get(M2C_UNK);                         /* extern */
 M2C_UNK CollisionCheck_SetInfo2(s32, s32, s32);               /* extern */
 
-void CollisionCheck_SetInfoGetDamageTable(s32 arg0, M2C_UNK arg1, s32 arg2) {
-    CollisionCheck_SetInfo2(arg0, DamageTable_Get(arg1), arg2);
+void CollisionCheck_SetInfoGetDamageTable(struct CollisionCheckInfo *info, s32 index, struct CollisionCheckInfoInit2 *init) {
+    CollisionCheck_SetInfo2(info, DamageTable_Get(index), init);
 }

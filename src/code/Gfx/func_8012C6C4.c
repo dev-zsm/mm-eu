@@ -6,6 +6,6 @@
 
 s32 Gfx_SetupDL23(s32);                             /* extern */
 
-void Gfx_SetupDL23_Opa(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x2B0) = Gfx_SetupDL23(M2C_FIELD(arg0, s32 *, 0x2B0));
+void Gfx_SetupDL23_Opa(struct GraphicsContext *gfxCtx) {
+    M2C_FIELD(gfxCtx, s32 *, 0x2B0) = Gfx_SetupDL23(M2C_FIELD(gfxCtx, s32 *, 0x2B0));
 }

@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void DynaPoly_NullPolyList(s32 *arg0) {
-    *arg0 = 0;
+void DynaPoly_NullPolyList(struct CollisionPoly **polyList) {
+    *polyList = 0;
 }

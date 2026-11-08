@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void DynaPoly_NullVtxList(s32 *arg0) {
-    *arg0 = 0;
+void DynaPoly_NullVtxList(struct Vec3s **vtxList) {
+    *vtxList = 0;
 }

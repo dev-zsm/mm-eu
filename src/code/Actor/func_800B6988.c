@@ -7,7 +7,7 @@
 f32 Math_CosS(s16);                             /* extern */
 f32 Math_SinS(s16);                             /* extern */
 
-void Actor_SetSpeeds(void *arg0, f32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x70) = (f32) (Math_CosS(M2C_FIELD(arg0, s16 *, 0x30)) * arg1);
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) (-Math_SinS(M2C_FIELD(arg0, s16 *, 0x30)) * arg1);
+void Actor_SetSpeeds(struct Actor *actor, f32 speed) {
+    M2C_FIELD(actor, f32 *, 0x70) = (f32) (Math_CosS(M2C_FIELD(actor, s16 *, 0x30)) * speed);
+    M2C_FIELD(actor, f32 *, 0x68) = (f32) (-Math_SinS(M2C_FIELD(actor, s16 *, 0x30)) * speed);
 }

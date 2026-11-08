@@ -3,8 +3,8 @@
 #include "generated/code_funcs.h"
 
 
-void Math3D_SphVsSph(void *arg0, void *arg1) {
+s32 Math3D_SphVsSph(struct Sphere16 *sphereA, struct Sphere16 *sphereB) {
     s32 sp1C;
 
-    Math3D_SphVsSphOverlap(arg0, arg1, &sp1C);
+    Math3D_SphVsSphOverlap(sphereA, sphereB, &sp1C);
 }

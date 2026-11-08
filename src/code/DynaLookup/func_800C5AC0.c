@@ -5,8 +5,8 @@
 
 M2C_UNK func_800BF92C(s32);                         /* extern */
 
-void DynaLookup_ResetLists(s32 arg0) {
-    func_800BF92C(arg0 + 2);
-    func_800BF92C(arg0 + 4);
-    func_800BF92C(arg0 + 6);
+void DynaLookup_ResetLists(struct DynaLookup *dynaLookup) {
+    func_800BF92C((u8 *)dynaLookup + 2);
+    func_800BF92C((u8 *)dynaLookup + 4);
+    func_800BF92C((u8 *)dynaLookup + 6);
 }

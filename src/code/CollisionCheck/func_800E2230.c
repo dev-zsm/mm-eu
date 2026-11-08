@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void CollisionCheck_DestroyContext(s32 arg0, M2C_UNK arg1) {
+void CollisionCheck_DestroyContext(struct PlayState *play, struct CollisionCheckContext *colCtxt) {
 
 }

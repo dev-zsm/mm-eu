@@ -6,8 +6,8 @@
 
 extern M2C_UNK D_801ED310;
 
-void Distortion_RemoveRequest(s32 arg0) {
-    if (arg0 == M2C_FIELD(&D_801ED310, s32 *, 4)) {
+void Distortion_RemoveRequest(s32 type) {
+    if (type == M2C_FIELD(&D_801ED310, s32 *, 4)) {
         M2C_FIELD(&D_801ED310, s32 *, 4) = 0;
     }
 }

@@ -5,10 +5,10 @@
 
 void *func_80100304(M2C_UNK);                       /* extern */
 
-void Keyframe_StandardChangeAnimQuick(void *arg0, M2C_UNK arg1) {
+void Keyframe_StandardChangeAnimQuick(struct KFSkelAnime *kfSkelAnime, struct KeyFrameAnimation *animation) {
     void *temp_v0;
 
-    temp_v0 = func_80100304(arg1);
-    M2C_FIELD(arg0, void **, 0x1C) = temp_v0;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(temp_v0, s16 *, 0x12);
+    temp_v0 = func_80100304(animation);
+    M2C_FIELD(kfSkelAnime, void **, 0x1C) = temp_v0;
+    M2C_FIELD(kfSkelAnime, f32 *, 8) = (f32) M2C_FIELD(temp_v0, s16 *, 0x12);
 }

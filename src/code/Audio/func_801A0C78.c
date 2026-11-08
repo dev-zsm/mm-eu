@@ -7,7 +7,7 @@ M2C_UNK AudioSfx_PlaySfx(u16, s32, M2C_UNK, M2C_UNK *, M2C_UNK *, s8 *); /* exte
 extern M2C_UNK D_801D3DE0;
 extern s8 D_801F4ACC;
 
-void Audio_PlaySfx_AtPosWithReverb(s32 arg0, u16 arg1, s8 arg2) {
-    D_801F4ACC = arg2;
-    AudioSfx_PlaySfx(arg1, arg0, 4, &D_801D3DE0, &D_801D3DE0, &D_801F4ACC);
+void Audio_PlaySfx_AtPosWithReverb(struct Vec3f *pos, u16 sfxId, s8 reverbAdd) {
+    D_801F4ACC = reverbAdd;
+    AudioSfx_PlaySfx(sfxId, pos, 4, &D_801D3DE0, &D_801D3DE0, &D_801F4ACC);
 }

@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 CollisionCheck_SkipOC(void *arg0) {
-    if (!(M2C_FIELD(arg0, u8 *, 0x12) & 1)) {
+s32 CollisionCheck_SkipOC(struct Collider *col) {
+    if (!(M2C_FIELD(col, u8 *, 0x12) & 1)) {
         return 1;
     }
     return 0;

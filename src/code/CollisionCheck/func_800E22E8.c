@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void CollisionCheck_EnableSAC(s32 arg0, void *arg1) {
-    M2C_FIELD(arg1, u16 *, 2) = (u16) (M2C_FIELD(arg1, u16 *, 2) | 1);
+void CollisionCheck_EnableSAC(struct PlayState *play, struct CollisionCheckContext *colChkCtx) {
+    M2C_FIELD(colChkCtx, u16 *, 2) = (u16) (M2C_FIELD(colChkCtx, u16 *, 2) | 1);
 }

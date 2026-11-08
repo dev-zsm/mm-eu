@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void DynaPoly_InitWaterBoxList(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    M2C_FIELD(arg0, s32 *, 4) = 0;
+void DynaPoly_InitWaterBoxList(struct DynaWaterBoxList *waterBoxList) {
+    M2C_FIELD(waterBoxList, s32 *, 0) = 0;
+    M2C_FIELD(waterBoxList, s32 *, 4) = 0;
 }

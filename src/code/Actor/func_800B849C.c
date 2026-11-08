@@ -4,12 +4,12 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Actor_OcarinaInteractionAccepted(void *arg0, M2C_UNK arg1) {
+s32 Actor_OcarinaInteractionAccepted(struct Actor *actor, struct GameState *gameState) {
     s32 temp_v1;
 
-    temp_v1 = M2C_FIELD(arg0, s32 *, 4);
+    temp_v1 = M2C_FIELD(actor, s32 *, 4);
     if (temp_v1 & 0x20000000) {
-        M2C_FIELD(arg0, s32 *, 4) = (s32) (temp_v1 & 0xDFFFFFFF);
+        M2C_FIELD(actor, s32 *, 4) = (s32) (temp_v1 & 0xDFFFFFFF);
         return 1;
     }
     return 0;

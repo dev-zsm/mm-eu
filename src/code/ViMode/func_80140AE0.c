@@ -4,15 +4,15 @@ extern G *D_801EB7E0;
 extern u8 D_80097780[];
 extern u8 D_80098320[];
 extern void ViMode_LogPrint(void *, s32);
-void ViMode_Save(u8 *arg0) {
+void ViMode_Save(struct ViMode *viMode) {
     s16 mode;
-    D_801EB7E0->unk134 = *(s32 *)(arg0 + 0x68);
-    D_801EB7E0->unk136 = *(s32 *)(arg0 + 0x54);
-    D_801EB7E0->unk138 = *(s32 *)(arg0 + 0x50);
-    D_801EB7E0->unk13A = *(s32 *)(arg0 + 0x64);
-    D_801EB7E0->unk13C = *(s32 *)(arg0 + 0x60);
-    D_801EB7E0->unk13E = *(s32 *)(arg0 + 0x5C);
-    D_801EB7E0->unk140 = *(s32 *)(arg0 + 0x58);
+    D_801EB7E0->unk134 = *(s32 *)((u8 *)viMode + 0x68);
+    D_801EB7E0->unk136 = *(s32 *)((u8 *)viMode + 0x54);
+    D_801EB7E0->unk138 = *(s32 *)((u8 *)viMode + 0x50);
+    D_801EB7E0->unk13A = *(s32 *)((u8 *)viMode + 0x64);
+    D_801EB7E0->unk13C = *(s32 *)((u8 *)viMode + 0x60);
+    D_801EB7E0->unk13E = *(s32 *)((u8 *)viMode + 0x5C);
+    D_801EB7E0->unk140 = *(s32 *)((u8 *)viMode + 0x58);
     if (D_801EB7E0->unk148 == 1) {
         D_801EB7E0->unk148 = 0;
         mode = D_801EB7E0->unk14A;
@@ -24,7 +24,7 @@ void ViMode_Save(u8 *arg0) {
                 ViMode_LogPrint(D_80098320, mode);
                 break;
             default:
-                ViMode_LogPrint(arg0, mode);
+                ViMode_LogPrint(viMode, mode);
                 break;
         }
     }

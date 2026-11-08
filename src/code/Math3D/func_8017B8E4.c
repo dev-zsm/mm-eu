@@ -5,6 +5,6 @@
 
 M2C_UNK Math3D_Dist1DSq(f32, f32);                    /* extern */
 
-void Math3D_Dist2DSq(f32 arg0, f32 arg1, f32 arg2, f32 arg3) {
-    Math3D_Dist1DSq(arg0 - arg2, arg1 - arg3);
+f32 Math3D_Dist2DSq(f32 x0, f32 y0, f32 x1, f32 y1) {
+    Math3D_Dist1DSq(x0 - x1, y0 - y1);
 }

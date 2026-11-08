@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void CollisionCheck_NoBlood(s32 arg0, M2C_UNK arg1, M2C_UNK arg2) {
+void CollisionCheck_NoBlood(struct PlayState *play, struct Collider *collider, struct Vec3f *v) {
 
 }

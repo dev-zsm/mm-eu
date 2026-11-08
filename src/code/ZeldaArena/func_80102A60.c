@@ -7,6 +7,6 @@
 M2C_UNK func_8008743C(M2C_UNK *, s32);              /* extern */
 extern M2C_UNK D_801EC980;
 
-void ZeldaArena_Malloc(s32 arg0) {
-    func_8008743C(&D_801EC980, arg0);
+void * ZeldaArena_Malloc(u32 size) {
+    func_8008743C(&D_801EC980, size);
 }

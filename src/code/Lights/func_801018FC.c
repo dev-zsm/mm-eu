@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Lights_PointSetPosition(void *arg0, s16 arg1, s16 arg2, s16 arg3) {
-    M2C_FIELD(arg0, s16 *, 2) = arg1;
-    M2C_FIELD(arg0, s16 *, 4) = arg2;
-    M2C_FIELD(arg0, s16 *, 6) = arg3;
+void Lights_PointSetPosition(struct LightInfo *info, s16 x, s16 y, s16 z) {
+    M2C_FIELD(info, s16 *, 2) = x;
+    M2C_FIELD(info, s16 *, 4) = y;
+    M2C_FIELD(info, s16 *, 6) = z;
 }

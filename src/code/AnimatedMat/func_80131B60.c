@@ -4,6 +4,6 @@
 
 void AnimatedMat_DrawMain(void *, s32, f32, s32, s32);
 
-void AnimatedMat_DrawXlu(void *arg0, s32 arg1) {
-    AnimatedMat_DrawMain(arg0, arg1, 1.0f, *(s32 *)((u8 *)arg0 + 0x18840), 2);
+void AnimatedMat_DrawXlu(struct PlayState *play, struct AnimatedMaterial *matAnim) {
+    AnimatedMat_DrawMain(play, matAnim, 1.0f, *(s32 *)((u8 *)play + 0x18840), 2);
 }

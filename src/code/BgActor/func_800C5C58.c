@@ -5,6 +5,6 @@
 
 M2C_UNK ScaleRotPos_IsEqual(s32, s32, s32);               /* extern */
 
-void BgActor_IsTransformUnchanged(s32 arg0) {
-    ScaleRotPos_IsEqual(arg0 + 0x14, arg0 + 0x34, arg0);
+s32 BgActor_IsTransformUnchanged(struct BgActor *bgActor) {
+    ScaleRotPos_IsEqual((u8 *)bgActor + 0x14, (u8 *)bgActor + 0x34, bgActor);
 }

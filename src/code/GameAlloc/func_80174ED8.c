@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void GameAlloc_Init(void *arg0) {
-    M2C_FIELD(arg0, void **, 0x10) = arg0;
-    M2C_FIELD(arg0, void **, 0) = arg0;
-    M2C_FIELD(arg0, void **, 4) = arg0;
+void GameAlloc_Init(struct GameAlloc *this) {
+    M2C_FIELD(this, void **, 0x10) = this;
+    M2C_FIELD(this, void **, 0) = this;
+    M2C_FIELD(this, void **, 4) = this;
 }

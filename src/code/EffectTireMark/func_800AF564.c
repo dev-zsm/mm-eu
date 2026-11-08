@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void EffectTireMark_Destroy(s32 arg0) {
+void EffectTireMark_Destroy(void *thisx) {
 
 }

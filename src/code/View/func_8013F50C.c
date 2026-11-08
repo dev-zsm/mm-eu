@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void View_GetOrtho(void *arg0, f32 *arg1, f32 *arg2, f32 *arg3) {
-    *arg1 = M2C_FIELD(arg0, f32 *, 0x18);
-    *arg2 = M2C_FIELD(arg0, f32 *, 0x1C);
-    *arg3 = M2C_FIELD(arg0, f32 *, 0x20);
+void View_GetOrtho(struct View *view, f32 *fovy, f32 *zNear, f32 *zFar) {
+    *fovy = M2C_FIELD(view, f32 *, 0x18);
+    *zNear = M2C_FIELD(view, f32 *, 0x1C);
+    *zFar = M2C_FIELD(view, f32 *, 0x20);
 }

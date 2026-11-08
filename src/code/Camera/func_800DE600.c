@@ -6,9 +6,9 @@
 M2C_UNK Distortion_Request(M2C_UNK);                     /* extern */
 M2C_UNK Distortion_RemoveRequest(M2C_UNK);                     /* extern */
 
-s32 Camera_UpdateHotRoom(void *arg0) {
+s32 Camera_UpdateHotRoom(struct Camera *camera) {
     Distortion_RemoveRequest(1);
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0x8C), u8 *, 0x186E2) == 3) {
+    if (M2C_FIELD(M2C_FIELD(camera, void **, 0x8C), u8 *, 0x186E2) == 3) {
         Distortion_Request(1);
     }
     return 1;

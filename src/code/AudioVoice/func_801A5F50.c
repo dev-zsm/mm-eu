@@ -4,9 +4,9 @@
 extern u8 D_801D176C;
 extern void AudioVoice_InitWordImpl(void);
 
-void AudioVoice_InitWord(u16 arg0) {
+void AudioVoice_InitWord(u16 wordId) {
     if (D_801D176C != 0) {
-        if (arg0 < 6) {
+        if (wordId < 6) {
             AudioVoice_InitWordImpl();
         }
     }

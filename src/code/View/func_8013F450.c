@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void View_SetScale(void *arg0, f32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x24) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x160) = (s32) (M2C_FIELD(arg0, s32 *, 0x160) | 4);
+void View_SetScale(struct View *view, f32 scale) {
+    M2C_FIELD(view, f32 *, 0x24) = scale;
+    M2C_FIELD(view, s32 *, 0x160) = (s32) (M2C_FIELD(view, s32 *, 0x160) | 4);
 }

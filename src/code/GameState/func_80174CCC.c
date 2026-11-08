@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 GameState_GetSize(void *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0x10);
+u32 GameState_GetSize(struct GameState *gameState) {
+    return M2C_FIELD(gameState, s32 *, 0x10);
 }

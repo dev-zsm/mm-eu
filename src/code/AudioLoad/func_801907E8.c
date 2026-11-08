@@ -9,12 +9,12 @@ typedef struct {
 
 extern AudioCtx D_801F84B0;
 
-void AudioLoad_DiscardSeqFonts(s32 arg0) {
+void AudioLoad_DiscardSeqFonts(s32 seqId) {
     s32 n;
     s32 off;
     s32 id;
 
-    off = ((u16 *)D_801F84B0.unk2860)[arg0];
+    off = ((u16 *)D_801F84B0.unk2860)[seqId];
     n = *(off + D_801F84B0.unk2860);
     off++;
     if (n > 0) {

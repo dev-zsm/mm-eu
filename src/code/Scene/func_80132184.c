@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void Scene_DrawConfigDoNothing(s32 arg0) {
+void Scene_DrawConfigDoNothing(struct PlayState *play) {
 
 }

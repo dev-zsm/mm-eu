@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void PreNMI_Destroy(s32 arg0) {
+void PreNMI_Destroy(struct GameState *thisx) {
 
 }

@@ -6,6 +6,6 @@
 
 s32 Gfx_SetupDL39(s32);                             /* extern */
 
-void Gfx_SetupDL39_Overlay(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x2A0) = Gfx_SetupDL39(M2C_FIELD(arg0, s32 *, 0x2A0));
+void Gfx_SetupDL39_Overlay(struct GraphicsContext *gfxCtx) {
+    M2C_FIELD(gfxCtx, s32 *, 0x2A0) = Gfx_SetupDL39(M2C_FIELD(gfxCtx, s32 *, 0x2A0));
 }

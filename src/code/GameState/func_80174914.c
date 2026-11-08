@@ -5,6 +5,6 @@
 
 M2C_UNK PadMgr_GetInput(s32, M2C_UNK, s32);           /* extern */
 
-void GameState_GetInput(s32 arg0) {
-    PadMgr_GetInput(arg0 + 0x14, 1, arg0);
+void GameState_GetInput(struct GameState *gameState) {
+    PadMgr_GetInput((u8 *)gameState + 0x14, 1, gameState);
 }

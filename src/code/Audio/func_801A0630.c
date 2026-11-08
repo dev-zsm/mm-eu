@@ -6,7 +6,7 @@ extern u8 D_801D3DE8[];
 extern u8 D_801F4A9C[];
 extern u8 D_801F4AA4[];
 
-void Audio_PlaySfx_AtPosWithSyncedFreqAndVolume(s32 arg0, u16 arg1, f32 arg2) {
-    Audio_SetSyncedSfxFreqAndVolume(arg2);
-    AudioSfx_PlaySfx(arg1, arg0, 4, D_801F4AA4, D_801F4A9C, D_801D3DE8);
+void Audio_PlaySfx_AtPosWithSyncedFreqAndVolume(struct Vec3f *pos, u16 sfxId, f32 freqVolParam) {
+    Audio_SetSyncedSfxFreqAndVolume(freqVolParam);
+    AudioSfx_PlaySfx(sfxId, pos, 4, D_801F4AA4, D_801F4A9C, D_801D3DE8);
 }

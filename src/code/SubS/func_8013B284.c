@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void SubS_SetOfferMode(u16 *arg0, u16 arg1, u16 arg2) {
-    *arg0 = (*arg0 & ~arg2) | arg1;
+void SubS_SetOfferMode(u16 *flags, u16 offerMode, u16 mask) {
+    *flags = (*flags & ~mask) | offerMode;
 }

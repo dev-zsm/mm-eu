@@ -5,9 +5,9 @@
 
 M2C_UNK func_80115F80();                            /* extern */
 
-void Actor_DeactivateLens(void *arg0) {
-    if (M2C_FIELD(arg0, u8 *, 0x1CA3) != 0) {
-        M2C_FIELD(arg0, u8 *, 0x1CA3) = 0U;
+void Actor_DeactivateLens(struct PlayState *play) {
+    if (M2C_FIELD(play, u8 *, 0x1CA3) != 0) {
+        M2C_FIELD(play, u8 *, 0x1CA3) = 0U;
         func_80115F80();
     }
 }

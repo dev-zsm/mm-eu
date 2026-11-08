@@ -6,6 +6,6 @@
 
 M2C_UNK Math_Vec3f_DistXYZ(s32, s32, s32, s32);          /* extern */
 
-void Actor_WorldDistXYZToActor(s32 arg0, s32 arg1) {
-    Math_Vec3f_DistXYZ(arg0 + 0x24, arg1 + 0x24, arg0, arg1);
+f32 Actor_WorldDistXYZToActor(struct Actor *actorA, struct Actor *actorB) {
+    Math_Vec3f_DistXYZ((u8 *)actorA + 0x24, (u8 *)actorB + 0x24, actorA, actorB);
 }

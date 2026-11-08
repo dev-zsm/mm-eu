@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Player_ReleaseLockOn(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x730) = 0;
-    M2C_FIELD(arg0, s32 *, 0xA70) = (s32) (M2C_FIELD(arg0, s32 *, 0xA70) & ~0x2000);
+void Player_ReleaseLockOn(struct Player *player) {
+    M2C_FIELD(player, s32 *, 0x730) = 0;
+    M2C_FIELD(player, s32 *, 0xA70) = (s32) (M2C_FIELD(player, s32 *, 0xA70) & ~0x2000);
 }

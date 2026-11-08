@@ -7,8 +7,8 @@ M2C_UNK PadMgr_LockPadData();                            /* extern */
 M2C_UNK PadMgr_UnlockPadData();                            /* extern */
 M2C_UNK PadMgr_GetInputNoLock(s32, s32);                    /* extern */
 
-void PadMgr_GetInput(s32 arg0, s32 arg1) {
+void PadMgr_GetInput(struct Input *inputs, s32 gameRequest) {
     PadMgr_LockPadData();
-    PadMgr_GetInputNoLock(arg0, arg1);
+    PadMgr_GetInputNoLock(inputs, gameRequest);
     PadMgr_UnlockPadData();
 }

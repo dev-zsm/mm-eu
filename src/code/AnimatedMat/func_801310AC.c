@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 AnimatedMat_Lerp(s32 arg0, s32 arg1, f32 arg2) {
-    return (s32) ((f32) (arg1 - arg0) * arg2) + arg0;
+s32 AnimatedMat_Lerp(s32 min, s32 max, f32 norm) {
+    return (s32) ((f32) (max - min) * norm) + min;
 }

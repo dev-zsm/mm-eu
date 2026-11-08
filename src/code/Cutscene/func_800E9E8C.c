@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Cutscene_StopManual(s32 arg0, void *arg1) {
-    if (M2C_FIELD(arg1, u8 *, 8) != 4) {
-        M2C_FIELD(arg1, u8 *, 8) = 3U;
+void Cutscene_StopManual(struct PlayState *play, struct CutsceneContext *csCtx) {
+    if (M2C_FIELD(csCtx, u8 *, 8) != 4) {
+        M2C_FIELD(csCtx, u8 *, 8) = 3U;
     }
 }

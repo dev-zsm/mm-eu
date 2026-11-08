@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s16 Play_GetActiveCamId(void *arg0) {
-    return M2C_FIELD(arg0, s16 *, 0x810);
+s16 Play_GetActiveCamId(struct PlayState *this) {
+    return M2C_FIELD(this, s16 *, 0x810);
 }

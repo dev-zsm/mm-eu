@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void Keyframe_DestroyStandard(s32 arg0) {
+void Keyframe_DestroyStandard(struct KFSkelAnime *kfSkelAnime) {
 
 }

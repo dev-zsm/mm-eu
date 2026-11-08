@@ -10,7 +10,7 @@ extern EffA D_801DB844[3];
 extern EffB D_801DC69C[25];
 extern EffC D_801DF630[15];
 
-void Effect_Init(s32 arg0) {
+void Effect_Init(struct PlayState *play) {
     s32 i;
 
     for (i = 0; i < 3; i++) {
@@ -25,5 +25,5 @@ void Effect_Init(s32 arg0) {
     for (i = 0; i < 15; i++) {
         Effect_InitStatus(&D_801DF630[i]);
     }
-    D_801DB840 = arg0;
+    D_801DB840 = play;
 }

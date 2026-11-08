@@ -2,9 +2,9 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Lib_PhysicalToVirtual(s32 arg0) {
-    if (arg0 == 0) {
+void * Lib_PhysicalToVirtual(u32 ptr) {
+    if (ptr == 0) {
         return 0;
     }
-    return arg0 + 0x80000000;
+    return ptr + 0x80000000;
 }

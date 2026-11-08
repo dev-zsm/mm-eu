@@ -3,6 +3,6 @@
 
 s8 *Entrance_GetTableEntry(u16);
 
-s8 Entrance_GetSceneId(u16 arg0) {
-    return *Entrance_GetTableEntry(arg0);
+s32 Entrance_GetSceneId(u16 entrance) {
+    return *Entrance_GetTableEntry(entrance);
 }

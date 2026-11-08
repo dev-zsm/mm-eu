@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void EffectBlure_Destroy(s32 arg0) {
+void EffectBlure_Destroy(void *thisx) {
 
 }

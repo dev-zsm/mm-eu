@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Math_Vec3f_Diff(void *arg0, void *arg1, void *arg2) {
-    M2C_FIELD(arg2, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0));
-    M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4));
-    M2C_FIELD(arg2, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8));
+void Math_Vec3f_Diff(struct Vec3f *l, struct Vec3f *r, struct Vec3f *dest) {
+    M2C_FIELD(dest, f32 *, 0) = (f32) (M2C_FIELD(l, f32 *, 0) - M2C_FIELD(r, f32 *, 0));
+    M2C_FIELD(dest, f32 *, 4) = (f32) (M2C_FIELD(l, f32 *, 4) - M2C_FIELD(r, f32 *, 4));
+    M2C_FIELD(dest, f32 *, 8) = (f32) (M2C_FIELD(l, f32 *, 8) - M2C_FIELD(r, f32 *, 8));
 }

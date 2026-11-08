@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void CollisionCheck_SetBounce(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, u8 *, 0x10) = (u8) (M2C_FIELD(arg0, u8 *, 0x10) | 4);
-    M2C_FIELD(arg1, u8 *, 0x11) = (u8) (M2C_FIELD(arg1, u8 *, 0x11) | 0x80);
+void CollisionCheck_SetBounce(struct Collider *at, struct Collider *ac) {
+    M2C_FIELD(at, u8 *, 0x10) = (u8) (M2C_FIELD(at, u8 *, 0x10) | 4);
+    M2C_FIELD(ac, u8 *, 0x11) = (u8) (M2C_FIELD(ac, u8 *, 0x11) | 0x80);
 }

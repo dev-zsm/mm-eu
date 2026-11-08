@@ -1,5 +1,5 @@
 #include "types.h"
-f32 Math3D_Dist2DSq(f32, f32, f32, f32);
+#include "generated/code_funcs.h"
 float sqrtf(float);
 #pragma intrinsic (sqrtf)
 f32 Math3D_Dist2D(f32 a0, f32 a1, f32 a2, f32 a3) {

@@ -87,7 +87,7 @@ def rewrite(text: str, fn: str, header: str, proto: str, fit: bool = False):
     sig = sig.replace("* ", "*") if False else sig
     out = head + sig + body
     inc = f'#include "{header}"'
-    if inc not in out:
+    if header != "-" and inc not in out:   # "-": the types of the prototype need no header (tagged pointers)
         lines = out.split("\n")
         last = max((i for i, l in enumerate(lines) if l.startswith("#include")), default=-1)
         lines.insert(last + 1, inc)
@@ -101,11 +101,12 @@ def work(entry):
     if not path.exists():
         return entry, "pending", ""
     old = path.read_text()
-    if f'#include "{header}"' in old and proto.rstrip(";") in old:
+    if (header == "-" or f'#include "{header}"' in old) and proto.rstrip(";") in old:
         return entry, "already", ""
     why = ""
+    name = re.match(r".*?(\w+)\s*\(", proto).group(1)   # the file of a function with a real name carries that name, the table the splat one
     for fit in (False, True):  # the full prototype first, then only the parameters the bytes show
-        new, why = rewrite(old, fn, header, proto, fit)
+        new, why = rewrite(old, name, header, proto, fit)
         if new is None:
             if not fit:
                 return entry, "failed", why

@@ -6,11 +6,11 @@
 extern M2C_UNK PlayerAnimation_Loop;
 extern M2C_UNK PlayerAnimation_Once;
 
-void PlayerAnimation_SetUpdateFunction(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, u8 *, 1) < 2) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x30) = &PlayerAnimation_Loop;
+void PlayerAnimation_SetUpdateFunction(struct SkelAnime *skelAnime) {
+    if ((s32) M2C_FIELD(skelAnime, u8 *, 1) < 2) {
+        M2C_FIELD(skelAnime, M2C_UNK **, 0x30) = &PlayerAnimation_Loop;
     } else {
-        M2C_FIELD(arg0, M2C_UNK **, 0x30) = &PlayerAnimation_Once;
+        M2C_FIELD(skelAnime, M2C_UNK **, 0x30) = &PlayerAnimation_Once;
     }
-    M2C_FIELD(arg0, f32 *, 0x28) = 0.0f;
+    M2C_FIELD(skelAnime, f32 *, 0x28) = 0.0f;
 }

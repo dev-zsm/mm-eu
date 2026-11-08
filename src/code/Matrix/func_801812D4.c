@@ -4,13 +4,13 @@
 
 extern s32 D_801F3644;
 
-void Matrix_Mult(s32 arg0, s32 arg1) {
+void Matrix_Mult(union MtxF *mf, s32 mode) {
     s32 temp_v0;
 
     temp_v0 = Matrix_GetCurrent();
-    if (arg1 == 1) {
-        SkinMatrix_MtxFMtxFMult(temp_v0, arg0, temp_v0);
+    if (mode == 1) {
+        SkinMatrix_MtxFMtxFMult(temp_v0, mf, temp_v0);
         return;
     }
-    Matrix_MtxFCopy(D_801F3644, arg0);
+    Matrix_MtxFCopy(D_801F3644, mf);
 }

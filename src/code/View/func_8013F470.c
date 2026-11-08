@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void View_GetScale(void *arg0, f32 *arg1) {
-    *arg1 = M2C_FIELD(arg0, f32 *, 0x24);
+void View_GetScale(struct View *view, f32 *scale) {
+    *scale = M2C_FIELD(view, f32 *, 0x24);
 }

@@ -5,6 +5,6 @@
 
 M2C_UNK ListAlloc_FreeAll(s32, s32);                    /* extern */
 
-void PreRender_Destroy(s32 arg0) {
-    ListAlloc_FreeAll(arg0 + 0x44, arg0);
+void PreRender_Destroy(struct PreRender *this) {
+    ListAlloc_FreeAll((u8 *)this + 0x44, this);
 }

@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Actor_SetScale(void *arg0, f32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x60) = arg1;
-    M2C_FIELD(arg0, f32 *, 0x5C) = arg1;
-    M2C_FIELD(arg0, f32 *, 0x58) = arg1;
+void Actor_SetScale(struct Actor *actor, f32 scale) {
+    M2C_FIELD(actor, f32 *, 0x60) = scale;
+    M2C_FIELD(actor, f32 *, 0x5C) = scale;
+    M2C_FIELD(actor, f32 *, 0x58) = scale;
 }

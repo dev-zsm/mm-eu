@@ -2,8 +2,8 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Math3D_PointInSquare2D(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5) {
-    if ((arg0 <= arg4) && (arg4 <= arg1) && (arg2 <= arg5) && (arg5 <= arg3)) {
+s32 Math3D_PointInSquare2D(f32 upperLeftX, f32 lowerRightX, f32 upperLeftY, f32 lowerRightY, f32 x, f32 y) {
+    if ((upperLeftX <= x) && (x <= lowerRightX) && (upperLeftY <= y) && (y <= lowerRightY)) {
         return 1;
     }
     return 0;

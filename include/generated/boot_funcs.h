@@ -5,6 +5,17 @@
 
 #include "types.h"
 
+struct GfxPrint;
+struct OSContStatus;
+struct OSMesgQueue;
+struct OSPfs;
+struct OSThread;
+struct OSVoiceData;
+struct OSVoiceHandle;
+struct _Pft;
+struct __OSPackId;
+union Mtx;
+
 void func_80080000();
 void func_80080150(void *start, void *end);
 void func_80080180(u32 *dst, u32 size, u32 value);
@@ -80,7 +91,7 @@ void FaultDrawer_SetFontColor(u16 color);  /* 800843B4 */
 void FaultDrawer_SetCharPad(s8 padW, s8 padH);  /* 800843FC */
 void FaultDrawer_SetCursor(s32 x, s32 y);  /* 80084434 */
 void FaultDrawer_FillScreen(void);  /* 80084538 */
-void FaultDrawer_FormatStringFunc(s32 arg0, void *arg1, s32 arg2);  /* 800845C8 */
+void *FaultDrawer_FormatStringFunc(void *arg, char *str, u32 count);  /* 800845C8 */
 void FaultDrawer_Printf(s32 a0, s32 a1, s32 a2, s32 a3);  /* 8008482C */
 void FaultDrawer_DrawText(s32 x, s32 y, const char *fmt, ...);  /* 8008487C */
 void FaultDrawer_SetDrawerFrameBuffer(void *fb, u16 w, u16 h);  /* 800848CC */
@@ -97,8 +108,8 @@ void func_800851A0(void *ptr);
 void func_800851C8(void *ptr);
 s32 func_800851D4(u16 *ptr, u16 value);
 s32 StackCheck_CheckAll(void);  /* 80085550 */
-void GfxPrint_Setup(void *arg0);  /* 800855E0 */
-s32 GfxPrint_PrintCharImpl(void *arg0, s32 arg1);  /* 80085AD8 */
+void GfxPrint_Setup(struct GfxPrint *this);  /* 800855E0 */
+void GfxPrint_PrintCharImpl(struct GfxPrint *this, u8 c);  /* 80085AD8 */
 void _dbg_hungup(const char *file, s32 line);  /* 800862F0 */
 void Reset(void);  /* 80086324 */
 void SystemHeap_Free(void *ptr);  /* 80086380 */
@@ -107,7 +118,7 @@ void SystemHeap_RunBlockFunc1(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80086
 void SystemHeap_RunBlockFunc8(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8008648C */
 void SystemHeap_RunBlockFunc1Reverse(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8008655C */
 void SystemHeap_RunInits(void);  /* 800865F8 */
-void PadSetup_Init(s32 arg0, void *arg1, void *arg2);  /* 80086690 */
+s32 PadSetup_Init(struct OSMesgQueue *mq, u8 *outMask, struct OSContStatus *status);  /* 80086690 */
 f32 Math_FTanF(f32 x);  /* 800867D0 */
 f32 Math_FFloorF(f32 x);  /* 80086804 */
 f32 Math_FCeilF(f32 x);  /* 80086824 */
@@ -121,8 +132,8 @@ f32 Math_FAtanF(f32 x);  /* 80086B60 */
 f32 Math_FAtan2F(f32 y, f32 x);  /* 80086BA0 */
 f32 Math_FAsinF(f32 x);  /* 80086C88 */
 f32 Math_FAcosF(f32 x);  /* 80086CB8 */
-void floorf(f32 arg0);  /* 80086CE0 */
-void floor(f64 arg0);  /* 80086CEC */
+f32 floorf(f32 x);  /* 80086CE0 */
+f64 floor(f64 x);  /* 80086CEC */
 void func_80086CF8(f32 arg0);
 void func_80086D08(f64 arg0);
 void func_80086D18(f32 arg0);
@@ -135,12 +146,12 @@ s32 func_80086D68(f32 x);
 s32 func_80086D78(f64 x);
 void func_80086D88(f32 arg0);
 void func_80086D94(f64 arg0);
-void lnearbyintf(f32 arg0);  /* 80086DA0 */
-void lnearbyint(f64 arg0);  /* 80086DB0 */
-void roundf(f32 arg0);  /* 80086DC0 */
-void round(f64 arg0);  /* 80086DDC */
-void lroundf(f32 arg0);  /* 80086DFC */
-void lround(f64 arg0);  /* 80086E1C */
+s32 lnearbyintf(f32 x);  /* 80086DA0 */
+s32 lnearbyint(f64 x);  /* 80086DB0 */
+f32 roundf(f32 x);  /* 80086DC0 */
+f64 round(f64 x);  /* 80086DDC */
+s32 lroundf(f32 x);  /* 80086DFC */
+s32 lround(f64 x);  /* 80086E1C */
 void free(void *ptr);  /* 80086EC0 */
 void GetFreeArena(u32 *maxFree, u32 *bytesFree, u32 *bytesAllocated);  /* 80086F3C */
 s32 CheckArena(void);  /* 80086F74 */
@@ -163,9 +174,9 @@ void msleep(u32 ms);  /* 80087C0C */
 void sleep(u32 s);  /* 80087C60 */
 void __osSetCause();  /* 80087CA0 */
 void osViExtendVStart(s32 value);  /* 80087FA0 */
-s32 osSetIntMask(s32 arg0);  /* 800881B0 */
+u32 osSetIntMask(u32 im);  /* 800881B0 */
 void osGetIntMask();  /* 80088250 */
-void guScale(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80088440 */
+void guScale(union Mtx *mtx, f32 x, f32 y, f32 z);  /* 80088440 */
 f32 __sinf(f32 x);  /* 800884F0 */
 s16 sins(u16 x);  /* 800886B0 */
 u64 __ull_rshift(u64 x, u64 shift);  /* 800889E0 */
@@ -184,15 +195,15 @@ void func_800893E4(void *arg0, void *arg1);
 s32 func_8008942C(void *arg0);
 void func_8008943C();
 void func_80089444();
-void bzero(void *arg0, s32 arg1);  /* 800897D0 */
+void bzero(void *begin, u32 length);  /* 800897D0 */
 void __osMakeMotorData(s32 channel, u8 *buf);  /* 800899D8 */
 void __osSiCreateAccessQueue(void);  /* 80089C40 */
 void __osSiGetAccess(void);  /* 80089C90 */
 void __osSiRelAccess(void);  /* 80089CD4 */
 void __osPackRequestData(u8 cmd);  /* 80089F08 */
-void osCreateThread(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80089FE0 */
+void osCreateThread(struct OSThread *thread, s32 id, void *entry, void *arg, void *sp, s32 p);  /* 80089FE0 */
 void __osPackReadData(void);  /* 8008A240 */
-void osVoiceGetReadData(void *arg0, void *arg1);  /* 8008A310 */
+s32 osVoiceGetReadData(struct OSVoiceHandle *hd, struct OSVoiceData *result);  /* 8008A310 */
 u32 osVirtualToPhysical(void *vaddr);  /* 8008A6E0 */
 s32 __osGetSR();  /* 8008A760 */
 void __osSetSR();  /* 8008A770 */
@@ -209,7 +220,7 @@ void __osPfsRequestOneChannel(s32 channel, u8 poll);  /* 8008B630 */
 void guMtxIdentF(void *arg0);  /* 8008B7A0 */
 void __osGetConfig();  /* 8008B850 */
 void __osSetConfig();  /* 8008B860 */
-void __osProbeTLB(s32 arg0);  /* 8008C100 */
+u32 __osProbeTLB(void *param_1);  /* 8008C100 */
 void __osPiCreateAccessQueue(void);  /* 8008C330 */
 void __osPiGetAccess(void);  /* 8008C380 */
 void __osPiRelAccess(void);  /* 8008C3C4 */
@@ -217,7 +228,7 @@ void __osDevMgrMain(void *args);  /* 8008C400 */
 s32 __osPiRawStartDma(s32 direction, u32 cartAddr, void *dramAddr, u32 size);  /* 8008C810 */
 u16 __osSumcalc(u8 *ptr, s32 length);  /* 8008C8E0 */
 s32 __osIdCheckSum(u16 *ptr, u16 *checksum, u16 *inverseChecksum);  /* 8008C954 */
-s32 __osRepairPackId(void *arg0, void *arg1, void *arg2);  /* 8008CA50 */
+s32 __osRepairPackId(struct OSPfs *pfs, struct __OSPackId *badid, struct __OSPackId *newid);  /* 8008CA50 */
 s32 osGetCount();  /* 8008D460 */
 void guMtxL2F(void *arg0, void *arg1);  /* 8008D480 */
 u32 osGetMemSize(void);  /* 8008D4F0 */
@@ -228,44 +239,44 @@ void _Putfld(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 8008E838 */
 void osUnmapTLBAll();  /* 8008EF80 */
 u8 __osVoiceContDataCrc(u8 *data, u32 bytes);  /* 8008F2A0 */
 char *strchr(const char *s, s32 c);  /* 8008F340 */
-void osInvalICache(s32 arg0, s32 arg1);  /* 8008F410 */
-void osInvalDCache(s32 arg0, s32 arg1);  /* 8008F490 */
+void osInvalICache(void *vaddr, u32 nbytes);  /* 8008F410 */
+void osInvalDCache(void *vaddr, u32 nbytes);  /* 8008F490 */
 void __osTimerServicesInit(void);  /* 8008F540 */
 void __osTimerInterrupt(void);  /* 8008F5CC */
 s32 __osSpDeviceBusy(void);  /* 8008FBA0 */
 s32 __osSiDeviceBusy(void);  /* 8008FBD0 */
-void guMtxIdent(void *arg0);  /* 8008FC00 */
+void guMtxIdent(union Mtx *mtx);  /* 8008FC00 */
 void osViSwapBuffer(void *frameBuf);  /* 80090000 */
-s32 bcmp(void *arg0, void *arg1, s32 arg2);  /* 800904A0 */
-s32 __osVoiceSetADConverter(s32 arg0, s32 arg1, s32 arg2);  /* 80090AA0 */
+s32 bcmp(void *__s1, void *__s2, u32 __n);  /* 800904A0 */
+s32 __osVoiceSetADConverter(struct OSMesgQueue *mq, s32 channel, u8 data);  /* 80090AA0 */
 s32 osAiSetFrequency(u32 frequency);  /* 80090C90 */
 u8 __osContAddressCrc(u16 addr);  /* 80091240 */
 u8 __osContDataCrc(u8 *data);  /* 80091310 */
-void guNormalize(void *arg0, void *arg1, void *arg2);  /* 800913C0 */
+void guNormalize(float *x, float *y, float *z);  /* 800913C0 */
 void __osSetCompare();  /* 80091420 */
 void __osGetCompare();  /* 80091430 */
 u32 osDpGetStatus(void);  /* 80091440 */
 void osDpSetStatus(u32 status);  /* 80091450 */
-void bcopy(void *arg0, void *arg1, s32 arg2);  /* 80091460 */
+void bcopy(void *__src, void *__dest, u32 __n);  /* 80091460 */
 s32 __osDisableInt();  /* 80091C00 */
-void __osRestoreInt(s32 arg0);  /* 80091C70 */
+void __osRestoreInt(u32 im);  /* 80091C70 */
 void __osViInit(void);  /* 80091C90 */
 void __osViSwapContext(void);  /* 80091DB0 */
 f32 __cosf(f32 x);  /* 800920E0 */
 void osViSetSpecialFeatures(u32 func);  /* 800922A0 */
-void coss(s32 arg0);  /* 80092400 */
+s16 coss(u16 x);  /* 80092400 */
 void __osPfsRequestData(u8 cmd);  /* 8009276C */
 s32 osCartRomInit();  /* 80092AC0 */
 s32 osContSetCh(u8 channels);  /* 80092E20 */
 void __osSetFpcCsr();  /* 80092E80 */
 void __osGetFpcCsr();  /* 80092E90 */
-void osPfsChecker(void *arg0);  /* 80093390 */
+s32 osPfsChecker(struct OSPfs *pfs);  /* 80093390 */
 u32 osAiGetLength(void);  /* 80093D40 */
 void osMapTLBRdb();  /* 80093DA0 */
 void osYieldThread(void);  /* 80093E00 */
-void guTranslate(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80093E60 */
+void guTranslate(union Mtx *mtx, f32 x, f32 y, f32 z);  /* 80093E60 */
 s32 __osGetCause();  /* 80093F30 */
-void _Ldtob(void *arg0, s32 arg1);  /* 80094480 */
+void _Ldtob(struct _Pft *args, char code);  /* 80094480 */
 s32 __osSiRawWriteIo(u32 devAddr, u32 data);  /* 800953C0 */
 u32 __osSpGetStatus(void);  /* 80095410 */
 void __osSpSetStatus(u32 status);  /* 80095420 */

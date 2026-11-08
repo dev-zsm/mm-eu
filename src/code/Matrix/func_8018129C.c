@@ -6,6 +6,6 @@
 M2C_UNK Matrix_MtxFCopy(s32, s32);                    /* extern */
 extern s32 D_801F3644;
 
-void Matrix_Put(s32 arg0) {
-    Matrix_MtxFCopy(D_801F3644, arg0);
+void Matrix_Put(union MtxF *src) {
+    Matrix_MtxFCopy(D_801F3644, src);
 }

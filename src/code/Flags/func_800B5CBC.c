@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Flags_UnsetClearTemp(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x1E70) = (s32) (M2C_FIELD(arg0, s32 *, 0x1E70) & ~(1 << arg1));
+void Flags_UnsetClearTemp(struct PlayState *play, s32 roomNumber) {
+    M2C_FIELD(play, s32 *, 0x1E70) = (s32) (M2C_FIELD(play, s32 *, 0x1E70) & ~(1 << roomNumber));
 }

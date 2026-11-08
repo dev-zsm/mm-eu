@@ -4,7 +4,7 @@
 
 void Math_Vec3f_Copy(void *, s32);
 
-void EffectSsDeadDs_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s16 arg6, s32 arg7) {
+void EffectSsDeadDs_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 scaleStep, s16 alpha, s32 life) {
     struct {
         f32 p0[3];
         f32 p1[3];
@@ -16,12 +16,12 @@ void EffectSsDeadDs_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 
         s32 w;
     } l;
 
-    Math_Vec3f_Copy(l.p0, arg1);
-    Math_Vec3f_Copy(l.p1, arg2);
-    Math_Vec3f_Copy(l.p2, arg3);
-    l.s0 = arg4;
-    l.s1 = arg5;
-    l.s2 = arg6;
-    l.w = arg7;
-    EffectSs_Spawn(arg0, 0x22, 0x64, l.p0);
+    Math_Vec3f_Copy(l.p0, pos);
+    Math_Vec3f_Copy(l.p1, velocity);
+    Math_Vec3f_Copy(l.p2, accel);
+    l.s0 = scale;
+    l.s1 = scaleStep;
+    l.s2 = alpha;
+    l.w = life;
+    EffectSs_Spawn(play, 0x22, 0x64, l.p0);
 }

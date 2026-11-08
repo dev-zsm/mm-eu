@@ -7,13 +7,13 @@
 s32 func_80088070(M2C_UNK *, u32 *, M2C_UNK);       /* extern */
 extern M2C_UNK D_801FA2F0;
 
-u32 AudioThread_GetExternalLoadQueueMsg(s32 *arg0) {
+u32 AudioThread_GetExternalLoadQueueMsg(u32 *retMsg) {
     u32 sp1C;
 
     if (func_80088070(&D_801FA2F0, &sp1C, 0) == -1) {
-        *arg0 = 0;
+        *retMsg = 0;
         return 0U;
     }
-    *arg0 = sp1C & 0xFFFFFF;
+    *retMsg = sp1C & 0xFFFFFF;
     return sp1C >> 0x18;
 }

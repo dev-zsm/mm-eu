@@ -4,11 +4,11 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void FrameCtrl_Reset(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 8) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x10) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0xC) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 4) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0) = 0.0f;
-    M2C_FIELD(arg0, s32 *, 0x14) = 0;
+void FrameCtrl_Reset(struct FrameControl *frameCtrl) {
+    M2C_FIELD(frameCtrl, f32 *, 8) = 0.0f;
+    M2C_FIELD(frameCtrl, f32 *, 0x10) = 0.0f;
+    M2C_FIELD(frameCtrl, f32 *, 0xC) = 0.0f;
+    M2C_FIELD(frameCtrl, f32 *, 4) = 0.0f;
+    M2C_FIELD(frameCtrl, f32 *, 0) = 0.0f;
+    M2C_FIELD(frameCtrl, s32 *, 0x14) = 0;
 }

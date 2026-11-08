@@ -4,6 +4,6 @@
 
 extern s8 D_801CEFE0;
 
-void Audio_SetCutsceneFlag(s8 arg0) {
-    D_801CEFE0 = arg0;
+void Audio_SetCutsceneFlag(s8 flag) {
+    D_801CEFE0 = flag;
 }

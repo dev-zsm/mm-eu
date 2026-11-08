@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Collider_ResetLineOC(s32 arg0, void *arg1) {
-    M2C_FIELD(arg1, u16 *, 0x18) = (u16) (M2C_FIELD(arg1, u16 *, 0x18) & 0xFFFE);
+s32 Collider_ResetLineOC(struct PlayState *play, struct OcLine *line) {
+    M2C_FIELD(line, u16 *, 0x18) = (u16) (M2C_FIELD(line, u16 *, 0x18) & 0xFFFE);
     return 1;
 }

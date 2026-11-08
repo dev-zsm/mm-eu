@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void GameOver_Init(void *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x17000) = 0;
+void GameOver_Init(struct PlayState *play) {
+    M2C_FIELD(play, s16 *, 0x17000) = 0;
 }

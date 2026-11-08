@@ -8,8 +8,8 @@ typedef struct {
 } V3;
 
 
-void Math3D_CylVsTri(s32 arg0, s32 arg1) {
+s32 Math3D_CylVsTri(struct Cylinder16 *cyl, struct TriNorm *tri) {
     V3 sp1C;
 
-    Math3D_CylTriVsIntersect(arg0, arg1, &sp1C);
+    Math3D_CylTriVsIntersect(cyl, tri, &sp1C);
 }

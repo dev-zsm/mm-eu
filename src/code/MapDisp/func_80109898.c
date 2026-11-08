@@ -9,8 +9,8 @@ typedef struct {
 
 extern MapTex D_801BFCC0[];
 
-s32 MapDisp_GetSizeOfMapITex(s32 arg0) {
-    MapTex *t = &D_801BFCC0[arg0];
+s32 MapDisp_GetSizeOfMapITex(s32 mapCompactId) {
+    MapTex *t = &D_801BFCC0[mapCompactId];
 
     return (t->h * t->w) / 2;
 }

@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 View_SetDistortionSpeed(void *arg0, f32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x140) = arg1;
+s32 View_SetDistortionSpeed(struct View *view, f32 speed) {
+    M2C_FIELD(view, f32 *, 0x140) = speed;
     return 1;
 }

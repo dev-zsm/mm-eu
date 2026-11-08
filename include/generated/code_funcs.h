@@ -5,6 +5,135 @@
 
 #include "types.h"
 
+struct Actor;
+struct ActorContext;
+struct ActorEntry;
+struct ActorPathing;
+struct AdsrState;
+struct AnimatedMaterial;
+struct AnimationHeader;
+struct AnimationSpeedInfo;
+struct Attention;
+struct AudioListItem;
+struct AudioMgr;
+struct BgActor;
+struct BombersNotebook;
+struct Camera;
+struct Collider;
+struct ColliderCylinder;
+struct ColliderCylinderInitToActor;
+struct ColliderCylinderInitType1;
+struct ColliderElement;
+struct ColliderElementDamageInfoAC;
+struct ColliderElementDamageInfoACInit;
+struct ColliderElementDamageInfoAT;
+struct ColliderElementDamageInfoATInit;
+struct ColliderInit;
+struct ColliderJntSph;
+struct ColliderJntSphElement;
+struct ColliderJntSphElementDim;
+struct ColliderJntSphInit;
+struct ColliderQuad;
+struct ColliderQuadDim;
+struct ColliderQuadInit;
+struct ColliderQuadInitType1;
+struct ColliderSphere;
+struct ColliderSphereInit;
+struct ColliderTris;
+struct ColliderTrisElement;
+struct ColliderTrisInit;
+struct CollisionCheckContext;
+struct CollisionCheckInfo;
+struct CollisionCheckInfoInit;
+struct CollisionCheckInfoInit2;
+struct CollisionContext;
+struct CollisionHeader;
+struct CollisionPoly;
+struct Color_RGBA8;
+struct CurveAnimationHeader;
+struct CurveSkeletonHeader;
+struct CutsceneContext;
+struct CutsceneEntry;
+struct Cylinder16;
+struct DynaLookup;
+struct DynaPolyActor;
+struct DynaSSNodeList;
+struct DynaWaterBoxList;
+struct EnHy;
+struct EnvelopePoint;
+struct EnvironmentContext;
+struct FireObj;
+struct FlexSkeletonHeader;
+struct Font;
+struct FrameAdvanceContext;
+struct FrameControl;
+struct GameAlloc;
+struct GameOverContext;
+struct GameState;
+struct GraphicsContext;
+struct Input;
+struct Instrument;
+struct JpegDecoder;
+struct JpegDecoderState;
+struct JpegHuffmanTable;
+struct JpegQuantizationTable;
+struct KFSkelAnime;
+struct KFSkelAnimeFlex;
+struct KeyFrameAnimation;
+struct KeyFrameSkeleton;
+struct LightContext;
+struct LightInfo;
+struct Lights;
+struct MessageContext;
+struct Note;
+struct NotePool;
+struct NpcInteractInfo;
+struct OSMesgQueue;
+struct OSViMode;
+struct OcLine;
+struct Path;
+struct PauseContext;
+struct Plane;
+struct PlayState;
+struct Player;
+struct PlayerAnimationHeader;
+struct PlayerOverrideInputEntry;
+struct PreRender;
+struct RumbleManager;
+struct SSNodeList;
+struct ScaleRotPos;
+struct Scheduler;
+struct SequenceLayer;
+struct SequencePlayer;
+struct SkelAnime;
+struct SkelCurve;
+struct SkeletonHeader;
+struct Skin;
+struct SkyboxContext;
+struct SpeedMeter;
+struct Sphere16;
+struct SramContext;
+struct TrackOptionsSet;
+struct TransitionOverlay;
+struct TransitionTile;
+struct TriNorm;
+struct TunedSample;
+struct TwoHeadArena;
+struct Vec3f;
+struct Vec3s;
+struct ViMode;
+struct View;
+struct VisCvg;
+struct VisFbuf;
+struct VisMono;
+struct VisZBuf;
+struct WaterBox;
+union Gfx;
+union Mtx;
+union MtxF;
+union TwoHeadGfxArena;
+union Vtx;
+
 void EnAObj_Init(void *arg0, s32 arg1);  /* 800A5FE0 */
 void func_800A608C(s32 arg0, s32 arg1);
 void EnAObj_Talk(void *arg0);  /* 800A6148 */
@@ -22,16 +151,16 @@ void EnItem00_DrawSprite(s32 arg0, void *arg1);  /* 800A78C0 */
 void EnItem00_DrawHeartContainer(void *arg0, s32 arg1);  /* 800A79F8 */
 void EnItem00_DrawHeartPiece(s32 arg0, s32 arg1);  /* 800A7AD8 */
 s32 func_800A7B70(s16 a0);
-s32 Item_DropCollectible(s32 arg0, void *arg1, s32 arg2);  /* 800A7C50 */
-void Item_DropCollectible2(s32 arg0, void *arg1, s32 arg2);  /* 800A7FF4 */
-void Item_DropCollectibleRandom(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* 800A8248 */
+struct Actor *Item_DropCollectible(struct PlayState *play, struct Vec3f *spawnPos, u32 params);  /* 800A7C50 */
+struct Actor *Item_DropCollectible2(struct PlayState *play, struct Vec3f *spawnPos, s32 params);  /* 800A7FF4 */
+void Item_DropCollectibleRandom(struct PlayState *play, struct Actor *fromActor, struct Vec3f *spawnPos, s16 params);  /* 800A8248 */
 s32 func_800A8670(s32 arg0);
 u8 func_800A869C(s32 arg0);
 s32 Item_CanDropBigFairy(void *play, s32 item, s32 flag);  /* 800A86C4 */
 void EffectBlure_AddVertex(void *arg0, void *arg1, void *arg2);  /* 800A8710 */
 void EffectBlure_Init1(s32 arg0, s32 arg1);  /* 800A8B30 */
 void EffectBlure_Init2(s32 arg0, s32 arg1);  /* 800A8C40 */
-void EffectBlure_Destroy(s32 arg0);  /* 800A8D74 */
+void EffectBlure_Destroy(void *thisx);  /* 800A8D74 */
 void EffectBlure_Update(void *arg0);  /* 800A8D80 */
 void EffectBlure_UpdateFlags(void *arg0);  /* 800A9198 */
 void EffectBlure_GetComputedValues(void *arg0, s32 arg1, s32 arg2, void *arg3);  /* 800A9308 */
@@ -47,10 +176,10 @@ void EffectBlure_Draw(void *arg0, void *arg1);  /* 800AB60C */
 void EffectShieldParticle_Init(void *arg0, void *arg1);  /* 800ABAF0 */
 void EffectShieldParticle_Update(void *arg0);  /* 800ABDB4 */
 void EffectShieldParticle_GetColors(void *arg0, void *arg1, void *arg2);  /* 800ABF18 */
-void EffectShieldParticle_Draw(void *arg0, void *arg1);  /* 800ACC38 */
+void EffectShieldParticle_Draw(void *thisx, struct GraphicsContext *gfxCtx);  /* 800ACC38 */
 void EffectSpark_Init(void *arg0, void *arg1);  /* 800AD110 */
-void EffectSpark_Destroy(s32 arg0);  /* 800AD4EC */
-void EffectSpark_Draw(s32 arg0, void *arg1);  /* 800AD5BC */
+void EffectSpark_Destroy(void *thisx);  /* 800AD4EC */
+void EffectSpark_Draw(void *thisx, struct GraphicsContext *gfxCtx);  /* 800AD5BC */
 void func_800AE7C0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800AE954(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800AEB04(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -60,19 +189,19 @@ void func_800AEE50(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void func_800AF464(void *arg0);
 void EffectTireMark_InitElement(void *arg0);  /* 800AF490 */
 void EffectTireMark_Init(void *arg0, s32 arg1);  /* 800AF4C0 */
-void EffectTireMark_Destroy(s32 arg0);  /* 800AF564 */
+void EffectTireMark_Destroy(void *thisx);  /* 800AF564 */
 void EffectTireMark_Update(void *arg0);  /* 800AF570 */
 void EffectTireMark_SetVertices(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800AF7A4 */
-void EffectTireMark_Draw(void *arg0, void *arg1);  /* 800AF830 */
+void EffectTireMark_Draw(void *thisx, struct GraphicsContext *gfxCtx);  /* 800AF830 */
 s32 Effect_GetPlayState(void);  /* 800AFC30 */
 s32 Effect_GetByIndex(s32 arg0);  /* 800AFC40 */
 void Effect_InitStatus(void *arg0);  /* 800AFD9C */
-void Effect_Init(s32 arg0);  /* 800AFDB0 */
-void Effect_Add(void *play, s32 *index, s32 type, u8 arg3, u8 arg4, void *initParams);  /* 800AFE80 */
+void Effect_Init(struct PlayState *play);  /* 800AFDB0 */
+void Effect_Add(struct PlayState *play, s32 *pIndex, s32 type, u8 arg3, u8 arg4, void *initParams);  /* 800AFE80 */
 void Effect_DrawAll(s32 arg0);  /* 800B0044 */
 void Effect_UpdateAll(s32 arg0);  /* 800B0180 */
 void Effect_Destroy(s32 arg0, s32 arg1);  /* 800B02EC */
-void Effect_DestroyAll(s32 arg0);  /* 800B0444 */
+void Effect_DestroyAll(struct PlayState *play);  /* 800B0444 */
 void EffectSs_InitInfo(s32 arg0, s32 arg1);  /* 800B0570 */
 void EffectSs_ClearAll(s32 play);  /* 800B0660 */
 s32 EffectSs_GetTable(void);  /* 800B0720 */
@@ -84,7 +213,7 @@ void EffectSs_UpdateAll(s32 play);  /* 800B0C3C */
 void EffectSs_Draw(s32 arg0, s32 arg1);  /* 800B0CF8 */
 void EffectSs_DrawAll(void *arg0);  /* 800B0D3C */
 s16 EffectSs_LerpInv(s16 a, s16 b, s32 divisor);  /* 800B0E8C */
-s16 EffectSs_LerpS16(s16 arg0, s16 arg1, f32 arg2);  /* 800B0EF0 */
+s16 EffectSs_LerpS16(s16 a, s16 b, f32 weight);  /* 800B0EF0 */
 s32 EffectSs_LerpU8(s32 arg0, s32 arg1, s32 arg2);  /* 800B0F44 */
 void EffectSs_DrawGEffect(s32 arg0, void *arg1, s32 arg2);  /* 800B1030 */
 void func_800B1300(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, s16 arg7);
@@ -108,10 +237,10 @@ void EffectSsKirakira_SpawnSmallYellow(void *play, void *pos, void *velocity, vo
 void EffectSsKirakira_SpawnSmall(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5);  /* 800B1BD8 */
 void EffectSsKirakira_SpawnDispersed(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B1C14 */
 void EffectSsKirakira_SpawnFocused(s32 play, s32 unused, void *pos, void *vel, s32 primColor, s32 envColor, s16 yaw, s32 life);  /* 800B1D50 */
-void EffectSsBomb2_SpawnFade(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B1E28 */
-void EffectSsBlast_SpawnWhiteCustomScale(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s16 arg6);  /* 800B1F90 */
-void EffectSsBlast_SpawnShockwave(void *arg0, void *arg1, void *arg2, void *arg3, s32 arg4, s32 arg5, s16 arg6);  /* 800B1FE4 */
-void EffectSsBlast_SpawnWhiteShockwave(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B2030 */
+void EffectSsBomb2_SpawnFade(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel);  /* 800B1E28 */
+void EffectSsBlast_SpawnWhiteCustomScale(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 scaleStep, s16 life);  /* 800B1F90 */
+void EffectSsBlast_SpawnShockwave(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, struct Color_RGBA8 *primColor, struct Color_RGBA8 *envColor, s16 life);  /* 800B1FE4 */
+void EffectSsBlast_SpawnWhiteShockwave(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel);  /* 800B2030 */
 void EffectSsGSpk_SpawnFuse(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);  /* 800B2190 */
 void EffectSsGSpk_SpawnRandColor(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B21E4 */
 void EffectSsGSpk_SpawnSmall(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6);  /* 800B22E8 */
@@ -120,56 +249,56 @@ void EffectSsBubble_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B23B4 
 void EffectSsGRipple_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B2414 */
 void EffectSsGFire_Spawn(void *a0);  /* 800B2500 */
 void EffectSsLightning_Spawn(void *play, f32 *pos, u8 *primColor, u8 *envColor, s16 a, s16 b, s16 c, s16 d);  /* 800B2538 */
-void EffectSsDtBubble_SpawnCustomColor(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, s16 arg7, s16 arg8);  /* 800B262C */
+void EffectSsDtBubble_SpawnCustomColor(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, struct Color_RGBA8 *primColor, struct Color_RGBA8 *envColor, s16 scale, s16 life, s16 randXZ);  /* 800B262C */
 void EffectSsHahen_SpawnBurst(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B273C */
 void func_800B2884(void *play, void *pos, s32 arg2);
-void EffectSsSibuki_Spawn(void *play, void *pos, void *velocity, void *accel, s16 arg4, s16 arg5, s16 arg6);  /* 800B294C */
+void EffectSsSibuki_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 moveDelay, s16 direction, s16 scale);  /* 800B294C */
 s32 EffectSsSibuki_SpawnBurst(s32, s32);  /* 800B29BC */
 void EffectSsHitmark_SpawnFixedScale(s32 a0, s32 a1, s32 a2);  /* 800B2BA4 */
 void EffectSsHitmark_SpawnCustomScale(s32 a0, s32 a1, s16 a2);  /* 800B2BC8 */
-void EffectSsSolderSrchBall_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s32 arg5, s16 arg6);  /* 800B2CC0 */
+void EffectSsSolderSrchBall_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 *playerDetected, s16 flags);  /* 800B2CC0 */
 void EffectSsIcePiece_SpawnBurst(s32 arg0, void *arg1, s32 arg2);  /* 800B2E50 */
 void EffectSsEnIce_SpawnFlying(void *play, void *actor, f32 *pos, u8 *primColor, u8 *envColor, f32 scale);  /* 800B2FE4 */
 void func_800B3064(s32 a0, s32 a1, s32 a2, f32 a3);
 void func_800B309C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void EffectSsFireTail_Spawn(s32 a0, s32 a1, f32 *a2, f32 a3, f32 *a4, s16 a5, u8 *a6, u8 *a7, s16 a8, s16 a9, s32 a10);  /* 800B3168 */
 void EffectSsFireTail_SpawnFlame(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B3200 */
-void EffectSsFireTail_SpawnFlameOnPlayer(u8 *arg0, f32 arg1, s16 arg2, f32 arg3);  /* 800B32C4 */
+void EffectSsFireTail_SpawnFlameOnPlayer(struct PlayState *play, f32 scale, s16 bodyPart, f32 colorIntensity);  /* 800B32C4 */
 void EffectSsEnFire_SpawnVec3s(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 800B338C */
 void EffectSsExtra_Spawn(void *play, void *pos, void *velocity, void *accel, s16 scale, s16 scaleStep);  /* 800B3438 */
 void func_800B3550(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s32 arg6);
-void EffectSsDeadDs_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s16 arg6, s32 arg7);  /* 800B3664 */
+void EffectSsDeadDs_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 scaleStep, s16 alpha, s32 life);  /* 800B3664 */
 void func_800B36DC(void *arg0, void *arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5);
 void Overlay_LoadGameState(void *arg0);  /* 800B37F0 */
 void Overlay_FreeGameState(void *arg0);  /* 800B3914 */
 void Actor_PrintLists(u8 *ctx);  /* 800B3A40 */
 void ActorShape_Init(u8 *p, f32 a, s32 b, f32 c);  /* 800B3B14 */
 s32 ActorShadow_Draw(void *, s32, s32, s32 *, s32);  /* 800B3B38 */
-void ActorShadow_DrawCircle(void *arg0, s32 arg1, s32 arg2);  /* 800B3F30 */
-void ActorShadow_DrawSquare(void *arg0, s32 arg1, s32 arg2);  /* 800B3F94 */
+void ActorShadow_DrawCircle(struct Actor *actor, struct Lights *lights, struct PlayState *play);  /* 800B3F30 */
+void ActorShadow_DrawSquare(struct Actor *actor, struct Lights *lights, struct PlayState *play);  /* 800B3F94 */
 void ActorShadow_DrawWhiteCircle(s32 a0, s32 a1, s32 a2);  /* 800B3FF8 */
 void ActorShadow_DrawHorse(s32 a0, s32 a1, s32 a2);  /* 800B4028 */
 void ActorShadow_DrawFoot(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800B4050 */
-void ActorShadow_DrawFeet(void *arg0, s32 arg1, void *arg2);  /* 800B4268 */
-void Actor_SetFeetPos(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);  /* 800B4A08 */
+void ActorShadow_DrawFeet(struct Actor *actor, struct Lights *mapper, struct PlayState *play);  /* 800B4268 */
+void Actor_SetFeetPos(struct Actor *actor, s32 limbIndex, s32 leftFootIndex, struct Vec3f *leftFootPos, s32 rightFootIndex, struct Vec3f *rightFootPos);  /* 800B4A08 */
 void func_800B4AC0(void *arg0, s32 arg1, void *arg2);
 void Actor_GetProjectedPos(u8 *play, void *pos, void *projectedPos, f32 *invW);  /* 800B4E4C */
 void Attention_SetReticlePos(u8 *a0, s32 a1, f32 a2, f32 a3, f32 a4);  /* 800B4EB0 */
 void Attention_SetTatlState(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 800B4FB0 */
-void Attention_Draw(void *arg0, void *arg1);  /* 800B5178 */
+void Attention_Draw(struct Attention *attention, struct PlayState *play);  /* 800B5178 */
 void Attention_Update(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B5784 */
 void Flags_SetSwitch(u8 *play, s32 flag);  /* 800B5B64 */
-void Flags_UnsetSwitch(s32 *arg0, s32 arg1);  /* 800B5BA4 */
-s32 Flags_GetTreasure(void *arg0, s32 arg1);  /* 800B5BE8 */
-void Flags_SetTreasure(void *arg0, s32 arg1);  /* 800B5C00 */
-void Flags_SetAllTreasure(void *arg0, s32 arg1);  /* 800B5C1C */
-s32 Flags_GetAllTreasure(void *arg0);  /* 800B5C28 */
-s32 Flags_GetClear(void *arg0, s32 arg1);  /* 800B5C34 */
-void Flags_SetClear(void *arg0, s32 arg1);  /* 800B5C4C */
-void Flags_UnsetClear(void *arg0, s32 arg1);  /* 800B5C68 */
-s32 Flags_GetClearTemp(void *arg0, s32 arg1);  /* 800B5C88 */
-void Flags_SetClearTemp(void *arg0, s32 arg1);  /* 800B5CA0 */
-void Flags_UnsetClearTemp(void *arg0, s32 arg1);  /* 800B5CBC */
+void Flags_UnsetSwitch(struct PlayState *play, s32 flag);  /* 800B5BA4 */
+s32 Flags_GetTreasure(struct PlayState *play, s32 flag);  /* 800B5BE8 */
+void Flags_SetTreasure(struct PlayState *play, s32 flag);  /* 800B5C00 */
+void Flags_SetAllTreasure(struct PlayState *play, s32 flag);  /* 800B5C1C */
+s32 Flags_GetAllTreasure(struct PlayState *play);  /* 800B5C28 */
+s32 Flags_GetClear(struct PlayState *play, s32 roomNumber);  /* 800B5C34 */
+void Flags_SetClear(struct PlayState *play, s32 roomNumber);  /* 800B5C4C */
+void Flags_UnsetClear(struct PlayState *play, s32 roomNumber);  /* 800B5C68 */
+s32 Flags_GetClearTemp(struct PlayState *play, s32 roomNumber);  /* 800B5C88 */
+void Flags_SetClearTemp(struct PlayState *play, s32 roomNumber);  /* 800B5CA0 */
+void Flags_UnsetClearTemp(struct PlayState *play, s32 roomNumber);  /* 800B5CBC */
 void Flags_SetCollectible(u8 *globalCtx, s32 flag);  /* 800B5D20 */
 void TitleCard_ContextInit(s32 arg0, void *arg1);  /* 800B5D60 */
 void func_800B5DC0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -177,29 +306,29 @@ void func_800B5E94(s32 arg0, void *arg1);
 s32 func_800B61B8(void *arg0, void *arg1);
 void func_800B61EC(void *arg0);
 void Actor_UpdatePlayerImpact(void *arg0);  /* 800B61F8 */
-void Actor_GetPlayerImpact(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800B6280 */
+f32 Actor_GetPlayerImpact(struct PlayState *play, f32 range, struct Vec3f *pos, s32 *type);  /* 800B6280 */
 void *Actor_AddSharedMemoryEntry(u8 *ctx, s16 id, void *ptr, s32 size);  /* 800B6308 */
 void *Actor_FindSharedMemoryEntry(u8 *play, s16 id);  /* 800B6404 */
-void Actor_Kill(void *arg0);  /* 800B6490 */
+void Actor_Kill(struct Actor *actor);  /* 800B6490 */
 void Actor_SetWorldToHome(u8 *a0);  /* 800B64B0 */
 void Actor_SetWorldRotToShape(u8 *a0);  /* 800B6524 */
-void Actor_SetScale(void *arg0, f32 arg1);  /* 800B6564 */
+void Actor_SetScale(struct Actor *actor, f32 scale);  /* 800B6564 */
 void Actor_Init(void *arg0, s32 arg1);  /* 800B65B8 */
 void Actor_Destroy(void *arg0);  /* 800B66CC */
-void Actor_SetMovementScale(s32 arg0);  /* 800B670C */
-void Actor_MoveWithGravity(s32 arg0);  /* 800B680C */
-void Actor_MoveWithoutGravity(s32 arg0);  /* 800B68A8 */
-void Actor_MoveWithoutGravityReverse(s32 arg0);  /* 800B695C */
-void Actor_SetSpeeds(void *arg0, f32 arg1);  /* 800B6988 */
-void Actor_WorldYawTowardActor(s32 arg0, s32 arg1);  /* 800B6A58 */
-void Actor_FocusYawTowardActor(s32 arg0, s32 arg1);  /* 800B6A84 */
-void Actor_WorldYawTowardPoint(s32 arg0, s32 arg1);  /* 800B6AB0 */
-void Actor_WorldPitchTowardActor(s32 arg0, s32 arg1);  /* 800B6AD4 */
-void Actor_FocusPitchTowardActor(s32 arg0, s32 arg1);  /* 800B6B00 */
+void Actor_SetMovementScale(s32 scale);  /* 800B670C */
+void Actor_MoveWithGravity(struct Actor *actor);  /* 800B680C */
+void Actor_MoveWithoutGravity(struct Actor *actor);  /* 800B68A8 */
+void Actor_MoveWithoutGravityReverse(struct Actor *actor);  /* 800B695C */
+void Actor_SetSpeeds(struct Actor *actor, f32 speed);  /* 800B6988 */
+s16 Actor_WorldYawTowardActor(struct Actor *actorA, struct Actor *actorB);  /* 800B6A58 */
+s16 Actor_FocusYawTowardActor(struct Actor *actorA, struct Actor *actorB);  /* 800B6A84 */
+s16 Actor_WorldYawTowardPoint(struct Actor *actor, struct Vec3f *refPoint);  /* 800B6AB0 */
+s16 Actor_WorldPitchTowardActor(struct Actor *actorA, struct Actor *actorB);  /* 800B6AD4 */
+s16 Actor_FocusPitchTowardActor(struct Actor *actorA, struct Actor *actorB);  /* 800B6B00 */
 s32 Actor_WorldPitchTowardPoint(u8 *a0, u8 *a1);  /* 800B6B2C */
-void Actor_WorldDistXYZToActor(s32 arg0, s32 arg1);  /* 800B6B50 */
+f32 Actor_WorldDistXYZToActor(struct Actor *actorA, struct Actor *actorB);  /* 800B6B50 */
 void Actor_WorldDistXYZToPoint(u8 *a0, s32 a1);  /* 800B6B7C */
-void Actor_WorldDistXZToActor(s32 arg0, s32 arg1);  /* 800B6BA0 */
+f32 Actor_WorldDistXZToActor(struct Actor *actorA, struct Actor *actorB);  /* 800B6BA0 */
 f32 Actor_WorldDistXZToPoint(u8 *actor, void *point);  /* 800B6BCC */
 f32 func_800B6C90(void *arg0, void *arg1);
 void func_800B6CA4(void *arg0, void *arg1, s32 arg2, s32 arg3);
@@ -212,58 +341,58 @@ f32 func_800B6E14(u8 *arg0);
 s32 func_800B6E9C(void *arg0);
 s32 func_800B6EAC(s32 a0);
 s32 func_800B6EE0(u8 *arg0);
-void Player_MountHorse(s32 arg0, void *arg1, void *arg2);  /* 800B6F60 */
+void Player_MountHorse(struct PlayState *play, struct Player *player, struct Actor *horse);  /* 800B6F60 */
 s32 func_800B6F84(u8 *arg0);
 void Player_SpawnHorse(void);  /* 800B6FB0 */
 void func_800B7064(void *arg0);
 void func_800B707C(void *arg0, f32 arg1, s16 arg2);
 s32 Actor_ActorAIsFacingAndNearActorB(void *a, void *b, f32 range, s16 maxAngle);  /* 800B7290 */
 void func_800B73FC(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void Actor_UpdateBgCheckInfo(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800B763C */
+void Actor_UpdateBgCheckInfo(struct PlayState *play, struct Actor *actor, f32 wallCheckHeight, f32 wallCheckRadius, f32 ceilingCheckHeight, u32 updBgCheckInfoFlags);  /* 800B763C */
 s32 Hilite_Draw(s32, s32, s32, void *, s32, s32 *);  /* 800B7B88 */
 void func_800B7DD4(s32 arg0, s32 arg1, s32 arg2);
 void func_800B7E9C(s32 arg0, s32 arg1, s32 arg2);
 void *Actor_GetFocus(void *a0, u8 *a1);  /* 800B7F64 */
 void Attention_WeightedDistToPlayerSq(void *arg0, void *arg1, s32 arg2);  /* 800B8070 */
-void Attention_ShouldReleaseLockOn(void *arg0, void *arg1, s32 arg2);  /* 800B817C */
-s32 Actor_TalkOfferAccepted(void *arg0, s32 arg1);  /* 800B8254 */
+s32 Attention_ShouldReleaseLockOn(struct Actor *actor, struct Player *player, s32 ignoreLeash);  /* 800B817C */
+s32 Actor_TalkOfferAccepted(struct Actor *actor, struct GameState *gameState);  /* 800B8254 */
 void Actor_OfferTalkExchangeEquiCylinder(s32 a0, s32 a1, f32 a2, s32 a3);  /* 800B8364 */
 void Actor_OfferTalk(void *a0, s32 a1, f32 a2);  /* 800B8398 */
-void Actor_OfferTalkNearColChkInfoCylinder(void *arg0, s32 arg1);  /* 800B83C0 */
-s32 Actor_TextboxIsClosing(void *arg0, s32 arg1);  /* 800B8400 */
+s32 Actor_OfferTalkNearColChkInfoCylinder(struct Actor *actor, struct PlayState *play);  /* 800B83C0 */
+s32 Actor_TextboxIsClosing(struct Actor *actor, struct PlayState *play);  /* 800B8400 */
 s32 Player_GetExchangeItemAction(u8 *this);  /* 800B848C */
-s32 Actor_OcarinaInteractionAccepted(void *arg0, s32 arg1);  /* 800B849C */
+s32 Actor_OcarinaInteractionAccepted(struct Actor *actor, struct GameState *gameState);  /* 800B849C */
 void Actor_OfferOcarinaInteractionNearby(s32 a0, s32 a1, f32 a2);  /* 800B8588 */
-s32 Actor_NoOcarinaInteraction(s32 arg0, void *arg1);  /* 800B85F0 */
+s32 Actor_NoOcarinaInteraction(struct Actor *actor, struct PlayState *play);  /* 800B85F0 */
 void Actor_GetScreenPos(s32 a0, u8 *a, s16 *x, s16 *y);  /* 800B861C */
-s32 Actor_HasParent(void *arg0, s32 arg1);  /* 800B877C */
+s32 Actor_HasParent(struct Actor *actor, struct PlayState *play);  /* 800B877C */
 s32 Actor_OfferGetItem(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800B87A0 */
 void Actor_OfferGetItemNearby(s32 a0, s32 a1, s32 a2);  /* 800B8908 */
 void Actor_OfferCarry(s32 a0, s32 a1);  /* 800B8934 */
-void Actor_OfferGetItemFar(s32 arg0, s32 arg1, s32 arg2);  /* 800B8954 */
-s32 Actor_HasNoParent(void *arg0, s32 arg1);  /* 800B8980 */
+s32 Actor_OfferGetItemFar(struct Actor *actor, struct PlayState *play, s32 getItemId);  /* 800B8954 */
+s32 Actor_HasNoParent(struct Actor *actor, struct PlayState *play);  /* 800B8980 */
 void func_800B89A4(void *arg0, void *arg1, s32 arg2);
-void Actor_SetClosestSecretDistance(void *arg0, void *arg1);  /* 800B89D4 */
-s32 Actor_HasRider(s32 arg0, void *arg1);  /* 800B89FC */
-s32 Actor_HasNoRider(s32 arg0, void *arg1);  /* 800B8A70 */
+void Actor_SetClosestSecretDistance(struct Actor *actor, struct PlayState *play);  /* 800B89D4 */
+s32 Actor_HasRider(struct PlayState *play, struct Actor *horse);  /* 800B89FC */
+s32 Actor_HasNoRider(struct PlayState *play, struct Actor *horse);  /* 800B8A70 */
 void func_800B8A94(u8 *arg0, s32 arg1, f32 arg2, s16 arg3, f32 arg4, s32 arg5, s32 arg6);
 void func_800B8AD4(s32 arg0, s32 arg1, f32 arg2, s16 arg3, f32 arg4, s32 arg5);
 void func_800B8B1C(s32 arg0, s32 arg1, f32 arg2, s16 arg3, f32 arg4);
 void func_800B8B58(s32 arg0, s32 arg1, f32 arg2, s16 arg3, f32 arg4, s32 arg5);
 void func_800B8BA0(s32 arg0, s32 arg1, f32 arg2, s16 arg3, f32 arg4);
 void Actor_PlaySfx(u8 *actor, u16 sfxId);  /* 800B8C4C */
-void Actor_PlaySfx_SurfaceBomb(s32 arg0, u8 *arg1);  /* 800B8C78 */
+void Actor_PlaySfx_SurfaceBomb(struct PlayState *play, struct Actor *actor);  /* 800B8C78 */
 void func_800B8D44(u8 *arg0, u16 arg1);
 void Actor_PlaySfx_Flagged(u8 *a0, u16 a1);  /* 800B8D94 */
-void Actor_PlaySeq_FlaggedKamaroDance(void *arg0);  /* 800B8E08 */
-void Actor_PlaySeq_FlaggedMusicBoxHouse(void *arg0);  /* 800B8E1C */
+void Actor_PlaySeq_FlaggedKamaroDance(struct Actor *actor);  /* 800B8E08 */
+void Actor_PlaySeq_FlaggedMusicBoxHouse(struct Actor *actor);  /* 800B8E1C */
 s32 func_800B8E30(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void Actor_DeactivateLens(void *arg0);  /* 800B8E78 */
-void Actor_InitHalfDaysBit(void *arg0);  /* 800B8EA4 */
-void Actor_InitContext(void *arg0, void *arg1, s32 arg2);  /* 800B8EF4 */
+void Actor_DeactivateLens(struct PlayState *play);  /* 800B8E78 */
+void Actor_InitHalfDaysBit(struct ActorContext *actorCtx);  /* 800B8EA4 */
+void Actor_InitContext(struct PlayState *play, struct ActorContext *actorCtx, struct ActorEntry *actorEntry);  /* 800B8EF4 */
 void Actor_SpawnSetupActors(s32 arg0, void *arg1);  /* 800B90B8 */
 s32 Actor_UpdateActor(void *arg0);  /* 800B9210 */
-void Actor_UpdateAll(void *arg0, void *arg1);  /* 800B9504 */
+void Actor_UpdateAll(struct PlayState *play, struct ActorContext *actorCtx);  /* 800B9504 */
 void Actor_Draw(void *arg0, void *arg1);  /* 800B9788 */
 void Actor_UpdateFlaggedAudio(void *arg0);  /* 800B9AA0 */
 void Actor_ResetLensActors(void *arg0);  /* 800B9BC0 */
@@ -271,45 +400,45 @@ s32 Actor_AddToLensActors(u8 *a0, s32 a1);  /* 800B9BD0 */
 void Actor_DrawLensOverlay(void *arg0, s32 arg1);  /* 800B9C08 */
 void Actor_DrawLensActors(void *arg0, s32 arg1, s32 arg2);  /* 800B9C78 */
 void Actor_CullingVolumeTest(s32, s32, u8 *, s32);  /* 800BA080 */
-void Actor_DrawAll(void *arg0, s32 arg1);  /* 800BA1B0 */
+void Actor_DrawAll(struct PlayState *play, struct ActorContext *actorCtx);  /* 800BA1B0 */
 void func_800BA51C(s32 arg0, void *arg1);
 void Actor_Spawn(void *a0, void *a1, s16 a2, f32 a3, f32 a4, f32 a5, s16 a6, s16 a7, s16 a8, s32 a9);  /* 800BA9E4 */
 s32 Actor_LoadOverlay(void *arg0, s32 arg1);  /* 800BAA58 */
 s32 Actor_SpawnAsChildAndCutscene(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800BAB98 */
-void Actor_SpawnTransitionActors(s32 arg0, s32 arg1);  /* 800BAEC4 */
+void Actor_SpawnTransitionActors(struct PlayState *play, struct ActorContext *actorCtx);  /* 800BAEC4 */
 void Actor_SpawnEntry(s32 arg0, void *arg1, s32 arg2);  /* 800BB054 */
 s32 Actor_Delete(void *arg0, void *arg1, s32 arg2);  /* 800BB21C */
 s32 Attention_ActorOnScreen(void *a, void *b);  /* 800BB320 */
 void Attention_FindActorInCategory(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 800BB388 */
 void Attention_FindActor(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800BB670 */
 void Enemy_StartFinishingBlow(u8 *a0, u8 *a1);  /* 800BB80C */
-void Actor_SpawnBodyParts(u8 *actor, u8 *play, s32 arg2, s32 *arg3);  /* 800BBA70 */
-void Actor_SpawnFloorDustRing(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* 800BBB30 */
+void Actor_SpawnBodyParts(struct Actor *actor, struct PlayState *play, s32 partParams, union Gfx **dList);  /* 800BBA70 */
+void Actor_SpawnFloorDustRing(struct PlayState *play, struct Actor *actor, struct Vec3f *posXZ, f32 radius, s32 countMinusOne, f32 randAccelWeight, s16 scale, s16 scaleStep, u8 useLighting);  /* 800BBB30 */
 void func_800BBD34(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 s32 Actor_GetArrowDmgFlags(s32 a0);  /* 800BBF0C */
 void func_800BBFF4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void Actor_TestFloorInDirection(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800BC270 */
+s16 Actor_TestFloorInDirection(struct Actor *actor, struct PlayState *play, f32 distance, s16 angle);  /* 800BC270 */
 void func_800BC3A4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void Actor_RequestQuake(u8 *play, s16 verticalMag, s16 duration);  /* 800BC4F4 */
-void Actor_RequestQuakeWithSpeed(s32 arg0, s16 arg1, s16 arg2, s16 arg3);  /* 800BC55C */
-void Actor_RequestQuakeAndRumble(void *arg0, s32 arg1, s16 arg2, s16 arg3);  /* 800BC5CC */
-void Actor_DrawDoorLock(void *arg0, s32 arg1, s32 arg2);  /* 800BC63C */
+void Actor_RequestQuakeWithSpeed(struct PlayState *play, s16 y, s16 duration, s16 speed);  /* 800BC55C */
+void Actor_RequestQuakeAndRumble(struct Actor *actor, struct PlayState *play, s16 quakeY, s16 quakeDuration);  /* 800BC5CC */
+void Actor_DrawDoorLock(struct PlayState *play, s32 frame, s32 type);  /* 800BC63C */
 void Actor_SpawnShieldParticlesMetal(void);  /* 800BC8D4 */
-void Actor_GetClosestPosOnPath(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 800BCA60 */
+void Actor_GetClosestPosOnPath(struct Vec3s *points, s32 numPoints, struct Vec3f *srcPos, struct Vec3f *dstPos, s32 isPathLoop);  /* 800BCA60 */
 void Npc_TrackPointWithLimits(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800BD108 */
 s16 Npc_GetTrackingPresetMaxPlayerYaw(s16 a0);  /* 800BD43C */
 s32 Npc_UpdateAutoTurn(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800BD468 */
-void Npc_TrackPoint(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800BD60C */
+void Npc_TrackPoint(struct Actor *actor, struct NpcInteractInfo *interactInfo, s16 presetIndex, s16 trackingMode);  /* 800BD60C */
 s32 func_800BD724(void *arg0);
 void func_800BD764(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800BD824(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800BD8F0(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void Actor_UpdateFidgetTables(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800BDA78 */
-void Actor_Noop(s32 arg0, s32 arg1);  /* 800BDD34 */
+void Actor_Noop(struct Actor *actor, struct PlayState *play);  /* 800BDD34 */
 void Gfx_DrawDListOpa(void *, s32, void *, void *);  /* 800BDD44 */
 void Gfx_DrawDListXlu(void *arg0, s32 arg1);  /* 800BDDC0 */
 u8 Actor_ApplyDamage(u8 *a0);  /* 800BDFB0 */
-void Actor_SetDropFlag(void *arg0, void *arg1);  /* 800BDFDC */
+void Actor_SetDropFlag(struct Actor *actor, struct ColliderElement *elem);  /* 800BDFDC */
 void func_800BE154(void *arg0, s32 arg1, s32 arg2);
 void func_800BE288(void *arg0, void *arg1);
 void func_800BE2EC(void *arg0, void *arg1);
@@ -324,11 +453,11 @@ void func_800BF910(s16 *a0, s16 *a1, u16 a2);
 void func_800BF92C(s16 *arg0);
 void SSNodeList_SetSSListHead(void *arg0, u16 *arg1, s32 arg2);  /* 800BF93C */
 void DynaSSNodeList_SetSSListHead(s32 *arg0, u16 *arg1, s32 arg2);  /* 800BF994 */
-void DynaSSNodeList_Init(s32 arg0, void *arg1);  /* 800BF9EC */
-void DynaSSNodeList_ResetCount(void *arg0);  /* 800BFA50 */
+void DynaSSNodeList_Init(struct PlayState *play, struct DynaSSNodeList *list);  /* 800BF9EC */
+void DynaSSNodeList_ResetCount(struct DynaSSNodeList *list);  /* 800BFA50 */
 s32 DynaSSNodeList_GetNextNodeIdx(void *arg0);  /* 800BFA5C */
-void BgCheck_Vec3sToVec3f(void *arg0, void *arg1);  /* 800BFA8C */
-void BgCheck_Vec3fToVec3s(void *arg0, void *arg1);  /* 800BFAD0 */
+void BgCheck_Vec3sToVec3f(struct Vec3s *src, struct Vec3f *dest);  /* 800BFA8C */
+void BgCheck_Vec3fToVec3s(struct Vec3s *dest, struct Vec3f *src);  /* 800BFAD0 */
 f32 func_800BFB14(void *arg0, s32 arg1, s32 arg2);
 s32 func_800BFB7C(void *arg0, void *arg1, void *arg2, void *arg3);
 s32 CollisionPoly_GetMinY(void *arg0, s32 arg1);  /* 800BFD54 */
@@ -353,66 +482,66 @@ void BgCheck_GetSubdivisionMaxBounds(void *arg0, void *arg1, void *arg2, void *a
 void BgCheck_GetPolySubdivisionBounds(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C27C0 */
 s32 BgCheck_PolyIntersectsSubdivision(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 800C2970 */
 void BgCheck_InitStaticLookup(void *arg0, s32 arg1, void *arg2);  /* 800C30C4 */
-s32 BgCheck_IsSmallMemScene(void *arg0);  /* 800C34C4 */
+s32 BgCheck_IsSmallMemScene(struct PlayState *play);  /* 800C34C4 */
 s32 BgCheck_TryGetCustomMemsize(s32 id, s32 *value);  /* 800C3508 */
 void BgCheck_SetSubdivisionDimension(f32 min, s32 subdivLen, f32 *max, f32 *subdivAmount, f32 *inv);  /* 800C354C */
-void BgCheck_Allocate(void *arg0, void *arg1, s32 arg2);  /* 800C362C */
-void BgCheck_SetContextFlags(void *arg0, s32 arg1);  /* 800C3990 */
-void BgCheck_UnsetContextFlags(void *arg0, s32 arg1);  /* 800C39A4 */
-s32 BgCheck_GetCollisionHeader(u8 *arg0, s32 arg1);  /* 800C39BC */
+void BgCheck_Allocate(struct CollisionContext *colCtx, struct PlayState *play, struct CollisionHeader *colHeader);  /* 800C362C */
+void BgCheck_SetContextFlags(struct CollisionContext *colCtx, u32 flags);  /* 800C3990 */
+void BgCheck_UnsetContextFlags(struct CollisionContext *colCtx, u32 flags);  /* 800C39A4 */
+struct CollisionHeader *BgCheck_GetCollisionHeader(struct CollisionContext *colCtx, s32 bgId);  /* 800C39BC */
 s32 BgCheck_PosInStaticBoundingBox(void *arg0, void *arg1);  /* 800C3A24 */
 s32 BgCheck_RaycastFloorImpl(s32, s32, s32, s32, s32 *, s32, s32, s32, f32, s32);  /* 800C3AE0 */
-void BgCheck_CameraRaycastFloor1(s32 arg0, s32 arg1, s32 arg2);  /* 800C3CD0 */
-void BgCheck_EntityRaycastFloor1(s32 arg0, s32 arg1, s32 arg2);  /* 800C3D30 */
-void BgCheck_EntityRaycastFloor2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C3D90 */
+f32 BgCheck_CameraRaycastFloor1(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, struct Vec3f *pos);  /* 800C3CD0 */
+f32 BgCheck_EntityRaycastFloor1(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, struct Vec3f *pos);  /* 800C3D30 */
+f32 BgCheck_EntityRaycastFloor2(struct PlayState *play, struct CollisionContext *colCtx, struct CollisionPoly **outPoly, struct Vec3f *pos);  /* 800C3D90 */
 s32 BgCheck_EntityRaycastFloor2_1(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800C3DE8 */
-void BgCheck_EntityRaycastFloor3(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C3E44 */
-void BgCheck_EntityRaycastFloor5(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 800C3EAC */
+f32 BgCheck_EntityRaycastFloor3(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos);  /* 800C3E44 */
+f32 BgCheck_EntityRaycastFloor5(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *outBgId, struct Actor *actor, struct Vec3f *pos);  /* 800C3EAC */
 s32 BgCheck_EntityRaycastFloor5_2(void *a, void *b, void *c, void *d, void *e, void *f);  /* 800C3F18 */
-f32 BgCheck_EntityRaycastFloor5_3(void *play, void *colCtx, void *arg2, void *arg3, void *arg4, void *arg5);  /* 800C3F74 */
-void BgCheck_EntityRaycastFloor6(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 arg5);  /* 800C3FD0 */
-void BgCheck_EntityRaycastFloor7(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 800C4038 */
-void BgCheck_CameraRaycastFloor2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C4218 */
-void BgCheck_EntityRaycastFloor8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 800C4280 */
-void BgCheck_EntityRaycastFloor9(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C42EC */
+f32 BgCheck_EntityRaycastFloor5_3(struct PlayState *play, struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos);  /* 800C3F74 */
+f32 BgCheck_EntityRaycastFloor6(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos, f32 checkDist);  /* 800C3FD0 */
+f32 BgCheck_EntityRaycastFloor7(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos);  /* 800C4038 */
+f32 BgCheck_CameraRaycastFloor2(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos);  /* 800C4218 */
+f32 BgCheck_EntityRaycastFloor8(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos);  /* 800C4280 */
+f32 BgCheck_EntityRaycastFloor9(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos);  /* 800C42EC */
 s32 BgCheck_CheckWallImpl(void *a0, s32 a1, void *a2, void *a3, s32 a4, f32 a5, s32 a6, s32 a7, s32 a8, f32 a9, s32 a10);  /* 800C4354 */
-void BgCheck_EntitySphVsWall1(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 arg4, s32 arg5, f32 arg6);  /* 800C4A04 */
-s32 BgCheck_EntitySphVsWall2(void *colCtx, void *posResult, void *pos, s32 arg3, f32 radius, s32 arg5, s32 arg6, f32 arg7);  /* 800C4A68 */
+s32 BgCheck_EntitySphVsWall1(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, f32 checkHeight);  /* 800C4A04 */
+s32 BgCheck_EntitySphVsWall2(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, s32 *outBgId, f32 checkHeight);  /* 800C4A68 */
 void BgCheck_EntitySphVsWall3(s32 a0, s32 a1, s32 a2, s32 a3, f32 f4, s32 s4C, s32 s50, s32 s54, f32 f6);  /* 800C4ACC */
-s32 BgCheck_EntitySphVsWall4(void *colCtx, void *posResult, void *pos, s32 arg3, f32 radius, s32 arg5, s32 arg6, s32 arg7, f32 arg8);  /* 800C4B34 */
+s32 BgCheck_EntitySphVsWall4(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, s32 *outBgId, struct Actor *actor, f32 checkHeight);  /* 800C4B34 */
 void BgCheck_CheckCeilingImpl(void *arg0, s32 arg1, void *arg2, void *arg3);  /* 800C4BA0 */
 s32 BgCheck_AnyCheckCeiling(void *colCtx, void *pos, void *a2, f32 checkHeight);  /* 800C4CC8 */
 void BgCheck_EntityCheckCeiling(s32 a0, s32 a1, s32 a2, f32 a3, s32 a4, s32 a5, s32 a6);  /* 800C4D14 */
 s32 BgCheck_CheckLineImpl(s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, s32);  /* 800C4D64 */
 s32 BgCheck_GetBccFlags(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 800C51F4 */
-void BgCheck_CameraLineTest1(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9);  /* 800C523C */
-void BgCheck_CameraLineTest2(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9);  /* 800C52C8 */
-void BgCheck_EntityLineTest1(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9);  /* 800C5354 */
-void BgCheck_EntityLineTest2(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9, s32 arg10);  /* 800C53E0 */
-void BgCheck_EntityLineTest3(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9, s32 arg10, f32 arg11);  /* 800C5470 */
-void BgCheck_ProjectileLineTest(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9);  /* 800C54FC */
+s32 BgCheck_CameraLineTest1(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  /* 800C523C */
+s32 BgCheck_CameraLineTest2(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  /* 800C52C8 */
+s32 BgCheck_EntityLineTest1(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  /* 800C5354 */
+s32 BgCheck_EntityLineTest2(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId, struct Actor *actor);  /* 800C53E0 */
+s32 BgCheck_EntityLineTest3(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId, struct Actor *actor, f32 checkDist);  /* 800C5470 */
+s32 BgCheck_ProjectileLineTest(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  /* 800C54FC */
 s32 BgCheck_AnyLineTest1(void *a0, void *a1, void *a2, void *a3, void *a4, void *a5);  /* 800C5588 */
-void BgCheck_AnyLineTest2(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8);  /* 800C55CC */
-void BgCheck_AnyLineTest3(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, s32 arg8, s32 arg9);  /* 800C5658 */
+s32 BgCheck_AnyLineTest2(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace);  /* 800C55CC */
+s32 BgCheck_AnyLineTest3(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  /* 800C5658 */
 void BgCheck_SphVsFirstPolyImpl(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C56E4 */
 s32 BgCheck_SphVsFirstPoly(void *colCtx, void *pos, f32 radius);  /* 800C57B0 */
-void BgCheck_SphVsFirstWall(s32 arg0, s32 arg1, f32 arg2);  /* 800C57F4 */
-void SSNodeList_Init(void *arg0);  /* 800C583C */
+s32 BgCheck_SphVsFirstWall(struct CollisionContext *colCtx, struct Vec3f *center, f32 radius);  /* 800C57F4 */
+void SSNodeList_Init(struct SSNodeList *this);  /* 800C583C */
 u16 SSNodeList_GetNextNodeIdx(u16 *a0);  /* 800C594C */
-void ScaleRotPos_Init(void *arg0);  /* 800C5960 */
-s32 ScaleRotPos_IsEqual(void *arg0, void *arg1);  /* 800C59EC */
-void DynaLookup_ResetLists(s32 arg0);  /* 800C5AC0 */
+void ScaleRotPos_Init(struct ScaleRotPos *srp);  /* 800C5960 */
+s32 ScaleRotPos_IsEqual(struct ScaleRotPos *a, struct ScaleRotPos *b);  /* 800C59EC */
+void DynaLookup_ResetLists(struct DynaLookup *dynaLookup);  /* 800C5AC0 */
 void DynaLookup_Reset(s16 *arg0);  /* 800C5B00 */
-void DynaLookup_ResetVtxStartIndex(s16 *arg0);  /* 800C5B20 */
-void DynaLookup_ResetWaterBoxStartIndex(s16 *arg0);  /* 800C5B2C */
-void BgActor_IsTransformUnchanged(s32 arg0);  /* 800C5C58 */
-void DynaPoly_NullPolyList(s32 *arg0);  /* 800C5C80 */
-void DynaPoly_AllocPolyList(s32 arg0, s32 *arg1, s32 arg2);  /* 800C5C8C */
-void DynaPoly_NullVtxList(s32 *arg0);  /* 800C5CC8 */
-void DynaPoly_AllocVtxList(s32 arg0, s32 *arg1, s32 arg2);  /* 800C5CD4 */
-void DynaPoly_InitWaterBoxList(void *arg0);  /* 800C5D1C */
-void DynaPoly_AllocWaterBoxList(s32 arg0, void *arg1, s32 arg2);  /* 800C5D2C */
-s32 DynaPoly_IsBgIdBgActor(s32 arg0);  /* 800C5DB4 */
+void DynaLookup_ResetVtxStartIndex(u16 *vtxStartIndex);  /* 800C5B20 */
+void DynaLookup_ResetWaterBoxStartIndex(u16 *waterBoxStartIndex);  /* 800C5B2C */
+s32 BgActor_IsTransformUnchanged(struct BgActor *bgActor);  /* 800C5C58 */
+void DynaPoly_NullPolyList(struct CollisionPoly **polyList);  /* 800C5C80 */
+void DynaPoly_AllocPolyList(struct PlayState *play, struct CollisionPoly **polyList, s32 numPolys);  /* 800C5C8C */
+void DynaPoly_NullVtxList(struct Vec3s **vtxList);  /* 800C5CC8 */
+void DynaPoly_AllocVtxList(struct PlayState *play, struct Vec3s **vtxList, s32 numVtx);  /* 800C5CD4 */
+void DynaPoly_InitWaterBoxList(struct DynaWaterBoxList *waterBoxList);  /* 800C5D1C */
+void DynaPoly_AllocWaterBoxList(struct PlayState *play, struct DynaWaterBoxList *waterBoxList, s32 numWaterBoxes);  /* 800C5D2C */
+s32 DynaPoly_IsBgIdBgActor(s32 bgId);  /* 800C5DB4 */
 void DynaPoly_Init(s32 arg0, s8 *arg1);  /* 800C5DD4 */
 s32 DynaPoly_SetBgActor(s32, s32, void *, s32);  /* 800C5F18 */
 void func_800C60FC(s32 arg0, u8 *arg1, s32 arg2);
@@ -435,7 +564,7 @@ s32 BgCheck_CheckLineAgainstDyna(void *arg0, s32 arg1, void *arg2, void *arg3); 
 s32 BgCheck_SphVsFirstDynaPolyList(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C8E3C */
 s32 BgCheck_SphVsFirstDynaPolyInBgActor(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C8FAC */
 s32 BgCheck_SphVsFirstDynaPoly(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800C9110 */
-void CollisionHeader_GetVirtual(s32 arg0, s32 *out);  /* 800C92F4 */
+void CollisionHeader_GetVirtual(struct CollisionHeader *colHeader, struct CollisionHeader **dest);  /* 800C92F4 */
 void BgCheck_InitCollisionHeaders(void *a0, void *a1);  /* 800C9328 */
 u32 SurfaceType_GetData(void *arg0, u16 *arg1, s32 arg2, s32 arg3);  /* 800C9424 */
 u8 SurfaceType_GetBgCamIndex(s32 a0, s32 a1, s32 a2);  /* 800C9494 */
@@ -467,8 +596,8 @@ u32 SurfaceType_IsHookshotSurface(s32 a0, s32 a1, s32 a2);  /* 800C9A7C */
 u32 SurfaceType_GetConveyorSpeed(s32 a0, s32 a1, s32 a2);  /* 800C9BA8 */
 s32 SurfaceType_IsWallDamage(s32 a0, s32 a1, s32 a2);  /* 800C9C18 */
 s32 BgCheck_GetWaterSurface(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800C9C4C */
-void BgCheck_GetWaterSurfaceNoBgIdAlt(s32 arg0, s32 arg1, f32 arg2, f32 arg3, s32 arg4, s32 arg5);  /* 800C9F3C */
-s32 BgCheck_GetWaterSurfaceNoBgId(s32 arg0, s32 arg1, f32 x, f32 z, s32 arg4, s32 arg5);  /* 800C9F78 */
+s32 BgCheck_GetWaterSurfaceNoBgIdAlt(struct PlayState *play, struct CollisionContext *colCtx, f32 x, f32 z, f32 *outWaterSurface, struct WaterBox **outWaterBox);  /* 800C9F3C */
+s32 BgCheck_GetWaterSurfaceNoBgId(struct PlayState *play, struct CollisionContext *colCtx, f32 x, f32 z, f32 *outWaterSurface, struct WaterBox **outWaterBox);  /* 800C9F78 */
 void BgCheck_FindWaterBox(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* 800C9FBC */
 s32 WaterBox_GetBgCamIndex(s32 a0, u8 *a1);  /* 800CA3C4 */
 s32 WaterBox_GetBgCamSetting(s32 arg0, s32 arg1, s32 arg2);  /* 800CA3D8 */
@@ -477,19 +606,19 @@ s32 WaterBox_GetLightSettingIndex(s32 a0, u8 *a1);  /* 800CA468 */
 void func_800CA480(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void func_800CA760(void *a0, void *a1, f32 a2, f32 a3, s32 a4, s32 a5);
 void DynaPolyActor_UpdateCarriedActorPos(s32 arg0, s32 arg1, s32 arg2);  /* 800CA860 */
-void DynaPolyActor_Init(void *arg0, s32 arg1);  /* 800CABA0 */
-void DynaPolyActor_LoadMesh(s32 arg0, void *arg1, s32 arg2);  /* 800CABC4 */
-void DynaPolyActor_UnsetAllInteractFlags(void *arg0);  /* 800CAC0C */
-void DynaPolyActor_SetActorOnTop(void *arg0);  /* 800CAC18 */
-void DynaPolyActor_SetPlayerOnTop(void *arg0);  /* 800CAC2C */
+void DynaPolyActor_Init(struct DynaPolyActor *dynaActor, s32 transformFlags);  /* 800CABA0 */
+void DynaPolyActor_LoadMesh(struct PlayState *play, struct DynaPolyActor *dynaActor, struct CollisionHeader *meshHeader);  /* 800CABC4 */
+void DynaPolyActor_UnsetAllInteractFlags(struct DynaPolyActor *dynaActor);  /* 800CAC0C */
+void DynaPolyActor_SetActorOnTop(struct DynaPolyActor *dynaActor);  /* 800CAC18 */
+void DynaPolyActor_SetPlayerOnTop(struct DynaPolyActor *dynaActor);  /* 800CAC2C */
 void DynaPoly_SetPlayerOnTop(void);  /* 800CAC40 */
-void DynaPolyActor_SetPlayerAbove(void *arg0);  /* 800CAC70 */
+void DynaPolyActor_SetPlayerAbove(struct DynaPolyActor *dynaActor);  /* 800CAC70 */
 void DynaPoly_SetPlayerAbove(void);  /* 800CAC84 */
-void DynaPolyActor_SetSwitchPressed(void *arg0);  /* 800CACB4 */
-void DynaPolyActor_SetHeavySwitchPressed(void *arg0);  /* 800CACC8 */
-s32 DynaPolyActor_IsActorOnTop(void *arg0);  /* 800CACDC */
-s32 DynaPolyActor_IsPlayerOnTop(void *arg0);  /* 800CAD00 */
-s32 DynaPolyActor_IsPlayerAbove(void *arg0);  /* 800CAD24 */
+void DynaPolyActor_SetSwitchPressed(struct DynaPolyActor *dynaActor);  /* 800CACB4 */
+void DynaPolyActor_SetHeavySwitchPressed(struct DynaPolyActor *dynaActor);  /* 800CACC8 */
+s32 DynaPolyActor_IsActorOnTop(struct DynaPolyActor *dynaActor);  /* 800CACDC */
+s32 DynaPolyActor_IsPlayerOnTop(struct DynaPolyActor *dynaActor);  /* 800CAD00 */
+s32 DynaPolyActor_IsPlayerAbove(struct DynaPolyActor *dynaActor);  /* 800CAD24 */
 s32 func_800CAD48(void *arg0);
 s32 func_800CAD6C(void *arg0);
 void DynaPolyActor_ValidateMove(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800CAD90 */
@@ -613,61 +742,61 @@ void Camera_Special7(void);  /* 800DCECC */
 void Camera_Special8(void *arg0);  /* 800DCEEC */
 void Camera_Special9(void *arg0);  /* 800DD368 */
 void *Camera_Create(void *a, void *b, void *c);  /* 800DDB08 */
-void Camera_Destroy(s32 arg0);  /* 800DDB58 */
+void Camera_Destroy(struct Camera *camera);  /* 800DDB58 */
 void Camera_Init(void *camera, void *a, void *b, void *c);  /* 800DDB80 */
 void func_800DDE90(s32 arg0);
 void func_800DDE9C(s32, s32);
 s16 func_800DE0B8(void *arg0, s16 arg1);
 void func_800DE0E4(void *arg0);
 void func_800DE3EC(s32 arg0);
-s32 Camera_UpdateHotRoom(void *arg0);  /* 800DE600 */
+s32 Camera_UpdateHotRoom(struct Camera *camera);  /* 800DE600 */
 s32 Camera_SetSwordDistortion(void);  /* 800DE650 */
 void Camera_Update(s32 arg0, void *arg1);  /* 800DE770 */
 s32 func_800DF258(s32 arg0);
-void Camera_ChangeModeFlags(void *arg0, s32 arg1, s32 arg2);  /* 800DF290 */
+s32 Camera_ChangeModeFlags(struct Camera *camera, s16 mode, u8 forceChange);  /* 800DF290 */
 void Camera_ChangeMode(s32 a0, s16 a1);  /* 800DF600 */
 void Camera_ChangeSettingFlags(void *, s16, s32);  /* 800DF6AC */
-s32 Camera_ChangeSetting(void *arg0, s16 arg1);  /* 800DF888 */
-void Camera_ChangeActorCsCamIndex(void *arg0, s32 arg1);  /* 800DF8D4 */
+s32 Camera_ChangeSetting(struct Camera *camera, s16 setting);  /* 800DF888 */
+s32 Camera_ChangeActorCsCamIndex(struct Camera *camera, s32 bgCamIndex);  /* 800DF8D4 */
 s16 Camera_GetInputDirPitch(s32 a0);  /* 800DFA00 */
-s16 Camera_GetInputDirYaw(s32 arg0);  /* 800DFA28 */
+s16 Camera_GetInputDirYaw(struct Camera *camera);  /* 800DFA28 */
 void *Camera_GetCamDir(u8 *a0, u8 *a1);  /* 800DFA50 */
 s16 Camera_GetCamDirPitch(s32 a0);  /* 800DFA74 */
-s16 Camera_GetCamDirYaw(s32 arg0);  /* 800DFA9C */
-s32 Camera_AddQuake(void *camera, s32 arg1, s16 y, s16 duration);  /* 800DFAC4 */
+s16 Camera_GetCamDirYaw(struct Camera *camera);  /* 800DFA9C */
+s32 Camera_AddQuake(struct Camera *camera, s32 arg1, s16 y, s32 countdown);  /* 800DFAC4 */
 s32 Camera_SetViewParam(void *camera, s32 param, void *value);  /* 800DFB38 */
-s32 Camera_UnsetViewFlag(void *arg0, s16 arg1);  /* 800DFCB0 */
-s32 Camera_OverwriteStateFlags(void *arg0, s16 arg1);  /* 800DFCD8 */
+s32 Camera_UnsetViewFlag(struct Camera *camera, s16 viewFlag);  /* 800DFCB0 */
+s32 Camera_OverwriteStateFlags(struct Camera *camera, s16 stateFlags);  /* 800DFCD8 */
 s32 Camera_ResetActionFuncStateUnused(void *arg0);  /* 800DFCF4 */
 s32 Camera_SetCsParams(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800DFD04 */
-s16 Camera_SetStateFlag(void *arg0, s16 arg1);  /* 800DFD20 */
-s16 Camera_UnsetStateFlag(void *arg0, s16 arg1);  /* 800DFD44 */
-void Camera_Copy(void *arg0, void *arg1);  /* 800DFE3C */
+s16 Camera_SetStateFlag(struct Camera *camera, s16 flags);  /* 800DFD20 */
+s16 Camera_UnsetStateFlag(struct Camera *camera, s16 flags);  /* 800DFD44 */
+s32 Camera_Copy(struct Camera *dstCam, struct Camera *srcCam);  /* 800DFE3C */
 s32 Camera_IsDbgCamEnabled(void);  /* 800DFF6C */
-void Camera_SetCameraData(void *arg0, s16 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5);  /* 800DFF9C */
+void Camera_SetCameraData(struct Camera *camera, s16 setDataFlags, void *data0, void *data1, s16 data2, s16 data3);  /* 800DFF9C */
 s32 Camera_GetNegOne(void);  /* 800DFFE8 */
-void Camera_SetTargetActor(void *arg0, s32 arg1);  /* 800E00C8 */
-f32 Camera_GetWaterYPos(void *arg0);  /* 800E00DC */
+void Camera_SetTargetActor(struct Camera *camera, struct Actor *actor);  /* 800E00C8 */
+f32 Camera_GetWaterYPos(struct Camera *camera);  /* 800E00DC */
 void func_800E0108(u8 *arg0);
 void *DamageTable_Get(s32 index);  /* 800E0160 */
 f32 CollisionCheck_GetDamageAndEffectOnElementAC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E01D0 */
 f32 CollisionCheck_ApplyElementATDefense(f32 a0, u8 *a1);  /* 800E027C */
 u8 CollisionCheck_GetElementATDamage(s16 **arg0, void *arg1, s16 **arg2, s32 arg3);  /* 800E02AC */
-s32 Collider_DestroyBase(s32 arg0, s32 arg1);  /* 800E0340 */
+s32 Collider_DestroyBase(struct PlayState *play, struct Collider *collider);  /* 800E0340 */
 s32 Collider_SetBaseToActor(s32 arg0, u8 *dst, u8 *src);  /* 800E0354 */
-s32 Collider_SetBase(s32 arg0, void *arg1, s32 arg2, void *arg3);  /* 800E03D8 */
-void Collider_ResetATBase(s32 arg0, void *arg1);  /* 800E041C */
-void Collider_ResetACBase(s32 arg0, void *arg1);  /* 800E0438 */
-void Collider_ResetOCBase(s32 arg0, void *arg1);  /* 800E0454 */
-s32 Collider_DestroyElementDamageInfoAT(s32 arg0, s32 arg1);  /* 800E04A4 */
-s32 Collider_SetElementDamageInfoAT(s32 arg0, void *arg1, void *arg2);  /* 800E04B8 */
-void Collider_ResetATElementUnk(s32 arg0, s32 arg1);  /* 800E04E0 */
-s32 Collider_DestroyElementDamageInfoAC(s32 arg0, s32 arg1);  /* 800E0520 */
-s32 Collider_SetElementDamageInfoAC(s32 arg0, void *arg1, void *arg2);  /* 800E0534 */
+s32 Collider_SetBase(struct PlayState *play, struct Collider *col, struct Actor *actor, struct ColliderInit *src);  /* 800E03D8 */
+void Collider_ResetATBase(struct PlayState *play, struct Collider *col);  /* 800E041C */
+void Collider_ResetACBase(struct PlayState *play, struct Collider *col);  /* 800E0438 */
+void Collider_ResetOCBase(struct PlayState *play, struct Collider *col);  /* 800E0454 */
+s32 Collider_DestroyElementDamageInfoAT(struct PlayState *play, struct ColliderElementDamageInfoAT *atDmgInfo);  /* 800E04A4 */
+s32 Collider_SetElementDamageInfoAT(struct PlayState *play, struct ColliderElementDamageInfoAT *dest, struct ColliderElementDamageInfoATInit *src);  /* 800E04B8 */
+void Collider_ResetATElementUnk(struct PlayState *play, struct ColliderElement *elem);  /* 800E04E0 */
+s32 Collider_DestroyElementDamageInfoAC(struct PlayState *play, struct ColliderElementDamageInfoAC *acDmgInfo);  /* 800E0520 */
+s32 Collider_SetElementDamageInfoAC(struct PlayState *play, struct ColliderElementDamageInfoAC *dest, struct ColliderElementDamageInfoACInit *src);  /* 800E0534 */
 s32 Collider_DestroyElement(s32 arg0, s32 arg1);  /* 800E05DC */
-void Collider_ResetOCElement(s32 arg0, void *arg1);  /* 800E0704 */
-s32 Collider_DestroyJntSphElementDim(s32 arg0, s32 arg1);  /* 800E0764 */
-s32 Collider_InitJntSphElement(s32 arg0, s32 arg1);  /* 800E07D0 */
+void Collider_ResetOCElement(struct PlayState *play, struct ColliderElement *elem);  /* 800E0704 */
+s32 Collider_DestroyJntSphElementDim(struct PlayState *play, struct ColliderJntSphElementDim *dim);  /* 800E0764 */
+s32 Collider_InitJntSphElement(struct PlayState *play, struct ColliderJntSphElement *jntSphElem);  /* 800E07D0 */
 s32 Collider_DestroyJntSphElement(s32 arg0, s32 arg1);  /* 800E0810 */
 s32 func_800E0850(s32 arg0, s32 arg1, s32 arg2);
 s32 func_800E08A0(void);
@@ -675,20 +804,20 @@ s32 func_800E08C4(void);
 s32 Collider_ResetJntSphElementOC(void);  /* 800E08E8 */
 s32 Collider_InitJntSph(void *a0, u8 *a1);  /* 800E090C */
 s32 Collider_SetJntSph(s32, s32, s32, s32, s32);  /* 800E0C20 */
-s32 Collider_InitAndSetJntSph(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 800E0CD4 */
+s32 Collider_InitAndSetJntSph(struct PlayState *play, struct ColliderJntSph *dest, struct Actor *actor, struct ColliderJntSphInit *src, struct ColliderJntSphElement *jntSphElements);  /* 800E0CD4 */
 void Collider_ResetJntSphAT(s32 arg0, void *arg1);  /* 800E0D28 */
-s32 Collider_DestroyCylinderDim(s32 arg0, s32 arg1);  /* 800E0F08 */
-s32 Collider_InitCylinder(s32 arg0, s32 arg1);  /* 800E0F5C */
+s32 Collider_DestroyCylinderDim(struct PlayState *play, struct Cylinder16 *dim);  /* 800E0F08 */
+s32 Collider_InitCylinder(struct PlayState *play, struct ColliderCylinder *cyl);  /* 800E0F5C */
 s32 Collider_DestroyCylinder(s32 arg0, s32 arg1);  /* 800E0FAC */
-s32 Collider_SetCylinderToActor(s32 arg0, s32 arg1, s32 arg2);  /* 800E0FFC */
-s32 Collider_SetCylinderType1(void *arg0, u8 *arg1, void *arg2, u8 *arg3);  /* 800E1064 */
+s32 Collider_SetCylinderToActor(struct PlayState *play, struct ColliderCylinder *dest, struct ColliderCylinderInitToActor *src);  /* 800E0FFC */
+s32 Collider_SetCylinderType1(struct PlayState *play, struct ColliderCylinder *dest, struct Actor *actor, struct ColliderCylinderInitType1 *src);  /* 800E1064 */
 s32 Collider_SetCylinder(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800E10CC */
 s32 Collider_InitAndSetCylinder(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E1134 */
 s32 func_800E1180(s32 arg0, s32 arg1);
-s32 Collider_ResetCylinderAC(s32 arg0, s32 arg1);  /* 800E11C0 */
-s32 Collider_ResetCylinderOC(s32 arg0, s32 arg1);  /* 800E1200 */
-s32 Collider_DestroyTrisElementDim(s32 arg0, s32 arg1);  /* 800E128C */
-s32 Collider_InitTrisElement(s32 arg0, s32 arg1);  /* 800E1354 */
+s32 Collider_ResetCylinderAC(struct PlayState *play, struct Collider *col);  /* 800E11C0 */
+s32 Collider_ResetCylinderOC(struct PlayState *play, struct Collider *col);  /* 800E1200 */
+s32 Collider_DestroyTrisElementDim(struct PlayState *play, struct TriNorm *dim);  /* 800E128C */
+s32 Collider_InitTrisElement(struct PlayState *play, struct ColliderTrisElement *trisElem);  /* 800E1354 */
 s32 Collider_DestroyTrisElement(s32 arg0, s32 arg1);  /* 800E1394 */
 s32 func_800E13D4(s32 arg0, s32 arg1, s32 arg2);
 s32 func_800E1424(void);
@@ -697,49 +826,49 @@ s32 Collider_ResetTrisElementOC(void);  /* 800E146C */
 s32 Collider_InitTris(s32 a0, s32 *a1);  /* 800E1490 */
 void Collider_SetTrisAllocType1(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E1618 */
 s32 Collider_SetTris(s32, s32, s32, s32, s32);  /* 800E1718 */
-s32 Collider_InitAndSetTris(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 800E17E4 */
-s32 Collider_DestroyQuadDim(s32 arg0, s32 arg1);  /* 800E1A64 */
-s32 Collider_ResetQuadACDist(s32 arg0, void *arg1);  /* 800E1A78 */
-s32 Collider_InitQuad(s32 arg0, s32 arg1);  /* 800E1BD8 */
+s32 Collider_InitAndSetTris(struct PlayState *play, struct ColliderTris *dest, struct Actor *actor, struct ColliderTrisInit *src, struct ColliderTrisElement *trisElements);  /* 800E17E4 */
+s32 Collider_DestroyQuadDim(struct PlayState *play, struct ColliderQuadDim *dim);  /* 800E1A64 */
+s32 Collider_ResetQuadACDist(struct PlayState *play, struct ColliderQuadDim *dim);  /* 800E1A78 */
+s32 Collider_InitQuad(struct PlayState *play, struct ColliderQuad *quad);  /* 800E1BD8 */
 s32 Collider_DestroyQuad(s32 arg0, s32 arg1);  /* 800E1C28 */
-s32 Collider_SetQuadType1(s32 arg0, u8 *arg1, s32 arg2, u8 *arg3);  /* 800E1C78 */
-s32 Collider_SetQuad(void *arg0, u8 *arg1, void *arg2, u8 *arg3);  /* 800E1CE0 */
-s32 Collider_InitAndSetQuad(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E1D48 */
-s32 Collider_ResetQuadAT(s32 arg0, s32 arg1);  /* 800E1D94 */
-s32 Collider_ResetQuadAC(s32 arg0, s32 arg1);  /* 800E1DE4 */
-s32 Collider_ResetQuadOC(s32 arg0, s32 arg1);  /* 800E1E24 */
-s32 Collider_InitSphere(s32 arg0, s32 arg1);  /* 800E1F14 */
+s32 Collider_SetQuadType1(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInitType1 *src);  /* 800E1C78 */
+s32 Collider_SetQuad(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInit *src);  /* 800E1CE0 */
+s32 Collider_InitAndSetQuad(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInit *src);  /* 800E1D48 */
+s32 Collider_ResetQuadAT(struct PlayState *play, struct Collider *col);  /* 800E1D94 */
+s32 Collider_ResetQuadAC(struct PlayState *play, struct Collider *col);  /* 800E1DE4 */
+s32 Collider_ResetQuadOC(struct PlayState *play, struct Collider *col);  /* 800E1E24 */
+s32 Collider_InitSphere(struct PlayState *play, struct ColliderSphere *sph);  /* 800E1F14 */
 s32 Collider_DestroySphere(s32 arg0, s32 arg1);  /* 800E1F64 */
-s32 Collider_SetSphere(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E1FB4 */
+s32 Collider_SetSphere(struct PlayState *play, struct ColliderSphere *dest, struct Actor *actor, struct ColliderSphereInit *src);  /* 800E1FB4 */
 s32 Collider_InitAndSetSphere(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E201C */
 s32 func_800E2068(s32 arg0, s32 arg1);
-s32 Collider_ResetSphereAC(s32 arg0, s32 arg1);  /* 800E20A8 */
-s32 Collider_ResetSphereOC(s32 arg0, s32 arg1);  /* 800E20E8 */
-s32 Collider_InitLine(s32 arg0, s32 arg1);  /* 800E2128 */
-s32 Collider_DestroyLine(s32 arg0, s32 arg1);  /* 800E2170 */
-s32 Collider_SetLinePoints(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E2184 */
+s32 Collider_ResetSphereAC(struct PlayState *play, struct Collider *col);  /* 800E20A8 */
+s32 Collider_ResetSphereOC(struct PlayState *play, struct Collider *col);  /* 800E20E8 */
+s32 Collider_InitLine(struct PlayState *play, struct OcLine *line);  /* 800E2128 */
+s32 Collider_DestroyLine(struct PlayState *play, struct OcLine *line);  /* 800E2170 */
+s32 Collider_SetLinePoints(struct PlayState *play, struct OcLine *line, struct Vec3f *a, struct Vec3f *b);  /* 800E2184 */
 s32 Collider_SetLine(s32 a0, u8 *a1, u8 *a2);  /* 800E21C8 */
-s32 Collider_ResetLineOC(s32 arg0, void *arg1);  /* 800E21F4 */
+s32 Collider_ResetLineOC(struct PlayState *play, struct OcLine *line);  /* 800E21F4 */
 void CollisionCheck_InitContext(s32 a0, s16 *a1);  /* 800E2210 */
-void CollisionCheck_DestroyContext(s32 arg0, s32 arg1);  /* 800E2230 */
-void CollisionCheck_EnableSAC(s32 arg0, void *arg1);  /* 800E22E8 */
-void CollisionCheck_DisableSAC(s32 arg0, void *arg1);  /* 800E2300 */
+void CollisionCheck_DestroyContext(struct PlayState *play, struct CollisionCheckContext *colCtxt);  /* 800E2230 */
+void CollisionCheck_EnableSAC(struct PlayState *play, struct CollisionCheckContext *colChkCtx);  /* 800E22E8 */
+void CollisionCheck_DisableSAC(struct PlayState *play, struct CollisionCheckContext *colChkCtx);  /* 800E2300 */
 void CollisionCheck_SetAT_SAC(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E23F4 */
 void CollisionCheck_SetAC(s32 arg0, s32 arg1, s32 arg2);  /* 800E2500 */
 void CollisionCheck_SetAC_SAC(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E25DC */
 void CollisionCheck_SetOC_SAC(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E27C4 */
-s32 CollisionCheck_IsElementNotAT(void *arg0);  /* 800E2958 */
-s32 CollisionCheck_IsElementNotAC(void *arg0);  /* 800E297C */
+s32 CollisionCheck_IsElementNotAT(struct ColliderElement *elem);  /* 800E2958 */
+s32 CollisionCheck_IsElementNotAC(struct ColliderElement *elem);  /* 800E297C */
 s32 CollisionCheck_NoSharedFlags(s32 *a0, s32 *a1);  /* 800E29A0 */
-void CollisionCheck_NoBlood(s32 arg0, s32 arg1, s32 arg2);  /* 800E29C8 */
+void CollisionCheck_NoBlood(struct PlayState *play, struct Collider *collider, struct Vec3f *v);  /* 800E29C8 */
 void CollisionCheck_BlueBlood(s32 arg0, s32 arg1, s32 arg2);  /* 800E29DC */
 void CollisionCheck_GreenBlood(s32 arg0, s32 arg1, s32 arg2);  /* 800E2B48 */
-void CollisionCheck_WaterBurst(s32 arg0, s32 arg1, s32 arg2);  /* 800E2CB4 */
+void CollisionCheck_WaterBurst(struct PlayState *play, struct Collider *collider, struct Vec3f *v);  /* 800E2CB4 */
 void CollisionCheck_RedBlood(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800E2CF0 */
 void CollisionCheck_RedBloodUnused(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800E2D14 */
 void CollisionCheck_HitSolid(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E2D38 */
 void CollisionCheck_HitEffects(void *, s32, void *, void *, void *, void *);  /* 800E2F28 */
-void CollisionCheck_SetBounce(void *arg0, void *arg1);  /* 800E30C4 */
+void CollisionCheck_SetBounce(struct Collider *at, struct Collider *ac);  /* 800E30C4 */
 void CollisionCheck_SetATvsAC(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* 800E30E4 */
 void CollisionCheck_AC_JntSphVsJntSph(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 800E346C */
 void CollisionCheck_AC_JntSphVsCyl(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 800E36B8 */
@@ -777,12 +906,12 @@ void CollisionCheck_OC_JntSphVsSphere(s32 arg0, s32 arg1, void *arg2, void *arg3
 void CollisionCheck_OC_CylVsJntSph(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800E6D24 */
 void CollisionCheck_OC_SphereVsJntSph(void *a0, void *a1, void *a2, void *a3);  /* 800E6EF0 */
 void CollisionCheck_OC_SphereVsCyl(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800E6F1C */
-s32 CollisionCheck_SkipOC(void *arg0);  /* 800E7024 */
+s32 CollisionCheck_SkipOC(struct Collider *col);  /* 800E7024 */
 void CollisionCheck_OC(s32 arg0, void *arg1);  /* 800E70C8 */
-void CollisionCheck_ResetDamage(void *arg0);  /* 800E729C */
-void CollisionCheck_SetInfoNoDamageTable(void *arg0, void *arg1);  /* 800E72C8 */
+void CollisionCheck_ResetDamage(struct CollisionCheckInfo *info);  /* 800E729C */
+void CollisionCheck_SetInfoNoDamageTable(struct CollisionCheckInfo *info, struct CollisionCheckInfoInit *init);  /* 800E72C8 */
 void CollisionCheck_SetInfo(u8 *a0, void *a1, u8 *a2);  /* 800E72F0 */
-void CollisionCheck_SetInfoGetDamageTable(s32 arg0, s32 arg1, s32 arg2);  /* 800E7350 */
+void CollisionCheck_SetInfoGetDamageTable(struct CollisionCheckInfo *info, s32 index, struct CollisionCheckInfoInit2 *init);  /* 800E7350 */
 void CollisionCheck_ApplyDamage(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 800E7388 */
 void CollisionCheck_ApplyDamageJntSph(s32 a0, s32 a1, void *a2);  /* 800E75AC */
 void CollisionCheck_ApplyDamageCyl(s32 a0, s32 a1, s32 a2);  /* 800E7654 */
@@ -793,8 +922,8 @@ void CollisionCheck_LineOC_Sphere(s32 arg0, s32 arg1, void *arg2, void *arg3);  
 void CollisionCheck_LineOC(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E7A24 */
 void CollisionCheck_LineOCCheckAll(s32 a0, s32 a1, s32 a2, s32 a3);  /* 800E7B68 */
 void CollisionCheck_LineOCCheck(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5);  /* 800E7B8C */
-void Collider_UpdateCylinder(void *arg0, void *arg1);  /* 800E7BB8 */
-void Collider_SetCylinderPosition(void *arg0, void *arg1);  /* 800E7BFC */
+void Collider_UpdateCylinder(struct Actor *actor, struct ColliderCylinder *cyl);  /* 800E7BB8 */
+void Collider_SetCylinderPosition(struct ColliderCylinder *cyl, struct Vec3s *pos);  /* 800E7BFC */
 void func_800E7C1C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void func_800E7C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void Collider_UpdateSpheres(s32 arg0, void *arg1);  /* 800E7D4C */
@@ -805,21 +934,21 @@ s32 CollisionCheck_SpawnShieldParticles();  /* 800E8344 */
 void CollisionCheck_SpawnShieldParticlesMetal(void);  /* 800E83D8 */
 void CollisionCheck_SpawnShieldParticlesMetalSound(s32 a0, s32 a1, s32 a2);  /* 800E8400 */
 void CollisionCheck_SpawnShieldParticlesMetal2(void);  /* 800E8430 */
-void CollisionCheck_SpawnShieldParticlesWood(s32 arg0, s32 arg1, s32 arg2);  /* 800E8450 */
+void CollisionCheck_SpawnShieldParticlesWood(struct PlayState *play, struct Vec3f *v, struct Vec3f *pos);  /* 800E8450 */
 void CollisionCheck_CylSideVsLineSeg(f32 arg0, f32 arg1, s32 arg2, void *arg3);  /* 800E84F4 */
 void Actor_ContinueText(u8 *a0, u8 *a1, u16 a2);  /* 800E8C10 */
-s32 Flags_GetEventChkInf(s32 arg0);  /* 800E8C40 */
-void Flags_SetEventChkInf(s32 arg0);  /* 800E8C50 */
-s32 Flags_GetInfTable(s32 arg0);  /* 800E8C5C */
-void Flags_SetInfTable(s32 arg0);  /* 800E8C6C */
-s32 Actor_TrackNone(s32 arg0, s32 arg1);  /* 800E8C78 */
+s32 Flags_GetEventChkInf(s32 flag);  /* 800E8C40 */
+void Flags_SetEventChkInf(s32 flag);  /* 800E8C50 */
+s32 Flags_GetInfTable(s32 flag);  /* 800E8C5C */
+void Flags_SetInfTable(s32 flag);  /* 800E8C6C */
+s32 Actor_TrackNone(struct Vec3s *headRot, struct Vec3s *torsoRot);  /* 800E8C78 */
 void Actor_TrackPoint(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 800E8D14 */
 void Actor_TrackPlayerSetFocusHeight(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 800E8EA8 */
 void Actor_TrackPlayer(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800E8FC0 */
 void SaveContext_Init(void);  /* 800E90D0 */
 void Regs_Init();  /* 800E9150 */
 s32 DebugDisplay_Init(void);  /* 800E91E0 */
-void DebugDisplay_DrawObjects(s32 arg0);  /* 800E92D4 */
+void DebugDisplay_DrawObjects(struct PlayState *play);  /* 800E92D4 */
 void DebugDisplay_DrawSpriteI8(void *arg0, s32 arg1, s32 arg2);  /* 800E9364 */
 void DebugDisplay_DrawPolygon(void *arg0, s32 arg1, s32 arg2);  /* 800E9548 */
 void DebugDisplay_DrawPath(s32 arg0, s32 arg1);  /* 800E969C */
@@ -832,7 +961,7 @@ void func_800E9C04(s32 arg0);
 void Debug_DrawText(s32 arg0);  /* 800E9CE8 */
 void func_800E9E00(void *arg0, void *arg1);
 void func_800E9E74(s32 arg0, void *arg1);
-void Cutscene_StopManual(s32 arg0, void *arg1);  /* 800E9E8C */
+void Cutscene_StopManual(struct PlayState *play, struct CutsceneContext *csCtx);  /* 800E9E8C */
 void CutsceneHandler_DoNothing(s32 arg0, s32 arg1);  /* 800E9FB0 */
 void Cutscene_StepTimer(s32 a0, u8 *a1, f32 a2);  /* 800E9FC0 */
 void CutsceneHandler_StartManual(s32 arg0, void *arg1);  /* 800E9FF8 */
@@ -856,15 +985,15 @@ void CutsceneCmd_Text(s32 arg0, void *arg1, void *arg2);  /* 800EC6C4 */
 void Cutscene_ProcessScript(void *, void *, s32);  /* 800ECBE0 */
 void CutsceneHandler_StopManual(void *arg0, u8 *arg1);  /* 800ED764 */
 void Cutscene_SetupScripted(void);  /* 800ED824 */
-void Cutscene_HandleEntranceTriggers(s32 arg0);  /* 800ED980 */
+void Cutscene_HandleEntranceTriggers(struct PlayState *play);  /* 800ED980 */
 void func_800EDB50(s32 arg0);
 void func_800EDB5C(s32 arg0, s32 arg1);
-void Cutscene_ActorTranslateAndYawSmooth(void *arg0, void *arg1, s32 arg2);  /* 800EDD18 */
-void Cutscene_ActorTranslateXZAndYawSmooth(void *arg0, void *arg1, s32 arg2);  /* 800EDE6C */
-s32 Cutscene_GetSceneLayer(s32 arg0);  /* 800EDF78 */
+void Cutscene_ActorTranslateAndYawSmooth(struct Actor *actor, struct PlayState *play, s32 cueChannel);  /* 800EDD18 */
+void Cutscene_ActorTranslateXZAndYawSmooth(struct Actor *actor, struct PlayState *play, s32 cueChannel);  /* 800EDE6C */
+s32 Cutscene_GetSceneLayer(struct PlayState *play);  /* 800EDF78 */
 s32 Cutscene_GetCueChannel(s32 a0, u16 a1);  /* 800EDFA0 */
 s32 Cutscene_IsPlaying(void *arg0);  /* 800EE094 */
-void GetItem_Draw(void *arg0, s16 index);  /* 800EE0C0 */
+void GetItem_Draw(struct PlayState *play, s16 drawId);  /* 800EE0C0 */
 void GetItem_DrawBombchu(s32 arg0, s32 arg1);  /* 800EE104 */
 void GetItem_DrawPoes(void *arg0, s32 arg1);  /* 800EE1A0 */
 void GetItem_DrawFairyBottle(void *arg0, s32 arg1);  /* 800EE39C */
@@ -891,18 +1020,18 @@ void GetItem_DrawRemains(void *arg0, s32 arg1);  /* 800EFAE4 */
 void EffFootmark_Add(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800EFCA4 */
 void EffFootmark_Update(void *arg0);  /* 800EFE5C */
 void EffFootmark_Draw(s32 arg0);  /* 800EFF68 */
-void SoundSource_InitAll(u8 *arg0);  /* 800F0130 */
+void SoundSource_InitAll(struct PlayState *play);  /* 800F0130 */
 void SoundSource_PlaySfxAtFixedWorldPos(void *a0, void *a1, void *a2, u16 a3);  /* 800F0308 */
 void SoundSource_PlaySfxEachFrameAtFixedWorldPos(void *a0, void *a1, void *a2, u16 a3);  /* 800F0330 */
 void QuestHint_GetTatlTextId(void *arg0);  /* 800F0360 */
 void EnHy_ChangeAnim(void *skelAnime, s16 animIndex, s16 arg2, void *this);  /* 800F0560 */
-void EnHy_Blink(void *arg0, s32 arg1);  /* 800F07C0 */
-void EnHy_Init(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800F0834 */
+void EnHy_Blink(struct EnHy *enHy, s32 eyeTexMaxIndex);  /* 800F07C0 */
+s32 EnHy_Init(struct EnHy *enHy, struct PlayState *play, struct FlexSkeletonHeader *skeletonHeaderSeg, s16 animIndex);  /* 800F0834 */
 void func_800F0954(void *, s32, s32, s16, s32);
-void EnHy_PlayWalkingSound(void *arg0, s32 arg1, s32 arg2);  /* 800F0ECC */
+s32 EnHy_PlayWalkingSound(struct EnHy *enHy, struct PlayState *play, f32 distAboveThreshold);  /* 800F0ECC */
 u16 Text_GetFaceReaction(void *play, s32 reactionSet);  /* 800F0FF0 */
 void CutsceneFlags_Set(void *ctx, s16 flag);  /* 800F10A4 */
-s32 CutsceneFlags_Get(u8 *arg0, s16 arg1);  /* 800F1188 */
+s32 CutsceneFlags_Get(struct PlayState *play, s16 flag);  /* 800F1188 */
 void CutsceneManager_SetHudVisibility(s32 arg0);  /* 800F1200 */
 s32 CutsceneManager_Init(s32, s32, u8);  /* 800F12E4 */
 void CutsceneManager_ClearWaiting(void);  /* 800F13E8 */
@@ -910,46 +1039,46 @@ void CutsceneManager_ClearNextCutscenes(void);  /* 800F1418 */
 s32 CutsceneManager_MarkNextCutscenes();  /* 800F1448 */
 void CutsceneManager_End();  /* 800F159C */
 void CutsceneManager_Update();  /* 800F181C */
-void CutsceneManager_Queue(s16 arg0);  /* 800F1944 */
+void CutsceneManager_Queue(s16 csId);  /* 800F1944 */
 s16 CutsceneManager_IsNext(s16 csId);  /* 800F1984 */
 s16 func_800F1A08(s16 arg0);
 s16 func_800F1A80(s16 arg0, void *arg1);
 s16 func_800F1B24(s16);
 s16 func_800F1D6C(s16 csId);
 s16 func_800F1E2C(void);
-void CutsceneManager_GetCutsceneEntry(s16 arg0);  /* 800F1E3C */
-s16 CutsceneManager_GetAdditionalCsId(s16 arg0);  /* 800F1E68 */
-s16 CutsceneManager_GetLength(s16 arg0);  /* 800F1EA8 */
-s16 CutsceneManager_GetCutsceneScriptIndex(s16 arg0);  /* 800F1EE8 */
+struct CutsceneEntry *CutsceneManager_GetCutsceneEntry(s16 csId);  /* 800F1E3C */
+s16 CutsceneManager_GetAdditionalCsId(s16 csId);  /* 800F1E68 */
+s16 CutsceneManager_GetLength(s16 csId);  /* 800F1EA8 */
+s16 CutsceneManager_GetCutsceneScriptIndex(s16 csId);  /* 800F1EE8 */
 s32 CutsceneManager_GetCutsceneCustomValue(s16 csId);  /* 800F1F28 */
-s16 CutsceneManager_GetCurrentSubCamId(s32 arg0);  /* 800F1F68 */
+s16 CutsceneManager_GetCurrentSubCamId(s16 csId);  /* 800F1F68 */
 s32 CutsceneManager_FindEntranceCsId();  /* 800F1F7C */
 s32 func_800F2074(s16 arg0, s32 arg1);
-void CutsceneManager_SetReturnCamera(s16 arg0);  /* 800F2174 */
+void CutsceneManager_SetReturnCamera(s16 camId);  /* 800F2174 */
 f32 Curve_CubicHermiteSpline(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);  /* 800F2190 */
 f32 Curve_Interpolate(f32 arg0, void *arg1, s32 arg2);  /* 800F2228 */
-void SkelCurve_Clear(void *arg0);  /* 800F23D0 */
-s32 SkelCurve_Init(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 800F2400 */
-void SkelCurve_Destroy(s32 arg0, void *arg1);  /* 800F2470 */
+void SkelCurve_Clear(struct SkelCurve *skelCurve);  /* 800F23D0 */
+s32 SkelCurve_Init(struct PlayState *play, struct SkelCurve *skelCurve, struct CurveSkeletonHeader *skeletonHeaderSeg, struct CurveAnimationHeader *animation);  /* 800F2400 */
+void SkelCurve_Destroy(struct PlayState *play, struct SkelCurve *skelCurve);  /* 800F2470 */
 void SkelCurve_Update(void *arg0, s32 arg1);  /* 800F24D8 */
 void SkelCurve_DrawLimb(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800F2750 */
 void FireObj_InitWithParams(s32 arg0, void *arg1, void *arg2);  /* 800F2AE0 */
 void FireObj_SetPosition(void);  /* 800F2C5C */
 void FireObj_StepSize(void *arg0);  /* 800F2C7C */
 void FireObj_UpdateStateTransitions(s32 arg0, void *arg1);  /* 800F2DAC */
-void FireObj_Draw(void *arg0, void *arg1);  /* 800F2F9C */
+void FireObj_Draw(struct PlayState *play, struct FireObj *fire);  /* 800F2F9C */
 void FireObj_DestroyLight(u8 *a0, s32 *a1);  /* 800F3274 */
 void FireObj_UpdateLight(s32 arg0, s32 arg1, void *arg2);  /* 800F329C */
-void FireObj_Destroy(s32 arg0, s32 arg1);  /* 800F3560 */
-void FireObj_SetState2(s32 arg0, f32 arg1, u8 arg2);  /* 800F35A0 */
-void FireObj_Update(s32 arg0, void *arg1, s32 arg2);  /* 800F35D0 */
+void FireObj_Destroy(struct PlayState *play, struct FireObj *fire);  /* 800F3560 */
+void FireObj_SetState2(struct FireObj *fire, f32 dynamicSizeStep, u8 newState);  /* 800F35A0 */
+void FireObj_Update(struct PlayState *play, struct FireObj *fire, struct Actor *actor);  /* 800F35D0 */
 s32 Horse_GetJumpingFencePathIndex(void *play);  /* 800F36F0 */
 s32 Horse_IsValidSpawn(s16 a);  /* 800F3814 */
-void Horse_ResetHorseData(s32 arg0);  /* 800F38DC */
+void Horse_ResetHorseData(struct PlayState *play);  /* 800F38DC */
 s32 Horse_IsValidSceneLayer(void *arg0, s32 arg1);  /* 800F3918 */
 void Horse_SpawnOverworld(void *arg0, void *arg1);  /* 800F39F4 */
 void Horse_SpawnMinigame(void *arg0, void *arg1);  /* 800F3C84 */
-s32 Horse_IsActive(s32 arg0, void *arg1);  /* 800F3F94 */
+s32 Horse_IsActive(struct PlayState *play, struct ActorContext *actorCtx);  /* 800F3F94 */
 void Jpeg_ScheduleDecoderTask(void *arg0);  /* 800F4050 */
 void Jpeg_CopyToZbuffer(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800F416C */
 s32 Jpeg_GetUnalignedU16(u8 *arg0);  /* 800F42A4 */
@@ -959,11 +1088,11 @@ void func_800F49BC(void *arg0);
 void func_800F4BDC(u8 *arg0);
 void func_800F4CEC(s32 arg0);
 void func_800F4D00(s32 arg0, s32 arg1, s32 arg2);
-void Font_LoadMessageBoxEndIcon(u8 *arg0, u16 arg1);  /* 800F4D80 */
-void Font_LoadOrderedFont(s32 arg0);  /* 800F4DC4 */
+void Font_LoadMessageBoxEndIcon(struct Font *font, u16 icon);  /* 800F4D80 */
+void Font_LoadOrderedFont(struct Font *font);  /* 800F4DC4 */
 void Environment_GraphCallback(s32 arg0, s32 arg1);  /* 800F4E50 */
 s32 Environment_ZBufValToFixedPoint(s32 zBufVal);  /* 800F4E94 */
-void Environment_Init(void *arg0, void *arg1, s32 arg2);  /* 800F4ECC */
+void Environment_Init(struct PlayState *play2, struct EnvironmentContext *envCtx, s32 arg2);  /* 800F4ECC */
 void Environment_SmoothStepToU8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800F5714 */
 f32 Environment_LerpWeight();  /* 800F584C */
 void Environment_LerpWeightAccelDecel(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800F58D0 */
@@ -981,7 +1110,7 @@ s32 Environment_UpdateSun(s32);  /* 800F8314 */
 void Environment_SetLetterToKafeiScheduledIf(u16 arg0);  /* 800F8684 */
 void Environment_UpdateCheckedPostboxes();  /* 800F8730 */
 s32 Environment_UpdatePostmanEvents(s32);  /* 800F885C */
-void Environment_Update(s32 arg0, s32 arg1, s32 arg2, void *arg3, s32 arg4, s32 arg5);  /* 800F8A94 */
+void Environment_Update(struct PlayState *play, struct EnvironmentContext *envCtx, struct LightContext *lightCtx, struct PauseContext *pauseCtx, struct MessageContext *msgCtx, struct GameOverContext *gameOverCtx, struct GraphicsContext *gfxCtx);  /* 800F8A94 */
 s32 Environment_DrawSun(s32);  /* 800F8B44 */
 void Environment_DrawLensFlare(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 800F95E4 */
 f32 Environment_RandCentered(void);  /* 800FA15C */
@@ -999,8 +1128,8 @@ void Environment_InitGameOverLights(s32 arg0);  /* 800FBBE4 */
 void Environment_FadeInGameOverLights(void);  /* 800FBD34 */
 void Environment_FadeOutGameOverLights(void *arg0);  /* 800FBF50 */
 s32 Environment_UpdateRain(s32);  /* 800FC1D4 */
-void Environment_FillScreen(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800FC23C */
-void Environment_DrawSandstorm(s32 arg0, s32 arg1);  /* 800FC444 */
+void Environment_FillScreen(struct GraphicsContext *gfxCtx, u8 red, u8 green, u8 blue, u8 alpha, u8 drawFlags);  /* 800FC23C */
+void Environment_DrawSandstorm(struct PlayState *play, u8 sandstormState);  /* 800FC444 */
 void Environment_AdjustLights(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800FD0AC */
 void Environment_LerpRGB8(u8 *from, u8 *to, f32 t, s16 *diff);  /* 800FD330 */
 void Environment_LerpAmbientColor(u8 *play, s32 a1, f32 t);  /* 800FD394 */
@@ -1011,12 +1140,12 @@ void Environment_ClearEventDayCount(void);  /* 800FD528 */
 s32 Environment_GetTotalDays(void);  /* 800FD538 */
 void Environment_ForcePlaySequence(u16 a0);  /* 800FD548 */
 s32 Environment_IsForcedSequenceDisabled(void);  /* 800FD560 */
-void Environment_PlayStormNatureAmbience(void *arg0);  /* 800FD584 */
-void Environment_StopStormNatureAmbience(void *arg0);  /* 800FD650 */
+void Environment_PlayStormNatureAmbience(struct PlayState *play);  /* 800FD584 */
+void Environment_StopStormNatureAmbience(struct PlayState *play);  /* 800FD650 */
 s32 Environment_SetupSkyboxStars(s32);  /* 800FD778 */
 void Environment_DrawSkyboxStar(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800FD8F0 */
 void Environment_DrawSkyboxStarsImpl(void *arg0, s32 arg1);  /* 800FDA8C */
-void Environment_Draw(s32 arg0);  /* 800FE188 */
+void Environment_Draw(struct PlayState *play);  /* 800FE188 */
 void Environment_DrawSkyboxStars(s32 arg0);  /* 800FE1D8 */
 void Environment_StopTime(void);  /* 800FE27C */
 void Environment_StartTime(void);  /* 800FE290 */
@@ -1025,7 +1154,7 @@ s32 Environment_IsFinalHours(s32 arg0);  /* 800FE388 */
 u8 func_800FE3C8(s32 arg0);
 s32 func_800FE408(s32 arg0);
 s32 Environment_GetTimeSpeed(s32 arg0);  /* 800FE418 */
-void Environment_SetTimeJump(f32 arg0);  /* 800FE450 */
+void Environment_SetTimeJump(f32 minutes);  /* 800FE450 */
 s32 func_800FE4F0(s32 arg0, s16 arg1, s16 arg2);
 u8 Environment_GetSandstormColorIndex(void);  /* 800FE570 */
 u8 Environment_GetNextSandstormColorIndex(void);  /* 800FE580 */
@@ -1037,34 +1166,34 @@ void func_800FE8B8(void);
 void Environment_NewDay(void *arg0);  /* 800FE8EC */
 s32 func_800FEA90(s32 arg0, s32 arg1, s32 arg2);
 void Lib_MemSet(s32 arg0, s32 arg1, s32 arg2);  /* 800FEAC0 */
-f32 Math_CosS(s16 arg0);  /* 800FEB44 */
+f32 Math_CosS(s16 angle);  /* 800FEB44 */
 f32 Math_SinS(s16 angle);  /* 800FEB84 */
 s32 Math_StepToIImpl(s32 start, s32 target, s32 step);  /* 800FEBC4 */
-void Math_StepToIGet(s32 *arg0);  /* 800FEC08 */
-s32 Math_StepToI(s32 *arg0, s32 arg1);  /* 800FEC34 */
+void Math_StepToIGet(s32 *pValue);  /* 800FEC08 */
+s32 Math_StepToI(s32 *pValue, s32 target);  /* 800FEC34 */
 s32 Math_ScaledStepToS(s16 *pValue, s16 target, s16 step);  /* 800FEC70 */
 s32 Math_StepToS(s16 *p, s16 a, s16 b);  /* 800FED2C */
 s32 Math_StepToC(s8 *pValue, s8 target, s8 step);  /* 800FEDB4 */
 s32 Math_StepToF(f32 *pValue, f32 target, f32 step);  /* 800FEE3C */
-s32 Math_StepUntilAngleS(s16 *arg0, s16 arg1, s16 arg2);  /* 800FEED0 */
+s32 Math_StepUntilAngleS(s16 *pValue, s16 target, s16 step);  /* 800FEED0 */
 s32 Math_StepToAngleS(s16 *pValue, s16 target, s16 step);  /* 800FEF38 */
 void Math_AsymStepToS(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800FEFFC */
 s32 Math_StepUntilF(f32 *pValue, f32 limit, f32 step);  /* 800FF0A8 */
 s32 Math_AsymStepToF(f32 *pValue, f32 target, f32 incrStep, f32 decrStep);  /* 800FF0F8 */
 s16 Rand_S16Offset(s16 base, s16 range);  /* 800FF250 */
-s16 Rand_S16OffsetStride(s16 arg0, s16 arg1, s16 arg2);  /* 800FF2A4 */
+s16 Rand_S16OffsetStride(s16 base, s16 stride, s16 range);  /* 800FF2A4 */
 void Math_Vec3f_ToVec3s(s16 *a0, f32 *a1);  /* 800FF384 */
 void Math_Vec3f_Sum(f32 *a, f32 *b, f32 *c);  /* 800FF3BC */
-void Math_Vec3f_Diff(void *arg0, void *arg1, void *arg2);  /* 800FF3F4 */
-void Math_Vec3s_DiffToVec3f(void *arg0, void *arg1, void *arg2);  /* 800FF42C */
-void Math_Vec3f_ScaleAndStore(void *arg0, f32 arg1, void *arg2);  /* 800FF4C4 */
+void Math_Vec3f_Diff(struct Vec3f *l, struct Vec3f *r, struct Vec3f *dest);  /* 800FF3F4 */
+void Math_Vec3s_DiffToVec3f(struct Vec3f *dest, struct Vec3s *l, struct Vec3s *r);  /* 800FF42C */
+void Math_Vec3f_ScaleAndStore(struct Vec3f *vec, f32 scale, struct Vec3f *dest);  /* 800FF4C4 */
 void Math_Vec3f_Lerp(f32 *arg0, f32 *arg1, f32 arg2, f32 *arg3);  /* 800FF4F8 */
 s32 Math_Vec3f_DistXYZ(s32, s32, s32, s32);  /* 800FF684 */
 f32 Math_Vec3f_DistXZ(f32 *a0, f32 *a1);  /* 800FF72C */
 f32 Math_Vec3f_DistXZAndStore(f32 *a, f32 *b, f32 *dx, f32 *dz);  /* 800FF760 */
-f32 Math_Vec3f_DiffY(void *arg0, void *arg1);  /* 800FF84C */
+f32 Math_Vec3f_DiffY(struct Vec3f *a, struct Vec3f *b);  /* 800FF84C */
 void Math_Vec3f_Yaw(f32 *arg0, f32 *arg1);  /* 800FF860 */
-void Math_Vec3f_Pitch(void *arg0, void *arg1);  /* 800FF894 */
+s16 Math_Vec3f_Pitch(struct Vec3f *a, struct Vec3f *b);  /* 800FF894 */
 void func_800FF98C(u8 *a0, u16 *a1);
 void IChain_Apply_s32(u8 *a0, u16 *a1);  /* 800FF9E0 */
 void IChain_Apply_Vec3f(s32 arg0, void *arg1);  /* 800FFA50 */
@@ -1074,49 +1203,49 @@ void Math_ApproachF(f32 *pValue, f32 target, f32 fraction, f32 step);  /* 800FFB
 void Math_ApproachZeroF(f32 *pValue, f32 scale, f32 maxStep);  /* 800FFC68 */
 s32 Math_SmoothStepToS(s32, s32, s32, s32, s32);  /* 800FFCBC */
 void Math_ApproachS(s16 *pValue, s16 target, s16 scale, s16 maxStep);  /* 800FFDD8 */
-void Color_RGBA8_Copy(void *arg0, void *arg1);  /* 800FFE7C */
+void Color_RGBA8_Copy(struct Color_RGBA8 *dst, struct Color_RGBA8 *src);  /* 800FFE7C */
 void func_800FFEA4(u16 arg0);
-void Lib_PlaySfx_2(u16 arg0);  /* 800FFECC */
+void Lib_PlaySfx_2(u16 sfxId);  /* 800FFECC */
 void Lib_PlaySfx_AtPos(s32 a0, u16 a1);  /* 800FFEF4 */
 void func_800FFF1C(f32 *a, s16 arg1, f32 *b, f32 *c);
 void Color_RGB8_Lerp(void *arg0, void *arg1, s32 arg2, void *arg3);  /* 800FFFB8 */
 void func_80100248(s32 arg0, s32 arg1, s32 arg2);
 u32 func_80100304(s32 arg0);
 u32 func_8010033C(u32 arg0);
-s32 Lib_VirtualToPhysical(s32 arg0);  /* 80100384 */
-s32 Lib_PhysicalToVirtual(s32 arg0);  /* 801003A0 */
+u32 Lib_VirtualToPhysical(void *ptr);  /* 80100384 */
+void *Lib_PhysicalToVirtual(u32 ptr);  /* 801003A0 */
 void LifeMeter_Init(s32 arg0);  /* 801003C0 */
-void LifeMeter_UpdateColors(s32 arg0);  /* 8010049C */
-s32 LifeMeter_SaveInterfaceHealth(void *arg0);  /* 80100880 */
-s32 LifeMeter_IncreaseInterfaceHealth(u8 *arg0);  /* 801008A0 */
-void LifeMeter_Draw(void *arg0);  /* 8010098C */
+void LifeMeter_UpdateColors(struct PlayState *play);  /* 8010049C */
+s32 LifeMeter_SaveInterfaceHealth(struct PlayState *play);  /* 80100880 */
+s32 LifeMeter_IncreaseInterfaceHealth(struct PlayState *play);  /* 801008A0 */
+void LifeMeter_Draw(struct PlayState *play);  /* 8010098C */
 void LifeMeter_UpdateSizeAndBeep(u8 *a0);  /* 80101644 */
 s32 LifeMeter_IsCritical(void);  /* 80101730 */
 void Lights_PointNoGlowSetInfo(void *lights, s16 x, s16 y, s16 z, u8 r, u8 g, u8 b, s16 radius);  /* 801017FC */
 void Lights_PointGlowSetInfo(void *lights, s16 x, s16 y, s16 z, u8 r, u8 g, u8 b, s16 radius);  /* 80101860 */
-void Lights_PointSetPosition(void *arg0, s16 arg1, s16 arg2, s16 arg3);  /* 801018FC */
-void Lights_DirectionalSetInfo(void *arg0, s8 arg1, s8 arg2, s8 arg3, u8 arg4, u8 arg5, u8 arg6);  /* 80101934 */
+void Lights_PointSetPosition(struct LightInfo *info, s16 x, s16 y, s16 z);  /* 801018FC */
+void Lights_DirectionalSetInfo(struct LightInfo *info, s8 x, s8 y, s8 z, u8 r, u8 g, u8 b);  /* 80101934 */
 void Lights_Draw(void *arg0, void *arg1);  /* 801019C8 */
 void Lights_BindPointWithReference(s32 arg0, void *arg1, void *arg2);  /* 80101B3C */
 void Lights_BindPoint(s32 arg0, void *arg1, s32 arg2);  /* 80101EA0 */
 void Lights_BindDirectional(s32 arg0, s32 arg1, s32 arg2);  /* 80102084 */
 void Lights_FreeNode(s32 *arg0);  /* 80102264 */
-void LightContext_Init(s32 a0, s32 arg1);  /* 801022AC */
+void LightContext_Init(struct PlayState *play, struct LightContext *lightCtx);  /* 801022AC */
 void LightContext_SetAmbientColor(u8 *a0, u8 a1, u8 a2, u8 a3);  /* 80102318 */
-void LightContext_NewLights(void *arg0, s32 arg1);  /* 80102380 */
+struct Lights *LightContext_NewLights(struct LightContext *lightCtx, struct GraphicsContext *gfxCtx);  /* 80102380 */
 void LightContext_InitList(s32 arg0, s32 *arg1);  /* 801023B8 */
 void LightContext_RemoveLight(s32 arg0, void **arg1, void *arg2);  /* 80102484 */
 void Lights_NewAndDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801024E8 */
 s32 Lights_GlowCheck(s32);  /* 80102680 */
-void Lights_DrawGlow(void *arg0);  /* 80102864 */
-void ZeldaArena_Malloc(s32 arg0);  /* 80102A60 */
-void ZeldaArena_MallocR(s32 arg0);  /* 80102A88 */
-void ZeldaArena_Realloc(s32 arg0, s32 arg1);  /* 80102AB0 */
-void ZeldaArena_Free(s32 arg0);  /* 80102AE0 */
+void Lights_DrawGlow(struct PlayState *play);  /* 80102864 */
+void *ZeldaArena_Malloc(u32 size);  /* 80102A60 */
+void *ZeldaArena_MallocR(u32 size);  /* 80102A88 */
+void *ZeldaArena_Realloc(void *ptr, u32 newSize);  /* 80102AB0 */
+void ZeldaArena_Free(void *ptr);  /* 80102AE0 */
 void *ZeldaArena_Calloc(u32 num, u32 size);  /* 80102B08 */
-void ZeldaArena_GetSizes(s32 arg0, s32 arg1, s32 arg2);  /* 80102B60 */
+void ZeldaArena_GetSizes(u32 *outMaxFree, u32 *outFree, u32 *outAlloc);  /* 80102B60 */
 void ZeldaArena_Check(void);  /* 80102B98 */
-void ZeldaArena_Init(s32 arg0, s32 arg1);  /* 80102BBC */
+void ZeldaArena_Init(void *start, u32 size);  /* 80102BBC */
 void ZeldaArena_Cleanup(void);  /* 80102BEC */
 void ZeldaArena_IsInitialized(void);  /* 80102C10 */
 void MapDisp_GetMapITexture(s32 arg0, s32 arg1);  /* 80102C40 */
@@ -1143,21 +1272,21 @@ s16 MapDisp_GetBossRoomStorey(void);  /* 80105118 */
 s32 MapDisp_IsBossDoor(s32 arg0);  /* 80105128 */
 void MapDisp_InitBossRoomStorey(s32 arg0);  /* 8010514C */
 s32 MapDisp_InitMapData(s32, s32);  /* 8010529C */
-void MapDisp_InitChestData(s32 arg0, s32 arg1, s32 arg2);  /* 8010545C */
+void MapDisp_InitChestData(struct PlayState *play, s32 num, void *segmentAddress);  /* 8010545C */
 void MapDisp_InitTransitionActorData(void *, u8, s32);  /* 80105618 */
 void MapDisp_Destroy(s32 a0);  /* 80105840 */
-void MapDisp_Update(s32 arg0);  /* 80105934 */
+void MapDisp_Update(struct PlayState *play);  /* 80105934 */
 void MapDisp_SwapRooms(s16);  /* 80105A40 */
 void MapDisp_Minimap_DrawRedCompassIcon(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80105DE0 */
 s32 MapDisp_IsLocationRomaniRanchAltScene(void);  /* 80106208 */
 s32 MapDisp_IsLocationMinimapBlocked(void *arg0);  /* 801062CC */
-s32 MapDisp_IsMinimapToggleBlocked(s32 arg0);  /* 80106330 */
+s32 MapDisp_IsMinimapToggleBlocked(struct PlayState *play);  /* 80106330 */
 s32 MapDisp_AreRoomsSameStorey(s32 arg0, s32 arg1);  /* 8010637C */
-void MapDisp_DrawMinimap(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80106444 */
+void MapDisp_DrawMinimap(struct PlayState *play, s32 playerInitX, s32 playerInitZ, s32 playerInitDir);  /* 80106444 */
 void MapDisp_ResetMapI(void);  /* 8010663C */
 void MapDisp_InitMapI(s32 arg0);  /* 801066B4 */
 void MapDisp_DestroyMapI(s32 arg0);  /* 801066D8 */
-void MapDisp_AllocDungeonMap(s32 arg0, s32 arg1);  /* 801066FC */
+void *MapDisp_AllocDungeonMap(struct PlayState *play, void *heap);  /* 801066FC */
 s32 MapDisp_IsOnStorey(s32 arg0, s32 arg1);  /* 801069EC */
 s32 MapDisp_ConvertBossSceneToDungeonScene(s32 arg0);  /* 80106B08 */
 void MapDisp_DrawRooms(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80106B5C */
@@ -1165,11 +1294,11 @@ void MapDisp_DrawChests(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80107978 
 void MapDisp_DrawRoomExits(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80107F24 */
 void MapDisp_DrawBossIcon(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80108358 */
 u32 MapDisp_GetDungeonMapFloorTexture(s32 index);  /* 80108810 */
-void MapDisp_DrawDungeonFloorSelect(s32 arg0);  /* 801088F8 */
-s32 MapDisp_IsValidStorey(s32 arg0);  /* 80108EB0 */
-s32 MapDisp_GetPlayerStorey(s32 arg0);  /* 80108F24 */
-void MapDisp_DrawDungeonMap(s32 arg0);  /* 80108FF0 */
-void MapDisp_UpdateDungeonMap(s32 arg0);  /* 80109228 */
+void MapDisp_DrawDungeonFloorSelect(struct PlayState *play);  /* 801088F8 */
+s32 MapDisp_IsValidStorey(s32 storey);  /* 80108EB0 */
+s32 MapDisp_GetPlayerStorey(s16 checkY);  /* 80108F24 */
+void MapDisp_DrawDungeonMap(struct PlayState *play);  /* 80108FF0 */
+void MapDisp_UpdateDungeonMap(struct PlayState *play);  /* 80109228 */
 void MapData_GetMapColor(s32 a0, void *a1);  /* 801092A0 */
 void MapData_GetMapTexDimGameplayDangeonKeep(s32 arg0, s32 *arg1, s32 *arg2);  /* 801092C8 */
 void MapData_GetMapTexOffsetGameplayDangeonKeep(s32 a0, s32 *a1, s32 *a2);  /* 801092F8 */
@@ -1185,8 +1314,8 @@ s16 MapData_GetMapGrandScale(s32 arg0);  /* 80109450 */
 s32 MapData_MapGrandTexSizeTest(s32 count);  /* 80109470 */
 s32 MapData_GetSizeOfMapGrandTex(s32 index);  /* 801094D4 */
 s32 MapData_MID_GetType(s32 arg0);  /* 80109514 */
-void MapData_GetMapTexDim(s32 arg0, s32 *arg1, s32 *arg2);  /* 80109554 */
-void MapData_GetMapTexOffset(s32 arg0, s32 *arg1, s32 *arg2);  /* 801095C8 */
+void MapData_GetMapTexDim(s32 mapId, s32 *width, s32 *height);  /* 80109554 */
+void MapData_GetMapTexOffset(s32 mapId, s32 *offsetX, s32 *offsetY);  /* 801095C8 */
 void MapData_GetMapScale(s32 a0, s32 *scale);  /* 8010963C */
 void MapData_GetDrawType(s32 arg0, s32 *arg1);  /* 801096A0 */
 s32 MapData_GetMapColorIndex(s32 arg0);  /* 80109708 */
@@ -1197,7 +1326,7 @@ void func_801097DC(s32 a0, s32 *a1);
 u8 MapData_GetMapIColorIndex(s32 a0);  /* 80109800 */
 s16 MapData_GetMapIScale(s32 a0);  /* 80109820 */
 s32 MapData_MapITexSizeTest(s32 arg0);  /* 80109840 */
-s32 MapDisp_GetSizeOfMapITex(s32 arg0);  /* 80109898 */
+s32 MapDisp_GetSizeOfMapITex(s32 mapCompactId);  /* 80109898 */
 s32 MapData_GetMapIId(s32 index);  /* 801098D8 */
 s32 func_80109938(s32 arg0);
 s32 MapData_GetMapCompactId(s32 arg0);  /* 801099A0 */
@@ -1210,12 +1339,12 @@ void MapData_CPID_GetDrawType(s32 arg0, s32 *arg1);  /* 80109C70 */
 s32 MapData_CPID_GetMapColorIndex(s32 cpid);  /* 80109CF8 */
 s32 MapData_CPID_GetMapScale(s32 mapId);  /* 80109D78 */
 s32 Map_IsInDungeonOrBossScene(void);  /* 80109E74 */
-s32 Map_CurRoomHasMapI(s32 arg0);  /* 80109EA4 */
+s32 Map_CurRoomHasMapI(struct PlayState *play);  /* 80109EA4 */
 s32 Map_IsInDungeonScene(void);  /* 80109F64 */
 s32 Map_IsInBossScene(void);  /* 8010A008 */
 s32 Map_IsInOverworldSceneWithMapIndex(void);  /* 8010A0AC */
-void Map_SetAreaEntrypoint(void *arg0);  /* 8010A0DC */
-void Map_InitRoomData(u8 *ctx, s16 arg1);  /* 8010A13C */
+void Map_SetAreaEntrypoint(struct PlayState *play);  /* 8010A0DC */
+void Map_InitRoomData(struct PlayState *play, s16 room);  /* 8010A13C */
 void Map_Destroy(void);  /* 8010A210 */
 void Map_Init(void *arg0);  /* 8010A230 */
 void Map_DrawMinimap(s32 a0);  /* 8010A34C */
@@ -1274,12 +1403,12 @@ f32 OLib_ClampMaxDist(f32 value, f32 max);  /* 8010C16C */
 void OLib_Vec3fToVecSph(s32 arg0, void *arg1);  /* 8010C374 */
 void OLib_Vec3fDiffDegF(s32 arg0, s32 arg1);  /* 8010C6C8 */
 void OLib_Vec3fDiffBinAng(s32 arg0, s32 arg1);  /* 8010C730 */
-void Gfx_DrawTexRectRGBA16(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010C980 */
-s32 Gfx_DrawTexRectIA8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010CB98 */
+union Gfx *Gfx_DrawTexRectRGBA16(union Gfx *gfx, void *texture, s16 textureWidth, s16 textureHeight, s16 rectLeft, s16 rectTop, s16 rectWidth, s16 rectHeight, u16 dsdx, u16 dtdy);  /* 8010C980 */
+union Gfx *Gfx_DrawTexRectIA8(union Gfx *gfx, void *texture, s16 textureWidth, s16 textureHeight, s16 rectLeft, s16 rectTop, s16 rectWidth, s16 rectHeight, u16 dsdx, u16 dtdy);  /* 8010CB98 */
 s32 Gfx_DrawTexRectIA8_DropShadow(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010CDBC */
 s32 Gfx_DrawRect_DropShadow(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010D0D4 */
 s32 Gfx_DrawTexRectIA8_DropShadowOffset(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010D280 */
-s32 Gfx_DrawTexRectI8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010D5D0 */
+union Gfx *Gfx_DrawTexRectI8(union Gfx *gfx, void *texture, s16 textureWidth, s16 textureHeight, s16 rectLeft, s16 rectTop, s16 rectWidth, s16 rectHeight, u16 dsdx, u16 dtdy);  /* 8010D5D0 */
 s32 Gfx_DrawTexRect4b(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8010D7F4 */
 s32 func_8010DA58(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 func_8010DC38(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -1351,12 +1480,12 @@ void func_80121370(s32 arg0);
 void func_8012223C(void);
 void func_8012226C(s32 arg0);
 f32 func_801229D4(u8 *arg0, u8 *arg1, s16 arg2, s16 *arg3);
-void FrameAdvance_Init(void *arg0);  /* 80122B10 */
+void FrameAdvance_Init(struct FrameAdvanceContext *frameAdvCtx);  /* 80122B10 */
 s32 func_80122B90(void *arg0, s32 arg1);
-void Player_UpdateOverrideInput(s32 arg0, void *arg1, s32 arg2);  /* 80122C10 */
+s32 Player_UpdateOverrideInput(struct PlayState *play, struct PlayerOverrideInputEntry *inputEntry, f32 distXZRange);  /* 80122C10 */
 void func_80122D18(void *arg0, void *arg1);
 void func_80122E50(u8 **arg0, u8 *arg1);
-void Player_DoNothing(s32 arg0, s32 arg1);  /* 80122E9C */
+void Player_DoNothing(struct Actor *thisx, struct PlayState *play);  /* 80122E9C */
 void func_80122EAC(void *arg0);
 void func_801230D0(s32 arg0, void *arg1);
 void func_801231F4(void *arg0, void *arg1);
@@ -1368,15 +1497,15 @@ s32 Player_CheckHostileLockOn(void *arg0);  /* 801238D0 */
 s32 Player_FriendlyLockOnOrParallel(void *arg0);  /* 801238E4 */
 s32 Player_IsGoronOrDeku(u8 *a0);  /* 80123960 */
 s32 func_80123A40(void *arg0, s32 arg1);
-void Player_GetItemOnButton(s32 arg0, s32 arg1, s32 arg2);  /* 80123AFC */
+s32 Player_GetItemOnButton(struct PlayState *play, struct Player *player, s32 slot);  /* 80123AFC */
 s32 func_80123CC0(void *arg0);
 s32 Player_ActionToModelGroup(void *a0, s32 action);  /* 80123E10 */
-void Player_SetModelsForHoldingShield(void *arg0);  /* 80123E5C */
-void Player_SetModels(void *arg0, s32 arg1);  /* 80123F54 */
-void Player_ReleaseLockOn(void *arg0);  /* 80124254 */
-void Player_ClearZTargeting(void *arg0);  /* 80124270 */
+void Player_SetModelsForHoldingShield(struct Player *player);  /* 80123E5C */
+void Player_SetModels(struct Player *player, s32 modelGroup);  /* 80123F54 */
+void Player_ReleaseLockOn(struct Player *player);  /* 80124254 */
+void Player_ClearZTargeting(struct Player *player);  /* 80124270 */
 s32 func_801243C4(u8 *arg0);
-s32 Player_SetBButtonAmmo(void *arg0, s32 arg1);  /* 801243DC */
+s32 Player_SetBButtonAmmo(struct PlayState *play, s32 ammo);  /* 801243DC */
 void Player_IsBurningStickInRange(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801243F8 */
 u8 Player_GetStrength(void);  /* 801244D0 */
 u8 Player_GetMask(u8 *a0);  /* 801244EC */
@@ -1384,17 +1513,17 @@ void Player_RemoveMask(u8 *this);  /* 801244FC */
 s32 Player_IsHoldingHookshot(void *arg0);  /* 80124578 */
 s32 func_8012458C(u8 *a0);
 s32 Player_BButtonSwordFromIA(u8 *arg0, s32 arg1);  /* 801245C0 */
-s32 Player_GetHeldBButtonSword(void *arg0);  /* 801245F8 */
-s32 Player_MeleeWeaponFromIA(s32 arg0);  /* 80124618 */
-void Player_GetMeleeWeaponHeld(void *arg0);  /* 80124640 */
-s32 Player_IsHoldingTwoHandedWeapon(void *arg0);  /* 80124664 */
-s32 Player_BottleFromIA(s32 arg0, s32 arg1);  /* 80124690 */
-s32 Player_ExplosiveFromIA(s32 arg0, s32 arg1);  /* 801246DC */
+s32 Player_GetHeldBButtonSword(struct Player *player);  /* 801245F8 */
+s32 Player_MeleeWeaponFromIA(s32 itemAction);  /* 80124618 */
+s32 Player_GetMeleeWeaponHeld(struct Player *player);  /* 80124640 */
+s32 Player_IsHoldingTwoHandedWeapon(struct Player *player);  /* 80124664 */
+s32 Player_BottleFromIA(struct Player *player, s32 itemAction);  /* 80124690 */
+s32 Player_ExplosiveFromIA(struct Player *player, s32 itemAction);  /* 801246DC */
 void Player_GetExplosiveHeld(u8 *a0);  /* 80124708 */
-void Player_SwordFromIA(s32 arg0, s32 arg1);  /* 80124728 */
+s32 Player_SwordFromIA(struct Player *player, s32 itemAction);  /* 80124728 */
 s32 func_80124764(u8 *arg0);
-s32 Player_GetEnvironmentalHazard(void *arg0);  /* 8012478C */
-void Player_UpdateBunnyEars(void *arg0);  /* 801248D0 */
+s32 Player_GetEnvironmentalHazard(struct PlayState *play);  /* 8012478C */
+void Player_UpdateBunnyEars(struct Player *player);  /* 801248D0 */
 void Player_DrawImpl(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80124BA4 */
 void Player_AdjustSingleLeg(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80124D20 */
 void Player_DrawHookshotReticle(s32 arg0, s32 arg1, s32 arg2);  /* 80125174 */
@@ -1404,17 +1533,17 @@ void func_80125674(void *arg0, s32 arg1);
 void func_801257C8(void *arg0, void *arg1);
 void func_801257F0(void);
 void func_8012581C(void);
-void Player_DrawZoraShield(s32 arg0, void *arg1);  /* 80125854 */
+void Player_DrawZoraShield(struct PlayState *play, struct Player *player);  /* 80125854 */
 void func_801259B0(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 Player_OverrideLimbDrawGameplayCommon(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80125A30 */
 void func_80126190(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void Player_OverrideLimbDrawGameplayDefault(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801261FC */
-void Player_OverrideLimbDrawGameplayFirstPerson(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80126778 */
-s32 Player_OverrideLimbDrawGameplayCrawling(void *arg0, s32 arg1, s32 *arg2, void *arg3, void *arg4, void *arg5);  /* 801268AC */
+s32 Player_OverrideLimbDrawGameplayDefault(struct PlayState *play, s32 limbIndex, union Gfx **dList, struct Vec3f *pos, struct Vec3s *rot, struct Actor *actor);  /* 801261FC */
+s32 Player_OverrideLimbDrawGameplayFirstPerson(struct PlayState *play, s32 limbIndex, union Gfx **dList, struct Vec3f *pos, struct Vec3s *rot, struct Actor *actor);  /* 80126778 */
+s32 Player_OverrideLimbDrawGameplayCrawling(struct PlayState *play, s32 limbIndex, union Gfx **dList, struct Vec3f *pos, struct Vec3s *rot, struct Actor *thisx);  /* 801268AC */
 s32 func_801268F0(s32 arg0, s32 arg1, void *arg2, s32 arg3);
 s32 func_80126B4C(s32, s32, s32, s32 *);
 void Player_DrawGetItemImpl(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80126CB8 */
-void Player_DrawGetItem(s32 arg0, void *arg1);  /* 80126E2C */
+void Player_DrawGetItem(struct PlayState *play, struct Player *player);  /* 80126E2C */
 void func_80126F64(u8 *arg0, s32 **arg1);
 void func_8012703C(s32 arg0, s32 arg1);
 void func_80127080(s32 arg0, void *arg1, s32 arg2);
@@ -1432,12 +1561,12 @@ void func_80128838(void *arg0, void *arg1, s32 arg2, void *arg3);
 s32 Player_DrawGreatFairysMask(void *arg0, s32 arg1);  /* 80128950 */
 s32 func_80128AF0(s32 arg0, void *arg1);
 void Player_SetFeetPos(s32 arg0, u8 *arg1, s32 arg2);  /* 80129024 */
-void Player_PostLimbDrawGameplay(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 80129080 */
+void Player_PostLimbDrawGameplay(struct PlayState *play, s32 limbIndex, union Gfx **dList1, union Gfx **dList2, struct Vec3s *rot, struct Actor *actor);  /* 80129080 */
 void PreNMI_Stop(void *arg0);  /* 8012A3A0 */
 void PreNMI_Update(void *arg0);  /* 8012A3B4 */
 s32 PreNMI_Draw(void *);  /* 8012A3FC */
 void PreNMI_Main(void *arg0);  /* 8012A4A8 */
-void PreNMI_Destroy(s32 arg0);  /* 8012A4DC */
+void PreNMI_Destroy(struct GameState *thisx);  /* 8012A4DC */
 f32 Quake_Random(void);  /* 8012A530 */
 void Quake_UpdateShakeInfo(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8012A55C */
 s16 Quake_CallbackType2(void *arg0, s32 arg1);  /* 8012A980 */
@@ -1445,20 +1574,20 @@ s16 Quake_GetFreeIndex(void);  /* 8012AA88 */
 s16 *Quake_RequestImpl();  /* 8012AAE8 */
 void Quake_Remove(void *arg0);  /* 8012ABA0 */
 s32 Quake_SetValue(s16 index, s16 type, s16 value);  /* 8012AC24 */
-s32 Quake_SetSpeed(s16 arg0, s16 arg1);  /* 8012AD58 */
-s32 Quake_SetDuration(s16 arg0, s16 arg1);  /* 8012ADA0 */
-s16 Quake_GetTimeLeft(s16 arg0);  /* 8012ADF0 */
-s32 Quake_SetPerturbations(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4);  /* 8012AE28 */
+u32 Quake_SetSpeed(s16 index, s16 speed);  /* 8012AD58 */
+u32 Quake_SetDuration(s16 index, s16 duration);  /* 8012ADA0 */
+s16 Quake_GetTimeLeft(s16 index);  /* 8012ADF0 */
+u32 Quake_SetPerturbations(s16 index, s16 y, s16 x, s16 fov, s16 roll);  /* 8012AE28 */
 void Quake_Init(void);  /* 8012AEF8 */
 s16 Quake_Request(void);  /* 8012AF4C */
-s32 Quake_RemoveRequest(s16 arg0);  /* 8012AF70 */
+u32 Quake_RemoveRequest(s16 index);  /* 8012AF70 */
 s32 Quake_Update(s32 arg0, void *arg1);  /* 8012AFB8 */
-void Distortion_Init(s32 arg0);  /* 8012B318 */
-void Distortion_SetDuration(s16 arg0);  /* 8012B35C */
+void Distortion_Init(struct PlayState *play);  /* 8012B318 */
+void Distortion_SetDuration(s16 duration);  /* 8012B35C */
 s16 Distortion_GetTimeLeft(void);  /* 8012B384 */
 s16 Distortion_GetType(void);  /* 8012B394 */
-void Distortion_Request(s32 arg0);  /* 8012B3A4 */
-void Distortion_RemoveRequest(s32 arg0);  /* 8012B3C8 */
+void Distortion_Request(s32 type);  /* 8012B3A4 */
+void Distortion_RemoveRequest(s32 type);  /* 8012B3C8 */
 s32 Distortion_GetUnderwaterCurrentSpeed(void *arg0);  /* 8012B3E8 */
 void Distortion_Update();  /* 8012B44C */
 s32 Quake_GetNumActiveQuakes(void);  /* 8012C098 */
@@ -1466,14 +1595,14 @@ s32 Gfx_SetFog(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8012C100 */
 void Gfx_SetFogWithSync(s32 a0, s32 r, s32 g, s32 b, s32 z, s32 n, s32 f);  /* 8012C23C */
 void Gfx_SetFog2(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6);  /* 8012C3B8 */
 void Gfx_SetupDL(void);  /* 8012C428 */
-void Gfx_SetupDLAtPtr(s32 *arg0);  /* 8012C448 */
-void Gfx_SetupDL26_Opa(void *arg0);  /* 8012C670 */
-void Gfx_SetupDL23_Opa(void *arg0);  /* 8012C6C4 */
+void Gfx_SetupDLAtPtr(union Gfx **gfxP);  /* 8012C448 */
+void Gfx_SetupDL26_Opa(struct GraphicsContext *gfxCtx);  /* 8012C670 */
+void Gfx_SetupDL23_Opa(struct GraphicsContext *gfxCtx);  /* 8012C6C4 */
 void func_8012C718(s32 *arg0);
 void Gfx_SetupDL71(void *arg0);  /* 8012C764 */
-void Gfx_SetupDL34_Opa(void *arg0);  /* 8012C8A4 */
-void Gfx_SetupDL39_Opa(void *arg0);  /* 8012CAD8 */
-void Gfx_SetupDL39_Overlay(void *arg0);  /* 8012CB04 */
+void Gfx_SetupDL34_Opa(struct GraphicsContext *gfxCtx);  /* 8012C8A4 */
+void Gfx_SetupDL39_Opa(struct GraphicsContext *gfxCtx);  /* 8012CAD8 */
+void Gfx_SetupDL39_Overlay(struct GraphicsContext *gfxCtx);  /* 8012CB04 */
 void Gfx_SetupDL39_Ptr(void *arg0);  /* 8012CB30 */
 s32 Gfx_SetupDL66(void *arg0);  /* 8012CBD4 */
 void Gfx_SetupDL68_NoCD(void *arg0);  /* 8012CC24 */
@@ -1504,7 +1633,7 @@ void Room_FinishRoomChange(s32 arg0, void *arg1);  /* 8012EFA8 */
 void Inventory_ChangeEquipment(s32 arg0);  /* 8012F0E4 */
 void Inventory_DeleteEquipment(void *arg0, s32 arg1);  /* 8012F128 */
 void Inventory_ChangeUpgrade(s16 upgrade, s32 value);  /* 8012F198 */
-s32 Inventory_IsMapVisible(s16 arg0);  /* 8012F1E4 */
+s32 Inventory_IsMapVisible(s16 sceneId);  /* 8012F1E4 */
 void Inventory_SetWorldMapCloudVisibility(s32 arg0);  /* 8012F2BC */
 void Inventory_SaveDekuPlaygroundHighScore(s32 arg0);  /* 8012F49C */
 void Inventory_IncrementSkullTokenCount(s32 arg0);  /* 8012F56C */
@@ -1535,16 +1664,16 @@ void Scene_CommandMapData(s32 arg0, void *arg1);  /* 801308E0 */
 void Scene_Command1D(s32 arg0, s32 arg1);  /* 80130918 */
 void Scene_CommandMapDataChests(s32 a0, u8 *a1);  /* 80130928 */
 void Scene_CommandAnimatedMaterials(void *arg0, void *arg1);  /* 80130A14 */
-void Scene_SetExitFade(void *arg0);  /* 80130A44 */
-s32 Entrance_Create(s32 arg0, s32 arg1, s32 arg2);  /* 80130B08 */
-void Entrance_CreateFromSpawn(s32 arg0);  /* 80130B24 */
+void Scene_SetExitFade(struct PlayState *play);  /* 80130A44 */
+u16 Entrance_Create(s32 scene, s32 spawn, s32 layer);  /* 80130B08 */
+u16 Entrance_CreateFromSpawn(s32 spawn);  /* 80130B24 */
 void Scene_DrawConfigDefault(void *arg0);  /* 80130B94 */
 void AnimatedMat_TexScroll(s32 *arg0, void *arg1);  /* 80130BD4 */
 void AnimatedMat_DrawTexScroll(s32 arg0, s32 arg1, s32 arg2);  /* 80130C40 */
 void AnimatedMat_TwoLayerTexScroll(s32 *arg0, void *arg1);  /* 80130CE0 */
 void AnimatedMat_DrawTwoTexScroll(s32 arg0, s32 arg1, s32 arg2);  /* 80130D94 */
 void AnimatedMat_SetColor(s32, s32, u8 *, u8 *);  /* 80130E34 */
-s32 AnimatedMat_Lerp(s32 arg0, s32 arg1, f32 arg2);  /* 801310AC */
+s32 AnimatedMat_Lerp(s32 min, s32 max, f32 norm);  /* 801310AC */
 void AnimatedMat_DrawColorLerp(s32 arg0, s32 arg1, void *arg2);  /* 801310DC */
 f32 Scene_LagrangeInterp(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* 801312F8 */
 u8 Scene_LagrangeInterpColor(s32 arg0, s32 arg1, s32 arg2, f32 arg3);  /* 801314FC */
@@ -1552,8 +1681,8 @@ void AnimatedMat_DrawColorNonLinearInterp(s32 arg0, s32 arg1, void *arg2);  /* 8
 void AnimatedMat_DrawTexCycle(s32 arg0, s32 arg1, s32 arg2);  /* 80131920 */
 void AnimatedMat_Draw(s32 a0, s32 a1);  /* 80131AF8 */
 void AnimatedMat_DrawOpa(void *a0, void *a1);  /* 80131B2C */
-void AnimatedMat_DrawXlu(void *arg0, s32 arg1);  /* 80131B60 */
-void AnimatedMat_DrawAlpha(u8 *arg0, s32 arg1, f32 arg2);  /* 80131B94 */
+void AnimatedMat_DrawXlu(struct PlayState *play, struct AnimatedMaterial *matAnim);  /* 80131B60 */
+void AnimatedMat_DrawAlpha(struct PlayState *play, struct AnimatedMaterial *matAnim, f32 alphaRatio);  /* 80131B94 */
 void AnimatedMat_DrawAlphaOpa(u8 *a0, s32 a1, f32 a2);  /* 80131BCC */
 void AnimatedMat_DrawAlphaXlu(s32 a0, s32 a1, f32 a2);  /* 80131C04 */
 void AnimatedMat_DrawStep(void *arg0, s32 arg1, s32 arg2);  /* 80131C3C */
@@ -1565,15 +1694,15 @@ void AnimatedMat_DrawAlphaStepXlu(s32 a0, s32 a1, f32 a2, s32 a3);  /* 80131D18 
 void Scene_DrawConfigMatAnim(s32 a0);  /* 80131D44 */
 void Scene_DrawConfig3(void *arg0);  /* 80131D6C */
 void Scene_DrawConfig4(s32 arg0);  /* 8013207C */
-void Scene_DrawConfigDoNothing(s32 arg0);  /* 80132184 */
+void Scene_DrawConfigDoNothing(struct PlayState *play);  /* 80132184 */
 void Scene_SetRenderModeXlu(void *arg0, s32 arg1, s32 arg2);  /* 80132190 */
 void Scene_SetCullFlag(void *arg0, s32 arg1, s32 arg2);  /* 801321F8 */
 void Scene_DrawConfig5(void *arg0);  /* 80132260 */
 void Scene_DrawConfigMatAnimManualStep(u8 *a0);  /* 80132330 */
 void Scene_DrawConfigGreatBayTemple(void *arg0);  /* 80132360 */
 u32 *Entrance_GetTableEntry(u16 entrance);  /* 80132660 */
-s8 Entrance_GetSceneId(u16 arg0);  /* 801326AC */
-s32 Entrance_GetSceneIdAbsolute(u16 arg0);  /* 801326D8 */
+s32 Entrance_GetSceneId(u16 entrance);  /* 801326AC */
+s32 Entrance_GetSceneIdAbsolute(u16 entrance);  /* 801326D8 */
 s8 Entrance_GetSpawnNum(u16 entrance);  /* 80132714 */
 u16 Entrance_GetTransitionFlags(u16 a0);  /* 80132740 */
 void Schedule_CheckWeekEventRegS(s32 arg0, void *arg1, s32 arg2);  /* 80132770 */
@@ -1615,47 +1744,47 @@ s16 Animation_GetLengthLegacy(void);  /* 80135798 */
 s16 Animation_GetLastFrameLegacy(void);  /* 801357BC */
 s32 SkelAnime_InterpFrameTable(u8, s32, s32, s32, f32);  /* 801357E8 */
 void AnimTaskQueue_Reset(s16 *arg0);  /* 80135C68 */
-void AnimTaskQueue_SetNextGroup(s32 arg0);  /* 80135C74 */
-void AnimTaskQueue_DisableTransformTasksForGroup(s32 arg0);  /* 80135C94 */
+void AnimTaskQueue_SetNextGroup(struct PlayState *play);  /* 80135C74 */
+void AnimTaskQueue_DisableTransformTasksForGroup(struct PlayState *play);  /* 80135C94 */
 void AnimTaskQueue_AddLoadPlayerFrame(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4);  /* 80135CF4 */
-void AnimTaskQueue_AddCopy(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80135DC8 */
-void AnimTaskQueue_AddInterp(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 arg4);  /* 80135E30 */
-void AnimTaskQueue_AddCopyUsingMap(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 80135EA0 */
-void AnimTaskQueue_AddCopyUsingMapInverted(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 80135F10 */
-void AnimTaskQueue_AddActorMovement(s32 arg0, s32 arg1, s32 arg2, f32 arg3);  /* 80135F80 */
+void AnimTaskQueue_AddCopy(struct PlayState *play, s32 vecCount, struct Vec3s *dest, struct Vec3s *src);  /* 80135DC8 */
+void AnimTaskQueue_AddInterp(struct PlayState *play, s32 vecCount, struct Vec3s *base, struct Vec3s *mod, f32 weight);  /* 80135E30 */
+void AnimTaskQueue_AddCopyUsingMap(struct PlayState *play, s32 vecCount, struct Vec3s *dest, struct Vec3s *src, u8 *limbCopyMap);  /* 80135EA0 */
+void AnimTaskQueue_AddCopyUsingMapInverted(struct PlayState *play, s32 vecCount, struct Vec3s *dest, struct Vec3s *src, u8 *limbCopyMap);  /* 80135F10 */
+void AnimTaskQueue_AddActorMovement(struct PlayState *play, struct Actor *actor, struct SkelAnime *skelAnime, f32 moveDiffScale);  /* 80135F80 */
 void AnimTask_LoadPlayerFrame(s32 arg0, s32 arg1);  /* 80135FDC */
 void AnimTask_Interp(s32 arg0, void *arg1);  /* 8013607C */
 void AnimTask_CopyUsingMap(void *play, void *data);  /* 801360D8 */
 void SkelAnime_InitPlayer(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80136328 */
-void PlayerAnimation_SetUpdateFunction(void *arg0);  /* 80136448 */
+void PlayerAnimation_SetUpdateFunction(struct SkelAnime *skelAnime);  /* 80136448 */
 void PlayerAnimation_Update(s32 a0, u8 *a1);  /* 80136480 */
 void PlayerAnimation_AnimateFrame();  /* 8013655C */
 void PlayerAnimation_Once(void *arg0, void *arg1);  /* 801366BC */
-void Animation_SetMorph(s32 arg0, void *arg1, f32 arg2);  /* 80136790 */
+void Animation_SetMorph(struct PlayState *play, struct SkelAnime *skelAnime, f32 morphFrames);  /* 80136790 */
 s32 PlayerAnimation_Change(s32, s32, s32, s32, f32, f32, s32, f32);  /* 801367B4 */
-void PlayerAnimation_PlayOnce(s32 arg0, s32 arg1, s32 arg2);  /* 8013692C */
+void PlayerAnimation_PlayOnce(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation);  /* 8013692C */
 void PlayerAnimation_PlayOnceSetSpeed(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013698C */
-void PlayerAnimation_PlayLoop(s32 arg0, s32 arg1, s32 arg2);  /* 801369F0 */
+void PlayerAnimation_PlayLoop(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation);  /* 801369F0 */
 void PlayerAnimation_PlayLoopSetSpeed(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80136A4C */
 void PlayerAnimation_InterpJointMorph(void *a0, u8 *a1, f32 a2);  /* 80136B94 */
-void PlayerAnimation_EndLoop(void *arg0);  /* 80136D0C */
+void PlayerAnimation_EndLoop(struct SkelAnime *skelAnime);  /* 80136D0C */
 void PlayerAnimation_OnFrame(void *a0, f32 a1);  /* 80136DE8 */
-void SkelAnime_Init(s32 arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);  /* 80136E1C */
-void SkelAnime_InitFlex(s32 arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);  /* 80136ED0 */
-void SkelAnime_Update(void *arg0);  /* 80137070 */
+void SkelAnime_Init(struct PlayState *play, struct SkelAnime *skelAnime, struct SkeletonHeader *skeletonHeaderSeg, struct AnimationHeader *animation, struct Vec3s *jointTable, struct Vec3s *morphTable, s32 limbCount);  /* 80136E1C */
+void SkelAnime_InitFlex(struct PlayState *play, struct SkelAnime *skelAnime, struct FlexSkeletonHeader *skeletonHeaderSeg, struct AnimationHeader *animation, struct Vec3s *jointTable, struct Vec3s *morphTable, s32 limbCount);  /* 80136ED0 */
+s32 SkelAnime_Update(struct SkelAnime *skelAnime);  /* 80137070 */
 void SkelAnime_Morph(void *arg0);  /* 80137094 */
 void SkelAnime_MorphTaper(void *arg0);  /* 80137138 */
 void SkelAnime_AnimateFrame();  /* 801372A4 */
 void SkelAnime_LoopPartial();  /* 80137450 */
 void Animation_ChangeImpl(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801375CC */
 void Animation_Change(s32 a0, s32 a1, f32 a2, f32 a3, f32 a4, u8 a5, f32 a6);  /* 80137788 */
-void Animation_PlayOnce(s32 arg0, s32 arg1);  /* 801377D0 */
+void Animation_PlayOnce(struct SkelAnime *skelAnime, struct AnimationHeader *animation);  /* 801377D0 */
 void Animation_MorphToPlayOnce(void *skelAnime, void *animation, f32 morphFrames);  /* 80137828 */
 void Animation_PlayOnceSetSpeed(void *skelAnime, void *animation, f32 playSpeed);  /* 80137884 */
 void Animation_PlayLoop(void *skelAnime, void *animation);  /* 801378E0 */
 void Animation_MorphToLoop(s32 a0, s32 a1, f32 a2);  /* 80137934 */
 void Animation_PlayLoopSetSpeed(void *skelAnime, void *anim, f32 playSpeed);  /* 8013796C */
-void Animation_EndLoop(void *arg0);  /* 801379C4 */
+void Animation_EndLoop(struct SkelAnime *skelAnime);  /* 801379C4 */
 void SkelAnime_CopyFrameTableTrue(void *arg0, s32 arg1, void *arg2, void *arg3);  /* 80137A14 */
 void SkelAnime_UpdateTranslation(void *arg0, void *arg1, s32 arg2);  /* 80137AE8 */
 void func_80137C58(s32 arg0, f32 arg1);
@@ -1668,26 +1797,26 @@ void func_801385D8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 func_80138608(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5);
 s32 func_8013863C(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6);
 void func_80138674(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
-void Skin_GetLimbPos(u8 *skin, s32 limbIndex, s32 arg2, s32 arg3);  /* 801386B0 */
-void Skin_Setup(void *arg0);  /* 801387C0 */
+void Skin_GetLimbPos(struct Skin *skin, s32 limbIndex, struct Vec3f *offset, struct Vec3f *dst);  /* 801386B0 */
+void Skin_Setup(struct Skin *skin);  /* 801387C0 */
 void Skin_InitAnimatedLimb(s32 arg0, void *arg1, s32 arg2);  /* 801387D4 */
 void Skin_Init(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 8013894C */
 s32 func_80138B84(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void Skin_ApplyAnimTransformations(void *arg0, s32 arg1, void *arg2, s32 arg3);  /* 80138C94 */
 void SkinMatrix_Vec3fMtxFMultXYZ(void *a, f32 *b, s32 c);  /* 80139038 */
 void SkinMatrix_MtxFMtxFMult(void *, void *, void *);  /* 801390E8 */
-void SkinMatrix_GetClear(s32 **arg0);  /* 80139444 */
+void SkinMatrix_GetClear(union MtxF **mfp);  /* 80139444 */
 void SkinMatrix_Clear(void *arg0);  /* 80139458 */
-void SkinMatrix_MtxFCopy(void *arg0, void *arg1);  /* 801394B0 */
+void SkinMatrix_MtxFCopy(union MtxF *src, union MtxF *dest);  /* 801394B0 */
 s32 SkinMatrix_Invert(s32 arg0, s32 arg1);  /* 80139538 */
-void SkinMatrix_SetScale(void *arg0, f32 arg1, f32 arg2, f32 arg3);  /* 801397D8 */
+void SkinMatrix_SetScale(union MtxF *mf, f32 x, f32 y, f32 z);  /* 801397D8 */
 void SkinMatrix_SetRotateRPY(void *, s16, s16, s16);  /* 8013983C */
 void SkinMatrix_SetRotateYRP(f32 *m, s16 x, s16 y, s16 z);  /* 801399CC */
-void SkinMatrix_SetTranslate(void *arg0, f32 arg1, f32 arg2, f32 arg3);  /* 80139B5C */
+void SkinMatrix_SetTranslate(union MtxF *mf, f32 x, f32 y, f32 z);  /* 80139B5C */
 void SkinMatrix_SetScaleRotateRPYTranslate(void *arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s16 arg5, s16 arg6, s32 arg7, s32 arg8, s32 arg9);  /* 80139BC0 */
 void SkinMatrix_SetScaleRotateYRPTranslate(f32 *dest, s32 sx, s32 sy, s32 sz, s16 rx, s16 ry, s16 rz, s32 tx, s32 ty, s32 tz);  /* 80139C44 */
-void SkinMatrix_Vec3fToVec3s(void *arg0, void *arg1);  /* 80139D28 */
-void SkinMatrix_Vec3sToVec3f(void *arg0, void *arg1);  /* 80139D6C */
+void SkinMatrix_Vec3fToVec3s(struct Vec3f *src, struct Vec3s *dest);  /* 80139D28 */
+void SkinMatrix_Vec3sToVec3f(struct Vec3s *src, struct Vec3f *dest);  /* 80139D6C */
 void SkinMatrix_MtxFToMtx(void *arg0, void *arg1);  /* 80139DB0 */
 void SkinMatrix_SetRotateAroundVec(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013A010 */
 void SkinMatrix_SetXRotation(f32 *mf, s16 a);  /* 8013A180 */
@@ -1697,54 +1826,54 @@ void SkinMatrix_MulYRotation(s32 arg0, s32 arg1);  /* 8013A418 */
 void SkinMatrix_SetZRotation(f32 *m, s16 z);  /* 8013A524 */
 void Snap_RecordPictographedActors(void *arg0);  /* 8013A5F0 */
 void Snap_SetFlag(s32 flag);  /* 8013A7CC */
-void Snap_UnsetFlag(s32 arg0);  /* 8013A81C */
+void Snap_UnsetFlag(s32 flag);  /* 8013A81C */
 void Snap_CheckFlag(s32 arg0);  /* 8013A874 */
-s16 Snap_AbsS(s16 arg0);  /* 8013A8B4 */
+s16 Snap_AbsS(s16 val);  /* 8013A8B4 */
 void Snap_ValidatePictograph(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013A8E0 */
 s32 SubS_DrawTransformFlexLimb(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013AC10 */
 void SubS_DrawTransformFlex(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013AEB0 */
 s32 SubS_InCsMode(void);  /* 8013B11C */
-void SubS_UpdateLimb(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8013B14C */
-void SubS_SetOfferMode(u16 *arg0, u16 arg1, u16 arg2);  /* 8013B284 */
+s32 SubS_UpdateLimb(s16 newRotZ, s16 newRotY, struct Vec3f *pos, struct Vec3s *rot, s32 stepRot, s32 overrideRot);  /* 8013B14C */
+void SubS_SetOfferMode(u16 *flags, u16 offerMode, u16 mask);  /* 8013B284 */
 void SubS_TimePathing_FillKnots(s32 arg0, s32 arg1, s32 arg2);  /* 8013B2B0 */
 s32 SubS_TimePathing_ComputeProgress(f32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 *arg6);  /* 8013B3C0 */
 void SubS_TimePathing_ComputeWeights(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013B478 */
 void SubS_TimePathing_ComputeTargetPosXZ(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013B700 */
 void SubS_TimePathing_Update(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 8013BA60 */
-void SubS_TimePathing_ComputeInitialY(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 8013BC28 */
-void SubS_GetAdditionalPath(s32 arg0, s32 arg1, s32 arg2);  /* 8013BEE4 */
-void SubS_HasReachedPoint(s32 arg0, s32 arg1, s32 arg2);  /* 8013C0F0 */
-void SubS_GetDayDependentPath(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8013C28C */
-s32 SubS_WeightPathing_ComputePoint(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013C418 */
-void SubS_WeightPathing_Move(void *arg0, void *arg1, void *arg2, void *arg3);  /* 8013C9D4 */
-void SubS_Offer(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013CD14 */
-void SubS_FillShadowTex(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013CFDC */
+void SubS_TimePathing_ComputeInitialY(struct PlayState *play, struct Path *path, s32 waypoint, struct Vec3f *targetPos);  /* 8013BC28 */
+struct Path *SubS_GetAdditionalPath(struct PlayState *play, u8 pathIndex, s32 limit);  /* 8013BEE4 */
+s32 SubS_HasReachedPoint(struct Actor *actor, struct Path *path, s32 pointIndex);  /* 8013C0F0 */
+struct Path *SubS_GetDayDependentPath(struct PlayState *play, u8 pathIndex, u8 pathIndexNone, s32 *startPointIndex);  /* 8013C28C */
+s32 SubS_WeightPathing_ComputePoint(struct Path *path, s32 waypoint, struct Vec3f *point, f32 progress, s32 direction);  /* 8013C418 */
+s32 SubS_WeightPathing_Move(struct Actor *actor, struct Path *path, s32 *waypoint, f32 *progress, s32 direction, s32 returnStart);  /* 8013C9D4 */
+s32 SubS_Offer(struct Actor *actor, struct PlayState *play, f32 xzRange, f32 yRange, s32 itemId, s32 mode);  /* 8013CD14 */
+void SubS_FillShadowTex(s32 startCol, s32 startRow, u8 *tex, s32 size);  /* 8013CFDC */
 void SubS_GenShadowTex(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 8013D114 */
-void SubS_DrawShadowTex(s32 arg0, void *arg1, s32 arg2);  /* 8013D2B4 */
-s32 SubS_ComputeTrackPointRot(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013D490 */
-void SubS_TrackPoint(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 8013D690 */
+void SubS_DrawShadowTex(struct Actor *actor, struct GameState *gameState, u8 *tex);  /* 8013D2B4 */
+s16 SubS_ComputeTrackPointRot(s16 *rot, s16 rotMax, s16 target, f32 slowness, f32 stepMin, f32 stepMax);  /* 8013D490 */
+s32 SubS_TrackPoint(struct Vec3f *target, struct Vec3f *focusPos, struct Vec3s *shapeRot, struct Vec3s *trackTarget, struct Vec3s *headRot, struct Vec3s *torsoRot, struct TrackOptionsSet *options);  /* 8013D690 */
 s32 SubS_AngleDiffLessEqual(s16 angleA, s16 maxDiff, s16 angleB);  /* 8013D998 */
 s16 SubS_GetDistSqAndOrientPoints(f32 *a, f32 *b, f32 *distSq);  /* 8013DAD0 */
 s8 SubS_IsObjectLoaded(s8 objectId, void *play);  /* 8013DC8C */
 s8 SubS_GetObjectSlot(s16 objectId, u8 *play);  /* 8013DCD4 */
-void SubS_UpdateFidgetTables(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013DD78 */
+s32 SubS_UpdateFidgetTables(struct PlayState *play, s16 *fidgetTableY, s16 *fidgetTableZ, s32 tableLen);  /* 8013DD78 */
 s32 SubS_CopyPointFromPathList(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8013DFF0 */
 u8 SubS_GetPathCountFromPathList(u8 *a0, s32 a1);  /* 8013E07C */
-void SubS_ActorPathing_Init(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8013E090 */
+void SubS_ActorPathing_Init(struct PlayState *play, struct Vec3f *worldPos, struct Actor *actor, struct ActorPathing *actorPath, struct Path *paths, s32 pathIndex, s32 begPointIndex, s32 endPointIndex, s32 curPointIndex, u8 flags);  /* 8013E090 */
 void SubS_ActorPathing_Update(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 8013E1B4 */
-void SubS_ActorPathing_ComputePointInfo(s32 arg0, void *arg1);  /* 8013E2EC */
-s32 SubS_ActorPathing_MoveWithGravity(s32 arg0, void *arg1);  /* 8013E404 */
-s32 SubS_ActorPathing_MoveWithoutGravityReverse(s32 arg0, void *arg1);  /* 8013E42C */
-void SubS_ActorPathing_SetNextPoint(s32 arg0, s32 arg1);  /* 8013E454 */
-void SubS_ChangeAnimationBySpeedInfo(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013E578 */
+void SubS_ActorPathing_ComputePointInfo(struct PlayState *play, struct ActorPathing *actorPath);  /* 8013E2EC */
+s32 SubS_ActorPathing_MoveWithGravity(struct PlayState *play, struct ActorPathing *actorPath);  /* 8013E404 */
+s32 SubS_ActorPathing_MoveWithoutGravityReverse(struct PlayState *play, struct ActorPathing *actorPath);  /* 8013E42C */
+s32 SubS_ActorPathing_SetNextPoint(struct PlayState *play, struct ActorPathing *actorPath);  /* 8013E454 */
+void SubS_ChangeAnimationBySpeedInfo(struct SkelAnime *skelAnime, struct AnimationSpeedInfo *animationInfo, s32 nextAnimIndex, s32 *curAnimIndex);  /* 8013E578 */
 s32 SubS_StartCutscene(s32 play, s16 csId, s16 csId2, s32 type);  /* 8013E684 */
-void SubS_ConstructPlane(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013E860 */
-s32 SubS_LineSegVsPlane(void *arg0, void *arg1, void *arg2, void *pointA, void *pointB, void *intersect);  /* 8013E97C */
+void SubS_ConstructPlane(struct Vec3f *point, struct Vec3f *unitVec, struct Vec3s *rot, struct Plane *plane);  /* 8013E860 */
+s32 SubS_LineSegVsPlane(struct Vec3f *point, struct Vec3s *rot, struct Vec3f *unitVec, struct Vec3f *linePointA, struct Vec3f *linePointB, struct Vec3f *intersect);  /* 8013E97C */
 void SubS_FindActorCustom(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013E9F0 */
 void SubS_OfferTalkExchangeCustom(void *, void *, f32, f32, s32, s16 *, void *);  /* 8013EAF8 */
-void SubS_ArePlayerAndActorFacing(void *arg0, s32 arg1, s32 arg2);  /* 8013EB70 */
-void SubS_OfferTalkExchangeFacing(void *arg0, void *arg1, f32 arg2, f32 arg3, s32 arg4, s16 arg5, s16 arg6);  /* 8013ECA8 */
-void SubS_TrackPointStep(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013ED00 */
+s32 SubS_ArePlayerAndActorFacing(struct PlayState *play, struct Actor *actor, void *data);  /* 8013EB70 */
+s32 SubS_OfferTalkExchangeFacing(struct Actor *actor, struct PlayState *play, f32 xzRange, f32 yRange, s32 exchangeItemAction, s16 playerYawRange, s16 actorYawRange);  /* 8013ECA8 */
+s32 SubS_TrackPointStep(struct Vec3f *worldPos, struct Vec3f *focusPos, s16 shapeYRot, struct Vec3f *yawTarget, struct Vec3f *pitchTarget, s16 *headZRotStep, s16 *headXRotStep, s16 *torsoZRotStep, s16 *torsoXRotStep, u16 headZRotStepMax, u16 headXRotStepMax, u16 torsoZRotStepMax, u16 torsoXRotStepMax);  /* 8013ED00 */
 void Rumble_Update(s32 arg0);  /* 8013EFC0 */
 void Rumble_Override(f32 distSq, u8 a1, u8 a2, u8 a3);  /* 8013EFF4 */
 s32 Rumble_Request(f32, s32, s32, s32);  /* 8013F090 */
@@ -1753,60 +1882,60 @@ void Rumble_Destroy(void);  /* 8013F180 */
 void Rumble_ControllerOneHasRumblePak(void);  /* 8013F1B4 */
 void Rumble_StateReset(void);  /* 8013F1D4 */
 void Rumble_StateWipeRequests(void);  /* 8013F1E8 */
-void Rumble_SetUpdateEnabled(s32 arg0);  /* 8013F1F8 */
+void Rumble_SetUpdateEnabled(s32 updateEnabled);  /* 8013F1F8 */
 void View_ViewportToVp(void *arg0, void *arg1);  /* 8013F210 */
-void View_Init(void *arg0, s32 arg1);  /* 8013F2A4 */
-void View_SetScale(void *arg0, f32 arg1);  /* 8013F450 */
-void View_GetScale(void *arg0, f32 *arg1);  /* 8013F470 */
+void View_Init(struct View *view, struct GraphicsContext *gfxCtx);  /* 8013F2A4 */
+void View_SetScale(struct View *view, f32 scale);  /* 8013F450 */
+void View_GetScale(struct View *view, f32 *scale);  /* 8013F470 */
 void View_SetPerspective(void *a0, f32 a1, f32 a2, f32 a3);  /* 8013F480 */
-void View_GetPerspective(void *arg0, f32 *arg1, f32 *arg2, f32 *arg3);  /* 8013F4B0 */
-void View_GetOrtho(void *arg0, f32 *arg1, f32 *arg2, f32 *arg3);  /* 8013F50C */
+void View_GetPerspective(struct View *view, f32 *fovy, f32 *zNear, f32 *zFar);  /* 8013F4B0 */
+void View_GetOrtho(struct View *view, f32 *fovy, f32 *zNear, f32 *zFar);  /* 8013F50C */
 void View_GetViewport(s32 *a0, s32 *a1);  /* 8013F560 */
 void View_SetScissor(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8013F588 */
 void View_ClearScissor(void *arg0, s32 arg1);  /* 8013F63C */
 void View_ApplyLetterbox(void *arg0);  /* 8013F6A8 */
-s32 View_SetDistortionOrientation(void *arg0, f32 arg1, f32 arg2, f32 arg3);  /* 8013F7A8 */
-s32 View_SetDistortionScale(void *arg0, f32 arg1, f32 arg2, f32 arg3);  /* 8013F7D0 */
-s32 View_SetDistortionSpeed(void *arg0, f32 arg1);  /* 8013F7F8 */
-s32 View_ClearDistortion(void *arg0);  /* 8013F870 */
+s32 View_SetDistortionOrientation(struct View *view, f32 rotX, f32 rotY, f32 rotZ);  /* 8013F7A8 */
+s32 View_SetDistortionScale(struct View *view, f32 scaleX, f32 scaleY, f32 scaleZ);  /* 8013F7D0 */
+s32 View_SetDistortionSpeed(struct View *view, f32 speed);  /* 8013F7F8 */
+s32 View_ClearDistortion(struct View *view);  /* 8013F870 */
 void View_StepDistortion(void *arg0, s32 arg1);  /* 8013F8FC */
 void View_ApplyPerspective(void *arg0);  /* 8013FAF8 */
 void View_ApplyOrtho(void *arg0);  /* 8013FDCC */
 void View_ApplyOrthoToOverlay(void *arg0);  /* 8013FF78 */
 void View_ApplyPerspectiveToOverlay(void *arg0);  /* 80140124 */
 void View_ApplyTo(void *arg0, s32 arg1);  /* 8014047C */
-void ViMode_LogPrint(s32 arg0);  /* 80140610 */
-void ViMode_Configure(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8014061C */
-void ViMode_Save(u8 *arg0);  /* 80140AE0 */
-void ViMode_Destroy(s32 arg0);  /* 80140CB0 */
-void ViMode_ConfigureFeatures(void *arg0, s32 arg1);  /* 80140CBC */
+void ViMode_LogPrint(struct OSViMode *vimode);  /* 80140610 */
+void ViMode_Configure(struct OSViMode *viMode, s32 type, s32 tvType, s32 loRes, s32 antialiasOff, s32 modeN, s32 fb16Bit, s32 width, s32 height, s32 leftAdjust, s32 rightAdjust, s32 upperAdjust, s32 lowerAdjust);  /* 8014061C */
+void ViMode_Save(struct ViMode *viMode);  /* 80140AE0 */
+void ViMode_Destroy(struct ViMode *viMode);  /* 80140CB0 */
+void ViMode_ConfigureFeatures(struct ViMode *viMode, s32 viFeatures);  /* 80140CBC */
 void ViMode_Update(void *arg0, s32 arg1);  /* 80140D20 */
-void VisCvg_Destroy(s32 arg0);  /* 801410B4 */
-void VisCvg_Draw(void *arg0, void *arg1);  /* 801410C0 */
+void VisCvg_Destroy(struct VisCvg *this);  /* 801410B4 */
+void VisCvg_Draw(struct VisCvg *this, union Gfx **gfxP);  /* 801410C0 */
 void VisFbuf_Init(s32 a0);  /* 80141230 */
-void VisFbuf_Destroy(s32 arg0);  /* 80141250 */
+void VisFbuf_Destroy(struct VisFbuf *this);  /* 80141250 */
 void VisFbuf_DrawBgToColorImage(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8014125C */
 void VisFbuf_SetBg(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801413B8 */
 void VisFbuf_SetBgSimple(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5);  /* 8014151C */
-void VisFbuf_SetBgGeneral(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, s32 arg9);  /* 80141564 */
+void VisFbuf_SetBgGeneral(union Gfx **gfxP, void *source, void *img, s32 width, s32 height, f32 x, f32 y, f32 scaleX, f32 scaleY, s32 cycleMode);  /* 80141564 */
 void VisFbuf_ApplyEffects(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801415B0 */
 void VisFbuf_DrawGeneral(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801418CC */
 void VisFbuf_DrawInterpolate(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80141A28 */
-void VisFbuf_Draw(void *arg0, s32 arg1, s32 arg2);  /* 80141B28 */
-void VisMono_Destroy(void *arg0);  /* 80141CB0 */
+void VisFbuf_Draw(struct VisFbuf *this, union Gfx **gfxP, void *img);  /* 80141B28 */
+void VisMono_Destroy(struct VisMono *this);  /* 80141CB0 */
 s32 VisMono_DesaturateTLUT(s32);  /* 80141CD4 */
 s32 VisMono_DesaturateDList(s32);  /* 80141FE4 */
-void VisMono_Draw(void *arg0, s32 arg1);  /* 80142210 */
+void VisMono_Draw(struct VisMono *this, union Gfx **gfxP);  /* 80142210 */
 void VisMono_DrawOld(void *arg0);  /* 801423FC */
 void VisZBuf_Init(u8 *a0);  /* 80142470 */
-void VisZBuf_Destroy(s32 arg0);  /* 801424A4 */
-void *VisZBuf_Draw(void *arg0, s32 arg1, s32 arg2);  /* 801424B0 */
+void VisZBuf_Destroy(struct VisZBuf *this);  /* 801424A4 */
+void VisZBuf_Draw(struct VisZBuf *this, union Gfx **gfxP, void *zbuffer);  /* 801424B0 */
 s32 Skybox_CalculateFace128(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801427F0 */
 s32 Skybox_Setup(s32, void *, s16);  /* 80143598 */
-void Skybox_Reload(s32 arg0, void *arg1, s32 arg2);  /* 801436D4 */
+void Skybox_Reload(struct PlayState *play, struct SkyboxContext *skyboxCtx, s16 skyboxId);  /* 801436D4 */
 void Skybox_Init(s32 arg0, void *arg1, s16 arg2);  /* 80143894 */
 s32 Skybox_Draw(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80143A18 */
-void Skybox_Update(s32 arg0);  /* 80143DB4 */
+void Skybox_Update(struct SkyboxContext *skyboxCtx);  /* 80143DB4 */
 void Sram_ActivateOwl(u8 owlId);  /* 80143DC0 */
 void Sram_ClearHighscores(void);  /* 80143E04 */
 void Sram_ClearFlagsAtDawnOfTheFirstDay(void);  /* 80143E74 */
@@ -1817,7 +1946,7 @@ void Sram_ResetSave(void);  /* 801449D8 */
 s32 Sram_GenerateRandomSaveFields();  /* 80144A34 */
 void Sram_InitNewSave(void);  /* 80144C40 */
 void Sram_InitDebugSave();  /* 80144D18 */
-void Sram_ResetSaveFromMoonCrash(s32 arg0);  /* 80144E44 */
+void Sram_ResetSaveFromMoonCrash(struct SramContext *sramCtx);  /* 80144E44 */
 void func_80145228(s32 arg0, s32 arg1);
 void func_8014582C(u8 *);
 void func_80145A58(u8 *, s32);
@@ -1899,19 +2028,19 @@ void func_8015A62C(void *arg0, s32 arg1, s32 arg2);
 void func_8015C290(void *arg0);
 void func_8015F8C0(s32 arg0, s32 arg1);
 void func_8015F95C(s32 arg0, s32 arg1);
-void Message_DecodeCredits(s32 arg0);  /* 80160A18 */
+void Message_DecodeCredits(struct PlayState *play);  /* 80160A18 */
 void PlayerCall_InitFuncPtrs(void);  /* 80161C00 */
-void PlayerCall_Init(s32 arg0, s32 arg1);  /* 80161C68 */
-void PlayerCall_Destroy(s32 arg0, s32 arg1);  /* 80161CB0 */
-void PlayerCall_Update(s32 arg0, s32 arg1);  /* 80161CF0 */
-void PlayerCall_Draw(s32 arg0, s32 arg1);  /* 80161D30 */
-void ShrinkWindow_Letterbox_SetSizeTarget(s32 arg0);  /* 80161D70 */
+void PlayerCall_Init(struct Actor *thisx, struct PlayState *play);  /* 80161C68 */
+void PlayerCall_Destroy(struct Actor *thisx, struct PlayState *play);  /* 80161CB0 */
+void PlayerCall_Update(struct Actor *thisx, struct PlayState *play);  /* 80161CF0 */
+void PlayerCall_Draw(struct Actor *thisx, struct PlayState *play);  /* 80161D30 */
+void ShrinkWindow_Letterbox_SetSizeTarget(s32 target);  /* 80161D70 */
 s8 ShrinkWindow_Letterbox_GetSizeTarget(void);  /* 80161D84 */
 void func_80161D98(s32 a);
 s8 func_80161DAC(void);
 void func_80161DC0(s32 a0);
 s8 func_80161DD4(void);
-void ShrinkWindow_Pillarbox_SetSize(s32 arg0);  /* 80161DE8 */
+void ShrinkWindow_Pillarbox_SetSize(s32 size);  /* 80161DE8 */
 s8 ShrinkWindow_Pillarbox_GetSize(void);  /* 80161DFC */
 void ShrinkWindow_Init(void);  /* 80161E10 */
 void ShrinkWindow_Destroy(void);  /* 80161E44 */
@@ -1929,7 +2058,7 @@ void *func_80162418(void);
 s32 CutsceneCamera_ProcessSpline(void *arg0);  /* 80162428 */
 s32 CutsceneCamera_UpdateSplines(s32, s32 *);  /* 80162B08 */
 s16 func_80162D1C(void);
-void CutsceneCamera_SetState(s16 arg0);  /* 80162D50 */
+void CutsceneCamera_SetState(s16 state);  /* 80162D50 */
 void CutsceneCamera_Reset(void);  /* 80162D7C */
 void CutsceneCamera_Interp_Linear(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80162D90 */
 void CutsceneCamera_Interp_Scale(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80162FBC */
@@ -1948,24 +2077,24 @@ void KaleidoManager_Init(u8 *play);  /* 80164974 */
 void KaleidoManager_Destroy(void);  /* 801649FC */
 u32 KaleidoManager_GetRamAddr(u32 vram);  /* 80164A48 */
 void KaleidoScopeCall_LoadPlayer(void);  /* 80164B10 */
-void KaleidoScopeCall_Init(s32 arg0);  /* 80164B5C */
+void KaleidoScopeCall_Init(struct PlayState *play);  /* 80164B5C */
 void KaleidoScopeCall_Destroy(void);  /* 80164BA8 */
 void KaleidoScopeCall_Update(s32 arg0);  /* 80164BC8 */
 void TransitionTile_InitGraphics(void *arg0);  /* 80164F30 */
 void TransitionTile_InitVtxData(void *arg0);  /* 801652FC */
-void TransitionTile_Destroy(void *arg0);  /* 801653BC */
+void TransitionTile_Destroy(struct TransitionTile *this);  /* 801653BC */
 s32 TransitionTile_Init(void *arg0, s32 arg1, s32 arg2);  /* 80165448 */
 void TransitionTile_SetVtx(void *arg0);  /* 801655A8 */
 void TransitionTile_Draw(s32 arg0, void *arg1);  /* 801656BC */
 void TransitionTile_Suck(void *arg0);  /* 801657E8 */
-void TransitionTile_Update(s32 arg0);  /* 8016591C */
+void TransitionTile_Update(struct TransitionTile *this);  /* 8016591C */
 s32 func_80165928(s32 arg0);
-s32 TransitionFade_Init(s32 arg0);  /* 8016599C */
-void TransitionFade_Destroy(s32 arg0);  /* 801659C8 */
+void *TransitionFade_Init(void *thisx);  /* 8016599C */
+void TransitionFade_Destroy(void *thisx);  /* 801659C8 */
 void TransitionFade_Update(void *arg0, s32 arg1);  /* 801659D4 */
-void TransitionFade_Draw(void *arg0, void *arg1);  /* 80165B64 */
-u8 TransitionFade_IsDone(void *arg0);  /* 80165BF0 */
-void TransitionFade_SetColor(void *arg0, s32 arg1);  /* 80165BFC */
+void TransitionFade_Draw(void *thisx, union Gfx **gfxP);  /* 80165B64 */
+s32 TransitionFade_IsDone(void *thisx);  /* 80165BF0 */
+void TransitionFade_SetColor(void *thisx, u32 color);  /* 80165BFC */
 void TransitionCircle_Start(void *arg0);  /* 80165C60 */
 void TransitionCircle_Init(s32 arg0);  /* 80165CB0 */
 void TransitionCircle_Destroy(s32 arg0);  /* 80165D04 */
@@ -1977,7 +2106,7 @@ u8 TransitionCircle_IsDone(void *arg0);  /* 80166308 */
 void TransitionOverlay_VramToRamArray(u32 base, u32 *addrs, s32 count);  /* 80166394 */
 void TransitionOverlay_Free(void *arg0);  /* 801664EC */
 void TransitionOverlay_ClearLoadInfo(s32 *arg0);  /* 801665A8 */
-void TransitionOverlay_SetSegment(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 801665B4 */
+void TransitionOverlay_SetSegment(struct TransitionOverlay *overlayEntry, void *vramStart, void *vramEnd, u32 vromStart, u32 vromEnd);  /* 801665B4 */
 void Play_DrawMotionBlur(void *arg0);  /* 801665D0 */
 void Play_InitMotionBlur(void);  /* 80166778 */
 void Play_DestroyMotionBlur(void);  /* 801667A0 */
@@ -1999,17 +2128,17 @@ f32 Play_GetWaterSurface(void *arg0, s32 arg1, s32 arg2);  /* 80167A24 */
 void Play_UpdateWaterCamera(void *arg0, void *arg1);  /* 80167AD8 */
 void Play_UpdateTransition(s32 arg0);  /* 80167CA0 */
 void Play_UpdateMain(void *arg0);  /* 80168984 */
-void Play_Update(void *arg0);  /* 80168F54 */
+void Play_Update(struct PlayState *this);  /* 80168F54 */
 void Play_PostWorldDraw(s32 arg0);  /* 8016907C */
 void Play_DrawMain(void *arg0);  /* 80169200 */
 void Play_Draw(s32 arg0);  /* 80169F1C */
 void Play_Main(void *arg0);  /* 8016A0D4 */
 s32 Play_InCsMode(u8 *a0);  /* 8016A23C */
 void Play_GetFloorSurface(s32 a0, s32 a1, s32 a2);  /* 8016A360 */
-void Play_InitEnvironment(void *arg0, s16 arg1);  /* 8016A3EC */
+void Play_InitEnvironment(struct PlayState *this, s16 skyboxId);  /* 8016A3EC */
 void Play_InitScene(void *arg0, s32 arg1);  /* 8016A434 */
 void Play_SpawnScene(void *arg0, s32 arg1, s32 arg2);  /* 8016A544 */
-s16 Play_GetActiveCamId(void *arg0);  /* 8016A6F4 */
+s16 Play_GetActiveCamId(struct PlayState *this);  /* 8016A6F4 */
 void Play_ClearAllSubCameras(void *arg0);  /* 8016A7D8 */
 s32 Play_GetCamera(u8 *a0, s16 a1);  /* 8016A844 */
 void Play_SetCameraAtEye(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 8016A87C */
@@ -2035,18 +2164,18 @@ void BombersNotebook_DrawRows(void *arg0, s32 arg1);  /* 8016D4D8 */
 void func_8016DEE0(s32 arg0);
 void BombersNotebook_DrawCursor(s32 arg0, s32 arg1);  /* 8016F5C4 */
 void BombersNotebook_DrawArrows(s32 arg0, s32 arg1);  /* 8016FC48 */
-void BombersNotebook_Draw(s32 arg0, s32 arg1);  /* 80170360 */
+void BombersNotebook_Draw(struct BombersNotebook *this, struct GraphicsContext *gfxCtx);  /* 80170360 */
 void BombersNotebook_LoadFiles(void *arg0, s32 arg1);  /* 801706A4 */
 void func_80170760(s32 arg0, void *arg1, void *arg2);
 void func_80170E30(s32 a0);
 void func_80170EEC(s32 arg0);
-void PreRender_Destroy(s32 arg0);  /* 80170F54 */
+void PreRender_Destroy(struct PreRender *this);  /* 80170F54 */
 void PreRender_CopyImage(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80170F78 */
 void PreRender_RestoreBuffer(s32 a0, s32 a1, s32 a2, s32 a3);  /* 80171130 */
 void func_80171150(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_801713C0(s32 a0, s32 a1, s32 a2, s32 a3);
 void PreRender_CoverageRgba16ToI8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801713FC */
-void PreRender_SaveZBuffer(u8 *arg0, s32 arg1);  /* 8017173C */
+void PreRender_SaveZBuffer(struct PreRender *this, union Gfx **gfxP);  /* 8017173C */
 void PreRender_SaveFramebuffer(void *arg0, s32 arg1);  /* 80171774 */
 void PreRender_FetchFbufCoverage(void *arg0, void *arg1);  /* 801717AC */
 void PreRender_RestoreZBuffer(void *a0, s32 a1);  /* 80171934 */
@@ -2055,9 +2184,9 @@ void PreRender_RestoreFramebuffer(s32 *a0, s32 a1);  /* 80171CE8 */
 void PreRender_AntiAliasFilterPixel(void *arg0, s32 arg1, s32 arg2);  /* 80171D0C */
 s32 PreRender_Get5bMedian9(void *arg0, void *arg1, void *arg2);  /* 80172884 */
 s32 PreRender_DivotFilter(void *);  /* 801729B8 */
-void PreRender_ApplyFilters(void *arg0);  /* 8017310C */
-void PreRender_ApplyFiltersSlowlyInit(void *arg0);  /* 80173168 */
-void PreRender_ApplyFiltersSlowlyDestroy(s32 arg0);  /* 80173238 */
+void PreRender_ApplyFilters(struct PreRender *this);  /* 8017310C */
+void PreRender_ApplyFiltersSlowlyInit(struct PreRender *this);  /* 80173168 */
+void PreRender_ApplyFiltersSlowlyDestroy(struct PreRender *this);  /* 80173238 */
 void func_80173284(void *arg0);
 void Prerender_DrawBackground2DImpl(void *arg0, s32 arg1);  /* 801732BC */
 void Prerender_DrawBackground2D(s32 a0, s32 a1, s32 a2, u16 a3, u16 a4, u8 a5, u8 a6, u16 a7, u16 a8, f32 a9, f32 a10, f32 a11, f32 a12, s32 a13);  /* 80173918 */
@@ -2069,20 +2198,20 @@ void func_80173A30(void);
 void func_80173A50(void);
 void THGA_SetHead(void);  /* 80173A70 */
 void func_80173A90(void);
-void THGA_AllocDisplayList(s32 arg0, s32 arg1);  /* 80173AB0 */
+union Gfx *THGA_AllocDisplayList(union TwoHeadGfxArena *thga, u32 num);  /* 80173AB0 */
 void *THGA_AllocGfx(void *a0);  /* 80173AD4 */
 void THGA_AllocGfx2(void);  /* 80173AF4 */
 void func_80173B14(void);
 s32 THGA_AllocMtxArray(s32 a0, s32 a1);  /* 80173B34 */
 void THGA_AllocMtx(s32 a0);  /* 80173B58 */
-void THGA_AllocVtxArray(s32 arg0, s32 arg1);  /* 80173B78 */
-void THGA_AllocVtx(void *arg0);  /* 80173B9C */
-s32 THA_GetHead(void *arg0);  /* 80173BC0 */
-void THA_SetHead(void *arg0, s32 arg1);  /* 80173BCC */
-s32 THA_GetTail(void *arg0);  /* 80173BD8 */
+union Vtx *THGA_AllocVtxArray(union TwoHeadGfxArena *thga, u32 num);  /* 80173B78 */
+union Vtx *THGA_AllocVtx(union TwoHeadGfxArena *thga);  /* 80173B9C */
+void *THA_GetHead(struct TwoHeadArena *tha);  /* 80173BC0 */
+void THA_SetHead(struct TwoHeadArena *tha, void *newHead);  /* 80173BCC */
+void *THA_GetTail(struct TwoHeadArena *tha);  /* 80173BD8 */
 s32 THA_AllocHeadByte(s32 a0);  /* 80173BF8 */
 s32 THA_AllocTailAlign(u8 *a0, s32 a1, s32 a2);  /* 80173CA8 */
-s32 THA_GetRemaining(void *arg0);  /* 80173CC4 */
+s32 THA_GetRemaining(struct TwoHeadArena *tha);  /* 80173CC4 */
 s32 THA_IsCrash(void);  /* 80173CD8 */
 void THA_Init(s32 *arg0, s32 arg1, s32 arg2);  /* 80173D18 */
 void THA_Destroy(s32 a0);  /* 80173D5C */
@@ -2091,31 +2220,31 @@ void AudioMgr_NotifyTaskDone(u8 *arg0);  /* 80173DF0 */
 void AudioMgr_HandleRetrace(void *arg0);  /* 80173E28 */
 void AudioMgr_HandlePreNMI(s32 arg0);  /* 8017406C */
 void AudioMgr_ThreadEntry(void *arg0);  /* 80174090 */
-void AudioMgr_Unlock(s32 arg0);  /* 80174208 */
+void AudioMgr_Unlock(struct AudioMgr *audioMgr);  /* 80174208 */
 void AudioMgr_Init(u8 *audioMgr, s32 stack, s32 stackSize, s32 pri, s32 a4, s32 a5);  /* 80174234 */
 void Setup_InitRegs();  /* 801742F0 */
 s32 Setup_InitImpl();  /* 8017449C */
-void Setup_Destroy(s32 arg0);  /* 801744EC */
-void Setup_Init(void *arg0);  /* 801744F8 */
-void GameState_UpdateFramerateDivisors(s32 arg0);  /* 80174520 */
+void Setup_Destroy(struct GameState *gameState);  /* 801744EC */
+void Setup_Init(struct GameState *thisx);  /* 801744F8 */
+void GameState_UpdateFramerateDivisors(s32 divisor);  /* 80174520 */
 void GameState_SetFramerateDivisor(u8 *a0, s32 a1);  /* 80174568 */
 void GameState_SetFBFilter(s32 arg0, s32 arg1);  /* 8017459C */
-void GameState_Noop(s32 arg0);  /* 801746F4 */
+void GameState_Noop(struct GameState *gameState);  /* 801746F4 */
 void GameState_Draw(s32 arg0, void *arg1);  /* 80174700 */
 void GameState_DrawEnd(void *gfxCtx);  /* 8017489C */
-void GameState_GetInput(s32 arg0);  /* 80174914 */
+void GameState_GetInput(struct GameState *gameState);  /* 80174914 */
 void GameState_IncrementFrameCount(void *a0);  /* 801749A4 */
 void GameState_InitArena(s32 arg0, s32 arg1, s32 arg2);  /* 801749D0 */
-void GameState_Realloc(void *arg0, s32 arg1);  /* 80174A40 */
+void GameState_Realloc(struct GameState *gameState, u32 size);  /* 80174A40 */
 void GameState_Init(void *arg0, s32 arg1, void *arg2);  /* 80174B10 */
 s32 GameState_GetInit(void *arg0);  /* 80174CC0 */
-s32 GameState_GetSize(void *arg0);  /* 80174CCC */
-u8 GameState_IsRunning(void *arg0);  /* 80174CD8 */
-void GameState_GetArenaSize(s32 arg0);  /* 80174CE4 */
+u32 GameState_GetSize(struct GameState *gameState);  /* 80174CCC */
+u32 GameState_IsRunning(struct GameState *gameState);  /* 80174CD8 */
+s32 GameState_GetArenaSize(struct GameState *gameState);  /* 80174CE4 */
 s32 func_80174D08(s32 arg0);
 void GameAlloc_Log(void *a0);  /* 80174DB0 */
 void GameAlloc_Cleanup(s32 *arg0);  /* 80174E88 */
-void GameAlloc_Init(void *arg0);  /* 80174ED8 */
+void GameAlloc_Init(struct GameAlloc *this);  /* 80174ED8 */
 void Graph_FaultClient(void);  /* 80174EF0 */
 void Graph_InitTHGA(void);  /* 80174F6C */
 void Graph_SetNextGfxPool(void *arg0);  /* 80174F8C */
@@ -2127,8 +2256,8 @@ void Graph_UpdateGame(s32 arg0);  /* 8017566C */
 s32 Graph_ExecuteAndDraw(s32, void *);  /* 801756B8 */
 void Graph_Update(s32 arg0, void *arg1);  /* 80175A28 */
 void Graph_ThreadEntry(s32 arg0);  /* 80175A60 */
-s32 Gfx_Open(s32 arg0);  /* 80175C00 */
-s32 Gfx_Close(void *arg0, s32 arg1);  /* 80175C0C */
+union Gfx *Gfx_Open(union Gfx *gfx);  /* 80175C00 */
+union Gfx *Gfx_Close(union Gfx *gfx, union Gfx *dst);  /* 80175C0C */
 void *Gfx_Alloc(void *arg0, s32 arg1);  /* 80175C24 */
 void ListAlloc_FreeAll(s32 *arg0);  /* 80175D60 */
 void Main(s32 arg0);  /* 80175DB0 */
@@ -2140,15 +2269,15 @@ void PadMgr_UnsetInputRetraceCallback(s32 arg0, s32 arg1);  /* 8017615C */
 s32 PadMgr_AcquireSerialEventQueue(void);  /* 80176194 */
 s32 PadMgr_VoiceAcquireSerialEventQueue(void);  /* 801761C8 */
 void PadMgr_ReleaseSerialEventQueue(s32 arg0);  /* 801761FC */
-void PadMgr_VoiceReleaseSerialEventQueue(s32 arg0);  /* 8017622C */
+void PadMgr_VoiceReleaseSerialEventQueue(struct OSMesgQueue *serialEventQueue);  /* 8017622C */
 void PadMgr_LockPadData(void);  /* 8017625C */
 void PadMgr_UnlockPadData(void);  /* 8017628C */
 void PadMgr_UpdateRumble();  /* 801762BC */
 void PadMgr_RumbleStop(void);  /* 80176524 */
 void PadMgr_RumblePause(void);  /* 801765F4 */
-void PadMgr_RumbleSetSingle(s32 arg0, s32 arg1);  /* 8017660C */
+void PadMgr_RumbleSetSingle(s32 port, s32 enable);  /* 8017660C */
 s32 PadMgr_RumbleSet(s32 *);  /* 80176634 */
-s32 PadMgr_ControllerHasRumblePak(s32 arg0);  /* 80176680 */
+s32 PadMgr_ControllerHasRumblePak(s32 port);  /* 80176680 */
 void PadMgr_AdjustInput(void *arg0);  /* 801766A0 */
 void PadMgr_UpdateInputs();  /* 80176964 */
 void PadMgr_InitVoice();  /* 80176B7C */
@@ -2156,8 +2285,8 @@ void PadMgr_UpdateConnections();  /* 80176CA0 */
 void PadMgr_HandleRetrace();  /* 80176E40 */
 void PadMgr_HandlePreNMI(void);  /* 80176FFC */
 s32 PadMgr_GetInputNoLock(s32, s32);  /* 80177028 */
-void PadMgr_GetInput(s32 arg0, s32 arg1);  /* 80177158 */
-void PadMgr_GetInput2(s32 arg0, s32 arg1);  /* 80177194 */
+void PadMgr_GetInput(struct Input *inputs, s32 gameRequest);  /* 80177158 */
+void PadMgr_GetInput2(struct Input *inputs, s32 gameRequest);  /* 80177194 */
 void PadMgr_ThreadEntry();  /* 801771D0 */
 void func_80177354(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);
 void func_80177440(s32 arg0);
@@ -2172,7 +2301,7 @@ void Sched_RunTask(void *arg0, void *arg1, s32 arg2);  /* 80177B5C */
 void Sched_HandleNotify(void *arg0);  /* 80177D08 */
 void Sched_HandleRSPDone(void *arg0);  /* 80177EC8 */
 void Sched_HandleRDPDone(void *arg0);  /* 80178100 */
-void Sched_SendNotifyMsg(s32 arg0);  /* 801781EC */
+void Sched_SendNotifyMsg(struct Scheduler *sched);  /* 801781EC */
 void Sched_SendAudioCancelMsg(s32 a0);  /* 80178210 */
 void func_80178234(void *a0);
 void func_80178330(s32 arg0);
@@ -2180,7 +2309,7 @@ void func_80178480(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void func_80178570(void *arg0, s32 arg1, s32 arg2);
 void func_80178580(s32 a0);
 void func_801785A4(s32 arg0);
-void SpeedMeter_DrawTimeEntries(void *arg0, s32 arg1);  /* 801785B0 */
+void SpeedMeter_DrawTimeEntries(struct SpeedMeter *this, struct GraphicsContext *gfxCtx);  /* 801785B0 */
 void SpeedMeter_DrawAllocEntry(void *arg0, s32 arg1);  /* 80178CA8 */
 void SpeedMeter_DrawAllocEntries(s32 arg0, s32 arg1, s32 arg2);  /* 80179038 */
 void Mtx_SetTranslateScaleMtx(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801792D0 */
@@ -2214,7 +2343,7 @@ f32 func_8017A6B0(s32 n);
 void Math_PowF(f32 arg0, s32 arg1);  /* 8017A774 */
 f32 Math_SinF(f32 rad);  /* 8017A79C */
 f32 Math_CosF(f32 rad);  /* 8017A7F0 */
-f32 Rand_ZeroFloat(f32 arg0);  /* 8017A844 */
+f32 Rand_ZeroFloat(f32 scale);  /* 8017A844 */
 f32 Rand_CenteredFloat(f32 a0);  /* 8017A870 */
 void Math3D_PlaneVsLineSegClosestPoint(f32 a, f32 b, f32 c, f32 d, f32 e, f32 f, f32 g, f32 h, s32 i, s32 j, s32 k);  /* 8017A928 */
 s32 Math3D_LineSegMakePerpLineSeg(void *arg0, void *arg1, void *arg2, void *arg3);  /* 8017AA48 */
@@ -2222,14 +2351,14 @@ void Math3D_FindPointOnPlaneIntersect(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f3
 s32 Math3D_PlaneVsPlaneNewLine(f32 arg0, f32 arg1, s32 arg2, s32 arg3);  /* 8017AE44 */
 s32 Math3D_PlaneVsPlaneVsLineClosestPoint(f32 planeAA, f32 planeAB, f32 planeAC, f32 planeADist, f32 planeBA, f32 planeBB, f32 planeBC, f32 planeBDist, f32 *point, f32 *closestPoint);  /* 8017B024 */
 f32 Math3D_Cos(s32 a0, s32 a1);  /* 8017B138 */
-s32 Math3D_PointInSquare2D(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);  /* 8017B2E8 */
+s32 Math3D_PointInSquare2D(f32 upperLeftX, f32 lowerRightX, f32 upperLeftY, f32 lowerRightY, f32 x, f32 y);  /* 8017B2E8 */
 s32 Math3D_CirSquareVsTriSquareXY(void *arg0, void *arg1, void *arg2, s32 arg3);  /* 8017B34C */
 s32 Math3D_CirSquareVsTriSquareYZ(void *arg0, void *arg1, void *arg2, s32 arg3);  /* 8017B480 */
 s32 Math3D_CirSquareVsTriSquareZX(void *arg0, void *arg1, void *arg2, s32 arg3);  /* 8017B5B4 */
 s32 Math3D_SphCubeVsTriCube(void *arg0, void *arg1, void *arg2, void *arg3);  /* 8017B6E8 */
 f32 Math3D_Dist1DSq(f32 a, f32 b);  /* 8017B8A8 */
 f32 Math3D_Dist1D(void);  /* 8017B8C0 */
-void Math3D_Dist2DSq(f32 arg0, f32 arg1, f32 arg2, f32 arg3);  /* 8017B8E4 */
+f32 Math3D_Dist2DSq(f32 x0, f32 y0, f32 x1, f32 y1);  /* 8017B8E4 */
 f32 Math3D_Dist2D(f32 a0, f32 a1, f32 a2, f32 a3);  /* 8017B928 */
 f32 Math3D_Vec3fMagnitudeSq(f32 *v);  /* 8017B958 */
 f32 Math3D_Vec3fMagnitude(void);  /* 8017B984 */
@@ -2244,7 +2373,7 @@ void func_8017C87C(f32 *a0, s16 a1, f32 *a2, f32 *a3, f32 *a4);
 void Math3D_DefPlane(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8017C908 */
 f32 Math3D_PlaneF(f32 arg0, f32 arg1, s32 arg2, s32 arg3);  /* 8017CA1C */
 f32 Math3D_UDistPlaneToPos(f32 a, f32 b, f32 c, f32 d, void *pos);  /* 8017CA98 */
-f32 Math3D_DistPlaneToPos(f32 arg0, f32 arg1, f32 arg2, f32 arg3, s32 arg4);  /* 8017CAD0 */
+f32 Math3D_DistPlaneToPos(f32 nx, f32 ny, f32 nz, f32 originDist, struct Vec3f *p);  /* 8017CAD0 */
 s32 Math3D_TriChkPointParaYImpl(s32 a, s32 b, s32 c, f32 d, f32 e, f32 f, f32 g, f32 h);  /* 8017CB54 */
 void Math3D_TriChkPointParaYDeterminate(void *a0, void *a1, void *a2, f32 a3, f32 a4, f32 a5, f32 a6);  /* 8017CE1C */
 void Math3D_TriChkPointParaYSlopedY(s32 a0, s32 a1, s32 a2, f32 a3, f32 a4);  /* 8017CE64 */
@@ -2273,8 +2402,8 @@ void Math3D_GetSphVsTriIntersectPoint(s32 arg0, void *arg1, s32 arg2);  /* 8017E
 s32 Math3D_TriVsSphIntersect(void *arg0, void *arg1, s32 arg2);  /* 8017EEF8 */
 s32 Math3D_CylVsLineSeg(void *, void *, void *, void *, void *);  /* 8017F3D4 */
 s32 Math3D_CylTriVsIntersect(void *arg0, void *arg1, s32 arg2);  /* 8017FDA4 */
-void Math3D_CylVsTri(s32 arg0, s32 arg1);  /* 80180224 */
-void Math3D_SphVsSph(void *arg0, void *arg1);  /* 80180244 */
+s32 Math3D_CylVsTri(struct Cylinder16 *cyl, struct TriNorm *tri);  /* 80180224 */
+s32 Math3D_SphVsSph(struct Sphere16 *sphereA, struct Sphere16 *sphereB);  /* 80180244 */
 void Math3D_SphVsSphOverlap(s32 a0, s32 a1, s32 a2);  /* 80180264 */
 s32 Math3D_SphVsSphOverlapCenterDist(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80180284 */
 void Math3D_SphVsCylOverlap(s32 a0, s32 a1, s32 a2);  /* 80180350 */
@@ -2287,15 +2416,15 @@ void func_80180DC8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 u16 func_80180F40(f32 a0, f32 a1);
 s32 Math_Atan2S(f32, f32);  /* 80180F74 */
 f32 Math_Atan2F(void);  /* 8018115C */
-void Math_Atan2S_XY(f32 arg0, f32 arg1);  /* 80181190 */
-void Math_Atan2F_XY(f32 arg0, f32 arg1);  /* 801811BC */
+s16 Math_Atan2S_XY(f32 x, f32 y);  /* 80181190 */
+f32 Math_Atan2F_XY(f32 x, f32 y);  /* 801811BC */
 void Matrix_Init(u8 *state);  /* 801811F0 */
 void Matrix_Push(void);  /* 8018122C */
 void Matrix_Pop(void);  /* 8018125C */
 void Matrix_Get(s32 a0);  /* 80181278 */
-void Matrix_Put(s32 arg0);  /* 8018129C */
+void Matrix_Put(union MtxF *src);  /* 8018129C */
 s32 Matrix_GetCurrent(void);  /* 801812C4 */
-void Matrix_Mult(s32 arg0, s32 arg1);  /* 801812D4 */
+void Matrix_Mult(union MtxF *mf, s32 mode);  /* 801812D4 */
 void Matrix_Translate(f32, f32, f32, s32);  /* 8018132C */
 void Matrix_Scale(f32 x, f32 y, f32 z, s32 mode);  /* 8018142C */
 void Matrix_RotateXS(s32 arg0, s32 arg1);  /* 80181508 */
@@ -2310,8 +2439,8 @@ void Matrix_RotateZYX(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801820CC */
 s32 Matrix_TranslateRotateZYX(s32, s32);  /* 8018238C */
 void Matrix_SetTranslateRotateYXZ(f32 arg0, f32 arg1, s32 arg2, void *arg3);  /* 801826E0 */
 s32 Matrix_MtxFToMtx(s32, s32);  /* 8018288C */
-void Matrix_ToMtx(s32 arg0);  /* 80182AA8 */
-void Matrix_Finalize(void *arg0);  /* 80182AD0 */
+union Mtx *Matrix_ToMtx(union Mtx *dest);  /* 80182AA8 */
+union Mtx *Matrix_Finalize(struct GraphicsContext *gfxCtx);  /* 80182AD0 */
 void Matrix_MtxFToNewMtx(void *a0, void *a1);  /* 80182AFC */
 void Matrix_MultZero(f32 *a0);  /* 80182BE0 */
 void Matrix_MultVecZ(f32 arg0, void *arg1);  /* 80182CA0 */
@@ -2329,19 +2458,19 @@ s32 func_80183D4C(void);
 s32 func_80183D5C(void);
 s32 RumbleManager_Update(s32 *);  /* 80183D80 */
 void func_801840C0(u8 *a0);
-void RumbleManager_Destroy(s32 arg0);  /* 801840F8 */
+void RumbleManager_Destroy(struct RumbleManager *rumbleMgr);  /* 801840F8 */
 void Sys_Freeze(void);  /* 80184110 */
-void FrameCtrl_Reset(void *arg0);  /* 80184140 */
+void FrameCtrl_Reset(struct FrameControl *frameCtrl);  /* 80184140 */
 void FrameCtrl_Init(void);  /* 80184168 */
-void FrameCtrl_SetProperties(void *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, s32 arg6);  /* 80184188 */
-s32 FrameCtrl_PassCheck(void *arg0, f32 arg1, f32 *arg2);  /* 801841E8 */
-void Keyframe_ResetFlex(void *arg0);  /* 801844AC */
+void FrameCtrl_SetProperties(struct FrameControl *frameCtrl, f32 startTime, f32 endTime, f32 frameCount, f32 t, f32 speed, s32 animMode);  /* 80184188 */
+s32 FrameCtrl_PassCheck(struct FrameControl *frameCtrl, f32 t, f32 *remainingTime);  /* 801841E8 */
+void Keyframe_ResetFlex(struct KFSkelAnimeFlex *kfSkelAnime);  /* 801844AC */
 void Keyframe_InitFlex(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);  /* 801844D0 */
-void Keyframe_DestroyFlex(s32 arg0);  /* 8018453C */
-void Keyframe_FlexPlayOnceSetSpeed(void *arg0, s32 arg1, f32 arg2);  /* 801845B0 */
-void Keyframe_FlexPlayLoopSetSpeed(u8 *arg0, s32 arg1, f32 arg2);  /* 801846F8 */
-void Keyframe_FlexChangeAnimQuick(void *arg0, s32 arg1);  /* 8018486C */
-f32 Keyframe_Interpolate(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);  /* 801848A8 */
+void Keyframe_DestroyFlex(struct KFSkelAnimeFlex *kfSkelAnime);  /* 8018453C */
+void Keyframe_FlexPlayOnceSetSpeed(struct KFSkelAnimeFlex *kfSkelAnime, struct KeyFrameAnimation *animation, f32 speed);  /* 801845B0 */
+void Keyframe_FlexPlayLoopSetSpeed(struct KFSkelAnimeFlex *kfSkelAnime, struct KeyFrameAnimation *animation, f32 speed);  /* 801846F8 */
+void Keyframe_FlexChangeAnimQuick(struct KFSkelAnimeFlex *kfSkelAnime, struct KeyFrameAnimation *animation);  /* 8018486C */
+f32 Keyframe_Interpolate(f32 t, f32 delta, f32 x0, f32 x1, f32 v0, f32 v1);  /* 801848A8 */
 s32 Keyframe_KeyCalc(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80184920 */
 void Keyframe_MorphInterpolateRotation(f32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80184ADC */
 void Keyframe_MorphInterpolateLinear(s16 *dst, s16 *target, f32 t);  /* 80184BA8 */
@@ -2349,11 +2478,11 @@ void Keyframe_FlexMorphInterpolation(void *arg0);  /* 80184C08 */
 void Keyframe_UpdateFlex(void *arg0);  /* 80184E80 */
 void Keyframe_DrawFlexLimb(void *arg0, void *arg1, void *arg2, s32 arg3);  /* 801851AC */
 void Keyframe_DrawFlex(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801855AC */
-void Keyframe_ResetStandard(void *arg0);  /* 80185644 */
-void Keyframe_InitStandard(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);  /* 80185668 */
-void Keyframe_DestroyStandard(s32 arg0);  /* 801856CC */
+void Keyframe_ResetStandard(struct KFSkelAnime *kfSkelAnime);  /* 80185644 */
+void Keyframe_InitStandard(struct KFSkelAnime *kfSkelAnime, struct KeyFrameSkeleton *skeleton, struct KeyFrameAnimation *animation, struct Vec3s *jointTable, struct Vec3s *morphTable);  /* 80185668 */
+void Keyframe_DestroyStandard(struct KFSkelAnime *kfSkelAnime);  /* 801856CC */
 void Keyframe_StandardChangeAnim(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 arg5, f32 arg6, f32 arg7, s32 arg8, s32 arg9);  /* 801859B4 */
-void Keyframe_StandardChangeAnimQuick(void *arg0, s32 arg1);  /* 80185A40 */
+void Keyframe_StandardChangeAnimQuick(struct KFSkelAnime *kfSkelAnime, struct KeyFrameAnimation *animation);  /* 80185A40 */
 void Keyframe_StandardMorphInterpolation(void *arg0);  /* 80185A7C */
 void Keyframe_UpdateStandard(void *arg0);  /* 80185CE8 */
 void Keyframe_DrawStandardLimb(void *arg0, void *arg1, void *arg2, s32 arg3);  /* 80186140 */
@@ -2365,7 +2494,7 @@ s32 SysFlashrom_IsInit(void);  /* 80186660 */
 char *SysFlashrom_GetVendorStr(void);  /* 80186670 */
 s32 SysFlashrom_CheckFlashType(void);  /* 80186704 */
 s32 SysFlashrom_InitFlash(void);  /* 801867A8 */
-s32 SysFlashrom_Read(s32 arg0, s32 arg1, s32 arg2);  /* 80186808 */
+s32 SysFlashrom_Read(void *addr, u32 pageNum, u32 pageCount);  /* 80186808 */
 s32 SysFlashrom_EraseSector(s32 arg0);  /* 80186890 */
 s32 SysFlashrom_ExecWrite(s32 a0, s32 a1, s32 a2);  /* 801868CC */
 s32 SysFlashrom_AttemptWrite(s32 arg0, s32 arg1, s32 arg2);  /* 801869BC */
@@ -2437,7 +2566,7 @@ s32 AudioSynth_ApplyHaasEffect(void *arg0, void *arg1, void *arg2, s32 arg3);  /
 f32 AudioHeap_CalculateAdsrDecay(f32 arg0);  /* 8018BFD0 */
 void AudioHeap_InitAdsrDecayTable(s32 arg0);  /* 8018BFEC */
 void AudioHeap_ResetLoadStatus(void);  /* 8018C130 */
-void AudioHeap_DiscardFont(s32 arg0);  /* 8018C1F8 */
+void AudioHeap_DiscardFont(s32 fontId);  /* 8018C1F8 */
 void AudioHeap_ReleaseNotesForFont(s32 fontId);  /* 8018C2DC */
 void AudioHeap_DiscardSequence(s32 arg0);  /* 8018C354 */
 void *AudioHeap_WritebackDCache(void *addr, u32 size);  /* 8018C3D8 */
@@ -2448,28 +2577,28 @@ void *AudioHeap_AllocDmaMemoryZeroed(void *a0, s32 a1);  /* 8018C4E8 */
 void AudioHeap_InitPool(void *arg0, s32 arg1, s32 arg2);  /* 8018C620 */
 void AudioHeap_InitPersistentCache(void *arg0);  /* 8018C648 */
 void AudioHeap_ResetPool(void *arg0);  /* 8018C68C */
-void AudioHeap_PopPersistentCache(s32 arg0);  /* 8018C69C */
+void AudioHeap_PopPersistentCache(s32 tableType);  /* 8018C69C */
 void AudioHeap_InitMainPool(s32 size);  /* 8018C7DC */
 void AudioHeap_InitSessionPool(void *arg0);  /* 8018C83C */
 void AudioHeap_InitCachePool(void *arg0);  /* 8018C8C0 */
 void AudioHeap_InitPersistentPoolsAndCaches(void *arg0);  /* 8018C944 */
 void AudioHeap_InitTemporaryPoolsAndCaches(void *arg0);  /* 8018CA08 */
-s32 AudioHeap_AllocCached(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8018CACC */
+void *AudioHeap_AllocCached(s32 tableType, u32 size, s32 cache, s32 id);  /* 8018CACC */
 void *AudioHeap_SearchCaches(s32 arg0, s32 arg1, s32 arg2);  /* 8018D260 */
 void AudioHeap_SearchRegularCaches(s32 arg0, s32 arg1, s32 arg2);  /* 8018D2B8 */
 void func_8018D3C4(f32 arg0, f32 arg1, void *arg2);
 void AudioHeap_ClearFilter(s16 *filter);  /* 8018D798 */
 void AudioHeap_LoadLowPassFilter(s16 *filter, s32 index);  /* 8018D7C8 */
 void AudioHeap_LoadHighPassFilter(void *arg0, s32 arg1);  /* 8018D81C */
-void AudioHeap_LoadFilter(s32 arg0, s32 arg1, s32 arg2);  /* 8018D874 */
+void AudioHeap_LoadFilter(s16 *filter, s32 lowPassCutoff, s32 highPassCutoff);  /* 8018D874 */
 void AudioHeap_UpdateReverb(s32 arg0);  /* 8018DA50 */
 void AudioHeap_UpdateReverbs(void);  /* 8018DA58 */
 void AudioHeap_ClearAiBuffers(void);  /* 8018DB1C */
 s32 AudioHeap_ResetStep();  /* 8018DB88 */
 void AudioHeap_Init();  /* 8018DE8C */
 void *AudioHeap_SearchPermanentCache(s32 tableType, s32 id);  /* 8018E45C */
-s32 AudioHeap_AllocPermanent(s32 arg0, s32 arg1, s32 arg2);  /* 8018E4B4 */
-s32 AudioHeap_AllocSampleCache(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8018E538 */
+void *AudioHeap_AllocPermanent(s32 tableType, s32 id, u32 size);  /* 8018E4B4 */
+void *AudioHeap_AllocSampleCache(u32 size, s32 sampleBankId, void *sampleAddr, s8 medium, s32 cache);  /* 8018E538 */
 void AudioHeap_InitSampleCaches(s32 arg0, s32 arg1);  /* 8018E5A8 */
 s32 AudioHeap_AllocTemporarySampleCacheEntry(s32 arg0);  /* 8018E640 */
 void AudioHeap_UnapplySampleCacheForFont(s32 arg0, s32 arg1);  /* 8018E930 */
@@ -2478,19 +2607,19 @@ s32 AudioHeap_AllocPersistentSampleCacheEntry(s32 arg0);  /* 8018EBD8 */
 void AudioHeap_DiscardSampleCaches();  /* 8018ECB4 */
 void AudioHeap_ChangeStorage(void *arg0, void *arg1);  /* 8018EE04 */
 void AudioHeap_DiscardSampleBank(s32 arg0);  /* 8018EEC0 */
-void AudioHeap_ApplySampleBankCache(s32 arg0);  /* 8018EEEC */
+void AudioHeap_ApplySampleBankCache(s32 sampleBankId);  /* 8018EEEC */
 s32 AudioHeap_ApplySampleBankCacheInternal(s32, s32);  /* 8018EF1C */
 void AudioHeap_DiscardSampleBanks();  /* 8018F188 */
-void AudioHeap_SetReverbData(s32 arg0, s32 arg1, s32 arg2);  /* 8018F224 */
+void AudioHeap_SetReverbData(s32 reverbIndex, u32 dataType, s32 data, s32 isFirstInit);  /* 8018F224 */
 void AudioHeap_InitReverb(s32 arg0, void *arg1, s32 arg2);  /* 8018F7A8 */
 void AudioLoad_DecreaseSampleDmaTtls(void);  /* 8018FA40 */
-s32 AudioLoad_DmaSampleData(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 8018FB2C */
-void AudioLoad_InitSampleDmaBuffers(s32 arg0);  /* 8018FE68 */
+void *AudioLoad_DmaSampleData(u32 devAddr, u32 size, s32 arg2, u8 *dmaIndexRef, s32 medium);  /* 8018FB2C */
+void AudioLoad_InitSampleDmaBuffers(s32 numNotes);  /* 8018FE68 */
 s32 AudioLoad_IsFontLoadComplete(s32 id);  /* 80190100 */
 s32 AudioLoad_IsSeqLoadComplete(s32 id);  /* 80190178 */
 s32 AudioLoad_IsSampleLoadComplete(s32 id);  /* 801901F0 */
 void AudioLoad_SetFontLoadStatus(s32 a0, s32 a1);  /* 80190268 */
-void AudioLoad_SetSeqLoadStatus(s32 arg0, s32 arg1);  /* 80190298 */
+void AudioLoad_SetSeqLoadStatus(s32 seqId, s32 loadStatus);  /* 80190298 */
 void AudioLoad_SetSampleFontLoadStatusAndApplyCaches(s32 sampleBankId, s32 status);  /* 801902C8 */
 void AudioLoad_SetSampleFontLoadStatus(s32 fontId, s32 status);  /* 80190328 */
 void AudioLoad_SyncLoadSeqFonts(s32 arg0, s32 arg1);  /* 801903B8 */
@@ -2498,11 +2627,11 @@ void AudioLoad_SyncLoadSeqParts(s32 seqId, s32 flags, s32 retData, void *retQueu
 void AudioLoad_SyncLoadSample(void *arg0, s32 arg1);  /* 801904E4 */
 s32 AudioLoad_SyncLoadInstrument(s32 a0, s32 a1, s32 a2);  /* 801905D0 */
 void AudioLoad_AsyncLoad(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);  /* 801906A0 */
-void AudioLoad_AsyncLoadSeq(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801906D8 */
-void AudioLoad_AsyncLoadSampleBank(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8019071C */
-void AudioLoad_AsyncLoadFont(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80190760 */
+void AudioLoad_AsyncLoadSeq(s32 seqId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue);  /* 801906D8 */
+void AudioLoad_AsyncLoadSampleBank(s32 sampleBankId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue);  /* 8019071C */
+void AudioLoad_AsyncLoadFont(s32 fontId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue);  /* 80190760 */
 s32 AudioLoad_GetFontsForSequence();  /* 801907A4 */
-void AudioLoad_DiscardSeqFonts(s32 arg0);  /* 801907E8 */
+void AudioLoad_DiscardSeqFonts(s32 seqId);  /* 801907E8 */
 void AudioLoad_DiscardFont(s32 arg0);  /* 80190898 */
 void func_80190940(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 AudioLoad_SyncInitSeqPlayer(s32 playerIdx, s32 seqId);  /* 801909B0 */
@@ -2532,7 +2661,7 @@ s32 func_80191DEC(s32 arg0, s32 arg1, void *arg2);
 s32 func_80191FBC(s32 arg0, s32 arg1);
 s32 func_801920C8();
 void AudioLoad_DmaSlowCopyUnkMedium(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801922D4 */
-void AudioLoad_SlowLoadSeq(s32 arg0, s32 arg1, void *arg2);  /* 801922E8 */
+s32 AudioLoad_SlowLoadSeq(s32 seqId, u8 *ramAddr, s8 *isDone);  /* 801922E8 */
 void AudioLoad_InitAsyncLoads(void);  /* 801923F0 */
 s32 AudioLoad_StartAsyncLoad(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801924A4 */
 s32 AudioLoad_ProcessAsyncLoads(s32);  /* 801925C8 */
@@ -2562,12 +2691,12 @@ void AudioThread_QueueCmd(s32 op, s32 *arg);  /* 8019469C */
 void AudioThread_QueueCmdF32(void *arg0, f32 arg1);  /* 801946E8 */
 void AudioThread_QueueCmdS32(s32 a0, s32 a1);  /* 8019470C */
 void AudioThread_QueueCmdS8(s32 a0, s8 a1);  /* 80194730 */
-void AudioThread_QueueCmdU16(s32 arg0, s32 arg1);  /* 80194760 */
+void AudioThread_QueueCmdU16(u32 opArgs, u16 data);  /* 80194760 */
 s32 AudioThread_ScheduleProcessCmds();  /* 80194790 */
 void AudioThread_ResetCmdQueue(void);  /* 80194820 */
 void AudioThread_ProcessCmd(void *arg0);  /* 80194838 */
 void AudioThread_ProcessCmds(s32 arg0);  /* 8019497C */
-u32 AudioThread_GetExternalLoadQueueMsg(s32 *arg0);  /* 80194A30 */
+u32 AudioThread_GetExternalLoadQueueMsg(u32 *retMsg);  /* 80194A30 */
 void AudioThread_GetFontsForSequence(void);  /* 80194A94 */
 void AudioThread_GetSampleBankIdsOfFont(s32 arg0, s32 *arg1, s32 *arg2);  /* 80194AB4 */
 s32 func_80194AEC(void);
@@ -2592,21 +2721,21 @@ void AudioThread_GetEnabledSampledNotesCount(void);  /* 801953D8 */
 s32 AudioThread_CountAndReleaseNotes(s32);  /* 801953F8 */
 u32 AudioThread_NextRandom(void);  /* 801954F8 */
 void AudioThread_InitMesgQueues(void);  /* 80195574 */
-void Audio_InvalDCache(s32 arg0, s32 arg1);  /* 801955A0 */
-void Audio_WritebackDCache(s32 arg0, s32 arg1);  /* 801955E0 */
-void osAiSetNextBuffer(s32 arg0, s32 arg1);  /* 80195620 */
+void Audio_InvalDCache(void *buf, u32 size);  /* 801955A0 */
+void Audio_WritebackDCache(void *buf, u32 size);  /* 801955E0 */
+s32 osAiSetNextBuffer(void *buf, u32 size);  /* 80195620 */
 void func_80195694(s32 arg0);
 s32 func_801956D0(s32);
 s32 func_80195740(s32 *arg0, s32 *arg1);
 void AudioPlayback_InitSampleState(void *arg0, void *arg1, void *arg2);  /* 801957C0 */
 void AudioPlayback_NoteSetResamplingRate(void *arg0, s32 arg1);  /* 80195C40 */
-void AudioPlayback_NoteDisable(void *arg0);  /* 80195DB0 */
+void AudioPlayback_NoteDisable(struct Note *note);  /* 80195DB0 */
 void AudioPlayback_ProcessNotes();  /* 80195E14 */
-s32 AudioPlayback_GetInstrumentTunedSample(void *arg0, s32 arg1);  /* 8019635C */
+struct TunedSample *AudioPlayback_GetInstrumentTunedSample(struct Instrument *instrument, s32 semitone);  /* 8019635C */
 void *AudioPlayback_GetInstrumentInner(s32 a0, s32 a1);  /* 80196398 */
 s32 AudioPlayback_GetDrum(s32 bank, s32 drum);  /* 8019646C */
 s32 *AudioPlayback_GetSoundEffect(s32 fontId, s32 id);  /* 80196550 */
-s32 AudioPlayback_SetFontInstrument(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80196644 */
+s32 AudioPlayback_SetFontInstrument(s32 instrumentType, s32 fontId, s32 index, void *value);  /* 80196644 */
 void AudioPlayback_SeqLayerDecayRelease(void *arg0, s32 arg1);  /* 80196788 */
 void AudioPlayback_SeqLayerNoteDecay(s32 a0);  /* 80196AD0 */
 void AudioPlayback_SeqLayerNoteRelease(s32 a0);  /* 80196AF0 */
@@ -2614,26 +2743,26 @@ s32 AudioPlayback_BuildSyntheticWave(void *arg0, void *arg1, s32 arg2);  /* 8019
 void AudioList_InitNoteList(void *arg0);  /* 80196C6C */
 void AudioList_InitNoteFreeList(void);  /* 80196CCC */
 void AudioList_ClearNotePool(void *pool);  /* 80196D70 */
-void AudioList_FillNotePool(s32 arg0, s32 arg1);  /* 80196ED0 */
+void AudioList_FillNotePool(struct NotePool *pool, s32 count);  /* 80196ED0 */
 void AudioList_PushFront(s32 *arg0, s32 *arg1);  /* 8019700C */
-void AudioList_Remove(void *arg0);  /* 8019704C */
+void AudioList_Remove(struct AudioListItem *item);  /* 8019704C */
 void AudioPlayback_NoteInitForLayer(void *note, void *layer);  /* 801970F8 */
 void func_80197278(void *arg0, s32 arg1);
 s32 AudioPlayback_AllocNoteFromDecaying(s32 arg0, void *arg1);  /* 80197324 */
-s32 AudioPlayback_AllocNote(void *arg0);  /* 80197480 */
+struct Note *AudioPlayback_AllocNote(struct SequenceLayer *layer);  /* 80197480 */
 void AudioPlayback_NoteInitAll();  /* 80197754 */
 void AudioScript_SequenceChannelProcessSound(void *arg0, s32 arg1, s32 arg2);  /* 80197890 */
-void AudioScript_SequencePlayerProcessSound(void *arg0);  /* 80197A58 */
+void AudioScript_SequencePlayerProcessSound(struct SequencePlayer *seqPlayer);  /* 80197A58 */
 f32 AudioEffects_UpdateVibrato(void *arg0);  /* 80197C44 */
-void AudioEffects_InitVibrato(void *arg0);  /* 80197ED8 */
-void AudioEffects_InitAdsr(void *arg0, s32 arg1, s32 arg2);  /* 80197FF4 */
-f32 AudioEffects_UpdateAdsr(void *arg0);  /* 80198018 */
+void AudioEffects_InitVibrato(struct Note *note);  /* 80197ED8 */
+void AudioEffects_InitAdsr(struct AdsrState *adsr, struct EnvelopePoint *envelope, s16 *volOut);  /* 80197FF4 */
+f32 AudioEffects_UpdateAdsr(struct AdsrState *adsr);  /* 80198018 */
 void AudioScript_GetScriptControlFlowArgument(s32 arg0, s32 arg1);  /* 80198360 */
 s32 AudioScript_HandleScriptFlowControl(s32 arg0, void *arg1, s32 arg2);  /* 801983C8 */
 void AudioScript_InitSequenceChannel(void *);  /* 801985A4 */
 s32 AudioScript_SeqChannelSetLayer(s32 arg0, s32 arg1);  /* 80198710 */
 void AudioScript_SequencePlayerDisableAsFinished(u8*seqPlayer);  /* 80198BB4 */
-s32 AudioList_PopBack(void *arg0);  /* 80198CD8 */
+void *AudioList_PopBack(struct AudioListItem *list);  /* 80198CD8 */
 void AudioScript_InitLayerFreelist();  /* 80198D18 */
 u8 AudioScript_ScriptReadU8(u8 **a0);  /* 80198DB8 */
 s16 AudioScript_ScriptReadS16(u8 **pc);  /* 80198DCC */
@@ -2662,7 +2791,7 @@ void AudioOcarina_MapSongFromPitchToButton(u8 songIndex, u8 dst, u8 len);  /* 80
 s32 AudioOcarina_Start();  /* 8019BFF4 */
 void AudioOcarina_SetSongStartingPos(void);  /* 8019C228 */
 void AudioOcarina_StartAtSongStartingPos(void);  /* 8019C23C */
-void AudioOcarina_StartForSongCheck(s32 arg0, s32 arg1);  /* 8019C280 */
+void AudioOcarina_StartForSongCheck(u32 ocarinaFlags, u8 ocarinaStaffPlayingPosStart);  /* 8019C280 */
 void AudioOcarina_StartWithSongNoteLengths(u32 mask);  /* 8019C368 */
 void AudioOcarina_StartDefault(void);  /* 8019C3F4 */
 s32 func_8019C418(void);
@@ -2676,12 +2805,12 @@ s32 AudioOcarina_PlayControllerInput(s32);  /* 8019CD48 */
 void AudioOcarina_EnableInput(s32 arg0);  /* 8019D070 */
 void AudioOcarina_ResetAndMute(void);  /* 8019D080 */
 void AudioOcarina_ResetAndReadInput(void);  /* 8019D118 */
-s32 AudioOcarina_SetOcarinaDisableTimer(s32 arg0, s32 arg1);  /* 8019D194 */
-s32 AudioOcarina_SetInstrument(s32 arg0);  /* 8019D1B0 */
-s32 AudioOcarina_SetPlaybackSong(s32 arg0, s32 arg1);  /* 8019D248 */
+void AudioOcarina_SetOcarinaDisableTimer(u8 unused, u8 timer);  /* 8019D194 */
+void AudioOcarina_SetInstrument(u8 ocarinaInstrumentId);  /* 8019D1B0 */
+void AudioOcarina_SetPlaybackSong(s8 songIndexPlusOne, u8 playbackState);  /* 8019D248 */
 void AudioOcarina_PlaybackSong();  /* 8019D450 */
 void *AudioOcarina_SetRecordingSong(s32 arg0);  /* 8019D788 */
-void AudioOcarina_SetRecordingState(s32 arg0);  /* 8019DBB8 */
+void AudioOcarina_SetRecordingState(u8 recordingState);  /* 8019DBB8 */
 void AudioOcarina_UpdateRecordingStaff(void);  /* 8019DCE4 */
 void AudioOcarina_UpdatePlayingStaff(void);  /* 8019DD1C */
 void AudioOcarina_UpdatePlaybackStaff(void);  /* 8019DD6C */
@@ -2713,44 +2842,44 @@ s32 AudioSfx_ComputePanSigned(f32 arg0, f32 arg1, s32 arg2);  /* 8019F360 */
 f32 AudioSfx_ComputeFreqScale(u8 bank, u8 index);  /* 8019F4E4 */
 s32 AudioSfx_ComputeSurroundSoundFilter(f32 arg0, void *arg1, s32 arg2);  /* 8019F714 */
 s8 AudioSfx_ComputeCombFilter(f32 arg0, s32 a1);  /* 8019F8F0 */
-void AudioSfx_SetProperties(s32 arg0, s32 arg1, s32 arg2);  /* 8019F9DC */
+void AudioSfx_SetProperties(u8 bankId, u8 entryIndex, u8 channelIndex);  /* 8019F9DC */
 void AudioSfx_SetFreqAndStereoBits(s32 arg0, void *arg1);  /* 8019FED4 */
 void AudioSfx_ResetSfxChannelState(void);  /* 8019FF0C */
-void Audio_PlaySfx(u16 arg0);  /* 8019FF78 */
+void Audio_PlaySfx(u16 sfxId);  /* 8019FF78 */
 void Audio_PlaySfx_2(u16 sfxId);  /* 8019FFD8 */
-void Audio_PlaySfx_AtPosWithPresetLowFreqAndHighReverb(s32 arg0, u16 arg1);  /* 801A0020 */
-void Audio_PlaySfx_AtPos(s32 arg0, u16 arg1);  /* 801A0070 */
+void Audio_PlaySfx_AtPosWithPresetLowFreqAndHighReverb(struct Vec3f *pos, u16 sfxId);  /* 801A0020 */
+void Audio_PlaySfx_AtPos(struct Vec3f *pos, u16 sfxId);  /* 801A0070 */
 void Audio_PlaySfx_MessageDecide(void);  /* 801A00B8 */
 void Audio_PlaySfx_MessageCancel(void);  /* 801A00E0 */
 s32 AudioSfx_ProcessSfxSettings();  /* 801A01B0 */
-void Audio_PlaySfx_Underwater(s32 arg0, u16 arg1);  /* 801A02D0 */
+void Audio_PlaySfx_Underwater(struct Vec3f *pos, u16 sfxId);  /* 801A02D0 */
 void Audio_PlaySfx_WithSfxSettingsReverb(s32 pos, u16 sfxId);  /* 801A035C */
-void Audio_SetSfxUnderwaterReverb(s8 arg0);  /* 801A03F0 */
-void AudioSfx_LowerSfxSettingsReverb(s32 arg0, s8 arg1);  /* 801A0420 */
+void Audio_SetSfxUnderwaterReverb(s8 isUnderwaterReverbActivated);  /* 801A03F0 */
+void AudioSfx_LowerSfxSettingsReverb(struct Vec3f *pos, s8 isReverbLowered);  /* 801A0420 */
 s32 Audio_SetSyncedSfxFreqAndVolume(f32);  /* 801A045C */
-void Audio_PlaySfx_AtPosForMetalEffectsWithSyncedFreqAndVolume(s32 arg0, s32 arg1, s32 arg2);  /* 801A04E8 */
-void Audio_PlaySfx_AtPosWithSyncedFreqAndVolume(s32 arg0, u16 arg1, f32 arg2);  /* 801A0630 */
+void Audio_PlaySfx_AtPosForMetalEffectsWithSyncedFreqAndVolume(struct Vec3f *pos, u16 sfxId, f32 freqVolParam);  /* 801A04E8 */
+void Audio_PlaySfx_AtPosWithSyncedFreqAndVolume(struct Vec3f *pos, u16 sfxId, f32 freqVolParam);  /* 801A0630 */
 void Audio_PlaySfx_GiantsMaskUnused(s32 arg0, u16 arg1);  /* 801A0688 */
-void Audio_PlaySfx_GiantsMask(s32 arg0, u16 arg1);  /* 801A06E0 */
+void Audio_PlaySfx_GiantsMask(struct Vec3f *pos, u16 sfxId);  /* 801A06E0 */
 void Audio_PlaySfx_Randomized(void *pos, u16 baseSfxId, u8 randLim);  /* 801A073C */
-void Audio_PlaySfx_SwordCharge(s32 arg0, s32 arg1);  /* 801A07B0 */
+void Audio_PlaySfx_SwordCharge(struct Vec3f *pos, u8 chargeLevel);  /* 801A07B0 */
 void Audio_PlaySfx_AtPosWithFreqAndVolume(void *pos, s32 sfx, f32 freq, s32 *vol);  /* 801A08C8 */
 void Audio_PlaySfx_AtPosWithFreq(void *pos, u16 sfxId, f32 freq);  /* 801A0988 */
-void Audio_PlaySfx_AtPosWithFreqAndChannelIO(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801A09BC */
+void Audio_PlaySfx_AtPosWithFreqAndChannelIO(struct Vec3f *pos, u16 sfxId, f32 freqScale, u8 arg3);  /* 801A09BC */
 void Audio_PlaySfx_WaterWheel(s32 a0, u16 id);  /* 801A0AD0 */
 void Audio_PlaySfx_AtPosWithTimer(s32 a0, u16 a1, f32 a2);  /* 801A0B68 */
-void Audio_SetSfxTimerLerpInterval(s8 arg0, s8 arg1);  /* 801A0C40 */
-void Audio_PlaySfx_AtPosWithReverb(s32 arg0, u16 arg1, s8 arg2);  /* 801A0C78 */
+void Audio_SetSfxTimerLerpInterval(s8 timerLerpRange1, s8 timerLerpRange2);  /* 801A0C40 */
+void Audio_PlaySfx_AtPosWithReverb(struct Vec3f *pos, u16 sfxId, s8 reverbAdd);  /* 801A0C78 */
 void Audio_SetSfxVolumeTransition(void *arg0, s32 arg1, s32 arg2);  /* 801A0D24 */
 void Audio_UpdateSfxVolumeTransition(void);  /* 801A0D8C */
 void Audio_PlaySfx_FishingReel(f32 arg0);  /* 801A0DE8 */
-void Audio_PlaySfx_River(s32 arg0, f32 arg1);  /* 801A0E4C */
+void Audio_PlaySfx_River(struct Vec3f *pos, f32 freqScale);  /* 801A0E4C */
 void Audio_PlaySfx_Waterfall(s32 arg0, f32 arg1);  /* 801A0EF8 */
-void Audio_PlaySfx_BigBells(s32 arg0, u8 arg1);  /* 801A0FD4 */
+void Audio_PlaySfx_BigBells(struct Vec3f *pos, u8 volumeIndex);  /* 801A0FD4 */
 void Audio_SetBgmVolumeOff(void);  /* 801A1034 */
 void Audio_SetBgmVolumeOn(void);  /* 801A1074 */
 void func_801A10B4(s32 arg0);
-void Audio_SetMainBgmVolume(u8 arg0, u8 arg1);  /* 801A10E8 */
+void Audio_SetMainBgmVolume(u8 targetVolume, u8 volumeFadeTimer);  /* 801A10E8 */
 void Audio_SetGanonsTowerBgmVolumeLevel(s32 arg0);  /* 801A111C */
 void Audio_SetGanonsTowerBgmVolume(s32 arg0);  /* 801A11C8 */
 void Audio_LowerMainBgmVolume(u8 arg0);  /* 801A1300 */
@@ -2768,28 +2897,28 @@ s32 Audio_SplitBgmChannels(s32 arg0);  /* 801A1B60 */
 s32 Audio_SetSequenceProperties(u8, s32 *, s16, s32, f32, f32, f32);  /* 801A1CF4 */
 void Audio_UpdateObjSoundProperties(void);  /* 801A2140 */
 void Audio_StartObjSoundFanfare(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801A226C */
-void Audio_PlayObjSoundBgm(s32 arg0, s32 arg1);  /* 801A23EC */
-void Audio_PlayObjSoundFanfare(void *arg0, s32 arg1);  /* 801A26A4 */
+void Audio_PlayObjSoundBgm(struct Vec3f *pos, s8 seqId);  /* 801A23EC */
+void Audio_PlayObjSoundFanfare(struct Vec3f *pos, s8 seqId);  /* 801A26A4 */
 s32 Audio_UpdateObjSoundFanfare();  /* 801A27B4 */
 void Audio_StopSequenceAtPos(u8 seqPlayerIndex, u8 arg1);  /* 801A28C0 */
 void Audio_StartSubBgmAtPos(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 801A293C */
 void Audio_UpdateSubBgmAtPos(void);  /* 801A2CBC */
-void Audio_PlaySequenceAtDefaultPos(u8 arg0, u16 arg1);  /* 801A2DB0 */
+void Audio_PlaySequenceAtDefaultPos(u8 seqPlayerIndex, u16 seqId);  /* 801A2DB0 */
 void Audio_StopSequenceAtDefaultPos(void);  /* 801A2E38 */
 void Audio_PlaySequenceAtPos(u8 arg0, f32 *arg1, u16 arg2, f32 arg3);  /* 801A2E64 */
 s32 Audio_UpdateSequenceAtPos();  /* 801A2F40 */
 void Audio_PlaySariaBgm(void *arg0, s32 arg1, s32 arg2);  /* 801A30AC */
 void Audio_ClearSariaBgm2(void);  /* 801A3310 */
 void func_801A331C(s32, s32);
-void Audio_PlayMorningSceneSequence(u16 arg0, u8 arg1);  /* 801A33F4 */
+void Audio_PlayMorningSceneSequence(u16 seqId, u8 dayMinusOne);  /* 801A33F4 */
 void Audio_StartMorningSceneSequence(u16 arg0);  /* 801A342C */
 void Audio_PlaySceneSequence(u16 seqId, u8 flag);  /* 801A3494 */
 s32 Audio_StartSceneSequence(u16);  /* 801A3520 */
 void Audio_UpdateSceneSequenceResumePoint(void);  /* 801A3628 */
 void Audio_PlayBgmForSongOfStorms(void);  /* 801A3698 */
 void Audio_ScaleTempoAndFreqForMainBgm(f32 arg0, s32 arg1);  /* 801A36CC */
-void Audio_SetSeqTempoAndFreq(s32 arg0, s32 arg1, s32 arg2);  /* 801A3884 */
-void Audio_PlaySubBgm(u16 arg0);  /* 801A3A68 */
+void Audio_SetSeqTempoAndFreq(u8 seqPlayerIndex, f32 freqTempoScale, u8 duration);  /* 801A3884 */
+void Audio_PlaySubBgm(u16 seqId);  /* 801A3A68 */
 void Audio_StopSubBgm(void);  /* 801A3AD0 */
 void Audio_IncreaseTempoForTimedMinigame(void);  /* 801A3AF4 */
 s32 Audio_PlaySequenceInCutscene(s32);  /* 801A3B38 */
@@ -2799,14 +2928,14 @@ void func_801A3D04(s32 arg0);
 void func_801A3D9C(void);
 void func_801A3E4C(u8 arg0);
 void Audio_ForceRestorePreviousBgm(void);  /* 801A3E88 */
-void Audio_PlayFanfareWithPlayerIOPort7(u16 arg0, u8 arg1);  /* 801A3EC4 */
+void Audio_PlayFanfareWithPlayerIOPort7(u16 seqId, u8 ioData);  /* 801A3EC4 */
 void Audio_MuteBgmPlayersForFanfare(void);  /* 801A3EFC */
-void Audio_PlayFanfare(u16 arg0);  /* 801A3F5C */
+void Audio_PlayFanfare(u16 seqId);  /* 801A3F5C */
 void Audio_UpdateFanfare(void);  /* 801A3FF0 */
 void Audio_PlayFanfareWithPlayerIOCustomPort(u16 seqId, s8 port, u8 value);  /* 801A40B0 */
 s32 Audio_PlaySequenceWithSeqPlayerIO(s32, u16, s32, s32, s32);  /* 801A40FC */
 s32 Audio_SetSequenceMode(s32);  /* 801A4190 */
-void Audio_UpdateEnemyBgmVolume(f32 arg0);  /* 801A4454 */
+void Audio_UpdateEnemyBgmVolume(f32 dist);  /* 801A4454 */
 void Audio_UpdateRomaniSinging(f32 arg0, s32 arg1);  /* 801A45B4 */
 s32 func_801A4814(s32 arg0, s32 arg1);
 u8 func_801A48BC(void);
@@ -2815,20 +2944,20 @@ void Audio_UpdatePauseState(void);  /* 801A4984 */
 void Audio_PlaySfx_PauseMenuOpenOrClose(u8 flag);  /* 801A49B0 */
 void Audio_MuteSeqPlayerBgmSub(u8 flag);  /* 801A4A0C */
 void Audio_ToggleRomaniSinging(s32 arg0);  /* 801A4A54 */
-void Audio_SetEnvReverb(s8 arg0);  /* 801A4B9C */
+void Audio_SetEnvReverb(s8 reverb);  /* 801A4B9C */
 void Audio_SetCodeReverb(s8 reverb);  /* 801A4BB8 */
 void Audio_PlaySfx_SurroundSoundTest(void);  /* 801A4C18 */
-void Audio_SetFileSelectSettings(s8 arg0);  /* 801A4C5C */
-void Audio_SetBaseFilter(s32 arg0);  /* 801A4CFC */
+void Audio_SetFileSelectSettings(s8 audioSetting);  /* 801A4C5C */
+void Audio_SetBaseFilter(u8 filter);  /* 801A4CFC */
 void Audio_SetExtraFilter(u8 a);  /* 801A4D84 */
-void Audio_SetCutsceneFlag(s8 arg0);  /* 801A4E18 */
+void Audio_SetCutsceneFlag(s8 flag);  /* 801A4E18 */
 void Audio_PlaySfx_IfNotInCutsceneImpl(u16 sfxId, void *pos, u8 token, f32 *freqScale, f32 *volume, s8 *reverbAdd);  /* 801A4E30 */
 void Audio_PlaySfx_IfNotInCutscene(u16 sfxId);  /* 801A4E78 */
 void Audio_MuteSfxAndAmbienceSeqExceptSystemAndOcarina(u8 arg0);  /* 801A4EC0 */
 void Audio_SetSpec(u8 specId);  /* 801A4ED0 */
-void Audio_MuteAllSeqExceptSystemAndOcarina(s32 arg0);  /* 801A4F1C */
-void Audio_MuteSfxAndAmbienceSeqExceptSysAndOca(s32 arg0);  /* 801A508C */
-void Audio_StopFanfare(u16 arg0);  /* 801A50BC */
+void Audio_MuteAllSeqExceptSystemAndOcarina(u16 duration);  /* 801A4F1C */
+void Audio_MuteSfxAndAmbienceSeqExceptSysAndOca(u16 duration);  /* 801A508C */
+void Audio_StopFanfare(u16 duration);  /* 801A50BC */
 void Audio_StartSfxPlayer(void);  /* 801A5160 */
 void Audio_DisableAllSeq(void);  /* 801A518C */
 s8 Audio_GetEnabledNotesCount(void);  /* 801A51E8 */
@@ -2855,7 +2984,7 @@ void func_801A5D28(void);
 void func_801A5D80(void);
 void func_801A5D88();
 void AudioVoice_ResetWord(void);  /* 801A5EA8 */
-void AudioVoice_InitWord(u16 arg0);  /* 801A5F50 */
+void AudioVoice_InitWord(u16 wordId);  /* 801A5F50 */
 void AudioVoice_InitWordAlt(s32 arg0);  /* 801A5F90 */
 u16 AudioVoice_GetWord(void);  /* 801A5FD0 */
 u8 func_801A5FDC(void);
@@ -2882,12 +3011,12 @@ void AudioSfx_ProcessRequest();  /* 801A6E3C */
 void *AudioSfx_RemoveBankEntry(s32 arg0, s32 arg1);  /* 801A72F0 */
 void AudioSfx_ChooseActiveSfx(s32 arg0);  /* 801A7488 */
 void AudioSfx_PlayActiveSfx(s32 arg0);  /* 801A7BCC */
-void AudioSfx_StopByBank(s32 arg0);  /* 801A7F44 */
+void AudioSfx_StopByBank(u8 bankId);  /* 801A7F44 */
 void AudioSfx_StopByPosAndBankImpl(u8 bank, s32 *pos);  /* 801A8028 */
 void AudioSfx_StopByPosAndBank(u8 bank, s32 pos);  /* 801A8144 */
 void AudioSfx_StopByPos(s32 *pos);  /* 801A818C */
-void AudioSfx_StopByPosAndId(s32 arg0, s32 arg1);  /* 801A81E8 */
-void AudioSfx_StopByTokenAndId(s32 arg0, s32 arg1);  /* 801A8344 */
+void AudioSfx_StopByPosAndId(struct Vec3f *pos, u16 sfxId);  /* 801A81E8 */
+void AudioSfx_StopByTokenAndId(u8 token, u16 sfxId);  /* 801A8344 */
 s32 AudioSfx_StopById(s32);  /* 801A84A8 */
 void AudioSfx_ProcessRequests(void);  /* 801A85E0 */
 void AudioSfx_SetBankLerp(u8 bank, u8 val, u16 time);  /* 801A8654 */
@@ -2910,19 +3039,19 @@ u8 AudioSeq_UpdateAudioHeapReset(void);  /* 801AA628 */
 s32 AudioSeq_ResetReverb();  /* 801AA6EC */
 void AudioSeq_ResetActiveSequences(void);  /* 801AA878 */
 void AudioSeq_ResetActiveSequencesAndVolume(void);  /* 801AA934 */
-void JpegUtils_ProcessQuantizationTable(void *arg0, s32 arg1, s32 arg2);  /* 801AA9D0 */
+void JpegUtils_ProcessQuantizationTable(u8 *dqt, struct JpegQuantizationTable *qt, u8 count);  /* 801AA9D0 */
 s32 JpegUtils_ParseHuffmanCodesLengths(s32 arg0, s32 arg1);  /* 801AAA38 */
 s32 JpegUtils_GetHuffmanCodes(void *arg0, s32 arg1);  /* 801AAABC */
 s32 JpegUtils_SetHuffmanTable(s32 arg0, s32 arg1, s32 arg2);  /* 801AAB28 */
 s32 JpegUtils_ProcessHuffmanTableImpl(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AABD0 */
-s32 JpegUtils_ProcessHuffmanTable(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AAC8C */
+u32 JpegUtils_ProcessHuffmanTable(u8 *dht, struct JpegHuffmanTable *ht, u8 *codesLengths, u16 *codes, u8 count);  /* 801AAC8C */
 void JpegUtils_SetHuffmanTableOld(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AAD64 */
 void JpegUtils_ProcessHuffmanTableImplOld(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AAE0C */
-s32 JpegDecoder_Decode(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AAEE0 */
+s32 JpegDecoder_Decode(struct JpegDecoder *decoder, u16 *mcuBuff, s32 count, u8 isFollowing, struct JpegDecoderState *state);  /* 801AAEE0 */
 s32 JpegDecoder_ProcessMcu(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 801AB108 */
 s32 JpegDecoder_ParseNextSymbol(void *arg0, s32 arg1, s32 arg2);  /* 801AB2A4 */
 s32 JpegDecoder_ReadBits(s32 arg0);  /* 801AB3E0 */
-void GameOver_Init(void *arg0);  /* 801AB4D0 */
+void GameOver_Init(struct PlayState *play);  /* 801AB4D0 */
 void GameOver_Update(s32 arg0);  /* 801AB54C */
 void func_801AB960(s32 arg0);
 void func_801AB970();

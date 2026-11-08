@@ -3,6 +3,6 @@
 
 s32 Math_StepToIImpl(s32);                             /* extern */
 
-void Math_StepToIGet(s32 *arg0) {
-    *arg0 = Math_StepToIImpl(*arg0);
+void Math_StepToIGet(s32 *pValue) {
+    *pValue = Math_StepToIImpl(*pValue);
 }

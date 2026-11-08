@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void GameState_Noop(s32 arg0) {
+void GameState_Noop(struct GameState *gameState) {
 
 }

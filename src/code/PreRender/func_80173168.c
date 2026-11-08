@@ -15,15 +15,15 @@ extern M2C_UNK D_801EE878;
 extern M2C_UNK D_801EF878;
 extern M2C_UNK PreRender_ApplyFilters;
 
-void PreRender_ApplyFiltersSlowlyInit(void *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 0x18) != 0) && (M2C_FIELD(arg0, s32 *, 0x14) != 0)) {
+void PreRender_ApplyFiltersSlowlyInit(struct PreRender *this) {
+    if ((M2C_FIELD(this, s32 *, 0x18) != 0) && (M2C_FIELD(this, s32 *, 0x14) != 0)) {
         if (D_801EE850 != 0) {
             func_80085468(&D_801EE858);
             Slowly_Destroy(&D_801EE690);
         }
-        M2C_FIELD(arg0, s8 *, 0x4D) = 1;
+        M2C_FIELD(this, s8 *, 0x4D) = 1;
         func_80085390(&D_801EE858, &D_801EE878, &D_801EF878, 0, 0x100, &D_801D74F0);
-        Slowly_Init(&D_801EE690, &D_801EF878, &PreRender_ApplyFilters, arg0, 0);
+        Slowly_Init(&D_801EE690, &D_801EF878, &PreRender_ApplyFilters, this, 0);
         D_801EE850 = 1;
     }
 }

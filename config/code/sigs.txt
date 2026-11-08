@@ -1,0 +1,648 @@
+# name prototype  # header of the reference that declares it; made by tools/signatures/ref_sigs.py
+Item_DropCollectible struct Actor *Item_DropCollectible(struct PlayState *play, struct Vec3f *spawnPos, u32 params);  # z_en_item00.h
+Item_DropCollectible2 struct Actor *Item_DropCollectible2(struct PlayState *play, struct Vec3f *spawnPos, s32 params);  # z_en_item00.h
+Item_DropCollectibleRandom void Item_DropCollectibleRandom(struct PlayState *play, struct Actor *fromActor, struct Vec3f *spawnPos, s16 params);  # z_en_item00.h
+EffectBlure_Destroy void EffectBlure_Destroy(void *thisx);  # z64eff_blure.h
+EffectShieldParticle_Draw void EffectShieldParticle_Draw(void *thisx, struct GraphicsContext *gfxCtx);  # z64eff_shield_particle.h
+EffectSpark_Destroy void EffectSpark_Destroy(void *thisx);  # z64eff_spark.h
+EffectSpark_Draw void EffectSpark_Draw(void *thisx, struct GraphicsContext *gfxCtx);  # z64eff_spark.h
+EffectTireMark_Destroy void EffectTireMark_Destroy(void *thisx);  # z64eff_tire_mark.h
+EffectTireMark_Draw void EffectTireMark_Draw(void *thisx, struct GraphicsContext *gfxCtx);  # z64eff_tire_mark.h
+Effect_Init void Effect_Init(struct PlayState *play);  # z64effect.h
+Effect_Add void Effect_Add(struct PlayState *play, s32 *pIndex, s32 type, u8 arg3, u8 arg4, void *initParams);  # z64effect.h
+Effect_DestroyAll void Effect_DestroyAll(struct PlayState *play);  # z64effect.h
+EffectSs_LerpS16 s16 EffectSs_LerpS16(s16 a, s16 b, f32 weight);  # z64effect_ss.h
+EffectSsBomb2_SpawnFade void EffectSsBomb2_SpawnFade(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel);  # z64effect_ss.h
+EffectSsBlast_SpawnWhiteCustomScale void EffectSsBlast_SpawnWhiteCustomScale(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 scaleStep, s16 life);  # z64effect_ss.h
+EffectSsBlast_SpawnShockwave void EffectSsBlast_SpawnShockwave(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, struct Color_RGBA8 *primColor, struct Color_RGBA8 *envColor, s16 life);  # z64effect_ss.h
+EffectSsBlast_SpawnWhiteShockwave void EffectSsBlast_SpawnWhiteShockwave(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel);  # z64effect_ss.h
+EffectSsDtBubble_SpawnCustomColor void EffectSsDtBubble_SpawnCustomColor(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, struct Color_RGBA8 *primColor, struct Color_RGBA8 *envColor, s16 scale, s16 life, s16 randXZ);  # z64effect_ss.h
+EffectSsSibuki_Spawn void EffectSsSibuki_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 moveDelay, s16 direction, s16 scale);  # z64effect_ss.h
+EffectSsSolderSrchBall_Spawn void EffectSsSolderSrchBall_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 *playerDetected, s16 flags);  # z64effect_ss.h
+EffectSsFireTail_SpawnFlameOnPlayer void EffectSsFireTail_SpawnFlameOnPlayer(struct PlayState *play, f32 scale, s16 bodyPart, f32 colorIntensity);  # z64effect_ss.h
+EffectSsDeadDs_Spawn void EffectSsDeadDs_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 scaleStep, s16 alpha, s32 life);  # z64effect_ss.h
+ActorShadow_DrawCircle void ActorShadow_DrawCircle(struct Actor *actor, struct Lights *lights, struct PlayState *play);  # z64actor.h
+ActorShadow_DrawSquare void ActorShadow_DrawSquare(struct Actor *actor, struct Lights *lights, struct PlayState *play);  # z64actor.h
+ActorShadow_DrawFeet void ActorShadow_DrawFeet(struct Actor *actor, struct Lights *mapper, struct PlayState *play);  # z64actor.h
+Actor_SetFeetPos void Actor_SetFeetPos(struct Actor *actor, s32 limbIndex, s32 leftFootIndex, struct Vec3f *leftFootPos, s32 rightFootIndex, struct Vec3f *rightFootPos);  # z64actor.h
+Attention_Draw void Attention_Draw(struct Attention *attention, struct PlayState *play);  # z64actor.h
+Flags_UnsetSwitch void Flags_UnsetSwitch(struct PlayState *play, s32 flag);  # z64actor.h
+Flags_GetTreasure s32 Flags_GetTreasure(struct PlayState *play, s32 flag);  # z64actor.h
+Flags_SetTreasure void Flags_SetTreasure(struct PlayState *play, s32 flag);  # z64actor.h
+Flags_SetAllTreasure void Flags_SetAllTreasure(struct PlayState *play, s32 flag);  # z64actor.h
+Flags_GetAllTreasure s32 Flags_GetAllTreasure(struct PlayState *play);  # z64actor.h
+Flags_GetClear s32 Flags_GetClear(struct PlayState *play, s32 roomNumber);  # z64actor.h
+Flags_SetClear void Flags_SetClear(struct PlayState *play, s32 roomNumber);  # z64actor.h
+Flags_UnsetClear void Flags_UnsetClear(struct PlayState *play, s32 roomNumber);  # z64actor.h
+Flags_GetClearTemp s32 Flags_GetClearTemp(struct PlayState *play, s32 roomNumber);  # z64actor.h
+Flags_SetClearTemp void Flags_SetClearTemp(struct PlayState *play, s32 roomNumber);  # z64actor.h
+Flags_UnsetClearTemp void Flags_UnsetClearTemp(struct PlayState *play, s32 roomNumber);  # z64actor.h
+Actor_GetPlayerImpact f32 Actor_GetPlayerImpact(struct PlayState *play, f32 range, struct Vec3f *pos, s32 *type);  # z64actor.h
+Actor_Kill void Actor_Kill(struct Actor *actor);  # z64actor.h
+Actor_SetScale void Actor_SetScale(struct Actor *actor, f32 scale);  # z64actor.h
+Actor_SetMovementScale void Actor_SetMovementScale(s32 scale);  # z64actor.h
+Actor_MoveWithGravity void Actor_MoveWithGravity(struct Actor *actor);  # z64actor.h
+Actor_MoveWithoutGravity void Actor_MoveWithoutGravity(struct Actor *actor);  # z64actor.h
+Actor_MoveWithoutGravityReverse void Actor_MoveWithoutGravityReverse(struct Actor *actor);  # z64actor.h
+Actor_SetSpeeds void Actor_SetSpeeds(struct Actor *actor, f32 speed);  # z64actor.h
+Actor_WorldYawTowardActor s16 Actor_WorldYawTowardActor(struct Actor *actorA, struct Actor *actorB);  # z64actor.h
+Actor_FocusYawTowardActor s16 Actor_FocusYawTowardActor(struct Actor *actorA, struct Actor *actorB);  # z64actor.h
+Actor_WorldYawTowardPoint s16 Actor_WorldYawTowardPoint(struct Actor *actor, struct Vec3f *refPoint);  # z64actor.h
+Actor_WorldPitchTowardActor s16 Actor_WorldPitchTowardActor(struct Actor *actorA, struct Actor *actorB);  # z64actor.h
+Actor_FocusPitchTowardActor s16 Actor_FocusPitchTowardActor(struct Actor *actorA, struct Actor *actorB);  # z64actor.h
+Actor_WorldDistXYZToActor f32 Actor_WorldDistXYZToActor(struct Actor *actorA, struct Actor *actorB);  # z64actor.h
+Actor_WorldDistXZToActor f32 Actor_WorldDistXZToActor(struct Actor *actorA, struct Actor *actorB);  # z64actor.h
+Player_MountHorse void Player_MountHorse(struct PlayState *play, struct Player *player, struct Actor *horse);  # z64player.h
+Actor_UpdateBgCheckInfo void Actor_UpdateBgCheckInfo(struct PlayState *play, struct Actor *actor, f32 wallCheckHeight, f32 wallCheckRadius, f32 ceilingCheckHeight, u32 updBgCheckInfoFlags);  # z64actor.h
+Attention_ShouldReleaseLockOn s32 Attention_ShouldReleaseLockOn(struct Actor *actor, struct Player *player, s32 ignoreLeash);  # z64actor.h
+Actor_TalkOfferAccepted s32 Actor_TalkOfferAccepted(struct Actor *actor, struct GameState *gameState);  # z64actor.h
+Actor_OfferTalkNearColChkInfoCylinder s32 Actor_OfferTalkNearColChkInfoCylinder(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_TextboxIsClosing s32 Actor_TextboxIsClosing(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_OcarinaInteractionAccepted s32 Actor_OcarinaInteractionAccepted(struct Actor *actor, struct GameState *gameState);  # z64actor.h
+Actor_NoOcarinaInteraction s32 Actor_NoOcarinaInteraction(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_HasParent s32 Actor_HasParent(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_OfferGetItemFar s32 Actor_OfferGetItemFar(struct Actor *actor, struct PlayState *play, s32 getItemId);  # z64actor.h
+Actor_HasNoParent s32 Actor_HasNoParent(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_SetClosestSecretDistance void Actor_SetClosestSecretDistance(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_HasRider s32 Actor_HasRider(struct PlayState *play, struct Actor *horse);  # z64actor.h
+Actor_HasNoRider s32 Actor_HasNoRider(struct PlayState *play, struct Actor *horse);  # z64actor.h
+Actor_PlaySfx_SurfaceBomb void Actor_PlaySfx_SurfaceBomb(struct PlayState *play, struct Actor *actor);  # z64actor.h
+Actor_PlaySeq_FlaggedKamaroDance void Actor_PlaySeq_FlaggedKamaroDance(struct Actor *actor);  # z64actor.h
+Actor_PlaySeq_FlaggedMusicBoxHouse void Actor_PlaySeq_FlaggedMusicBoxHouse(struct Actor *actor);  # z64actor.h
+Actor_DeactivateLens void Actor_DeactivateLens(struct PlayState *play);  # z64actor.h
+Actor_InitHalfDaysBit void Actor_InitHalfDaysBit(struct ActorContext *actorCtx);  # z64actor.h
+Actor_InitContext void Actor_InitContext(struct PlayState *play, struct ActorContext *actorCtx, struct ActorEntry *actorEntry);  # z64actor.h
+Actor_UpdateAll void Actor_UpdateAll(struct PlayState *play, struct ActorContext *actorCtx);  # z64actor.h
+Actor_DrawAll void Actor_DrawAll(struct PlayState *play, struct ActorContext *actorCtx);  # z64actor.h
+Actor_SpawnTransitionActors void Actor_SpawnTransitionActors(struct PlayState *play, struct ActorContext *actorCtx);  # z64actor.h
+Actor_SpawnBodyParts void Actor_SpawnBodyParts(struct Actor *actor, struct PlayState *play, s32 partParams, union Gfx **dList);  # z64actor.h
+Actor_SpawnFloorDustRing void Actor_SpawnFloorDustRing(struct PlayState *play, struct Actor *actor, struct Vec3f *posXZ, f32 radius, s32 countMinusOne, f32 randAccelWeight, s16 scale, s16 scaleStep, u8 useLighting);  # z64actor.h
+Actor_TestFloorInDirection s16 Actor_TestFloorInDirection(struct Actor *actor, struct PlayState *play, f32 distance, s16 angle);  # z64actor.h
+Actor_RequestQuakeWithSpeed void Actor_RequestQuakeWithSpeed(struct PlayState *play, s16 y, s16 duration, s16 speed);  # z64actor.h
+Actor_RequestQuakeAndRumble void Actor_RequestQuakeAndRumble(struct Actor *actor, struct PlayState *play, s16 quakeY, s16 quakeDuration);  # z64actor.h
+Actor_DrawDoorLock void Actor_DrawDoorLock(struct PlayState *play, s32 frame, s32 type);  # z64actor.h
+Actor_GetClosestPosOnPath void Actor_GetClosestPosOnPath(struct Vec3s *points, s32 numPoints, struct Vec3f *srcPos, struct Vec3f *dstPos, s32 isPathLoop);  # z64actor.h
+Npc_TrackPoint void Npc_TrackPoint(struct Actor *actor, struct NpcInteractInfo *interactInfo, s16 presetIndex, s16 trackingMode);  # z64actor.h
+Actor_Noop void Actor_Noop(struct Actor *actor, struct PlayState *play);  # z64actor.h
+Actor_SetDropFlag void Actor_SetDropFlag(struct Actor *actor, struct ColliderElement *elem);  # z64actor.h
+SSNodeList_SetSSListHead void SSNodeList_SetSSListHead(struct SSNodeList *list, struct SSList *ssList, s16 *polyIndex);  # z64bgcheck.h
+DynaSSNodeList_SetSSListHead void DynaSSNodeList_SetSSListHead(struct DynaSSNodeList *list, struct SSList *ssList, s16 *polyIndex);  # z64bgcheck.h
+DynaSSNodeList_Init void DynaSSNodeList_Init(struct PlayState *play, struct DynaSSNodeList *list);  # z64bgcheck.h
+DynaSSNodeList_ResetCount void DynaSSNodeList_ResetCount(struct DynaSSNodeList *list);  # z64bgcheck.h
+DynaSSNodeList_GetNextNodeIdx u16 DynaSSNodeList_GetNextNodeIdx(struct DynaSSNodeList *list);  # z64bgcheck.h
+BgCheck_Vec3sToVec3f void BgCheck_Vec3sToVec3f(struct Vec3s *src, struct Vec3f *dest);  # z64bgcheck.h
+BgCheck_Vec3fToVec3s void BgCheck_Vec3fToVec3s(struct Vec3s *dest, struct Vec3f *src);  # z64bgcheck.h
+BgCheck_IsSmallMemScene s32 BgCheck_IsSmallMemScene(struct PlayState *play);  # z64bgcheck.h
+BgCheck_Allocate void BgCheck_Allocate(struct CollisionContext *colCtx, struct PlayState *play, struct CollisionHeader *colHeader);  # z64bgcheck.h
+BgCheck_SetContextFlags void BgCheck_SetContextFlags(struct CollisionContext *colCtx, u32 flags);  # z64bgcheck.h
+BgCheck_UnsetContextFlags void BgCheck_UnsetContextFlags(struct CollisionContext *colCtx, u32 flags);  # z64bgcheck.h
+BgCheck_GetCollisionHeader struct CollisionHeader *BgCheck_GetCollisionHeader(struct CollisionContext *colCtx, s32 bgId);  # z64bgcheck.h
+BgCheck_CameraRaycastFloor1 f32 BgCheck_CameraRaycastFloor1(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor1 f32 BgCheck_EntityRaycastFloor1(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor2 f32 BgCheck_EntityRaycastFloor2(struct PlayState *play, struct CollisionContext *colCtx, struct CollisionPoly **outPoly, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor3 f32 BgCheck_EntityRaycastFloor3(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor5 f32 BgCheck_EntityRaycastFloor5(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *outBgId, struct Actor *actor, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor5_3 f32 BgCheck_EntityRaycastFloor5_3(struct PlayState *play, struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor6 f32 BgCheck_EntityRaycastFloor6(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos, f32 checkDist);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor7 f32 BgCheck_EntityRaycastFloor7(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_CameraRaycastFloor2 f32 BgCheck_CameraRaycastFloor2(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor8 f32 BgCheck_EntityRaycastFloor8(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Actor *actor, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntityRaycastFloor9 f32 BgCheck_EntityRaycastFloor9(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos);  # z64bgcheck.h
+BgCheck_EntitySphVsWall1 s32 BgCheck_EntitySphVsWall1(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, f32 checkHeight);  # z64bgcheck.h
+BgCheck_EntitySphVsWall2 s32 BgCheck_EntitySphVsWall2(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, s32 *outBgId, f32 checkHeight);  # z64bgcheck.h
+BgCheck_EntitySphVsWall4 s32 BgCheck_EntitySphVsWall4(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, s32 *outBgId, struct Actor *actor, f32 checkHeight);  # z64bgcheck.h
+BgCheck_CameraLineTest1 s32 BgCheck_CameraLineTest1(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  # z64bgcheck.h
+BgCheck_CameraLineTest2 s32 BgCheck_CameraLineTest2(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  # z64bgcheck.h
+BgCheck_EntityLineTest1 s32 BgCheck_EntityLineTest1(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  # z64bgcheck.h
+BgCheck_EntityLineTest2 s32 BgCheck_EntityLineTest2(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId, struct Actor *actor);  # z64bgcheck.h
+BgCheck_EntityLineTest3 s32 BgCheck_EntityLineTest3(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId, struct Actor *actor, f32 checkDist);  # z64bgcheck.h
+BgCheck_ProjectileLineTest s32 BgCheck_ProjectileLineTest(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  # z64bgcheck.h
+BgCheck_AnyLineTest2 s32 BgCheck_AnyLineTest2(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace);  # z64bgcheck.h
+BgCheck_AnyLineTest3 s32 BgCheck_AnyLineTest3(struct CollisionContext *colCtx, struct Vec3f *posA, struct Vec3f *posB, struct Vec3f *posResult, struct CollisionPoly **outPoly, s32 checkWall, s32 checkFloor, s32 checkCeil, s32 checkOneFace, s32 *bgId);  # z64bgcheck.h
+BgCheck_SphVsFirstWall s32 BgCheck_SphVsFirstWall(struct CollisionContext *colCtx, struct Vec3f *center, f32 radius);  # z64bgcheck.h
+SSNodeList_Init void SSNodeList_Init(struct SSNodeList *this);  # z64bgcheck.h
+ScaleRotPos_Init void ScaleRotPos_Init(struct ScaleRotPos *srp);  # z64bgcheck.h
+ScaleRotPos_IsEqual s32 ScaleRotPos_IsEqual(struct ScaleRotPos *a, struct ScaleRotPos *b);  # z64bgcheck.h
+DynaLookup_ResetLists void DynaLookup_ResetLists(struct DynaLookup *dynaLookup);  # z64bgcheck.h
+DynaLookup_Reset void DynaLookup_Reset(struct DynaLookup *dynaLookup);  # z64bgcheck.h
+DynaLookup_ResetVtxStartIndex void DynaLookup_ResetVtxStartIndex(u16 *vtxStartIndex);  # z64bgcheck.h
+DynaLookup_ResetWaterBoxStartIndex void DynaLookup_ResetWaterBoxStartIndex(u16 *waterBoxStartIndex);  # z64bgcheck.h
+BgActor_IsTransformUnchanged s32 BgActor_IsTransformUnchanged(struct BgActor *bgActor);  # z64bgcheck.h
+DynaPoly_NullPolyList void DynaPoly_NullPolyList(struct CollisionPoly **polyList);  # z64bgcheck.h
+DynaPoly_AllocPolyList void DynaPoly_AllocPolyList(struct PlayState *play, struct CollisionPoly **polyList, s32 numPolys);  # z64bgcheck.h
+DynaPoly_NullVtxList void DynaPoly_NullVtxList(struct Vec3s **vtxList);  # z64bgcheck.h
+DynaPoly_AllocVtxList void DynaPoly_AllocVtxList(struct PlayState *play, struct Vec3s **vtxList, s32 numVtx);  # z64bgcheck.h
+DynaPoly_InitWaterBoxList void DynaPoly_InitWaterBoxList(struct DynaWaterBoxList *waterBoxList);  # z64bgcheck.h
+DynaPoly_AllocWaterBoxList void DynaPoly_AllocWaterBoxList(struct PlayState *play, struct DynaWaterBoxList *waterBoxList, s32 numWaterBoxes);  # z64bgcheck.h
+DynaPoly_IsBgIdBgActor s32 DynaPoly_IsBgIdBgActor(s32 bgId);  # z64bgcheck.h
+DynaPoly_Init void DynaPoly_Init(struct PlayState *play, struct DynaCollisionContext *dyna);  # z64bgcheck.h
+DynaPoly_DeleteBgActor void DynaPoly_DeleteBgActor(struct PlayState *play, struct DynaCollisionContext *dyna, s32 bgId);  # z64bgcheck.h
+DynaPoly_InvalidateLookup void DynaPoly_InvalidateLookup(struct PlayState *play, struct DynaCollisionContext *dyna);  # z64bgcheck.h
+CollisionHeader_GetVirtual void CollisionHeader_GetVirtual(struct CollisionHeader *colHeader, struct CollisionHeader **dest);  # z64bgcheck.h
+BgCheck_GetWaterSurfaceNoBgIdAlt s32 BgCheck_GetWaterSurfaceNoBgIdAlt(struct PlayState *play, struct CollisionContext *colCtx, f32 x, f32 z, f32 *outWaterSurface, struct WaterBox **outWaterBox);  # z64bgcheck.h
+BgCheck_GetWaterSurfaceNoBgId s32 BgCheck_GetWaterSurfaceNoBgId(struct PlayState *play, struct CollisionContext *colCtx, f32 x, f32 z, f32 *outWaterSurface, struct WaterBox **outWaterBox);  # z64bgcheck.h
+DynaPolyActor_Init void DynaPolyActor_Init(struct DynaPolyActor *dynaActor, s32 transformFlags);  # z64actor.h
+DynaPolyActor_LoadMesh void DynaPolyActor_LoadMesh(struct PlayState *play, struct DynaPolyActor *dynaActor, struct CollisionHeader *meshHeader);  # z64actor.h
+DynaPolyActor_UnsetAllInteractFlags void DynaPolyActor_UnsetAllInteractFlags(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_SetActorOnTop void DynaPolyActor_SetActorOnTop(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_SetPlayerOnTop void DynaPolyActor_SetPlayerOnTop(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_SetPlayerAbove void DynaPolyActor_SetPlayerAbove(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_SetSwitchPressed void DynaPolyActor_SetSwitchPressed(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_SetHeavySwitchPressed void DynaPolyActor_SetHeavySwitchPressed(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_IsActorOnTop s32 DynaPolyActor_IsActorOnTop(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_IsPlayerOnTop s32 DynaPolyActor_IsPlayerOnTop(struct DynaPolyActor *dynaActor);  # z64actor.h
+DynaPolyActor_IsPlayerAbove s32 DynaPolyActor_IsPlayerAbove(struct DynaPolyActor *dynaActor);  # z64actor.h
+Camera_Destroy void Camera_Destroy(struct Camera *camera);  # z64camera.h
+Camera_UpdateHotRoom s32 Camera_UpdateHotRoom(struct Camera *camera);  # z64camera.h
+Camera_ChangeModeFlags s32 Camera_ChangeModeFlags(struct Camera *camera, s16 mode, u8 forceChange);  # z64camera.h
+Camera_ChangeSetting s32 Camera_ChangeSetting(struct Camera *camera, s16 setting);  # z64camera.h
+Camera_ChangeActorCsCamIndex s32 Camera_ChangeActorCsCamIndex(struct Camera *camera, s32 bgCamIndex);  # z64camera.h
+Camera_GetInputDirYaw s16 Camera_GetInputDirYaw(struct Camera *camera);  # z64camera.h
+Camera_GetCamDirYaw s16 Camera_GetCamDirYaw(struct Camera *camera);  # z64camera.h
+Camera_AddQuake s32 Camera_AddQuake(struct Camera *camera, s32 arg1, s16 y, s32 countdown);  # z64camera.h
+Camera_UnsetViewFlag s32 Camera_UnsetViewFlag(struct Camera *camera, s16 viewFlag);  # z64camera.h
+Camera_OverwriteStateFlags s32 Camera_OverwriteStateFlags(struct Camera *camera, s16 stateFlags);  # z64camera.h
+Camera_SetStateFlag s16 Camera_SetStateFlag(struct Camera *camera, s16 flags);  # z64camera.h
+Camera_UnsetStateFlag s16 Camera_UnsetStateFlag(struct Camera *camera, s16 flags);  # z64camera.h
+Camera_Copy s32 Camera_Copy(struct Camera *dstCam, struct Camera *srcCam);  # z64camera.h
+Camera_SetCameraData void Camera_SetCameraData(struct Camera *camera, s16 setDataFlags, void *data0, void *data1, s16 data2, s16 data3);  # z64camera.h
+Camera_SetTargetActor void Camera_SetTargetActor(struct Camera *camera, struct Actor *actor);  # z64camera.h
+Camera_GetWaterYPos f32 Camera_GetWaterYPos(struct Camera *camera);  # z64camera.h
+CollisionCheck_GetElementATDamage s32 CollisionCheck_GetElementATDamage(struct Collider *atCol, struct ColliderElement *atElem, struct Collider *acCol, struct ColliderElement *acElem);  # z64collision_check.h
+Collider_DestroyBase s32 Collider_DestroyBase(struct PlayState *play, struct Collider *collider);  # z64collision_check.h
+Collider_SetBaseToActor s32 Collider_SetBaseToActor(struct PlayState *play, struct Collider *col, struct ColliderInitToActor *src);  # z64collision_check.h
+Collider_SetBase s32 Collider_SetBase(struct PlayState *play, struct Collider *col, struct Actor *actor, struct ColliderInit *src);  # z64collision_check.h
+Collider_ResetATBase void Collider_ResetATBase(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_ResetACBase void Collider_ResetACBase(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_ResetOCBase void Collider_ResetOCBase(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_DestroyElementDamageInfoAT s32 Collider_DestroyElementDamageInfoAT(struct PlayState *play, struct ColliderElementDamageInfoAT *atDmgInfo);  # z64collision_check.h
+Collider_SetElementDamageInfoAT s32 Collider_SetElementDamageInfoAT(struct PlayState *play, struct ColliderElementDamageInfoAT *dest, struct ColliderElementDamageInfoATInit *src);  # z64collision_check.h
+Collider_ResetATElementUnk void Collider_ResetATElementUnk(struct PlayState *play, struct ColliderElement *elem);  # z64collision_check.h
+Collider_DestroyElementDamageInfoAC s32 Collider_DestroyElementDamageInfoAC(struct PlayState *play, struct ColliderElementDamageInfoAC *acDmgInfo);  # z64collision_check.h
+Collider_SetElementDamageInfoAC s32 Collider_SetElementDamageInfoAC(struct PlayState *play, struct ColliderElementDamageInfoAC *dest, struct ColliderElementDamageInfoACInit *src);  # z64collision_check.h
+Collider_DestroyElement s32 Collider_DestroyElement(struct PlayState *play, struct ColliderElement *elem);  # z64collision_check.h
+Collider_ResetOCElement void Collider_ResetOCElement(struct PlayState *play, struct ColliderElement *elem);  # z64collision_check.h
+Collider_DestroyJntSphElementDim s32 Collider_DestroyJntSphElementDim(struct PlayState *play, struct ColliderJntSphElementDim *dim);  # z64collision_check.h
+Collider_InitJntSphElement s32 Collider_InitJntSphElement(struct PlayState *play, struct ColliderJntSphElement *jntSphElem);  # z64collision_check.h
+Collider_DestroyJntSphElement s32 Collider_DestroyJntSphElement(struct PlayState *play, struct ColliderJntSphElement *jntSphElem);  # z64collision_check.h
+Collider_InitAndSetJntSph s32 Collider_InitAndSetJntSph(struct PlayState *play, struct ColliderJntSph *dest, struct Actor *actor, struct ColliderJntSphInit *src, struct ColliderJntSphElement *jntSphElements);  # z64collision_check.h
+Collider_DestroyCylinderDim s32 Collider_DestroyCylinderDim(struct PlayState *play, struct Cylinder16 *dim);  # z64collision_check.h
+Collider_InitCylinder s32 Collider_InitCylinder(struct PlayState *play, struct ColliderCylinder *cyl);  # z64collision_check.h
+Collider_DestroyCylinder s32 Collider_DestroyCylinder(struct PlayState *play, struct ColliderCylinder *cyl);  # z64collision_check.h
+Collider_SetCylinderToActor s32 Collider_SetCylinderToActor(struct PlayState *play, struct ColliderCylinder *dest, struct ColliderCylinderInitToActor *src);  # z64collision_check.h
+Collider_SetCylinderType1 s32 Collider_SetCylinderType1(struct PlayState *play, struct ColliderCylinder *dest, struct Actor *actor, struct ColliderCylinderInitType1 *src);  # z64collision_check.h
+Collider_InitAndSetCylinder s32 Collider_InitAndSetCylinder(struct PlayState *play, struct ColliderCylinder *dest, struct Actor *actor, struct ColliderCylinderInit *src);  # z64collision_check.h
+Collider_ResetCylinderAC s32 Collider_ResetCylinderAC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_ResetCylinderOC s32 Collider_ResetCylinderOC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_DestroyTrisElementDim s32 Collider_DestroyTrisElementDim(struct PlayState *play, struct TriNorm *dim);  # z64collision_check.h
+Collider_InitTrisElement s32 Collider_InitTrisElement(struct PlayState *play, struct ColliderTrisElement *trisElem);  # z64collision_check.h
+Collider_DestroyTrisElement s32 Collider_DestroyTrisElement(struct PlayState *play, struct ColliderTrisElement *trisElem);  # z64collision_check.h
+Collider_InitAndSetTris s32 Collider_InitAndSetTris(struct PlayState *play, struct ColliderTris *dest, struct Actor *actor, struct ColliderTrisInit *src, struct ColliderTrisElement *trisElements);  # z64collision_check.h
+Collider_DestroyQuadDim s32 Collider_DestroyQuadDim(struct PlayState *play, struct ColliderQuadDim *dim);  # z64collision_check.h
+Collider_ResetQuadACDist s32 Collider_ResetQuadACDist(struct PlayState *play, struct ColliderQuadDim *dim);  # z64collision_check.h
+Collider_InitQuad s32 Collider_InitQuad(struct PlayState *play, struct ColliderQuad *quad);  # z64collision_check.h
+Collider_DestroyQuad s32 Collider_DestroyQuad(struct PlayState *play, struct ColliderQuad *quad);  # z64collision_check.h
+Collider_SetQuadType1 s32 Collider_SetQuadType1(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInitType1 *src);  # z64collision_check.h
+Collider_SetQuad s32 Collider_SetQuad(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInit *src);  # z64collision_check.h
+Collider_InitAndSetQuad s32 Collider_InitAndSetQuad(struct PlayState *play, struct ColliderQuad *dest, struct Actor *actor, struct ColliderQuadInit *src);  # z64collision_check.h
+Collider_ResetQuadAT s32 Collider_ResetQuadAT(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_ResetQuadAC s32 Collider_ResetQuadAC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_ResetQuadOC s32 Collider_ResetQuadOC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_InitSphere s32 Collider_InitSphere(struct PlayState *play, struct ColliderSphere *sph);  # z64collision_check.h
+Collider_DestroySphere s32 Collider_DestroySphere(struct PlayState *play, struct ColliderSphere *sph);  # z64collision_check.h
+Collider_SetSphere s32 Collider_SetSphere(struct PlayState *play, struct ColliderSphere *dest, struct Actor *actor, struct ColliderSphereInit *src);  # z64collision_check.h
+Collider_InitAndSetSphere s32 Collider_InitAndSetSphere(struct PlayState *play, struct ColliderSphere *dest, struct Actor *actor, struct ColliderSphereInit *src);  # z64collision_check.h
+Collider_ResetSphereAC s32 Collider_ResetSphereAC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_ResetSphereOC s32 Collider_ResetSphereOC(struct PlayState *play, struct Collider *col);  # z64collision_check.h
+Collider_InitLine s32 Collider_InitLine(struct PlayState *play, struct OcLine *line);  # z64collision_check.h
+Collider_DestroyLine s32 Collider_DestroyLine(struct PlayState *play, struct OcLine *line);  # z64collision_check.h
+Collider_SetLinePoints s32 Collider_SetLinePoints(struct PlayState *play, struct OcLine *line, struct Vec3f *a, struct Vec3f *b);  # z64collision_check.h
+Collider_ResetLineOC s32 Collider_ResetLineOC(struct PlayState *play, struct OcLine *line);  # z64collision_check.h
+CollisionCheck_DestroyContext void CollisionCheck_DestroyContext(struct PlayState *play, struct CollisionCheckContext *colCtxt);  # z64collision_check.h
+CollisionCheck_EnableSAC void CollisionCheck_EnableSAC(struct PlayState *play, struct CollisionCheckContext *colChkCtx);  # z64collision_check.h
+CollisionCheck_DisableSAC void CollisionCheck_DisableSAC(struct PlayState *play, struct CollisionCheckContext *colChkCtx);  # z64collision_check.h
+CollisionCheck_IsElementNotAT s32 CollisionCheck_IsElementNotAT(struct ColliderElement *elem);  # z64collision_check.h
+CollisionCheck_IsElementNotAC s32 CollisionCheck_IsElementNotAC(struct ColliderElement *elem);  # z64collision_check.h
+CollisionCheck_NoBlood void CollisionCheck_NoBlood(struct PlayState *play, struct Collider *collider, struct Vec3f *v);  # z64collision_check.h
+CollisionCheck_WaterBurst void CollisionCheck_WaterBurst(struct PlayState *play, struct Collider *collider, struct Vec3f *v);  # z64collision_check.h
+CollisionCheck_SetBounce void CollisionCheck_SetBounce(struct Collider *at, struct Collider *ac);  # z64collision_check.h
+CollisionCheck_SkipOC s32 CollisionCheck_SkipOC(struct Collider *col);  # z64collision_check.h
+CollisionCheck_ResetDamage void CollisionCheck_ResetDamage(struct CollisionCheckInfo *info);  # z64collision_check.h
+CollisionCheck_SetInfoNoDamageTable void CollisionCheck_SetInfoNoDamageTable(struct CollisionCheckInfo *info, struct CollisionCheckInfoInit *init);  # z64collision_check.h
+CollisionCheck_SetInfoGetDamageTable void CollisionCheck_SetInfoGetDamageTable(struct CollisionCheckInfo *info, s32 index, struct CollisionCheckInfoInit2 *init);  # z64collision_check.h
+Collider_UpdateCylinder void Collider_UpdateCylinder(struct Actor *actor, struct ColliderCylinder *cyl);  # z64collision_check.h
+Collider_SetCylinderPosition void Collider_SetCylinderPosition(struct ColliderCylinder *cyl, struct Vec3s *pos);  # z64collision_check.h
+CollisionCheck_SpawnShieldParticlesWood void CollisionCheck_SpawnShieldParticlesWood(struct PlayState *play, struct Vec3f *v, struct Vec3f *pos);  # z64collision_check.h
+Flags_GetEventChkInf s32 Flags_GetEventChkInf(s32 flag);  # z64actor.h
+Flags_SetEventChkInf void Flags_SetEventChkInf(s32 flag);  # z64actor.h
+Flags_GetInfTable s32 Flags_GetInfTable(s32 flag);  # z64actor.h
+Flags_SetInfTable void Flags_SetInfTable(s32 flag);  # z64actor.h
+Actor_TrackNone s32 Actor_TrackNone(struct Vec3s *headRot, struct Vec3s *torsoRot);  # z64actor.h
+DebugDisplay_DrawObjects void DebugDisplay_DrawObjects(struct PlayState *play);  # z64debug_display.h
+Cutscene_StopManual void Cutscene_StopManual(struct PlayState *play, struct CutsceneContext *csCtx);  # z64cutscene.h
+Cutscene_HandleEntranceTriggers void Cutscene_HandleEntranceTriggers(struct PlayState *play);  # z64cutscene.h
+Cutscene_ActorTranslateAndYawSmooth void Cutscene_ActorTranslateAndYawSmooth(struct Actor *actor, struct PlayState *play, s32 cueChannel);  # z64cutscene.h
+Cutscene_ActorTranslateXZAndYawSmooth void Cutscene_ActorTranslateXZAndYawSmooth(struct Actor *actor, struct PlayState *play, s32 cueChannel);  # z64cutscene.h
+Cutscene_GetSceneLayer s32 Cutscene_GetSceneLayer(struct PlayState *play);  # z64cutscene.h
+Cutscene_IsPlaying u8 Cutscene_IsPlaying(struct PlayState *play);  # z64cutscene.h
+GetItem_Draw void GetItem_Draw(struct PlayState *play, s16 drawId);  # z64draw.h
+SoundSource_InitAll void SoundSource_InitAll(struct PlayState *play);  # z64sound_source.h
+EnHy_Blink void EnHy_Blink(struct EnHy *enHy, s32 eyeTexMaxIndex);  # z_en_hy_code.h
+EnHy_Init s32 EnHy_Init(struct EnHy *enHy, struct PlayState *play, struct FlexSkeletonHeader *skeletonHeaderSeg, s16 animIndex);  # z_en_hy_code.h
+EnHy_PlayWalkingSound s32 EnHy_PlayWalkingSound(struct EnHy *enHy, struct PlayState *play, f32 distAboveThreshold);  # z_en_hy_code.h
+CutsceneFlags_Get s32 CutsceneFlags_Get(struct PlayState *play, s16 flag);  # z64cutscene.h
+CutsceneManager_Queue void CutsceneManager_Queue(s16 csId);  # z64cutscene.h
+CutsceneManager_GetCutsceneEntry struct CutsceneEntry *CutsceneManager_GetCutsceneEntry(s16 csId);  # z64cutscene.h
+CutsceneManager_GetAdditionalCsId s16 CutsceneManager_GetAdditionalCsId(s16 csId);  # z64cutscene.h
+CutsceneManager_GetLength s16 CutsceneManager_GetLength(s16 csId);  # z64cutscene.h
+CutsceneManager_GetCutsceneScriptIndex s16 CutsceneManager_GetCutsceneScriptIndex(s16 csId);  # z64cutscene.h
+CutsceneManager_GetCurrentSubCamId s16 CutsceneManager_GetCurrentSubCamId(s16 csId);  # z64cutscene.h
+CutsceneManager_SetReturnCamera void CutsceneManager_SetReturnCamera(s16 camId);  # z64cutscene.h
+SkelCurve_Clear void SkelCurve_Clear(struct SkelCurve *skelCurve);  # z64curve.h
+SkelCurve_Init s32 SkelCurve_Init(struct PlayState *play, struct SkelCurve *skelCurve, struct CurveSkeletonHeader *skeletonHeaderSeg, struct CurveAnimationHeader *animation);  # z64curve.h
+SkelCurve_Destroy void SkelCurve_Destroy(struct PlayState *play, struct SkelCurve *skelCurve);  # z64curve.h
+FireObj_Draw void FireObj_Draw(struct PlayState *play, struct FireObj *fire);  # z_fireobj.h
+FireObj_Destroy void FireObj_Destroy(struct PlayState *play, struct FireObj *fire);  # z_fireobj.h
+FireObj_SetState2 void FireObj_SetState2(struct FireObj *fire, f32 dynamicSizeStep, u8 newState);  # z_fireobj.h
+FireObj_Update void FireObj_Update(struct PlayState *play, struct FireObj *fire, struct Actor *actor);  # z_fireobj.h
+Horse_ResetHorseData void Horse_ResetHorseData(struct PlayState *play);  # z64horse.h
+Horse_IsActive s32 Horse_IsActive(struct PlayState *play, struct ActorContext *actorCtx);  # z64horse.h
+Font_LoadMessageBoxEndIcon void Font_LoadMessageBoxEndIcon(struct Font *font, u16 icon);  # z64font.h
+Font_LoadOrderedFont void Font_LoadOrderedFont(struct Font *font);  # z64font.h
+Environment_Init void Environment_Init(struct PlayState *play2, struct EnvironmentContext *envCtx, s32 arg2);  # z64environment.h
+Environment_Update void Environment_Update(struct PlayState *play, struct EnvironmentContext *envCtx, struct LightContext *lightCtx, struct PauseContext *pauseCtx, struct MessageContext *msgCtx, struct GameOverContext *gameOverCtx, struct GraphicsContext *gfxCtx);  # z64environment.h
+Environment_FillScreen void Environment_FillScreen(struct GraphicsContext *gfxCtx, u8 red, u8 green, u8 blue, u8 alpha, u8 drawFlags);  # z64environment.h
+Environment_DrawSandstorm void Environment_DrawSandstorm(struct PlayState *play, u8 sandstormState);  # z64environment.h
+Environment_LerpDiffuseColor void Environment_LerpDiffuseColor(struct PlayState *play, struct Color_RGB8 *to, f32 lerp);  # z64environment.h
+Environment_PlayStormNatureAmbience void Environment_PlayStormNatureAmbience(struct PlayState *play);  # z64environment.h
+Environment_StopStormNatureAmbience void Environment_StopStormNatureAmbience(struct PlayState *play);  # z64environment.h
+Environment_Draw void Environment_Draw(struct PlayState *play);  # z64environment.h
+Environment_IsFinalHours u8 Environment_IsFinalHours(struct PlayState *play);  # z64environment.h
+Environment_GetTimeSpeed u16 Environment_GetTimeSpeed(struct PlayState *play);  # z64environment.h
+Environment_SetTimeJump void Environment_SetTimeJump(f32 minutes);  # z64environment.h
+Math_CosS f32 Math_CosS(s16 angle);  # z64math.h
+Math_StepToIGet void Math_StepToIGet(s32 *pValue, s32 target, s32 step);  # z64math.h
+Math_StepToI s32 Math_StepToI(s32 *pValue, s32 target, s32 step);  # z64math.h
+Math_StepUntilAngleS s32 Math_StepUntilAngleS(s16 *pValue, s16 target, s16 step);  # z64math.h
+Rand_S16OffsetStride s16 Rand_S16OffsetStride(s16 base, s16 stride, s16 range);  # z64math.h
+Math_Vec3f_Diff void Math_Vec3f_Diff(struct Vec3f *l, struct Vec3f *r, struct Vec3f *dest);  # z64math.h
+Math_Vec3s_DiffToVec3f void Math_Vec3s_DiffToVec3f(struct Vec3f *dest, struct Vec3s *l, struct Vec3s *r);  # z64math.h
+Math_Vec3f_ScaleAndStore void Math_Vec3f_ScaleAndStore(struct Vec3f *vec, f32 scale, struct Vec3f *dest);  # z64math.h
+Math_Vec3f_Lerp void Math_Vec3f_Lerp(struct Vec3f *a, struct Vec3f *b, f32 t, struct Vec3f *dest);  # z64math.h
+Math_Vec3f_DiffY f32 Math_Vec3f_DiffY(struct Vec3f *a, struct Vec3f *b);  # z64math.h
+Math_Vec3f_Yaw s16 Math_Vec3f_Yaw(struct Vec3f *a, struct Vec3f *b);  # z64math.h
+Math_Vec3f_Pitch s16 Math_Vec3f_Pitch(struct Vec3f *a, struct Vec3f *b);  # z64math.h
+Color_RGBA8_Copy void Color_RGBA8_Copy(struct Color_RGBA8 *dst, struct Color_RGBA8 *src);  # z64lib.h
+Lib_PlaySfx_2 void Lib_PlaySfx_2(u16 sfxId);  # z64lib.h
+Lib_VirtualToPhysical u32 Lib_VirtualToPhysical(void *ptr);  # z64lib.h
+Lib_PhysicalToVirtual void *Lib_PhysicalToVirtual(u32 ptr);  # z64lib.h
+LifeMeter_UpdateColors void LifeMeter_UpdateColors(struct PlayState *play);  # z64lifemeter.h
+LifeMeter_SaveInterfaceHealth s32 LifeMeter_SaveInterfaceHealth(struct PlayState *play);  # z64lifemeter.h
+LifeMeter_IncreaseInterfaceHealth s32 LifeMeter_IncreaseInterfaceHealth(struct PlayState *play);  # z64lifemeter.h
+LifeMeter_Draw void LifeMeter_Draw(struct PlayState *play);  # z64lifemeter.h
+Lights_PointSetPosition void Lights_PointSetPosition(struct LightInfo *info, s16 x, s16 y, s16 z);  # z64light.h
+Lights_DirectionalSetInfo void Lights_DirectionalSetInfo(struct LightInfo *info, s8 x, s8 y, s8 z, u8 r, u8 g, u8 b);  # z64light.h
+LightContext_Init void LightContext_Init(struct PlayState *play, struct LightContext *lightCtx);  # z64light.h
+LightContext_NewLights struct Lights *LightContext_NewLights(struct LightContext *lightCtx, struct GraphicsContext *gfxCtx);  # z64light.h
+LightContext_InitList void LightContext_InitList(struct PlayState *play, struct LightContext *lightCtx);  # z64light.h
+LightContext_RemoveLight void LightContext_RemoveLight(struct PlayState *play, struct LightContext *lightCtx, struct LightNode *light);  # z64light.h
+Lights_DrawGlow void Lights_DrawGlow(struct PlayState *play);  # z64light.h
+ZeldaArena_Malloc void *ZeldaArena_Malloc(u32 size);  # zelda_arena.h
+ZeldaArena_MallocR void *ZeldaArena_MallocR(u32 size);  # zelda_arena.h
+ZeldaArena_Realloc void *ZeldaArena_Realloc(void *ptr, u32 newSize);  # zelda_arena.h
+ZeldaArena_Free void ZeldaArena_Free(void *ptr);  # zelda_arena.h
+ZeldaArena_GetSizes void ZeldaArena_GetSizes(u32 *outMaxFree, u32 *outFree, u32 *outAlloc);  # zelda_arena.h
+ZeldaArena_Init void ZeldaArena_Init(void *start, u32 size);  # zelda_arena.h
+MapDisp_InitChestData void MapDisp_InitChestData(struct PlayState *play, s32 num, void *segmentAddress);  # z64map.h
+MapDisp_Update void MapDisp_Update(struct PlayState *play);  # z64map.h
+MapDisp_IsMinimapToggleBlocked s32 MapDisp_IsMinimapToggleBlocked(struct PlayState *play);  # z64map.h
+MapDisp_DrawMinimap void MapDisp_DrawMinimap(struct PlayState *play, s32 playerInitX, s32 playerInitZ, s32 playerInitDir);  # z64map.h
+MapDisp_AllocDungeonMap void *MapDisp_AllocDungeonMap(struct PlayState *play, void *heap);  # z64map.h
+MapDisp_DrawDungeonFloorSelect void MapDisp_DrawDungeonFloorSelect(struct PlayState *play);  # z64map.h
+MapDisp_IsValidStorey s32 MapDisp_IsValidStorey(s32 storey);  # z64map.h
+MapDisp_GetPlayerStorey s32 MapDisp_GetPlayerStorey(s16 checkY);  # z64map.h
+MapDisp_DrawDungeonMap void MapDisp_DrawDungeonMap(struct PlayState *play);  # z64map.h
+MapDisp_UpdateDungeonMap void MapDisp_UpdateDungeonMap(struct PlayState *play);  # z64map.h
+MapData_MID_GetType s32 MapData_MID_GetType(s32 arg0);  # z64map.h
+MapData_GetMapTexDim void MapData_GetMapTexDim(s32 mapId, s32 *width, s32 *height);  # z64map.h
+MapData_GetMapTexOffset void MapData_GetMapTexOffset(s32 mapId, s32 *offsetX, s32 *offsetY);  # z64map.h
+MapData_GetDrawType void MapData_GetDrawType(s32 arg0, s32 *arg1);  # z64map.h
+MapData_GetMapColorIndex s32 MapData_GetMapColorIndex(s32 arg0);  # z64map.h
+MapDisp_GetSizeOfMapITex s32 MapDisp_GetSizeOfMapITex(s32 mapCompactId);  # z64map.h
+MapData_GetMapCompactId s32 MapData_GetMapCompactId(s32 arg0);  # z64map.h
+Map_CurRoomHasMapI s32 Map_CurRoomHasMapI(struct PlayState *play);  # z64map.h
+Map_SetAreaEntrypoint void Map_SetAreaEntrypoint(struct PlayState *play);  # z64map.h
+Map_InitRoomData void Map_InitRoomData(struct PlayState *play, s16 room);  # z64map.h
+Gfx_DrawTexRectRGBA16 union Gfx *Gfx_DrawTexRectRGBA16(union Gfx *gfx, void *texture, s16 textureWidth, s16 textureHeight, s16 rectLeft, s16 rectTop, s16 rectWidth, s16 rectHeight, u16 dsdx, u16 dtdy);  # z64interface.h
+Gfx_DrawTexRectIA8 union Gfx *Gfx_DrawTexRectIA8(union Gfx *gfx, void *texture, s16 textureWidth, s16 textureHeight, s16 rectLeft, s16 rectTop, s16 rectWidth, s16 rectHeight, u16 dsdx, u16 dtdy);  # z64interface.h
+Gfx_DrawTexRectI8 union Gfx *Gfx_DrawTexRectI8(union Gfx *gfx, void *texture, s16 textureWidth, s16 textureHeight, s16 rectLeft, s16 rectTop, s16 rectWidth, s16 rectHeight, u16 dsdx, u16 dtdy);  # z64interface.h
+FrameAdvance_Init void FrameAdvance_Init(struct FrameAdvanceContext *frameAdvCtx);  # z64frameadvance.h
+Player_UpdateOverrideInput s32 Player_UpdateOverrideInput(struct PlayState *play, struct PlayerOverrideInputEntry *inputEntry, f32 distXZRange);  # z64player.h
+Player_DoNothing void Player_DoNothing(struct Actor *thisx, struct PlayState *play);  # z64player.h
+Player_GetItemOnButton s32 Player_GetItemOnButton(struct PlayState *play, struct Player *player, s32 slot);  # z64player.h
+Player_SetModelsForHoldingShield void Player_SetModelsForHoldingShield(struct Player *player);  # z64player.h
+Player_SetModels void Player_SetModels(struct Player *player, s32 modelGroup);  # z64player.h
+Player_ReleaseLockOn void Player_ReleaseLockOn(struct Player *player);  # z64player.h
+Player_ClearZTargeting void Player_ClearZTargeting(struct Player *player);  # z64player.h
+Player_SetBButtonAmmo s32 Player_SetBButtonAmmo(struct PlayState *play, s32 ammo);  # z64player.h
+Player_BButtonSwordFromIA s32 Player_BButtonSwordFromIA(struct Player *player, s32 itemAction);  # z64player.h
+Player_GetHeldBButtonSword s32 Player_GetHeldBButtonSword(struct Player *player);  # z64player.h
+Player_MeleeWeaponFromIA s32 Player_MeleeWeaponFromIA(s32 itemAction);  # z64player.h
+Player_GetMeleeWeaponHeld s32 Player_GetMeleeWeaponHeld(struct Player *player);  # z64player.h
+Player_IsHoldingTwoHandedWeapon s32 Player_IsHoldingTwoHandedWeapon(struct Player *player);  # z64player.h
+Player_BottleFromIA s32 Player_BottleFromIA(struct Player *player, s32 itemAction);  # z64player.h
+Player_ExplosiveFromIA s32 Player_ExplosiveFromIA(struct Player *player, s32 itemAction);  # z64player.h
+Player_SwordFromIA s32 Player_SwordFromIA(struct Player *player, s32 itemAction);  # z64player.h
+Player_GetEnvironmentalHazard s32 Player_GetEnvironmentalHazard(struct PlayState *play);  # z64player.h
+Player_UpdateBunnyEars void Player_UpdateBunnyEars(struct Player *player);  # z64player.h
+Player_DrawZoraShield void Player_DrawZoraShield(struct PlayState *play, struct Player *player);  # z64player.h
+Player_OverrideLimbDrawGameplayDefault s32 Player_OverrideLimbDrawGameplayDefault(struct PlayState *play, s32 limbIndex, union Gfx **dList, struct Vec3f *pos, struct Vec3s *rot, struct Actor *actor);  # z64player.h
+Player_OverrideLimbDrawGameplayFirstPerson s32 Player_OverrideLimbDrawGameplayFirstPerson(struct PlayState *play, s32 limbIndex, union Gfx **dList, struct Vec3f *pos, struct Vec3s *rot, struct Actor *actor);  # z64player.h
+Player_OverrideLimbDrawGameplayCrawling s32 Player_OverrideLimbDrawGameplayCrawling(struct PlayState *play, s32 limbIndex, union Gfx **dList, struct Vec3f *pos, struct Vec3s *rot, struct Actor *thisx);  # z64player.h
+Player_DrawGetItem void Player_DrawGetItem(struct PlayState *play, struct Player *player);  # z64player.h
+Player_SetFeetPos void Player_SetFeetPos(struct PlayState *play, struct Player *player, s32 limbIndex);  # z64player.h
+Player_PostLimbDrawGameplay void Player_PostLimbDrawGameplay(struct PlayState *play, s32 limbIndex, union Gfx **dList1, union Gfx **dList2, struct Vec3s *rot, struct Actor *actor);  # z64player.h
+PreNMI_Destroy void PreNMI_Destroy(struct GameState *thisx);  # z_prenmi.h
+Quake_SetSpeed u32 Quake_SetSpeed(s16 index, s16 speed);  # z64quake.h
+Quake_SetDuration u32 Quake_SetDuration(s16 index, s16 duration);  # z64quake.h
+Quake_GetTimeLeft s16 Quake_GetTimeLeft(s16 index);  # z64quake.h
+Quake_SetPerturbations u32 Quake_SetPerturbations(s16 index, s16 y, s16 x, s16 fov, s16 roll);  # z64quake.h
+Quake_RemoveRequest u32 Quake_RemoveRequest(s16 index);  # z64quake.h
+Distortion_Init void Distortion_Init(struct PlayState *play);  # z64quake.h
+Distortion_SetDuration void Distortion_SetDuration(s16 duration);  # z64quake.h
+Distortion_Request void Distortion_Request(s32 type);  # z64quake.h
+Distortion_RemoveRequest void Distortion_RemoveRequest(s32 type);  # z64quake.h
+Gfx_SetupDLAtPtr void Gfx_SetupDLAtPtr(union Gfx **gfxP, u32 i);  # gfx_setupdl.h
+Gfx_SetupDL26_Opa void Gfx_SetupDL26_Opa(struct GraphicsContext *gfxCtx);  # gfx_setupdl.h
+Gfx_SetupDL23_Opa void Gfx_SetupDL23_Opa(struct GraphicsContext *gfxCtx);  # gfx_setupdl.h
+Gfx_SetupDL34_Opa void Gfx_SetupDL34_Opa(struct GraphicsContext *gfxCtx);  # gfx_setupdl.h
+Gfx_SetupDL39_Opa void Gfx_SetupDL39_Opa(struct GraphicsContext *gfxCtx);  # gfx_setupdl.h
+Gfx_SetupDL39_Overlay void Gfx_SetupDL39_Overlay(struct GraphicsContext *gfxCtx);  # gfx_setupdl.h
+Room_Init void Room_Init(struct PlayState *play, struct RoomContext *roomCtx);  # functions.h
+Inventory_IsMapVisible s32 Inventory_IsMapVisible(s16 sceneId);  # z64inventory.h
+Scene_ResetTransitionActorList void Scene_ResetTransitionActorList(struct GameState *gameState, struct TransitionActorList *transitionActors);  # z64scene.h
+Scene_SetExitFade void Scene_SetExitFade(struct PlayState *play);  # z64scene.h
+Entrance_Create u16 Entrance_Create(s32 scene, s32 spawn, s32 layer);  # z64scene.h
+Entrance_CreateFromSpawn u16 Entrance_CreateFromSpawn(s32 spawn);  # z64scene.h
+AnimatedMat_TexScroll union Gfx *AnimatedMat_TexScroll(struct PlayState *play, struct AnimatedMatTexScrollParams *params);  # z64scene.h
+AnimatedMat_TwoLayerTexScroll union Gfx *AnimatedMat_TwoLayerTexScroll(struct PlayState *play, struct AnimatedMatTexScrollParams *params);  # z64scene.h
+AnimatedMat_Lerp s32 AnimatedMat_Lerp(s32 min, s32 max, f32 norm);  # z64scene.h
+AnimatedMat_DrawXlu void AnimatedMat_DrawXlu(struct PlayState *play, struct AnimatedMaterial *matAnim);  # z64scene.h
+AnimatedMat_DrawAlpha void AnimatedMat_DrawAlpha(struct PlayState *play, struct AnimatedMaterial *matAnim, f32 alphaRatio);  # z64scene.h
+AnimatedMat_DrawStep void AnimatedMat_DrawStep(struct PlayState *play, struct AnimatedMaterial *matAnim, u32 step);  # z64scene.h
+Scene_DrawConfigDoNothing void Scene_DrawConfigDoNothing(struct PlayState *play);  # z64scene.h
+Entrance_GetSceneId s32 Entrance_GetSceneId(u16 entrance);  # z64scene.h
+Entrance_GetSceneIdAbsolute s32 Entrance_GetSceneIdAbsolute(u16 entrance);  # z64scene.h
+AnimTaskQueue_Reset void AnimTaskQueue_Reset(struct AnimTaskQueue *animTaskQueue);  # z64animation.h
+AnimTaskQueue_SetNextGroup void AnimTaskQueue_SetNextGroup(struct PlayState *play);  # z64animation.h
+AnimTaskQueue_DisableTransformTasksForGroup void AnimTaskQueue_DisableTransformTasksForGroup(struct PlayState *play);  # z64animation.h
+AnimTaskQueue_AddLoadPlayerFrame void AnimTaskQueue_AddLoadPlayerFrame(struct PlayState *play, struct PlayerAnimationHeader *animation, s32 frame, s32 limbCount, struct Vec3s *frameTable);  # z64animation.h
+AnimTaskQueue_AddCopy void AnimTaskQueue_AddCopy(struct PlayState *play, s32 vecCount, struct Vec3s *dest, struct Vec3s *src);  # z64animation.h
+AnimTaskQueue_AddInterp void AnimTaskQueue_AddInterp(struct PlayState *play, s32 vecCount, struct Vec3s *base, struct Vec3s *mod, f32 weight);  # z64animation.h
+AnimTaskQueue_AddCopyUsingMap void AnimTaskQueue_AddCopyUsingMap(struct PlayState *play, s32 vecCount, struct Vec3s *dest, struct Vec3s *src, u8 *limbCopyMap);  # z64animation.h
+AnimTaskQueue_AddCopyUsingMapInverted void AnimTaskQueue_AddCopyUsingMapInverted(struct PlayState *play, s32 vecCount, struct Vec3s *dest, struct Vec3s *src, u8 *limbCopyMap);  # z64animation.h
+AnimTaskQueue_AddActorMovement void AnimTaskQueue_AddActorMovement(struct PlayState *play, struct Actor *actor, struct SkelAnime *skelAnime, f32 moveDiffScale);  # z64animation.h
+PlayerAnimation_SetUpdateFunction void PlayerAnimation_SetUpdateFunction(struct SkelAnime *skelAnime);  # z64animation.h
+Animation_SetMorph void Animation_SetMorph(struct PlayState *play, struct SkelAnime *skelAnime, f32 morphFrames);  # z64animation.h
+PlayerAnimation_PlayOnce void PlayerAnimation_PlayOnce(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation);  # z64animation.h
+PlayerAnimation_PlayOnceSetSpeed void PlayerAnimation_PlayOnceSetSpeed(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation, f32 playSpeed);  # z64animation.h
+PlayerAnimation_PlayLoop void PlayerAnimation_PlayLoop(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation);  # z64animation.h
+PlayerAnimation_PlayLoopSetSpeed void PlayerAnimation_PlayLoopSetSpeed(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation, f32 playSpeed);  # z64animation.h
+PlayerAnimation_EndLoop void PlayerAnimation_EndLoop(struct SkelAnime *skelAnime);  # z64animation.h
+SkelAnime_Init void SkelAnime_Init(struct PlayState *play, struct SkelAnime *skelAnime, struct SkeletonHeader *skeletonHeaderSeg, struct AnimationHeader *animation, struct Vec3s *jointTable, struct Vec3s *morphTable, s32 limbCount);  # z64animation.h
+SkelAnime_InitFlex void SkelAnime_InitFlex(struct PlayState *play, struct SkelAnime *skelAnime, struct FlexSkeletonHeader *skeletonHeaderSeg, struct AnimationHeader *animation, struct Vec3s *jointTable, struct Vec3s *morphTable, s32 limbCount);  # z64animation.h
+SkelAnime_Update s32 SkelAnime_Update(struct SkelAnime *skelAnime);  # z64animation.h
+Animation_PlayOnce void Animation_PlayOnce(struct SkelAnime *skelAnime, struct AnimationHeader *animation);  # z64animation.h
+Animation_EndLoop void Animation_EndLoop(struct SkelAnime *skelAnime);  # z64animation.h
+Skin_GetLimbPos void Skin_GetLimbPos(struct Skin *skin, s32 limbIndex, struct Vec3f *offset, struct Vec3f *dst);  # z64skin.h
+Skin_Setup void Skin_Setup(struct Skin *skin);  # z64skin.h
+SkinMatrix_GetClear void SkinMatrix_GetClear(union MtxF **mfp);  # z64skin_matrix.h
+SkinMatrix_MtxFCopy void SkinMatrix_MtxFCopy(union MtxF *src, union MtxF *dest);  # z64skin_matrix.h
+SkinMatrix_SetScale void SkinMatrix_SetScale(union MtxF *mf, f32 x, f32 y, f32 z);  # z64skin_matrix.h
+SkinMatrix_SetTranslate void SkinMatrix_SetTranslate(union MtxF *mf, f32 x, f32 y, f32 z);  # z64skin_matrix.h
+SkinMatrix_SetScaleRotateRPYTranslate void SkinMatrix_SetScaleRotateRPYTranslate(union MtxF *mf, f32 scaleX, f32 scaleY, f32 scaleZ, s16 roll, s16 pitch, s16 yaw, f32 dx, f32 dy, f32 dz);  # z64skin_matrix.h
+SkinMatrix_Vec3fToVec3s void SkinMatrix_Vec3fToVec3s(struct Vec3f *src, struct Vec3s *dest);  # z64skin_matrix.h
+SkinMatrix_Vec3sToVec3f void SkinMatrix_Vec3sToVec3f(struct Vec3s *src, struct Vec3f *dest);  # z64skin_matrix.h
+Snap_UnsetFlag void Snap_UnsetFlag(s32 flag);  # z64snap.h
+Snap_AbsS s16 Snap_AbsS(s16 val);  # z64snap.h
+SubS_UpdateLimb s32 SubS_UpdateLimb(s16 newRotZ, s16 newRotY, struct Vec3f *pos, struct Vec3s *rot, s32 stepRot, s32 overrideRot);  # z64subs.h
+SubS_SetOfferMode void SubS_SetOfferMode(u16 *flags, u16 offerMode, u16 mask);  # z64subs.h
+SubS_TimePathing_ComputeInitialY void SubS_TimePathing_ComputeInitialY(struct PlayState *play, struct Path *path, s32 waypoint, struct Vec3f *targetPos);  # z64subs.h
+SubS_GetAdditionalPath struct Path *SubS_GetAdditionalPath(struct PlayState *play, u8 pathIndex, s32 limit);  # z64subs.h
+SubS_HasReachedPoint s32 SubS_HasReachedPoint(struct Actor *actor, struct Path *path, s32 pointIndex);  # z64subs.h
+SubS_GetDayDependentPath struct Path *SubS_GetDayDependentPath(struct PlayState *play, u8 pathIndex, u8 pathIndexNone, s32 *startPointIndex);  # z64subs.h
+SubS_WeightPathing_ComputePoint s32 SubS_WeightPathing_ComputePoint(struct Path *path, s32 waypoint, struct Vec3f *point, f32 progress, s32 direction);  # z64subs.h
+SubS_WeightPathing_Move s32 SubS_WeightPathing_Move(struct Actor *actor, struct Path *path, s32 *waypoint, f32 *progress, s32 direction, s32 returnStart);  # z64subs.h
+SubS_Offer s32 SubS_Offer(struct Actor *actor, struct PlayState *play, f32 xzRange, f32 yRange, s32 itemId, s32 mode);  # z64subs.h
+SubS_FillShadowTex void SubS_FillShadowTex(s32 startCol, s32 startRow, u8 *tex, s32 size);  # z64subs.h
+SubS_DrawShadowTex void SubS_DrawShadowTex(struct Actor *actor, struct GameState *gameState, u8 *tex);  # z64subs.h
+SubS_ComputeTrackPointRot s16 SubS_ComputeTrackPointRot(s16 *rot, s16 rotMax, s16 target, f32 slowness, f32 stepMin, f32 stepMax);  # z64subs.h
+SubS_TrackPoint s32 SubS_TrackPoint(struct Vec3f *target, struct Vec3f *focusPos, struct Vec3s *shapeRot, struct Vec3s *trackTarget, struct Vec3s *headRot, struct Vec3s *torsoRot, struct TrackOptionsSet *options);  # z64subs.h
+SubS_UpdateFidgetTables s32 SubS_UpdateFidgetTables(struct PlayState *play, s16 *fidgetTableY, s16 *fidgetTableZ, s32 tableLen);  # z64subs.h
+SubS_CopyPointFromPathList s32 SubS_CopyPointFromPathList(struct Path *paths, s32 pathIndex, s32 pointIndex, struct Vec3f *dst);  # z64subs.h
+SubS_ActorPathing_Init void SubS_ActorPathing_Init(struct PlayState *play, struct Vec3f *worldPos, struct Actor *actor, struct ActorPathing *actorPath, struct Path *paths, s32 pathIndex, s32 begPointIndex, s32 endPointIndex, s32 curPointIndex, u8 flags);  # z64subs.h
+SubS_ActorPathing_ComputePointInfo void SubS_ActorPathing_ComputePointInfo(struct PlayState *play, struct ActorPathing *actorPath);  # z64subs.h
+SubS_ActorPathing_MoveWithGravity s32 SubS_ActorPathing_MoveWithGravity(struct PlayState *play, struct ActorPathing *actorPath);  # z64subs.h
+SubS_ActorPathing_MoveWithoutGravityReverse s32 SubS_ActorPathing_MoveWithoutGravityReverse(struct PlayState *play, struct ActorPathing *actorPath);  # z64subs.h
+SubS_ActorPathing_SetNextPoint s32 SubS_ActorPathing_SetNextPoint(struct PlayState *play, struct ActorPathing *actorPath);  # z64subs.h
+SubS_ChangeAnimationBySpeedInfo void SubS_ChangeAnimationBySpeedInfo(struct SkelAnime *skelAnime, struct AnimationSpeedInfo *animationInfo, s32 nextAnimIndex, s32 *curAnimIndex);  # z64subs.h
+SubS_ConstructPlane void SubS_ConstructPlane(struct Vec3f *point, struct Vec3f *unitVec, struct Vec3s *rot, struct Plane *plane);  # z64subs.h
+SubS_LineSegVsPlane s32 SubS_LineSegVsPlane(struct Vec3f *point, struct Vec3s *rot, struct Vec3f *unitVec, struct Vec3f *linePointA, struct Vec3f *linePointB, struct Vec3f *intersect);  # z64subs.h
+SubS_ArePlayerAndActorFacing s32 SubS_ArePlayerAndActorFacing(struct PlayState *play, struct Actor *actor, void *data);  # z64subs.h
+SubS_OfferTalkExchangeFacing s32 SubS_OfferTalkExchangeFacing(struct Actor *actor, struct PlayState *play, f32 xzRange, f32 yRange, s32 exchangeItemAction, s16 playerYawRange, s16 actorYawRange);  # z64subs.h
+SubS_TrackPointStep s32 SubS_TrackPointStep(struct Vec3f *worldPos, struct Vec3f *focusPos, s16 shapeYRot, struct Vec3f *yawTarget, struct Vec3f *pitchTarget, s16 *headZRotStep, s16 *headXRotStep, s16 *torsoZRotStep, s16 *torsoXRotStep, u16 headZRotStepMax, u16 headXRotStepMax, u16 torsoZRotStepMax, u16 torsoXRotStepMax);  # z64subs.h
+Rumble_SetUpdateEnabled void Rumble_SetUpdateEnabled(s32 updateEnabled);  # z64rumble.h
+View_Init void View_Init(struct View *view, struct GraphicsContext *gfxCtx);  # z64view.h
+View_SetScale void View_SetScale(struct View *view, f32 scale);  # z64view.h
+View_GetScale void View_GetScale(struct View *view, f32 *scale);  # z64view.h
+View_GetPerspective void View_GetPerspective(struct View *view, f32 *fovy, f32 *zNear, f32 *zFar);  # z64view.h
+View_GetOrtho void View_GetOrtho(struct View *view, f32 *fovy, f32 *zNear, f32 *zFar);  # z64view.h
+View_SetDistortionOrientation s32 View_SetDistortionOrientation(struct View *view, f32 rotX, f32 rotY, f32 rotZ);  # z64view.h
+View_SetDistortionScale s32 View_SetDistortionScale(struct View *view, f32 scaleX, f32 scaleY, f32 scaleZ);  # z64view.h
+View_SetDistortionSpeed s32 View_SetDistortionSpeed(struct View *view, f32 speed);  # z64view.h
+View_ClearDistortion s32 View_ClearDistortion(struct View *view);  # z64view.h
+ViMode_LogPrint void ViMode_LogPrint(struct OSViMode *vimode);  # z64vimode.h
+ViMode_Configure void ViMode_Configure(struct OSViMode *viMode, s32 type, s32 tvType, s32 loRes, s32 antialiasOff, s32 modeN, s32 fb16Bit, s32 width, s32 height, s32 leftAdjust, s32 rightAdjust, s32 upperAdjust, s32 lowerAdjust);  # z64vimode.h
+ViMode_Save void ViMode_Save(struct ViMode *viMode);  # z64vimode.h
+ViMode_Destroy void ViMode_Destroy(struct ViMode *viMode);  # z64vimode.h
+ViMode_ConfigureFeatures void ViMode_ConfigureFeatures(struct ViMode *viMode, s32 viFeatures);  # z64vimode.h
+VisCvg_Destroy void VisCvg_Destroy(struct VisCvg *this);  # z64vis.h
+VisCvg_Draw void VisCvg_Draw(struct VisCvg *this, union Gfx **gfxP);  # z64vis.h
+VisFbuf_Destroy void VisFbuf_Destroy(struct VisFbuf *this);  # z64visfbuf.h
+VisFbuf_SetBgGeneral void VisFbuf_SetBgGeneral(union Gfx **gfxP, void *source, void *img, s32 width, s32 height, f32 x, f32 y, f32 scaleX, f32 scaleY, s32 cycleMode);  # z64visfbuf.h
+VisFbuf_Draw void VisFbuf_Draw(struct VisFbuf *this, union Gfx **gfxP, void *img);  # z64visfbuf.h
+VisMono_Destroy void VisMono_Destroy(struct VisMono *this);  # z64vis.h
+VisMono_Draw void VisMono_Draw(struct VisMono *this, union Gfx **gfxP);  # z64vis.h
+VisZBuf_Destroy void VisZBuf_Destroy(struct VisZBuf *this);  # z64vis.h
+VisZBuf_Draw void VisZBuf_Draw(struct VisZBuf *this, union Gfx **gfxP, void *zbuffer);  # z64vis.h
+Skybox_Reload void Skybox_Reload(struct PlayState *play, struct SkyboxContext *skyboxCtx, s16 skyboxId);  # z64skybox.h
+Skybox_Init void Skybox_Init(struct GameState *gameState, struct SkyboxContext *skyboxCtx, s16 skyboxId);  # z64skybox.h
+Skybox_Update void Skybox_Update(struct SkyboxContext *skyboxCtx);  # z64skybox.h
+Sram_ResetSaveFromMoonCrash void Sram_ResetSaveFromMoonCrash(struct SramContext *sramCtx);  # z64save.h
+Message_DecodeCredits void Message_DecodeCredits(struct PlayState *play);  # z64message.h
+PlayerCall_Init void PlayerCall_Init(struct Actor *thisx, struct PlayState *play);  # z64player.h
+PlayerCall_Destroy void PlayerCall_Destroy(struct Actor *thisx, struct PlayState *play);  # z64player.h
+PlayerCall_Update void PlayerCall_Update(struct Actor *thisx, struct PlayState *play);  # z64player.h
+PlayerCall_Draw void PlayerCall_Draw(struct Actor *thisx, struct PlayState *play);  # z64player.h
+ShrinkWindow_Letterbox_SetSizeTarget void ShrinkWindow_Letterbox_SetSizeTarget(s32 target);  # z64shrink_window.h
+ShrinkWindow_Pillarbox_SetSize void ShrinkWindow_Pillarbox_SetSize(s32 size);  # z64shrink_window.h
+CutsceneCamera_SetState void CutsceneCamera_SetState(s16 state);  # z64cutscene.h
+KaleidoScopeCall_Init void KaleidoScopeCall_Init(struct PlayState *play);  # kaleido_manager.h
+TransitionTile_Destroy void TransitionTile_Destroy(struct TransitionTile *this);  # z64transition.h
+TransitionTile_Update void TransitionTile_Update(struct TransitionTile *this);  # z64transition.h
+TransitionFade_Init void *TransitionFade_Init(void *thisx);  # z64transition.h
+TransitionFade_Destroy void TransitionFade_Destroy(void *thisx);  # z64transition.h
+TransitionFade_Draw void TransitionFade_Draw(void *thisx, union Gfx **gfxP);  # z64transition.h
+TransitionFade_IsDone s32 TransitionFade_IsDone(void *thisx);  # z64transition.h
+TransitionFade_SetColor void TransitionFade_SetColor(void *thisx, u32 color);  # z64transition.h
+TransitionOverlay_ClearLoadInfo void TransitionOverlay_ClearLoadInfo(struct TransitionOverlay *overlayEntry);  # z64transition.h
+TransitionOverlay_SetSegment void TransitionOverlay_SetSegment(struct TransitionOverlay *overlayEntry, void *vramStart, void *vramEnd, u32 vromStart, u32 vromEnd);  # z64transition.h
+Play_Update void Play_Update(struct PlayState *this);  # z64play.h
+Play_InitEnvironment void Play_InitEnvironment(struct PlayState *this, s16 skyboxId);  # z64play.h
+Play_GetActiveCamId s16 Play_GetActiveCamId(struct PlayState *this);  # z64play.h
+BombersNotebook_Draw void BombersNotebook_Draw(struct BombersNotebook *this, struct GraphicsContext *gfxCtx);  # z64bombers_notebook.h
+PreRender_Destroy void PreRender_Destroy(struct PreRender *this);  # z64prerender.h
+PreRender_SaveZBuffer void PreRender_SaveZBuffer(struct PreRender *this, union Gfx **gfxP);  # z64prerender.h
+PreRender_ApplyFilters void PreRender_ApplyFilters(struct PreRender *this);  # z64prerender.h
+PreRender_ApplyFiltersSlowlyInit void PreRender_ApplyFiltersSlowlyInit(struct PreRender *this);  # z64prerender.h
+PreRender_ApplyFiltersSlowlyDestroy void PreRender_ApplyFiltersSlowlyDestroy(struct PreRender *this);  # z64prerender.h
+THGA_AllocDisplayList union Gfx *THGA_AllocDisplayList(union TwoHeadGfxArena *thga, u32 num);  # thga.h
+THGA_AllocVtxArray union Vtx *THGA_AllocVtxArray(union TwoHeadGfxArena *thga, u32 num);  # thga.h
+THGA_AllocVtx union Vtx *THGA_AllocVtx(union TwoHeadGfxArena *thga);  # thga.h
+THA_GetHead void *THA_GetHead(struct TwoHeadArena *tha);  # tha.h
+THA_SetHead void THA_SetHead(struct TwoHeadArena *tha, void *newHead);  # tha.h
+THA_GetTail void *THA_GetTail(struct TwoHeadArena *tha);  # tha.h
+THA_GetRemaining s32 THA_GetRemaining(struct TwoHeadArena *tha);  # tha.h
+THA_Init void THA_Init(struct TwoHeadArena *tha, void *start, u32 size);  # tha.h
+AudioMgr_Unlock void AudioMgr_Unlock(struct AudioMgr *audioMgr);  # audiomgr.h
+Setup_Destroy void Setup_Destroy(struct GameState *gameState);  # z_title_setup.h
+Setup_Init void Setup_Init(struct GameState *thisx);  # z_title_setup.h
+GameState_UpdateFramerateDivisors void GameState_UpdateFramerateDivisors(s32 divisor);  # z64game.h
+GameState_Noop void GameState_Noop(struct GameState *gameState);  # z64game.h
+GameState_GetInput void GameState_GetInput(struct GameState *gameState);  # z64game.h
+GameState_Realloc void GameState_Realloc(struct GameState *gameState, u32 size);  # z64game.h
+GameState_GetSize u32 GameState_GetSize(struct GameState *gameState);  # z64game.h
+GameState_IsRunning u32 GameState_IsRunning(struct GameState *gameState);  # z64game.h
+GameState_GetArenaSize s32 GameState_GetArenaSize(struct GameState *gameState);  # z64game.h
+GameAlloc_Cleanup void GameAlloc_Cleanup(struct GameAlloc *this);  # gamealloc.h
+GameAlloc_Init void GameAlloc_Init(struct GameAlloc *this);  # gamealloc.h
+Gfx_Open union Gfx *Gfx_Open(union Gfx *gfx);  # gfxalloc.h
+Gfx_Close union Gfx *Gfx_Close(union Gfx *gfx, union Gfx *dst);  # gfxalloc.h
+ListAlloc_FreeAll void ListAlloc_FreeAll(struct ListAlloc *this);  # listalloc.h
+PadMgr_VoiceReleaseSerialEventQueue void PadMgr_VoiceReleaseSerialEventQueue(struct OSMesgQueue *serialEventQueue);  # padmgr.h
+PadMgr_RumbleSetSingle void PadMgr_RumbleSetSingle(s32 port, s32 enable);  # padmgr.h
+PadMgr_ControllerHasRumblePak s32 PadMgr_ControllerHasRumblePak(s32 port);  # padmgr.h
+PadMgr_GetInput void PadMgr_GetInput(struct Input *inputs, s32 gameRequest);  # padmgr.h
+PadMgr_GetInput2 void PadMgr_GetInput2(struct Input *inputs, s32 gameRequest);  # padmgr.h
+Sched_SendNotifyMsg void Sched_SendNotifyMsg(struct Scheduler *sched);  # scheduler.h
+SpeedMeter_DrawTimeEntries void SpeedMeter_DrawTimeEntries(struct SpeedMeter *this, struct GraphicsContext *gfxCtx);  # z64speed_meter.h
+Rand_ZeroFloat f32 Rand_ZeroFloat(f32 scale);  # rand.h
+Math3D_PointInSquare2D s32 Math3D_PointInSquare2D(f32 upperLeftX, f32 lowerRightX, f32 upperLeftY, f32 lowerRightY, f32 x, f32 y);  # z64math.h
+Math3D_Dist2DSq f32 Math3D_Dist2DSq(f32 x0, f32 y0, f32 x1, f32 y1);  # z64math.h
+Math3D_DistPlaneToPos f32 Math3D_DistPlaneToPos(f32 nx, f32 ny, f32 nz, f32 originDist, struct Vec3f *p);  # z64math.h
+Math3D_CylVsTri s32 Math3D_CylVsTri(struct Cylinder16 *cyl, struct TriNorm *tri);  # z64math.h
+Math3D_SphVsSph s32 Math3D_SphVsSph(struct Sphere16 *sphereA, struct Sphere16 *sphereB);  # z64math.h
+Math_Atan2S_XY s16 Math_Atan2S_XY(f32 x, f32 y);  # z64math.h
+Math_Atan2F_XY f32 Math_Atan2F_XY(f32 x, f32 y);  # z64math.h
+Matrix_Put void Matrix_Put(union MtxF *src);  # sys_matrix.h
+Matrix_Mult void Matrix_Mult(union MtxF *mf, s32 mode);  # sys_matrix.h
+Matrix_ToMtx union Mtx *Matrix_ToMtx(union Mtx *dest);  # sys_matrix.h
+Matrix_Finalize union Mtx *Matrix_Finalize(struct GraphicsContext *gfxCtx);  # sys_matrix.h
+RumbleManager_Destroy void RumbleManager_Destroy(struct RumbleManager *rumbleMgr);  # z64rumble.h
+FrameCtrl_Reset void FrameCtrl_Reset(struct FrameControl *frameCtrl);  # z64keyframe.h
+FrameCtrl_SetProperties void FrameCtrl_SetProperties(struct FrameControl *frameCtrl, f32 startTime, f32 endTime, f32 frameCount, f32 t, f32 speed, s32 animMode);  # z64keyframe.h
+FrameCtrl_PassCheck s32 FrameCtrl_PassCheck(struct FrameControl *frameCtrl, f32 t, f32 *remainingTime);  # z64keyframe.h
+Keyframe_ResetFlex void Keyframe_ResetFlex(struct KFSkelAnimeFlex *kfSkelAnime);  # z64keyframe.h
+Keyframe_DestroyFlex void Keyframe_DestroyFlex(struct KFSkelAnimeFlex *kfSkelAnime);  # z64keyframe.h
+Keyframe_FlexPlayOnceSetSpeed void Keyframe_FlexPlayOnceSetSpeed(struct KFSkelAnimeFlex *kfSkelAnime, struct KeyFrameAnimation *animation, f32 speed);  # z64keyframe.h
+Keyframe_FlexPlayLoopSetSpeed void Keyframe_FlexPlayLoopSetSpeed(struct KFSkelAnimeFlex *kfSkelAnime, struct KeyFrameAnimation *animation, f32 speed);  # z64keyframe.h
+Keyframe_FlexChangeAnimQuick void Keyframe_FlexChangeAnimQuick(struct KFSkelAnimeFlex *kfSkelAnime, struct KeyFrameAnimation *animation);  # z64keyframe.h
+Keyframe_Interpolate f32 Keyframe_Interpolate(f32 t, f32 delta, f32 x0, f32 x1, f32 v0, f32 v1);  # z64keyframe.h
+Keyframe_ResetStandard void Keyframe_ResetStandard(struct KFSkelAnime *kfSkelAnime);  # z64keyframe.h
+Keyframe_InitStandard void Keyframe_InitStandard(struct KFSkelAnime *kfSkelAnime, struct KeyFrameSkeleton *skeleton, struct KeyFrameAnimation *animation, struct Vec3s *jointTable, struct Vec3s *morphTable);  # z64keyframe.h
+Keyframe_DestroyStandard void Keyframe_DestroyStandard(struct KFSkelAnime *kfSkelAnime);  # z64keyframe.h
+Keyframe_StandardChangeAnim void Keyframe_StandardChangeAnim(struct KFSkelAnime *kfSkelAnime, struct KeyFrameSkeleton *skeleton, struct KeyFrameAnimation *animation, f32 startTime, f32 endTime, f32 t, f32 speed, f32 morphFrames, s32 animMode, struct Vec3s *rotOffsetsTable);  # z64keyframe.h
+Keyframe_StandardChangeAnimQuick void Keyframe_StandardChangeAnimQuick(struct KFSkelAnime *kfSkelAnime, struct KeyFrameAnimation *animation);  # z64keyframe.h
+SysFlashrom_Read s32 SysFlashrom_Read(void *addr, u32 pageNum, u32 pageCount);  # sys_flashrom.h
+AudioHeap_DiscardFont void AudioHeap_DiscardFont(s32 fontId);  # heap.h
+AudioHeap_InitPool void AudioHeap_InitPool(struct AudioAllocPool *pool, void *addr, u32 size);  # heap.h
+AudioHeap_PopPersistentCache void AudioHeap_PopPersistentCache(s32 tableType);  # heap.h
+AudioHeap_AllocCached void *AudioHeap_AllocCached(s32 tableType, u32 size, s32 cache, s32 id);  # heap.h
+AudioHeap_SearchCaches void *AudioHeap_SearchCaches(s32 tableType, s32 cache, s32 id);  # heap.h
+AudioHeap_LoadFilter void AudioHeap_LoadFilter(s16 *filter, s32 lowPassCutoff, s32 highPassCutoff);  # heap.h
+AudioHeap_AllocPermanent void *AudioHeap_AllocPermanent(s32 tableType, s32 id, u32 size);  # heap.h
+AudioHeap_AllocSampleCache void *AudioHeap_AllocSampleCache(u32 size, s32 sampleBankId, void *sampleAddr, s8 medium, s32 cache);  # heap.h
+AudioHeap_ApplySampleBankCache void AudioHeap_ApplySampleBankCache(s32 sampleBankId);  # heap.h
+AudioHeap_SetReverbData void AudioHeap_SetReverbData(s32 reverbIndex, u32 dataType, s32 data, s32 isFirstInit);  # heap.h
+AudioLoad_DmaSampleData void *AudioLoad_DmaSampleData(u32 devAddr, u32 size, s32 arg2, u8 *dmaIndexRef, s32 medium);  # load.h
+AudioLoad_InitSampleDmaBuffers void AudioLoad_InitSampleDmaBuffers(s32 numNotes);  # load.h
+AudioLoad_SetSeqLoadStatus void AudioLoad_SetSeqLoadStatus(s32 seqId, s32 loadStatus);  # load.h
+AudioLoad_AsyncLoadSeq void AudioLoad_AsyncLoadSeq(s32 seqId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue);  # load.h
+AudioLoad_AsyncLoadSampleBank void AudioLoad_AsyncLoadSampleBank(s32 sampleBankId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue);  # load.h
+AudioLoad_AsyncLoadFont void AudioLoad_AsyncLoadFont(s32 fontId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue);  # load.h
+AudioLoad_DiscardSeqFonts void AudioLoad_DiscardSeqFonts(s32 seqId);  # load.h
+AudioLoad_SlowLoadSeq s32 AudioLoad_SlowLoadSeq(s32 seqId, u8 *ramAddr, s8 *isDone);  # load.h
+AudioThread_QueueCmdU16 void AudioThread_QueueCmdU16(u32 opArgs, u16 data);  # functions.h
+AudioThread_GetExternalLoadQueueMsg u32 AudioThread_GetExternalLoadQueueMsg(u32 *retMsg);  # functions.h
+Audio_InvalDCache void Audio_InvalDCache(void *buf, u32 size);  # functions.h
+Audio_WritebackDCache void Audio_WritebackDCache(void *buf, u32 size);  # functions.h
+osAiSetNextBuffer s32 osAiSetNextBuffer(void *buf, u32 size);  # os_ai.h
+AudioPlayback_NoteDisable void AudioPlayback_NoteDisable(struct Note *note);  # playback.h
+AudioPlayback_GetInstrumentTunedSample struct TunedSample *AudioPlayback_GetInstrumentTunedSample(struct Instrument *instrument, s32 semitone);  # playback.h
+AudioPlayback_SetFontInstrument s32 AudioPlayback_SetFontInstrument(s32 instrumentType, s32 fontId, s32 index, void *value);  # playback.h
+AudioList_FillNotePool void AudioList_FillNotePool(struct NotePool *pool, s32 count);  # list.h
+AudioList_Remove void AudioList_Remove(struct AudioListItem *item);  # list.h
+AudioPlayback_AllocNote struct Note *AudioPlayback_AllocNote(struct SequenceLayer *layer);  # playback.h
+AudioScript_SequencePlayerProcessSound void AudioScript_SequencePlayerProcessSound(struct SequencePlayer *seqPlayer);  # effects.h
+AudioEffects_InitVibrato void AudioEffects_InitVibrato(struct Note *note);  # effects.h
+AudioEffects_InitAdsr void AudioEffects_InitAdsr(struct AdsrState *adsr, struct EnvelopePoint *envelope, s16 *volOut);  # effects.h
+AudioEffects_UpdateAdsr f32 AudioEffects_UpdateAdsr(struct AdsrState *adsr);  # effects.h
+AudioList_PopBack void *AudioList_PopBack(struct AudioListItem *list);  # list.h
+AudioScript_ProcessSequences void AudioScript_ProcessSequences(s32 arg0);  # seqplayer.h
+AudioOcarina_StartForSongCheck void AudioOcarina_StartForSongCheck(u32 ocarinaFlags, u8 ocarinaStaffPlayingPosStart);  # z64ocarina.h
+AudioOcarina_SetOcarinaDisableTimer void AudioOcarina_SetOcarinaDisableTimer(u8 unused, u8 timer);  # z64ocarina.h
+AudioOcarina_SetInstrument void AudioOcarina_SetInstrument(u8 ocarinaInstrumentId);  # z64ocarina.h
+AudioOcarina_SetPlaybackSong void AudioOcarina_SetPlaybackSong(s8 songIndexPlusOne, u8 playbackState);  # z64ocarina.h
+AudioOcarina_SetRecordingState void AudioOcarina_SetRecordingState(u8 recordingState);  # z64ocarina.h
+AudioSfx_SetProperties void AudioSfx_SetProperties(u8 bankId, u8 entryIndex, u8 channelIndex);  # sfx.h
+Audio_PlaySfx void Audio_PlaySfx(u16 sfxId);  # sfx.h
+Audio_PlaySfx_AtPosWithPresetLowFreqAndHighReverb void Audio_PlaySfx_AtPosWithPresetLowFreqAndHighReverb(struct Vec3f *pos, u16 sfxId);  # sfx.h
+Audio_PlaySfx_AtPos void Audio_PlaySfx_AtPos(struct Vec3f *pos, u16 sfxId);  # sfx.h
+Audio_PlaySfx_Underwater void Audio_PlaySfx_Underwater(struct Vec3f *pos, u16 sfxId);  # sfx.h
+Audio_SetSfxUnderwaterReverb void Audio_SetSfxUnderwaterReverb(s8 isUnderwaterReverbActivated);  # sfx.h
+AudioSfx_LowerSfxSettingsReverb void AudioSfx_LowerSfxSettingsReverb(struct Vec3f *pos, s8 isReverbLowered);  # sfx.h
+Audio_PlaySfx_AtPosForMetalEffectsWithSyncedFreqAndVolume void Audio_PlaySfx_AtPosForMetalEffectsWithSyncedFreqAndVolume(struct Vec3f *pos, u16 sfxId, f32 freqVolParam);  # sfx.h
+Audio_PlaySfx_AtPosWithSyncedFreqAndVolume void Audio_PlaySfx_AtPosWithSyncedFreqAndVolume(struct Vec3f *pos, u16 sfxId, f32 freqVolParam);  # sfx.h
+Audio_PlaySfx_GiantsMask void Audio_PlaySfx_GiantsMask(struct Vec3f *pos, u16 sfxId);  # sfx.h
+Audio_PlaySfx_SwordCharge void Audio_PlaySfx_SwordCharge(struct Vec3f *pos, u8 chargeLevel);  # sfx.h
+Audio_PlaySfx_AtPosWithFreqAndChannelIO void Audio_PlaySfx_AtPosWithFreqAndChannelIO(struct Vec3f *pos, u16 sfxId, f32 freqScale, u8 arg3);  # sfx.h
+Audio_SetSfxTimerLerpInterval void Audio_SetSfxTimerLerpInterval(s8 timerLerpRange1, s8 timerLerpRange2);  # sfx.h
+Audio_PlaySfx_AtPosWithReverb void Audio_PlaySfx_AtPosWithReverb(struct Vec3f *pos, u16 sfxId, s8 reverbAdd);  # sfx.h
+Audio_PlaySfx_River void Audio_PlaySfx_River(struct Vec3f *pos, f32 freqScale);  # sfx.h
+Audio_PlaySfx_BigBells void Audio_PlaySfx_BigBells(struct Vec3f *pos, u8 volumeIndex);  # sfx.h
+Audio_SetMainBgmVolume void Audio_SetMainBgmVolume(u8 targetVolume, u8 volumeFadeTimer);  # sequence.h
+Audio_PlayObjSoundBgm void Audio_PlayObjSoundBgm(struct Vec3f *pos, s8 seqId);  # sequence.h
+Audio_PlayObjSoundFanfare void Audio_PlayObjSoundFanfare(struct Vec3f *pos, s8 seqId);  # sequence.h
+Audio_PlaySequenceAtDefaultPos void Audio_PlaySequenceAtDefaultPos(u8 seqPlayerIndex, u16 seqId);  # sequence.h
+Audio_PlaySequenceAtPos void Audio_PlaySequenceAtPos(u8 seqPlayerIndex, struct Vec3f *pos, u16 seqId, f32 maxDist);  # sequence.h
+Audio_PlayMorningSceneSequence void Audio_PlayMorningSceneSequence(u16 seqId, u8 dayMinusOne);  # sequence.h
+Audio_SetSeqTempoAndFreq void Audio_SetSeqTempoAndFreq(u8 seqPlayerIndex, f32 freqTempoScale, u8 duration);  # sequence.h
+Audio_PlaySubBgm void Audio_PlaySubBgm(u16 seqId);  # sequence.h
+Audio_PlayFanfareWithPlayerIOPort7 void Audio_PlayFanfareWithPlayerIOPort7(u16 seqId, u8 ioData);  # sequence.h
+Audio_PlayFanfare void Audio_PlayFanfare(u16 seqId);  # sequence.h
+Audio_UpdateEnemyBgmVolume void Audio_UpdateEnemyBgmVolume(f32 dist);  # sequence.h
+Audio_SetEnvReverb void Audio_SetEnvReverb(s8 reverb);  # sequence.h
+Audio_SetFileSelectSettings void Audio_SetFileSelectSettings(s8 audioSetting);  # sequence.h
+Audio_SetBaseFilter void Audio_SetBaseFilter(u8 filter);  # sequence.h
+Audio_SetCutsceneFlag void Audio_SetCutsceneFlag(s8 flag);  # sequence.h
+Audio_MuteAllSeqExceptSystemAndOcarina void Audio_MuteAllSeqExceptSystemAndOcarina(u16 duration);  # sequence.h
+Audio_MuteSfxAndAmbienceSeqExceptSysAndOca void Audio_MuteSfxAndAmbienceSeqExceptSysAndOca(u16 duration);  # sequence.h
+Audio_StopFanfare void Audio_StopFanfare(u16 duration);  # sequence.h
+AudioVoice_InitWord void AudioVoice_InitWord(u16 wordId);  # z64voice.h
+AudioSfx_StopByBank void AudioSfx_StopByBank(u8 bankId);  # sfx.h
+AudioSfx_StopByPosAndId void AudioSfx_StopByPosAndId(struct Vec3f *pos, u16 sfxId);  # sfx.h
+AudioSfx_StopByTokenAndId void AudioSfx_StopByTokenAndId(u8 token, u16 sfxId);  # sfx.h
+JpegUtils_ProcessQuantizationTable void JpegUtils_ProcessQuantizationTable(u8 *dqt, struct JpegQuantizationTable *qt, u8 count);  # z64jpeg.h
+JpegUtils_ProcessHuffmanTable u32 JpegUtils_ProcessHuffmanTable(u8 *dht, struct JpegHuffmanTable *ht, u8 *codesLengths, u16 *codes, u8 count);  # z64jpeg.h
+JpegDecoder_Decode s32 JpegDecoder_Decode(struct JpegDecoder *decoder, u16 *mcuBuff, s32 count, u8 isFollowing, struct JpegDecoderState *state);  # z64jpeg.h
+GameOver_Init void GameOver_Init(struct PlayState *play);  # z64game_over.h

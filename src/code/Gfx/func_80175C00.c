@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Gfx_Open(s32 arg0) {
-    return arg0 + 8;
+union Gfx * Gfx_Open(union Gfx *gfx) {
+    return (u8 *)gfx + 8;
 }

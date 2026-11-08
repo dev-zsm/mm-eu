@@ -5,6 +5,6 @@
 
 M2C_UNK Math_Vec3f_Yaw(s32, s32, s32, s32);          /* extern */
 
-void Actor_WorldYawTowardActor(s32 arg0, s32 arg1) {
-    Math_Vec3f_Yaw(arg0 + 0x24, arg1 + 0x24, arg0, arg1);
+s16 Actor_WorldYawTowardActor(struct Actor *actorA, struct Actor *actorB) {
+    Math_Vec3f_Yaw((u8 *)actorA + 0x24, (u8 *)actorB + 0x24, actorA, actorB);
 }

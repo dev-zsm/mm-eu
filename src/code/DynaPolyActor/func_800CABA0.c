@@ -4,10 +4,10 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void DynaPolyActor_Init(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x144) = -1;
-    M2C_FIELD(arg0, f32 *, 0x148) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x14C) = 0.0f;
-    M2C_FIELD(arg0, s32 *, 0x154) = arg1;
-    M2C_FIELD(arg0, s8 *, 0x158) = 0;
+void DynaPolyActor_Init(struct DynaPolyActor *dynaActor, s32 transformFlags) {
+    M2C_FIELD(dynaActor, s32 *, 0x144) = -1;
+    M2C_FIELD(dynaActor, f32 *, 0x148) = 0.0f;
+    M2C_FIELD(dynaActor, f32 *, 0x14C) = 0.0f;
+    M2C_FIELD(dynaActor, s32 *, 0x154) = transformFlags;
+    M2C_FIELD(dynaActor, s8 *, 0x158) = 0;
 }

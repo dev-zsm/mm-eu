@@ -6,7 +6,7 @@
 M2C_UNK KaleidoScopeCall_LoadPlayer();                            /* extern */
 extern M2C_UNK (*D_801EE3CC)(s32, s32);
 
-void PlayerCall_Draw(s32 arg0, s32 arg1) {
+void PlayerCall_Draw(struct Actor *thisx, struct PlayState *play) {
     KaleidoScopeCall_LoadPlayer();
-    D_801EE3CC(arg0, arg1);
+    D_801EE3CC(thisx, play);
 }

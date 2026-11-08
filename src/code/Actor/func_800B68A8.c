@@ -7,7 +7,7 @@
 M2C_UNK Actor_UpdatePos(s32);                         /* extern */
 M2C_UNK Actor_UpdateVelocityWithoutGravity(s32);                         /* extern */
 
-void Actor_MoveWithoutGravity(s32 arg0) {
-    Actor_UpdateVelocityWithoutGravity(arg0);
-    Actor_UpdatePos(arg0);
+void Actor_MoveWithoutGravity(struct Actor *actor) {
+    Actor_UpdateVelocityWithoutGravity(actor);
+    Actor_UpdatePos(actor);
 }

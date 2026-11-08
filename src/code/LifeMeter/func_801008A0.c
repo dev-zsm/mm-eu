@@ -3,8 +3,8 @@
 
 extern s16 D_801E6F26;
 
-s32 LifeMeter_IncreaseInterfaceHealth(u8 *arg0) {
-    s16 *health = (s16 *)(arg0 + 0x16C36);
+s32 LifeMeter_IncreaseInterfaceHealth(struct PlayState *play) {
+    s16 *health = (s16 *)((u8 *)play + 0x16C36);
 
     health[1] = 0x140;
     health[0] += 0x10;

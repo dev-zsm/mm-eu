@@ -8,6 +8,6 @@ typedef struct {
 
 extern GetItemEntry D_801BBCA0[];
 
-void GetItem_Draw(void *arg0, s16 index) {
-    D_801BBCA0[index].draw(arg0);
+void GetItem_Draw(struct PlayState *play, s16 drawId) {
+    D_801BBCA0[drawId].draw(play);
 }

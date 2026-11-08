@@ -4,12 +4,12 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Actor_SetClosestSecretDistance(void *arg0, void *arg1) {
+void Actor_SetClosestSecretDistance(struct Actor *actor, struct PlayState *play) {
     f32 temp_f0;
     void *temp_v0;
 
-    temp_v0 = M2C_FIELD(arg1, void **, 0x1CCC);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0x94);
+    temp_v0 = M2C_FIELD(play, void **, 0x1CCC);
+    temp_f0 = M2C_FIELD(actor, f32 *, 0x94);
     if (temp_f0 < M2C_FIELD(temp_v0, f32 *, 0xAA0)) {
         M2C_FIELD(temp_v0, f32 *, 0xAA0) = temp_f0;
     }

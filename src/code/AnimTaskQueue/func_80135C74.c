@@ -4,6 +4,6 @@
 
 extern s32 D_801ED330;
 
-void AnimTaskQueue_SetNextGroup(s32 arg0) {
+void AnimTaskQueue_SetNextGroup(struct PlayState *play) {
     D_801ED330 *= 2;
 }

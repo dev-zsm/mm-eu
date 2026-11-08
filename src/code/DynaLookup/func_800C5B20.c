@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void DynaLookup_ResetVtxStartIndex(s16 *arg0) {
-    *arg0 = 0;
+void DynaLookup_ResetVtxStartIndex(u16 *vtxStartIndex) {
+    *vtxStartIndex = 0;
 }

@@ -12,23 +12,23 @@ typedef struct {
     u16 unk27A;
     s16 unk27C;
 } Sub;
-void Map_InitRoomData(u8 *ctx, s16 arg1) {
+void Map_InitRoomData(struct PlayState *play, s16 room) {
     s32 sp1C = D_801EAE26;
     Sub *new_var;
     u8 *e;
     short new_var2;
-    Sub *sub = (Sub *) (ctx + 0x169E8);
-    MapDisp_SwapRooms(arg1);
-    if (arg1 >= 0) {
-        if (Map_IsInDungeonOrBossScene(ctx) != 0) {
-            e = D_801E6EF0 + (func_8016AE44(*((s16 *) (ctx + 0xA4))) * 0x1C);
-            *((u32 *) (e + 0x110)) |= D_801C29F0[arg1];
+    Sub *sub = (Sub *) ((u8 *)play + 0x169E8);
+    MapDisp_SwapRooms(room);
+    if (room >= 0) {
+        if (Map_IsInDungeonOrBossScene(play) != 0) {
+            e = D_801E6EF0 + (func_8016AE44(*((s16 *) ((u8 *)play + 0xA4))) * 0x1C);
+            *((u32 *) (e + 0x110)) |= D_801C29F0[room];
             new_var = sub;
-            sub->unk27C = arg1;
+            sub->unk27C = room;
             new_var->unk27A = sp1C;
         }
     } else {
-        *((s16 *) (ctx + 0x16C64)) = 0;
+        *((s16 *) ((u8 *)play + 0x16C64)) = 0;
     }
     new_var2 = 0;
     if (D_801EAE48 != 2) {

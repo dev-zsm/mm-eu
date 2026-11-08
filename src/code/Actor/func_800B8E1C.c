@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Actor_PlaySeq_FlaggedMusicBoxHouse(void *arg0) {
-    M2C_FIELD(arg0, u8 *, 0x39) = (u8) (M2C_FIELD(arg0, u8 *, 0x39) | 0x40);
+void Actor_PlaySeq_FlaggedMusicBoxHouse(struct Actor *actor) {
+    M2C_FIELD(actor, u8 *, 0x39) = (u8) (M2C_FIELD(actor, u8 *, 0x39) | 0x40);
 }

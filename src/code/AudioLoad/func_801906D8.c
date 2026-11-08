@@ -5,6 +5,6 @@
 
 M2C_UNK AudioLoad_AsyncLoad(M2C_UNK, s32, M2C_UNK, M2C_UNK, s32); /* extern */
 
-void AudioLoad_AsyncLoadSeq(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3) {
-    AudioLoad_AsyncLoad(0, arg0, 0, arg2, arg3);
+void AudioLoad_AsyncLoadSeq(s32 seqId, s32 arg1, s32 retData, struct OSMesgQueue *retQueue) {
+    AudioLoad_AsyncLoad(0, seqId, 0, retData, retQueue);
 }

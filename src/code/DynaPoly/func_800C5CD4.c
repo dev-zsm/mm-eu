@@ -5,6 +5,6 @@
 
 s32 THA_AllocTailAlign(s32, s32, M2C_UNK, s32);          /* extern */
 
-void DynaPoly_AllocVtxList(s32 arg0, s32 *arg1, s32 arg2) {
-    *arg1 = THA_AllocTailAlign(arg0 + 0x74, arg2 * 6, -2, arg0);
+void DynaPoly_AllocVtxList(struct PlayState *play, struct Vec3s **vtxList, s32 numVtx) {
+    *vtxList = THA_AllocTailAlign((u8 *)play + 0x74, numVtx * 6, -2, play);
 }

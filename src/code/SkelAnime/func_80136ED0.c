@@ -7,21 +7,21 @@ void *func_80100304(s32);                           /* extern */
 s32 ZeldaArena_Malloc(s32);                             /* extern */
 M2C_UNK Animation_PlayLoop(void *, s32);                 /* extern */
 
-void SkelAnime_InitFlex(s32 arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void SkelAnime_InitFlex(struct PlayState *play, struct SkelAnime *skelAnime, struct FlexSkeletonHeader *skeletonHeaderSeg, struct AnimationHeader *animation, struct Vec3s *jointTable, struct Vec3s *morphTable, s32 limbCount) {
     void *temp_v0;
 
-    temp_v0 = func_80100304(arg2);
-    M2C_FIELD(arg1, u8 *, 0) = (u8) (M2C_FIELD(temp_v0, u8 *, 4) + 1);
-    M2C_FIELD(arg1, u8 *, 2) = (u8) M2C_FIELD(temp_v0, u8 *, 8);
-    M2C_FIELD(arg1, void **, 4) = func_80100304(M2C_FIELD(temp_v0, s32 *, 0));
-    if (arg4 == 0) {
-        M2C_FIELD(arg1, s32 *, 0x20) = ZeldaArena_Malloc(M2C_FIELD(arg1, u8 *, 0) * 6);
-        M2C_FIELD(arg1, s32 *, 0x24) = ZeldaArena_Malloc(M2C_FIELD(arg1, u8 *, 0) * 6);
+    temp_v0 = func_80100304(skeletonHeaderSeg);
+    M2C_FIELD(skelAnime, u8 *, 0) = (u8) (M2C_FIELD(temp_v0, u8 *, 4) + 1);
+    M2C_FIELD(skelAnime, u8 *, 2) = (u8) M2C_FIELD(temp_v0, u8 *, 8);
+    M2C_FIELD(skelAnime, void **, 4) = func_80100304(M2C_FIELD(temp_v0, s32 *, 0));
+    if (jointTable == 0) {
+        M2C_FIELD(skelAnime, s32 *, 0x20) = ZeldaArena_Malloc(M2C_FIELD(skelAnime, u8 *, 0) * 6);
+        M2C_FIELD(skelAnime, s32 *, 0x24) = ZeldaArena_Malloc(M2C_FIELD(skelAnime, u8 *, 0) * 6);
     } else {
-        M2C_FIELD(arg1, s32 *, 0x20) = arg4;
-        M2C_FIELD(arg1, s32 *, 0x24) = arg5;
+        M2C_FIELD(skelAnime, s32 *, 0x20) = jointTable;
+        M2C_FIELD(skelAnime, s32 *, 0x24) = morphTable;
     }
-    if (arg3 != 0) {
-        Animation_PlayLoop(arg1, arg3);
+    if (animation != 0) {
+        Animation_PlayLoop(skelAnime, animation);
     }
 }

@@ -7,9 +7,9 @@ M2C_UNK Collider_ResetATBase(s32, s32);                    /* extern */
 M2C_UNK Collider_ResetATElement(s32, s32);                    /* extern */
 M2C_UNK Collider_ResetQuadACDist(s32, s32);                    /* extern */
 
-s32 Collider_ResetQuadAT(s32 arg0, s32 arg1) {
-    Collider_ResetATBase(arg0, arg1);
-    Collider_ResetATElement(arg0, arg1 + 0x18);
-    Collider_ResetQuadACDist(arg0, arg1 + 0x40);
+s32 Collider_ResetQuadAT(struct PlayState *play, struct Collider *col) {
+    Collider_ResetATBase(play, col);
+    Collider_ResetATElement(play, (u8 *)col + 0x18);
+    Collider_ResetQuadACDist(play, (u8 *)col + 0x40);
     return 1;
 }

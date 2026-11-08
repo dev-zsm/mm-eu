@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void SkelAnime_Update(void *arg0) {
-    M2C_FIELD(arg0, M2C_UNK (**)(), 0x30)();
+s32 SkelAnime_Update(struct SkelAnime *skelAnime) {
+    M2C_FIELD(skelAnime, M2C_UNK (**)(), 0x30)();
 }

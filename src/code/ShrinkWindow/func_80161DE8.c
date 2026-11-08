@@ -8,6 +8,6 @@ typedef struct {
 
 extern Window *D_801EE3D4;
 
-void ShrinkWindow_Pillarbox_SetSize(s32 arg0) {
-    D_801EE3D4->unk3 = arg0;
+void ShrinkWindow_Pillarbox_SetSize(s32 size) {
+    D_801EE3D4->unk3 = size;
 }

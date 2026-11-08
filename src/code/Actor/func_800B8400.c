@@ -6,9 +6,9 @@
 
 s32 func_801529DC(s32);                             /* extern */
 
-s32 Actor_TextboxIsClosing(void *arg0, s32 arg1) {
-    if (func_801529DC(arg1 + 0x4908) == 2) {
-        M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 4) & ~0x100);
+s32 Actor_TextboxIsClosing(struct Actor *actor, struct PlayState *play) {
+    if (func_801529DC((u8 *)play + 0x4908) == 2) {
+        M2C_FIELD(actor, s32 *, 4) = (s32) (M2C_FIELD(actor, s32 *, 4) & ~0x100);
         return 1;
     }
     return 0;

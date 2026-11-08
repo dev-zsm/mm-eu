@@ -7,7 +7,7 @@
 M2C_UNK AudioHeap_ApplySampleBankCacheInternal(M2C_UNK, s32);                /* extern */
 extern s32 D_801F4960;
 
-void AudioHeap_ApplySampleBankCache(s32 arg0) {
+void AudioHeap_ApplySampleBankCache(s32 sampleBankId) {
     D_801F4960 = 1;
-    AudioHeap_ApplySampleBankCacheInternal(1, arg0);
+    AudioHeap_ApplySampleBankCacheInternal(1, sampleBankId);
 }

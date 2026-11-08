@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void DynaSSNodeList_Init(s32 arg0, void *arg1) {
-    M2C_FIELD(arg1, s32 *, 0) = 0;
-    M2C_FIELD(arg1, s32 *, 4) = 0;
+void DynaSSNodeList_Init(struct PlayState *play, struct DynaSSNodeList *list) {
+    M2C_FIELD(list, s32 *, 0) = 0;
+    M2C_FIELD(list, s32 *, 4) = 0;
 }

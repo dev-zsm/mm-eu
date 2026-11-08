@@ -9,11 +9,11 @@ typedef struct {
 
 SfxSetting *AudioSfx_AddSfxSetting(s32 arg0);
 
-void AudioSfx_LowerSfxSettingsReverb(s32 arg0, s8 arg1) {
-    SfxSetting *setting = AudioSfx_AddSfxSetting(arg0);
+void AudioSfx_LowerSfxSettingsReverb(struct Vec3f *pos, s8 isReverbLowered) {
+    SfxSetting *setting = AudioSfx_AddSfxSetting(pos);
 
     if (setting != NULL) {
-        if (arg1 != 0) {
+        if (isReverbLowered != 0) {
             setting->unk8 = -0x80;
         } else {
             setting->unk8 = 0;

@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Math_Vec3f_ScaleAndStore(void *arg0, f32 arg1, void *arg2) {
-    M2C_FIELD(arg2, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) * arg1);
-    M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) * arg1);
-    M2C_FIELD(arg2, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) * arg1);
+void Math_Vec3f_ScaleAndStore(struct Vec3f *vec, f32 scale, struct Vec3f *dest) {
+    M2C_FIELD(dest, f32 *, 0) = (f32) (M2C_FIELD(vec, f32 *, 0) * scale);
+    M2C_FIELD(dest, f32 *, 4) = (f32) (M2C_FIELD(vec, f32 *, 4) * scale);
+    M2C_FIELD(dest, f32 *, 8) = (f32) (M2C_FIELD(vec, f32 *, 8) * scale);
 }

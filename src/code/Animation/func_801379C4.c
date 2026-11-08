@@ -6,8 +6,8 @@
 
 M2C_UNK SkelAnime_SetUpdate();                            /* extern */
 
-void Animation_EndLoop(void *arg0) {
-    M2C_FIELD(arg0, s8 *, 1) = 2;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+void Animation_EndLoop(struct SkelAnime *skelAnime) {
+    M2C_FIELD(skelAnime, s8 *, 1) = 2;
+    M2C_FIELD(skelAnime, f32 *, 0x10) = (f32) M2C_FIELD(skelAnime, f32 *, 0x14);
     SkelAnime_SetUpdate();
 }

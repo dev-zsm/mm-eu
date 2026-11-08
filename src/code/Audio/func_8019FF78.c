@@ -10,9 +10,9 @@ extern M2C_UNK D_801D3DD4;
 extern M2C_UNK D_801D3DE0;
 extern M2C_UNK D_801D3DE8;
 
-void Audio_PlaySfx(u16 arg0) {
-    AudioSfx_PlaySfx(arg0, &D_801D3DD4, 4, &D_801D3DE0, &D_801D3DE0, &D_801D3DE8);
-    if (arg0 == 0x5808) {
+void Audio_PlaySfx(u16 sfxId) {
+    AudioSfx_PlaySfx(sfxId, &D_801D3DD4, 4, &D_801D3DE0, &D_801D3DE0, &D_801D3DE8);
+    if (sfxId == 0x5808) {
         Audio_SetSequenceMode(0);
     }
 }

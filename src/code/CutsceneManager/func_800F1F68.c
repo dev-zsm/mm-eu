@@ -4,6 +4,6 @@
 
 extern s16 D_801BE3E6;
 
-s16 CutsceneManager_GetCurrentSubCamId(s32 arg0) {
+s16 CutsceneManager_GetCurrentSubCamId(s16 csId) {
     return D_801BE3E6;
 }

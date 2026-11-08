@@ -7,10 +7,10 @@
 s32 func_800881B0(s32);                             /* extern */
 M2C_UNK func_8008A780(s32, s32);                    /* extern */
 
-void Audio_WritebackDCache(s32 arg0, s32 arg1) {
+void Audio_WritebackDCache(void *buf, u32 size) {
     s32 sp1C;
 
     sp1C = func_800881B0(1);
-    func_8008A780(arg0, arg1);
+    func_8008A780(buf, size);
     func_800881B0(sp1C);
 }

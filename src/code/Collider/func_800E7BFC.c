@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Collider_SetCylinderPosition(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s16 *, 0x46) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 0x48) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 0x4A) = (s16) M2C_FIELD(arg1, s16 *, 4);
+void Collider_SetCylinderPosition(struct ColliderCylinder *cyl, struct Vec3s *pos) {
+    M2C_FIELD(cyl, s16 *, 0x46) = (s16) M2C_FIELD(pos, s16 *, 0);
+    M2C_FIELD(cyl, s16 *, 0x48) = (s16) M2C_FIELD(pos, s16 *, 2);
+    M2C_FIELD(cyl, s16 *, 0x4A) = (s16) M2C_FIELD(pos, s16 *, 4);
 }

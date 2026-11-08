@@ -4,9 +4,9 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-f32 Camera_GetWaterYPos(void *arg0) {
-    if (M2C_FIELD(arg0, s16 *, 0x14C) & 0x100) {
-        return M2C_FIELD(arg0, f32 *, 0x114);
+f32 Camera_GetWaterYPos(struct Camera *camera) {
+    if (M2C_FIELD(camera, s16 *, 0x14C) & 0x100) {
+        return M2C_FIELD(camera, f32 *, 0x114);
     }
     return -32000.0f;
 }

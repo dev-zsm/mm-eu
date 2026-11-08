@@ -1,0 +1,32 @@
+# name prototype  # header of the reference that declares it; made by tools/signatures/ref_sigs.py
+FaultDrawer_FormatStringFunc void *FaultDrawer_FormatStringFunc(void *arg, char *str, u32 count);  # fault_internal.h
+GfxPrint_Setup void GfxPrint_Setup(struct GfxPrint *this);  # gfxprint.h
+GfxPrint_PrintCharImpl void GfxPrint_PrintCharImpl(struct GfxPrint *this, u8 c);  # gfxprint.h
+PadSetup_Init s32 PadSetup_Init(struct OSMesgQueue *mq, u8 *outMask, struct OSContStatus *status);  # padsetup.h
+floorf f32 floorf(f32 x);  # fixed_point.h
+floor f64 floor(f64 x);  # fixed_point.h
+lnearbyintf s32 lnearbyintf(f32 x);  # fixed_point.h
+lnearbyint s32 lnearbyint(f64 x);  # fixed_point.h
+roundf f32 roundf(f32 x);  # fixed_point.h
+round f64 round(f64 x);  # fixed_point.h
+lroundf s32 lroundf(f32 x);  # fixed_point.h
+lround s32 lround(f64 x);  # fixed_point.h
+osSetIntMask u32 osSetIntMask(u32 im);  # os_exception.h
+guScale void guScale(union Mtx *mtx, f32 x, f32 y, f32 z);  # gu.h
+bzero void bzero(void *begin, u32 length);  # os_libc.h
+osCreateThread void osCreateThread(struct OSThread *thread, s32 id, void *entry, void *arg, void *sp, s32 p);  # os_thread.h
+osVoiceGetReadData s32 osVoiceGetReadData(struct OSVoiceHandle *hd, struct OSVoiceData *result);  # os_voice.h
+__osProbeTLB u32 __osProbeTLB(void *param_1);  # osint.h
+__osRepairPackId s32 __osRepairPackId(struct OSPfs *pfs, struct __OSPackId *badid, struct __OSPackId *newid);  # controller.h
+osInvalICache void osInvalICache(void *vaddr, u32 nbytes);  # os_cache.h
+osInvalDCache void osInvalDCache(void *vaddr, u32 nbytes);  # os_cache.h
+guMtxIdent void guMtxIdent(union Mtx *mtx);  # gu.h
+bcmp s32 bcmp(void *__s1, void *__s2, u32 __n);  # os_libc.h
+__osVoiceSetADConverter s32 __osVoiceSetADConverter(struct OSMesgQueue *mq, s32 channel, u8 data);  # controller_voice.h
+guNormalize void guNormalize(float *x, float *y, float *z);  # gu.h
+bcopy void bcopy(void *__src, void *__dest, u32 __n);  # os_libc.h
+__osRestoreInt void __osRestoreInt(u32 im);  # os_internal_reg.h
+coss s16 coss(u16 x);  # gu.h
+osPfsChecker s32 osPfsChecker(struct OSPfs *pfs);  # os_pfs.h
+guTranslate void guTranslate(union Mtx *mtx, f32 x, f32 y, f32 z);  # gu.h
+_Ldtob void _Ldtob(struct _Pft *args, char code);  # xstdio.h

@@ -7,20 +7,20 @@ M2C_UNK MapData_GetMapTexDimGameplayDangeonKeep(s32, s32 *, s32 *);           /*
 M2C_UNK MapData_GetMapTexGameplayDangeonKeepDim(s32, s32 *, s32 *);           /* extern */
 s32 MapData_MID_GetType();                                /* extern */
 
-void MapData_GetMapTexDim(s32 arg0, s32 *arg1, s32 *arg2) {
+void MapData_GetMapTexDim(s32 mapId, s32 *width, s32 *height) {
     s32 temp_v0;
 
     temp_v0 = MapData_MID_GetType();
     switch (temp_v0) {                              /* irregular */
     case 0:
-        MapData_GetMapTexDimGameplayDangeonKeep(arg0, arg1, arg2);
+        MapData_GetMapTexDimGameplayDangeonKeep(mapId, width, height);
         return;
     case 1:
-        MapData_GetMapTexGameplayDangeonKeepDim(arg0, arg1, arg2);
+        MapData_GetMapTexGameplayDangeonKeepDim(mapId, width, height);
         return;
     default:
-        *arg2 = 0;
-        *arg1 = 0;
+        *height = 0;
+        *width = 0;
         return;
     }
 }

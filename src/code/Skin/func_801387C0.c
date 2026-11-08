@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Skin_Setup(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+void Skin_Setup(struct Skin *skin) {
+    M2C_FIELD(skin, s32 *, 0) = 0;
+    M2C_FIELD(skin, s32 *, 0x44) = 0;
+    M2C_FIELD(skin, s32 *, 0x48) = 0;
 }

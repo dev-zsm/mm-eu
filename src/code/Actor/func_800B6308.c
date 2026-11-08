@@ -1,6 +1,6 @@
 #include "types.h"
+#include "generated/code_funcs.h"
 typedef struct { s16 id; s8 flag; void *ptr; } Entry;
-extern void *ZeldaArena_Malloc(s32 a);
 void *Actor_AddSharedMemoryEntry(u8 *ctx, s16 id, void *ptr, s32 size) {
     Entry *e = (Entry *)(ctx + 0x1EAC);
     s32 i;

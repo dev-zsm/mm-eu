@@ -16,7 +16,7 @@ typedef struct {
 extern MapState D_801BF708;
 extern MapDisplay D_801ECF30;
 
-void MapDisp_UpdateDungeonMap(s32 arg0) {
+void MapDisp_UpdateDungeonMap(struct PlayState *play) {
     D_801BF708.counter++;
     if (!(D_801BF708.flags & 1)) {
         D_801ECF30.timer++;

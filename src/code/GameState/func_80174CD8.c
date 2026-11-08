@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-u8 GameState_IsRunning(void *arg0) {
-    return M2C_FIELD(arg0, u8 *, 0x9B);
+u32 GameState_IsRunning(struct GameState *gameState) {
+    return M2C_FIELD(gameState, u8 *, 0x9B);
 }

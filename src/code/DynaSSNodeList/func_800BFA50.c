@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void DynaSSNodeList_ResetCount(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
+void DynaSSNodeList_ResetCount(struct DynaSSNodeList *list) {
+    M2C_FIELD(list, s32 *, 4) = 0;
 }

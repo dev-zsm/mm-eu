@@ -1,7 +1,6 @@
 #include "types.h"
+#include "generated/code_funcs.h"
 
-extern void *ZeldaArena_Malloc(u32 size);
-extern void Camera_Init(void *camera, void *a, void *b, void *c);
 
 void *Camera_Create(void *a, void *b, void *c) {
     void *camera = ZeldaArena_Malloc(0x178);

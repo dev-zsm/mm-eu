@@ -8,9 +8,9 @@ M2C_UNK Collider_InitBase(s32, s32);                    /* extern */
 M2C_UNK Collider_InitElement(s32, s32);                    /* extern */
 M2C_UNK Collider_InitJntSphElementDim(s32, s32);                    /* extern */
 
-s32 Collider_InitSphere(s32 arg0, s32 arg1) {
-    Collider_InitBase(arg0, arg1);
-    Collider_InitElement(arg0, arg1 + 0x18);
-    Collider_InitJntSphElementDim(arg0, arg1 + 0x40);
+s32 Collider_InitSphere(struct PlayState *play, struct ColliderSphere *sph) {
+    Collider_InitBase(play, sph);
+    Collider_InitElement(play, (u8 *)sph + 0x18);
+    Collider_InitJntSphElementDim(play, (u8 *)sph + 0x40);
     return 1;
 }

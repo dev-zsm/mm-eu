@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Flags_GetEventChkInf(s32 arg0) {
+s32 Flags_GetEventChkInf(s32 flag) {
     return 0;
 }

@@ -7,6 +7,6 @@
 M2C_UNK Matrix_MtxFToMtx(s32, s32);                    /* extern */
 extern s32 D_801F3644;
 
-void Matrix_ToMtx(s32 arg0) {
-    Matrix_MtxFToMtx(D_801F3644, arg0);
+union Mtx * Matrix_ToMtx(union Mtx *dest) {
+    Matrix_MtxFToMtx(D_801F3644, dest);
 }

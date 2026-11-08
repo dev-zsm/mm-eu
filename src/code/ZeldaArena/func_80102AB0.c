@@ -7,6 +7,6 @@
 M2C_UNK func_8008766C(M2C_UNK *, s32, M2C_UNK);     /* extern */
 extern M2C_UNK D_801EC980;
 
-void ZeldaArena_Realloc(s32 arg0, M2C_UNK arg1) {
-    func_8008766C(&D_801EC980, arg0, arg1);
+void * ZeldaArena_Realloc(void *ptr, u32 newSize) {
+    func_8008766C(&D_801EC980, ptr, newSize);
 }

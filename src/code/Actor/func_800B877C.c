@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Actor_HasParent(void *arg0, M2C_UNK arg1) {
-    if (M2C_FIELD(arg0, s32 *, 0x120) != 0) {
+s32 Actor_HasParent(struct Actor *actor, struct PlayState *play) {
+    if (M2C_FIELD(actor, s32 *, 0x120) != 0) {
         return 1;
     }
     return 0;

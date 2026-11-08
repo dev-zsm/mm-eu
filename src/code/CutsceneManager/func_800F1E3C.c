@@ -6,6 +6,6 @@
 
 M2C_UNK CutsceneManager_GetCutsceneEntryImpl(s16);                         /* extern */
 
-void CutsceneManager_GetCutsceneEntry(s16 arg0) {
-    CutsceneManager_GetCutsceneEntryImpl(arg0);
+struct CutsceneEntry * CutsceneManager_GetCutsceneEntry(s16 csId) {
+    CutsceneManager_GetCutsceneEntryImpl(csId);
 }

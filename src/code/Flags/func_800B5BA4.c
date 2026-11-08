@@ -2,11 +2,11 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void Flags_UnsetSwitch(s32 *arg0, s32 arg1) {
+void Flags_UnsetSwitch(struct PlayState *play, s32 flag) {
     s32 *p;
 
-    if ((arg1 >= 0) && (arg1 < 0x80)) {
-        p = (s32 *)arg0 + ((arg1 & ~0x1F) >> 5);
-        p[0x1E58 / 4] &= ~(1 << (arg1 & 0x1F));
+    if ((flag >= 0) && (flag < 0x80)) {
+        p = (s32 *)play + ((flag & ~0x1F) >> 5);
+        p[0x1E58 / 4] &= ~(1 << (flag & 0x1F));
     }
 }

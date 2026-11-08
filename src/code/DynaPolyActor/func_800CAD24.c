@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 DynaPolyActor_IsPlayerAbove(void *arg0) {
-    if (M2C_FIELD(arg0, u8 *, 0x158) & 4) {
+s32 DynaPolyActor_IsPlayerAbove(struct DynaPolyActor *dynaActor) {
+    if (M2C_FIELD(dynaActor, u8 *, 0x158) & 4) {
         return 1;
     }
     return 0;

@@ -6,6 +6,6 @@
 f32 Math_Vec3f_DistXZ(void *, void *);                  /* extern */
 M2C_UNK Math_Atan2S_XY(f32, f32);                    /* extern */
 
-void Math_Vec3f_Pitch(void *arg0, void *arg1) {
-    Math_Atan2S_XY(Math_Vec3f_DistXZ(arg0, arg1), M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4));
+s16 Math_Vec3f_Pitch(struct Vec3f *a, struct Vec3f *b) {
+    Math_Atan2S_XY(Math_Vec3f_DistXZ(a, b), M2C_FIELD(a, f32 *, 4) - M2C_FIELD(b, f32 *, 4));
 }

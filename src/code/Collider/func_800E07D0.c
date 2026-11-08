@@ -7,8 +7,8 @@
 M2C_UNK Collider_InitElement(s32, s32);                    /* extern */
 M2C_UNK Collider_InitJntSphElementDim(s32, s32);                    /* extern */
 
-s32 Collider_InitJntSphElement(s32 arg0, s32 arg1) {
-    Collider_InitElement(arg0, arg1);
-    Collider_InitJntSphElementDim(arg0, arg1 + 0x28);
+s32 Collider_InitJntSphElement(struct PlayState *play, struct ColliderJntSphElement *jntSphElem) {
+    Collider_InitElement(play, jntSphElem);
+    Collider_InitJntSphElementDim(play, (u8 *)jntSphElem + 0x28);
     return 1;
 }

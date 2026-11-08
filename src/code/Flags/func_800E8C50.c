@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void Flags_SetEventChkInf(s32 arg0) {
+void Flags_SetEventChkInf(s32 flag) {
 
 }

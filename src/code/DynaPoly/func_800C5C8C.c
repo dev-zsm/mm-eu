@@ -5,6 +5,6 @@
 
 s32 THA_AllocTailAlign(s32, s32, M2C_UNK, s32);          /* extern */
 
-void DynaPoly_AllocPolyList(s32 arg0, s32 *arg1, s32 arg2) {
-    *arg1 = THA_AllocTailAlign(arg0 + 0x74, arg2 * 0x10, -2, arg0);
+void DynaPoly_AllocPolyList(struct PlayState *play, struct CollisionPoly **polyList, s32 numPolys) {
+    *polyList = THA_AllocTailAlign((u8 *)play + 0x74, numPolys * 0x10, -2, play);
 }

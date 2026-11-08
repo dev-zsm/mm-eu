@@ -15,18 +15,18 @@ M2C_UNK Environment_UpdateRain(s32);                         /* extern */
 extern s8 D_801BE710;
 extern s8 D_801BE714;
 
-void Environment_Update(s32 arg0, s32 arg1, s32 arg2, void *arg3, s32 arg4, s32 arg5) {
+void Environment_Update(struct PlayState *play, struct EnvironmentContext *envCtx, struct LightContext *lightCtx, struct PauseContext *pauseCtx, struct MessageContext *msgCtx, struct GameOverContext *gameOverCtx, struct GraphicsContext *gfxCtx) {
     D_801BE710 = 0;
     D_801BE714 = 0;
     Environment_WipeRumbleRequests();
-    if (M2C_FIELD(arg3, u16 *, 0x1EC) == 0) {
-        Environment_UpdateSkyboxRotY(arg0);
-        Environment_UpdateRain(arg0);
-        Environment_UpdateTimeBasedSequence(arg0);
+    if (M2C_FIELD(pauseCtx, u16 *, 0x1EC) == 0) {
+        Environment_UpdateSkyboxRotY(play);
+        Environment_UpdateRain(play);
+        Environment_UpdateTimeBasedSequence(play);
         Environment_UpdateNextDayTime();
-        Environment_UpdateTime(arg0, arg1, arg3, arg4, arg5);
-        Environment_UpdateSun(arg0);
-        Environment_UpdateLights(arg0, arg1, arg2);
-        Environment_UpdatePostmanEvents(arg0);
+        Environment_UpdateTime(play, envCtx, pauseCtx, msgCtx, gameOverCtx);
+        Environment_UpdateSun(play);
+        Environment_UpdateLights(play, envCtx, lightCtx);
+        Environment_UpdatePostmanEvents(play);
     }
 }

@@ -9,7 +9,7 @@ extern M2C_UNK D_801EE690;
 extern s32 D_801EE850;
 extern M2C_UNK D_801EE858;
 
-void PreRender_ApplyFiltersSlowlyDestroy(s32 arg0) {
+void PreRender_ApplyFiltersSlowlyDestroy(struct PreRender *this) {
     if (D_801EE850 != 0) {
         func_80085468(&D_801EE858);
         Slowly_Destroy(&D_801EE690);

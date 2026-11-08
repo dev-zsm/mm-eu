@@ -2,13 +2,13 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Math_StepUntilAngleS(s16 *arg0, s16 arg1, s16 arg2) {
+s32 Math_StepUntilAngleS(s16 *pValue, s16 target, s16 step) {
     s16 temp_v0;
 
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + arg2;
-    if (((s16) (*arg0 - arg1) * (s16) (temp_v0 - arg1)) <= 0) {
-        *arg0 = arg1;
+    temp_v0 = *pValue;
+    *pValue = temp_v0 + step;
+    if (((s16) (*pValue - target) * (s16) (temp_v0 - target)) <= 0) {
+        *pValue = target;
         return 1;
     }
     return 0;

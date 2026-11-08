@@ -5,12 +5,12 @@
 
 s32 Camera_ChangeSettingFlags(void *, s16, M2C_UNK);            /* extern */
 
-s32 Camera_ChangeSetting(void *arg0, s16 arg1) {
+s32 Camera_ChangeSetting(struct Camera *camera, s16 setting) {
     s32 temp_v0;
 
-    temp_v0 = Camera_ChangeSettingFlags(arg0, arg1, 0);
+    temp_v0 = Camera_ChangeSettingFlags(camera, setting, 0);
     if (temp_v0 >= 0) {
-        M2C_FIELD(arg0, s16 *, 0x148) = -1;
+        M2C_FIELD(camera, s16 *, 0x148) = -1;
     }
     return temp_v0;
 }

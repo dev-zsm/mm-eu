@@ -4,10 +4,10 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Player_IsHoldingTwoHandedWeapon(void *arg0) {
+s32 Player_IsHoldingTwoHandedWeapon(struct Player *player) {
     s8 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s8 *, 0x147);
+    temp_v0 = M2C_FIELD(player, s8 *, 0x147);
     if ((temp_v0 >= 6) && (temp_v0 < 8)) {
         return 1;
     }

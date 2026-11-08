@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void DynaLookup_ResetWaterBoxStartIndex(s16 *arg0) {
-    *arg0 = 0;
+void DynaLookup_ResetWaterBoxStartIndex(u16 *waterBoxStartIndex) {
+    *waterBoxStartIndex = 0;
 }

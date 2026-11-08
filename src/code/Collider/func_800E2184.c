@@ -6,8 +6,8 @@
 
 M2C_UNK Math_Vec3f_Copy(s32, s32);                    /* extern */
 
-s32 Collider_SetLinePoints(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    Math_Vec3f_Copy(arg1, arg2);
-    Math_Vec3f_Copy(arg1 + 0xC, arg3);
+s32 Collider_SetLinePoints(struct PlayState *play, struct OcLine *line, struct Vec3f *a, struct Vec3f *b) {
+    Math_Vec3f_Copy(line, a);
+    Math_Vec3f_Copy((u8 *)line + 0xC, b);
     return 1;
 }

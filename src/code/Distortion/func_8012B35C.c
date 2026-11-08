@@ -6,7 +6,7 @@
 
 extern M2C_UNK D_801ED310;
 
-void Distortion_SetDuration(s16 arg0) {
-    M2C_FIELD(&D_801ED310, s16 *, 8) = arg0;
+void Distortion_SetDuration(s16 duration) {
+    M2C_FIELD(&D_801ED310, s16 *, 8) = duration;
     M2C_FIELD(&D_801ED310, s16 *, 0xA) = 2;
 }

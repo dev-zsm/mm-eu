@@ -2,10 +2,10 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Player_BottleFromIA(s32 arg0, s32 arg1) {
+s32 Player_BottleFromIA(struct Player *player, s32 itemAction) {
     s32 temp_v0;
 
-    temp_v0 = arg1 - 0x15;
+    temp_v0 = itemAction - 0x15;
     if ((temp_v0 >= 0) && (temp_v0 < 0x15)) {
         return temp_v0;
     }

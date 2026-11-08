@@ -4,8 +4,8 @@
 
 extern s8 D_801CF020;
 
-void Audio_SetSfxUnderwaterReverb(s8 arg0) {
-    if (arg0 != 0) {
+void Audio_SetSfxUnderwaterReverb(s8 isUnderwaterReverbActivated) {
+    if (isUnderwaterReverbActivated != 0) {
         D_801CF020 = -0x80;
         return;
     }

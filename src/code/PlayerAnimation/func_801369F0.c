@@ -6,6 +6,6 @@
 s32 Animation_GetLastFrame(s32);                             /* extern */
 M2C_UNK PlayerAnimation_Change(s32, s32, s32, M2C_UNK, f32, f32, s32, f32); /* extern */
 
-void PlayerAnimation_PlayLoop(s32 arg0, s32 arg1, s32 arg2) {
-    PlayerAnimation_Change(arg0, arg1, arg2, 0x3F800000, 0.0f, (f32) Animation_GetLastFrame(arg2), 0, 0.0f);
+void PlayerAnimation_PlayLoop(struct PlayState *play, struct SkelAnime *skelAnime, struct PlayerAnimationHeader *animation) {
+    PlayerAnimation_Change(play, skelAnime, animation, 0x3F800000, 0.0f, (f32) Animation_GetLastFrame(animation), 0, 0.0f);
 }

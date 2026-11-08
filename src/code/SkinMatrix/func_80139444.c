@@ -6,6 +6,6 @@
 
 extern M2C_UNK D_801C6990;
 
-void SkinMatrix_GetClear(M2C_UNK **arg0) {
-    *arg0 = &D_801C6990;
+void SkinMatrix_GetClear(union MtxF **mfp) {
+    *mfp = &D_801C6990;
 }

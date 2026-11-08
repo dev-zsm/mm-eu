@@ -7,8 +7,8 @@
 M2C_UNK Collider_InitElement(s32, s32);                    /* extern */
 M2C_UNK Collider_InitTrisElementDim(s32, s32);                    /* extern */
 
-s32 Collider_InitTrisElement(s32 arg0, s32 arg1) {
-    Collider_InitElement(arg0, arg1);
-    Collider_InitTrisElementDim(arg0, arg1 + 0x28);
+s32 Collider_InitTrisElement(struct PlayState *play, struct ColliderTrisElement *trisElem) {
+    Collider_InitElement(play, trisElem);
+    Collider_InitTrisElementDim(play, (u8 *)trisElem + 0x28);
     return 1;
 }

@@ -3,6 +3,6 @@
 #include "generated/code_funcs.h"
 
 
-s32 Player_GetHeldBButtonSword(void *arg0) {
-    return Player_BButtonSwordFromIA(arg0, *(s8 *)((u8 *)arg0 + 0x147));
+s32 Player_GetHeldBButtonSword(struct Player *player) {
+    return Player_BButtonSwordFromIA(player, *(s8 *)((u8 *)player + 0x147));
 }

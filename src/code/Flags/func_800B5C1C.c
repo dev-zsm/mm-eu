@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Flags_SetAllTreasure(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x1E68) = arg1;
+void Flags_SetAllTreasure(struct PlayState *play, s32 flag) {
+    M2C_FIELD(play, s32 *, 0x1E68) = flag;
 }

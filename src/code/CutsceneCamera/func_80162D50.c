@@ -6,8 +6,8 @@
 
 extern void *D_801EE3E0;
 
-void CutsceneCamera_SetState(s16 arg0) {
+void CutsceneCamera_SetState(s16 state) {
     if (M2C_FIELD(D_801EE3E0, s16 *, 6) == 0) {
-        M2C_FIELD(D_801EE3E0, s16 *, 6) = arg0;
+        M2C_FIELD(D_801EE3E0, s16 *, 6) = state;
     }
 }

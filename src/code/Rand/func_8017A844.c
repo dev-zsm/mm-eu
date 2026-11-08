@@ -4,6 +4,6 @@
 
 f32 func_8008704C();
 
-f32 Rand_ZeroFloat(f32 arg0) {
-    return func_8008704C() * arg0;
+f32 Rand_ZeroFloat(f32 scale) {
+    return func_8008704C() * scale;
 }

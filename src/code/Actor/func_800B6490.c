@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Actor_Kill(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x13C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x138) = 0;
-    M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 4) & ~1);
+void Actor_Kill(struct Actor *actor) {
+    M2C_FIELD(actor, s32 *, 0x13C) = 0;
+    M2C_FIELD(actor, s32 *, 0x138) = 0;
+    M2C_FIELD(actor, s32 *, 4) = (s32) (M2C_FIELD(actor, s32 *, 4) & ~1);
 }

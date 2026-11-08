@@ -6,7 +6,7 @@
 
 extern M2C_UNK D_801E6EF0;
 
-void Horse_ResetHorseData(s32 arg0) {
+void Horse_ResetHorseData(struct PlayState *play) {
     M2C_FIELD(&D_801E6EF0, s16 *, 0x1000) = 0x35;
     M2C_FIELD(&D_801E6EF0, s16 *, 0x1002) = -0x58C;
     M2C_FIELD(&D_801E6EF0, s16 *, 0x1004) = 0x101;

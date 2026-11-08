@@ -5,8 +5,8 @@
 
 M2C_UNK ZeldaArena_Free();                            /* extern */
 
-void Camera_Destroy(s32 arg0) {
-    if (arg0 != 0) {
+void Camera_Destroy(struct Camera *camera) {
+    if (camera != 0) {
         ZeldaArena_Free();
     }
 }

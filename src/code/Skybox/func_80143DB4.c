@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void Skybox_Update(s32 arg0) {
+void Skybox_Update(struct SkyboxContext *skyboxCtx) {
 
 }

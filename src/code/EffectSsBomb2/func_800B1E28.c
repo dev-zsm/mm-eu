@@ -4,7 +4,7 @@
 
 extern void Math_Vec3f_Copy(void *, s32);
 
-void EffectSsBomb2_SpawnFade(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void EffectSsBomb2_SpawnFade(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel) {
     struct {
         s32 v0[3];
         s32 v1[3];
@@ -14,11 +14,11 @@ void EffectSsBomb2_SpawnFade(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         s8 b0;
     } sp;
 
-    Math_Vec3f_Copy(sp.v0, arg1);
-    Math_Vec3f_Copy(sp.v1, arg2);
-    Math_Vec3f_Copy(sp.v2, arg3);
+    Math_Vec3f_Copy(sp.v0, pos);
+    Math_Vec3f_Copy(sp.v1, velocity);
+    Math_Vec3f_Copy(sp.v2, accel);
     sp.s0 = 100;
     sp.s1 = 0;
     sp.b0 = 0;
-    EffectSs_Spawn(arg0, 3, 10, &sp);
+    EffectSs_Spawn(play, 3, 10, &sp);
 }

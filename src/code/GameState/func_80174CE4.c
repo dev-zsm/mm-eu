@@ -5,6 +5,6 @@
 
 M2C_UNK THA_GetRemaining(s32, s32);                    /* extern */
 
-void GameState_GetArenaSize(s32 arg0) {
-    THA_GetRemaining(arg0 + 0x74, arg0);
+s32 GameState_GetArenaSize(struct GameState *gameState) {
+    THA_GetRemaining((u8 *)gameState + 0x74, gameState);
 }

@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Collider_DestroyTrisElementDim(s32 arg0, M2C_UNK arg1) {
+s32 Collider_DestroyTrisElementDim(struct PlayState *play, struct TriNorm *dim) {
     return 1;
 }

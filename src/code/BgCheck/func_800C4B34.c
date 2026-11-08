@@ -2,6 +2,6 @@
 #include "generated/code_funcs.h"
 
 
-s32 BgCheck_EntitySphVsWall4(void *colCtx, void *posResult, void *pos, s32 arg3, f32 radius, s32 arg5, s32 arg6, s32 arg7, f32 arg8) {
-    return BgCheck_CheckWallImpl(colCtx, 2, posResult, pos, arg3, radius, arg5, arg6, arg7, arg8, 1);
+s32 BgCheck_EntitySphVsWall4(struct CollisionContext *colCtx, struct Vec3f *posResult, struct Vec3f *posNext, struct Vec3f *posPrev, f32 radius, struct CollisionPoly **outPoly, s32 *outBgId, struct Actor *actor, f32 checkHeight) {
+    return BgCheck_CheckWallImpl(colCtx, 2, posResult, posNext, posPrev, radius, outPoly, outBgId, actor, checkHeight, 1);
 }

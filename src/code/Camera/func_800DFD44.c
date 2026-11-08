@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s16 Camera_UnsetStateFlag(void *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) & ~arg1);
-    return M2C_FIELD(arg0, s16 *, 0x14C);
+s16 Camera_UnsetStateFlag(struct Camera *camera, s16 flags) {
+    M2C_FIELD(camera, s16 *, 0x14C) = (s16) (M2C_FIELD(camera, s16 *, 0x14C) & ~flags);
+    return M2C_FIELD(camera, s16 *, 0x14C);
 }

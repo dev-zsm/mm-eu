@@ -11,12 +11,12 @@ typedef struct {
 
 AnimTaskEntry *AnimTaskQueue_NewTask(s32, s32);
 
-void AnimTaskQueue_AddActorMovement(s32 arg0, s32 arg1, s32 arg2, f32 arg3) {
+void AnimTaskQueue_AddActorMovement(struct PlayState *play, struct Actor *actor, struct SkelAnime *skelAnime, f32 moveDiffScale) {
     AnimTaskEntry *temp_v0;
-    temp_v0 = AnimTaskQueue_NewTask(arg0 + 0x17104, 5);
+    temp_v0 = AnimTaskQueue_NewTask((u8 *)play + 0x17104, 5);
     if (temp_v0 != NULL) {
-        temp_v0->unk4 = arg1;
-        temp_v0->unk8 = arg2;
-        temp_v0->unkC = arg3;
+        temp_v0->unk4 = actor;
+        temp_v0->unk8 = skelAnime;
+        temp_v0->unkC = moveDiffScale;
     }
 }

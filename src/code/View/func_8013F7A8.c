@@ -4,9 +4,9 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 View_SetDistortionOrientation(void *arg0, f32 arg1, f32 arg2, f32 arg3) {
-    M2C_FIELD(arg0, f32 *, 0x128) = arg1;
-    M2C_FIELD(arg0, f32 *, 0x12C) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x130) = arg3;
+s32 View_SetDistortionOrientation(struct View *view, f32 rotX, f32 rotY, f32 rotZ) {
+    M2C_FIELD(view, f32 *, 0x128) = rotX;
+    M2C_FIELD(view, f32 *, 0x12C) = rotY;
+    M2C_FIELD(view, f32 *, 0x130) = rotZ;
     return 1;
 }

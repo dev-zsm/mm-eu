@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void ViMode_LogPrint(s32 arg0) {
+void ViMode_LogPrint(struct OSViMode *vimode) {
 
 }

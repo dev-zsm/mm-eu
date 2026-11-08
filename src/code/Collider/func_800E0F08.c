@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Collider_DestroyCylinderDim(s32 arg0, M2C_UNK arg1) {
+s32 Collider_DestroyCylinderDim(struct PlayState *play, struct Cylinder16 *dim) {
     return 1;
 }

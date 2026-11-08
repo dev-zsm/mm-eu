@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void FrameAdvance_Init(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0) = 0;
+void FrameAdvance_Init(struct FrameAdvanceContext *frameAdvCtx) {
+    M2C_FIELD(frameAdvCtx, s32 *, 4) = 0;
+    M2C_FIELD(frameAdvCtx, s32 *, 0) = 0;
 }

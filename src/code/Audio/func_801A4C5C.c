@@ -6,10 +6,10 @@
 M2C_UNK AudioSeq_QueueSeqCmd(s32);                         /* extern */
 extern s8 D_801CEFD8;
 
-void Audio_SetFileSelectSettings(s8 arg0) {
+void Audio_SetFileSelectSettings(s8 audioSetting) {
     s8 sp1F;
 
-    switch (arg0) {                                 /* irregular */
+    switch (audioSetting) {                                 /* irregular */
     case 0:
         sp1F = 0;
         D_801CEFD8 = 0;

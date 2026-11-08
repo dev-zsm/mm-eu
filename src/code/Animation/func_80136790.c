@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Animation_SetMorph(s32 arg0, void *arg1, f32 arg2) {
-    M2C_FIELD(arg1, f32 *, 0x28) = 1.0f;
-    M2C_FIELD(arg1, f32 *, 0x2C) = (f32) (1.0f / arg2);
+void Animation_SetMorph(struct PlayState *play, struct SkelAnime *skelAnime, f32 morphFrames) {
+    M2C_FIELD(skelAnime, f32 *, 0x28) = 1.0f;
+    M2C_FIELD(skelAnime, f32 *, 0x2C) = (f32) (1.0f / morphFrames);
 }

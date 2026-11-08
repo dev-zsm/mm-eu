@@ -13,14 +13,14 @@ typedef struct {
     s16 f;
 } SolderSrchParams;
 
-void EffectSsSolderSrchBall_Spawn(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s16 arg4, s32 arg5, s16 arg6) {
+void EffectSsSolderSrchBall_Spawn(struct PlayState *play, struct Vec3f *pos, struct Vec3f *velocity, struct Vec3f *accel, s16 scale, s16 *playerDetected, s16 flags) {
     SolderSrchParams sp;
 
-    Math_Vec3f_Copy(sp.a, arg1);
-    Math_Vec3f_Copy(sp.b, arg2);
-    Math_Vec3f_Copy(sp.c, arg3);
-    sp.d = arg4;
-    sp.e = arg5;
-    sp.f = arg6;
-    EffectSs_Spawn(arg0, 0x18, 0x80, &sp);
+    Math_Vec3f_Copy(sp.a, pos);
+    Math_Vec3f_Copy(sp.b, velocity);
+    Math_Vec3f_Copy(sp.c, accel);
+    sp.d = scale;
+    sp.e = playerDetected;
+    sp.f = flags;
+    EffectSs_Spawn(play, 0x18, 0x80, &sp);
 }

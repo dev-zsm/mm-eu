@@ -5,6 +5,6 @@
 
 s32 THA_AllocTailAlign(s32, s32, M2C_UNK, s32);          /* extern */
 
-void DynaPoly_AllocWaterBoxList(s32 arg0, void *arg1, s32 arg2) {
-    M2C_FIELD(arg1, s32 *, 4) = THA_AllocTailAlign(arg0 + 0x74, arg2 * 0x10, -2, arg0);
+void DynaPoly_AllocWaterBoxList(struct PlayState *play, struct DynaWaterBoxList *waterBoxList, s32 numWaterBoxes) {
+    M2C_FIELD(waterBoxList, s32 *, 4) = THA_AllocTailAlign((u8 *)play + 0x74, numWaterBoxes * 0x10, -2, play);
 }

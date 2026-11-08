@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void TransitionTile_Update(s32 arg0) {
+void TransitionTile_Update(struct TransitionTile *this) {
 
 }

@@ -6,8 +6,8 @@
 M2C_UNK Collider_ResetOCBase(s32, s32);                    /* extern */
 M2C_UNK Collider_ResetOCElement(s32, s32);                    /* extern */
 
-s32 Collider_ResetQuadOC(s32 arg0, s32 arg1) {
-    Collider_ResetOCBase(arg0, arg1);
-    Collider_ResetOCElement(arg0, arg1 + 0x18);
+s32 Collider_ResetQuadOC(struct PlayState *play, struct Collider *col) {
+    Collider_ResetOCBase(play, col);
+    Collider_ResetOCElement(play, (u8 *)col + 0x18);
     return 1;
 }

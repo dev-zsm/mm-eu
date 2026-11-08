@@ -5,6 +5,6 @@
 
 M2C_UNK BgCheck_RaycastFloorImpl(M2C_UNK, s32, M2C_UNK, s32, s32, s32, s32, s32, f32, s32); /* extern */
 
-void BgCheck_CameraRaycastFloor2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    BgCheck_RaycastFloorImpl(0, arg0, 1, arg1, arg2, arg3, 0, 6, 1.0f, 0);
+f32 BgCheck_CameraRaycastFloor2(struct CollisionContext *colCtx, struct CollisionPoly **outPoly, s32 *bgId, struct Vec3f *pos) {
+    BgCheck_RaycastFloorImpl(0, colCtx, 1, outPoly, bgId, pos, 0, 6, 1.0f, 0);
 }

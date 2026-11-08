@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 CutsceneFlags_Get(u8 *arg0, s16 arg1) {
-    return *(u16 *)(arg0 + 0x18B20 + (s16) (arg1 / 16) * 2) & (s16) (1 << (s16) (arg1 % 16));
+s32 CutsceneFlags_Get(struct PlayState *play, s16 flag) {
+    return *(u16 *)((u8 *)play + 0x18B20 + (s16) (flag / 16) * 2) & (s16) (1 << (s16) (flag % 16));
 }

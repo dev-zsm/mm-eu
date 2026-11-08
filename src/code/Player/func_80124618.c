@@ -2,10 +2,10 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-s32 Player_MeleeWeaponFromIA(s32 arg0) {
+s32 Player_MeleeWeaponFromIA(s32 itemAction) {
     s32 temp_v0;
 
-    temp_v0 = arg0 - 2;
+    temp_v0 = itemAction - 2;
     if ((temp_v0 > 0) && (temp_v0 < 7)) {
         return temp_v0;
     }

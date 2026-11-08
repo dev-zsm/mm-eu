@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void VisFbuf_Destroy(s32 arg0) {
+void VisFbuf_Destroy(struct VisFbuf *this) {
 
 }

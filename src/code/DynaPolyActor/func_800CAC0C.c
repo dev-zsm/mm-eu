@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void DynaPolyActor_UnsetAllInteractFlags(void *arg0) {
-    M2C_FIELD(arg0, s8 *, 0x158) = 0;
+void DynaPolyActor_UnsetAllInteractFlags(struct DynaPolyActor *dynaActor) {
+    M2C_FIELD(dynaActor, s8 *, 0x158) = 0;
 }

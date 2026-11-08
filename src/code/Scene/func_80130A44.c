@@ -5,6 +5,6 @@
 
 s32 Entrance_GetTransitionFlags(u16);                             /* extern */
 
-void Scene_SetExitFade(void *arg0) {
-    M2C_FIELD(arg0, s8 *, 0x1887F) = (s8) (Entrance_GetTransitionFlags(M2C_FIELD(arg0, u16 *, 0x1887A)) & 0x7F);
+void Scene_SetExitFade(struct PlayState *play) {
+    M2C_FIELD(play, s8 *, 0x1887F) = (s8) (Entrance_GetTransitionFlags(M2C_FIELD(play, u16 *, 0x1887A)) & 0x7F);
 }

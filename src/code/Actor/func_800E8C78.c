@@ -6,10 +6,10 @@
 
 M2C_UNK Math_SmoothStepToS(s32, M2C_UNK, M2C_UNK, M2C_UNK, s32); /* extern */
 
-s32 Actor_TrackNone(s32 arg0, s32 arg1) {
-    Math_SmoothStepToS(arg0 + 2, 0, 6, 0x1838, 0x64);
-    Math_SmoothStepToS(arg0, 0, 6, 0x1838, 0x64);
-    Math_SmoothStepToS(arg1 + 2, 0, 6, 0x1838, 0x64);
-    Math_SmoothStepToS(arg1, 0, 6, 0x1838, 0x64);
+s32 Actor_TrackNone(struct Vec3s *headRot, struct Vec3s *torsoRot) {
+    Math_SmoothStepToS((u8 *)headRot + 2, 0, 6, 0x1838, 0x64);
+    Math_SmoothStepToS(headRot, 0, 6, 0x1838, 0x64);
+    Math_SmoothStepToS((u8 *)torsoRot + 2, 0, 6, 0x1838, 0x64);
+    Math_SmoothStepToS(torsoRot, 0, 6, 0x1838, 0x64);
     return 1;
 }

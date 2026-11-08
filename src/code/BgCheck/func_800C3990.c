@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void BgCheck_SetContextFlags(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x146C) = (s32) (M2C_FIELD(arg0, s32 *, 0x146C) | arg1);
+void BgCheck_SetContextFlags(struct CollisionContext *colCtx, u32 flags) {
+    M2C_FIELD(colCtx, s32 *, 0x146C) = (s32) (M2C_FIELD(colCtx, s32 *, 0x146C) | flags);
 }

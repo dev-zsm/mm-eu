@@ -6,8 +6,8 @@
 M2C_UNK Collider_ResetACBase(s32, s32);                    /* extern */
 M2C_UNK Collider_ResetACElement(s32, s32);                    /* extern */
 
-s32 Collider_ResetSphereAC(s32 arg0, s32 arg1) {
-    Collider_ResetACBase(arg0, arg1);
-    Collider_ResetACElement(arg0, arg1 + 0x18);
+s32 Collider_ResetSphereAC(struct PlayState *play, struct Collider *col) {
+    Collider_ResetACBase(play, col);
+    Collider_ResetACElement(play, (u8 *)col + 0x18);
     return 1;
 }

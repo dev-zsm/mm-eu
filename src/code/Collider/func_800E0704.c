@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Collider_ResetOCElement(s32 arg0, void *arg1) {
-    M2C_FIELD(arg1, u8 *, 0x17) = (u8) (M2C_FIELD(arg1, u8 *, 0x17) & 0xFFFD);
+void Collider_ResetOCElement(struct PlayState *play, struct ColliderElement *elem) {
+    M2C_FIELD(elem, u8 *, 0x17) = (u8) (M2C_FIELD(elem, u8 *, 0x17) & 0xFFFD);
 }

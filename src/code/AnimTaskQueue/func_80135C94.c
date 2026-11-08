@@ -5,6 +5,6 @@
 extern s32 D_801ED330;
 extern s32 D_801ED334;
 
-void AnimTaskQueue_DisableTransformTasksForGroup(s32 arg0) {
+void AnimTaskQueue_DisableTransformTasksForGroup(struct PlayState *play) {
     D_801ED334 |= D_801ED330;
 }

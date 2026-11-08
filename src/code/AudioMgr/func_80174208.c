@@ -6,6 +6,6 @@
 
 M2C_UNK func_80088070(s32, M2C_UNK, M2C_UNK, s32);  /* extern */
 
-void AudioMgr_Unlock(s32 arg0) {
-    func_80088070(arg0 + 0x110, 0, 1, arg0);
+void AudioMgr_Unlock(struct AudioMgr *audioMgr) {
+    func_80088070((u8 *)audioMgr + 0x110, 0, 1, audioMgr);
 }

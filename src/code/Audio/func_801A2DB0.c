@@ -12,14 +12,14 @@ extern u8 D_801F4C70;
 extern u8 D_801F4C75;
 extern u8 D_801F4C76;
 
-void Audio_PlaySequenceAtDefaultPos(u8 arg0, u16 arg1) {
+void Audio_PlaySequenceAtDefaultPos(u8 seqPlayerIndex, u16 seqId) {
     if ((D_801CEFE0 == 0) && (D_801D3E04 != 0xC)) {
         D_801F4C60[0] = D_801D3DD4[0];
         D_801F4C60[1] = D_801D3DD4[1];
         D_801F4C60[2] = D_801D3DD4[2];
         D_801F4C6C = D_801D86B0;
         D_801F4C76 = 0x80;
-        D_801F4C70 = arg1;
-        D_801F4C75 = arg0;
+        D_801F4C70 = seqId;
+        D_801F4C75 = seqPlayerIndex;
     }
 }

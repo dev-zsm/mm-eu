@@ -2,6 +2,6 @@
 #include "types.h"
 #include "generated/code_funcs.h"
 
-void VisCvg_Destroy(s32 arg0) {
+void VisCvg_Destroy(struct VisCvg *this) {
 
 }

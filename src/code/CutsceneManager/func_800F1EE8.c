@@ -6,9 +6,9 @@
 
 void *CutsceneManager_GetCutsceneEntryImpl(s16);                           /* extern */
 
-s16 CutsceneManager_GetCutsceneScriptIndex(s16 arg0) {
-    if (arg0 < 0) {
+s16 CutsceneManager_GetCutsceneScriptIndex(s16 csId) {
+    if (csId < 0) {
         return -1;
     }
-    return M2C_FIELD(CutsceneManager_GetCutsceneEntryImpl(arg0), s16 *, 6);
+    return M2C_FIELD(CutsceneManager_GetCutsceneEntryImpl(csId), s16 *, 6);
 }

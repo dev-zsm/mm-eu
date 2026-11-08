@@ -7,7 +7,7 @@
 M2C_UNK EffectSsSibuki_SpawnBurst(s32, s32);                    /* extern */
 M2C_UNK CollisionCheck_SpawnWaterDroplets(s32, s32);                    /* extern */
 
-void CollisionCheck_WaterBurst(s32 arg0, M2C_UNK arg1, s32 arg2) {
-    EffectSsSibuki_SpawnBurst(arg0, arg2);
-    CollisionCheck_SpawnWaterDroplets(arg0, arg2);
+void CollisionCheck_WaterBurst(struct PlayState *play, struct Collider *collider, struct Vec3f *v) {
+    EffectSsSibuki_SpawnBurst(play, v);
+    CollisionCheck_SpawnWaterDroplets(play, v);
 }

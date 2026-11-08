@@ -4,9 +4,9 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 View_SetDistortionScale(void *arg0, f32 arg1, f32 arg2, f32 arg3) {
-    M2C_FIELD(arg0, f32 *, 0x134) = arg1;
-    M2C_FIELD(arg0, f32 *, 0x138) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x13C) = arg3;
+s32 View_SetDistortionScale(struct View *view, f32 scaleX, f32 scaleY, f32 scaleZ) {
+    M2C_FIELD(view, f32 *, 0x134) = scaleX;
+    M2C_FIELD(view, f32 *, 0x138) = scaleY;
+    M2C_FIELD(view, f32 *, 0x13C) = scaleZ;
     return 1;
 }

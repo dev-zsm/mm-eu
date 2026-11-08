@@ -8,6 +8,6 @@ extern M2C_UNK D_801D3DE0;
 extern M2C_UNK D_801F4A94;
 extern M2C_UNK D_801F4A98;
 
-void Audio_PlaySfx_AtPosWithPresetLowFreqAndHighReverb(s32 arg0, u16 arg1) {
-    AudioSfx_PlaySfx(arg1, arg0, 4, &D_801F4A94, &D_801D3DE0, &D_801F4A98);
+void Audio_PlaySfx_AtPosWithPresetLowFreqAndHighReverb(struct Vec3f *pos, u16 sfxId) {
+    AudioSfx_PlaySfx(sfxId, pos, 4, &D_801F4A94, &D_801D3DE0, &D_801F4A98);
 }

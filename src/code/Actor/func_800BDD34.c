@@ -4,6 +4,6 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Actor_Noop(s32 arg0, M2C_UNK arg1) {
+void Actor_Noop(struct Actor *actor, struct PlayState *play) {
 
 }

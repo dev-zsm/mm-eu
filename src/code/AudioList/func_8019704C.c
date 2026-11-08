@@ -4,13 +4,13 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void AudioList_Remove(void *arg0) {
+void AudioList_Remove(struct AudioListItem *item) {
     void *temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, void **, 0);
+    temp_v0 = M2C_FIELD(item, void **, 0);
     if (temp_v0 != NULL) {
-        M2C_FIELD(temp_v0, void ***, 4) = (void **) M2C_FIELD(arg0, void ***, 4);
-        *M2C_FIELD(arg0, void ***, 4) = M2C_FIELD(arg0, void **, 0);
-        M2C_FIELD(arg0, void **, 0) = NULL;
+        M2C_FIELD(temp_v0, void ***, 4) = (void **) M2C_FIELD(item, void ***, 4);
+        *M2C_FIELD(item, void ***, 4) = M2C_FIELD(item, void **, 0);
+        M2C_FIELD(item, void **, 0) = NULL;
     }
 }

@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-s32 Camera_OverwriteStateFlags(void *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 0x14C) = arg1;
+s32 Camera_OverwriteStateFlags(struct Camera *camera, s16 stateFlags) {
+    M2C_FIELD(camera, s16 *, 0x14C) = stateFlags;
     return 1;
 }

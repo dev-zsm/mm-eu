@@ -4,7 +4,7 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void Camera_SetTargetActor(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0xA8) = arg1;
-    M2C_FIELD(arg0, s16 *, 0x15E) = 0x14;
+void Camera_SetTargetActor(struct Camera *camera, struct Actor *actor) {
+    M2C_FIELD(camera, s32 *, 0xA8) = actor;
+    M2C_FIELD(camera, s16 *, 0x15E) = 0x14;
 }

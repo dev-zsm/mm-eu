@@ -11,14 +11,14 @@ typedef struct {
 extern MapDispBuf D_801BF708;
 extern s32 D_801BF76C;
 
-s32 MapDisp_IsValidStorey(s32 arg0) {
+s32 MapDisp_IsValidStorey(s32 storey) {
     if (D_801BF708.unk0 == 0 || D_801BF76C == 0) {
         return 0;
     }
-    if (arg0 < 0 || arg0 >= 6) {
+    if (storey < 0 || storey >= 6) {
         return 0;
     }
-    if (D_801BF708.unk48[arg0] != -0x7FFF) {
+    if (D_801BF708.unk48[storey] != -0x7FFF) {
         return 1;
     }
     return 0;

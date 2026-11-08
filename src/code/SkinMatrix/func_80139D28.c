@@ -4,8 +4,8 @@
 #include "m2c_compat.h"
 #include "generated/code_funcs.h"
 
-void SkinMatrix_Vec3fToVec3s(void *arg0, void *arg1) {
-    M2C_FIELD(arg1, s16 *, 0) = (s16) (s32) M2C_FIELD(arg0, f32 *, 0);
-    M2C_FIELD(arg1, s16 *, 2) = (s16) (s32) M2C_FIELD(arg0, f32 *, 4);
-    M2C_FIELD(arg1, s16 *, 4) = (s16) (s32) M2C_FIELD(arg0, f32 *, 8);
+void SkinMatrix_Vec3fToVec3s(struct Vec3f *src, struct Vec3s *dest) {
+    M2C_FIELD(dest, s16 *, 0) = (s16) (s32) M2C_FIELD(src, f32 *, 0);
+    M2C_FIELD(dest, s16 *, 2) = (s16) (s32) M2C_FIELD(src, f32 *, 4);
+    M2C_FIELD(dest, s16 *, 4) = (s16) (s32) M2C_FIELD(src, f32 *, 8);
 }
