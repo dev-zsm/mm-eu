@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0182.h"
 
-void func_80001374(Actor *thisx, PlayState *play) {
+void EnWeatherTag_Draw(Actor *thisx, PlayState *play) {
 
 }

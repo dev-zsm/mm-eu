@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0319.h"
 
-void func_80000000(Actor *thisx, PlayState *play) {
+void ObjShutter_Init(Actor *thisx, PlayState *play) {
 
 }

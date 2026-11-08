@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0165.h"
 
-void func_80000000(Actor *thisx, PlayState *play) {
+void EnSda_Init(Actor *thisx, PlayState *play) {
 
 }

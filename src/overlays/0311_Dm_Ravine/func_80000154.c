@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0311.h"
 
-void func_80000154(Actor *thisx, PlayState *play) {
+void DmRavine_Draw(Actor *thisx, PlayState *play) {
 
 }

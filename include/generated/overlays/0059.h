@@ -6,8 +6,8 @@
 #include "types.h"
 #include "actor.h"
 
-void func_80000000(Actor *thisx, PlayState *play);
-void func_80000010(Actor *thisx, PlayState *play);
+void EnPart_Init(Actor *thisx, PlayState *play);
+void EnPart_Destroy(Actor *thisx, PlayState *play);
 void func_80000020(void *this, PlayState *play);
 void func_80000154(void *arg0, s32 arg1);
 void EnPart_Update(Actor *thisx, PlayState *play);  /* 80000430 */

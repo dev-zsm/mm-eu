@@ -12,6 +12,6 @@ void EnTanron6_Destroy(Actor *thisx, PlayState *play);  /* 8000006C */
 void EnTanron6_DoNothing(EnTanron6 *this);  /* 8000007C */
 void func_80000090(s32 arg0, s32 arg1);
 void EnTanron6_Update(Actor *thisx, PlayState *play);  /* 800000A0 */
-void func_80000100(Actor *thisx, PlayState *play);
+void EnTanron6_Draw(Actor *thisx, PlayState *play);
 
 #endif

@@ -11,6 +11,6 @@ void DmRavine_Init(Actor *thisx, PlayState *play);  /* 80000000 */
 void DmRavine_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
 void DmRavine_DoNothing(DmRavine *this, PlayState *play);  /* 80000098 */
 void DmRavine_Update(Actor *thisx, PlayState *play);  /* 800000A8 */
-void func_80000154(Actor *thisx, PlayState *play);
+void DmRavine_Draw(Actor *thisx, PlayState *play);
 
 #endif

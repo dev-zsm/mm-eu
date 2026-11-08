@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0620.h"
 
-void func_80000530(Actor *thisx, PlayState *play) {
+void ObjMuPict_Draw(Actor *thisx, PlayState *play) {
 
 }

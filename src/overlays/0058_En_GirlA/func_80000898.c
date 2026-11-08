@@ -5,7 +5,7 @@
 s32 func_80114D8C();
 extern s16 D_801E6F2A;
 
-s32 func_80000898(u8 *arg0, s32 arg1) {
+s32 EnGirlA_CanBuyFairy(u8 *arg0, s32 arg1) {
     if (func_80114D8C() == 0) {
         return 3;
     }

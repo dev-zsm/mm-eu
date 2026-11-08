@@ -16,6 +16,6 @@ void FireArrow_Hit(ArrowFire *this, PlayState *play);  /* 8000024C */
 void FireArrow_Fly(ArrowFire *this, PlayState *play);  /* 80000460 */
 void ArrowFire_Update(Actor *thisx, PlayState *play);  /* 800005B4 */
 void FireArrow_SetQuadVerticies(ArrowFire *this);  /* 80000608 */
-void func_800006E4(void *arg0, void *arg1);
+void ArrowFire_Draw(void *arg0, void *arg1);
 
 #endif

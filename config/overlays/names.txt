@@ -1,6 +1,8 @@
 # Names of the functions of the overlays, taken from the reference when their bytes are identical to exactly one of its functions
 # (tools/search/ref_import.py names). `<overlay index> <our name> <name>`. Not applied to the sources yet.
+0050 func_80000000 ConsoleLogo_UpdateCounters   # ref: same rank and size after the last (or before the first) function with identical bytes
 0050 func_8000009C ConsoleLogo_RenderView   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0050 func_80000134 ConsoleLogo_Draw   # ref: same rank and size between two functions with identical bytes (other functions of the gap differ in size)
 0050 func_80000738 ConsoleLogo_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0051 func_80000000 MapSelect_LoadConsoleLogo   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0051 func_80000020 MapSelect_LoadGame   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -63,6 +65,7 @@
 0055 func_800032E8 KaleidoScope_UpdateItemCursor   # ref: same rank and size between two functions with identical bytes
 0055 func_80003CC4 KaleidoScope_UpdateItemEquip   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0055 func_80004880 KaleidoScope_DrawDungeonStrayFairyCount   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0055 func_8000576C KaleidoScope_UpdateDungeonCursor   # ref: same rank and size between two functions with identical bytes (other functions of the gap differ in size)
 0055 func_80007044 KaleidoScope_UpdateWorldMapCursor   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0055 func_800074B0 KaleidoScope_DrawMaskSelect   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0055 func_800079DC KaleidoScope_UpdateMaskCursor   # ref: same rank and size between two functions with identical bytes
@@ -116,6 +119,8 @@
 0058 func_80001088 EnGirlA_Update2   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0058 func_80001134 EnGirlA_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0058 func_80001158 EnGirlA_Draw   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0059 func_80000000 EnPart_Init   # ref: same rank and size after the last (or before the first) function with identical bytes
+0059 func_80000010 EnPart_Destroy   # ref: same rank and size after the last (or before the first) function with identical bytes
 0059 func_80000430 EnPart_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0059 func_80000478 EnPart_Draw   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0060 func_80000000 EnLight_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -389,18 +394,25 @@
 0139 func_80000460 FireArrow_Fly   # ref: same rank and size between two functions with identical bytes
 0139 func_800005B4 ArrowFire_Update   # ref: same rank and size between two functions with identical bytes
 0139 func_80000608 FireArrow_SetQuadVerticies   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0139 func_800006E4 ArrowFire_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0140 func_80000000 ArrowIce_SetupAction   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0140 func_8000000C ArrowIce_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0140 func_80000088 ArrowIce_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0140 func_800000AC ArrowIce_Charge   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0140 func_800001A0 ArrowIce_LerpFiredPosition   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0140 func_800001F8 ArrowIce_Hit   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0140 func_800003C4 ArrowIce_Fly   # ref: same rank and size after the last (or before the first) function with identical bytes
+0140 func_80000518 ArrowIce_Update   # ref: same rank and size after the last (or before the first) function with identical bytes
+0140 func_8000056C ArrowIce_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0141 func_80000000 ArrowLight_SetupAction   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0141 func_8000000C ArrowLight_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0141 func_80000088 ArrowLight_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0141 func_800000AC ArrowLight_Charge   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0141 func_800001A0 ArrowLight_Lerp   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0141 func_800001F8 ArrowLight_Hit   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0141 func_800003C4 ArrowLight_Fly   # ref: same rank and size after the last (or before the first) function with identical bytes
+0141 func_80000518 ArrowLight_Update   # ref: same rank and size after the last (or before the first) function with identical bytes
+0141 func_8000056C ArrowLight_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0142 func_80000000 ObjKibako_SpawnCollectible   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0142 func_80000074 ObjKibako_SetShadow   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0142 func_80000218 ObjKibako_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -560,6 +572,8 @@
 0164 func_80000050 ObjBlockstop_CheckForBlock   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0164 func_80000148 ObjBlockstop_TryPlayCutscene   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0164 func_800001BC ObjBlockstop_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0165 func_80000000 EnSda_Init   # ref: same rank and size after the last (or before the first) function with identical bytes
+0165 func_80000010 EnSda_Destroy   # ref: same rank and size after the last (or before the first) function with identical bytes
 0165 func_80000020 EnSda_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0165 func_8000005C EnSda_Draw   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0166 func_80000000 EnClearTag_CreateDebrisEffect   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -640,6 +654,8 @@
 0182 func_80000D98 EnWeatherTag_DoNothing   # ref: same rank and size between two functions with identical bytes
 0182 func_80000DA8 EnWeatherTag_Unused_809671B8   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0182 func_80000E40 EnWeatherTag_Unused_80967250   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0182 func_80001294 EnWeatherTag_Update   # ref: same rank and size after the last (or before the first) function with identical bytes
+0182 func_80001374 EnWeatherTag_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0185 func_80000000 EnOkarinaEffect_SetupAction   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0185 func_8000000C EnOkarinaEffect_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0185 func_8000001C EnOkarinaEffect_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -824,6 +840,7 @@
 0236 func_8000003C EnHs2_Destroy   # ref: same rank and size between two functions with identical bytes
 0236 func_8000004C EnHs2_DoNothing   # ref: same rank and size between two functions with identical bytes
 0236 func_8000005C EnHs2_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0236 func_80000080 EnHs2_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0237 func_800004E8 ObjMure3_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0237 func_80000548 ObjMure3_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0237 func_800006BC ObjMure3_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -1004,6 +1021,7 @@
 0311 func_80000088 DmRavine_Destroy   # ref: same rank and size between two functions with identical bytes
 0311 func_80000098 DmRavine_DoNothing   # ref: same rank and size between two functions with identical bytes
 0311 func_800000A8 DmRavine_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0311 func_80000154 DmRavine_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0313 func_80000000 EnSlime_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0313 func_800001E0 EnSlime_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0313 func_8000020C EnSlime_Freeze   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -1049,6 +1067,8 @@
 0317 func_80000844 ObjBell_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0317 func_8000089C ObjBell_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0317 func_800008E8 ObjBell_Draw   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0319 func_80000000 ObjShutter_Init   # ref: same rank and size after the last (or before the first) function with identical bytes
+0319 func_80000010 ObjShutter_Destroy   # ref: same rank and size after the last (or before the first) function with identical bytes
 0319 func_80000020 ObjShutter_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0319 func_8000016C ObjShutter_Draw   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0323 func_80000000 DmTsg_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -2047,6 +2067,7 @@
 0593 func_8000006C EnTanron6_Destroy   # ref: same rank and size between two functions with identical bytes
 0593 func_8000007C EnTanron6_DoNothing   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0593 func_800000A0 EnTanron6_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0593 func_80000100 EnTanron6_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0600 func_80000000 EnCha_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0600 func_80000090 EnCha_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0600 func_800000BC EnCha_Ring   # ref: bytes identical to the reference function of that name, unique match in its overlay
@@ -2095,6 +2116,7 @@
 0620 func_80000000 ObjMuPict_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0620 func_800000AC ObjMuPict_Destroy   # ref: same rank and size between two functions with identical bytes
 0620 func_8000050C ObjMuPict_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay
+0620 func_80000530 ObjMuPict_Draw   # ref: same rank and size after the last (or before the first) function with identical bytes
 0621 func_80000000 BgIkninside_Init   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0621 func_800000C8 BgIkninside_Destroy   # ref: bytes identical to the reference function of that name, unique match in its overlay
 0621 func_800004B4 BgIkninside_Update   # ref: bytes identical to the reference function of that name, unique match in its overlay

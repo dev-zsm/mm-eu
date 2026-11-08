@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0059.h"
 
-void func_80000010(Actor *thisx, PlayState *play) {
+void EnPart_Destroy(Actor *thisx, PlayState *play) {
 
 }

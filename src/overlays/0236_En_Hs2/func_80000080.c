@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0236.h"
 
-void func_80000080(Actor *thisx, PlayState *play) {
+void EnHs2_Draw(Actor *thisx, PlayState *play) {
 
 }

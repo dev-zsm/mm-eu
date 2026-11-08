@@ -6,8 +6,8 @@
 #include "types.h"
 #include "actor.h"
 
-void func_80000000(Actor *thisx, PlayState *play);
-void func_80000010(Actor *thisx, PlayState *play);
+void ObjShutter_Init(Actor *thisx, PlayState *play);
+void ObjShutter_Destroy(Actor *thisx, PlayState *play);
 void ObjShutter_Update(Actor *thisx, PlayState *play);  /* 80000020 */
 void ObjShutter_Draw(Actor *thisx, PlayState *play);  /* 8000016C */
 

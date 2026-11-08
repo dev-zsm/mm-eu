@@ -11,6 +11,6 @@ void EnHs2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
 void EnHs2_Destroy(Actor *thisx, PlayState *play);  /* 8000003C */
 void EnHs2_DoNothing(EnHs2 *this, PlayState *play);  /* 8000004C */
 void EnHs2_Update(Actor *thisx);  /* 8000005C */
-void func_80000080(Actor *thisx, PlayState *play);
+void EnHs2_Draw(Actor *thisx, PlayState *play);
 
 #endif

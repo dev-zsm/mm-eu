@@ -13,8 +13,8 @@ void ArrowIce_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
 void ArrowIce_Charge(ArrowIce *this, PlayState *play);  /* 800000AC */
 void ArrowIce_LerpFiredPosition(Vec3f *firedPos, Vec3f *icePos, f32 scale);  /* 800001A0 */
 void ArrowIce_Hit(ArrowIce *this, PlayState *play);  /* 800001F8 */
-void func_800003C4(void *arg0, s32 arg1);
-void func_80000518(u8 *arg0, u8 *arg1);
-void func_8000056C(void *arg0, void *arg1);
+void ArrowIce_Fly(void *arg0, s32 arg1);
+void ArrowIce_Update(u8 *arg0, u8 *arg1);
+void ArrowIce_Draw(void *arg0, void *arg1);
 
 #endif

@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0593.h"
 
-void func_80000100(Actor *thisx, PlayState *play) {
+void EnTanron6_Draw(Actor *thisx, PlayState *play) {
 
 }

@@ -4,6 +4,6 @@
 #include "actor.h"
 #include "generated/overlays/0319.h"
 
-void func_80000010(Actor *thisx, PlayState *play) {
+void ObjShutter_Destroy(Actor *thisx, PlayState *play) {
 
 }
