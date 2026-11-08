@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80BEB4AC;
 
-void func_800001E8(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x190) = &D_80BEB4AC;
+void func_800001E8(ObjMoonStone *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x190) = &D_80BEB4AC;
 }

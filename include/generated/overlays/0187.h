@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0187_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ElfMsg2 ElfMsg2;
 
 void ElfMsg2_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_8000000C(void *arg0, s32 arg1);
+s32 func_8000000C(ElfMsg2 *this, PlayState *play);
+void ElfMsg2_Init(Actor *thisx);  /* 80000144 */
+void ElfMsg2_Destroy(Actor *thisx, PlayState *play);  /* 80000200 */
 s32 func_80000210(u8 *arg0);
-void func_80000224(void *arg0, s32 arg1);
+void func_80000224(ElfMsg2 *this, PlayState *play);
 void func_80000358(s32 arg0);
-void func_80000390(void *arg0, s32 arg1);
+void func_80000390(ElfMsg2 *this, PlayState *play);
 
 #endif

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0624.h"
 
-void func_8000064C(u8 *arg0, M2C_UNK arg1) {
-    M2C_FIELD(arg0, s32 *, 0x164) = -1;
+void func_8000064C(ObjUsiyane *this, PlayState *play) {
+    M2C_FIELD(this, s32 *, 0x164) = -1;
 }

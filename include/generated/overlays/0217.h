@@ -4,23 +4,25 @@
 #define GENERATED_OVERLAYS_0217_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsKakera EffectSsKakera;
 
-void EffectSsKakera_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+u32 EffectSsKakera_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
 f32 func_80000190(f32 arg0, f32 arg1);
-void EffectSsKakera_Draw(void *arg0, s32 arg1, void *arg2);  /* 800001CC */
-void EffectSsKakera_CheckForObject(void *arg0, s32 arg1);  /* 80000490 */
-void func_800004FC(void *arg0);
+void EffectSsKakera_Draw(PlayState *play, u32 index, void *this);  /* 800001CC */
+void EffectSsKakera_CheckForObject(void *this, PlayState *play);  /* 80000490 */
+void func_800004FC(void *this);
 void func_800006AC(u8 *arg0);
 f32 func_800006C8(f32 arg0, s32 arg1);
 f32 func_800006E4(f32 a0, s32 a1);
 f32 func_80000720(f32 a0, s32 a1);
 void func_80000760(void);
-void func_80000780(void *arg0, void *arg1, s32 arg2);
-void func_80000850(void *arg0, void *arg1, s32 arg2);
-void func_800008E4(void *arg0, s32 arg1, s32 arg2);
+s32 func_80000780(void *this, Vec3f *diff, f32 distance);
+s32 func_80000850(void *this, Vec3f *diff, f32 distance);
+s32 func_800008E4(void *this, Vec3f *diff, f32 distance);
 s32 func_800009C0(void *a0, s32 a1, s32 a2);
-void func_800009F8(void *arg0);
-void func_80000B40(void *arg0, void *arg1);
-void EffectSsKakera_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 80000D38 */
+s32 func_800009F8(void *this);
+void func_80000B40(void *this, PlayState *play);
+void EffectSsKakera_Update(PlayState *play, u32 index, void *this);  /* 80000D38 */
 
 #endif

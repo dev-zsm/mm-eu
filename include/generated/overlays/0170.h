@@ -4,21 +4,25 @@
 #define GENERATED_OVERLAYS_0170_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIngate BgIngate;
 
-void BgIngate_FindActor(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000000 */
-void func_800000B0(void *arg0);
-void func_8000015C(void *arg0);
-void func_80000318(s32 arg0, s32 arg1);
-void func_800003A8(u8 *arg0);
-void func_80000414(s32 arg0, void *arg1);
+Actor *BgIngate_FindActor(BgIngate *this, PlayState *play, u8 actorCategory, s16 actorId);  /* 80000000 */
+void func_800000B0(BgIngate *this);
+s32 func_8000015C(BgIngate *this);
+s32 func_80000318(BgIngate *this, PlayState *play);
+void func_800003A8(PlayState *play);
+void func_80000414(BgIngate *this, PlayState *play);
 void func_80000484(u8 *arg0, u8 *arg1);
 void func_800004FC(s32 arg0, s32 arg1);
-void func_8000050C(void *arg0, void *arg1);
-void func_80000728(void *arg0, void *arg1);
-void func_80000810(void *arg0, s32 arg1);
-void func_800008B0(void *arg0, s32 arg1);
+void func_8000050C(BgIngate *this, PlayState *play);
+void func_80000728(BgIngate *this, PlayState *play);
+void func_80000810(BgIngate *this, PlayState *play);
+void func_800008B0(BgIngate *this, PlayState *play);
 void func_80000944(s32 arg0, s32 arg1);
-void BgIngate_Init(void *arg0, s32 arg1);  /* 80000B10 */
-void BgIngate_Draw(s32 arg0, s32 arg1);  /* 80000D78 */
+void BgIngate_Init(Actor *thisx, PlayState *play);  /* 80000B10 */
+void BgIngate_Destroy(Actor *thisx, PlayState *play);  /* 80000D18 */
+void BgIngate_Update(Actor *thisx);  /* 80000D54 */
+void BgIngate_Draw(Actor *thisx, PlayState *play);  /* 80000D78 */
 
 #endif

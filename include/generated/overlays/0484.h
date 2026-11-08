@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0484_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjGhaka ObjGhaka;
 
 void func_80000000(u8 *arg0);
-void func_8000003C(u8 *arg0);
-void func_80000050(u8 *arg0);
-void func_80000064(s32 arg0, s32 arg1);
-void func_8000013C(void *arg0, void *arg1);
+void func_8000003C(ObjGhaka *this);
+void func_80000050(ObjGhaka *this);
+void func_80000064(ObjGhaka *this, PlayState *play);
+void func_8000013C(ObjGhaka *this, PlayState *play);
 void func_80000280(void *arg0, s32 arg1);
-void func_800003C4(s32 arg0, s32 arg1);
-void ObjGhaka_Init(void *arg0, s32 arg1);  /* 80000498 */
-void ObjGhaka_Update(void *arg0);  /* 800005AC */
-void ObjGhaka_Draw(s32 arg0, s32 arg1);  /* 800005F8 */
+void func_800003C4(ObjGhaka *this, PlayState *play);
+void ObjGhaka_Init(Actor *thisx, PlayState *play);  /* 80000498 */
+void ObjGhaka_Destroy(Actor *thisx, PlayState *play);  /* 80000578 */
+void ObjGhaka_Update(Actor *thisx, PlayState *play);  /* 800005AC */
+void ObjGhaka_Draw(Actor *thisx, PlayState *play);  /* 800005F8 */
 
 #endif

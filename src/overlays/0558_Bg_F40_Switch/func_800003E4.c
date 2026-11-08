@@ -5,8 +5,8 @@
 
 extern M2C_UNK D_80BA98C0;
 
-void BgF40Switch_IdlePressed(u8 *arg0, M2C_UNK arg1) {
-    if (M2C_FIELD(arg0, s8 *, 0x15E) == 0) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x164) = &D_80BA98C0;
+void BgF40Switch_IdlePressed(BgF40Switch *this, PlayState *play) {
+    if (M2C_FIELD(this, s8 *, 0x15E) == 0) {
+        M2C_FIELD(this, M2C_UNK **, 0x164) = &D_80BA98C0;
     }
 }

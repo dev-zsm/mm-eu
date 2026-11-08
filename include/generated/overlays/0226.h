@@ -4,13 +4,16 @@
 #define GENERATED_OVERLAYS_0226_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct OceffStorm OceffStorm;
 
-void OceffStorm_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_8000000C(void *arg0);
-void OceffStorm_Init(void *arg0, void *arg1);  /* 80000084 */
-void OceffStorm_DefaultAction(void *arg0, s32 arg1);  /* 800001C8 */
-void OceffStorm_Update(s32 arg0, void *arg1);  /* 80000408 */
-void OceffStorm_Draw2(s32 arg0, void *arg1);  /* 80000458 */
-void OceffStorm_Draw(s32 arg0, void *arg1);  /* 80000608 */
+void OceffStorm_SetupAction(OceffStorm *this, s32 arg1);  /* 80000000 */
+s32 func_8000000C(PlayState *play);
+void OceffStorm_Init(Actor *thisx, PlayState *play);  /* 80000084 */
+void OceffStorm_Destroy(Actor *thisx, PlayState *play);  /* 800001A4 */
+void OceffStorm_DefaultAction(OceffStorm *this, PlayState *play);  /* 800001C8 */
+void OceffStorm_Update(Actor *thisx, PlayState *play);  /* 80000408 */
+void OceffStorm_Draw2(Actor *thisx, PlayState *play);  /* 80000458 */
+void OceffStorm_Draw(Actor *thisx, PlayState *play);  /* 80000608 */
 
 #endif

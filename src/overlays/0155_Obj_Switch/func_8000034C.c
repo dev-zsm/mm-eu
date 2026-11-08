@@ -5,8 +5,8 @@
 
 s32 func_800CAD00(u8 *);                          /* extern */
 
-void ObjSwitch_SetFloorSwitchSnapPlayerState(u8 *arg0, s32 arg1) {
-    if (func_800CAD00(arg0) != 0) {
-        M2C_FIELD(arg0, s8 *, 0x170) = (s8) arg1;
+void ObjSwitch_SetFloorSwitchSnapPlayerState(ObjSwitch *this, s32 state) {
+    if (func_800CAD00(this) != 0) {
+        M2C_FIELD(this, s8 *, 0x170) = (s8) state;
     }
 }

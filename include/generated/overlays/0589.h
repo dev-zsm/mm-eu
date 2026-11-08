@@ -4,7 +4,12 @@
 #define GENERATED_OVERLAYS_0589_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnHitTag EnHitTag;
 
-void EnHitTag_WaitForHit(void *arg0, s32 arg1);  /* 800000B8 */
+void EnHitTag_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnHitTag_Destroy(Actor *thisx, PlayState *play);  /* 8000008C */
+void EnHitTag_WaitForHit(EnHitTag *this, PlayState *play);  /* 800000B8 */
+void EnHitTag_Update(Actor *thisx);  /* 80000170 */
 
 #endif

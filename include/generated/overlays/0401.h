@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0401_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIcefloe BgIcefloe;
 
-void BgIcefloe_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgIcefloe_Destroy(void *arg0, s32 arg1);  /* 80000114 */
-void func_80000190(u8 *arg0, s32 arg1);
-void BgIcefloe_Grow(void *arg0, s32 arg1);  /* 800001F8 */
-void func_80000344(void *arg0, s32 arg1);
+void BgIcefloe_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgIcefloe_Destroy(Actor *thisx, PlayState *play);  /* 80000114 */
+void func_80000190(BgIcefloe *this, PlayState *play);
+void BgIcefloe_Grow(BgIcefloe *this, PlayState *play);  /* 800001F8 */
+void func_80000344(BgIcefloe *this, PlayState *play);
 void func_80000400(u8 *a);
-void func_8000043C(void *arg0, s32 arg1);
+void func_8000043C(BgIcefloe *this, PlayState *play);
+void BgIcefloe_Update(Actor *thisx, PlayState *play);  /* 800005A8 */
+void BgIcefloe_Draw(Actor *thisx, PlayState *play);  /* 800005E8 */
 
 #endif

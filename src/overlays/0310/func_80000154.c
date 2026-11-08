@@ -5,6 +5,6 @@
 
 M2C_UNK func_80137070(s32, s32);                    /* extern */
 
-void func_80000154(s32 arg0, M2C_UNK arg1) {
-    func_80137070(arg0 + 0x148, arg0);
+void func_80000154(Actor *thisx, PlayState *play) {
+    func_80137070((u8 *)thisx + 0x148, thisx);
 }

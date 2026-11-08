@@ -4,23 +4,24 @@
 #define GENERATED_OVERLAYS_0088_H
 
 #include "types.h"
+#include "actor.h"
 
 void func_80000000(u8 *arg0, s32 arg1);
 void func_8000000C(void *arg0);
-void func_8000008C(void *arg0);
+void func_8000008C(Actor *thisx);
 void func_80000178(void *arg0, void *arg1);
 void func_80000254(void *arg0, s32 arg1, void *arg2);
-void func_8000031C(void *arg0, s32 arg1);
+void func_8000031C(Actor *thisx, PlayState *play);
+void func_800003D0(Actor *thisx, PlayState *play);
 void func_800003FC(s32 arg0, s32 arg1);
 void func_80000460(void *arg0, void *arg1);
-void func_8000055C(s32 arg0, s32 arg1, void *arg2);
 void func_800005A4(void *arg0, s32 arg1, void *arg2);
 void func_80000608(s32 arg0, s32 arg1, s32 arg2);
 void func_80000668(s32 arg0, u8 *arg1);
 void func_800006BC(s32 arg0, u8 *arg1);
 void func_800006F8(void *arg0, s32 arg1);
 void func_8000086C(void *arg0, s32 arg1);
-void func_80000AD4(void *arg0, void *arg1);
+void func_80000AD4(PlayState *play, Actor *thisx);
 void func_80000C20(void *arg0, s32 arg1);
 void func_80000D58(s32 arg0, s32 arg1, s32 arg2);
 void func_80000DE4(s32 arg0, s32 arg1, s32 arg2);
@@ -50,9 +51,9 @@ void func_80002638(void *arg0);
 void func_800026FC(u8 *a);
 void func_80002720(void *arg0);
 void func_800027BC(void *arg0);
-void func_80002848(void *arg0);
-void func_800029C4(void *arg0);
-void func_80002A90(void *arg0);
+void func_80002848(Actor *thisx);
+void func_800029C4(Actor *thisx);
+void func_80002A90(Actor *thisx);
 void func_80002C40(u8 *arg0);
 void func_80002C74(void *arg0);
 void func_80002D14(u8 *arg0, s32 arg1);
@@ -62,11 +63,10 @@ void func_80002F10(s32 arg0, void *arg1);
 void func_80003010(void *arg0);
 void func_800030CC(void *arg0, s32 arg1);
 void func_80003364(u8 *arg0, s32 arg1);
-void func_800033B8(void *arg0, s32 arg1);
+void func_800033B8(Actor *thisx, PlayState *play);
 void func_8000348C(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800036EC(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80003888(s32 arg0, void *arg1);
-void func_80003C70(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80003CC0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80003D78(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void func_80003DB8(void *arg0, s32 arg1);

@@ -4,22 +4,26 @@
 #define GENERATED_OVERLAYS_0637_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DemoSyoten DemoSyoten;
 
-void DemoSyoten_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_800002E0(void *arg0, s32 arg1);
-void func_80000398(void *arg0);
-void func_80000450(s32 arg0, s32 arg1);
+void DemoSyoten_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DemoSyoten_Destroy(Actor *thisx, PlayState *play);  /* 800002A4 */
+void func_800002E0(DemoSyoten *this, PlayState *play);
+s32 func_80000398(DemoSyoten *this);
+void func_80000450(DemoSyoten *this, PlayState *play);
 void func_800004F4(f32 arg0);
 void func_800005E4(s32 arg0, s32 arg1);
-void func_800005F4(void *arg0, s32 arg1);
-void func_80000754(void *arg0, s32 arg1);
-void func_80000954(void *arg0, s32 arg1);
-void func_80000A2C(void *arg0, s32 arg1);
-void func_80000B88(void *arg0, s32 arg1);
-void DemoSyoten_OverrideLimbDraw(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000C78 */
-void func_80000F34(s32 arg0, void *arg1);
-void func_80000FE8(void *arg0);
-void DemoSyoten_Draw(void *arg0, void *arg1);  /* 800010A8 */
-void func_80001210(void *arg0, void *arg1);
+void func_800005F4(DemoSyoten *this, PlayState *play);
+void func_80000754(DemoSyoten *this, PlayState *play);
+void func_80000954(DemoSyoten *this, PlayState *play);
+void func_80000A2C(DemoSyoten *this, PlayState *play);
+void func_80000B88(DemoSyoten *this, PlayState *play);
+void DemoSyoten_Update(Actor *thisx);  /* 80000C54 */
+s32 DemoSyoten_OverrideLimbDraw(PlayState *play, void *kfSkelAnime, s32 limbIndex, void *dList, u8 *flags, void *thisx, Vec3f *scale, Vec3s *rot, Vec3f *pos);  /* 80000C78 */
+void func_80000F34(Actor *thisx, PlayState *play);
+void func_80000FE8(PlayState *play);
+void DemoSyoten_Draw(Actor *thisx, PlayState *play);  /* 800010A8 */
+void func_80001210(Actor *thisx, PlayState *play);
 
 #endif

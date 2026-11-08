@@ -4,18 +4,20 @@
 #define GENERATED_OVERLAYS_0075_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnHoll EnHoll;
 
-void EnHoll_SetupAction(void *arg0);  /* 80000000 */
-void EnHoll_SetPlayerSide(s32 arg0, s32 arg1, s32 arg2);  /* 80000050 */
-void EnHoll_Init(s32 arg0, s32 arg1);  /* 800000C0 */
-void EnHoll_Destroy(void *arg0, s32 arg1);  /* 80000118 */
-void EnHoll_ChangeRooms(s32 arg0);  /* 8000016C */
-void EnHoll_VisibleIdle(void *arg0, s32 arg1);  /* 80000228 */
-void EnHoll_TransparentIdle(s32 arg0, void *arg1);  /* 800005D0 */
-void EnHoll_VerticalBgCoverIdle(void *arg0, s32 arg1);  /* 80000760 */
-void EnHoll_VerticalIdle(void *arg0, s32 arg1);  /* 800008D8 */
-void EnHoll_RoomTransitionIdle(s32 arg0, s32 arg1);  /* 800009D0 */
-void EnHoll_Update(void *arg0, void *arg1);  /* 80000A40 */
-void EnHoll_Draw(void *arg0, s32 arg1);  /* 80000A9C */
+void EnHoll_SetupAction(EnHoll *this);  /* 80000000 */
+void EnHoll_SetPlayerSide(PlayState *play, EnHoll *this, Vec3f *transformedPlayerPos);  /* 80000050 */
+void EnHoll_Init(Actor *thisx, PlayState *play);  /* 800000C0 */
+void EnHoll_Destroy(Actor *thisx, PlayState *play);  /* 80000118 */
+void EnHoll_ChangeRooms(PlayState *play);  /* 8000016C */
+void EnHoll_VisibleIdle(EnHoll *this, PlayState *play);  /* 80000228 */
+void EnHoll_TransparentIdle(EnHoll *this, PlayState *play);  /* 800005D0 */
+void EnHoll_VerticalBgCoverIdle(EnHoll *this, PlayState *play);  /* 80000760 */
+void EnHoll_VerticalIdle(EnHoll *this, PlayState *play);  /* 800008D8 */
+void EnHoll_RoomTransitionIdle(EnHoll *this, PlayState *play);  /* 800009D0 */
+void EnHoll_Update(Actor *thisx, PlayState *play);  /* 80000A40 */
+void EnHoll_Draw(Actor *thisx, PlayState *play);  /* 80000A9C */
 
 #endif

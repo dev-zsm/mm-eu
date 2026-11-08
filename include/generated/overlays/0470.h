@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0470_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjWind ObjWind;
 
-void ObjWind_Update(void *arg0, s32 arg1);  /* 80000090 */
-void ObjWind_Draw(s32 arg0, s32 arg1);  /* 800004F0 */
+void ObjWind_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjWind_Destroy(Actor *thisx, PlayState *play);  /* 80000080 */
+void ObjWind_Update(Actor *thisx, PlayState *play);  /* 80000090 */
+void ObjWind_Draw(Actor *thisx, PlayState *play);  /* 800004F0 */
 
 #endif

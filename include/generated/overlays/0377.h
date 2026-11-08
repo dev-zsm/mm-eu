@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0377_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmOpstage DmOpstage;
 
 void DmOpstage_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void DmOpstage_Init(void *arg0, s32 arg1);  /* 8000000C */
-void DmOpstage_HandleCutscene(void *arg0, s32 arg1);  /* 80000108 */
-void DmOpstage_Draw(void *arg0, s32 arg1);  /* 80000268 */
+void DmOpstage_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void DmOpstage_Destroy(Actor *thisx, PlayState *play);  /* 800000CC */
+void DmOpstage_HandleCutscene(DmOpstage *this, PlayState *play);  /* 80000108 */
+void DmOpstage_Update(Actor *thisx, PlayState *play);  /* 80000204 */
+void DmOpstage_Draw(Actor *thisx, PlayState *play);  /* 80000268 */
 
 #endif

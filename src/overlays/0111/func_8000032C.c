@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0111.h"
 typedef struct { u8 pad0[0x3F58]; s16 a3F58; } G;
 extern G D_801E6EF0;
 void func_800E0FAC();

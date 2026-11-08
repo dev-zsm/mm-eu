@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0640_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgLastBwall BgLastBwall;
 
-void BgLastBwall_InitCollider(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000000 */
-void BgLastBwall_Init(void *arg0, s32 arg1);  /* 8000014C */
+void BgLastBwall_InitCollider(void *init, Vec3f *pos, Vec3s *rot, void *collider, void *arg4);  /* 80000000 */
+void BgLastBwall_Init(Actor *thisx, PlayState *play);  /* 8000014C */
+void BgLastBwall_Destroy(Actor *thisx, PlayState *play);  /* 80000278 */
 void func_800002AC(void *arg0, s32 arg1);
 void func_800005A4(u8 *arg0);
-void func_800005B8(void *arg0, s32 arg1);
+void func_800005B8(BgLastBwall *this, PlayState *play);
 void func_8000062C(u8 *arg0, s32 arg1);
 void func_80000684(u8 *arg0, s32 arg1);
-void BgLastBwall_DoNothing(s32 arg0, s32 arg1);  /* 800006E8 */
-void BgLastBwall_Draw(void *arg0, s32 arg1);  /* 8000071C */
+void BgLastBwall_DoNothing(BgLastBwall *this, PlayState *play);  /* 800006E8 */
+void BgLastBwall_Update(Actor *thisx);  /* 800006F8 */
+void BgLastBwall_Draw(Actor *thisx, PlayState *play);  /* 8000071C */
 
 #endif

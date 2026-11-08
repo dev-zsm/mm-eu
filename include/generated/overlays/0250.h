@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0250_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHamishi ObjHamishi;
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_80000058(void *arg0);
+void func_80000000(Actor *thisx, PlayState *play);
+void func_80000058(ObjHamishi *this);
 void func_800001D4(void *arg0, s32 arg1);
-void func_80000480(void *arg0, s32 arg1);
-s32 ObjHamishi_IsUnderwater(u8 *arg0, s32 arg1);  /* 800004E8 */
-void ObjHamishi_Init(void *arg0, void *arg1);  /* 80000560 */
-void ObjHamishi_Draw(void *arg0, void *arg1);  /* 8000089C */
+void func_80000480(ObjHamishi *this, PlayState *play);
+s32 ObjHamishi_IsUnderwater(ObjHamishi *this, PlayState *play);  /* 800004E8 */
+void ObjHamishi_Init(Actor *thisx, PlayState *play);  /* 80000560 */
+void ObjHamishi_Destroy(Actor *thisx, PlayState *play);  /* 80000680 */
+void ObjHamishi_Update(Actor *thisx, PlayState *play);  /* 800006AC */
+void ObjHamishi_Draw(Actor *thisx, PlayState *play);  /* 8000089C */
 
 #endif

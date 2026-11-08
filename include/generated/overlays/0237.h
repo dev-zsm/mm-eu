@@ -4,17 +4,22 @@
 #define GENERATED_OVERLAYS_0237_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMure3 ObjMure3;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000D0(void *arg0, s32 arg1);
-void func_800001E0(void *arg0, s32 arg1);
-void func_80000324(void *arg0, s32 arg1);
-void func_800003F8(void *arg0, s32 arg1);
-void func_80000558(u8 *arg0);
+void func_80000000(ObjMure3 *this, PlayState *play);
+void func_800000D0(ObjMure3 *this, PlayState *play);
+void func_800001E0(ObjMure3 *this, PlayState *play);
+void func_80000324(ObjMure3 *this, PlayState *play);
+void func_800003F8(ObjMure3 *this, PlayState *play);
+void ObjMure3_Init(Actor *thisx, PlayState *play);  /* 800004E8 */
+void ObjMure3_Destroy(Actor *thisx, PlayState *play);  /* 80000548 */
+void func_80000558(ObjMure3 *this);
 void func_8000056C(s32 a0, s32 a1);
 void func_80000590(u8 *arg0);
-void func_800005A4(void *arg0, s32 arg1);
-void func_8000062C(u8 *arg0);
+void func_800005A4(ObjMure3 *this, PlayState *play);
+void func_8000062C(ObjMure3 *this);
 void func_80000640(u8 *arg0, s32 arg1);
+void ObjMure3_Update(Actor *thisx);  /* 800006BC */
 
 #endif

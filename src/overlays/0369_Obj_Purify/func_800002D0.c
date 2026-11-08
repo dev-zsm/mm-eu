@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80A69C34;
 
-void func_800002D0(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80A69C34;
+void func_800002D0(ObjPurify *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80A69C34;
 }

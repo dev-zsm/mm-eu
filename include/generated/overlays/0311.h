@@ -4,9 +4,13 @@
 #define GENERATED_OVERLAYS_0311_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmRavine DmRavine;
 
-void DmRavine_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void DmRavine_DoNothing(s32 arg0, s32 arg1);  /* 80000098 */
-void DmRavine_Update(void *arg0, void *arg1);  /* 800000A8 */
+void DmRavine_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DmRavine_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
+void DmRavine_DoNothing(DmRavine *this, PlayState *play);  /* 80000098 */
+void DmRavine_Update(Actor *thisx, PlayState *play);  /* 800000A8 */
+void func_80000154(Actor *thisx, PlayState *play);
 
 #endif

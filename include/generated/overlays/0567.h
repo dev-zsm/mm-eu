@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0567_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffKamejimaWave EffKamejimaWave;
 
-void EffKamejimaWave_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void func_800000A0(void *arg0, s32 arg1);
-void func_8000014C(void *arg0, s32 arg1);
-void func_80000214(void *arg0, s32 arg1);
-void func_800002C0(void *arg0, s32 arg1);
-void EffKamejimaWave_SetVtxAlpha(s32 arg0);  /* 8000039C */
-void EffKamejimaWave_Draw(s32 arg0, s32 arg1);  /* 800003EC */
+void EffKamejimaWave_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EffKamejimaWave_Destroy(Actor *thisx, PlayState *play);  /* 80000090 */
+void func_800000A0(EffKamejimaWave *this, PlayState *play);
+void func_8000014C(EffKamejimaWave *this, PlayState *play);
+void func_80000214(EffKamejimaWave *this, PlayState *play);
+void func_800002C0(EffKamejimaWave *this, PlayState *play);
+void EffKamejimaWave_Update(Actor *thisx);  /* 80000378 */
+void EffKamejimaWave_SetVtxAlpha(u8 alpha);  /* 8000039C */
+void EffKamejimaWave_Draw(Actor *thisx, PlayState *play);  /* 800003EC */
 
 #endif

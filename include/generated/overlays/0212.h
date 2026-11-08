@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0212_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsStone1 EffectSsStone1;
 
-void EffectSsStone1_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsStone1_Draw(s32 arg0, s32 arg1, s32 arg2);  /* 8000008C */
-void EffectSsStone1_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 80000264 */
+u32 EffectSsStone1_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsStone1_Draw(PlayState *play, u32 index, void *this);  /* 8000008C */
+void EffectSsStone1_Update(PlayState *play, u32 index, void *this);  /* 80000264 */
 
 #endif

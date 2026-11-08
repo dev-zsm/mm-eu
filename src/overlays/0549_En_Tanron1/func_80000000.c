@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0549.h"
 
 void EnTanron1_Init(Actor *thisx, PlayState *play) {
     M2C_FIELD(thisx, s32 *, 4) = (s32) (M2C_FIELD(thisx, s32 *, 4) & ~1);

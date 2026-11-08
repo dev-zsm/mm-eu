@@ -4,10 +4,15 @@
 #define GENERATED_OVERLAYS_0185_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnOkarinaEffect EnOkarinaEffect;
 
 void EnOkarinaEffect_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_80000064(s32 arg0, s32 arg1);
+void EnOkarinaEffect_Destroy(Actor *thisx, PlayState *play);  /* 8000000C */
+void EnOkarinaEffect_Init(Actor *thisx, PlayState *play);  /* 8000001C */
+void func_80000064(EnOkarinaEffect *this, PlayState *play);
 void func_800000D4(void *arg0, s32 arg1);
-void func_8000015C(s32 arg0, void *arg1);
+void func_8000015C(EnOkarinaEffect *this, PlayState *play);
+void EnOkarinaEffect_Update(Actor *thisx);  /* 800001C0 */
 
 #endif

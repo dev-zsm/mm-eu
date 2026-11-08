@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0200_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsBlast EffectSsBlast;
 
-void EffectSsBlast_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsBlast_Draw(s32 arg0, s32 arg1, void *arg2);  /* 8000012C */
-void EffectSsBlast_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 80000298 */
+u32 EffectSsBlast_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsBlast_Draw(PlayState *play, u32 index, void *this);  /* 8000012C */
+void EffectSsBlast_Update(PlayState *play, u32 index, void *this);  /* 80000298 */
 
 #endif

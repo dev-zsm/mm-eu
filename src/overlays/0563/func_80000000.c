@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0563.h"
 typedef struct { s32 x, y, z; } V;
 void func_800B6564(u8 *a, f32 b);
 

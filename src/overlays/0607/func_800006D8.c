@@ -5,7 +5,7 @@
 
 M2C_UNK func_80137070(u8 *, u8 *);              /* extern */
 
-void func_800006D8(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x160) = (f32) M2C_FIELD(arg0, f32 *, 0x314);
-    func_80137070(arg0 + 0x144, arg0);
+void func_800006D8(Actor *thisx) {
+    M2C_FIELD(thisx, f32 *, 0x160) = (f32) M2C_FIELD(thisx, f32 *, 0x314);
+    func_80137070((u8 *)thisx + 0x144, thisx);
 }

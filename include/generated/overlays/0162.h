@@ -4,7 +4,13 @@
 #define GENERATED_OVERLAYS_0162_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ItemInbox ItemInbox;
 
-void ItemInbox_Idle(u8 *arg0, s32 arg1);  /* 80000044 */
+void ItemInbox_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ItemInbox_Destroy(Actor *thisx, PlayState *play);  /* 80000034 */
+void ItemInbox_Idle(ItemInbox *this, PlayState *play);  /* 80000044 */
+void ItemInbox_Update(Actor *thisx);  /* 8000008C */
+void ItemInbox_Draw(Actor *thisx, PlayState *play);  /* 800000B0 */
 
 #endif

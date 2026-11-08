@@ -5,9 +5,9 @@
 
 extern M2C_UNK D_80B54370;
 
-void BgKin2Picture_SetupShiver(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 0x23A) = 0xD;
-    M2C_FIELD(arg0, s16 *, 0x23C) = 0;
-    M2C_FIELD(arg0, s16 *, 0x23E) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x234) = &D_80B54370;
+void BgKin2Picture_SetupShiver(BgKin2Picture *this) {
+    M2C_FIELD(this, s8 *, 0x23A) = 0xD;
+    M2C_FIELD(this, s16 *, 0x23C) = 0;
+    M2C_FIELD(this, s16 *, 0x23E) = 0;
+    M2C_FIELD(this, M2C_UNK **, 0x234) = &D_80B54370;
 }

@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0087_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnRiverSound EnRiverSound;
 
-void EnRiverSound_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnRiverSound_Update(void *arg0, s32 arg1);  /* 80000088 */
-void EnRiverSound_Draw(void *arg0, s32 arg1);  /* 800001A0 */
+void EnRiverSound_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnRiverSound_Update(Actor *thisx, PlayState *play);  /* 80000088 */
+void EnRiverSound_Draw(Actor *thisx, PlayState *play);  /* 800001A0 */
 
 #endif

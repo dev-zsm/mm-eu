@@ -4,13 +4,15 @@
 #define GENERATED_OVERLAYS_0054_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DayTelop DayTelop;
 
-void DayTelop_Update(void *arg0, s32 arg1);  /* 80000000 */
+void DayTelop_Update(void *this, void *thisx);  /* 80000000 */
 void func_80000138(s32 arg0);
-void DayTelop_Main(void *arg0);  /* 80000848 */
-void DayTelop_Destroy(s32 a);  /* 800008E0 */
-void DayTelop_Noop(s32 arg0);  /* 80000904 */
+void DayTelop_Main(void *thisx);  /* 80000848 */
+void DayTelop_Destroy(void *thisx);  /* 800008E0 */
+void DayTelop_Noop(void *this);  /* 80000904 */
 void func_80000910(void *arg0);
-void DayTelop_Init(u8 *arg0);  /* 80000AB0 */
+void DayTelop_Init(void *thisx);  /* 80000AB0 */
 
 #endif

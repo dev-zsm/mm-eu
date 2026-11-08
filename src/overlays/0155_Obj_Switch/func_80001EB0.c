@@ -6,8 +6,8 @@
 M2C_UNK func_809213A8();                            /* extern */
 M2C_UNK func_8092148C();                            /* extern */
 
-void ObjSwitch_DrawEyeSwitch(u8 *arg0) {
-    if (((s16) M2C_FIELD(arg0, s16 *, 0x1C) >> 3) & 1) {
+void ObjSwitch_DrawEyeSwitch(ObjSwitch *this) {
+    if (((s16) M2C_FIELD(this, s16 *, 0x1C) >> 3) & 1) {
         func_8092148C();
         return;
     }

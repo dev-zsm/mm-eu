@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0233_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnSi EnSi;
 
-void EnSi_UpdateCollision(void *arg0, s32 arg1);  /* 80000000 */
-void EnSi_GiveToken(void *arg0, void *arg1);  /* 800000B0 */
-void EnSi_Wait(u8 *arg0);  /* 80000150 */
-void EnSi_DraggedByHookshot(u8 *arg0);  /* 800001BC */
-void EnSi_Init(void *arg0, s32 arg1);  /* 800001F8 */
-void EnSi_Update(void *arg0, s32 arg1);  /* 800002A4 */
+void EnSi_UpdateCollision(EnSi *this, PlayState *play);  /* 80000000 */
+void EnSi_GiveToken(EnSi *this, PlayState *play);  /* 800000B0 */
+void EnSi_Wait(EnSi *this);  /* 80000150 */
+void EnSi_DraggedByHookshot(EnSi *this);  /* 800001BC */
+void EnSi_Init(Actor *thisx, PlayState *play);  /* 800001F8 */
+void EnSi_Destroy(Actor *thisx, PlayState *play);  /* 80000278 */
+void EnSi_Update(Actor *thisx, PlayState *play);  /* 800002A4 */
+void EnSi_Draw(Actor *thisx, PlayState *play);  /* 800002EC */
 
 #endif

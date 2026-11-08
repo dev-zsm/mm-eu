@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0340.h"
 
 void DemoGetitem_Destroy(Actor *thisx, PlayState *play) {
 

@@ -4,9 +4,13 @@
 #define GENERATED_OVERLAYS_0469_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjDowsing ObjDowsing;
 
-void ObjDowsing_GetFlag(void *arg0, s32 arg1);  /* 80000000 */
-s32 ObjDowsing_CheckValidSpawn(s32 arg0);  /* 80000080 */
+s32 ObjDowsing_GetFlag(ObjDowsing *this, PlayState *play);  /* 80000000 */
+s32 ObjDowsing_CheckValidSpawn(ObjDowsing *this);  /* 80000080 */
 void ObjDowsing_Init(void);  /* 800000C0 */
+void ObjDowsing_Destroy(Actor *thisx, PlayState *play);  /* 800000E0 */
+void ObjDowsing_Update(Actor *thisx, PlayState *play);  /* 800000F0 */
 
 #endif

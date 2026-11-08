@@ -3,12 +3,12 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0101.h"
 
-s32 ArmsHook_AttachToPlayer(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg1, u8 **, 0x124) = arg0;
-    M2C_FIELD(arg1, u8 **, 0x34C) = arg0;
-    if (M2C_FIELD(arg0, s32 *, 0x124) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x124) = 0;
-        M2C_FIELD(arg1, s32 *, 0x120) = 0;
+s32 ArmsHook_AttachToPlayer(ArmsHook *this, void *player) {
+    M2C_FIELD(player, u8 **, 0x124) = this;
+    M2C_FIELD(player, u8 **, 0x34C) = this;
+    if (M2C_FIELD(this, s32 *, 0x124) != 0) {
+        M2C_FIELD(this, s32 *, 0x124) = 0;
+        M2C_FIELD(player, s32 *, 0x120) = 0;
         return 1;
     }
     return 0;

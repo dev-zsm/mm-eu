@@ -5,13 +5,13 @@
 
 M2C_UNK func_800B6490();                            /* extern */
 
-void ArrowFire_Update(u8 *arg0, u8 *arg1) {
+void ArrowFire_Update(Actor *thisx, PlayState *play) {
     u8 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg1, u8 *, 0x1682E);
+    temp_v0 = M2C_FIELD(play, u8 *, 0x1682E);
     if ((temp_v0 == 0xE) || (temp_v0 == 0x12)) {
         func_800B6490();
         return;
     }
-    M2C_FIELD(arg0, M2C_UNK (**)(), 0x258)();
+    M2C_FIELD(thisx, M2C_UNK (**)(), 0x258)();
 }

@@ -5,7 +5,7 @@
 
 M2C_UNK func_8090AD14(u8 *);                      /* extern */
 
-void ObjKibako_Update(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK (**)(), 0x144)();
-    func_8090AD14(arg0);
+void ObjKibako_Update(Actor *thisx) {
+    M2C_FIELD(thisx, M2C_UNK (**)(), 0x144)();
+    func_8090AD14(thisx);
 }

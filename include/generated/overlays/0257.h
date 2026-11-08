@@ -4,11 +4,14 @@
 #define GENERATED_OVERLAYS_0257_H
 
 #include "types.h"
+#include "actor.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(Actor *thisx, PlayState *play);
+void func_80000084(Actor *thisx, PlayState *play);
 void func_800000D0(s32 arg0, void *arg1);
 void func_80000104(s32 arg0, u8 *arg1);
 void func_80000114(void *arg0, void *arg1, void *arg2);
-void func_80000188(void *arg0, s32 arg1);
+void func_80000188(Actor *thisx, PlayState *play);
+void func_800003FC(Actor *thisx, PlayState *play);
 
 #endif

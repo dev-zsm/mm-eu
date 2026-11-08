@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0301_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmHina DmHina;
 
-void func_80000060(void *arg0, s32 arg1);
-void func_8000015C(s32 arg0, s32 arg1);
+void DmHina_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DmHina_Destroy(Actor *thisx, PlayState *play);  /* 80000050 */
+void func_80000060(DmHina *this, PlayState *play);
+void func_8000015C(DmHina *this, PlayState *play);
 void func_8000019C(u8 *arg0, s32 arg1);
-void func_8000022C(void *arg0, s32 arg1);
-void func_8000034C(void *arg0, void *arg1);
-void func_8000059C(void *arg0, s32 arg1);
-void DmHina_Draw(void *arg0, s32 arg1);  /* 80000840 */
+void func_8000022C(DmHina *this, PlayState *play);
+void func_8000034C(DmHina *this, PlayState *play);
+void func_8000059C(DmHina *this, PlayState *play);
+void DmHina_Draw(Actor *thisx, PlayState *play);  /* 80000840 */
 
 #endif

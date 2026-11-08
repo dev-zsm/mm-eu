@@ -4,19 +4,22 @@
 #define GENERATED_OVERLAYS_0413_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjAqua ObjAqua;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000154(void *arg0, s32 arg1);
-void func_800002A0(s32 arg0, s32 arg1);
-void func_80000370(void *arg0);
-s32 ObjAqua_IsUnderwater(u8 *arg0, s32 arg1);  /* 800003C0 */
-void ObjAqua_Init(void *arg0, s32 arg1);  /* 80000438 */
+void func_80000000(ObjAqua *this, PlayState *play);
+void func_80000154(ObjAqua *this, PlayState *play);
+void func_800002A0(ObjAqua *this, PlayState *play);
+void func_80000370(u8 *a);
+s32 ObjAqua_IsUnderwater(ObjAqua *this, PlayState *play);  /* 800003C0 */
+void ObjAqua_Init(Actor *thisx, PlayState *play);  /* 80000438 */
+void ObjAqua_Destroy(Actor *thisx, PlayState *play);  /* 800005A4 */
 void func_800005D0(u8 *arg0);
-void func_800005EC(void *arg0);
+void func_800005EC(ObjAqua *this, PlayState *play);
 void func_80000694(u8 *arg0);
 void func_800006A8(u8 *arg0);
-void func_8000075C(void *arg0, s32 arg1);
-void ObjAqua_Update(void *arg0, s32 arg1);  /* 80000840 */
-void ObjAqua_Draw(s32 arg0, void *arg1);  /* 800009A8 */
+void func_8000075C(ObjAqua *this, PlayState *play);
+void ObjAqua_Update(Actor *thisx, PlayState *play);  /* 80000840 */
+void ObjAqua_Draw(Actor *thisx, PlayState *play);  /* 800009A8 */
 
 #endif

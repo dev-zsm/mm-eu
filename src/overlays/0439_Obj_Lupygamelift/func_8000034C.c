@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80AD5208;
 
-void ObjLupygamelift_SetupWait(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x170) = 5;
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80AD5208;
+void ObjLupygamelift_SetupWait(ObjLupygamelift *this) {
+    M2C_FIELD(this, s16 *, 0x170) = 5;
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80AD5208;
 }

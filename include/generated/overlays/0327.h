@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0327_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTest2 EnTest2;
 
-void EnTest2_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void EnTest2_Update(void *arg0, s32 arg1);  /* 80000054 */
-void EnTest2_UpdateForLens(u8 *arg0, u8 *arg1);  /* 8000015C */
-void EnTest2_Draw(void *arg0, s32 arg1);  /* 80000194 */
+void EnTest2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnTest2_Update(Actor *thisx, PlayState *play);  /* 80000054 */
+void EnTest2_UpdateForLens(Actor *thisx, PlayState *play);  /* 8000015C */
+void EnTest2_Draw(Actor *thisx, PlayState *play);  /* 80000194 */
 
 #endif

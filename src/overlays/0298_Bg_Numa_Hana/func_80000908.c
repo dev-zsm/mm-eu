@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_809FFB4C;
 
-void BgNumaHana_SetupOpenedIdle(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x234) = &D_809FFB4C;
+void BgNumaHana_SetupOpenedIdle(BgNumaHana *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x234) = &D_809FFB4C;
 }

@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80920660;
 
-void ObjSwitch_FloorSwitchRiseUpInit(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80920660;
+void ObjSwitch_FloorSwitchRiseUpInit(ObjSwitch *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80920660;
 }

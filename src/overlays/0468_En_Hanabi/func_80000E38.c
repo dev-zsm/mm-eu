@@ -7,8 +7,8 @@ M2C_UNK func_8018122C();                            /* extern */
 M2C_UNK func_8018125C();                            /* extern */
 M2C_UNK func_80B07CD8(s32, s32);                    /* extern */
 
-void EnHanabi_Draw(s32 arg0, s32 arg1) {
+void EnHanabi_Draw(Actor *thisx, PlayState *play) {
     func_8018122C();
-    func_80B07CD8(arg0 + 0x148, arg1);
+    func_80B07CD8((u8 *)thisx + 0x148, play);
     func_8018125C();
 }

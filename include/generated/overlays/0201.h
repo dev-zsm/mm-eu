@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0201_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsGSpk EffectSsGSpk;
 
-void EffectSsGSpk_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsGSpk_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000140 */
-void EffectSsGSpk_Update(s32 arg0, s32 arg1, s32 arg2);  /* 80000310 */
-void EffectSsGSpk_UpdateNoAccel(s32 arg0, s32 arg1, void *arg2);  /* 80000438 */
+u32 EffectSsGSpk_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsGSpk_Draw(PlayState *play, u32 index, void *this);  /* 80000140 */
+void EffectSsGSpk_Update(PlayState *play, u32 index, void *this);  /* 80000310 */
+void EffectSsGSpk_UpdateNoAccel(PlayState *play, u32 index, void *this);  /* 80000438 */
 
 #endif

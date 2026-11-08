@@ -4,9 +4,13 @@
 #define GENERATED_OVERLAYS_0158_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnOkarinaTag EnOkarinaTag;
 
-void EnOkarinaTag_Init(void *arg0, s32 arg1);  /* 80000010 */
-void func_800000F8(void *arg0, s32 arg1);
+void EnOkarinaTag_Destroy(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnOkarinaTag_Init(Actor *thisx, PlayState *play);  /* 80000010 */
+void func_800000F8(EnOkarinaTag *this, PlayState *play);
 void func_8000026C(s32 arg0, s32 arg1);
+void EnOkarinaTag_Update(Actor *thisx);  /* 800003C4 */
 
 #endif

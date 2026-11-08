@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0224_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsDeadDd EffectSsDeadDd;
 
-void EffectSsDeadDd_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsDeadDd_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800002C8 */
-void EffectSsDeadDd_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000498 */
+u32 EffectSsDeadDd_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsDeadDd_Draw(PlayState *play, u32 index, void *this);  /* 800002C8 */
+void EffectSsDeadDd_Update(PlayState *play, u32 index, void *this);  /* 80000498 */
 
 #endif

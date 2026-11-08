@@ -4,10 +4,13 @@
 #define GENERATED_OVERLAYS_0531_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjY2shutter ObjY2shutter;
 
-void ObjY2shutter_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjY2shutter_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjY2shutter_Destroy(Actor *thisx, PlayState *play);  /* 8000006C */
 void ObjY2shutter_SetupOpen(u8 *a0, u8 *a1, s32 a2);  /* 800000A0 */
-void ObjY2shutter_Update(void *arg0, s32 arg1);  /* 800000D4 */
-void ObjY2shutter_Draw(void *arg0, s32 arg1);  /* 80000480 */
+void ObjY2shutter_Update(Actor *thisx, PlayState *play);  /* 800000D4 */
+void ObjY2shutter_Draw(Actor *thisx, PlayState *play);  /* 80000480 */
 
 #endif

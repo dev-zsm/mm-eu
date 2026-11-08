@@ -4,11 +4,16 @@
 #define GENERATED_OVERLAYS_0582_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHsStump ObjHsStump;
 
-void ObjHsStump_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjHsStump_SetupIdle(u8 *arg0, s32 arg1);  /* 800000D0 */
-void ObjHsStump_Idle(void *arg0, s32 arg1);  /* 800000E8 */
-void ObjHsStump_SetupAppear(u8 *arg0, s32 arg1);  /* 8000013C */
-void ObjHsStump_Appear(s32 arg0, s32 arg1);  /* 8000019C */
+void ObjHsStump_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjHsStump_SetupIdle(ObjHsStump *this, PlayState *play);  /* 800000D0 */
+void ObjHsStump_Idle(ObjHsStump *this, PlayState *play);  /* 800000E8 */
+void ObjHsStump_SetupAppear(ObjHsStump *this, PlayState *play);  /* 8000013C */
+void ObjHsStump_Appear(ObjHsStump *this, PlayState *play);  /* 8000019C */
+void ObjHsStump_Destroy(Actor *thisx, PlayState *play);  /* 8000049C */
+void ObjHsStump_Update(Actor *thisx);  /* 800004D0 */
+void ObjHsStump_Draw(Actor *thisx, PlayState *play);  /* 800004F4 */
 
 #endif

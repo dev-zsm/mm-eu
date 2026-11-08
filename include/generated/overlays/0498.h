@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0498_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHariko ObjHariko;
 
-void ObjHariko_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void ObjHariko_SetupWait(u8 *arg0);  /* 8000005C */
-void ObjHariko_Wait(s32 arg0, s32 arg1);  /* 80000070 */
-void ObjHariko_SetupBobHead(void *arg0);  /* 80000080 */
-void ObjHariko_BobHead(void *arg0, s32 arg1);  /* 800000A4 */
-void ObjHariko_CheckForQuakes(s32 arg0);  /* 80000158 */
-void ObjHariko_Draw(s32 arg0, s32 arg1);  /* 800001BC */
+void ObjHariko_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjHariko_Destroy(Actor *thisx, PlayState *play);  /* 8000004C */
+void ObjHariko_SetupWait(ObjHariko *this);  /* 8000005C */
+void ObjHariko_Wait(ObjHariko *this, PlayState *play);  /* 80000070 */
+void ObjHariko_SetupBobHead(ObjHariko *this);  /* 80000080 */
+void ObjHariko_BobHead(ObjHariko *this, PlayState *play);  /* 800000A4 */
+void ObjHariko_CheckForQuakes(ObjHariko *this);  /* 80000158 */
+void ObjHariko_Update(Actor *thisx);  /* 8000018C */
+void ObjHariko_Draw(Actor *thisx, PlayState *play);  /* 800001BC */
 
 #endif

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0368.h"
 
-void ObjMine_Path_Stationary(s32 arg0, M2C_UNK arg1) {
+void ObjMine_Path_Stationary(ObjMine *this, PlayState *play) {
 
 }

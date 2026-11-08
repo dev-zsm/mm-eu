@@ -4,19 +4,22 @@
 #define GENERATED_OVERLAYS_0337_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjFireshield ObjFireshield;
 
-void func_80000000(u8 *arg0);
-void func_8000002C(void *arg0);
-void func_800000EC(void *arg0);
-void func_800001C4(void *arg0);
-void func_8000022C(void *arg0);
+void func_80000000(ObjFireshield *this);
+void func_8000002C(ObjFireshield *this);
+void func_800000EC(ObjFireshield *this);
+void func_800001C4(ObjFireshield *this);
+void func_8000022C(ObjFireshield *this);
 void func_80000298(s32 arg0);
-void func_800002A4(void *arg0, s32 arg1);
-void func_80000398(void *arg0, s32 arg1);
-void func_800006E4(void *arg0);
+void func_800002A4(Actor *thisx, PlayState *play);
+void func_80000398(ObjFireshield *this, PlayState *play);
+void func_800006E4(ObjFireshield *this);
 void func_8000073C();
-void ObjFireshield_Init(void *arg0, s32 arg1);  /* 8000075C */
-void ObjFireshield_Update(void *arg0, s32 arg1);  /* 8000090C */
-void ObjFireshield_Draw(s32 arg0, s32 arg1);  /* 80000C14 */
+void ObjFireshield_Init(Actor *thisx, PlayState *play);  /* 8000075C */
+void ObjFireshield_Destroy(Actor *thisx, PlayState *play);  /* 800008E0 */
+void ObjFireshield_Update(Actor *thisx, PlayState *play);  /* 8000090C */
+void ObjFireshield_Draw(Actor *thisx, PlayState *play);  /* 80000C14 */
 
 #endif

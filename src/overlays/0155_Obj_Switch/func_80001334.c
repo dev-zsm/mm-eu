@@ -7,11 +7,11 @@ M2C_UNK func_8091F978();                            /* extern */
 M2C_UNK func_8091F9B4(u8 *);                      /* extern */
 M2C_UNK func_80920824(u8 *);                      /* extern */
 
-void ObjSwitch_EyeSwitchOpening(u8 *arg0, M2C_UNK arg1) {
-    M2C_FIELD(arg0, s8 *, 0x164) = (s8) (M2C_FIELD(arg0, s8 *, 0x164) - 1);
-    if (M2C_FIELD(arg0, s8 *, 0x164) <= 0) {
+void ObjSwitch_EyeSwitchOpening(ObjSwitch *this, PlayState *play) {
+    M2C_FIELD(this, s8 *, 0x164) = (s8) (M2C_FIELD(this, s8 *, 0x164) - 1);
+    if (M2C_FIELD(this, s8 *, 0x164) <= 0) {
         func_8091F978();
-        func_8091F9B4(arg0);
-        func_80920824(arg0);
+        func_8091F9B4(this);
+        func_80920824(this);
     }
 }

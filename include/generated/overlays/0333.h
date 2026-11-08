@@ -4,12 +4,14 @@
 #define GENERATED_OVERLAYS_0333_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnWizBrock EnWizBrock;
 
-void EnWizBrock_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnWizBrock_Destroy(u8 *arg0, s32 arg1);  /* 800000D0 */
-void EnWizBrock_SetupUpdateStatus(u8 *arg0, s32 arg1);  /* 80000104 */
-void EnWizBrock_UpdateStatus(u8 *arg0, s32 arg1);  /* 8000011C */
-void EnWizBrock_Update(u8 *arg0);  /* 80000304 */
-void EnWizBrock_Draw(void *arg0, s32 arg1);  /* 80000328 */
+void EnWizBrock_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnWizBrock_Destroy(Actor *thisx, PlayState *play);  /* 800000D0 */
+void EnWizBrock_SetupUpdateStatus(EnWizBrock *this, PlayState *play);  /* 80000104 */
+void EnWizBrock_UpdateStatus(EnWizBrock *this, PlayState *play);  /* 8000011C */
+void EnWizBrock_Update(Actor *thisx);  /* 80000304 */
+void EnWizBrock_Draw(Actor *thisx, PlayState *play);  /* 80000328 */
 
 #endif

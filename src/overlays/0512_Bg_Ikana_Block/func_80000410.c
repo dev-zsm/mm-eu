@@ -5,9 +5,9 @@
 
 s32 func_80B63AE4();                                /* extern */
 
-s32 func_80000410(u8 *arg0) {
+s32 func_80000410(BgIkanaBlock *this) {
     if (func_80B63AE4() != 0) {
-        M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x88) - M2C_FIELD(arg0, f32 *, 0x170));
+        M2C_FIELD(this, f32 *, 0x28) = (f32) (M2C_FIELD(this, f32 *, 0x88) - M2C_FIELD(this, f32 *, 0x170));
         return 1;
     }
     return 0;

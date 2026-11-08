@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0218_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsIcePiece EffectSsIcePiece;
 
-void EffectSsIcePiece_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsIcePiece_Draw(void *arg0, s32 arg1, void *arg2);  /* 8000014C */
-void EffectSsIcePiece_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000350 */
+u32 EffectSsIcePiece_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsIcePiece_Draw(PlayState *play, u32 index, void *this);  /* 8000014C */
+void EffectSsIcePiece_Update(PlayState *play, u32 index, void *this);  /* 80000350 */
 
 #endif

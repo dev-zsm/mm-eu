@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0578_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnScRuppe EnScRuppe;
 
-void EnScRuppe_UpdateCollision(s32 arg0, s32 arg1);  /* 80000000 */
-void func_8000006C(s32 arg0);
-void func_8000017C(void *arg0, s32 arg1);
-void func_80000208(void *arg0, void *arg1);
-void EnScRuppe_Init(void *arg0, s32 arg1);  /* 800002D8 */
-void EnScRuppe_Draw(s32 arg0, s32 arg1);  /* 80000408 */
+void EnScRuppe_UpdateCollision(EnScRuppe *this, PlayState *play);  /* 80000000 */
+s32 func_8000006C(s16 ruppeIndex);
+void func_8000017C(EnScRuppe *this, PlayState *play);
+void func_80000208(EnScRuppe *this, PlayState *play);
+void EnScRuppe_Init(Actor *thisx, PlayState *play);  /* 800002D8 */
+void EnScRuppe_Destroy(Actor *thisx, PlayState *play);  /* 800003A0 */
+void EnScRuppe_Draw(Actor *thisx, PlayState *play);  /* 80000408 */
 
 #endif

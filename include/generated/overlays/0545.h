@@ -4,25 +4,29 @@
 #define GENERATED_OVERLAYS_0545_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnKujiya EnKujiya;
 
-void EnKujiya_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void EnKujiya_SetupWait(u8 *arg0);  /* 800000C8 */
-void EnKujiya_Wait(void *arg0, s32 arg1);  /* 800000DC */
-void EnKujiya_HandlePlayerChoice(u8 *arg0, u8 *arg1);  /* 80000248 */
-void EnKujiya_ChooseNextDialogue(void *arg0, s32 arg1);  /* 80000318 */
-void EnKujiya_SetupTalk(u8 *arg0);  /* 80000564 */
-void EnKujiya_Talk(s32 arg0, s32 arg1);  /* 80000578 */
-void EnKujiya_SetupGivePrize(u8 *arg0);  /* 80000644 */
-void EnKujiya_GivePrize(s32 arg0, s32 arg1);  /* 80000658 */
-void EnKujiya_SetupFinishGivePrize(u8 *arg0);  /* 800006B4 */
-void EnKujiya_FinishGivePrize(s32 arg0, s32 arg1);  /* 800006C8 */
-void EnKujiya_CheckBoughtTicket();  /* 80000718 */
+void EnKujiya_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnKujiya_Destroy(Actor *thisx, PlayState *play);  /* 800000B8 */
+void EnKujiya_SetupWait(EnKujiya *this);  /* 800000C8 */
+void EnKujiya_Wait(EnKujiya *this, PlayState *play);  /* 800000DC */
+void EnKujiya_HandlePlayerChoice(EnKujiya *this, PlayState *play);  /* 80000248 */
+void EnKujiya_ChooseNextDialogue(EnKujiya *this, PlayState *play);  /* 80000318 */
+void EnKujiya_SetupTalk(EnKujiya *this);  /* 80000564 */
+void EnKujiya_Talk(EnKujiya *this, PlayState *play);  /* 80000578 */
+void EnKujiya_SetupGivePrize(EnKujiya *this);  /* 80000644 */
+void EnKujiya_GivePrize(EnKujiya *this, PlayState *play);  /* 80000658 */
+void EnKujiya_SetupFinishGivePrize(EnKujiya *this);  /* 800006B4 */
+void EnKujiya_FinishGivePrize(EnKujiya *this, PlayState *play);  /* 800006C8 */
+s32 EnKujiya_CheckBoughtTicket(void);  /* 80000718 */
 void EnKujiya_SetBoughtTicket(void);  /* 800007A8 */
 void EnKujiya_UnsetBoughtTicket(void);  /* 80000818 */
-void EnKujiya_SetupTurnToOpen(u8 *arg0);  /* 80000888 */
-void EnKujiya_TurnToOpen(void *arg0, s32 arg1);  /* 800008A0 */
-void EnKujiya_SetupTurnToClosed(u8 *arg0);  /* 80000970 */
-void EnKujiya_TurnToClosed(void *arg0, s32 arg1);  /* 80000988 */
-void EnKujiya_Draw(s32 arg0, s32 arg1);  /* 80000A7C */
+void EnKujiya_SetupTurnToOpen(EnKujiya *this);  /* 80000888 */
+void EnKujiya_TurnToOpen(EnKujiya *this, PlayState *play);  /* 800008A0 */
+void EnKujiya_SetupTurnToClosed(EnKujiya *this);  /* 80000970 */
+void EnKujiya_TurnToClosed(EnKujiya *this, PlayState *play);  /* 80000988 */
+void EnKujiya_Update(Actor *thisx);  /* 80000A58 */
+void EnKujiya_Draw(Actor *thisx, PlayState *play);  /* 80000A7C */
 
 #endif

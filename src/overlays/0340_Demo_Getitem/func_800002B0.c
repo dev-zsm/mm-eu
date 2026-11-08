@@ -7,8 +7,8 @@ M2C_UNK func_800B7DD4(u8 *, s32, M2C_UNK);        /* extern */
 M2C_UNK func_800B7E9C(u8 *, s32, M2C_UNK);        /* extern */
 M2C_UNK func_800EE0C0(s32, s16);                    /* extern */
 
-void DemoGetitem_Draw(u8 *arg0, s32 arg1) {
-    func_800B7DD4(arg0, arg1, 0);
-    func_800B7E9C(arg0, arg1, 0);
-    func_800EE0C0(arg1, M2C_FIELD(arg0, s16 *, 0x144));
+void DemoGetitem_Draw(Actor *thisx, PlayState *play) {
+    func_800B7DD4(thisx, play, 0);
+    func_800B7E9C(thisx, play, 0);
+    func_800EE0C0(play, M2C_FIELD(thisx, s16 *, 0x144));
 }

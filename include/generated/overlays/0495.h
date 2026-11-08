@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0495_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjDora ObjDora;
 
-void ObjDora_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjDora_SetupWait(u8 *arg0);  /* 800001CC */
-void ObjDora_Wait(s32 arg0, s32 arg1);  /* 800001E0 */
-void ObjDora_SetupMoveGong(u8 *arg0);  /* 800001F0 */
-void ObjDora_MoveGong(void *arg0, s32 arg1);  /* 80000264 */
-void ObjDora_IsHalfHour(s32 arg0);  /* 80000384 */
-void ObjDora_UpdateCollision(void *arg0, s32 arg1);  /* 80000418 */
-void ObjDora_Draw(s32 arg0, s32 arg1);  /* 800005E8 */
+void ObjDora_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjDora_Destroy(Actor *thisx, PlayState *play);  /* 800001A0 */
+void ObjDora_SetupWait(ObjDora *this);  /* 800001CC */
+void ObjDora_Wait(ObjDora *this, PlayState *play);  /* 800001E0 */
+void ObjDora_SetupMoveGong(ObjDora *this);  /* 800001F0 */
+void ObjDora_MoveGong(ObjDora *this, PlayState *play);  /* 80000264 */
+s32 ObjDora_IsHalfHour(u16 time);  /* 80000384 */
+void ObjDora_UpdateCollision(ObjDora *this, PlayState *play);  /* 80000418 */
+void ObjDora_Draw(Actor *thisx, PlayState *play);  /* 800005E8 */
 
 #endif

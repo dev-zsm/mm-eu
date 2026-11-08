@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0442.h"
 
 void MirRay2_Draw(Actor *thisx, PlayState *play) {
 

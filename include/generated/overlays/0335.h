@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0335_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffChange EffChange;
 
-void EffChange_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EffChange_SetColors(void *arg0, s32 arg1);  /* 800000E8 */
+void EffChange_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EffChange_Destroy(Actor *thisx, PlayState *play);  /* 800000BC */
+void EffChange_SetColors(EffChange *this, s32 arg1);  /* 800000E8 */
 void func_8000013C(u8 *arg0, s32 arg1);
-void EffChange_Draw(void *arg0, void *arg1);  /* 80000320 */
+void EffChange_Update(Actor *thisx);  /* 800002FC */
+void EffChange_Draw(Actor *thisx, PlayState *play);  /* 80000320 */
 
 #endif

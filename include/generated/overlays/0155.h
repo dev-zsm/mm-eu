@@ -4,61 +4,63 @@
 #define GENERATED_OVERLAYS_0155_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSwitch ObjSwitch;
 
-void ObjSwitch_InitJntSphCollider(void *arg0, s32 arg1, s32 arg2);  /* 80000000 */
-void ObjSwitch_InitTrisCollider(void *arg0, s32 arg1, void *arg2);  /* 8000009C */
-void ObjSwitch_SpawnIce(u8 *arg0, s32 arg1);  /* 800001D8 */
-void ObjSwitch_SetSwitchFlagState(void *arg0, s32 arg1, s32 arg2);  /* 8000024C */
-void ObjSwitch_CrystalUpdateTimer(u8 *arg0);  /* 800002A4 */
-void ObjSwitch_StopCutscene(u8 *arg0);  /* 800002B8 */
-void ObjSwitch_PlayFootSwitchSfx(u8 *a0);  /* 800002F4 */
-void ObjSwitch_PlayDiamondSwitchSfx(u8 *a);  /* 80000320 */
-void ObjSwitch_SetFloorSwitchSnapPlayerState(u8 *arg0, s32 arg1);  /* 8000034C */
-void ObjSwitch_FloorSwitchSnapPlayerToSwitchEdge(void *arg0, void *arg1);  /* 80000384 */
-void ObjSwitch_Init(void *arg0, void *arg1);  /* 800004B4 */
-void ObjSwitch_Destroy(u8 *arg0, s32 arg1);  /* 800009CC */
+void ObjSwitch_InitJntSphCollider(Actor *thisx, PlayState *play, void *init);  /* 80000000 */
+void ObjSwitch_InitTrisCollider(Actor *thisx, PlayState *play, void *init);  /* 8000009C */
+Actor *ObjSwitch_SpawnIce(ObjSwitch *this, PlayState *play);  /* 800001D8 */
+void ObjSwitch_SetSwitchFlagState(ObjSwitch *this, PlayState *play, s32 setFlag);  /* 8000024C */
+void ObjSwitch_CrystalUpdateTimer(ObjSwitch *this);  /* 800002A4 */
+void ObjSwitch_StopCutscene(ObjSwitch *this);  /* 800002B8 */
+void ObjSwitch_PlayFootSwitchSfx(ObjSwitch *this);  /* 800002F4 */
+void ObjSwitch_PlayDiamondSwitchSfx(ObjSwitch *this);  /* 80000320 */
+void ObjSwitch_SetFloorSwitchSnapPlayerState(ObjSwitch *this, s32 state);  /* 8000034C */
+void ObjSwitch_FloorSwitchSnapPlayerToSwitchEdge(ObjSwitch *this, PlayState *play);  /* 80000384 */
+void ObjSwitch_Init(Actor *thisx, PlayState *play);  /* 800004B4 */
+void ObjSwitch_Destroy(Actor *thisx, PlayState *play);  /* 800009CC */
 void ObjSwitch_TryPlayCutsceneInit(u8 *a0, s32 a1, s32 a2, s32 a3);  /* 80000A78 */
-void ObjSwitch_TryPlayCutscene(void *arg0, s32 arg1);  /* 80000A98 */
-void ObjSwitch_FloorSwitchUpInit(u8 *arg0);  /* 80000B24 */
-void ObjSwitch_FloorSwitchUp(void *arg0, s32 arg1);  /* 80000B40 */
-void ObjSwitch_FloorSwitchPushDownInit(u8 *arg0);  /* 80000D5C */
-void ObjSwitch_FloorSwitchPushDown(u8 *arg0, s32 arg1);  /* 80000D70 */
-void ObjSwitch_FloorSwitchDownInit(u8 *arg0);  /* 80000DF0 */
-void ObjSwitch_FloorSwitchDown(void *arg0, s32 arg1);  /* 80000E14 */
-void ObjSwitch_FloorSwitchRiseUpInit(u8 *arg0);  /* 80000F8C */
-void ObjSwitch_FloorSwitchRiseUp(u8 *arg0, s32 arg1);  /* 80000FA0 */
-void ObjSwitch_IsEyeSwitchHit(void *arg0);  /* 80001000 */
-void ObjSwitch_EyeSwitchFrozenInit(u8 *arg0);  /* 800010F8 */
-void ObjSwitch_EyeSwitchUnfrozen(u8 *arg0, s32 arg1);  /* 8000110C */
-void ObjSwitch_EyeSwitchOpenInit(u8 *arg0);  /* 80001164 */
-void ObjSwitch_EyeSwitchOpen(u8 *arg0, s32 arg1);  /* 8000117C */
-void ObjSwitch_EyeSwitchClosingInit(u8 *arg0);  /* 800011DC */
-void ObjSwitch_EyeSwitchClosing(u8 *arg0, s32 arg1);  /* 800011F0 */
-void ObjSwitch_EyeSwitchClosedInit(u8 *arg0);  /* 80001240 */
-void ObjSwitch_EyeSwitchClosed(void *arg0, s32 arg1);  /* 8000125C */
-void ObjSwitch_EyeSwitchOpeningInit(u8 *arg0);  /* 80001320 */
-void ObjSwitch_EyeSwitchOpening(u8 *arg0, s32 arg1);  /* 80001334 */
-void ObjSwitch_CrystalSwitchOffInit(u8 *arg0);  /* 80001380 */
-void ObjSwitch_CrystalSwitchOff(void *arg0, s32 arg1);  /* 800013A0 */
-void ObjSwitch_CrystalSwitchTurnOnInit(u8 *arg0);  /* 800014D4 */
-void ObjSwitch_CrystalSwitchTurnOn(void *arg0, s32 arg1);  /* 800014E8 */
-void ObjSwitch_CrystalSwitchOnInit(void *arg0);  /* 80001568 */
-void ObjSwitch_CrystalSwitchOn(void *arg0, s32 arg1);  /* 8000158C */
-void ObjSwitch_CrystalSwitchTurnOffInit(u8 *arg0);  /* 8000166C */
-void ObjSwitch_CrystalSwitchTurnOff(void *arg0, s32 arg1);  /* 80001680 */
-void ObjSwitch_LargeFloorSwitchUp(u8 *arg0, s32 arg1);  /* 80001704 */
-void ObjSwitch_LargeFloorSwitchPushDownInit(u8 *arg0);  /* 800017F8 */
-void ObjSwitch_LargeFloorSwitchPushDown(u8 *arg0, s32 arg1);  /* 8000180C */
-void ObjSwitch_LargeFloorSwitchDownInit(void *arg0);  /* 80001890 */
-void ObjSwitch_LargeFloorSwitchDown(void *arg0, s32 arg1);  /* 800018B8 */
-void ObjSwitch_LargeFloorSwitchRiseUpInit(u8 *arg0);  /* 800019B4 */
-void ObjSwitch_LargeFloorSwitchRiseUp(u8 *arg0, s32 arg1);  /* 800019C8 */
-void ObjSwitch_Update(void *arg0, s32 arg1);  /* 80001A2C */
-void ObjSwitch_DrawFloorSwitch(void *arg0, void *arg1);  /* 80001BA8 */
-void ObjSwitch_DrawRustyFloorSwitch(s32 arg0, s32 arg1);  /* 80001CB8 */
-void ObjSwitch_DrawVisibleEyeSwitch(s32 arg0, s32 arg1);  /* 80001CE8 */
-void ObjSwitch_DrawInvisibleEyeSwitch(s32 arg0, s32 arg1);  /* 80001DCC */
-void ObjSwitch_DrawEyeSwitch(u8 *arg0);  /* 80001EB0 */
-void ObjSwitch_DrawCrystalSwitch(void *arg0, void *arg1);  /* 80001EF4 */
+void ObjSwitch_TryPlayCutscene(ObjSwitch *this, PlayState *play);  /* 80000A98 */
+void ObjSwitch_FloorSwitchUpInit(ObjSwitch *this);  /* 80000B24 */
+void ObjSwitch_FloorSwitchUp(ObjSwitch *this, PlayState *play);  /* 80000B40 */
+void ObjSwitch_FloorSwitchPushDownInit(ObjSwitch *this);  /* 80000D5C */
+void ObjSwitch_FloorSwitchPushDown(ObjSwitch *this, PlayState *play);  /* 80000D70 */
+void ObjSwitch_FloorSwitchDownInit(ObjSwitch *this);  /* 80000DF0 */
+void ObjSwitch_FloorSwitchDown(ObjSwitch *this, PlayState *play);  /* 80000E14 */
+void ObjSwitch_FloorSwitchRiseUpInit(ObjSwitch *this);  /* 80000F8C */
+void ObjSwitch_FloorSwitchRiseUp(ObjSwitch *this, PlayState *play);  /* 80000FA0 */
+s32 ObjSwitch_IsEyeSwitchHit(ObjSwitch *this);  /* 80001000 */
+void ObjSwitch_EyeSwitchFrozenInit(ObjSwitch *this);  /* 800010F8 */
+void ObjSwitch_EyeSwitchUnfrozen(ObjSwitch *this, PlayState *play);  /* 8000110C */
+void ObjSwitch_EyeSwitchOpenInit(ObjSwitch *this);  /* 80001164 */
+void ObjSwitch_EyeSwitchOpen(ObjSwitch *this, PlayState *play);  /* 8000117C */
+void ObjSwitch_EyeSwitchClosingInit(ObjSwitch *this);  /* 800011DC */
+void ObjSwitch_EyeSwitchClosing(ObjSwitch *this, PlayState *play);  /* 800011F0 */
+void ObjSwitch_EyeSwitchClosedInit(ObjSwitch *this);  /* 80001240 */
+void ObjSwitch_EyeSwitchClosed(ObjSwitch *this, PlayState *play);  /* 8000125C */
+void ObjSwitch_EyeSwitchOpeningInit(ObjSwitch *this);  /* 80001320 */
+void ObjSwitch_EyeSwitchOpening(ObjSwitch *this, PlayState *play);  /* 80001334 */
+void ObjSwitch_CrystalSwitchOffInit(ObjSwitch *this);  /* 80001380 */
+void ObjSwitch_CrystalSwitchOff(ObjSwitch *this, PlayState *play);  /* 800013A0 */
+void ObjSwitch_CrystalSwitchTurnOnInit(ObjSwitch *this);  /* 800014D4 */
+void ObjSwitch_CrystalSwitchTurnOn(ObjSwitch *this, PlayState *play);  /* 800014E8 */
+void ObjSwitch_CrystalSwitchOnInit(ObjSwitch *this);  /* 80001568 */
+void ObjSwitch_CrystalSwitchOn(ObjSwitch *this, PlayState *play);  /* 8000158C */
+void ObjSwitch_CrystalSwitchTurnOffInit(ObjSwitch *this);  /* 8000166C */
+void ObjSwitch_CrystalSwitchTurnOff(ObjSwitch *this, PlayState *play);  /* 80001680 */
+void ObjSwitch_LargeFloorSwitchUp(ObjSwitch *this, PlayState *play);  /* 80001704 */
+void ObjSwitch_LargeFloorSwitchPushDownInit(ObjSwitch *this);  /* 800017F8 */
+void ObjSwitch_LargeFloorSwitchPushDown(ObjSwitch *this, PlayState *play);  /* 8000180C */
+void ObjSwitch_LargeFloorSwitchDownInit(ObjSwitch *this);  /* 80001890 */
+void ObjSwitch_LargeFloorSwitchDown(ObjSwitch *this, PlayState *play);  /* 800018B8 */
+void ObjSwitch_LargeFloorSwitchRiseUpInit(ObjSwitch *this);  /* 800019B4 */
+void ObjSwitch_LargeFloorSwitchRiseUp(ObjSwitch *this, PlayState *play);  /* 800019C8 */
+void ObjSwitch_Update(Actor *thisx, PlayState *play);  /* 80001A2C */
+void ObjSwitch_DrawFloorSwitch(ObjSwitch *this, PlayState *play);  /* 80001BA8 */
+void ObjSwitch_DrawRustyFloorSwitch(ObjSwitch *this, PlayState *play);  /* 80001CB8 */
+void ObjSwitch_DrawVisibleEyeSwitch(ObjSwitch *this, PlayState *play);  /* 80001CE8 */
+void ObjSwitch_DrawInvisibleEyeSwitch(ObjSwitch *this, PlayState *play);  /* 80001DCC */
+void ObjSwitch_DrawEyeSwitch(ObjSwitch *this);  /* 80001EB0 */
+void ObjSwitch_DrawCrystalSwitch(ObjSwitch *this, PlayState *play);  /* 80001EF4 */
 
 #endif

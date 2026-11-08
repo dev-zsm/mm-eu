@@ -4,8 +4,11 @@
 #define GENERATED_OVERLAYS_0319_H
 
 #include "types.h"
+#include "actor.h"
 
-void ObjShutter_Update(s32 arg0, s32 arg1);  /* 80000020 */
-void ObjShutter_Draw(void *arg0, s32 arg1);  /* 8000016C */
+void func_80000000(Actor *thisx, PlayState *play);
+void func_80000010(Actor *thisx, PlayState *play);
+void ObjShutter_Update(Actor *thisx, PlayState *play);  /* 80000020 */
+void ObjShutter_Draw(Actor *thisx, PlayState *play);  /* 8000016C */
 
 #endif

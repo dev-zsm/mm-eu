@@ -4,44 +4,46 @@
 #define GENERATED_OVERLAYS_0440_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTest7 EnTest7;
 
-void EnTest7_SetupPlayerCamFunc(u8 *arg0, s32 arg1);  /* 80000000 */
+void EnTest7_SetupPlayerCamFunc(EnTest7 *this, s32 arg1);  /* 80000000 */
 void EnTest7_SetupAction(u8 *arg0, s32 arg1);  /* 8000000C */
-void EnTest7_InitFeathers(void *arg0);  /* 80000018 */
-void EnTest7_AddFeather(void *arg0, s32 arg1, s32 arg2);  /* 80000164 */
-void EnTest7_AddAndChooseFeather(s32 arg0, s32 arg1, s32 arg2);  /* 80000410 */
-void EnTest7_UpdateFeatherType1(s32 arg0, void *arg1);  /* 800004BC */
-void EnTest7_UpdateFeatherType2(s32 arg0, void *arg1);  /* 800008B8 */
-void EnTest7_UpdateFeathers(s32 arg0, void *arg1, void *arg2, s32 arg3);  /* 8000096C */
-void EnTest7_DrawFeathers(void *arg0, void *arg1);  /* 80000CDC */
-void EnTest7_InitWindCapsule(u8 *arg0);  /* 80000F10 */
-void EnTest7_Init(void *arg0, s32 arg1);  /* 80000F3C */
-void EnTest7_Destroy(s32 arg0, s32 arg1);  /* 80001140 */
-void EnTest7_StartWarpCs(s32 arg0, s32 arg1);  /* 80001188 */
-void EnTest7_WarpCsPart1(void *arg0, s32 arg1);  /* 8000120C */
-void EnTest7_UpdateGrowingWindCapsule(void *arg0, void *arg1);  /* 80001348 */
-void EnTest7_WarpCsPart2(void *arg0, s32 arg1);  /* 80001480 */
-void EnTest7_WarpCsPart3(void *arg0, s32 arg1);  /* 80001624 */
-void EnTest7_WarpCsPart4(void *arg0, s32 arg1);  /* 80001728 */
-void EnTest7_WarpCsPart5(void *arg0, s32 arg1);  /* 80001810 */
-void EnTest7_WarpCsPart6(s32 arg0, s32 arg1);  /* 800019C8 */
-void EnTest7_WarpCsWait(u8 *a, s32 b);  /* 80001AF8 */
-void EnTest7_WarpCsWarp(void *arg0, void *arg1);  /* 80001B30 */
-void EnTest7_UpdateSubCamWarpCs2(s32 arg0, void *arg1, s32 arg2);  /* 80001CB8 */
-void EnTest7_UpdateSubCamWarpCs1(s32 arg0, void *arg1, s32 arg2);  /* 80001E34 */
-void EnTest7_SpinAndSquishPlayer(u8 *arg0, u8 *arg1, f32 arg2);  /* 80001FE8 */
-void EnTest7_PlayerAndSubCamAction(void *arg0, s32 arg1);  /* 80002034 */
-void EnTest7_SetupArriveCs(void *arg0, void *arg1);  /* 80002118 */
-void EnTest7_UpdateSubCamArrivalCs1(s32 arg0, void *arg1);  /* 800021A0 */
-void EnTest7_StartArriveCs(s32 arg0, s32 arg1);  /* 800022C8 */
-void EnTest7_UpdateSubCamArrivalCs2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000238C */
-void EnTest7_ArriveCsPart1(void *arg0, s32 arg1);  /* 80002428 */
-void EnTest7_UpdateSubCamArrivalCs3(s32 arg0, void *arg1);  /* 80002594 */
-void EnTest7_StartArriveCsSkip(void *arg0, s32 arg1);  /* 800026A8 */
-void EnTest7_ArriveCsPart2(void *arg0, void *arg1);  /* 80002778 */
-void EnTest7_ArriveCsPart3(void *arg0, void *arg1);  /* 800028D4 */
-void EnTest7_Update(void *arg0, s32 arg1);  /* 80002924 */
-void EnTest7_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, void *arg3);  /* 800029B0 */
-void EnTest7_Draw(void *arg0, void *arg1);  /* 80002A28 */
+void EnTest7_InitFeathers(void *feathers);  /* 80000018 */
+void EnTest7_AddFeather(void *feather, Vec3f *pos, s32 isPosYRand);  /* 80000164 */
+void EnTest7_AddAndChooseFeather(void *feathers, Vec3f *pos, s32 isPosYRand);  /* 80000410 */
+void EnTest7_UpdateFeatherType1(PlayState *play, void *feather);  /* 800004BC */
+void EnTest7_UpdateFeatherType2(PlayState *play, void *feather);  /* 800008B8 */
+void EnTest7_UpdateFeathers(PlayState *play, void *feathers, EnTest7 *this, s32 arg3, s32 arg4);  /* 8000096C */
+void EnTest7_DrawFeathers(PlayState *play2, void *feathers);  /* 80000CDC */
+void EnTest7_InitWindCapsule(void *windCapsule);  /* 80000F10 */
+void EnTest7_Init(Actor *thisx, PlayState *play);  /* 80000F3C */
+void EnTest7_Destroy(Actor *thisx, PlayState *play);  /* 80001140 */
+void EnTest7_StartWarpCs(EnTest7 *this, PlayState *play);  /* 80001188 */
+void EnTest7_WarpCsPart1(EnTest7 *this, PlayState *play);  /* 8000120C */
+void EnTest7_UpdateGrowingWindCapsule(EnTest7 *this, PlayState *play);  /* 80001348 */
+void EnTest7_WarpCsPart2(EnTest7 *this, PlayState *play);  /* 80001480 */
+void EnTest7_WarpCsPart3(EnTest7 *this, PlayState *play);  /* 80001624 */
+void EnTest7_WarpCsPart4(EnTest7 *this, PlayState *play);  /* 80001728 */
+void EnTest7_WarpCsPart5(EnTest7 *this, PlayState *play);  /* 80001810 */
+void EnTest7_WarpCsPart6(EnTest7 *this, PlayState *play);  /* 800019C8 */
+void EnTest7_WarpCsWait(EnTest7 *this, PlayState *play);  /* 80001AF8 */
+void EnTest7_WarpCsWarp(EnTest7 *this, PlayState *play);  /* 80001B30 */
+void EnTest7_UpdateSubCamWarpCs2(EnTest7 *this, PlayState *play, f32 lerp);  /* 80001CB8 */
+void EnTest7_UpdateSubCamWarpCs1(EnTest7 *this, PlayState *play, f32 lerp);  /* 80001E34 */
+void EnTest7_SpinAndSquishPlayer(EnTest7 *this, PlayState *play, f32 lerp);  /* 80001FE8 */
+void EnTest7_PlayerAndSubCamAction(EnTest7 *this, PlayState *play);  /* 80002034 */
+void EnTest7_SetupArriveCs(EnTest7 *this, PlayState *play);  /* 80002118 */
+void EnTest7_UpdateSubCamArrivalCs1(EnTest7 *this, PlayState *play);  /* 800021A0 */
+void EnTest7_StartArriveCs(EnTest7 *this, PlayState *play);  /* 800022C8 */
+void EnTest7_UpdateSubCamArrivalCs2(EnTest7 *this, PlayState *play, Vec3f *atNext, f32 lerp);  /* 8000238C */
+void EnTest7_ArriveCsPart1(EnTest7 *this, PlayState *play);  /* 80002428 */
+void EnTest7_UpdateSubCamArrivalCs3(EnTest7 *this, PlayState *play);  /* 80002594 */
+void EnTest7_StartArriveCsSkip(EnTest7 *this, PlayState *play);  /* 800026A8 */
+void EnTest7_ArriveCsPart2(EnTest7 *this, PlayState *play);  /* 80002778 */
+void EnTest7_ArriveCsPart3(EnTest7 *this, PlayState *play);  /* 800028D4 */
+void EnTest7_Update(Actor *thisx, PlayState *play);  /* 80002924 */
+s32 EnTest7_OverrideLimbDraw(PlayState *play, void *kfSkelAnime, s32 limbIndex, void *dList, u8 *flags, void *thisx, Vec3f *scale, Vec3s *rot, Vec3f *pos);  /* 800029B0 */
+void EnTest7_Draw(Actor *thisx, PlayState *play);  /* 80002A28 */
 
 #endif

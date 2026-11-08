@@ -5,6 +5,6 @@
 
 M2C_UNK func_800E0FAC(M2C_UNK, s32, s32, M2C_UNK);  /* extern */
 
-void EnTuboTrap_Destroy(s32 arg0, M2C_UNK arg1) {
-    func_800E0FAC(arg1, arg0 + 0x158, arg0, arg1);
+void EnTuboTrap_Destroy(Actor *thisx, PlayState *play) {
+    func_800E0FAC(play, (u8 *)thisx + 0x158, thisx, play);
 }

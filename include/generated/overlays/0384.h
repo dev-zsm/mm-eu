@@ -4,19 +4,22 @@
 #define GENERATED_OVERLAYS_0384_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmChar05 DmChar05;
 
-void DmChar05_ChangeAnim(s32 arg0, s32 arg1, s32 arg2);  /* 80000000 */
-void func_8000009C(void *arg0, s32 arg1);
-void func_80000144(s32 arg0, s32 arg1);
-void func_800001D0(s32 arg0, s32 arg1);
-void func_8000025C(s32 arg0, s32 arg1);
-void func_800002E8(u8 *arg0, s32 arg1);
-void DmChar05_Init(void *arg0);  /* 80000300 */
+void DmChar05_ChangeAnim(void *skelAnime, void *animInfo, u16 animIndex);  /* 80000000 */
+void func_8000009C(Actor *thisx, PlayState *play);
+void func_80000144(DmChar05 *this, s32 arg1);
+void func_800001D0(DmChar05 *this, s32 arg1);
+void func_8000025C(DmChar05 *this, s32 arg1);
+void func_800002E8(DmChar05 *this, s32 arg1);
+void DmChar05_Init(Actor *thisx, PlayState *play);  /* 80000300 */
+void DmChar05_Destroy(Actor *thisx, PlayState *play);  /* 800003E0 */
 void func_800003F0(u8 *arg0, s32 arg1);
-void func_8000043C(s32 arg0, s32 arg1);
+void func_8000043C(DmChar05 *this, PlayState *play);
 void func_800004F8(u8 *arg0, s32 arg1);
-void func_80000544(s32 arg0, void *arg1);
-void func_80000644(void *arg0, s32 arg1);
+void func_80000544(DmChar05 *this, PlayState *play);
+void func_80000644(DmChar05 *this, PlayState *play);
 void func_800006A8(u8 *arg0, s32 arg1);
 void func_800006CC(u8 *arg0, s32 arg1);
 void func_80000734(u8 *arg0, s32 arg1);
@@ -25,22 +28,22 @@ void func_8000077C(u8 *arg0, s32 arg1);
 void func_800007C8(u8 *arg0, s32 arg1);
 void func_80000870(u8 *arg0, s32 arg1);
 void func_800008BC(u8 *arg0, s32 arg1);
-void func_80000964(void *arg0, void *arg1);
-void func_80000E58(s32 arg0, void *arg1);
-void func_80000EB0(s32 arg0, void *arg1);
-void func_80000F08(void *arg0, s32 arg1);
-void DmChar05_Update(void *arg0, s32 arg1);  /* 800011EC */
-s32 DmChar05_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800013C4 */
-void DmChar05_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800013E0 */
-void func_800013F8(void *arg0, void *arg1);
-void func_800014F0(void *arg0, void *arg1);
-void func_800015AC(void *arg0, void *arg1);
-void func_80001660(s32 arg0, void *arg1);
-void DmChar05_Draw(void *arg0, s32 arg1);  /* 80001748 */
-void func_800017FC(s32 arg0, void *arg1);
-void func_800018D8(s32 arg0, void *arg1);
-void func_800019B4(s32 arg0, void *arg1);
-void func_80001A90(s32 arg0, void *arg1);
-void func_80001B74(s32 arg0, void *arg1);
+void func_80000964(DmChar05 *this, PlayState *play);
+void func_80000E58(DmChar05 *this, PlayState *play);
+void func_80000EB0(DmChar05 *this, PlayState *play);
+void func_80000F08(DmChar05 *this, PlayState *play);
+void DmChar05_Update(Actor *thisx, PlayState *play);  /* 800011EC */
+s32 DmChar05_OverrideLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3f *pos, Vec3s *rot, Actor *thisx);  /* 800013C4 */
+void DmChar05_PostLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3s *rot, Actor *thisx);  /* 800013E0 */
+void func_800013F8(Actor *thisx, PlayState *play);
+void func_800014F0(Actor *thisx, PlayState *play);
+void func_800015AC(Actor *thisx, PlayState *play);
+void func_80001660(Actor *thisx, PlayState *play);
+void DmChar05_Draw(Actor *thisx, PlayState *play);  /* 80001748 */
+void func_800017FC(PlayState *play, DmChar05 *this);
+void func_800018D8(PlayState *play, DmChar05 *this);
+void func_800019B4(PlayState *play, DmChar05 *this);
+void func_80001A90(PlayState *play, DmChar05 *this);
+void func_80001B74(PlayState *play, DmChar05 *this);
 
 #endif

@@ -4,46 +4,49 @@
 #define GENERATED_OVERLAYS_0096_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DoorWarp1 DoorWarp1;
 
 void DoorWarp1_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void DoorWarp1_GetRemains(s32 arg0, void *arg1);  /* 8000000C */
-void func_800000D8(void *arg0, s32 arg1);
-void func_800001DC(void *arg0, void *arg1);
-void DoorWarp1_Init(void *arg0, void *arg1);  /* 80000248 */
-void DoorWarp1_Destroy(s32 arg0, s32 arg1);  /* 800003E8 */
-void func_80000494(void *arg0, s32 arg1);
-void func_800005EC(void *arg0, s32 arg1);
-void func_800007B8(void *arg0, s32 arg1);
-void func_800009E8(u8 *arg0, u8 *arg1);
-void func_80000B7C(s32 arg0, s32 arg1);
+s32 DoorWarp1_GetRemains(DoorWarp1 *this, PlayState *play);  /* 8000000C */
+void func_800000D8(DoorWarp1 *this, PlayState *play);
+s32 func_800001DC(DoorWarp1 *this, PlayState *play);
+void DoorWarp1_Init(Actor *thisx, PlayState *play);  /* 80000248 */
+void DoorWarp1_Destroy(Actor *thisx, PlayState *play);  /* 800003E8 */
+void func_80000494(DoorWarp1 *this, PlayState *play);
+void func_800005EC(DoorWarp1 *this, PlayState *play);
+void func_800007B8(DoorWarp1 *this, PlayState *play);
+void func_800009E8(DoorWarp1 *this, PlayState *play);
+s32 func_80000B7C(DoorWarp1 *this, PlayState *play);
 void func_80000C04(s32 arg0);
-void func_80000C3C(void *arg0, s32 arg1);
-void func_80000D8C(void *arg0, s32 arg1);
+void func_80000C3C(DoorWarp1 *this, PlayState *play);
+void func_80000D8C(DoorWarp1 *this, PlayState *play);
 void func_80000F10(u8 *arg0, u8 *arg1);
 void func_80001014(s32 arg0, u8 *arg1);
 void func_80001094(s32 arg0, s32 arg1);
-void func_800010FC(void *arg0, void *arg1);
+void func_800010FC(DoorWarp1 *this, PlayState *play);
 void func_80001210(s32 arg0, s32 arg1);
 void func_80001220(u8 *arg0, s32 arg1);
-void func_800012EC(void *arg0, s32 arg1);
+void func_800012EC(DoorWarp1 *this, PlayState *play);
 void func_800013B0(s32 arg0, s32 arg1);
-void func_80001418(void *arg0, void *arg1);
-void func_800016A0(void *arg0, s32 arg1);
-void func_80001758(void *arg0, s32 arg1);
-void func_80001858(void *arg0, s32 arg1);
+void func_80001418(DoorWarp1 *this, PlayState *play);
+void func_800016A0(DoorWarp1 *this, PlayState *play);
+void func_80001758(DoorWarp1 *this, PlayState *play);
+void func_80001858(DoorWarp1 *this, PlayState *play);
 void func_80001A04(u8 *arg0, s32 arg1);
 void func_80001A48(u8 *arg0);
 void func_80001A80(u8 *arg0, u8 *arg1);
-void func_80001B40(void *arg0, void *arg1);
-void func_80001C7C(void *arg0, void *arg1);
-void func_800020C0(void *arg0, void *arg1);
-void func_80002664(void *arg0, void *arg1);
+void func_80001B40(DoorWarp1 *this, PlayState *play);
+void func_80001C7C(DoorWarp1 *this, PlayState *play);
+void func_800020C0(DoorWarp1 *this, PlayState *play);
+void func_80002664(DoorWarp1 *this, PlayState *play);
 void func_80002764(s32 arg0, s32 arg1);
-void func_8000283C(void *arg0, s32 arg1);
-void func_80002A0C(void *arg0, void *arg1);
+void DoorWarp1_Update(Actor *thisx);  /* 80002774 */
+void func_8000283C(DoorWarp1 *this, PlayState *play);
+void func_80002A0C(DoorWarp1 *this, PlayState *play);
 void func_80003034(s32 arg0, s32 arg1);
-void func_80003064(void *arg0, void *arg1);
-void DoorWarp1_Draw(void *arg0);  /* 800033BC */
+void func_80003064(DoorWarp1 *this, PlayState *play2);
+void DoorWarp1_Draw(Actor *thisx, PlayState *play);  /* 800033BC */
 void func_80003444(void *arg0, s32 arg1, s32 arg2);
 
 #endif

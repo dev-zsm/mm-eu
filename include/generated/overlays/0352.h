@@ -4,11 +4,14 @@
 #define GENERATED_OVERLAYS_0352_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnDyExtra EnDyExtra;
 
-void EnDyExtra_Init(void *arg0, s32 arg1);  /* 80000010 */
-void EnDyExtra_WaitForTrigger(void *arg0, s32 arg1);  /* 80000084 */
-void EnDyExtra_Fall(void *arg0, s32 arg1);  /* 80000118 */
-void EnDyExtra_Update(void *arg0, s32 arg1);  /* 800001C0 */
-void EnDyExtra_Draw(s32 arg0, s32 arg1);  /* 80000214 */
+void EnDyExtra_Destroy(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnDyExtra_Init(Actor *thisx, PlayState *play);  /* 80000010 */
+void EnDyExtra_WaitForTrigger(EnDyExtra *this, PlayState *play);  /* 80000084 */
+void EnDyExtra_Fall(EnDyExtra *this, PlayState *play);  /* 80000118 */
+void EnDyExtra_Update(Actor *thisx, PlayState *play);  /* 800001C0 */
+void EnDyExtra_Draw(Actor *thisx, PlayState *play);  /* 80000214 */
 
 #endif

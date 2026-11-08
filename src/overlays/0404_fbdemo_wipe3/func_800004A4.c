@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0404.h"
 
-u8 TransitionWipe3_IsDone(u8 *arg0) {
-    return M2C_FIELD(arg0, u8 *, 0x18);
+s32 TransitionWipe3_IsDone(void *thisx) {
+    return M2C_FIELD(thisx, u8 *, 0x18);
 }

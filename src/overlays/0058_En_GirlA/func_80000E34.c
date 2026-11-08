@@ -5,6 +5,6 @@
 
 M2C_UNK func_80115C10(s16, u8 *);                 /* extern */
 
-void EnGirlA_BuyFanfare(u8 *arg0, M2C_UNK arg1) {
-    func_80115C10((s16) (M2C_FIELD(arg0, s32 *, 0x16978) * -1), arg0);
+void EnGirlA_BuyFanfare(PlayState *play, EnGirlA *this) {
+    func_80115C10((s16) (M2C_FIELD(play, s32 *, 0x16978) * -1), play);
 }

@@ -4,17 +4,19 @@
 #define GENERATED_OVERLAYS_0149_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTuboTrap EnTuboTrap;
 
-void EnTuboTrap_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnTuboTrap_Destroy(s32 arg0, s32 arg1);  /* 80000090 */
-void EnTuboTrap_DropCollectible(void *arg0, s32 arg1);  /* 800000BC */
-void EnTuboTrap_SpawnEffectsOnLand(void *arg0, s32 arg1);  /* 80000114 */
-void EnTuboTrap_SpawnEffectsInWater(void *arg0, s32 arg1);  /* 80000380 */
-void EnTuboTrap_HandleImpact(void *arg0, void *arg1);  /* 800005FC */
-void EnTuboTrap_Idle(void *arg0, s32 arg1);  /* 80000824 */
-void EnTuboTrap_Levitate(void *arg0, s32 arg1);  /* 80000958 */
-void EnTuboTrap_FlyAtPlayer(void *arg0, s32 arg1);  /* 800009E4 */
-void EnTuboTrap_Update(void *arg0, s32 arg1);  /* 80000AB0 */
-void EnTuboTrap_Draw(s32 arg0, s32 arg1);  /* 80000BF8 */
+void EnTuboTrap_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnTuboTrap_Destroy(Actor *thisx, PlayState *play);  /* 80000090 */
+void EnTuboTrap_DropCollectible(EnTuboTrap *this, PlayState *play);  /* 800000BC */
+void EnTuboTrap_SpawnEffectsOnLand(EnTuboTrap *this, PlayState *play);  /* 80000114 */
+void EnTuboTrap_SpawnEffectsInWater(EnTuboTrap *this, PlayState *play);  /* 80000380 */
+void EnTuboTrap_HandleImpact(EnTuboTrap *this, PlayState *play);  /* 800005FC */
+void EnTuboTrap_Idle(EnTuboTrap *this, PlayState *play);  /* 80000824 */
+void EnTuboTrap_Levitate(EnTuboTrap *this, PlayState *play);  /* 80000958 */
+void EnTuboTrap_FlyAtPlayer(EnTuboTrap *this, PlayState *play);  /* 800009E4 */
+void EnTuboTrap_Update(Actor *thisx, PlayState *play);  /* 80000AB0 */
+void EnTuboTrap_Draw(Actor *thisx, PlayState *play);  /* 80000BF8 */
 
 #endif

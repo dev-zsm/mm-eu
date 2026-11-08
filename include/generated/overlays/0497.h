@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0497_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjKendoKanban ObjKendoKanban;
 
-void ObjKendoKanban_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjKendoKanban_SetupDoNothing(u8 *arg0);  /* 800003C0 */
-void ObjKendoKanban_DoNothing(s32 arg0, s32 arg1);  /* 800003D4 */
-void ObjKendoKanban_SetupTumble(void *arg0, void *arg1);  /* 800003E4 */
-void ObjKendoKanban_Tumble(void *arg0, s32 arg1);  /* 80000820 */
-void ObjKendoKanban_SetupSettled(u8 *arg0);  /* 80000894 */
-void ObjKendoKanban_HandlePhysics(void *arg0, s32 arg1);  /* 800008E8 */
-void ObjKendoKanban_IsPlayerOnTop(void *arg0, void *arg1);  /* 80000CCC */
-void ObjKendoKanban_UpdateCollision(void *arg0, s32 arg1);  /* 80000E44 */
-void ObjKendoKanban_Draw(void *arg0, void *arg1);  /* 80000F94 */
+void ObjKendoKanban_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjKendoKanban_Destroy(Actor *thisx, PlayState *play);  /* 80000380 */
+void ObjKendoKanban_SetupDoNothing(ObjKendoKanban *this);  /* 800003C0 */
+void ObjKendoKanban_DoNothing(ObjKendoKanban *this, PlayState *play);  /* 800003D4 */
+void ObjKendoKanban_SetupTumble(ObjKendoKanban *this, PlayState *play);  /* 800003E4 */
+void ObjKendoKanban_Tumble(ObjKendoKanban *this, PlayState *play);  /* 80000820 */
+void ObjKendoKanban_SetupSettled(ObjKendoKanban *this);  /* 80000894 */
+void ObjKendoKanban_HandlePhysics(ObjKendoKanban *this, PlayState *play);  /* 800008E8 */
+s32 ObjKendoKanban_IsPlayerOnTop(ObjKendoKanban *this, PlayState *play);  /* 80000CCC */
+void ObjKendoKanban_UpdateCollision(ObjKendoKanban *this, PlayState *play);  /* 80000E44 */
+void ObjKendoKanban_Draw(Actor *thisx, PlayState *play);  /* 80000F94 */
 
 #endif

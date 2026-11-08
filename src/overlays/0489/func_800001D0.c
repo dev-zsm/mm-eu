@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0489.h"
 s32 func_800001D0(u8 *a) {
     s32 i;
     s32 n = M2C_FIELD(a, s8 *, 0x308) - 1;

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0577.h"
 
-void BgHakaTomb_DoNothing(s32 arg0, M2C_UNK arg1) {
+void BgHakaTomb_DoNothing(BgHakaTomb *this, PlayState *play) {
 
 }

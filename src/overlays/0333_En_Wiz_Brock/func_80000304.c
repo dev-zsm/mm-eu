@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0333.h"
 
-void EnWizBrock_Update(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK (**)(), 0x1A0)();
+void EnWizBrock_Update(Actor *thisx) {
+    M2C_FIELD(thisx, M2C_UNK (**)(), 0x1A0)();
 }

@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0408_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjOcarinalift ObjOcarinalift;
 
 void func_80000000(u8 *arg0, s32 arg1);
-void ObjOcarinalift_Init(void *arg0, s32 arg1);  /* 8000003C */
-void func_800001C0(u8 *arg0);
+void ObjOcarinalift_Init(Actor *thisx, PlayState *play);  /* 8000003C */
+void ObjOcarinalift_Destroy(Actor *thisx, PlayState *play);  /* 8000018C */
+void func_800001C0(ObjOcarinalift *this);
 void func_800001E4(s32 arg0, s32 arg1);
 void func_800001F4(u8 *arg0);
-void func_80000210(void *arg0, s32 arg1);
-void func_80000500(u8 *arg0);
-void func_80000514(void *arg0, s32 arg1);
-void func_800005A8(u8 *arg0);
+void func_80000210(ObjOcarinalift *this, PlayState *play);
+void func_80000500(ObjOcarinalift *this);
+void func_80000514(ObjOcarinalift *this, PlayState *play);
+void func_800005A8(ObjOcarinalift *this);
 void func_800005BC(u8 *arg0, s32 arg1);
 void func_800005F8(u8 *arg0);
 void func_80000620(s32 arg0, s32 arg1);
@@ -21,6 +24,7 @@ void func_80000688(u8 *arg0);
 void func_8000069C(void *arg0, s32 arg1);
 void func_80000760(u8 *arg0);
 void func_80000788(u8 *arg0, s32 arg1);
-void ObjOcarinalift_Update(void *arg0);  /* 800007EC */
+void ObjOcarinalift_Update(Actor *thisx, PlayState *play);  /* 800007EC */
+void ObjOcarinalift_Draw(Actor *thisx, PlayState *play);  /* 80000850 */
 
 #endif

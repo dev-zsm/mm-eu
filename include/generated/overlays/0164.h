@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0164_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjBlockstop ObjBlockstop;
 
-void ObjBlockstop_Init(u8 *arg0, s32 arg1);  /* 80000000 */
-void ObjBlockstop_CheckForBlock(void *arg0, void *arg1);  /* 80000050 */
-void ObjBlockstop_TryPlayCutscene(u8 *arg0, s32 arg1);  /* 80000148 */
-void ObjBlockstop_Update(u8 *arg0);  /* 800001BC */
+void ObjBlockstop_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjBlockstop_CheckForBlock(ObjBlockstop *this, PlayState *play);  /* 80000050 */
+void ObjBlockstop_TryPlayCutscene(ObjBlockstop *this, PlayState *play);  /* 80000148 */
+void ObjBlockstop_Update(Actor *thisx);  /* 800001BC */
 
 #endif

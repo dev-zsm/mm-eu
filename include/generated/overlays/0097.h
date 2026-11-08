@@ -4,9 +4,12 @@
 #define GENERATED_OVERLAYS_0097_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSyokudai ObjSyokudai;
 
-void ObjSyokudai_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjSyokudai_Update(void *arg0, s32 arg1);  /* 800002B4 */
-void ObjSyokudai_Draw(void *arg0, s32 arg1);  /* 800009C4 */
+void ObjSyokudai_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjSyokudai_Destroy(Actor *thisx, PlayState *play);  /* 80000260 */
+void ObjSyokudai_Update(Actor *thisx, PlayState *play);  /* 800002B4 */
+void ObjSyokudai_Draw(Actor *thisx, PlayState *play);  /* 800009C4 */
 
 #endif

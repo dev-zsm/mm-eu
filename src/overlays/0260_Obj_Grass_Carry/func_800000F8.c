@@ -5,6 +5,6 @@
 
 M2C_UNK func_800B763C(s32, s32, M2C_UNK, M2C_UNK, f32, s32); /* extern */
 
-void ObjGrassCarry_UpdateBgCheckInfo(s32 arg0, s32 arg1) {
-    func_800B763C(arg1, arg0, 0x40F00000, 0x420C0000, 0.0f, 0xC5);
+void ObjGrassCarry_UpdateBgCheckInfo(ObjGrassCarry *this, PlayState *play) {
+    func_800B763C(play, this, 0x40F00000, 0x420C0000, 0.0f, 0xC5);
 }

@@ -4,9 +4,12 @@
 #define GENERATED_OVERLAYS_0394_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjTokeiTobira ObjTokeiTobira;
 
-void ObjTokeiTobira_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjTokeiTobira_StartCutscene(u8 *arg0);  /* 800001E0 */
-void ObjTokeiTobira_Update(void *arg0, void *arg1);  /* 80000254 */
+void ObjTokeiTobira_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjTokeiTobira_Destroy(Actor *thisx, PlayState *play);  /* 800001AC */
+void ObjTokeiTobira_StartCutscene(ObjTokeiTobira *this);  /* 800001E0 */
+void ObjTokeiTobira_Update(Actor *thisx, PlayState *play);  /* 80000254 */
 
 #endif

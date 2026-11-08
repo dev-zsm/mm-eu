@@ -4,37 +4,38 @@
 #define GENERATED_OVERLAYS_0053_H
 
 #include "types.h"
+#include "actor.h"
 
-void FileSelect_SetupCopySource(s32 arg0);  /* 80000000 */
-void FileSelect_SelectCopySource(void *arg0);  /* 80000190 */
-void FileSelect_SetupCopyDest1(s32 arg0);  /* 80000644 */
-void FileSelect_SetupCopyDest2(s32 arg0);  /* 800007C8 */
-void FileSelect_SelectCopyDest(void *arg0);  /* 8000088C */
-void FileSelect_ExitToCopySource1(s32 arg0);  /* 80000D9C */
-void FileSelect_ExitToCopySource2(s32 arg0);  /* 80000E64 */
-void FileSelect_SetupCopyConfirm1(void *arg0);  /* 80000F88 */
-void FileSelect_SetupCopyConfirm2(s32 arg0);  /* 8000124C */
-void FileSelect_CopyConfirm(void *arg0);  /* 800012A0 */
-void FileSelect_CopyWaitForFlashSave(s32 arg0);  /* 80001494 */
-void FileSelect_ReturnToCopyDest(void *arg0);  /* 800015C0 */
-void FileSelect_CopyAnim1(s32 arg0);  /* 80001894 */
-void FileSelect_CopyAnim2(s32 arg0);  /* 80001908 */
-void FileSelect_CopyAnim3(s32 arg0);  /* 80001A48 */
-void FileSelect_CopyAnim4(s32 arg0);  /* 80001B20 */
-void FileSelect_CopyAnim5(void *arg0);  /* 80001C0C */
-void FileSelect_ExitCopyToMain(s32 arg0);  /* 80002004 */
-void FileSelect_SetupEraseSelect(s32 arg0);  /* 80002138 */
-void FileSelect_EraseSelect(void *arg0);  /* 80002300 */
-void FileSelect_SetupEraseConfirm1(void *arg0);  /* 800027D0 */
-void FileSelect_SetupEraseConfirm2(s32 arg0);  /* 80002BB8 */
-void FileSelect_EraseConfirm(void *arg0);  /* 80002C90 */
-void FileSelect_ExitToEraseSelect1(s32 arg0);  /* 80002E74 */
-void FileSelect_ExitToEraseSelect2(void *arg0);  /* 80002F20 */
-void FileSelect_EraseAnim1(s32 arg0);  /* 800031D4 */
-void FileSelect_EraseWaitForFlashSave(s32 arg0);  /* 80003380 */
-void FileSelect_EraseAnim2(void *arg0);  /* 8000341C */
-void FileSelect_EraseAnim3(void *arg0);  /* 800034A4 */
-void FileSelect_ExitEraseToMain(s32 arg0);  /* 8000379C */
+void FileSelect_SetupCopySource(void *thisx);  /* 80000000 */
+void FileSelect_SelectCopySource(void *thisx);  /* 80000190 */
+void FileSelect_SetupCopyDest1(void *thisx);  /* 80000644 */
+void FileSelect_SetupCopyDest2(void *thisx);  /* 800007C8 */
+void FileSelect_SelectCopyDest(void *thisx);  /* 8000088C */
+void FileSelect_ExitToCopySource1(void *thisx);  /* 80000D9C */
+void FileSelect_ExitToCopySource2(void *thisx);  /* 80000E64 */
+void FileSelect_SetupCopyConfirm1(void *thisx);  /* 80000F88 */
+void FileSelect_SetupCopyConfirm2(void *thisx);  /* 8000124C */
+void FileSelect_CopyConfirm(void *thisx);  /* 800012A0 */
+void FileSelect_CopyWaitForFlashSave(void *thisx);  /* 80001494 */
+void FileSelect_ReturnToCopyDest(void *thisx);  /* 800015C0 */
+void FileSelect_CopyAnim1(void *thisx);  /* 80001894 */
+void FileSelect_CopyAnim2(void *thisx);  /* 80001908 */
+void FileSelect_CopyAnim3(void *thisx);  /* 80001A48 */
+void FileSelect_CopyAnim4(void *thisx);  /* 80001B20 */
+void FileSelect_CopyAnim5(void *thisx);  /* 80001C0C */
+void FileSelect_ExitCopyToMain(void *thisx);  /* 80002004 */
+void FileSelect_SetupEraseSelect(void *thisx);  /* 80002138 */
+void FileSelect_EraseSelect(void *thisx);  /* 80002300 */
+void FileSelect_SetupEraseConfirm1(void *thisx);  /* 800027D0 */
+void FileSelect_SetupEraseConfirm2(void *thisx);  /* 80002BB8 */
+void FileSelect_EraseConfirm(void *thisx);  /* 80002C90 */
+void FileSelect_ExitToEraseSelect1(void *thisx);  /* 80002E74 */
+void FileSelect_ExitToEraseSelect2(void *thisx);  /* 80002F20 */
+void FileSelect_EraseAnim1(void *thisx);  /* 800031D4 */
+void FileSelect_EraseWaitForFlashSave(void *thisx);  /* 80003380 */
+void FileSelect_EraseAnim2(void *thisx);  /* 8000341C */
+void FileSelect_EraseAnim3(void *thisx);  /* 800034A4 */
+void FileSelect_ExitEraseToMain(void *thisx);  /* 8000379C */
 void func_80003930(void *arg0, s32 arg1, s32 arg2);
 void func_80003A68(void *arg0);
 void func_80004024(void *arg0);
@@ -78,7 +79,6 @@ void func_8000FCD0(s32 arg0);
 void func_8000FDB0(void *arg0);
 void func_8000FEF0(s32 arg0);
 void func_8000FFDC(void *arg0);
-void func_800102B4(s32 arg0);
 void func_80010304(s32 arg0);
 void func_80010440(void *arg0);
 void func_800106AC(void *arg0);

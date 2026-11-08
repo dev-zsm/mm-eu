@@ -4,25 +4,27 @@
 #define GENERATED_OVERLAYS_0307_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgDblueMovebg BgDblueMovebg;
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void BgDblueMovebg_Init(void *arg0, s32 arg1);  /* 80000198 */
-void BgDblueMovebg_Destroy(u8 *arg0, s32 arg1);  /* 80000650 */
-void func_800006A8(void *arg0, s32 arg1);
-void func_80000760(void *arg0, s32 arg1);
-void func_800008AC(void *arg0, void *arg1);
-void func_800009C4(void *arg0, s32 arg1);
-void func_80000BF0(u8 *arg0, s32 arg1);
-void func_80000C08(void *arg0, s32 arg1);
-void func_80000C94(void *arg0, void *arg1);
-void func_80000D78(void *arg0, s32 arg1);
-void func_80001038(void *arg0, void *arg1);
-void func_80001150(void *arg0, s32 arg1);
-void func_80001450(void *arg0, s32 arg1);
+s32 func_80000000(PlayState *play, s32 switchFlagBase, s32 arg2);
+void BgDblueMovebg_Init(Actor *thisx, PlayState *play);  /* 80000198 */
+void BgDblueMovebg_Destroy(Actor *thisx, PlayState *play);  /* 80000650 */
+void func_800006A8(BgDblueMovebg *this, PlayState *play);
+void func_80000760(BgDblueMovebg *this, PlayState *play);
+void func_800008AC(BgDblueMovebg *this, PlayState *play);
+void func_800009C4(BgDblueMovebg *this, PlayState *play);
+void func_80000BF0(BgDblueMovebg *this, PlayState *play);
+void func_80000C08(BgDblueMovebg *this, PlayState *play);
+void func_80000C94(BgDblueMovebg *this, PlayState *play);
+void func_80000D78(BgDblueMovebg *this, PlayState *play);
+void func_80001038(BgDblueMovebg *this, PlayState *play);
+void func_80001150(BgDblueMovebg *this, PlayState *play);
+void func_80001450(BgDblueMovebg *this, PlayState *play);
 void func_80001720(u8 *arg0, s32 arg1);
-void BgDblueMovebg_Update(u8 *arg0);  /* 80001790 */
-void func_800017F4(void *arg0, s32 arg1);
-void func_80001888(s32 arg0, s32 arg1);
-void BgDblueMovebg_Draw(void *arg0, s32 arg1);  /* 80001910 */
+void BgDblueMovebg_Update(Actor *thisx);  /* 80001790 */
+void func_800017F4(Actor *thisx, PlayState *play);
+void func_80001888(Actor *thisx, PlayState *play);
+void BgDblueMovebg_Draw(Actor *thisx, PlayState *play2);  /* 80001910 */
 
 #endif

@@ -4,68 +4,72 @@
 #define GENERATED_OVERLAYS_0305_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjIceblock ObjIceblock;
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void func_8000008C(s32 arg0, s32 arg1, s32 arg2);
-void func_8000010C(void *arg0, s32 arg1);
-void func_80000234(void *arg0, s32 arg1);
-void func_800002E0(u8 *arg0, s32 arg1);
-void func_8000030C(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_80000600(void *arg0);
-void func_80000644(s32 arg0, s32 arg1);
-void func_80000714(void *arg0);
-void func_800008A8(void *arg0);
-void func_80000AF8(void *arg0);
-void func_80000C78(void *arg0, s32 arg1);
-void func_80000F00(void *arg0);
-void func_80001088(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800012F4(s32 arg0);
-void func_80001350(void *arg0, s32 arg1, void *arg2);
-void func_800015F0(s32 arg0);
-void func_80001648(void *arg0, s32 arg1, void *arg2);
+s16 func_80000000(s16 arg0, s16 arg1, s16 arg2);
+void func_8000008C(Vec3f *arg0, Vec3f *arg1, s16 arg2);
+void func_8000010C(ObjIceblock *this, f32 arg1);
+void func_80000234(ObjIceblock *this, s32 arg1);
+void func_800002E0(ObjIceblock *this, s32 arg1);
+void func_8000030C(PlayState *play, Vec3f *arg1, f32 arg2, f32 arg3, s32 arg4);
+void func_80000600(ObjIceblock *this);
+s32 func_80000644(ObjIceblock *this, Vec3f *arg1);
+void func_80000714(ObjIceblock *this);
+void func_800008A8(ObjIceblock *this);
+void func_80000AF8(ObjIceblock *this);
+s32 func_80000C78(ObjIceblock *this, PlayState *play);
+s32 func_80000F00(ObjIceblock *this, PlayState *play);
+s32 func_80001088(ObjIceblock *this, PlayState *play, f32 arg2, Vec3f *arg3);
+s32 func_800012F4(ObjIceblock *this, PlayState *play);
+s32 func_80001350(ObjIceblock *this, PlayState *play, Vec3f *arg0);
+s32 func_800015F0(ObjIceblock *this, PlayState *play);
+s32 func_80001648(ObjIceblock *this, PlayState *play, Vec3f *arg2);
 void func_8000188C(u8 *arg0);
-void func_800018C4(void *arg0, s32 arg1);
-void func_800019B8(u8 *arg0, s32 arg1);
-void func_80001A18(void *arg0, s32 arg1);
-void func_80001AE4(s32 arg0, s32 arg1);
-void func_80001B4C(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80001D34(u8 *arg0);
-void func_80001D40(void *arg0, s32 arg1);
-void func_80001FFC(void *arg0, s32 arg1);
-void func_800021A8(void *arg0);
-void func_8000224C(void *arg0, s32 arg1);
-void func_80002374(u8 *arg0);
+s32 func_800018C4(ObjIceblock *this, PlayState *play);
+void func_800019B8(ObjIceblock *this, PlayState *play);
+void func_80001A18(ObjIceblock *this, PlayState *play);
+void func_80001AE4(ObjIceblock *this, PlayState *play);
+void func_80001B4C(ObjIceblock *this, PlayState *play, f32 arg2, f32 arg3, s32 arg4);
+void func_80001D34(ObjIceblock *this);
+void func_80001D40(ObjIceblock *this, PlayState *play);
+void func_80001FFC(ObjIceblock *this, PlayState *play);
+s32 func_800021A8(ObjIceblock *this);
+void func_8000224C(ObjIceblock *this, s32 arg1);
+void func_80002374(ObjIceblock *this);
 void func_8000238C(u8 *arg0, u8 *arg1);
-void func_800023B0(void *arg0);
-void ObjIceblock_Init(void *arg0, s32 arg1);  /* 80002508 */
-void ObjIceBlock_SetupAttemptSpawnCutscene(u8 *arg0);  /* 80002710 */
-void ObjIceBlock_AttemptSpawnCutscene(u8 *arg0, s32 arg1);  /* 80002724 */
-void func_80002794(void *arg0);
+void func_800023B0(ObjIceblock *this);
+void ObjIceblock_Init(Actor *thisx, PlayState *play);  /* 80002508 */
+void ObjIceblock_Destroy(Actor *thisx, PlayState *play);  /* 800026C8 */
+void ObjIceBlock_SetupAttemptSpawnCutscene(ObjIceblock *this);  /* 80002710 */
+void ObjIceBlock_AttemptSpawnCutscene(ObjIceblock *this, PlayState *play);  /* 80002724 */
+void func_80002794(ObjIceblock *this);
 void func_800027DC(u8 *arg0, s32 arg1);
 void func_800028E8(u8 *arg0);
-void func_80002904(void *arg0, s32 arg1);
-void func_800029FC(u8 *arg0);
-void func_80002A18(void *arg0, s32 arg1);
-void func_80002B10(u8 *arg0);
+void func_80002904(ObjIceblock *this, PlayState *play);
+void func_800029FC(ObjIceblock *this);
+void func_80002A18(ObjIceblock *this, PlayState *play);
+void func_80002B10(ObjIceblock *this);
 void func_80002B2C(u8 *arg0, s32 arg1);
-void func_80002BCC(u8 *arg0);
+void func_80002BCC(ObjIceblock *this);
 void func_80002BE0(u8 *arg0, s32 arg1);
-void func_80002C64(u8 *arg0);
-void func_80002C98(void *arg0, s32 arg1);
-void func_80002DAC(u8 *arg0);
-void func_80002DC0(void *arg0, s32 arg1);
-void func_80002F10(u8 *arg0);
-void func_80002F44(void *arg0, s32 arg1);
-void func_80003058(void *arg0);
-void func_800030B4(void *arg0, s32 arg1);
-void func_8000325C(void *arg0, s32 arg1);
-void func_800034E4(u8 *arg0);
-void func_80003530(void *arg0, s32 arg1);
-void func_80003634(u8 *arg0);
-void func_80003650(void *arg0, s32 arg1);
-void ObjIceblock_Update(void *arg0, s32 arg1);  /* 800037C0 */
+void func_80002C64(ObjIceblock *this);
+void func_80002C98(ObjIceblock *this, PlayState *play);
+void func_80002DAC(ObjIceblock *this);
+void func_80002DC0(ObjIceblock *this, PlayState *play);
+void func_80002F10(ObjIceblock *this);
+void func_80002F44(ObjIceblock *this, PlayState *play);
+void func_80003058(ObjIceblock *this);
+void func_800030B4(ObjIceblock *this, PlayState *play);
+void func_8000325C(ObjIceblock *this, PlayState *play);
+void func_800034E4(ObjIceblock *this);
+void func_80003530(ObjIceblock *this, PlayState *play);
+void func_80003634(ObjIceblock *this);
+void func_80003650(ObjIceblock *this, PlayState *play);
+void ObjIceblock_Update(Actor *thisx, PlayState *play);  /* 800037C0 */
 void func_80003AD4(s32 arg0, s32 arg1);
-void func_80003AE4(s32 arg0, s32 arg1);
-void func_80003B68(void *arg0, s32 arg1);
+void func_80003AE4(ObjIceblock *this, PlayState *play);
+void func_80003B68(ObjIceblock *this, PlayState *play);
+void ObjIceblock_Draw(Actor *thisx, PlayState *play);  /* 80003D48 */
 
 #endif

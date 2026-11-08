@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0303.h"
 
-void func_80000E18(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x17C) = 0;
+void func_80000E18(ObjSkateblock *this) {
+    M2C_FIELD(this, s16 *, 0x17C) = 0;
 }

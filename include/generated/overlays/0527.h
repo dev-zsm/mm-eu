@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0527_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgInibsMovebg BgInibsMovebg;
 
-void BgInibsMovebg_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void BgInibsMovebg_Destroy(u8 *arg0, s32 arg1);  /* 8000008C */
-void BgInibsMovebg_Draw(void *arg0, s32 arg1);  /* 800000C0 */
+void BgInibsMovebg_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgInibsMovebg_Destroy(Actor *thisx, PlayState *play);  /* 8000008C */
+void BgInibsMovebg_Draw(Actor *thisx, PlayState *play);  /* 800000C0 */
 
 #endif

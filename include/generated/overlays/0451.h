@@ -4,20 +4,22 @@
 #define GENERATED_OVERLAYS_0451_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnColMan EnColMan;
 
-void EnColMan_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnColMan_Destroy(s32 arg0, s32 arg1);  /* 800000F4 */
-void func_80000120(u8 *arg0);
-void func_800001C0(void *arg0, s32 arg1);
-void EnColMan_SetHeartPieceCollectedAndKill(s32 arg0, s32 arg1);  /* 800002C0 */
-void func_80000320(void *arg0);
+void EnColMan_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnColMan_Destroy(Actor *thisx, PlayState *play);  /* 800000F4 */
+void func_80000120(EnColMan *this);
+void func_800001C0(EnColMan *this, PlayState *play);
+void EnColMan_SetHeartPieceCollectedAndKill(EnColMan *this, PlayState *play);  /* 800002C0 */
+void func_80000320(EnColMan *this);
 void func_80000374(void *arg0, s32 arg1);
-void func_800005F4(u8 *arg0);
-void func_8000061C(void *arg0, s32 arg1);
-void EnColMan_Update(void *arg0, s32 arg1);  /* 80000730 */
-void func_800007D4(s32 arg0, s32 arg1);
-void func_8000086C(s32 arg0, void *arg1);
-void func_80000944(s32 arg0, s32 arg1);
-void func_80000A10(s32 arg0, s32 arg1);
+void func_800005F4(EnColMan *this);
+void func_8000061C(EnColMan *this, PlayState *play);
+void EnColMan_Update(Actor *thisx, PlayState *play);  /* 80000730 */
+void func_800007D4(Actor *thisx, PlayState *play);
+void func_8000086C(Actor *thisx, PlayState *play);
+void func_80000944(Actor *thisx, PlayState *play);
+void func_80000A10(Actor *thisx, PlayState *play);
 
 #endif

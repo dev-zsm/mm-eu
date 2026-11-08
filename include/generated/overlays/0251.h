@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0251_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnZl4 EnZl4;
 
-void EnZl4_ChangeAnim(s32 arg0, s32 arg1, s32 arg2);  /* 80000000 */
-void EnZl4_Init(void *arg0, s32 arg1);  /* 8000009C */
-void EnZl4_DoNothing(s32 arg0, s32 arg1);  /* 8000015C */
-void EnZl4_Update(s32 arg0, s32 arg1);  /* 8000016C */
-void EnZl4_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800001B0 */
-void EnZl4_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800001F4 */
-void EnZl4_TransformLimbDraw(s32 arg0, s32 arg1, s32 arg2);  /* 8000020C */
+void EnZl4_ChangeAnim(void *skelAnime, void *animInfo, u16 animIndex);  /* 80000000 */
+void EnZl4_Init(Actor *thisx, PlayState *play);  /* 8000009C */
+void EnZl4_Destroy(Actor *thisx, PlayState *play);  /* 8000014C */
+void EnZl4_DoNothing(EnZl4 *this, PlayState *play);  /* 8000015C */
+void EnZl4_Update(Actor *thisx, PlayState *play);  /* 8000016C */
+s32 EnZl4_OverrideLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3f *pos, Vec3s *rot, Actor *thisx);  /* 800001B0 */
+void EnZl4_PostLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3s *rot, Actor *thisx);  /* 800001F4 */
+void EnZl4_TransformLimbDraw(PlayState *play, s32 limbIndex, Actor *thisx);  /* 8000020C */
 void func_80000220(void *arg0, s32 arg1);
 void func_80000278(void *arg0, s32 arg1);
-void EnZl4_Draw(void *arg0, s32 arg1);  /* 800002B0 */
+void EnZl4_Draw(Actor *thisx, PlayState *play);  /* 800002B0 */
 
 #endif

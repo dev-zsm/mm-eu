@@ -4,30 +4,32 @@
 #define GENERATED_OVERLAYS_0081_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DoorShutter DoorShutter;
 
 void DoorShutter_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_80000010(void *arg0, s32 arg1);
-void DoorShutter_SetupDoor(void *arg0, s32 arg1);  /* 80000084 */
-void DoorShutter_Init(void *arg0, s32 arg1);  /* 80000220 */
-void DoorShutter_SetupType(void *arg0, s32 arg1);  /* 8000041C */
-void func_800004A0(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000538(s32 arg0, void *arg1);
-void func_80000698(void *arg0, s32 arg1);
+s32 func_80000010(DoorShutter *this, PlayState *play);
+s32 DoorShutter_SetupDoor(DoorShutter *this, PlayState *play);  /* 80000084 */
+void DoorShutter_Init(Actor *thisx, PlayState *play);  /* 80000220 */
+void DoorShutter_SetupType(DoorShutter *this, PlayState *play);  /* 8000041C */
+f32 func_800004A0(PlayState *play, DoorShutter *this, f32 arg2, f32 arg3, f32 arg4);
+s32 func_80000538(DoorShutter *this, PlayState *play);
+void func_80000698(DoorShutter *this, PlayState *play);
 void func_80000790(s32 arg0, s32 arg1);
-void func_800007A0(void *arg0, s32 arg1);
-void func_80000998(void *arg0, void *arg1);
-void func_80000A50(void *arg0);
+void func_800007A0(DoorShutter *this, PlayState *play);
+void func_80000998(DoorShutter *this, PlayState *play);
+s32 func_80000A50(DoorShutter *this, PlayState *play);
 s32 func_80000B88(u8 *arg0, s32 arg1, f32 arg2);
-void func_80000C58(void *arg0, s32 arg1);
-void func_80000D28(void *arg0, s32 arg1);
+void func_80000C58(DoorShutter *this, PlayState *play);
+void func_80000D28(DoorShutter *this, PlayState *play);
 void func_80000D94(u8 *arg0, u8 *arg1);
-void func_80000E94(void *arg0, s32 arg1);
-void func_80000F94(void *arg0, void *arg1);
-void func_80001180(void *arg0);
+void func_80000E94(DoorShutter *this, PlayState *play);
+void func_80000F94(DoorShutter *this, PlayState *play);
+s32 func_80001180(DoorShutter *this);
 void func_80001258(u8 *arg0, s32 arg1);
-void func_80001360(void *arg0, s32 arg1);
-void DoorShutter_Update(void *arg0, void *arg1);  /* 800013D4 */
-void func_80001478(s32 arg0, s32 arg1);
-void DoorShutter_Draw(void *arg0, s32 arg1);  /* 80001524 */
+void func_80001360(DoorShutter *this, PlayState *play);
+void DoorShutter_Update(Actor *thisx, PlayState *play);  /* 800013D4 */
+s32 func_80001478(DoorShutter *this, PlayState *play);
+void DoorShutter_Draw(Actor *thisx, PlayState *play);  /* 80001524 */
 
 #endif

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0263.h"
 
-void EnBu_DoNothing(s32 arg0, M2C_UNK arg1) {
+void EnBu_DoNothing(EnBu *this, PlayState *play) {
 
 }

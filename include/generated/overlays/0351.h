@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0351_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgSpoutFire BgSpoutFire;
 
-void BgSpoutFire_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_80000104(s32 arg0, void *arg1);
+void BgSpoutFire_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgSpoutFire_Destroy(Actor *thisx, PlayState *play);  /* 800000D8 */
+s32 func_80000104(BgSpoutFire *this, PlayState *play);
 void func_80000174(u8 *arg0);
-void func_800001F0(s32 arg0);
-void func_80000280(u8 *arg0, s32 arg1);
-void func_800002E8(void *arg0, void *arg1);
-void BgSpoutFire_Update(void *arg0, s32 arg1);  /* 80000448 */
-void BgSpoutFire_Draw(s32 arg0, s32 arg1);  /* 80000520 */
+void func_800001F0(BgSpoutFire *this, PlayState *play);
+void func_80000280(BgSpoutFire *this, PlayState *play);
+void func_800002E8(BgSpoutFire *this, PlayState *play);
+void BgSpoutFire_Update(Actor *thisx, PlayState *play);  /* 80000448 */
+void BgSpoutFire_Draw(Actor *thisx, PlayState *play);  /* 80000520 */
 
 #endif

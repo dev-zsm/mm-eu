@@ -3,10 +3,10 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0503.h"
 
-s32 BgKin2Fence_CheckHitMask(u8 *arg0) {
+s32 BgKin2Fence_CheckHitMask(BgKin2Fence *this) {
     u8 *temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, u8 **, 0x178);
+    temp_v0 = M2C_FIELD(this, u8 **, 0x178);
     if (M2C_FIELD(temp_v0, u8 *, 0x16) & 2) {
         return 0;
     }

@@ -4,29 +4,33 @@
 #define GENERATED_OVERLAYS_0454_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSnowball ObjSnowball;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000088(void *arg0, s32 arg1);
-void func_800000E0(void *arg0, s32 arg1);
-void func_80000184(void *arg0, s32 arg1);
-void func_80000214(void *arg0, s32 arg1);
-void func_80000428(void *arg0, s32 arg1);
-void func_800009B8(void *arg0, s32 arg1);
-void func_80000DB0(s32 arg0, s32 arg1, void *arg2);
-void func_8000115C(void *arg0, s32 arg1);
-void func_80001328(s32 arg0, s32 arg1);
-void ObjSnowball_Init(void *arg0, s32 arg1);  /* 800013B4 */
+void func_80000000(ObjSnowball *this, PlayState *play);
+void func_80000088(ObjSnowball *this, PlayState *play);
+void func_800000E0(ObjSnowball *this, PlayState *play);
+void func_80000184(ObjSnowball *this, PlayState *play);
+void func_80000214(ObjSnowball *this, PlayState *play);
+void func_80000428(ObjSnowball *this, PlayState *play);
+void func_800009B8(ObjSnowball *this, PlayState *play);
+void func_80000DB0(PlayState *play, f32 arg1, Vec3f *arg2);
+void func_8000115C(ObjSnowball *this, PlayState *play);
+void func_80001328(ObjSnowball *this, PlayState *play);
+void ObjSnowball_Init(Actor *thisx, PlayState *play);  /* 800013B4 */
+void ObjSnowball_Destroy(Actor *thisx, PlayState *play);  /* 8000163C */
 void func_80001668(u8 *arg0, s32 arg1);
-void func_80001680(void *arg0, s32 arg1);
+void func_80001680(ObjSnowball *this, PlayState *play);
 void func_80001870(u8 *arg0, s32 arg1);
-void func_800018AC(void *arg0, s32 arg1);
+void func_800018AC(ObjSnowball *this, PlayState *play);
 void func_80001938(u8 *arg0);
-void func_80001978(void *arg0, s32 arg1);
-void func_80001A14(void *arg0, s32 arg1);
-void func_80001AF0(void *arg0, s32 arg1);
+void func_80001978(ObjSnowball *this, PlayState *play);
+void func_80001A14(ObjSnowball *this, PlayState *play);
+void func_80001AF0(ObjSnowball *this, PlayState *play);
 void func_80001E78(u8 *arg0, s32 arg1);
 void func_80001E90(s32 arg0, s32 arg1);
-void ObjSnowball_Update(void *arg0, s32 arg1);  /* 80001EA0 */
+void ObjSnowball_Update(Actor *thisx, PlayState *play);  /* 80001EA0 */
+void ObjSnowball_Draw(Actor *thisx, PlayState *play);  /* 80002034 */
 void func_80002064(void *arg0, void *arg1);
 
 #endif

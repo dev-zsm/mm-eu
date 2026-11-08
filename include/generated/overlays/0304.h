@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0304_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectEnIceBlock EffectEnIceBlock;
 
-void EffectEnIceBlock_CheckIceBlockObject(s32 arg0, s32 arg1);  /* 80000000 */
-void EffectEnIceBlock_Init(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000078 */
-void EffectEnIceBlock_Draw(void *arg0, s32 arg1, void *arg2);  /* 80000154 */
-void EffectEnIceBlock_Update(s32 a, s32 b, u8 *c);  /* 800002A4 */
+u32 EffectEnIceBlock_CheckIceBlockObject(void *this, PlayState *play);  /* 80000000 */
+u32 EffectEnIceBlock_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000078 */
+void EffectEnIceBlock_Draw(PlayState *play, u32 index, void *this);  /* 80000154 */
+void EffectEnIceBlock_Update(PlayState *play, u32 index, void *this);  /* 800002A4 */
 
 #endif

@@ -6,7 +6,7 @@
 M2C_UNK func_80800A64(s32);                         /* extern */
 M2C_UNK func_80801A84(s32);                         /* extern */
 
-void MapSelect_Main(s32 arg0) {
-    func_80800A64(arg0);
-    func_80801A84(arg0);
+void MapSelect_Main(void *thisx) {
+    func_80800A64(thisx);
+    func_80801A84(thisx);
 }

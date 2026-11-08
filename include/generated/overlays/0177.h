@@ -4,25 +4,29 @@
 #define GENERATED_OVERLAYS_0177_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjLightswitch ObjLightswitch;
 
-void ObjLightswitch_InitCollider(void *arg0, s32 arg1);  /* 80000000 */
-void ObjLightswitch_UpdateSwitchFlags(void *arg0, s32 arg1, s32 arg2);  /* 800000A4 */
-void ObjLightswitch_SpawnEffects(void *arg0, s32 arg1);  /* 800000FC */
-void ObjLightswitch_Init(void *arg0, s32 arg1);  /* 800002FC */
+void ObjLightswitch_InitCollider(ObjLightswitch *this, PlayState *play);  /* 80000000 */
+void ObjLightswitch_UpdateSwitchFlags(ObjLightswitch *this, PlayState *play, s32 set);  /* 800000A4 */
+void ObjLightswitch_SpawnEffects(ObjLightswitch *this, PlayState *play);  /* 800000FC */
+void ObjLightswitch_Init(Actor *thisx, PlayState *play);  /* 800002FC */
+void ObjLightswitch_Destroy(Actor *thisx, PlayState *play);  /* 800003DC */
 void ObjLightswitch_SetAction(u8 *arg0, s32 arg1, s32 arg2);  /* 80000408 */
-void ObjLightswitch_PlayCinema(void *arg0, s32 arg1);  /* 80000424 */
-void ObjLightswitch_SetupIdle(u8 *arg0);  /* 80000498 */
-void ObjLightswitch_Idle(void *arg0, s32 arg1);  /* 800004CC */
-void ObjLightSwitch_SetupAsleep(u8 *arg0);  /* 8000053C */
-void ObjLightSwitch_Asleep(void *arg0, s32 arg1);  /* 80000558 */
-void ObjLightSwitch_SetupEnabled(u8 *arg0);  /* 80000634 */
-void ObjLightSwitch_Enabled(void *arg0, s32 arg1);  /* 80000670 */
-void ObjLightSwitch_SetupDisabled(u8 *arg0);  /* 8000075C */
-void ObjLightSwitch_Disabled(void *arg0, s32 arg1);  /* 80000780 */
-void ObjLightSwitch_SetupFade(u8 *arg0);  /* 80000834 */
-void ObjLightSwitch_Fade(u8 *arg0);  /* 80000850 */
-void ObjLightswitch_Update(void *arg0, s32 arg1);  /* 800008A4 */
-void ObjLightSwitch_DrawOpa(void *arg0, s32 arg1);  /* 80000A04 */
-void ObjLightSwitch_DrawXlu(void *arg0, s32 arg1);  /* 80000C90 */
+void ObjLightswitch_PlayCinema(ObjLightswitch *this, PlayState *play);  /* 80000424 */
+void ObjLightswitch_SetupIdle(ObjLightswitch *this);  /* 80000498 */
+void ObjLightswitch_Idle(ObjLightswitch *this, PlayState *play);  /* 800004CC */
+void ObjLightSwitch_SetupAsleep(ObjLightswitch *this);  /* 8000053C */
+void ObjLightSwitch_Asleep(ObjLightswitch *this, PlayState *play);  /* 80000558 */
+void ObjLightSwitch_SetupEnabled(ObjLightswitch *this);  /* 80000634 */
+void ObjLightSwitch_Enabled(ObjLightswitch *this, PlayState *play);  /* 80000670 */
+void ObjLightSwitch_SetupDisabled(ObjLightswitch *this);  /* 8000075C */
+void ObjLightSwitch_Disabled(ObjLightswitch *this, PlayState *play);  /* 80000780 */
+void ObjLightSwitch_SetupFade(ObjLightswitch *this);  /* 80000834 */
+void ObjLightSwitch_Fade(ObjLightswitch *this);  /* 80000850 */
+void ObjLightswitch_Update(Actor *thisx, PlayState *play);  /* 800008A4 */
+void ObjLightSwitch_DrawOpa(ObjLightswitch *this, PlayState *play);  /* 80000A04 */
+void ObjLightSwitch_DrawXlu(ObjLightswitch *this, PlayState *play);  /* 80000C90 */
+void ObjLightswitch_Draw(Actor *thisx);  /* 80000F1C */
 
 #endif

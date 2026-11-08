@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0056.h"
 s32 func_80136480();
 s32 func_800F1E2C();
 void func_800F1D6C();

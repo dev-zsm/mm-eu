@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0445.h"
 
 void BgDanpeiMovebg_Update(Actor *thisx) {
     u16 temp_v0;

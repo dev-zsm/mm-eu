@@ -6,8 +6,8 @@
 M2C_UNK func_800E1C28(s32, s32);                    /* extern */
 M2C_UNK func_80115F80(s32);                         /* extern */
 
-void ArrowFire_Destroy(s32 arg0, s32 arg1) {
-    func_80115F80(arg1);
-    func_800E1C28(arg1, arg0 + 0x144);
-    func_800E1C28(arg1, arg0 + 0x1C4);
+void ArrowFire_Destroy(Actor *thisx, PlayState *play) {
+    func_80115F80(play);
+    func_800E1C28(play, (u8 *)thisx + 0x144);
+    func_800E1C28(play, (u8 *)thisx + 0x1C4);
 }

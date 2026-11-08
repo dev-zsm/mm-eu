@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0664_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjEnding ObjEnding;
 
-void ObjEnding_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void ObjEnding_Update(s32 arg0, s32 arg1);  /* 80000074 */
-void ObjEnding_Draw(void *arg0, s32 arg1);  /* 80000084 */
+void ObjEnding_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjEnding_Update(Actor *thisx, PlayState *play);  /* 80000074 */
+void ObjEnding_Draw(Actor *thisx, PlayState *play);  /* 80000084 */
 
 #endif

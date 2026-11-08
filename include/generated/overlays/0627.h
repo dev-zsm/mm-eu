@@ -4,8 +4,11 @@
 #define GENERATED_OVERLAYS_0627_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMilkBin ObjMilkBin;
 
-void ObjMilkBin_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void ObjMilkBin_Update(void *arg0, s32 arg1);  /* 800000B4 */
+void ObjMilkBin_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjMilkBin_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
+void ObjMilkBin_Update(Actor *thisx, PlayState *play);  /* 800000B4 */
 
 #endif

@@ -9,17 +9,17 @@ extern f32 D_80B461F4;
 extern f32 D_80B461F8;
 extern f32 D_80B461FC;
 
-void ObjDora_SetupMoveGong(u8 *arg0) {
-    if (M2C_FIELD(arg0, s16 *, 0x3A0) == 1) {
-        M2C_FIELD(arg0, f32 *, 0x390) = 2.0f;
-        M2C_FIELD(arg0, f32 *, 0x394) = (f32) D_80B461F0;
-        M2C_FIELD(arg0, f32 *, 0x398) = (f32) D_80B461F4;
+void ObjDora_SetupMoveGong(ObjDora *this) {
+    if (M2C_FIELD(this, s16 *, 0x3A0) == 1) {
+        M2C_FIELD(this, f32 *, 0x390) = 2.0f;
+        M2C_FIELD(this, f32 *, 0x394) = (f32) D_80B461F0;
+        M2C_FIELD(this, f32 *, 0x398) = (f32) D_80B461F4;
     } else {
-        M2C_FIELD(arg0, f32 *, 0x390) = 4.0f;
-        M2C_FIELD(arg0, f32 *, 0x394) = (f32) D_80B461F8;
-        M2C_FIELD(arg0, f32 *, 0x398) = (f32) D_80B461FC;
+        M2C_FIELD(this, f32 *, 0x390) = 4.0f;
+        M2C_FIELD(this, f32 *, 0x394) = (f32) D_80B461F8;
+        M2C_FIELD(this, f32 *, 0x398) = (f32) D_80B461FC;
     }
-    M2C_FIELD(arg0, s16 *, 0x39C) = 0;
-    M2C_FIELD(arg0, s16 *, 0x39E) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x38C) = &D_80B45A64;
+    M2C_FIELD(this, s16 *, 0x39C) = 0;
+    M2C_FIELD(this, s16 *, 0x39E) = 0;
+    M2C_FIELD(this, M2C_UNK **, 0x38C) = &D_80B45A64;
 }

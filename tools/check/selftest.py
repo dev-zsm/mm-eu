@@ -61,6 +61,21 @@ check(retype.rewrite(once, "f", "x.h", "void f(void *p);")[0].count("(u8 *)") ==
 import sig_header  # noqa: E402
 check(sig_header.type_known("void", "s32 a, f32 *b") and not sig_header.type_known("void", "PlayState *play"), "sig_header.type_known")
 
+check(sig_header.type_known("void", "Actor *thisx, EnTest *this", sig_header.VOCAB | {"EnTest"}), "sig_header.type_known with the types of actor.h")
+
+import sig_ref  # noqa: E402
+d = sig_ref.definitions("static s32 g(void) {\n}\nvoid EnX_Update(Actor* thisx,\n                PlayState* play) {\n    if (x) {\n    }\n}\n")
+check(d == {"g": ("s32", "void"), "EnX_Update": ("void", "Actor* thisx, PlayState* play")}, f"sig_ref.definitions {d}")
+check(sig_ref.proto("f", "bool", "EnX* this, Gfx** dl, u8* p, f32 s", {"EnX"}) == "s32 f(EnX *this, void *dl, u8 *p, f32 s)", "sig_ref.proto")
+check(sig_ref.proto("f", "void", "ActorFlags x", set()) is None and sig_ref.proto("f", "void", "void (*cb)(void)", set()) is None, "sig_ref skips types it cannot say")
+fl = sig_ref.flows([("addu", ["$s0", "$a0", "$zero"], 0), ("jal", ["f1"], 0x0C000004), ("addu", ["$a0", "$s0", "$zero"], 0),
+                    ("jal", ["f2"], 0x0C000008), ("lw", ["$a0", "0x4($s0)"], 0)])
+check(fl == [(0x80000010, {0: 0, 1: 1, 2: 2, 3: 3}), (0x80000020, {})], f"sig_ref.flows {fl}")
+tr = sig_ref.trace([("or", ["$s0", "$a0", "$zero"], 0), ("sw", ["$a1", "0x2C($sp)"], 0), ("lui", ["$a1", "%hi(func_80000100)"], 0),
+                    ("addiu", ["$a1", "$a1", "%lo(func_80000100)"], 0), ("sw", ["$a1", "0x18C($s0)"], 0), ("lw", ["$t9", "0x18C($s0)"], 0),
+                    ("or", ["$a0", "$s0", "$zero"], 0), ("lw", ["$a1", "0x2C($sp)"], 0), ("jalr", ["$t9"], 0), ("nop", [], 0)])
+check(tr[2] == [(0x18C, 0, ("f", 0x80000100))] and tr[1] == [(0x18C, 0, {0: ("p", 0), 1: ("p", 1), 2: ("p", 2), 3: ("p", 3)})], f"sig_ref.trace {tr}")
+
 import ref_import  # noqa: E402
 chunks = ref_import.top_chunks("#include \"a.h\"\n// c\nstatic s32 sX[] = { 1, 2 };\nvoid F(s32 a) {\n    if (a) { return; }\n}\ntypedef struct { s32 x; } T;\n")
 check([c[0] for c in chunks] == ["pp", "decl", "func", "decl"], f"ref_import.top_chunks {[c[0] for c in chunks]}")

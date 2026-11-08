@@ -5,11 +5,11 @@
 
 extern M2C_UNK D_80A98864;
 
-void ObjTokeidai_SetupTowerOpening(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x174) = &D_80A98864;
-    M2C_FIELD(arg0, s16 *, 0x154) = 0;
-    M2C_FIELD(arg0, s16 *, 0x156) = 0;
-    M2C_FIELD(arg0, s16 *, 0x15E) = 0;
-    M2C_FIELD(arg0, s16 *, 0x160) = 0;
-    M2C_FIELD(arg0, s16 *, 0x162) = 0;
+void ObjTokeidai_SetupTowerOpening(ObjTokeidai *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x174) = &D_80A98864;
+    M2C_FIELD(this, s16 *, 0x154) = 0;
+    M2C_FIELD(this, s16 *, 0x156) = 0;
+    M2C_FIELD(this, s16 *, 0x15E) = 0;
+    M2C_FIELD(this, s16 *, 0x160) = 0;
+    M2C_FIELD(this, s16 *, 0x162) = 0;
 }

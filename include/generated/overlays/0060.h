@@ -4,11 +4,14 @@
 #define GENERATED_OVERLAYS_0060_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnLight EnLight;
 
-void EnLight_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_80000268(s32 arg0, void *arg1);
-void EnLight_Update(void *arg0, s32 arg1);  /* 800002E4 */
-void func_800005A8(void *arg0, s32 arg1);
-void EnLight_Draw(s32 arg0, s32 arg1);  /* 80000A08 */
+void EnLight_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnLight_Destroy(Actor *thisx, PlayState *play);  /* 8000022C */
+void func_80000268(EnLight *this, PlayState *play);
+void EnLight_Update(Actor *thisx, PlayState *play);  /* 800002E4 */
+void func_800005A8(Actor *thisx, PlayState *play);
+void EnLight_Draw(Actor *thisx, PlayState *play);  /* 80000A08 */
 
 #endif

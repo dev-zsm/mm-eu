@@ -4,28 +4,32 @@
 #define GENERATED_OVERLAYS_0482_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSnowball2 ObjSnowball2;
 
-void func_80000000(void *arg0);
-void func_80000068(void *arg0, s32 arg1);
-void func_800000DC(void *arg0, s32 arg1);
-void func_800002E8(void *arg0, s32 arg1);
-void func_80000650(void *arg0, s32 arg1);
+void func_80000000(ObjSnowball2 *this);
+void func_80000068(ObjSnowball2 *this, PlayState *play);
+void func_800000DC(ObjSnowball2 *this, PlayState *play);
+void func_800002E8(ObjSnowball2 *this, PlayState *play);
+void func_80000650(Actor *thisx, PlayState *play);
 void func_800007A4(s32 a0, s32 a1);
-void func_800007CC(void *arg0, s32 arg1);
-void func_80000818(s32 arg0, void *arg1);
-void func_80000A14(s32 arg0, s32 arg1);
-void func_80000AE8(void *arg0, s32 arg1);
+void func_800007CC(Actor *thisx, PlayState *play);
+void func_80000818(PlayState *play, Vec3f *arg1);
+void func_80000A14(Actor *thisx, PlayState *play);
+void func_80000AE8(ObjSnowball2 *this, PlayState *play);
 void func_80000D08(u8 *arg0, u8 *arg1);
 void func_80000D3C(s32 arg0, s32 arg1);
-void ObjSnowball2_Init(void *arg0, s32 arg1);  /* 80000D74 */
+void ObjSnowball2_Init(Actor *thisx, PlayState *play);  /* 80000D74 */
+void ObjSnowball2_Destroy(Actor *thisx, PlayState *play);  /* 80000E2C */
 void func_80000E58(u8 *arg0);
-void func_80000E7C(void *arg0, void *arg1);
-void func_80001140(void *arg0);
-void func_80001188(void *arg0, s32 arg1);
-void func_800012B8(void *arg0);
-void func_8000131C(void *arg0, s32 arg1);
-void func_80001678(void *arg0);
-void func_800016E0(void *arg0, s32 arg1);
-void ObjSnowball2_Update(void *arg0);  /* 800019A8 */
+void func_80000E7C(ObjSnowball2 *this, PlayState *play);
+void func_80001140(ObjSnowball2 *this);
+void func_80001188(ObjSnowball2 *this, PlayState *play);
+void func_800012B8(ObjSnowball2 *this);
+void func_8000131C(ObjSnowball2 *this, PlayState *play);
+void func_80001678(ObjSnowball2 *this);
+void func_800016E0(ObjSnowball2 *this, PlayState *play);
+void ObjSnowball2_Update(Actor *thisx, PlayState *play);  /* 800019A8 */
+void ObjSnowball2_Draw(Actor *thisx, PlayState *play);  /* 80001A68 */
 
 #endif

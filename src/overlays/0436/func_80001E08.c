@@ -9,14 +9,14 @@ extern M2C_UNK D_80ACECA0;
 extern M2C_UNK D_80AD05D4;
 extern M2C_UNK D_80AD0A80;
 
-void func_80001E08(u8 *arg0) {
+void func_80001E08(Actor *thisx) {
     if (func_80ACE87C(0, 4) == 0) {
         func_80ACE87C(1, 4);
-        M2C_FIELD(arg0, s16 *, 0x356) = 1;
+        M2C_FIELD(thisx, s16 *, 0x356) = 1;
     }
-    if (&D_80ACECA0 == M2C_FIELD(arg0, M2C_UNK **, 0x1D4)) {
-        func_800BD9E0(arg0 + 0x190, &D_80AD0A80, 0xF);
+    if (&D_80ACECA0 == M2C_FIELD(thisx, M2C_UNK **, 0x1D4)) {
+        func_800BD9E0((u8 *)thisx + 0x190, &D_80AD0A80, 0xF);
     }
-    M2C_FIELD(arg0, s16 *, 0x354) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1D4) = &D_80AD05D4;
+    M2C_FIELD(thisx, s16 *, 0x354) = 0;
+    M2C_FIELD(thisx, M2C_UNK **, 0x1D4) = &D_80AD05D4;
 }

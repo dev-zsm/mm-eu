@@ -4,23 +4,26 @@
 #define GENERATED_OVERLAYS_0234_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjComb ObjComb;
 
-void func_80000000(void *arg0, s32 arg1);
+s32 func_80000000(ObjComb *this, PlayState *play);
 void func_8000006C(s32 arg0, s32 arg1);
 void func_8000035C(s32 arg0, s32 arg1);
-void func_8000063C(s32 arg0, s32 arg1);
-void func_800008A0(void *arg0, s32 arg1);
-void func_80000A30(void *arg0, s32 arg1);
-void func_80000A88(void *arg0, s32 arg1);
-void func_80000B5C(void *arg0, s32 arg1);
+void func_8000063C(ObjComb *this, PlayState *play);
+void func_800008A0(ObjComb *this, PlayState *play);
+void func_80000A30(ObjComb *this, PlayState *play);
+void func_80000A88(ObjComb *this, PlayState *play);
+void func_80000B5C(ObjComb *this, PlayState *play);
 void func_80000C34(u8 *arg0);
-void ObjComb_Init(void *arg0, s32 arg1);  /* 80000CA0 */
+void ObjComb_Init(Actor *thisx, PlayState *play);  /* 80000CA0 */
+void ObjComb_Destroy(Actor *thisx, PlayState *play);  /* 80000DD8 */
 void func_80000E04(u8 *arg0);
-void func_80000E20(void *arg0, s32 arg1);
+void func_80000E20(ObjComb *this, PlayState *play);
 void func_80001018(u8 *arg0);
-void func_80001060(void *arg0, s32 arg1);
-void func_80001278(void *arg0, s32 arg1);
-void ObjComb_Update(void *arg0, s32 arg1);  /* 8000131C */
-void ObjComb_Draw(void *arg0, s32 arg1);  /* 800014B8 */
+void func_80001060(ObjComb *this, PlayState *play);
+void func_80001278(ObjComb *this, PlayState *play);
+void ObjComb_Update(Actor *thisx, PlayState *play);  /* 8000131C */
+void ObjComb_Draw(Actor *thisx, PlayState *play);  /* 800014B8 */
 
 #endif

@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0180.h"
 
 void EnStream_Destroy(Actor *thisx, PlayState *play) {
 

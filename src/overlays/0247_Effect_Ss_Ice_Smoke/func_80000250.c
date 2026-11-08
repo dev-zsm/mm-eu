@@ -5,15 +5,15 @@
 
 M2C_UNK func_800FED2C(u8 *, M2C_UNK, M2C_UNK, u8 *); /* extern */
 
-void EffectSsIceSmoke_Update(s32 arg0, M2C_UNK arg1, u8 *arg2) {
+void EffectSsIceSmoke_Update(PlayState *play, u32 index, void *this) {
     s16 temp_v0;
 
-    if (M2C_FIELD(arg2, s16 *, 0x5C) < 0xA) {
-        func_800FED2C(arg2 + 0x40, 0, 0xA, arg2);
+    if (M2C_FIELD(this, s16 *, 0x5C) < 0xA) {
+        func_800FED2C((u8 *)this + 0x40, 0, 0xA, this);
         return;
     }
-    temp_v0 = M2C_FIELD(arg2, s16 *, 0x40);
+    temp_v0 = M2C_FIELD(this, s16 *, 0x40);
     if (temp_v0 < 0x64) {
-        M2C_FIELD(arg2, s16 *, 0x40) = (s16) (temp_v0 + 0xA);
+        M2C_FIELD(this, s16 *, 0x40) = (s16) (temp_v0 + 0xA);
     }
 }

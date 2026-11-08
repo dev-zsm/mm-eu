@@ -4,14 +4,18 @@
 #define GENERATED_OVERLAYS_0638_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DemoMoonend DemoMoonend;
 
-void DemoMoonend_Init(void *arg0, s32 arg1);  /* 80000000 */
-void DemoMoonend_DoNothing(s32 arg0, s32 arg1);  /* 80000140 */
-void func_80000150(void *arg0, s32 arg1);
-void func_80000238(void *arg0, s32 arg1);
-void DemoMoonend_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000460 */
-s32 DemoMoonend_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800004D0 */
-void DemoMoonend_Draw(s32 arg0, void *arg1);  /* 8000050C */
-void func_800005BC(s32 arg0, s32 arg1);
+void DemoMoonend_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DemoMoonend_Destroy(Actor *thisx, PlayState *play);  /* 80000100 */
+void DemoMoonend_DoNothing(DemoMoonend *this, PlayState *play);  /* 80000140 */
+void func_80000150(DemoMoonend *this, PlayState *play);
+void func_80000238(DemoMoonend *this, PlayState *play);
+void DemoMoonend_Update(Actor *thisx);  /* 8000043C */
+s32 DemoMoonend_OverrideLimbDraw(PlayState *play, void *kfSkelAnime, s32 limbIndex, void *dList, u8 *flags, void *thisx, Vec3f *scale, Vec3s *rot, Vec3f *pos);  /* 80000460 */
+s32 DemoMoonend_PostLimbDraw(PlayState *play, void *kfSkelAnime, s32 limbIndex, void *dList, u8 *flags, void *thisx, Vec3f *scale, Vec3s *rot, Vec3f *pos);  /* 800004D0 */
+void DemoMoonend_Draw(Actor *thisx, PlayState *play);  /* 8000050C */
+void func_800005BC(Actor *thisx, PlayState *play);
 
 #endif

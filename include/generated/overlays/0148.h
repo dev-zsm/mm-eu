@@ -4,47 +4,49 @@
 #define GENERATED_OVERLAYS_0148_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnHonotrap EnHonotrap;
 
-void EnHonotrap_FlameCollisionCheck(void *arg0, s32 arg1);  /* 80000000 */
-void EnHonotrap_GetNormal(s32 arg0, s32 arg1);  /* 80000094 */
-void EnHonotrap_InitEye(s32 arg0, s32 arg1);  /* 80000128 */
-void EnHonotrap_InitFlame(void *arg0, s32 arg1);  /* 80000330 */
-void EnHonotrap_InitFlameGroup(void *arg0, s32 arg1);  /* 80000478 */
-void EnHonotrap_Init(void *arg0, s32 arg1);  /* 80000588 */
-void EnHonotrap_Destroy(void *arg0, s32 arg1);  /* 8000065C */
-void EnHonotrap_SetupEyeIdle(u8 *arg0);  /* 800006B0 */
-void EnHonotrap_EyeIdle(u8 *arg0, s32 arg1);  /* 800006CC */
-void EnHonotrap_SetupEyeOpen(void *arg0);  /* 8000078C */
-void EnHonotrap_EyeOpen(void *arg0, s32 arg1);  /* 800007E0 */
-void EnHonotrap_SetupEyeAttack(u8 *arg0);  /* 800008B0 */
-void EnHonotrap_EyeAttack(u8 *arg0, s32 arg1);  /* 800008C8 */
-void EnHonotrap_SetupEyeClose(u8 *arg0);  /* 800008F8 */
-void EnHonotrap_EyeClose(u8 *arg0, s32 arg1);  /* 8000090C */
-void EnHonotrap_SetupEyeIdle2(u8 *arg0);  /* 80000958 */
-void EnHonotrap_EyeIdle2(u8 *arg0, s32 arg1);  /* 80000980 */
-void EnHonotrap_SetupEyeOpen2(u8 *arg0);  /* 80000A2C */
-void EnHonotrap_EyeOpen2(void *arg0, s32 arg1);  /* 80000A88 */
-void EnHonotrap_SetupEyeAttack2(u8 *arg0);  /* 80000B4C */
-void EnHonotrap_EyeAttack2(u8 *arg0, s32 arg1);  /* 80000B64 */
-void EnHonotrap_SetupEyeClose2(u8 *arg0);  /* 80000B94 */
-void EnHonotrap_EyeClose2(u8 *arg0, s32 arg1);  /* 80000BA8 */
-void EnHonotrap_SetupFlameGrow(u8 *arg0);  /* 80000BE8 */
-void EnHonotrap_FlameGrow(u8 *arg0, s32 arg1);  /* 80000BFC */
-void EnHonotrap_SetupFlameDrop(u8 *arg0);  /* 80000C90 */
-void EnHonotrap_FlameDrop(void *arg0, s32 arg1);  /* 80000CF8 */
-void EnHonotrap_SetupFlameMove(void *arg0);  /* 80000E3C */
-void EnHonotrap_FlameMove(void *arg0, s32 arg1);  /* 80000EC8 */
-void EnHonotrap_SetupFlameChase(u8 *arg0);  /* 8000109C */
-void EnHonotrap_FlameChase(void *arg0, s32 arg1);  /* 800010DC */
-void EnHonotrap_SetupFlameVanish(u8 *arg0);  /* 80001298 */
-void EnHonotrap_FlameVanish(void *arg0, s32 arg1);  /* 800012AC */
-void EnHonotrap_SetupFlameGroup(u8 *arg0);  /* 80001344 */
-void EnHonotrap_FlameGroup(void *arg0, void *arg1);  /* 80001368 */
-void EnHonotrap_Update(void *arg0, s32 arg1);  /* 8000185C */
-void EnHonotrap_UpdateFlame(u8 *arg0, s32 arg1);  /* 80001934 */
-void EnHonotrap_UpdateFlameGroup(void *arg0, s32 arg1);  /* 800019EC */
-void EnHonotrap_Draw(s32 arg0, s32 arg1);  /* 80001A60 */
-void EnHonotrap_DrawFlame(s32 arg0, void *arg1);  /* 80001B20 */
-void EnHonotrap_DrawFlameGroup(s32 arg0, void *arg1);  /* 80001C80 */
+void EnHonotrap_FlameCollisionCheck(EnHonotrap *this, PlayState *play);  /* 80000000 */
+void EnHonotrap_GetNormal(Vec3f *normal, Vec3f *vec);  /* 80000094 */
+void EnHonotrap_InitEye(EnHonotrap *this, PlayState *play);  /* 80000128 */
+void EnHonotrap_InitFlame(EnHonotrap *this, PlayState *play);  /* 80000330 */
+void EnHonotrap_InitFlameGroup(EnHonotrap *this, PlayState *play);  /* 80000478 */
+void EnHonotrap_Init(Actor *thisx, PlayState *play);  /* 80000588 */
+void EnHonotrap_Destroy(Actor *thisx, PlayState *play);  /* 8000065C */
+void EnHonotrap_SetupEyeIdle(EnHonotrap *this);  /* 800006B0 */
+void EnHonotrap_EyeIdle(EnHonotrap *this, PlayState *play);  /* 800006CC */
+void EnHonotrap_SetupEyeOpen(EnHonotrap *this);  /* 8000078C */
+void EnHonotrap_EyeOpen(EnHonotrap *this, PlayState *play);  /* 800007E0 */
+void EnHonotrap_SetupEyeAttack(EnHonotrap *this);  /* 800008B0 */
+void EnHonotrap_EyeAttack(EnHonotrap *this, PlayState *play);  /* 800008C8 */
+void EnHonotrap_SetupEyeClose(EnHonotrap *this);  /* 800008F8 */
+void EnHonotrap_EyeClose(EnHonotrap *this, PlayState *play);  /* 8000090C */
+void EnHonotrap_SetupEyeIdle2(EnHonotrap *this);  /* 80000958 */
+void EnHonotrap_EyeIdle2(EnHonotrap *this, PlayState *play);  /* 80000980 */
+void EnHonotrap_SetupEyeOpen2(EnHonotrap *this);  /* 80000A2C */
+void EnHonotrap_EyeOpen2(EnHonotrap *this, PlayState *play);  /* 80000A88 */
+void EnHonotrap_SetupEyeAttack2(EnHonotrap *this);  /* 80000B4C */
+void EnHonotrap_EyeAttack2(EnHonotrap *this, PlayState *play);  /* 80000B64 */
+void EnHonotrap_SetupEyeClose2(EnHonotrap *this);  /* 80000B94 */
+void EnHonotrap_EyeClose2(EnHonotrap *this, PlayState *play);  /* 80000BA8 */
+void EnHonotrap_SetupFlameGrow(EnHonotrap *this);  /* 80000BE8 */
+void EnHonotrap_FlameGrow(EnHonotrap *this, PlayState *play);  /* 80000BFC */
+void EnHonotrap_SetupFlameDrop(EnHonotrap *this);  /* 80000C90 */
+void EnHonotrap_FlameDrop(EnHonotrap *this, PlayState *play);  /* 80000CF8 */
+void EnHonotrap_SetupFlameMove(EnHonotrap *this);  /* 80000E3C */
+void EnHonotrap_FlameMove(EnHonotrap *this, PlayState *play);  /* 80000EC8 */
+void EnHonotrap_SetupFlameChase(EnHonotrap *this);  /* 8000109C */
+void EnHonotrap_FlameChase(EnHonotrap *this, PlayState *play);  /* 800010DC */
+void EnHonotrap_SetupFlameVanish(EnHonotrap *this);  /* 80001298 */
+void EnHonotrap_FlameVanish(EnHonotrap *this, PlayState *play);  /* 800012AC */
+void EnHonotrap_SetupFlameGroup(EnHonotrap *this);  /* 80001344 */
+void EnHonotrap_FlameGroup(EnHonotrap *this, PlayState *play);  /* 80001368 */
+void EnHonotrap_Update(Actor *thisx, PlayState *play);  /* 8000185C */
+void EnHonotrap_UpdateFlame(Actor *thisx, PlayState *play);  /* 80001934 */
+void EnHonotrap_UpdateFlameGroup(Actor *thisx, PlayState *play);  /* 800019EC */
+void EnHonotrap_Draw(Actor *thisx, PlayState *play);  /* 80001A60 */
+void EnHonotrap_DrawFlame(Actor *thisx, PlayState *play);  /* 80001B20 */
+void EnHonotrap_DrawFlameGroup(Actor *thisx, PlayState *play);  /* 80001C80 */
 
 #endif

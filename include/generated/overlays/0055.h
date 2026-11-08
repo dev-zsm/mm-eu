@@ -4,23 +4,24 @@
 #define GENERATED_OVERLAYS_0055_H
 
 #include "types.h"
+#include "actor.h"
 
-void KaleidoScope_DrawQuestStatus(s32 arg0);  /* 80000000 */
-void KaleidoScope_UpdateQuestCursor(s32 arg0);  /* 80001ABC */
-s32 KaleidoScope_UpdateQuestStatusPoint(u8 *arg0, s16 arg1);  /* 80002864 */
-void KaleidoScope_DrawAmmoCount(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80002880 */
-void KaleidoScope_DrawItemSelect(void *arg0);  /* 80002D2C */
-void KaleidoScope_UpdateItemCursor(s32 arg0);  /* 800032E8 */
-void KaleidoScope_UpdateItemEquip(s32 arg0);  /* 80003CC4 */
-void KaleidoScope_DrawDungeonStrayFairyCount(void *arg0);  /* 80004880 */
+void KaleidoScope_DrawQuestStatus(PlayState *play);  /* 80000000 */
+void KaleidoScope_UpdateQuestCursor(PlayState *play);  /* 80001ABC */
+s32 KaleidoScope_UpdateQuestStatusPoint(void *pauseCtx, s16 point);  /* 80002864 */
+void KaleidoScope_DrawAmmoCount(void *pauseCtx, void *gfxCtx, s16 item, u16 ammoIndex);  /* 80002880 */
+void KaleidoScope_DrawItemSelect(PlayState *play);  /* 80002D2C */
+void KaleidoScope_UpdateItemCursor(PlayState *play);  /* 800032E8 */
+void KaleidoScope_UpdateItemEquip(PlayState *play);  /* 80003CC4 */
+void KaleidoScope_DrawDungeonStrayFairyCount(PlayState *play);  /* 80004880 */
 void func_80004D1C(void *arg0);
 void func_8000576C(s32 arg0);
 void func_80005E2C(void *arg0);
-void KaleidoScope_UpdateWorldMapCursor(s32 arg0);  /* 80007044 */
-void KaleidoScope_DrawMaskSelect(void *arg0);  /* 800074B0 */
-void KaleidoScope_UpdateMaskCursor(s32 arg0);  /* 800079DC */
-void KaleidoScope_UpdateMaskEquip(s32 arg0);  /* 800084D4 */
-void KaleidoScope_UpdatePrompt(void *arg0);  /* 80008C60 */
+void KaleidoScope_UpdateWorldMapCursor(PlayState *play);  /* 80007044 */
+void KaleidoScope_DrawMaskSelect(PlayState *play);  /* 800074B0 */
+void KaleidoScope_UpdateMaskCursor(PlayState *play);  /* 800079DC */
+void KaleidoScope_UpdateMaskEquip(PlayState *play);  /* 800084D4 */
+void KaleidoScope_UpdatePrompt(PlayState *play);  /* 80008C60 */
 void func_80008E30(s32 arg0);
 void func_80008EC8(s32 arg0);
 void func_80008F60(s32 arg0);

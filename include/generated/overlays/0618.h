@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0618_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBombal EnBombal;
 
-void EnBombal_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnBombal_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnBombal_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
 void func_800000B4(u8 *arg0);
 void func_800000CC(void *arg0, s32 arg1);
-void func_800001D4(void *arg0, s32 arg1);
-void func_80000378(void *arg0, s32 arg1);
-void EnBombal_Update(void *arg0, s32 arg1);  /* 8000040C */
-void EnBombal_InitEffects(void *arg0, void *arg1, s32 arg2);  /* 80000520 */
-void EnBombal_UpdateEffects(void *arg0, s32 arg1);  /* 80000648 */
-void EnBombal_DrawEffects(void *arg0, void *arg1);  /* 80000798 */
+void func_800001D4(EnBombal *this, PlayState *play);
+void func_80000378(EnBombal *this, PlayState *play);
+void EnBombal_Update(Actor *thisx, PlayState *play);  /* 8000040C */
+void EnBombal_Draw(Actor *thisx, PlayState *play);  /* 800004C0 */
+void EnBombal_InitEffects(EnBombal *this, Vec3f *pos, s16 fadeDelay);  /* 80000520 */
+void EnBombal_UpdateEffects(EnBombal *this, PlayState *play);  /* 80000648 */
+void EnBombal_DrawEffects(EnBombal *this, PlayState *play);  /* 80000798 */
 
 #endif

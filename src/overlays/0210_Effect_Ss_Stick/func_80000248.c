@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0210.h"
 
-void EffectSsStick_Update(s32 arg0, M2C_UNK arg1, M2C_UNK arg2) {
+void EffectSsStick_Update(PlayState *play, u32 index, void *this) {
 
 }

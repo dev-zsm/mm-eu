@@ -4,25 +4,28 @@
 #define GENERATED_OVERLAYS_0512_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaBlock BgIkanaBlock;
 
-void func_80000000(void *arg0);
-void func_800000D0(u8 *arg0);
-s32 func_80000104(u8 *arg0, s32 arg1);
-s32 func_8000011C(u8 *arg0, s32 arg1);
-void func_80000134(void *arg0, s32 arg1);
-void func_8000029C(s32 arg0, s32 arg1);
-void func_800002F4(s32 arg0);
-void func_80000364(void *arg0, s32 arg1);
-s32 func_80000410(u8 *arg0);
-void func_80000454(s32 arg0, s32 arg1);
-void BgIkanaBlock_Init(void *arg0, s32 arg1);  /* 800004D8 */
-void func_800005AC(u8 *arg0);
-void func_800005D4(void *arg0, s32 arg1);
-void func_80000670(void *arg0, s32 arg1);
-void func_80000748(void *arg0);
-void func_80000830(void *arg0, s32 arg1);
-void func_80000938(void *arg0, s32 arg1);
-void BgIkanaBlock_Update(void *arg0, s32 arg1);  /* 80000A14 */
-void func_80000B04(s32 arg0, s32 arg1);
+void func_80000000(BgIkanaBlock *this);
+void func_800000D0(BgIkanaBlock *this);
+s32 func_80000104(BgIkanaBlock *this, PlayState *play);
+s32 func_8000011C(BgIkanaBlock *this, PlayState *play);
+s32 func_80000134(BgIkanaBlock *this, PlayState *play);
+s32 func_8000029C(BgIkanaBlock *this, PlayState *play);
+void func_800002F4(BgIkanaBlock *this);
+s32 func_80000364(BgIkanaBlock *this, PlayState *play);
+s32 func_80000410(BgIkanaBlock *this);
+s32 func_80000454(BgIkanaBlock *this, PlayState *play);
+void BgIkanaBlock_Init(Actor *thisx, PlayState *play);  /* 800004D8 */
+void BgIkanaBlock_Destroy(Actor *thisx, PlayState *play);  /* 80000578 */
+void func_800005AC(BgIkanaBlock *this);
+void func_800005D4(BgIkanaBlock *this, PlayState *play);
+void func_80000670(BgIkanaBlock *this, PlayState *play);
+void func_80000748(BgIkanaBlock *this);
+void func_80000830(BgIkanaBlock *this, PlayState *play);
+void func_80000938(BgIkanaBlock *this, PlayState *play);
+void BgIkanaBlock_Update(Actor *thisx, PlayState *play);  /* 80000A14 */
+void func_80000B04(Actor *thisx, PlayState *play);
 
 #endif

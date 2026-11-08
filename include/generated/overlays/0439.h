@@ -4,12 +4,17 @@
 #define GENERATED_OVERLAYS_0439_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjLupygamelift ObjLupygamelift;
 
-void ObjLupygamelift_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjLupygamelift_UpdateShadow(void *arg0);  /* 80000224 */
-void ObjLupygamelift_SetupWait(u8 *arg0);  /* 8000034C */
-void ObjLupygamelift_Wait(u8 *arg0, s32 arg1);  /* 80000368 */
-void ObjLupygamelift_SetupMove(u8 *arg0);  /* 800003A4 */
-void ObjLupygamelift_Move(void *arg0, s32 arg1);  /* 800003C0 */
+void ObjLupygamelift_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjLupygamelift_Destroy(Actor *thisx, PlayState *play);  /* 800001F0 */
+void ObjLupygamelift_UpdateShadow(ObjLupygamelift *this);  /* 80000224 */
+void ObjLupygamelift_SetupWait(ObjLupygamelift *this);  /* 8000034C */
+void ObjLupygamelift_Wait(ObjLupygamelift *this, PlayState *play);  /* 80000368 */
+void ObjLupygamelift_SetupMove(ObjLupygamelift *this);  /* 800003A4 */
+void ObjLupygamelift_Move(ObjLupygamelift *this, PlayState *play);  /* 800003C0 */
+void ObjLupygamelift_Update(Actor *thisx);  /* 8000055C */
+void ObjLupygamelift_Draw(Actor *thisx, PlayState *play);  /* 80000580 */
 
 #endif

@@ -4,15 +4,20 @@
 #define GENERATED_OVERLAYS_0448_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnGakufu EnGakufu;
 
-void EnGakufu_ProcessNotes(s32 arg0);  /* 80000000 */
-void EnGakufu_DisplayOnTimer(u8 *arg0, s32 arg1);  /* 80000234 */
-void EnGakufu_WaitForTimer(u8 *arg0, s32 arg1);  /* 80000274 */
-void EnGakufu_DoNothing(s32 arg0, s32 arg1);  /* 800002B4 */
-s32 EnGakufu_IsPlayerInRange(u8 *arg0, s32 arg1);  /* 800002C4 */
-void EnGakufu_GiveReward(s32 arg0, s32 arg1);  /* 800002F8 */
-void EnGakufu_PlayRewardCutscene(void *arg0, s32 arg1);  /* 800003E4 */
-void EnGakufu_WaitForSong(void *arg0);  /* 80000468 */
-void EnGakufu_Draw(void *arg0, void *arg1);  /* 80000534 */
+void EnGakufu_ProcessNotes(EnGakufu *this);  /* 80000000 */
+void EnGakufu_Init(Actor *thisx, PlayState *play);  /* 80000134 */
+void EnGakufu_Destroy(Actor *thisx, PlayState *play);  /* 80000204 */
+void EnGakufu_DisplayOnTimer(EnGakufu *this, PlayState *play);  /* 80000234 */
+void EnGakufu_WaitForTimer(EnGakufu *this, PlayState *play);  /* 80000274 */
+void EnGakufu_DoNothing(EnGakufu *this, PlayState *play);  /* 800002B4 */
+s32 EnGakufu_IsPlayerInRange(EnGakufu *this, PlayState *play);  /* 800002C4 */
+void EnGakufu_GiveReward(EnGakufu *this, PlayState *play);  /* 800002F8 */
+void EnGakufu_PlayRewardCutscene(EnGakufu *this, PlayState *play);  /* 800003E4 */
+void EnGakufu_WaitForSong(EnGakufu *this, PlayState *play);  /* 80000468 */
+void EnGakufu_Update(Actor *thisx);  /* 80000510 */
+void EnGakufu_Draw(Actor *thisx, PlayState *play);  /* 80000534 */
 
 #endif

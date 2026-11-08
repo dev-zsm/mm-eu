@@ -8,10 +8,10 @@ s32 func_800CAD00(u8 *);                          /* extern */
 M2C_UNK func_80BFFB60(u8 *, s32);                 /* extern */
 extern M2C_UNK D_80BFFD34;
 
-void ObjDanpeilift_Teleport(u8 *arg0, s32 arg1) {
-    if (func_800CAD00(arg0) == 0) {
-        func_80BFFB60(arg0, M2C_FIELD(arg0, s32 *, 0x168));
-        func_800C60A4(arg1, arg1 + 0x880, M2C_FIELD(arg0, s32 *, 0x144));
-        M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80BFFD34;
+void ObjDanpeilift_Teleport(ObjDanpeilift *this, PlayState *play) {
+    if (func_800CAD00(this) == 0) {
+        func_80BFFB60(this, M2C_FIELD(this, s32 *, 0x168));
+        func_800C60A4(play, (u8 *)play + 0x880, M2C_FIELD(this, s32 *, 0x144));
+        M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80BFFD34;
     }
 }

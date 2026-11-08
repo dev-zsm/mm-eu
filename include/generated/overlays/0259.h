@@ -4,20 +4,22 @@
 #define GENERATED_OVERLAYS_0259_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjGrass ObjGrass;
 
-void func_80000000(s32 arg0);
-void ObjGrass_OverrideMatrixCurrent(s32 arg0);  /* 800000EC */
-void ObjGrass_DropCollectible(u8 *arg0, s32 arg1);  /* 800001C0 */
-void ObjGrass_SpawnFragments(void *arg0, s32 arg1);  /* 80000204 */
-void ObjGrass_Init(void *arg0, s32 arg1);  /* 8000050C */
-void ObjGrass_Destroy(void *arg0, s32 arg1);  /* 800005EC */
-void ObjGrass_ProcessColliders(u8 *arg0, s32 arg1);  /* 80000680 */
-void ObjGrass_UpdateGrass(void *arg0, s32 arg1);  /* 8000072C */
-void ObjGrass_CalcAnimationMatrices(void *arg0);  /* 80000CA8 */
-void ObjGrass_Update(s32 arg0, s32 arg1);  /* 80001128 */
-void ObjGrass_InitDraw(void *arg0, void *arg1);  /* 80001168 */
-void ObjGrass_DrawOpa(void *arg0, void *arg1);  /* 8000143C */
-void ObjGrass_DrawXlu(void *arg0, s32 arg1);  /* 80001688 */
-void ObjGrass_Draw(s32 arg0, s32 arg1);  /* 80001898 */
+s32 func_80000000(PlayState *play, Vec3f *pos);
+void ObjGrass_OverrideMatrixCurrent(void *matrix);  /* 800000EC */
+void ObjGrass_DropCollectible(void *grassElem, PlayState *play);  /* 800001C0 */
+void ObjGrass_SpawnFragments(Vec3f *basePos, PlayState *play);  /* 80000204 */
+void ObjGrass_Init(Actor *thisx, PlayState *play);  /* 8000050C */
+void ObjGrass_Destroy(Actor *thisx, PlayState *play);  /* 800005EC */
+void ObjGrass_ProcessColliders(ObjGrass *this, PlayState *play);  /* 80000680 */
+void ObjGrass_UpdateGrass(ObjGrass *this, PlayState *play);  /* 8000072C */
+void ObjGrass_CalcAnimationMatrices(ObjGrass *this);  /* 80000CA8 */
+void ObjGrass_Update(Actor *thisx, PlayState *play);  /* 80001128 */
+void ObjGrass_InitDraw(ObjGrass *this, PlayState *play);  /* 80001168 */
+void ObjGrass_DrawOpa(Actor *thisx, PlayState *play2);  /* 8000143C */
+void ObjGrass_DrawXlu(Actor *thisx, PlayState *play);  /* 80001688 */
+void ObjGrass_Draw(Actor *thisx, PlayState *play);  /* 80001898 */
 
 #endif

@@ -4,34 +4,38 @@
 #define GENERATED_OVERLAYS_0303_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSkateblock ObjSkateblock;
 
-void func_80000000(void *arg0);
-void func_800000A4(void *arg0, s32 arg1);
-void func_800001A0(s32 arg0, s32 arg1, s32 arg2);
-void func_80000220(void *arg0, s32 arg1);
-void func_800003F8(void *arg0);
-void func_80000584(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800007E4(s32 arg0);
-void func_80000840(void *arg0, s32 arg1, void *arg2);
-void func_80000AE0(s32 arg0);
-void func_80000B38(u8 *arg0, s32 arg1);
+s32 func_80000000(ObjSkateblock *this);
+void func_800000A4(ObjSkateblock *this, s32 arg1);
+void func_800001A0(Vec3f *arg0, Vec3f *arg1, s16 arg2);
+s32 func_80000220(ObjSkateblock *this, PlayState *play);
+s32 func_800003F8(ObjSkateblock *this, PlayState *play);
+void func_80000584(ObjSkateblock *this, PlayState *play, s32 arg2, s32 arg3);
+s32 func_800007E4(ObjSkateblock *this, PlayState *play);
+void func_80000840(ObjSkateblock *this, PlayState *play, void *arg2);
+s32 func_80000AE0(ObjSkateblock *this, PlayState *play);
+void func_80000B38(ObjSkateblock *this, s32 arg1);
 void func_80000B64(u8 *arg0, u8 *arg1);
-void func_80000B88(void *arg0);
-void func_80000BCC(void *arg0);
-void func_80000D4C(void *arg0, s32 arg1);
-void func_80000E18(u8 *arg0);
-void func_80000E24(void *arg0, s32 arg1);
-void ObjSkateblock_Init(void *arg0, s32 arg1);  /* 800010E0 */
+void func_80000B88(ObjSkateblock *this);
+void func_80000BCC(ObjSkateblock *this);
+void func_80000D4C(ObjSkateblock *this, PlayState *play);
+void func_80000E18(ObjSkateblock *this);
+void func_80000E24(ObjSkateblock *this, PlayState *play);
+void ObjSkateblock_Init(Actor *thisx, PlayState *play);  /* 800010E0 */
+void ObjSkateblock_Destroy(Actor *thisx, PlayState *play);  /* 80001184 */
 void func_800011B8(u8 *arg0);
-void func_800011E4(void *arg0, s32 arg1);
-void func_800012FC(void *arg0);
-void func_80001354(void *arg0, s32 arg1);
-void func_800014D8(u8 *arg0);
+void func_800011E4(ObjSkateblock *this, PlayState *play);
+void func_800012FC(ObjSkateblock *this);
+void func_80001354(ObjSkateblock *this, PlayState *play);
+void func_800014D8(ObjSkateblock *this);
 void func_800014FC(u8 *arg0, s32 arg1);
 void func_800015D8(u8 *arg0);
-void func_800015EC(s32 arg0, s32 arg1);
-void func_80001654(u8 *arg0);
+void func_800015EC(ObjSkateblock *this, PlayState *play);
+void func_80001654(ObjSkateblock *this);
 void func_80001670(u8 *arg0, s32 arg1);
-void ObjSkateblock_Draw(s32 arg0, s32 arg1);  /* 80001788 */
+void ObjSkateblock_Update(Actor *thisx);  /* 80001730 */
+void ObjSkateblock_Draw(Actor *thisx, PlayState *play);  /* 80001788 */
 
 #endif

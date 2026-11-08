@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0575_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaShutter BgIkanaShutter;
 
-void BgIkanaShutter_AllSwitchesPressed(s32 arg0, s32 arg1);  /* 80000000 */
+s32 BgIkanaShutter_AllSwitchesPressed(BgIkanaShutter *this, PlayState *play);  /* 80000000 */
+void BgIkanaShutter_Init(Actor *thisx, PlayState *play);  /* 80000098 */
+void BgIkanaShutter_Destroy(Actor *thisx, PlayState *play);  /* 80000164 */
 void func_80000198(u8 *arg0);
 void func_800001B4(s32 arg0);
 void func_800001E8(u8 *arg0);
@@ -13,14 +17,16 @@ void func_80000204(u8 *arg0, s32 arg1);
 void func_80000280(u8 *arg0, s32 arg1);
 void func_8000030C(u8 *arg0);
 void func_80000334(s32 arg0);
-void func_80000388(void *arg0, void *arg1);
-void func_80000458(u8 *arg0);
+void func_80000388(BgIkanaShutter *this, PlayState *play);
+void func_80000458(BgIkanaShutter *this);
 void func_80000474(u8 *arg0, s32 arg1);
 void func_800004B4(u8 *arg0);
-void func_800004D0(void *arg0, s32 arg1);
-void func_80000534(u8 *arg0);
+void func_800004D0(BgIkanaShutter *this, PlayState *play);
+void func_80000534(BgIkanaShutter *this);
 void func_80000548(u8 *arg0, s32 arg1);
-void BgIkanaShutter_SetupDoNothing(u8 *arg0);  /* 800005D4 */
-void BgIkanaShutter_DoNothing(s32 arg0, s32 arg1);  /* 800005FC */
+void BgIkanaShutter_SetupDoNothing(BgIkanaShutter *this);  /* 800005D4 */
+void BgIkanaShutter_DoNothing(BgIkanaShutter *this, PlayState *play);  /* 800005FC */
+void BgIkanaShutter_Update(Actor *thisx);  /* 8000060C */
+void BgIkanaShutter_Draw(Actor *thisx, PlayState *play);  /* 80000630 */
 
 #endif

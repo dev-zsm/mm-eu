@@ -4,12 +4,18 @@
 #define GENERATED_OVERLAYS_0577_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakaTomb BgHakaTomb;
 
-void func_800000A4(u8 *arg0);
-void func_800000B8(s32 arg0, s32 arg1, s32 arg2);
+void BgHakaTomb_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgHakaTomb_Destroy(Actor *thisx, PlayState *play);  /* 80000070 */
+void func_800000A4(BgHakaTomb *this);
+s32 func_800000B8(s16 *csId, s16 *csIdList, s32 numCutscenes);
 void func_8000012C(u8 *arg0, s32 arg1);
 void func_800001D4(u8 *arg0);
-void BgHakaTomb_SetupDoNothing(u8 *arg0);  /* 80000228 */
-void BgHakaTomb_DoNothing(s32 arg0, s32 arg1);  /* 8000023C */
+void BgHakaTomb_SetupDoNothing(BgHakaTomb *this);  /* 80000228 */
+void BgHakaTomb_DoNothing(BgHakaTomb *this, PlayState *play);  /* 8000023C */
+void BgHakaTomb_Update(Actor *thisx);  /* 8000024C */
+void BgHakaTomb_Draw(Actor *thisx, PlayState *play);  /* 800002C4 */
 
 #endif

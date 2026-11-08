@@ -4,14 +4,18 @@
 #define GENERATED_OVERLAYS_0626_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjKzsaku ObjKzsaku;
 
-void ObjKzsaku_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjKzsaku_SetupIdle(u8 *arg0);  /* 800000E0 */
-void ObjKzsaku_Idle(u8 *arg0, s32 arg1);  /* 800000FC */
-void func_8000013C(u8 *arg0);
-void ObjKzsaku_Rise(void *arg0, s32 arg1);  /* 80000150 */
+void ObjKzsaku_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjKzsaku_Destroy(Actor *thisx, PlayState *play);  /* 800000AC */
+void ObjKzsaku_SetupIdle(ObjKzsaku *this);  /* 800000E0 */
+void ObjKzsaku_Idle(ObjKzsaku *this, PlayState *play);  /* 800000FC */
+void func_8000013C(ObjKzsaku *this);
+void ObjKzsaku_Rise(ObjKzsaku *this, PlayState *play);  /* 80000150 */
 void func_80000204(u8 *arg0);
-void func_80000230(void *arg0, s32 arg1);
-void ObjKzsaku_Draw(s32 arg0, s32 arg1);  /* 800002C4 */
+void func_80000230(ObjKzsaku *this, PlayState *play);
+void ObjKzsaku_Update(Actor *thisx);  /* 800002A0 */
+void ObjKzsaku_Draw(Actor *thisx, PlayState *play);  /* 800002C4 */
 
 #endif

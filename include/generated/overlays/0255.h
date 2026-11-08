@@ -4,16 +4,20 @@
 #define GENERATED_OVERLAYS_0255_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjToge ObjToge;
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(ObjToge *this, s32 arg1);
 void func_800000E0(void *arg0, s32 arg1);
-void func_800001E8(u8 *arg0);
-void func_8000022C(void *arg0, void *arg1);
-void ObjToge_Init(void *arg0, s32 arg1);  /* 800002CC */
-void func_800005BC(void *arg0, s32 arg1);
+void func_800001E8(ObjToge *this);
+s32 func_8000022C(ObjToge *this, PlayState *play);
+void ObjToge_Init(Actor *thisx, PlayState *play);  /* 800002CC */
+void ObjToge_Destroy(Actor *thisx, PlayState *play);  /* 80000558 */
+void func_800005BC(ObjToge *this, PlayState *play);
 void func_80000644(u8 *arg0);
-void func_8000065C(void *arg0);
-void func_800006EC(void *arg0, s32 arg1);
-void ObjToge_Update(void *arg0, s32 arg1);  /* 8000090C */
+void func_8000065C(ObjToge *this, PlayState *play);
+void func_800006EC(ObjToge *this, PlayState *play);
+void ObjToge_Update(Actor *thisx, PlayState *play);  /* 8000090C */
+void ObjToge_Draw(Actor *thisx, PlayState *play);  /* 80000A90 */
 
 #endif

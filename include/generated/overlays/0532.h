@@ -4,11 +4,15 @@
 #define GENERATED_OVERLAYS_0532_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjBoat ObjBoat;
 
-void ObjBoat_GetNextPoint(void *arg0, s32 arg1);  /* 80000000 */
-void ObjBoat_Init(void *arg0, s32 arg1);  /* 80000090 */
-void ObjBoat_SetRotations(void *arg0);  /* 800001D4 */
-void ObjBoat_Update(void *arg0, void *arg1);  /* 80000268 */
-void ObjBoat_UpdateCutscene(void *arg0, s32 arg1);  /* 800004D8 */
+s16 ObjBoat_GetNextPoint(ObjBoat *this, Vec3f *nextPoint);  /* 80000000 */
+void ObjBoat_Init(Actor *thisx, PlayState *play);  /* 80000090 */
+void ObjBoat_Destroy(Actor *thisx, PlayState *play);  /* 800001A0 */
+void ObjBoat_SetRotations(ObjBoat *this);  /* 800001D4 */
+void ObjBoat_Update(Actor *thisx, PlayState *play);  /* 80000268 */
+void ObjBoat_UpdateCutscene(Actor *thisx, PlayState *play2);  /* 800004D8 */
+void ObjBoat_Draw(Actor *thisx, PlayState *play);  /* 800006D8 */
 
 #endif

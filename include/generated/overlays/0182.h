@@ -4,31 +4,35 @@
 #define GENERATED_OVERLAYS_0182_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnWeatherTag EnWeatherTag;
 
 void EnWeatherTag_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void EnWeatherTag_Init(void *arg0, s32 arg1);  /* 8000001C */
+void EnWeatherTag_Destroy(Actor *thisx, PlayState *play);  /* 8000000C */
+void EnWeatherTag_Init(Actor *thisx, PlayState *play);  /* 8000001C */
 void func_800001F8(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void func_80000348(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_8000048C(s32 arg0, void *arg1);
-void func_800005F8(void *arg0, s32 arg1);
-void func_80000658(void *arg0, s32 arg1);
-void EnWeatherTag_Die(void *a0, s32 a1);  /* 800006D4 */
+void func_8000048C(EnWeatherTag *this, PlayState *play);
+void func_800005F8(EnWeatherTag *this, PlayState *play);
+void func_80000658(EnWeatherTag *this, PlayState *play);
+void EnWeatherTag_Die(EnWeatherTag *this, PlayState *play);  /* 800006D4 */
 void func_800006F8(s32 arg0, s32 arg1);
 void func_800007E4(s32 arg0, void *arg1);
 void func_80000910(s32 arg0, s32 arg1);
-void func_800009FC(s32 arg0, s32 arg1);
+void func_800009FC(EnWeatherTag *this, PlayState *play);
 void func_80000A74(s32 arg0, u8 *arg1);
 void func_80000AE0(s32 arg0, u8 *arg1);
 void func_80000B64(s32 arg0, u8 *arg1);
-void func_80000BDC(void *arg0, void *arg1);
-void func_80000C50(s32 arg0, s32 arg1);
-void func_80000D38(s32 arg0, s32 arg1);
-void EnWeatherTag_DoNothing(s32 arg0, s32 arg1);  /* 80000D98 */
-void EnWeatherTag_Unused_809671B8(s32 arg0, s32 arg1);  /* 80000DA8 */
-void EnWeatherTag_Unused_80967250(s32 arg0, s32 arg1);  /* 80000E40 */
+void func_80000BDC(EnWeatherTag *this, PlayState *play);
+void func_80000C50(EnWeatherTag *this, PlayState *play);
+void func_80000D38(EnWeatherTag *this, PlayState *play);
+void EnWeatherTag_DoNothing(EnWeatherTag *this, PlayState *play);  /* 80000D98 */
+void EnWeatherTag_Unused_809671B8(EnWeatherTag *this, PlayState *play);  /* 80000DA8 */
+void EnWeatherTag_Unused_80967250(EnWeatherTag *this, PlayState *play);  /* 80000E40 */
 void func_80000ECC(void *arg0, void *arg1);
-void func_800010B8(s32 arg0, void *arg1);
-void func_800011F8(s32 arg0, void *arg1);
-void func_80001294(void *arg0, void *arg1);
+void func_800010B8(EnWeatherTag *this, PlayState *play);
+void func_800011F8(EnWeatherTag *this, PlayState *play);
+void func_80001294(Actor *thisx, PlayState *play);
+void func_80001374(Actor *thisx, PlayState *play);
 
 #endif

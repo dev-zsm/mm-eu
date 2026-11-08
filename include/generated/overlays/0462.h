@@ -4,28 +4,32 @@
 #define GENERATED_OVERLAYS_0462_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakuginSwitch BgHakuginSwitch;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000034(void *arg0, s32 arg1);
-void BgHakuginSwitch_Init(void *arg0, s32 arg1);  /* 80000068 */
-void func_800002BC(u8 *arg0, s32 arg1, s32 arg2);
-void func_800002D8(void *arg0, s32 arg1);
-void func_8000038C(void *arg0, s32 arg1);
-void func_800003E4(void *arg0, s32 arg1);
-void func_8000067C(void *arg0, s32 arg1);
-void func_800006E8(void *arg0, s32 arg1);
-void func_800007AC(void *arg0, s32 arg1);
-void func_800007F8(void *arg0, s32 arg1);
-void func_800008DC(void *arg0, s32 arg1);
-void func_8000094C(void *arg0, s32 arg1);
-void func_80000A10(void *arg0, s32 arg1);
+void func_80000000(u8 *a, u16 b);
+void func_80000034(u8 *a, u16 b);
+void BgHakuginSwitch_Init(Actor *thisx, PlayState *play);  /* 80000068 */
+void BgHakuginSwitch_Destroy(Actor *thisx, PlayState *play);  /* 80000274 */
+void func_800002BC(BgHakuginSwitch *this, s32 arg1, s32 arg2);
+void func_800002D8(BgHakuginSwitch *this, PlayState *play);
+void func_8000038C(BgHakuginSwitch *this, PlayState *play);
+void func_800003E4(BgHakuginSwitch *this, PlayState *play);
+void func_8000067C(BgHakuginSwitch *this, PlayState *play);
+void func_800006E8(BgHakuginSwitch *this, PlayState *play);
+void func_800007AC(BgHakuginSwitch *this, PlayState *play);
+void func_800007F8(BgHakuginSwitch *this, PlayState *play);
+void func_800008DC(BgHakuginSwitch *this, PlayState *play);
+void func_8000094C(BgHakuginSwitch *this, PlayState *play);
+void func_80000A10(BgHakuginSwitch *this, PlayState *play);
 void func_80000AB4(u8 *arg0, s32 arg1);
-void func_80000B1C(void *arg0, s32 arg1);
-void func_80000C34(u8 *a0, s32 a1);
-void func_80000C70(void *arg0, s32 arg1);
-void func_80000D04(void *arg0, s32 arg1);
+void func_80000B1C(BgHakuginSwitch *this, PlayState *play);
+void func_80000C34(u8 *a0, PlayState *play);
+void func_80000C70(BgHakuginSwitch *this, PlayState *play);
+void func_80000D04(BgHakuginSwitch *this, PlayState *play);
 void func_80000D90(u8 *arg0, s32 arg1);
 void func_80000E50(u8 *arg0, s32 arg1);
-void BgHakuginSwitch_Update(void *arg0, s32 arg1);  /* 80000E98 */
+void BgHakuginSwitch_Update(Actor *thisx, PlayState *play);  /* 80000E98 */
+void BgHakuginSwitch_Draw(Actor *thisx, PlayState *play);  /* 80001078 */
 
 #endif

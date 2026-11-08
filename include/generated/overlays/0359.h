@@ -4,34 +4,38 @@
 #define GENERATED_OVERLAYS_0359_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnFall EnFall;
 
-void EnFall_Moon_AdjustScaleAndPosition(void *arg0, s32 arg1);  /* 80000000 */
-void EnFall_RisingDebris_ResetEffects(void *arg0);  /* 8000024C */
-void EnFall_Init(void *arg0, s32 arg1);  /* 8000029C */
-void EnFall_MoonsTear_GetTerminaFieldMoon(void *arg0);  /* 8000041C */
-void EnFall_Setup(void *arg0, s32 arg1);  /* 8000046C */
-void EnFall_CrashingMoon_HandleGiantsCutscene(s32 arg0, void *arg1);  /* 80000830 */
-void EnFall_CrashingMoon_PerformCutsceneActions(void *arg0, s32 arg1);  /* 80000A18 */
-void EnFall_StoppedOpenMouthMoon_PerformCutsceneActions(void *arg0, s32 arg1);  /* 80000B0C */
-void EnFall_StoppedClosedMouthMoon_PerformCutsceneActions(s32 arg0, void *arg1);  /* 80000BE4 */
-void EnFall_Moon_PerformDefaultActions(void *arg0, s32 arg1);  /* 80000DE4 */
-void EnFall_MoonsTear_Initialize(void *arg0);  /* 80000F3C */
-void EnFall_MoonsTear_DoNothing(s32 arg0, s32 arg1);  /* 80000FD0 */
-void EnFall_MoonsTear_Fall(void *arg0, s32 arg1);  /* 80000FE0 */
-void EnFall_Fireball_SetPerVertexAlpha(f32 arg0);  /* 80001170 */
-void EnFall_Fireball_Update(void *arg0, void *arg1);  /* 80001290 */
-void EnFall_RisingDebris_UpdateEffects(void *arg0);  /* 800014B4 */
-void EnFall_RisingDebris_InitializeEffect(void *arg0);  /* 80001574 */
-void EnFall_RisingDebris_Update(void *arg0, s32 arg1);  /* 80001708 */
-void EnFall_FireRing_Update(void *arg0, s32 arg1);  /* 800017CC */
-void EnFall_Moon_Draw(s32 arg0, s32 arg1);  /* 800018FC */
-void EnFall_OpenMouthMoon_Draw(s32 arg0, s32 arg1);  /* 800019FC */
-void EnFall_LodMoon_Draw(s32 arg0, s32 arg1);  /* 80001AEC */
+void EnFall_Moon_AdjustScaleAndPosition(EnFall *this, PlayState *play);  /* 80000000 */
+void EnFall_RisingDebris_ResetEffects(EnFall *this);  /* 8000024C */
+void EnFall_Init(Actor *thisx, PlayState *play);  /* 8000029C */
+void EnFall_Destroy(Actor *thisx, PlayState *play);  /* 8000040C */
+Actor *EnFall_MoonsTear_GetTerminaFieldMoon(PlayState *play);  /* 8000041C */
+void EnFall_Setup(EnFall *this, PlayState *play);  /* 8000046C */
+void EnFall_CrashingMoon_HandleGiantsCutscene(EnFall *this, PlayState *play);  /* 80000830 */
+void EnFall_CrashingMoon_PerformCutsceneActions(EnFall *this, PlayState *play);  /* 80000A18 */
+void EnFall_StoppedOpenMouthMoon_PerformCutsceneActions(EnFall *this, PlayState *play);  /* 80000B0C */
+void EnFall_StoppedClosedMouthMoon_PerformCutsceneActions(EnFall *this, PlayState *play);  /* 80000BE4 */
+void EnFall_Moon_PerformDefaultActions(EnFall *this, PlayState *play);  /* 80000DE4 */
+void EnFall_MoonsTear_Initialize(EnFall *this);  /* 80000F3C */
+void EnFall_MoonsTear_DoNothing(EnFall *this, PlayState *play);  /* 80000FD0 */
+void EnFall_MoonsTear_Fall(EnFall *this, PlayState *play);  /* 80000FE0 */
+void EnFall_Update(Actor *thisx);  /* 8000114C */
+void EnFall_Fireball_SetPerVertexAlpha(f32 fireballAlpha);  /* 80001170 */
+void EnFall_Fireball_Update(Actor *thisx, PlayState *play);  /* 80001290 */
+void EnFall_RisingDebris_UpdateEffects(EnFall *this);  /* 800014B4 */
+s32 EnFall_RisingDebris_InitializeEffect(EnFall *this);  /* 80001574 */
+void EnFall_RisingDebris_Update(Actor *thisx, PlayState *play);  /* 80001708 */
+void EnFall_FireRing_Update(Actor *thisx, PlayState *play);  /* 800017CC */
+void EnFall_Moon_Draw(Actor *thisx, PlayState *play);  /* 800018FC */
+void EnFall_OpenMouthMoon_Draw(Actor *thisx, PlayState *play);  /* 800019FC */
+void EnFall_LodMoon_Draw(Actor *thisx, PlayState *play);  /* 80001AEC */
 void EnFall_LodMoon_DrawWithoutLerp(void);  /* 80001C90 */
-void EnFall_LodMoon_DrawWithLerp(void *arg0, void *arg1);  /* 80001CB0 */
-void EnFall_Fireball_Draw(void *arg0, void *arg1);  /* 80001DAC */
-void EnFall_RisingDebris_Draw(void *arg0, void *arg1);  /* 800020EC */
-void EnFall_FireRing_Draw(void *arg0, s32 arg1);  /* 80002284 */
-void EnFall_MoonsTear_Draw(s32 arg0, void *arg1);  /* 800023EC */
+void EnFall_LodMoon_DrawWithLerp(Actor *thisx, PlayState *play);  /* 80001CB0 */
+void EnFall_Fireball_Draw(Actor *thisx, PlayState *play);  /* 80001DAC */
+void EnFall_RisingDebris_Draw(Actor *thisx, PlayState *play);  /* 800020EC */
+void EnFall_FireRing_Draw(Actor *thisx, PlayState *play);  /* 80002284 */
+void EnFall_MoonsTear_Draw(Actor *thisx, PlayState *play);  /* 800023EC */
 
 #endif

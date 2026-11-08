@@ -4,15 +4,20 @@
 #define GENERATED_OVERLAYS_0156_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjLift ObjLift;
 
-void func_80000000(void *arg0, s32 arg1);
-void ObjLift_Init(void *arg0, s32 arg1);  /* 80000268 */
-void func_800003E0(void *arg0, s32 arg1);
-void func_800004CC(u8 *arg0);
-void func_800004F4(void *arg0, s32 arg1);
-void func_80000600(void *arg0);
-void func_80000688(void *arg0, s32 arg1);
-void func_800007D0(void *arg0, s32 arg1);
-void func_800008D0(void *arg0, s32 arg1);
+void func_80000000(ObjLift *this, PlayState *play);
+void ObjLift_Init(Actor *thisx, PlayState *play);  /* 80000268 */
+void ObjLift_Destroy(Actor *thisx, PlayState *play);  /* 8000036C */
+void func_800003E0(ObjLift *this, PlayState *play);
+void func_800004CC(ObjLift *this);
+void func_800004F4(ObjLift *this, PlayState *play);
+void func_80000600(ObjLift *this);
+void func_80000688(ObjLift *this, PlayState *play);
+void func_800007D0(ObjLift *this, PlayState *play);
+void ObjLift_Update(Actor *thisx);  /* 8000086C */
+void ObjLift_Draw(Actor *thisx, PlayState *play);  /* 800008A0 */
+void func_800008D0(Actor *thisx, PlayState *play);
 
 #endif

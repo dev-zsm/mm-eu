@@ -4,9 +4,14 @@
 #define GENERATED_OVERLAYS_0252_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnMm2 EnMm2;
 
-void EnMm2_Reading(u8 *arg0, s32 arg1);  /* 80000050 */
-void EnMm2_WaitForRead(u8 *arg0, s32 arg1);  /* 800000CC */
-void EnMm2_Draw(s32 arg0, s32 arg1);  /* 80000188 */
+void EnMm2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnMm2_Destroy(Actor *thisx, PlayState *play);  /* 80000040 */
+void EnMm2_Reading(EnMm2 *this, PlayState *play);  /* 80000050 */
+void EnMm2_WaitForRead(EnMm2 *this, PlayState *play);  /* 800000CC */
+void EnMm2_Update(Actor *thisx);  /* 80000164 */
+void EnMm2_Draw(Actor *thisx, PlayState *play);  /* 80000188 */
 
 #endif

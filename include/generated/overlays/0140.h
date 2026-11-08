@@ -4,13 +4,15 @@
 #define GENERATED_OVERLAYS_0140_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ArrowIce ArrowIce;
 
 void ArrowIce_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ArrowIce_Init(u8 *arg0, s32 arg1);  /* 8000000C */
-void ArrowIce_Destroy(s32 arg0, s32 arg1);  /* 80000088 */
-void ArrowIce_Charge(void *arg0, s32 arg1);  /* 800000AC */
-void ArrowIce_LerpFiredPosition(void *arg0, void *arg1, s32 arg2);  /* 800001A0 */
-void ArrowIce_Hit(void *arg0, s32 arg1);  /* 800001F8 */
+void ArrowIce_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ArrowIce_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
+void ArrowIce_Charge(ArrowIce *this, PlayState *play);  /* 800000AC */
+void ArrowIce_LerpFiredPosition(Vec3f *firedPos, Vec3f *icePos, f32 scale);  /* 800001A0 */
+void ArrowIce_Hit(ArrowIce *this, PlayState *play);  /* 800001F8 */
 void func_800003C4(void *arg0, s32 arg1);
 void func_80000518(u8 *arg0, u8 *arg1);
 void func_8000056C(void *arg0, void *arg1);

@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0203_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsBubble EffectSsBubble;
 
-void EffectSsBubble_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsBubble_Draw(void *arg0, s32 arg1, void *arg2);  /* 80000178 */
-void EffectSsBubble_Update(s32 arg0, s32 arg1, void *arg2);  /* 8000029C */
+u32 EffectSsBubble_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsBubble_Draw(PlayState *play, u32 index, void *this);  /* 80000178 */
+void EffectSsBubble_Update(PlayState *play2, u32 index, void *this);  /* 8000029C */
 
 #endif

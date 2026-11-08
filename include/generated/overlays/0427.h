@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0427_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgDkjailIvy BgDkjailIvy;
 
-void BgDkjailIvy_IvyCutEffects(void *arg0, s32 arg1);  /* 80000000 */
-void BgDkjailIvy_Init(void *arg0, s32 arg1);  /* 80000374 */
-void BgDkjailIvy_SetupWaitForCut(u8 *arg0);  /* 8000047C */
-void BgDkjailIvy_WaitForCut(void *arg0, s32 arg1);  /* 80000490 */
-void BgDkjailIvy_SetupCutscene(u8 *arg0);  /* 80000504 */
-void BgDkjailIvy_BeginCutscene(void *arg0, s32 arg1);  /* 80000518 */
-void BgDkjailIvy_SetupFadeOut(u8 *arg0);  /* 800005B0 */
-void BgDkjailIvy_FadeOut(u8 *arg0, s32 arg1);  /* 800005C4 */
-void BgDkjailIvy_Draw(s32 arg0, s32 arg1);  /* 80000644 */
+void BgDkjailIvy_IvyCutEffects(BgDkjailIvy *this, PlayState *play);  /* 80000000 */
+void BgDkjailIvy_Init(Actor *thisx, PlayState *play);  /* 80000374 */
+void BgDkjailIvy_Destroy(Actor *thisx, PlayState *play);  /* 80000434 */
+void BgDkjailIvy_SetupWaitForCut(BgDkjailIvy *this);  /* 8000047C */
+void BgDkjailIvy_WaitForCut(BgDkjailIvy *this, PlayState *play);  /* 80000490 */
+void BgDkjailIvy_SetupCutscene(BgDkjailIvy *this);  /* 80000504 */
+void BgDkjailIvy_BeginCutscene(BgDkjailIvy *this, PlayState *play);  /* 80000518 */
+void BgDkjailIvy_SetupFadeOut(BgDkjailIvy *this);  /* 800005B0 */
+void BgDkjailIvy_FadeOut(BgDkjailIvy *this, PlayState *play);  /* 800005C4 */
+void BgDkjailIvy_Update(Actor *thisx);  /* 80000620 */
+void BgDkjailIvy_Draw(Actor *thisx, PlayState *play);  /* 80000644 */
 
 #endif

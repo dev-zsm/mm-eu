@@ -4,7 +4,12 @@
 #define GENERATED_OVERLAYS_0530_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjY2lift ObjY2lift;
 
-void ObjY2lift_Update(void *arg0, s32 arg1);  /* 80000084 */
+void ObjY2lift_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjY2lift_Destroy(Actor *thisx, PlayState *play);  /* 80000050 */
+void ObjY2lift_Update(Actor *thisx, PlayState *play);  /* 80000084 */
+void ObjY2lift_Draw(Actor *thisx, PlayState *play);  /* 80000298 */
 
 #endif

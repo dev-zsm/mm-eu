@@ -5,8 +5,8 @@
 
 extern M2C_UNK D_80944C38;
 
-void ObjLightSwitch_SetupAsleep(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 0x1B6) = 0;
-    M2C_FIELD(arg0, s8 *, 0x1B4) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1A4) = &D_80944C38;
+void ObjLightSwitch_SetupAsleep(ObjLightswitch *this) {
+    M2C_FIELD(this, s8 *, 0x1B6) = 0;
+    M2C_FIELD(this, s8 *, 0x1B4) = 0;
+    M2C_FIELD(this, M2C_UNK **, 0x1A4) = &D_80944C38;
 }

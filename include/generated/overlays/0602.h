@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0602_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffLastday EffLastday;
 
-void EffLastday_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_8000024C(void *arg0, s32 arg1);
+void EffLastday_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EffLastday_Destroy(Actor *thisx, PlayState *play);  /* 8000023C */
+void func_8000024C(EffLastday *this, PlayState *play);
 void func_80000338(void *arg0, s32 arg1);
 void func_800003F8(void *arg0, s32 arg1);
-void func_800004B8(void *arg0, s32 arg1);
-void EffLastday_SetVtxAlpha(s16 a0);  /* 800005E4 */
-void EffLastday_Draw(void *arg0, s32 arg1);  /* 8000061C */
+void func_800004B8(EffLastday *this, PlayState *play);
+void EffLastday_Update(Actor *thisx);  /* 800005C0 */
+void EffLastday_SetVtxAlpha(s16 alpha);  /* 800005E4 */
+void EffLastday_Draw(Actor *thisx, PlayState *play);  /* 8000061C */
 
 #endif

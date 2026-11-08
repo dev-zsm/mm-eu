@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0340_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DemoGetitem DemoGetitem;
 
-void DemoGetitem_Init(void *arg0, s32 arg1);  /* 80000000 */
-void DemoGetitem_Wait(void *arg0, s32 arg1);  /* 800000D0 */
-void DemoGetitem_PerformCutsceneActions(void *arg0, s32 arg1);  /* 80000128 */
-void DemoGetitem_Draw(u8 *arg0, s32 arg1);  /* 800002B0 */
+void DemoGetitem_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DemoGetitem_Destroy(Actor *thisx, PlayState *play);  /* 800000C0 */
+void DemoGetitem_Wait(DemoGetitem *this, PlayState *play);  /* 800000D0 */
+void DemoGetitem_PerformCutsceneActions(DemoGetitem *this, PlayState *play);  /* 80000128 */
+void DemoGetitem_Update(Actor *thisx);  /* 8000028C */
+void DemoGetitem_Draw(Actor *thisx, PlayState *play);  /* 800002B0 */
 
 #endif

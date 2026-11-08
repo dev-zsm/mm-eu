@@ -5,6 +5,6 @@
 
 extern f32 D_80964C34;
 
-void EffectSsFireTail_Update(s32 arg0, M2C_UNK arg1, u8 *arg2) {
-    M2C_FIELD(arg2, s16 *, 0x40) = (s16) (s32) ((f32) M2C_FIELD(arg2, s16 *, 0x40) * D_80964C34);
+void EffectSsFireTail_Update(PlayState *play, u32 index, void *this) {
+    M2C_FIELD(this, s16 *, 0x40) = (s16) (s32) ((f32) M2C_FIELD(this, s16 *, 0x40) * D_80964C34);
 }

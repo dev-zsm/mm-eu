@@ -4,17 +4,21 @@
 #define GENERATED_OVERLAYS_0393_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakuginBombwall BgHakuginBombwall;
 
 void func_80000000(void *arg0, s32 arg1);
-void func_80000320(void *arg0, s32 arg1);
-void func_800005CC(void *arg0, s32 arg1);
-void func_8000083C(void *arg0, s32 arg1);
-void BgHakuginBombwall_Init(void *arg0, s32 arg1);  /* 80000A40 */
-void func_80000B9C(void *arg0, s32 arg1);
-void func_80000C40(void *arg0, s32 arg1);
-void func_80000D24(void *arg0, s32 arg1);
-void func_80000DD8(void *arg0, s32 arg1);
-void func_80000EA0(void *arg0);
-void BgHakuginBombwall_Draw(void *arg0, s32 arg1);  /* 80000F4C */
+void func_80000320(BgHakuginBombwall *this, PlayState *play);
+void func_800005CC(BgHakuginBombwall *this, PlayState *play);
+void func_8000083C(BgHakuginBombwall *this, PlayState *play);
+void BgHakuginBombwall_Init(Actor *thisx, PlayState *play);  /* 80000A40 */
+void BgHakuginBombwall_Destroy(Actor *thisx, PlayState *play);  /* 80000B54 */
+s32 func_80000B9C(BgHakuginBombwall *this, PlayState *play);
+s32 func_80000C40(BgHakuginBombwall *this, PlayState *play);
+void func_80000D24(BgHakuginBombwall *this, PlayState *play);
+void func_80000DD8(BgHakuginBombwall *this, PlayState *play);
+void func_80000EA0(BgHakuginBombwall *this, PlayState *play);
+void BgHakuginBombwall_Update(Actor *thisx);  /* 80000F28 */
+void BgHakuginBombwall_Draw(Actor *thisx, PlayState *play);  /* 80000F4C */
 
 #endif

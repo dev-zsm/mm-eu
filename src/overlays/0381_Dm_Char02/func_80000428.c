@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0381.h"
 
-void DmChar02_PostLimbDraw(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, M2C_UNK arg3) {
+void DmChar02_PostLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3s *rot, Actor *thisx) {
 
 }

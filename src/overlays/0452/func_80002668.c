@@ -1,6 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
-typedef struct { s16 x, y, z; } Vec3s;
+#include "generated/overlays/0452.h"
 
 s32 func_80002668(s32 play, s32 limb, s32 dl, s32 pos, Vec3s *rot, u8 *thisx) {
     if (limb == 0xC) {

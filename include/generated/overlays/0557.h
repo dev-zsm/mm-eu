@@ -4,15 +4,18 @@
 #define GENERATED_OVERLAYS_0557_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgF40Block BgF40Block;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000AC(void *arg0, s32 arg1);
-void func_80000180(void *arg0);
-void func_80000324(void *arg0);
-void func_80000388(void *arg0, s32 arg1, s32 arg2);
-void BgF40Block_Init(void *arg0, s32 arg1);  /* 800006D8 */
+s32 func_80000000(BgF40Block *this, PlayState *play);
+s32 func_800000AC(BgF40Block *this, PlayState *play);
+s32 func_80000180(BgF40Block *this);
+s32 func_80000324(BgF40Block *this);
+s32 func_80000388(BgF40Block *this, PlayState *play, s32 arg2);
+void BgF40Block_Init(Actor *thisx, PlayState *play);  /* 800006D8 */
+void BgF40Block_Destroy(Actor *thisx, PlayState *play);  /* 800007F8 */
 void func_8000082C(u8 *arg0, s32 arg1);
-void func_800008A8(void *arg0, s32 arg1);
+void func_800008A8(BgF40Block *this, PlayState *play);
 void func_800009C4(u8 *arg0, s32 arg1);
 void func_80000A00(u8 *arg0, s32 arg1);
 void func_80000A4C(u8 *arg0, s32 arg1);
@@ -20,5 +23,6 @@ void func_80000AC8(u8 *arg0, s32 arg1);
 void func_80000B74(u8 *arg0, s32 arg1);
 void func_80000BB0(u8 *arg0, s32 arg1);
 void func_80000BFC(s32 arg0, s32 arg1);
+void BgF40Block_Draw(Actor *thisx, PlayState *play);  /* 80000C4C */
 
 #endif

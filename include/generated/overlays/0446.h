@@ -4,8 +4,13 @@
 #define GENERATED_OVERLAYS_0446_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnSnowwd EnSnowwd;
 
-void EnSnowwd_Idle(void *arg0, s32 arg1);  /* 800000B0 */
-void EnSnowwd_Draw(s32 arg0, void *arg1);  /* 80000370 */
+void EnSnowwd_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnSnowwd_Destroy(Actor *thisx, PlayState *play);  /* 80000084 */
+void EnSnowwd_Idle(EnSnowwd *this, PlayState *play);  /* 800000B0 */
+void EnSnowwd_Update(Actor *thisx);  /* 8000034C */
+void EnSnowwd_Draw(Actor *thisx, PlayState *play);  /* 80000370 */
 
 #endif

@@ -4,35 +4,38 @@
 #define GENERATED_OVERLAYS_0130_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnRr EnRr;
 
-void EnRr_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_8000021C(void *arg0, s32 arg1, s32 arg2);
-void func_8000031C(void *arg0);
-void func_8000039C(void *arg0, s32 arg1);
+void EnRr_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnRr_Destroy(Actor *thisx, PlayState *play);  /* 800001DC */
+void func_8000021C(EnRr *this, PlayState *play, void *collider);
+void func_8000031C(EnRr *this);
+void func_8000039C(EnRr *this, PlayState *play);
 void func_80000438(u8 *arg0, f32 arg1);
-void func_80000460(void *arg0);
-void func_80000544(void *arg0);
-void func_800005F8(void *arg0, s32 arg1);
-void func_800006F4(void *arg0, s32 arg1);
-void func_800008B8(void *arg0);
-void func_800009AC(void *arg0);
-void func_80000A70(void *arg0);
-void func_80000B10(void *arg0);
-void func_80000BCC(void *arg0);
-void func_80000C94(void *arg0, s32 arg1);
-void func_80000E80(void *arg0, void *arg1);
-void func_80000F1C(void *arg0, s32 arg1);
-void func_80001050(void *arg0, s32 arg1);
-void func_80001194(void *arg0, s32 arg1);
-void func_80001288(void *arg0, s32 arg1);
-void func_800013C0(void *arg0, s32 arg1);
-void func_800014C0(void *arg0, s32 arg1);
-void func_80001598(void *arg0, s32 arg1);
-void func_8000162C(void *arg0, s32 arg1);
+void func_80000460(EnRr *this);
+void func_80000544(EnRr *this);
+void func_800005F8(EnRr *this, void *player);
+void func_800006F4(EnRr *this, PlayState *play);
+void func_800008B8(EnRr *this);
+void func_800009AC(EnRr *this);
+void func_80000A70(EnRr *this);
+void func_80000B10(EnRr *this);
+void func_80000BCC(EnRr *this);
+s32 func_80000C94(EnRr *this, PlayState *play);
+void func_80000E80(EnRr *this, PlayState *play);
+void func_80000F1C(EnRr *this, PlayState *play);
+void func_80001050(EnRr *this, PlayState *play);
+void func_80001194(EnRr *this, PlayState *play);
+void func_80001288(EnRr *this, PlayState *play);
+void func_800013C0(EnRr *this, PlayState *play);
+void func_800014C0(EnRr *this, PlayState *play);
+void func_80001598(EnRr *this, PlayState *play);
+void func_8000162C(EnRr *this, PlayState *play);
 void func_80001880(u8 *arg0, s32 arg1);
 void func_80001910(u8 *arg0);
-void func_80001994(void *arg0, s32 arg1);
-void EnRr_Update(void *arg0, void *arg1);  /* 80001A88 */
-void EnRr_Draw(void *arg0, void *arg1);  /* 80001F54 */
+void func_80001994(EnRr *this, PlayState *play);
+void EnRr_Update(Actor *thisx, PlayState *play);  /* 80001A88 */
+void EnRr_Draw(Actor *thisx, PlayState *play);  /* 80001F54 */
 
 #endif

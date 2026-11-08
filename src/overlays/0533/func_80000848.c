@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0533.h"
 void func_800E0FAC(u8 *a, u8 *b, s32 c, u8 *d);
 void func_800C625C(u8 *a, u8 *b, s32 c);
 

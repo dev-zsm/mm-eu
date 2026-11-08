@@ -4,19 +4,23 @@
 #define GENERATED_OVERLAYS_0166_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnClearTag EnClearTag;
 
-void EnClearTag_CreateDebrisEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80000000 */
-void EnClearTag_CreateSmokeEffect(void *arg0, s32 arg1, s32 arg2);  /* 80000168 */
-void EnClearTag_CreateIsolatedSmokeEffect(void *arg0, s32 arg1, s32 arg2);  /* 80000304 */
-void EnClearTag_CreateFlashEffect(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 8000058C */
-void EnClearTag_CreateLightRayEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80000648 */
-void EnClearTag_CreateIsolatedLightRayEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 80000828 */
-void EnClearTag_CreateShockwaveEffect(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000A3C */
-void EnClearTag_CreateSplashEffect(void *arg0, s32 arg1, s32 arg2);  /* 80000AF4 */
-void EnClearTag_Init(void *arg0, s32 arg1);  /* 80000C64 */
-void EnClearTag_UpdateCamera(void *arg0, void *arg1);  /* 80001328 */
+void EnClearTag_CreateDebrisEffect(EnClearTag *this, Vec3f *pos, Vec3f *velocity, Vec3f *accel, f32 scale, f32 rotationZ);  /* 80000000 */
+void EnClearTag_CreateSmokeEffect(EnClearTag *this, Vec3f *pos, f32 scale);  /* 80000168 */
+void EnClearTag_CreateIsolatedSmokeEffect(EnClearTag *this, Vec3f *pos, f32 scale);  /* 80000304 */
+void EnClearTag_CreateFlashEffect(EnClearTag *this, Vec3f *pos, f32 scale, f32 floorHeight);  /* 8000058C */
+void EnClearTag_CreateLightRayEffect(EnClearTag *this, Vec3f *pos, Vec3f *velocity, Vec3f *accel, f32 scale, f32 maxScaleTarget, s16 alphaDecrementSpeed);  /* 80000648 */
+void EnClearTag_CreateIsolatedLightRayEffect(EnClearTag *this, Vec3f *pos, Vec3f *velocity, Vec3f *accel, f32 scale, f32 maxScaleTarget, s16 colorIndex, s16 alphaDecrementSpeed);  /* 80000828 */
+void EnClearTag_CreateShockwaveEffect(EnClearTag *this, Vec3f *pos, f32 maxScale, s16 actionTimer);  /* 80000A3C */
+void EnClearTag_CreateSplashEffect(EnClearTag *this, Vec3f *pos, s16 effectsTimer);  /* 80000AF4 */
+void EnClearTag_Destroy(Actor *thisx, PlayState *play);  /* 80000C54 */
+void EnClearTag_Init(Actor *thisx, PlayState *play);  /* 80000C64 */
+void EnClearTag_UpdateCamera(EnClearTag *this, PlayState *play);  /* 80001328 */
+void EnClearTag_Update(Actor *thisx);  /* 80001610 */
 void EnClearTag_Draw(void);  /* 80001678 */
-void EnClearTag_UpdateEffects(void *arg0, s32 arg1);  /* 80001698 */
-void EnClearTag_DrawEffects(void *arg0, s32 arg1);  /* 80001C74 */
+void EnClearTag_UpdateEffects(EnClearTag *this, PlayState *play);  /* 80001698 */
+void EnClearTag_DrawEffects(Actor *thisx, PlayState *play);  /* 80001C74 */
 
 #endif

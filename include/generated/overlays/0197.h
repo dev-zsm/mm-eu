@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0197_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsDust EffectSsDust;
 
-void EffectSsDust_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsDust_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000184 */
-void EffectSsDust_Update(s32 arg0, s32 arg1, s32 arg2);  /* 800004AC */
-void EffectSsDust_UpdateFire(s32 arg0, s32 arg1, s32 arg2);  /* 800005A4 */
+u32 EffectSsDust_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsDust_Draw(PlayState *play, u32 index, void *this);  /* 80000184 */
+void EffectSsDust_Update(PlayState *play, u32 index, void *this);  /* 800004AC */
+void EffectSsDust_UpdateFire(PlayState *play, u32 index, void *this);  /* 800005A4 */
 
 #endif

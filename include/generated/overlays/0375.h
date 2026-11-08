@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0375_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnEstone EnEstone;
 
-void EnEstone_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnEstone_Active(void *arg0, s32 arg1);  /* 8000033C */
-void EnEstone_Inactive(u8 *arg0, s32 arg1);  /* 80000610 */
-void EnEstone_Update(void *arg0, s32 arg1);  /* 80000640 */
-void EnEstone_Draw(void *arg0, s32 arg1);  /* 80000760 */
-void EnEstone_SpawnEffect(void *arg0, void *arg1, void *arg2, void *arg3);  /* 800008D4 */
-void EnEstone_UpdateEffects(void *arg0, s32 arg1);  /* 800009D0 */
-void EnEstone_DrawEffects(void *arg0, void *arg1);  /* 80000B20 */
+void EnEstone_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnEstone_Destroy(Actor *thisx, PlayState *play);  /* 80000310 */
+void EnEstone_Active(EnEstone *this, PlayState *play);  /* 8000033C */
+void EnEstone_Inactive(EnEstone *this, PlayState *play);  /* 80000610 */
+void EnEstone_Update(Actor *thisx, PlayState *play);  /* 80000640 */
+void EnEstone_Draw(Actor *thisx, PlayState *play);  /* 80000760 */
+void EnEstone_SpawnEffect(EnEstone *this, Vec3f *pos, Vec3f *velocity, Vec3f *accel, f32 scale, s16 lifetime);  /* 800008D4 */
+void EnEstone_UpdateEffects(EnEstone *this, PlayState *play);  /* 800009D0 */
+void EnEstone_DrawEffects(EnEstone *this, PlayState *play);  /* 80000B20 */
 
 #endif

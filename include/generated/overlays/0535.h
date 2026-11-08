@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0535_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnJcMato EnJcMato;
 
-void EnJcMato_CheckForHit(void *arg0, s32 arg1);  /* 80000000 */
-void EnJcMato_SetupIdle(u8 *arg0);  /* 800000E8 */
-void EnJcMato_Idle(u8 *arg0, s32 arg1);  /* 800000FC */
-void EnJcMato_Init(void *arg0, s32 arg1);  /* 80000150 */
-void EnJcMato_Update(void *arg0, s32 arg1);  /* 8000021C */
-void EnJcMato_Draw(s32 arg0, s32 arg1);  /* 8000026C */
+s32 EnJcMato_CheckForHit(EnJcMato *this, PlayState *play);  /* 80000000 */
+void EnJcMato_SetupIdle(EnJcMato *this);  /* 800000E8 */
+void EnJcMato_Idle(EnJcMato *this, PlayState *play);  /* 800000FC */
+void EnJcMato_Init(Actor *thisx, PlayState *play);  /* 80000150 */
+void EnJcMato_Destroy(Actor *thisx, PlayState *play);  /* 800001F0 */
+void EnJcMato_Update(Actor *thisx, PlayState *play);  /* 8000021C */
+void EnJcMato_Draw(Actor *thisx, PlayState *play);  /* 8000026C */
 
 #endif

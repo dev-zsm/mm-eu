@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0158.h"
 
 void EnOkarinaTag_Destroy(Actor *thisx, PlayState *play) {
 

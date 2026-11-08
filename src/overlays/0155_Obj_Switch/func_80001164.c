@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_8092083C;
 
-void ObjSwitch_EyeSwitchOpenInit(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_8092083C;
-    M2C_FIELD(arg0, s8 *, 0x164) = 0;
+void ObjSwitch_EyeSwitchOpenInit(ObjSwitch *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_8092083C;
+    M2C_FIELD(this, s8 *, 0x164) = 0;
 }

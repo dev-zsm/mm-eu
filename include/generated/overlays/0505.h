@@ -4,19 +4,23 @@
 #define GENERATED_OVERLAYS_0505_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgKin2Shelf BgKin2Shelf;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000174(void *arg0, s32 arg1);
-void func_800002D8(u8 *arg0);
-void func_80000318(void *arg0, s32 arg1);
-void func_8000038C(void *arg0, s32 arg1);
-void func_800003F8(void *arg0, s32 arg1);
-void BgKin2Shelf_Init(void *arg0, s32 arg1);  /* 80000460 */
+s32 func_80000000(BgKin2Shelf *this, PlayState *play);
+s32 func_80000174(BgKin2Shelf *this, PlayState *play);
+void func_800002D8(BgKin2Shelf *this);
+s32 func_80000318(BgKin2Shelf *this, PlayState *play);
+s32 func_8000038C(BgKin2Shelf *this, PlayState *play);
+s32 func_800003F8(BgKin2Shelf *this, PlayState *play);
+void BgKin2Shelf_Init(Actor *thisx, PlayState *play);  /* 80000460 */
+void BgKin2Shelf_Destroy(Actor *thisx, PlayState *play);  /* 80000544 */
 void func_80000578(u8 *arg0);
-void func_80000590(void *arg0, s32 arg1);
-void func_800006E4(u8 *arg0);
-void func_80000700(void *arg0, s32 arg1);
+void func_80000590(BgKin2Shelf *this, PlayState *play);
+void func_800006E4(BgKin2Shelf *this);
+void func_80000700(BgKin2Shelf *this, PlayState *play);
 void func_80000968(u8 *arg0);
-void func_80000984(void *arg0, s32 arg1);
+void func_80000984(BgKin2Shelf *this, PlayState *play);
+void BgKin2Shelf_Update(Actor *thisx);  /* 80000B94 */
 
 #endif

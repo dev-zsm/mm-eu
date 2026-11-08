@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0404.h"
 
-void TransitionWipe3_Destroy(s32 arg0) {
+void TransitionWipe3_Destroy(void *thisx) {
 
 }

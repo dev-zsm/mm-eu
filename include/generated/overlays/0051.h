@@ -4,19 +4,21 @@
 #define GENERATED_OVERLAYS_0051_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct MapSelect MapSelect;
 
-void MapSelect_LoadConsoleLogo(void *arg0);  /* 80000000 */
-void MapSelect_LoadGame(s32 arg0, s32 arg1, s32 arg2);  /* 80000020 */
-void MapSelect_UpdateMenu(void *arg0);  /* 80000134 */
-void MapSelect_PrintMenu(void *arg0, s32 arg1);  /* 80000AA8 */
-void MapSelect_PrintLoadingMessage(s32 arg0, s32 arg1);  /* 80000C84 */
-void MapSelect_PrintAgeSetting(s32 arg0, s32 arg1, s32 arg2);  /* 80000D10 */
-void MapSelect_PrintCutsceneSetting(s32 arg0, s32 arg1, s32 arg2);  /* 80000DD8 */
-void MapSelect_DrawMenu(s32 arg0);  /* 8000103C */
-void MapSelect_DrawLoadingScreen(s32 arg0);  /* 800010EC */
-void MapSelect_Draw(void *arg0);  /* 80001154 */
-void MapSelect_Main(s32 arg0);  /* 800011EC */
-void MapSelect_Destroy(s32 a0);  /* 80001218 */
-void MapSelect_Init(void *arg0);  /* 8000123C */
+void MapSelect_LoadConsoleLogo(void *this, u32 entrance, s32 spawn);  /* 80000000 */
+void MapSelect_LoadGame(void *this, u32 entrance, s32 spawn);  /* 80000020 */
+void MapSelect_UpdateMenu(void *this);  /* 80000134 */
+void MapSelect_PrintMenu(void *this, void *printer);  /* 80000AA8 */
+void MapSelect_PrintLoadingMessage(void *this, void *printer);  /* 80000C84 */
+void MapSelect_PrintAgeSetting(void *this, void *printer, s32 playerForm);  /* 80000D10 */
+void MapSelect_PrintCutsceneSetting(void *this, void *printer, u16 csIndex);  /* 80000DD8 */
+void MapSelect_DrawMenu(void *this);  /* 8000103C */
+void MapSelect_DrawLoadingScreen(void *this);  /* 800010EC */
+void MapSelect_Draw(void *this);  /* 80001154 */
+void MapSelect_Main(void *thisx);  /* 800011EC */
+void MapSelect_Destroy(void *thisx);  /* 80001218 */
+void MapSelect_Init(void *thisx);  /* 8000123C */
 
 #endif

@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0273.h"
 
 void func_8000074C(Actor *thisx) {
     s16 temp_v0;

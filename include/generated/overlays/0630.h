@@ -4,22 +4,27 @@
 #define GENERATED_OVERLAYS_0630_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkninSusceil BgIkninSusceil;
 
-void func_80000000(s32 arg0, void *arg1);
-void func_800000C4(u8 *arg0, s32 arg1);
-void func_800000F8(u8 *arg0, s32 arg1);
-void BgIkninSusceil_RequestQuakeAndRumble(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000012C */
-void func_8000021C(s32 arg0, void *arg1);
-void func_800003D4(u8 *a0);
+s32 func_80000000(BgIkninSusceil *this, PlayState *play);
+void func_800000C4(u8 *arg0, PlayState *play);
+void func_800000F8(BgIkninSusceil *this, PlayState *play);
+void BgIkninSusceil_RequestQuakeAndRumble(BgIkninSusceil *this, PlayState *play, s16 quakeY, s16 quakeDuration, s32 rumbleType);  /* 8000012C */
+s32 func_8000021C(BgIkninSusceil *this, PlayState *play);
+void BgIkninSusceil_Init(Actor *thisx, PlayState *play);  /* 80000330 */
+void BgIkninSusceil_Destroy(Actor *thisx, PlayState *play);  /* 800003A0 */
+void func_800003D4(BgIkninSusceil *this);
 void func_80000404(u8 *arg0);
-void func_80000468(void *arg0, s32 arg1);
+void func_80000468(BgIkninSusceil *this, PlayState *play);
 void func_80000534(u8 *arg0);
 void func_80000550(u8 *arg0, s32 arg1);
 void func_80000594(u8 *arg0);
 void func_800005A8(u8 *arg0, s32 arg1);
 void func_80000604(u8 *a);
-void func_80000624(void *arg0, s32 arg1);
-void func_8000071C(void *arg0);
-void BgIkninSusceil_Update(void *arg0, s32 arg1);  /* 800007D8 */
+void func_80000624(BgIkninSusceil *this, PlayState *play);
+void func_8000071C(BgIkninSusceil *this, PlayState *play);
+void BgIkninSusceil_Update(Actor *thisx, PlayState *play);  /* 800007D8 */
+void BgIkninSusceil_Draw(Actor *thisx, PlayState *play);  /* 80000940 */
 
 #endif

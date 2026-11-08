@@ -5,6 +5,6 @@
 
 M2C_UNK func_80115F80(M2C_UNK);                     /* extern */
 
-void ArrowLight_Destroy(s32 arg0, M2C_UNK arg1) {
-    func_80115F80(arg1);
+void ArrowLight_Destroy(Actor *thisx, PlayState *play) {
+    func_80115F80(play);
 }

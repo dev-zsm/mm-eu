@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80A21C30;
 
-void func_800009E4(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x390) = &D_80A21C30;
-    M2C_FIELD(arg0, f32 *, 0x70) = 0.0f;
+void func_800009E4(ObjVspinyroll *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x390) = &D_80A21C30;
+    M2C_FIELD(this, f32 *, 0x70) = 0.0f;
 }

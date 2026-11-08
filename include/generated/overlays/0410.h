@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0410_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgOpenShutter BgOpenShutter;
 
-void func_80000000(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000098(s32 arg0, void *arg1);
-void BgOpenShutter_Destroy(s32 arg0, s32 arg1);  /* 80000218 */
-void func_80000278(void *arg0, void *arg1);
+f32 func_80000000(PlayState *play, Actor *actor, f32 arg2, f32 arg3, f32 arg4);
+s8 func_80000098(BgOpenShutter *this, PlayState *play);
+void BgOpenShutter_Init(Actor *thisx, PlayState *play);  /* 800001B8 */
+void BgOpenShutter_Destroy(Actor *thisx, PlayState *play);  /* 80000218 */
+void func_80000278(BgOpenShutter *this, PlayState *play);
 void func_8000034C(u8 *arg0, s32 arg1);
-void func_800003E0(void *arg0, s32 arg1);
-void BgOpenShutter_Update(void *arg0, s32 arg1);  /* 800004F4 */
+void func_800003E0(BgOpenShutter *this, PlayState *play);
+void BgOpenShutter_Update(Actor *thisx, PlayState *play);  /* 800004F4 */
+void BgOpenShutter_Draw(Actor *thisx, PlayState *play);  /* 800005D8 */
 
 #endif

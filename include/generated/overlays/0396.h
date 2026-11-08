@@ -4,27 +4,28 @@
 #define GENERATED_OVERLAYS_0396_H
 
 #include "types.h"
+#include "actor.h"
 
-void func_80000000(u8 *arg0);
+void func_80000000(Actor *thisx);
 void func_8000008C(s32 arg0, s32 arg1);
-void func_800000FC(void *arg0, void *arg1);
-void func_800001C0(void *arg0, s32 arg1);
-void func_800002D0(void *arg0, s32 arg1);
+void func_800000FC(Actor *thisx, PlayState *play);
+void func_800001C0(void *arg0, PlayState *play);
+void func_800002D0(Actor *thisx, PlayState *play);
+void func_800004E8(Actor *thisx, PlayState *play);
 void func_80000524(void *arg0, s32 arg1);
 void func_80000804(void *arg0);
 void func_800008C0(void *arg0, s32 arg1);
 void func_80000A28(void *arg0, s32 arg1);
 void func_80000ECC(void *arg0, void *arg1);
-void func_80001294(void *arg0);
+void func_80001294(u8 *a);
 void func_800012EC(s32 arg0, s32 arg1);
 void func_800013D0(u8 *arg0);
-void func_800013E4(s32 arg0, s32 arg1);
 void func_80001438(s32 arg0, s32 arg1);
 void func_800014C0(u8 *arg0);
-void func_800014F8(u8 *arg0, u8 *arg1);
+void func_800014F8(Actor *thisx, PlayState *play);
 void func_80001578(u8 *arg0, u8 *arg1);
 void func_800015B4(s32 arg0, void *arg1);
-void func_8000165C(void *arg0, s32 arg1);
+void func_8000165C(u8 *a, s32 b);
 void func_800016B4(void *arg0, void *arg1);
 void func_800017F4(u8 *arg0);
 void func_80001808(s32 arg0, s32 arg1);
@@ -33,13 +34,12 @@ void func_80001894(void *arg0, void *arg1);
 void func_800019FC(u8 *arg0);
 void func_80001A10(void *arg0, void *arg1);
 void func_80001AC0(u8 *arg0);
-void func_80001AD4(s32 arg0, s32 arg1);
 void func_80001B28(void *arg0, s32 arg1);
 void func_8000200C(u8 *arg0, s16 arg1, s16 arg2);
-void func_80002034(void *arg0);
-void func_80002078(void *arg0, s32 arg1);
+void func_80002034(u8 *a);
+void func_80002078(Actor *thisx, PlayState *play);
 void func_800020FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800021A8(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80002254(void *arg0, s32 arg1);
+void func_80002254(Actor *thisx, PlayState *play);
 
 #endif

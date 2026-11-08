@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0103.h"
 
 void BgKeikokuSpr_Update(Actor *thisx, PlayState *play) {
 

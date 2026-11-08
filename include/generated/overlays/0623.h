@@ -4,6 +4,12 @@
 #define GENERATED_OVERLAYS_0623_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjKepnKoya ObjKepnKoya;
 
+void ObjKepnKoya_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjKepnKoya_Destroy(Actor *thisx, PlayState *play);  /* 80000080 */
+void ObjKepnKoya_Update(Actor *thisx, PlayState *play);  /* 800000B4 */
+void ObjKepnKoya_Draw(Actor *thisx, PlayState *play);  /* 800000C4 */
 
 #endif

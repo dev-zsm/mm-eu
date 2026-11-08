@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0369.h"
 
-void ObjPurify_DoNothing(s32 arg0, M2C_UNK arg1) {
+void ObjPurify_DoNothing(ObjPurify *this, PlayState *play) {
 
 }

@@ -4,19 +4,24 @@
 #define GENERATED_OVERLAYS_0503_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgKin2Fence BgKin2Fence;
 
-s32 BgKin2Fence_CheckHitMask(u8 *arg0);  /* 80000000 */
-void BgKin2Fence_SpawnEyeSparkles(void *arg0, s32 arg1, s32 arg2);  /* 80000070 */
-void BgKin2Fence_Init(void *arg0, s32 arg1);  /* 80000160 */
-void BgKin2Fence_SetupHandleMaskCode(u8 *arg0);  /* 800002BC */
-void BgKin2Fence_HandleMaskCode(void *arg0, s32 arg1);  /* 800002D4 */
-void BgKin2Fence_SetupPlayOpenCutscene(u8 *arg0);  /* 800003D4 */
-void BgKin2Fence_PlayOpenCutscene(void *arg0, s32 arg1);  /* 800003E8 */
-void BgKin2Fence_SetupWaitBeforeOpen(u8 *arg0);  /* 80000450 */
-void BgKin2Fence_WaitBeforeOpen(u8 *arg0, s32 arg1);  /* 8000046C */
-void BgKin2Fence_SetupRaiseFence(u8 *arg0);  /* 800004A4 */
-void BgKin2Fence_RaiseFence(u8 *arg0, s32 arg1);  /* 800004B8 */
-void BgKin2Fence_SetupDoNothing(u8 *arg0);  /* 80000510 */
-void BgKin2Fence_DoNothing(s32 arg0, s32 arg1);  /* 80000538 */
+s32 BgKin2Fence_CheckHitMask(BgKin2Fence *this);  /* 80000000 */
+void BgKin2Fence_SpawnEyeSparkles(BgKin2Fence *this, PlayState *play, s32 mask);  /* 80000070 */
+void BgKin2Fence_Init(Actor *thisx, PlayState *play);  /* 80000160 */
+void BgKin2Fence_Destroy(Actor *thisx, PlayState *play);  /* 80000274 */
+void BgKin2Fence_SetupHandleMaskCode(BgKin2Fence *this);  /* 800002BC */
+void BgKin2Fence_HandleMaskCode(BgKin2Fence *this, PlayState *play);  /* 800002D4 */
+void BgKin2Fence_SetupPlayOpenCutscene(BgKin2Fence *this);  /* 800003D4 */
+void BgKin2Fence_PlayOpenCutscene(BgKin2Fence *this, PlayState *play);  /* 800003E8 */
+void BgKin2Fence_SetupWaitBeforeOpen(BgKin2Fence *this);  /* 80000450 */
+void BgKin2Fence_WaitBeforeOpen(BgKin2Fence *this, PlayState *play);  /* 8000046C */
+void BgKin2Fence_SetupRaiseFence(BgKin2Fence *this);  /* 800004A4 */
+void BgKin2Fence_RaiseFence(BgKin2Fence *this, PlayState *play);  /* 800004B8 */
+void BgKin2Fence_SetupDoNothing(BgKin2Fence *this);  /* 80000510 */
+void BgKin2Fence_DoNothing(BgKin2Fence *this, PlayState *play);  /* 80000538 */
+void BgKin2Fence_Update(Actor *thisx);  /* 80000548 */
+void BgKin2Fence_Draw(Actor *thisx, PlayState *play);  /* 8000056C */
 
 #endif

@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0407_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsSbn EffectSsSbn;
 
-void EffectSsSbn_Init(s32 arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000000 */
-void EffectSsSbn_DrawSliding(s32 arg0, s32 arg1, void *arg2);  /* 8000037C */
-void EffectSsSbn_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000614 */
-void EffectSsSbn_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 800007EC */
+u32 EffectSsSbn_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsSbn_DrawSliding(PlayState *play, u32 index, void *this);  /* 8000037C */
+void EffectSsSbn_Draw(PlayState *play, u32 index, void *this);  /* 80000614 */
+void EffectSsSbn_Update(PlayState *play, u32 index, void *this);  /* 800007EC */
 
 #endif

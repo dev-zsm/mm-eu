@@ -4,19 +4,22 @@
 #define GENERATED_OVERLAYS_0382_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmChar03 DmChar03;
 
-void DmChar03_ChangeAnim(s32 arg0, s32 arg1, s32 arg2);  /* 80000000 */
-void DmChar03_Init(void *arg0, s32 arg1);  /* 8000009C */
+void DmChar03_ChangeAnim(void *skelAnime, void *animInfo, u16 animIndex);  /* 80000000 */
+void DmChar03_Init(Actor *thisx, PlayState *play);  /* 8000009C */
+void DmChar03_Destroy(Actor *thisx, PlayState *play);  /* 80000148 */
 void func_80000158(u8 *arg0, s32 arg1);
-void func_800001A4(s32 arg0, s32 arg1);
-void DmChar03_DoNothing(s32 arg0, s32 arg1);  /* 80000260 */
-void func_80000270(void *arg0, void *arg1);
-void func_80000398(s32 arg0, s32 arg1);
-void DmChar03_Update(void *arg0, s32 arg1);  /* 8000043C */
-s32 DmChar03_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800004D4 */
-void DmChar03_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800004F0 */
-void DmChar03_TransformLimbDraw(s32 arg0, s32 arg1, s32 arg2);  /* 80000508 */
-void DmChar03_Draw(void *arg0, void *arg1);  /* 8000051C */
-void func_800005E4(s32 arg0, void *arg1);
+void func_800001A4(DmChar03 *this, PlayState *play);
+void DmChar03_DoNothing(DmChar03 *this, PlayState *play);  /* 80000260 */
+void func_80000270(DmChar03 *this, PlayState *play);
+void func_80000398(DmChar03 *this, PlayState *play);
+void DmChar03_Update(Actor *thisx, PlayState *play);  /* 8000043C */
+s32 DmChar03_OverrideLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3f *pos, Vec3s *rot, Actor *thisx);  /* 800004D4 */
+void DmChar03_PostLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3s *rot, Actor *thisx);  /* 800004F0 */
+void DmChar03_TransformLimbDraw(PlayState *play, s32 limbIndex, Actor *thisx);  /* 80000508 */
+void DmChar03_Draw(Actor *thisx, PlayState *play);  /* 8000051C */
+void func_800005E4(PlayState *play, DmChar03 *this);
 
 #endif

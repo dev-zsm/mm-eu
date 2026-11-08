@@ -4,17 +4,19 @@
 #define GENERATED_OVERLAYS_0101_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ArmsHook ArmsHook;
 
 void ArmsHook_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ArmsHook_Init(void *arg0, s32 arg1);  /* 8000000C */
-void ArmsHook_Destroy(void *arg0, s32 arg1);  /* 80000080 */
-void ArmsHook_Wait(void *arg0, s32 arg1);  /* 800000C8 */
-void ArmsHook_PullPlayer(u8 *arg0);  /* 80000124 */
-s32 ArmsHook_AttachToPlayer(u8 *arg0, u8 *arg1);  /* 80000138 */
-void ArmsHook_DetachFromActor(u8 *arg0);  /* 80000168 */
-void ArmsHook_CheckForCancel(s32 arg0);  /* 80000190 */
-void ArmsHook_AttachToActor(u8 *arg0, u8 *arg1);  /* 8000022C */
-void ArmsHook_Shoot(void *arg0, s32 arg1);  /* 80000274 */
-void ArmsHook_Draw(void *arg0, s32 arg1);  /* 800008E8 */
+void ArmsHook_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ArmsHook_Destroy(Actor *thisx, PlayState *play);  /* 80000080 */
+void ArmsHook_Wait(ArmsHook *this, PlayState *play);  /* 800000C8 */
+void ArmsHook_PullPlayer(ArmsHook *this);  /* 80000124 */
+s32 ArmsHook_AttachToPlayer(ArmsHook *this, void *player);  /* 80000138 */
+void ArmsHook_DetachFromActor(ArmsHook *this);  /* 80000168 */
+s32 ArmsHook_CheckForCancel(ArmsHook *this);  /* 80000190 */
+void ArmsHook_AttachToActor(ArmsHook *this, Actor *actor);  /* 8000022C */
+void ArmsHook_Shoot(ArmsHook *this, PlayState *play);  /* 80000274 */
+void ArmsHook_Draw(Actor *thisx, PlayState *play);  /* 800008E8 */
 
 #endif

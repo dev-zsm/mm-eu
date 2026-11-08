@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80B4A5C4;
 
-void ObjKendoKanban_SetupDoNothing(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x268) = &D_80B4A5C4;
+void ObjKendoKanban_SetupDoNothing(ObjKendoKanban *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x268) = &D_80B4A5C4;
 }

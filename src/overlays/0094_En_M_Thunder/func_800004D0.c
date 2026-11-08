@@ -4,6 +4,6 @@
 
 extern void func_800FD0AC(s32, f32, f32, f32, f32);
 
-void EnMThunder_AdjustLights(s32 a0, f32 a1) {
-    func_800FD0AC(a0, a1, 850.0f, 0.2f, 0.0f);
+void EnMThunder_AdjustLights(PlayState *play, f32 arg1) {
+    func_800FD0AC(play, arg1, 850.0f, 0.2f, 0.0f);
 }

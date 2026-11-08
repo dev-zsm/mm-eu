@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0355_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnWarpUzu EnWarpUzu;
 
-void EnWarpUzu_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void EnWarpUzu_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnWarpUzu_Destroy(Actor *thisx, PlayState *play);  /* 8000005C */
 void func_80000088(u8 *arg0, s32 arg1);
-void func_800000F8(void *arg0, void *arg1);
-void func_80000204(s32 arg0, s32 arg1);
-void EnWarpUzu_DoNothing(s32 arg0, s32 arg1);  /* 80000268 */
-void EnWarpUzu_Update(void *arg0, s32 arg1);  /* 80000278 */
+void func_800000F8(EnWarpUzu *this, PlayState *play);
+void func_80000204(EnWarpUzu *this, PlayState *play);
+void EnWarpUzu_DoNothing(EnWarpUzu *this, PlayState *play);  /* 80000268 */
+void EnWarpUzu_Update(Actor *thisx, PlayState *play);  /* 80000278 */
+void EnWarpUzu_Draw(Actor *thisx, PlayState *play);  /* 800002E8 */
 
 #endif

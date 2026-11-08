@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0215_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsKFire EffectSsKFire;
 
-void EffectSsKFire_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsKFire_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800000D8 */
-void EffectSsKFire_Update(s32 arg0, s32 arg1, u8 *arg2);  /* 80000340 */
+u32 EffectSsKFire_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsKFire_Draw(PlayState *play, u32 index, void *this);  /* 800000D8 */
+void EffectSsKFire_Update(PlayState *play, u32 index, void *this);  /* 80000340 */
 
 #endif

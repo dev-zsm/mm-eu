@@ -4,18 +4,21 @@
 #define GENERATED_OVERLAYS_0341_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnDnb EnDnb;
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800000EC(void *arg0, s32 arg1);
-void func_80000218(void *arg0, s32 arg1);
-void func_80000328(s32 arg0);
-void EnDnb_Init(s32 arg0, s32 arg1);  /* 800004D0 */
-void EnDnb_Update(void *arg0, s32 arg1);  /* 800005B0 */
-void func_80000740(void *arg0, void *arg1);
-void func_8000086C(void *arg0, void *arg1);
-void EnDnb_Draw(s32 arg0, void *arg1);  /* 80000998 */
+void func_80000000(void *effect, EnDnb *this, s16 *alloc, s32 idx);
+s32 func_800000EC(void *effect, f32 arg1);
+void func_80000218(void *effect, s16 arg1);
+s32 func_80000328(EnDnb *this);
+void EnDnb_Init(Actor *thisx, PlayState *play);  /* 800004D0 */
+void EnDnb_Destroy(Actor *thisx, PlayState *play);  /* 8000057C */
+void EnDnb_Update(Actor *thisx, PlayState *play);  /* 800005B0 */
+void func_80000740(EnDnb *this, PlayState *play);
+void func_8000086C(EnDnb *this, PlayState *play);
+void EnDnb_Draw(Actor *thisx, PlayState *play);  /* 80000998 */
 void func_800009F0(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000A9C(void *arg0);
-void func_80000B80(void *arg0, void *arg1);
+s32 func_80000A9C(void *arg0);
+s32 func_80000B80(void *arg0, PlayState *play2);
 
 #endif

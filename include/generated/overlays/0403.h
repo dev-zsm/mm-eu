@@ -4,15 +4,17 @@
 #define GENERATED_OVERLAYS_0403_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct TransitionWipe1 TransitionWipe1;
 
-void TransitionWipe1_Start(void *arg0);  /* 80000000 */
-s32 TransitionWipe1_Init(s32 arg0);  /* 800000B8 */
-void TransitionWipe1_Destroy(s32 arg0);  /* 800000E4 */
-void TransitionWipe1_Update(void *arg0, s32 arg1);  /* 800000F0 */
-void TransitionWipe1_Draw(void *arg0, s32 arg1);  /* 800001D0 */
-u8 TransitionWipe1_IsDone(u8 *arg0);  /* 8000040C */
-void TransitionWipe1_SetType(u8 *arg0, s32 arg1);  /* 80000418 */
+void TransitionWipe1_Start(void *thisx);  /* 80000000 */
+void *TransitionWipe1_Init(void *thisx);  /* 800000B8 */
+void TransitionWipe1_Destroy(void *thisx);  /* 800000E4 */
+void TransitionWipe1_Update(void *thisx, s32 updateRate);  /* 800000F0 */
+void TransitionWipe1_Draw(void *thisx, void *gfxP);  /* 800001D0 */
+s32 TransitionWipe1_IsDone(void *thisx);  /* 8000040C */
+void TransitionWipe1_SetType(void *thisx, s32 type);  /* 80000418 */
 void TransitionWipe1_SetColor(s32 *arg0, s32 arg1);  /* 80000458 */
-void TransitionWipe1_SetEnvColor(u8 *arg0, s32 arg1);  /* 80000464 */
+void TransitionWipe1_SetEnvColor(void *thisx, u32 color);  /* 80000464 */
 
 #endif

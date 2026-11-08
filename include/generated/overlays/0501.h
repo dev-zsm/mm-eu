@@ -4,17 +4,22 @@
 #define GENERATED_OVERLAYS_0501_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakaCurtain BgHakaCurtain;
 
-void func_800000B8(u8 *arg0);
+void BgHakaCurtain_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgHakaCurtain_Destroy(Actor *thisx, PlayState *play);  /* 80000084 */
+void func_800000B8(BgHakaCurtain *this);
 void func_800000CC(u8 *arg0, s32 arg1);
 void func_8000010C(u8 *arg0);
 void func_80000120(u8 *arg0, s32 arg1);
 void func_8000017C(u8 *arg0);
 void func_80000190(s32 arg0, s32 arg1);
-void func_800001A0(u8 *arg0);
-void func_800001BC(void *arg0, s32 arg1);
+void func_800001A0(BgHakaCurtain *this);
+void func_800001BC(BgHakaCurtain *this, PlayState *play);
 void func_800002A0(u8 *arg0);
 void func_800002C8(s32 arg0, s32 arg1);
-void BgHakaCurtain_Update(s32 arg0, void *arg1);  /* 800002D8 */
+void BgHakaCurtain_Update(Actor *thisx, PlayState *play);  /* 800002D8 */
+void BgHakaCurtain_Draw(Actor *thisx, PlayState *play);  /* 80000364 */
 
 #endif

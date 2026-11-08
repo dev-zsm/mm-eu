@@ -5,13 +5,13 @@
 
 extern M2C_UNK D_80A424F4;
 
-void func_800025F4(u8 *arg0) {
+void func_800025F4(EnKusa2 *this) {
     s32 var_v0;
     u8 *var_v1;
 
-    M2C_FIELD(arg0, s32 *, 0x194) = 0;
+    M2C_FIELD(this, s32 *, 0x194) = 0;
     var_v0 = 1;
-    var_v1 = arg0 + 4;
+    var_v1 = (u8 *)this + 4;
     do {
         var_v0 += 4;
         M2C_FIELD(var_v1, s32 *, 0x198) = 0;
@@ -20,5 +20,5 @@ void func_800025F4(u8 *arg0) {
         var_v1 += 0x10;
         M2C_FIELD(var_v1, s32 *, 0x184) = 0;
     } while (var_v0 != 9);
-    M2C_FIELD(arg0, M2C_UNK **, 0x190) = &D_80A424F4;
+    M2C_FIELD(this, M2C_UNK **, 0x190) = &D_80A424F4;
 }

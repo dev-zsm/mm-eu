@@ -5,9 +5,9 @@
 
 extern M2C_UNK D_80920A60;
 
-void ObjSwitch_CrystalSwitchOffInit(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 0x16C) = 0;
-    M2C_FIELD(arg0, s8 *, 0x16D) = 0;
-    M2C_FIELD(arg0, s8 *, 0x16E) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80920A60;
+void ObjSwitch_CrystalSwitchOffInit(ObjSwitch *this) {
+    M2C_FIELD(this, s8 *, 0x16C) = 0;
+    M2C_FIELD(this, s8 *, 0x16D) = 0;
+    M2C_FIELD(this, s8 *, 0x16E) = 0;
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80920A60;
 }

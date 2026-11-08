@@ -4,11 +4,13 @@
 #define GENERATED_OVERLAYS_0198_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsKirakira EffectSsKirakira;
 
-void EffectSsKirakira_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsKirakira_Draw(s32 arg0, s32 arg1, void *arg2);  /* 8000015C */
-void func_800003B4(s32 arg0, s32 arg1, s32 arg2);
-void func_8000046C(s32 arg0, s32 arg1, void *arg2);
-void func_80000528(s32 arg0, s32 arg1, void *arg2);
+u32 EffectSsKirakira_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsKirakira_Draw(PlayState *play, u32 index, void *this);  /* 8000015C */
+void func_800003B4(PlayState *play, u32 index, void *this);
+void func_8000046C(PlayState *play, u32 index, void *this);
+void func_80000528(PlayState *play, u32 index, void *this);
 
 #endif

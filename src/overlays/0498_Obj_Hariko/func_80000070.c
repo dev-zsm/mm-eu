@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0498.h"
 
-void ObjHariko_Wait(s32 arg0, M2C_UNK arg1) {
+void ObjHariko_Wait(ObjHariko *this, PlayState *play) {
 
 }

@@ -5,8 +5,8 @@
 
 extern s32 D_801E6F08;
 
-s32 EnBat_IsGraveyardOnSecondDay(u8 *arg0) {
-    if ((((s32) D_801E6F08 % 5) == 2) && (M2C_FIELD(arg0, s16 *, 0xA4) == 0x43)) {
+s32 EnBat_IsGraveyardOnSecondDay(PlayState *play) {
+    if ((((s32) D_801E6F08 % 5) == 2) && (M2C_FIELD(play, s16 *, 0xA4) == 0x43)) {
         return 1;
     }
     return 0;

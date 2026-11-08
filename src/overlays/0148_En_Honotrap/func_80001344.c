@@ -5,8 +5,8 @@
 
 extern M2C_UNK D_80914368;
 
-void EnHonotrap_SetupFlameGroup(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80914368;
-    M2C_FIELD(arg0, s16 *, 0x220) = 0x50;
-    M2C_FIELD(arg0, f32 *, 0x244) = 0.0f;
+void EnHonotrap_SetupFlameGroup(EnHonotrap *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80914368;
+    M2C_FIELD(this, s16 *, 0x220) = 0x50;
+    M2C_FIELD(this, f32 *, 0x244) = 0.0f;
 }

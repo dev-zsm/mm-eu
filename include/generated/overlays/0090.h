@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0090_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBombf EnBombf;
 
 void EnBombf_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void EnBombf_Init(void *arg0, s32 arg1);  /* 8000000C */
-void func_800001F8(s32 a0, s32 a1);
-void func_80000220(void *arg0, void *arg1);
-void func_8000057C(void *arg0, s32 arg1);
-void func_800006A8(s32 arg0, s32 arg1);
-void func_80000714(void *arg0, s32 arg1);
-void func_80000860(void *arg0, s32 arg1);
-void func_80000F88(void *arg0, s32 arg1);
-void EnBombf_Draw(void *arg0, s32 arg1);  /* 80001014 */
+void EnBombf_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void EnBombf_Destroy(Actor *thisx, PlayState *play);  /* 800001B8 */
+void func_800001F8(EnBombf *this, s32 a1);
+void func_80000220(EnBombf *this, PlayState *play);
+void func_8000057C(EnBombf *this, PlayState *play);
+void func_800006A8(EnBombf *this, PlayState *play);
+void func_80000714(EnBombf *this, PlayState *play);
+void func_80000860(Actor *thisx, PlayState *play);
+void *func_80000F88(void *gfxCtx, PlayState *play);
+void EnBombf_Draw(Actor *thisx, PlayState *play);  /* 80001014 */
 
 #endif

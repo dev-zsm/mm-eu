@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0117_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DoorAna DoorAna;
 
 void DoorAna_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void DoorAna_Init(void *arg0, s32 arg1);  /* 8000000C */
-void DoorAna_WaitClosed(void *arg0, s32 arg1);  /* 80000104 */
-void DoorAna_WaitOpen(void *arg0, void *arg1);  /* 80000218 */
-void DoorAna_GrabLink(void *arg0, s32 arg1);  /* 80000424 */
-void DoorAna_Update(void *arg0, s32 arg1);  /* 80000510 */
+void DoorAna_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void DoorAna_WaitClosed(DoorAna *this, PlayState *play);  /* 80000104 */
+void DoorAna_WaitOpen(DoorAna *this, PlayState *play);  /* 80000218 */
+void DoorAna_GrabLink(DoorAna *this, PlayState *play);  /* 80000424 */
+void DoorAna_Update(Actor *thisx, PlayState *play);  /* 80000510 */
+void DoorAna_Draw(Actor *thisx, PlayState *play);  /* 80000564 */
 
 #endif

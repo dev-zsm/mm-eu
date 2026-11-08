@@ -5,13 +5,13 @@
 
 M2C_UNK func_800FED2C(u8 *, M2C_UNK, s16, u8 *); /* extern */
 
-void EffectSsBlast_Update(s32 arg0, M2C_UNK arg1, u8 *arg2) {
+void EffectSsBlast_Update(PlayState *play, u32 index, void *this) {
     s16 temp_v0;
 
-    func_800FED2C(arg2 + 0x46, 0, M2C_FIELD(arg2, s16 *, 0x50), arg2);
-    temp_v0 = M2C_FIELD(arg2, s16 *, 0x54);
-    M2C_FIELD(arg2, s16 *, 0x52) = (s16) (M2C_FIELD(arg2, s16 *, 0x52) + temp_v0);
+    func_800FED2C((u8 *)this + 0x46, 0, M2C_FIELD(this, s16 *, 0x50), this);
+    temp_v0 = M2C_FIELD(this, s16 *, 0x54);
+    M2C_FIELD(this, s16 *, 0x52) = (s16) (M2C_FIELD(this, s16 *, 0x52) + temp_v0);
     if (temp_v0 != 0) {
-        M2C_FIELD(arg2, s16 *, 0x54) = (s16) (temp_v0 - M2C_FIELD(arg2, s16 *, 0x56));
+        M2C_FIELD(this, s16 *, 0x54) = (s16) (temp_v0 - M2C_FIELD(this, s16 *, 0x56));
     }
 }

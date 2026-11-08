@@ -4,16 +4,21 @@
 #define GENERATED_OVERLAYS_0522_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgDblueElevator BgDblueElevator;
 
-void BgDblueElevator_CheckWaterBoxInfo(u8 *arg0, s32 arg1);  /* 80000000 */
-void BgDblueElevator_SpawnRipplesAndSplashes(void *arg0, s32 arg1);  /* 80000054 */
-s32 BgDblueElevator_GetWaterFlowFromCeiling(u8 *arg0, s32 arg1);  /* 800003A0 */
-s32 BgDblueElevator_GetWaterFlowFromPipes(u8 *arg0, s32 arg1);  /* 800003DC */
-void BgDblueElevator_Init(void *arg0, s32 arg1);  /* 80000484 */
-void BgDblueElevator_SetupWaitActivation(u8 *arg0);  /* 800005BC */
-void BgDblueElevator_WaitActivation(void *arg0);  /* 800005D8 */
-void BgDblueElevator_Pause(void *arg0);  /* 80000698 */
-void BgDblueElevator_SetupMove(u8 *arg0);  /* 80000724 */
-void BgDblueElevator_Move(void *arg0, s32 arg1);  /* 80000740 */
+void BgDblueElevator_CheckWaterBoxInfo(BgDblueElevator *this, PlayState *play2);  /* 80000000 */
+void BgDblueElevator_SpawnRipplesAndSplashes(BgDblueElevator *this, PlayState *play);  /* 80000054 */
+s32 BgDblueElevator_GetWaterFlowFromCeiling(BgDblueElevator *this, PlayState *play);  /* 800003A0 */
+s32 BgDblueElevator_GetWaterFlowFromPipes(BgDblueElevator *this, PlayState *play);  /* 800003DC */
+void BgDblueElevator_Init(Actor *thisx, PlayState *play);  /* 80000484 */
+void BgDblueElevator_Destroy(Actor *thisx, PlayState *play);  /* 80000588 */
+void BgDblueElevator_SetupWaitActivation(BgDblueElevator *this);  /* 800005BC */
+void BgDblueElevator_WaitActivation(BgDblueElevator *this, PlayState *play);  /* 800005D8 */
+void BgDblueElevator_Pause(BgDblueElevator *this, PlayState *play);  /* 80000698 */
+void BgDblueElevator_SetupMove(BgDblueElevator *this);  /* 80000724 */
+void BgDblueElevator_Move(BgDblueElevator *this, PlayState *play);  /* 80000740 */
+void BgDblueElevator_Update(Actor *thisx);  /* 800009C0 */
+void BgDblueElevator_Draw(Actor *thisx, PlayState *play);  /* 800009E4 */
 
 #endif

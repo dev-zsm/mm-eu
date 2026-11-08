@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0228_H
 
 #include "types.h"
+#include "actor.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800000AC(void *arg0);
+void func_80000000(Actor *thisx, PlayState *play);
+void func_80000080(Actor *thisx, PlayState *play);
+void func_800000AC(Actor *thisx);
 void func_80000248(void *arg0);
 void func_800004CC(s32 arg0, s32 arg1);
 void func_800005AC(u8 *arg0);
@@ -24,11 +26,11 @@ void func_80000E1C(u8 *arg0);
 void func_80000E58(void *arg0, s32 arg1);
 void func_80001074(void *arg0);
 void func_800010D4(void *arg0, s32 arg1);
-void func_80001244(void *arg0);
+void func_80001244(Actor *thisx);
 void func_80001338(void *arg0, s32 arg1);
 void func_800013B8(void *arg0);
 void func_80001418(void *arg0, s32 arg1);
-void func_80001548(u8 *arg0);
+void func_80001548(Actor *thisx);
 void func_800015DC(void *arg0, s32 arg1);
 void func_80001728(void *arg0, s32 arg1);
 void func_80001798(u8 *arg0);
@@ -38,7 +40,7 @@ void func_8000189C(void *arg0);
 void func_800018F8(u8 *arg0, s32 arg1);
 void func_800019EC(void *arg0);
 void func_80001A8C(void *arg0, s32 arg1);
-void func_80001B90(void *arg0);
-void func_80001C48(void *arg0, s32 arg1);
+void func_80001B90(Actor *thisx);
+void func_80001C48(Actor *thisx, PlayState *play);
 
 #endif

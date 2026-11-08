@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0600_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnCha EnCha;
 
-void EnCha_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnCha_Ring(void *arg0);  /* 800000BC */
-void EnCha_Idle(void *arg0, s32 arg1);  /* 80000134 */
-void EnCha_Update(s32 arg0, s32 arg1);  /* 8000024C */
+void EnCha_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnCha_Destroy(Actor *thisx, PlayState *play);  /* 80000090 */
+void EnCha_Ring(EnCha *this, PlayState *play);  /* 800000BC */
+void EnCha_Idle(EnCha *this, PlayState *play);  /* 80000134 */
+void EnCha_Update(Actor *thisx, PlayState *play);  /* 8000024C */
+void EnCha_Draw(Actor *thisx, PlayState *play);  /* 800002D4 */
 
 #endif

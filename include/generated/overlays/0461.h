@@ -4,28 +4,32 @@
 #define GENERATED_OVERLAYS_0461_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHakaisi ObjHakaisi;
 
-void ObjHakaisi_Init(void *arg0, s32 arg1);  /* 80000000 */
+void ObjHakaisi_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjHakaisi_Destroy(Actor *thisx, PlayState *play);  /* 8000028C */
 void func_800002CC(u8 *arg0);
-void func_800002E0(void *arg0, s32 arg1);
-void func_80000390(u8 *arg0);
+void func_800002E0(ObjHakaisi *this, PlayState *play);
+void func_80000390(ObjHakaisi *this);
 void func_800003A4(s32 arg0);
-void func_800003D8(u8 *arg0);
-void func_800003EC(void *arg0, s32 arg1);
-void func_80000474(void *arg0);
-void func_800004C8(void *arg0, s32 arg1);
-void func_80000828(u8 *arg0);
+void func_800003D8(ObjHakaisi *this);
+void func_800003EC(ObjHakaisi *this, PlayState *play);
+void func_80000474(ObjHakaisi *this);
+void func_800004C8(ObjHakaisi *this, PlayState *play);
+void func_80000828(ObjHakaisi *this);
 void func_80000840(u8 *arg0, s32 arg1);
 void func_800008A4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800009EC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80000B78(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000DCC(void *arg0, s32 arg1, s32 arg2);
-void ObjHakaisi_Draw(s32 arg0, s32 arg1);  /* 80000EE0 */
-void func_80001060(void *arg0, s32 arg1);
+void func_80000DCC(ObjHakaisi *this, PlayState *play, s32 arg2);
+void ObjHakaisi_Update(Actor *thisx);  /* 80000EBC */
+void ObjHakaisi_Draw(Actor *thisx, PlayState *play);  /* 80000EE0 */
+void func_80001060(ObjHakaisi *this, PlayState *play);
 void func_800010D4(s32 arg0, s32 arg1);
-void func_800010E4(void *arg0);
-void func_800011B0(void *arg0, s32 arg1);
-void func_800012CC(void *arg0, s32 arg1);
-void func_80001320(s32 arg0, void *arg1);
+void func_800010E4(ObjHakaisi *this);
+void func_800011B0(ObjHakaisi *this, PlayState *play);
+void func_800012CC(Actor *thisx, PlayState *play);
+void func_80001320(Actor *thisx, PlayState *play);
 
 #endif

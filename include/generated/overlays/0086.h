@@ -4,15 +4,17 @@
 #define GENERATED_OVERLAYS_0086_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjWturn ObjWturn;
 
-void ObjWturn_Init(s32 a0, s32 a1);  /* 80000000 */
-void ObjWturn_SetupIdle(u8 *arg0);  /* 80000024 */
-void ObjWturn_Idle(void *arg0, s32 arg1);  /* 80000038 */
-void ObjWturn_TriggerInversion(u8 *arg0);  /* 800000F4 */
-void ObjWturn_AwaitInversion(void *arg0, s32 arg1);  /* 8000012C */
-void ObjWturn_SetupInversionCs(void *arg0, s32 arg1);  /* 8000017C */
-void ObjWturn_InversionCs(u8 *arg0, s32 arg1);  /* 80000270 */
-void ObjWturn_SetupFallingCs(void *arg0, void *arg1);  /* 800002D4 */
-void ObjWturn_FallingCs(void *arg0, void *arg1);  /* 80000348 */
+void ObjWturn_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjWturn_SetupIdle(ObjWturn *this);  /* 80000024 */
+void ObjWturn_Idle(ObjWturn *this, PlayState *play);  /* 80000038 */
+void ObjWturn_TriggerInversion(ObjWturn *this);  /* 800000F4 */
+void ObjWturn_AwaitInversion(ObjWturn *this, PlayState *play);  /* 8000012C */
+void ObjWturn_SetupInversionCs(ObjWturn *this, PlayState *play);  /* 8000017C */
+void ObjWturn_InversionCs(ObjWturn *this, PlayState *play);  /* 80000270 */
+void ObjWturn_SetupFallingCs(ObjWturn *this, PlayState *play);  /* 800002D4 */
+void ObjWturn_FallingCs(ObjWturn *this, PlayState *play);  /* 80000348 */
 
 #endif

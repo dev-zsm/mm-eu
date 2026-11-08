@@ -4,14 +4,19 @@
 #define GENERATED_OVERLAYS_0629_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgAstrBombwall BgAstrBombwall;
 
-void BgAstrBombwall_InitCollider(void *arg0, s32 arg1, void *arg2, s32 arg3);  /* 80000000 */
-void BgAstrBombwall_SpawnFragments(void *arg0, s32 arg1);  /* 80000250 */
-void BgAstrBombwall_SetupStanding(u8 *arg0);  /* 800004A8 */
-void BgAstrBombwall_Standing(void *arg0, s32 arg1);  /* 800004BC */
-void BgAstrBombwall_SetupExploding(u8 *arg0, s32 arg1);  /* 80000530 */
-void BgAstrBombwall_SetupCollapsing(u8 *arg0, s32 arg1);  /* 80000588 */
-void BgAstrBombwall_Collapsing(s32 arg0, s32 arg1);  /* 800005EC */
-void BgAstrBombwall_Draw(s32 arg0, void *arg1);  /* 80000620 */
+void BgAstrBombwall_InitCollider(void *init, Vec3f *pos, Vec3s *rot, void *collider);  /* 80000000 */
+void BgAstrBombwall_Init(Actor *thisx, PlayState *play);  /* 8000011C */
+void BgAstrBombwall_Destroy(Actor *thisx, PlayState *play);  /* 8000021C */
+void BgAstrBombwall_SpawnFragments(BgAstrBombwall *this, PlayState *play);  /* 80000250 */
+void BgAstrBombwall_SetupStanding(BgAstrBombwall *this);  /* 800004A8 */
+void BgAstrBombwall_Standing(BgAstrBombwall *this, PlayState *play);  /* 800004BC */
+void BgAstrBombwall_SetupExploding(BgAstrBombwall *this, PlayState *play);  /* 80000530 */
+void BgAstrBombwall_SetupCollapsing(BgAstrBombwall *this, PlayState *play);  /* 80000588 */
+void BgAstrBombwall_Collapsing(BgAstrBombwall *this, PlayState *play);  /* 800005EC */
+void BgAstrBombwall_Update(Actor *thisx);  /* 800005FC */
+void BgAstrBombwall_Draw(Actor *thisx, PlayState *play);  /* 80000620 */
 
 #endif

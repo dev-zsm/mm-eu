@@ -4,13 +4,16 @@
 #define GENERATED_OVERLAYS_0625_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnNnh EnNnh;
 
-void EnNnh_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnNnh_SetupWaitForDialogue(u8 *arg0);  /* 800000C8 */
-void EnNnh_WaitForDialogue(s32 arg0, s32 arg1);  /* 800000DC */
-void EnNnh_SetupDialogue(u8 *arg0);  /* 80000144 */
-void EnNnh_Dialogue(s32 arg0);  /* 80000158 */
-void EnNnh_Update(void *arg0, s32 arg1);  /* 8000018C */
-void EnNnh_Draw(s32 arg0, s32 arg1);  /* 800001F0 */
+void EnNnh_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnNnh_Destroy(Actor *thisx, PlayState *play);  /* 8000009C */
+void EnNnh_SetupWaitForDialogue(EnNnh *this);  /* 800000C8 */
+void EnNnh_WaitForDialogue(EnNnh *this, PlayState *play);  /* 800000DC */
+void EnNnh_SetupDialogue(EnNnh *this);  /* 80000144 */
+void EnNnh_Dialogue(EnNnh *this);  /* 80000158 */
+void EnNnh_Update(Actor *thisx, PlayState *play);  /* 8000018C */
+void EnNnh_Draw(Actor *thisx, PlayState *play);  /* 800001F0 */
 
 #endif

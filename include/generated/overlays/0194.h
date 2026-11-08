@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0194_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjRoomtimer ObjRoomtimer;
 
-void ObjRoomtimer_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_80000088(s32 arg0, s32 arg1);
+void ObjRoomtimer_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjRoomtimer_Destroy(Actor *thisx, PlayState *play);  /* 80000054 */
+void func_80000088(ObjRoomtimer *this, PlayState *play);
 void func_800000EC(u8 *arg0, s32 arg1);
 void func_80000190(u8 *arg0, s32 arg1);
+void ObjRoomtimer_Update(Actor *thisx);  /* 80000210 */
 
 #endif

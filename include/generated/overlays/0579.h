@@ -4,18 +4,22 @@
 #define GENERATED_OVERLAYS_0579_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIknvDoukutu BgIknvDoukutu;
 
-void BgIknvDoukutu_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgIknvDoukutu_Cleanse(void *arg0, s32 arg1);  /* 8000025C */
-void BgIknvDoukutu_Cursed(s32 arg0, s32 arg1);  /* 800002AC */
-void BgIknvDoukutu_FillSpring(u8 *arg0, s32 arg1);  /* 80000340 */
-void BgIknvDoukutu_FadeInWater(void *arg0, s32 arg1);  /* 800003AC */
-void BgIknvDoukutu_Dry(s32 arg0, s32 arg1);  /* 80000450 */
-void BgIknvDoukutu_DoNothing(s32 arg0, s32 arg1);  /* 800004C0 */
-void BgIknvDoukutu_Draw(s32 arg0, void *arg1);  /* 800004F4 */
-void BgIknvDoukutu_DrawCleansing(s32 arg0, void *arg1);  /* 80000628 */
-void BgIknvDoukutu_DrawPurified(s32 arg0, void *arg1);  /* 80000858 */
-void BgIknvDoukutu_DrawStream(s32 arg0, s32 arg1);  /* 80000910 */
-void BgIknvDoukutu_DrawSpringWater(void *arg0, s32 arg1);  /* 800009B4 */
+void BgIknvDoukutu_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgIknvDoukutu_Destroy(Actor *thisx, PlayState *play);  /* 80000210 */
+void BgIknvDoukutu_Cleanse(BgIknvDoukutu *this, PlayState *play);  /* 8000025C */
+void BgIknvDoukutu_Cursed(BgIknvDoukutu *this, PlayState *play);  /* 800002AC */
+void BgIknvDoukutu_FillSpring(BgIknvDoukutu *this, PlayState *play);  /* 80000340 */
+void BgIknvDoukutu_FadeInWater(BgIknvDoukutu *this, PlayState *play);  /* 800003AC */
+void BgIknvDoukutu_Dry(BgIknvDoukutu *this, PlayState *play);  /* 80000450 */
+void BgIknvDoukutu_DoNothing(BgIknvDoukutu *this, PlayState *play);  /* 800004C0 */
+void BgIknvDoukutu_Update(Actor *thisx);  /* 800004D0 */
+void BgIknvDoukutu_Draw(Actor *thisx, PlayState *play);  /* 800004F4 */
+void BgIknvDoukutu_DrawCleansing(Actor *thisx, PlayState *play);  /* 80000628 */
+void BgIknvDoukutu_DrawPurified(Actor *thisx, PlayState *play);  /* 80000858 */
+void BgIknvDoukutu_DrawStream(Actor *thisx, PlayState *play);  /* 80000910 */
+void BgIknvDoukutu_DrawSpringWater(Actor *thisx, PlayState *play);  /* 800009B4 */
 
 #endif

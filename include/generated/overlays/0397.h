@@ -4,14 +4,18 @@
 #define GENERATED_OVERLAYS_0397_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTwig EnTwig;
 
-void EnTwig_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnTwig_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnTwig_Destroy(Actor *thisx, PlayState *play);  /* 800001F0 */
 void func_80000224(u8 *arg0, s32 arg1);
 void func_8000023C(s32 arg0, s32 arg1);
-void func_8000024C(s32 arg0, void *arg1);
-void func_80000298(void *arg0, void *arg1);
-void func_80000494(void *arg0, s32 arg1);
-void func_800004FC(void *arg0, void *arg1);
-void EnTwig_Draw(void *arg0, s32 arg1);  /* 80000800 */
+void func_8000024C(EnTwig *this, PlayState *play);
+void func_80000298(EnTwig *this, PlayState *play);
+void func_80000494(EnTwig *this, PlayState *play);
+void func_800004FC(EnTwig *this, PlayState *play);
+void EnTwig_Update(Actor *thisx);  /* 800007DC */
+void EnTwig_Draw(Actor *thisx, PlayState *play);  /* 80000800 */
 
 #endif

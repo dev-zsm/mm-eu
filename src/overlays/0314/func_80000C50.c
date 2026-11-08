@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0314.h"
 extern u8 D_80A17BD4[];
 void func_80A1715C(u8 *a, s32 b);
 

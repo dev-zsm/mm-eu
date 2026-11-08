@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0404.h"
 
-void TransitionWipe3_SetEnvColor(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 4) = arg1;
+void TransitionWipe3_SetEnvColor(void *thisx, u32 color) {
+    M2C_FIELD(thisx, s32 *, 4) = color;
 }

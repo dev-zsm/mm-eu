@@ -5,16 +5,16 @@
 
 #include "types.h"
 
-void func_80000000(s32 arg0, s32 arg1);
+void func_80000000(u8 *a, u8 *play);
 s32 func_8000004C(u8 *arg0, s32 arg1);
-void func_800000D4(s32 arg0, s32 arg1);
+void func_800000D4(u8 *a, u8 *play);
 void func_80000118(void *arg0, void *arg1);
 void func_800001C8(void *arg0);
 void func_80000414(void *arg0);
 void func_80000548(void *arg0, void *arg1);
 void func_80000638(void *arg0, void *arg1);
 void func_8000073C(s32 arg0, void *arg1);
-void func_800007C8(void *arg0, s32 arg1);
+u8 *func_800007C8(u8 *a, s32 b);
 void func_80000814(void *arg0, s32 arg1);
 void func_80000898(void *arg0, s32 arg1);
 void func_80000A88(void *arg0);

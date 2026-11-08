@@ -4,11 +4,15 @@
 #define GENERATED_OVERLAYS_0345_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgKeikokuSaku BgKeikokuSaku;
 
+void BgKeikokuSaku_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgKeikokuSaku_Destroy(Actor *thisx, PlayState *play);  /* 80000098 */
 void func_800000CC(u8 *arg0, s32 arg1);
-void func_80000110(s32 arg0, s32 arg1);
+void func_80000110(BgKeikokuSaku *this, PlayState *play);
 void func_800001C4(u8 *arg0, s32 arg1);
-void BgKeikokuSaku_Update(void *arg0);  /* 800001E8 */
-void BgKeikokuSaku_Draw(s32 arg0, s32 arg1);  /* 800002EC */
+void BgKeikokuSaku_Update(Actor *thisx, PlayState *play);  /* 800001E8 */
+void BgKeikokuSaku_Draw(Actor *thisx, PlayState *play);  /* 800002EC */
 
 #endif

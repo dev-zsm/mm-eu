@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80AD8964;
 
-void ObjLightblock_SetupFadeAway(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 0x1AC) = 0x50;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1A8) = &D_80AD8964;
+void ObjLightblock_SetupFadeAway(ObjLightblock *this) {
+    M2C_FIELD(this, s8 *, 0x1AC) = 0x50;
+    M2C_FIELD(this, M2C_UNK **, 0x1A8) = &D_80AD8964;
 }

@@ -8,9 +8,9 @@ s32 func_80147B34(s32);                             /* extern */
 s32 func_801529DC(s32);                             /* extern */
 extern M2C_UNK D_801E6EF0;
 
-void EnColMan_SetHeartPieceCollectedAndKill(s32 arg0, s32 arg1) {
-    if ((func_801529DC(arg1 + 0x4908) == 6) && (func_80147B34(arg1) != 0)) {
+void EnColMan_SetHeartPieceCollectedAndKill(EnColMan *this, PlayState *play) {
+    if ((func_801529DC((u8 *)play + 0x4908) == 6) && (func_80147B34(play) != 0)) {
         M2C_FIELD(&D_801E6EF0, u8 *, 0xF30) = (u8) (M2C_FIELD(&D_801E6EF0, u8 *, 0xF30) | 2);
-        func_800B6490(arg0);
+        func_800B6490(this);
     }
 }

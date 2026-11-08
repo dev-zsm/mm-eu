@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80A074F0;
 
-void func_80001654(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80A074F0;
-    M2C_FIELD(arg0, s16 *, 0x17A) = 0x28;
+void func_80001654(ObjSkateblock *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80A074F0;
+    M2C_FIELD(this, s16 *, 0x17A) = 0x28;
 }

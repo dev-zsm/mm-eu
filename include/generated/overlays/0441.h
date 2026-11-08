@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0441_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjLightblock ObjLightblock;
 
-void ObjLightblock_SpawnEffect(s32 arg0, s32 arg1);  /* 80000000 */
-void ObjLightblock_Init(void *arg0, s32 arg1);  /* 8000006C */
-void ObjLightblock_SetupWait(u8 *arg0);  /* 800001B8 */
-void ObjLightblock_Wait(void *arg0, s32 arg1);  /* 800001CC */
-void ObjLightblock_SetupPlayCutscene(u8 *arg0);  /* 8000027C */
-void ObjLightblock_PlayCutscene(void *arg0, s32 arg1);  /* 80000290 */
-void ObjLightblock_SetupFadeAway(u8 *arg0);  /* 80000308 */
-void ObjLightblock_FadeAway(void *arg0, s32 arg1);  /* 80000324 */
-void ObjLightblock_Draw(s32 arg0, void *arg1);  /* 800003D4 */
+void ObjLightblock_SpawnEffect(ObjLightblock *this, PlayState *play);  /* 80000000 */
+void ObjLightblock_Init(Actor *thisx, PlayState *play);  /* 8000006C */
+void ObjLightblock_Destroy(Actor *thisx, PlayState *play);  /* 80000170 */
+void ObjLightblock_SetupWait(ObjLightblock *this);  /* 800001B8 */
+void ObjLightblock_Wait(ObjLightblock *this, PlayState *play);  /* 800001CC */
+void ObjLightblock_SetupPlayCutscene(ObjLightblock *this);  /* 8000027C */
+void ObjLightblock_PlayCutscene(ObjLightblock *this, PlayState *play);  /* 80000290 */
+void ObjLightblock_SetupFadeAway(ObjLightblock *this);  /* 80000308 */
+void ObjLightblock_FadeAway(ObjLightblock *this, PlayState *play);  /* 80000324 */
+void ObjLightblock_Update(Actor *thisx);  /* 800003B0 */
+void ObjLightblock_Draw(Actor *thisx, PlayState *play);  /* 800003D4 */
 
 #endif

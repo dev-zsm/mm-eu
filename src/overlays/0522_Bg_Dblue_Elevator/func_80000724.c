@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80B77380;
 
-void BgDblueElevator_SetupMove(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80B77380;
-    M2C_FIELD(arg0, f32 *, 0x160) = 0.0f;
+void BgDblueElevator_SetupMove(BgDblueElevator *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80B77380;
+    M2C_FIELD(this, f32 *, 0x160) = 0.0f;
 }

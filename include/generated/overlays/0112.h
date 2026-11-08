@@ -4,8 +4,14 @@
 #define GENERATED_OVERLAYS_0112_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgF40Flift BgF40Flift;
 
-void func_800000A0(void *arg0, s32 arg1);
-void func_800001C4(void *arg0, s32 arg1);
+void BgF40Flift_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgF40Flift_Destroy(Actor *thisx, PlayState *play);  /* 8000006C */
+void func_800000A0(BgF40Flift *this, PlayState *play);
+void func_800001C4(BgF40Flift *this, PlayState *play);
+void BgF40Flift_Update(Actor *thisx);  /* 80000268 */
+void BgF40Flift_Draw(Actor *thisx, PlayState *play);  /* 8000028C */
 
 #endif

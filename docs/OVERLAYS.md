@@ -57,10 +57,26 @@ update, draw functions). Then the large ones. Progress is added up over all the 
 The four handlers of every actor overlay (init, destroy, update, draw) are typed `Actor *thisx, PlayState *play` by
 `tools/signatures/sig_actors.py` and `tools/signatures/retype.py`; a handler whose bytes show that it takes only the first argument is typed
 `Actor *thisx`, and one that reads actor fields we cannot name yet keeps its local types until the `Actor` structure is known.
-Overlay functions come from the automatic drafts (`arg0`, `u8 *`, raw field offsets). Their real types (actor, play state,
-scene and menu callbacks) come from shared headers of `include/` once the structures are known; the rule is in
-[CONTRIBUTING.md](CONTRIBUTING.md#code-style), the count is the "Typed signatures" column of [PROGRESS.md](PROGRESS.md), and
-the plan is in [ROADMAP.md](ROADMAP.md).
+Overlay functions come from the automatic drafts (`arg0`, `u8 *`, raw field offsets); their real types come from three sources, all
+written to `config/overlays/protos.txt` by `tools/signatures/sig_ref.py` (same format as `signatures.txt`):
+- the reference: a function with the evidence "bytes identical" in `names.txt`, or imported by `ref_import.py`, takes the prototype of its
+  reference definition (callbacks such as `OverrideLimbDraw`, the helpers of an actor, the functions of the game states and menus); a function named only by rank and size
+  takes it too when its assembly agrees (as many parameters, a float where it reads one, a pointer where it uses the register as a base);
+- the calls of the overlay: a function that receives, untouched and at every call, a parameter of a typed function takes its type: the helper
+  of an actor that every handler calls with `thisx` takes `EnTest *this` (the structure named after the `EnTest_Init` of `names.txt`), a
+  parameter passed on from `play` is a `PlayState *`; the calls follow the straight line of the code, a
+  parameter kept in the stack above the argument area and loaded back, and the calls through a word of the actor
+  (`this->actionFunc(this, play)`): the functions stored in that word, directly or through the second parameter of a `SetupAction`, are
+  called with the same arguments;
+- the assembly, as before (`arg0`, `void *`), for everything else.
+
+The headers `include/generated/overlays/NNNN.h` print these prototypes. They declare the actor structures without fields
+(`typedef struct EnTest EnTest;`) and include `actor.h` when a prototype uses it; types the header cannot say (the structures of the
+reference, enums, `Gfx**`) are `void *` for a pointer and keep the function out of the table otherwise. The sources that are verified C are
+retyped by `retype.py config/overlays/protos.txt` and kept only if they still compile to the bytes of the ROM, then `sig_header.py overlays
+--apply` makes them use the header; a table line that a file refuses is dropped by `sig_ref.py prune`. The rule is in
+[CONTRIBUTING.md](CONTRIBUTING.md#code-style), the count is the "Typed signatures" column of [PROGRESS.md](PROGRESS.md), and the plan is in
+[ROADMAP.md](ROADMAP.md).
 
 ## Names
 

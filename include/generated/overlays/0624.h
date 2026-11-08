@@ -4,15 +4,20 @@
 #define GENERATED_OVERLAYS_0624_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjUsiyane ObjUsiyane;
 
-void ObjUsiyane_GetAlienSpawnTime(s32 arg0);  /* 80000000 */
-void func_80000050();
+s32 ObjUsiyane_GetAlienSpawnTime(s32 alienIndex);  /* 80000000 */
+s32 func_80000050(void);
 void func_80000144(s32 arg0, s32 arg1);
-void func_8000017C(void *arg0, void *arg1, void *arg2, void *arg3);
-void func_800002B0(void *arg0, s32 arg1);
-void func_80000548(void *arg0, s32 arg1);
-void func_8000064C(u8 *arg0, s32 arg1);
-void func_80000660(void *arg0, s32 arg1);
-void ObjUsiyane_Draw(void *arg0, s32 arg1);  /* 80000800 */
+void func_8000017C(Vec3f *arg0, Vec3s *arg1, Vec3f *arg2, Vec3s *arg3, s32 arg4, s32 arg5, Vec3f *arg6, Vec3s *arg7);
+void func_800002B0(ObjUsiyane *this, PlayState *play);
+void func_80000548(ObjUsiyane *this, PlayState *play);
+void func_8000064C(ObjUsiyane *this, PlayState *play);
+void func_80000660(ObjUsiyane *this, PlayState *play);
+void ObjUsiyane_Init(Actor *thisx, PlayState *play);  /* 800006EC */
+void ObjUsiyane_Destroy(Actor *thisx, PlayState *play);  /* 800007A8 */
+void ObjUsiyane_Update(Actor *thisx);  /* 800007DC */
+void ObjUsiyane_Draw(Actor *thisx, PlayState *play);  /* 80000800 */
 
 #endif

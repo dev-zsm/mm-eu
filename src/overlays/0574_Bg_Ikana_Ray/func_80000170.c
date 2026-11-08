@@ -5,6 +5,6 @@
 
 M2C_UNK func_800E2318(s32, s32, s32, s32);          /* extern */
 
-void BgIkanaRay_UpdateActivated(s32 arg0, s32 arg1) {
-    func_800E2318(arg1, arg1 + 0x18884, arg0 + 0x144, arg1);
+void BgIkanaRay_UpdateActivated(BgIkanaRay *this, PlayState *play) {
+    func_800E2318(play, (u8 *)play + 0x18884, (u8 *)this + 0x144, play);
 }

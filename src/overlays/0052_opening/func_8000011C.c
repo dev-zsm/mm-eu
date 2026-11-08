@@ -3,6 +3,6 @@
 
 extern void func_80161E44();
 
-void TitleSetup_Destroy(s32 a0) {
+void TitleSetup_Destroy(void *thisx) {
     func_80161E44();
 }

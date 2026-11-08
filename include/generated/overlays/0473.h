@@ -4,10 +4,13 @@
 #define GENERATED_OVERLAYS_0473_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgBotihasira BgBotihasira;
 
-void BgBotihasira_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgBotihasira_DoNothing(s32 arg0, s32 arg1);  /* 800000DC */
-void BgBotihasira_Update(void *arg0, s32 arg1);  /* 800000EC */
-void BgBotihasira_Draw(s32 arg0, s32 arg1);  /* 800001C0 */
+void BgBotihasira_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgBotihasira_Destroy(Actor *thisx, PlayState *play);  /* 800000A4 */
+void BgBotihasira_DoNothing(BgBotihasira *this, PlayState *play);  /* 800000DC */
+void BgBotihasira_Update(Actor *thisx, PlayState *play);  /* 800000EC */
+void BgBotihasira_Draw(Actor *thisx, PlayState *play);  /* 800001C0 */
 
 #endif

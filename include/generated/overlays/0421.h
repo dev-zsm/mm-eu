@@ -4,23 +4,28 @@
 #define GENERATED_OVERLAYS_0421_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjTokeiStep ObjTokeiStep;
 
-void ObjTokeiStep_SetMatrixTranslation(u8 *arg0);  /* 80000000 */
-void ObjTokeiStep_RequestQuakeAndRumble(s32 arg0, void *arg1);  /* 80000038 */
-void ObjTokeiStep_SpawnDust(void *arg0, void *arg1, s32 arg2);  /* 800000C0 */
-void ObjTokeiStep_InitSteps(void *arg0);  /* 8000024C */
-void ObjTokeiStep_InitStepsOpen(void *arg0);  /* 80000308 */
-void ObjTokeiStep_InitTimers(void *arg0);  /* 800003C0 */
-void ObjTokeiStep_OpenProcess(void *arg0, s32 arg1);  /* 80000400 */
-void ObjTokeiStep_Init(void *arg0, s32 arg1);  /* 8000063C */
-void ObjTokeiStep_SetupBeginOpen(u8 *arg0);  /* 80000798 */
-void ObjTokeiStep_BeginOpen(s32 arg0, s32 arg1);  /* 800007AC */
-void ObjTokeiStep_SetupDoNothing(u8 *arg0);  /* 80000824 */
-void ObjTokeiStep_DoNothing(s32 arg0, s32 arg1);  /* 80000838 */
-void ObjTokeiStep_SetupOpen(u8 *arg0);  /* 80000848 */
-void ObjTokeiStep_Open(s32 arg0, s32 arg1);  /* 8000087C */
-void ObjTokeiStep_SetupDoNothingOpen(u8 *arg0);  /* 800008D0 */
-void ObjTokeiStep_DoNothingOpen(s32 arg0, s32 arg1);  /* 800008F4 */
-void ObjTokeiStep_DrawOpen(s32 arg0, s32 arg1);  /* 80000958 */
+void ObjTokeiStep_SetMatrixTranslation(void *panel);  /* 80000000 */
+void ObjTokeiStep_RequestQuakeAndRumble(ObjTokeiStep *this, PlayState *play);  /* 80000038 */
+void ObjTokeiStep_SpawnDust(ObjTokeiStep *this, void *panel, PlayState *play);  /* 800000C0 */
+void ObjTokeiStep_InitSteps(ObjTokeiStep *this);  /* 8000024C */
+void ObjTokeiStep_InitStepsOpen(ObjTokeiStep *this);  /* 80000308 */
+void ObjTokeiStep_InitTimers(ObjTokeiStep *this);  /* 800003C0 */
+s32 ObjTokeiStep_OpenProcess(ObjTokeiStep *this, PlayState *play);  /* 80000400 */
+void ObjTokeiStep_Init(Actor *thisx, PlayState *play);  /* 8000063C */
+void ObjTokeiStep_Destroy(Actor *thisx, PlayState *play);  /* 80000764 */
+void ObjTokeiStep_SetupBeginOpen(ObjTokeiStep *this);  /* 80000798 */
+void ObjTokeiStep_BeginOpen(ObjTokeiStep *this, PlayState *play);  /* 800007AC */
+void ObjTokeiStep_SetupDoNothing(ObjTokeiStep *this);  /* 80000824 */
+void ObjTokeiStep_DoNothing(ObjTokeiStep *this, PlayState *play);  /* 80000838 */
+void ObjTokeiStep_SetupOpen(ObjTokeiStep *this);  /* 80000848 */
+void ObjTokeiStep_Open(ObjTokeiStep *this, PlayState *play);  /* 8000087C */
+void ObjTokeiStep_SetupDoNothingOpen(ObjTokeiStep *this);  /* 800008D0 */
+void ObjTokeiStep_DoNothingOpen(ObjTokeiStep *this, PlayState *play);  /* 800008F4 */
+void ObjTokeiStep_Update(Actor *thisx);  /* 80000904 */
+void ObjTokeiStep_Draw(Actor *thisx, PlayState *play);  /* 80000928 */
+void ObjTokeiStep_DrawOpen(Actor *thisx, PlayState *play);  /* 80000958 */
 
 #endif

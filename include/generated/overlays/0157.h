@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0157_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHsblock ObjHsblock;
 
 void ObjHsblock_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_8000000C(u8 *arg0, s32 arg1);
-void ObjHsblock_Init(void *arg0, s32 arg1);  /* 80000090 */
+void func_8000000C(ObjHsblock *this, PlayState *play);
+void ObjHsblock_Init(Actor *thisx, PlayState *play);  /* 80000090 */
+void ObjHsblock_Destroy(Actor *thisx, PlayState *play);  /* 80000168 */
 void func_8000019C(s32 a0);
-void func_800001BC(void *arg0);
+void func_800001BC(ObjHsblock *this);
 void func_80000200(u8 *arg0, s32 arg1);
 void func_80000248(void *a0);
-void func_8000026C(void *arg0, s32 arg1);
-void ObjHsblock_Update(void *arg0);  /* 80000314 */
-void ObjHsblock_Draw(s32 arg0, s32 arg1);  /* 80000360 */
+void func_8000026C(ObjHsblock *this, PlayState *play);
+void ObjHsblock_Update(Actor *thisx, PlayState *play);  /* 80000314 */
+void ObjHsblock_Draw(Actor *thisx, PlayState *play);  /* 80000360 */
 
 #endif

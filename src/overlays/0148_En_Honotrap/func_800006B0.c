@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_809136CC;
 
-void EnHonotrap_SetupEyeIdle(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_809136CC;
-    M2C_FIELD(arg0, s16 *, 0x222) = 3;
+void EnHonotrap_SetupEyeIdle(EnHonotrap *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_809136CC;
+    M2C_FIELD(this, s16 *, 0x222) = 3;
 }

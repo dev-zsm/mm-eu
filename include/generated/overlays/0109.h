@@ -4,16 +4,18 @@
 #define GENERATED_OVERLAYS_0109_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DemoKankyo DemoKankyo;
 
 void DemoKankyo_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void DemoKakyo_LostWoodsSparkleActionFunc(void *arg0, void *arg1);  /* 8000000C */
-void DemoKakyo_GiantObjectCheck(void *arg0, s32 arg1);  /* 80000C1C */
-void DemoKakyo_MoonSparklesActionFunc(s32 arg0, void *arg1);  /* 80000C7C */
-void DemoKankyo_Init(void *arg0, s32 arg1);  /* 800013B8 */
-void DemoKankyo_Destroy(void *a0, s32 a1);  /* 800014D8 */
-void DemoKankyo_Update(u8 *a0);  /* 800014FC */
-void DemoKakyo_DrawLostWoodsSparkle(s32 arg0, void *arg1);  /* 80001520 */
-void DemoKankyo_DrawMoonAndGiant(void *arg0, void *arg1);  /* 800019B4 */
-void DemoKankyo_Draw(u8 *arg0);  /* 80001F0C */
+void DemoKakyo_LostWoodsSparkleActionFunc(DemoKankyo *this, PlayState *play);  /* 8000000C */
+void DemoKakyo_GiantObjectCheck(DemoKankyo *this, PlayState *play);  /* 80000C1C */
+void DemoKakyo_MoonSparklesActionFunc(DemoKankyo *this, PlayState *play);  /* 80000C7C */
+void DemoKankyo_Init(Actor *thisx, PlayState *play);  /* 800013B8 */
+void DemoKankyo_Destroy(Actor *thisx, PlayState *play);  /* 800014D8 */
+void DemoKankyo_Update(Actor *thisx);  /* 800014FC */
+void DemoKakyo_DrawLostWoodsSparkle(Actor *thisx, PlayState *play2);  /* 80001520 */
+void DemoKankyo_DrawMoonAndGiant(Actor *thisx, PlayState *play2);  /* 800019B4 */
+void DemoKankyo_Draw(Actor *thisx);  /* 80001F0C */
 
 #endif

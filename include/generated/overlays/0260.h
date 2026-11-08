@@ -4,25 +4,27 @@
 #define GENERATED_OVERLAYS_0260_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjGrassCarry ObjGrassCarry;
 
-void ObjGrassCarry_RandScaleVecToZero(s32 arg0, s32 arg1);  /* 80000034 */
-void ObjGrassCarry_UpdatePos(s32 arg0);  /* 800000B8 */
-void ObjGrassCarry_UpdateBgCheckInfo(s32 arg0, s32 arg1);  /* 800000F8 */
-void ObjGrassCarry_DropCollectible(s32 arg0, s16 arg1, s32 arg2);  /* 8000013C */
-void ObjGrassCarry_SpawnFragments(void *arg0, s32 arg1);  /* 80000188 */
-void ObjGrassCarry_Init(void *arg0, s32 arg1);  /* 80000490 */
-void ObjGrassCarry_Destroy(s32 arg0, s32 arg1);  /* 80000500 */
-void ObjGrassCarry_SetupAwaitSpawnManager(u8 *arg0);  /* 80000564 */
-void ObjGrassCarry_AwaitSpawnManager(u8 *arg0, s32 arg1);  /* 80000578 */
-void ObjGrassCarry_SetupIdle(u8 *arg0);  /* 800005C8 */
-void ObjGrassCarry_Idle(u8 *arg0, s32 arg1);  /* 800005DC */
-void ObjGrassCarry_Reset(u8 *arg0);  /* 80000614 */
-void ObjGrassCarry_Main(void *arg0, s32 arg1);  /* 80000648 */
-void ObjGrassCarry_SetupLiftedUp(u8 *arg0);  /* 8000079C */
-void ObjGrassCarry_LiftedUp(void *arg0, s32 arg1);  /* 800007B0 */
-void ObjGrassCarry_SetupFall(u8 *arg0);  /* 8000089C */
-void ObjGrassCarry_Fall(void *arg0, s32 arg1);  /* 8000091C */
-void ObjGrassCarry_Update(void *arg0);  /* 80000CBC */
-void ObjGrassCarry_Draw(s32 arg0, s32 arg1);  /* 80000D1C */
+void ObjGrassCarry_RandScaleVecToZero(Vec3f *velocity, f32 scale);  /* 80000034 */
+void ObjGrassCarry_UpdatePos(ObjGrassCarry *this);  /* 800000B8 */
+void ObjGrassCarry_UpdateBgCheckInfo(ObjGrassCarry *this, PlayState *play);  /* 800000F8 */
+void ObjGrassCarry_DropCollectible(Vec3f *pos, s16 dropTable, PlayState *play);  /* 8000013C */
+void ObjGrassCarry_SpawnFragments(Vec3f *basePos, PlayState *play);  /* 80000188 */
+void ObjGrassCarry_Init(Actor *thisx, PlayState *play);  /* 80000490 */
+void ObjGrassCarry_Destroy(Actor *thisx, PlayState *play);  /* 80000500 */
+void ObjGrassCarry_SetupAwaitSpawnManager(ObjGrassCarry *this);  /* 80000564 */
+void ObjGrassCarry_AwaitSpawnManager(ObjGrassCarry *this, PlayState *play);  /* 80000578 */
+void ObjGrassCarry_SetupIdle(ObjGrassCarry *this);  /* 800005C8 */
+void ObjGrassCarry_Idle(ObjGrassCarry *this, PlayState *play);  /* 800005DC */
+void ObjGrassCarry_Reset(ObjGrassCarry *this);  /* 80000614 */
+void ObjGrassCarry_Main(ObjGrassCarry *this, PlayState *play);  /* 80000648 */
+void ObjGrassCarry_SetupLiftedUp(ObjGrassCarry *this);  /* 8000079C */
+void ObjGrassCarry_LiftedUp(ObjGrassCarry *this, PlayState *play);  /* 800007B0 */
+void ObjGrassCarry_SetupFall(ObjGrassCarry *this);  /* 8000089C */
+void ObjGrassCarry_Fall(ObjGrassCarry *this, PlayState *play);  /* 8000091C */
+void ObjGrassCarry_Update(Actor *thisx, PlayState *play);  /* 80000CBC */
+void ObjGrassCarry_Draw(Actor *this, PlayState *play);  /* 80000D1C */
 
 #endif

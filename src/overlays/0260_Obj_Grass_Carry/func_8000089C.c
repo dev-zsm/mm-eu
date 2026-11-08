@@ -10,11 +10,11 @@ extern s16 D_80990940;
 extern s16 D_80990944;
 extern s16 D_80990948;
 
-void ObjGrassCarry_SetupFall(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x19C) = &D_809904BC;
+void ObjGrassCarry_SetupFall(ObjGrassCarry *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x19C) = &D_809904BC;
     D_8099093C = -0xBB8;
     D_80990944 = (s16) (s32) ((func_8008704C() - 0.5f) * 1600.0f);
     D_80990940 = 0;
     D_80990948 = 0;
-    M2C_FIELD(arg0, s16 *, 0x19A) = 0x3C;
+    M2C_FIELD(this, s16 *, 0x19A) = 0x3C;
 }

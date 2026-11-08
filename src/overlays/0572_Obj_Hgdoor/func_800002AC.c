@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80BB90F8;
 
-void ObjHgdoor_SetupHandleCutscene(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x166) = 0x63;
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80BB90F8;
+void ObjHgdoor_SetupHandleCutscene(ObjHgdoor *this) {
+    M2C_FIELD(this, s16 *, 0x166) = 0x63;
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80BB90F8;
 }

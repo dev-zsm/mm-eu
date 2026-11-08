@@ -4,27 +4,30 @@
 #define GENERATED_OVERLAYS_0339_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnMkk EnMkk;
 
-void EnMkk_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnMkk_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnMkk_Destroy(Actor *thisx, PlayState *play);  /* 800001D0 */
 void func_800001FC(u8 *arg0);
-void func_80000230(void *arg0, s32 arg1);
-void func_800002C0(s32 arg0);
+void func_80000230(EnMkk *this, PlayState *play);
+void func_800002C0(EnMkk *this);
 void func_80000320(u8 *arg0, s32 arg1);
-void func_8000035C(u8 *arg0, s32 arg1);
-void func_80000418(void *arg0, s32 arg1);
-void func_800006BC(void *arg0);
+void func_8000035C(EnMkk *this, PlayState *play);
+void func_80000418(EnMkk *this, PlayState *play);
+void func_800006BC(EnMkk *this);
 void func_8000073C(u8 *arg0, s32 arg1);
-void func_800007AC(void *arg0);
-void func_8000085C(void *arg0, s32 arg1);
-void func_8000097C(void *arg0);
-void func_80000CEC(void *arg0, s32 arg1);
-void EnMkk_Update(void *arg0, void *arg1);  /* 80000D44 */
-void func_80000F20(void *arg0);
-void func_80000F78(void *arg0, s32 arg1);
-void func_80001024(void *arg0);
-void func_800010A4(void *arg0, s32 arg1);
+void func_800007AC(EnMkk *this);
+void func_8000085C(EnMkk *this, PlayState *play);
+void func_8000097C(EnMkk *this);
+void func_80000CEC(EnMkk *this, PlayState *play);
+void EnMkk_Update(Actor *thisx, PlayState *play);  /* 80000D44 */
+void func_80000F20(EnMkk *this);
+void func_80000F78(EnMkk *this, PlayState *play);
+void func_80001024(EnMkk *this);
+void func_800010A4(EnMkk *this, PlayState *play);
 void func_8000129C(u8 *arg0);
-void EnMkk_Draw(void *arg0, s32 arg1);  /* 800012C0 */
-void func_800015F8(void *arg0, void *arg1);
+void EnMkk_Draw(Actor *thisx, PlayState *play);  /* 800012C0 */
+void func_800015F8(Actor *thisx, PlayState *play);
 
 #endif

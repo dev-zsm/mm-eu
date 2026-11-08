@@ -4,18 +4,21 @@
 #define GENERATED_OVERLAYS_0552_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjChan ObjChan;
 
-void ObjChan_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_8000013C(void *arg0, s32 arg1);
-void ObjChan_CalculatePotPosition(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000260 */
-void ObjChan_InitChandelier(void *arg0, s32 arg1);  /* 80000328 */
-void ObjChan_ChandelierAction(void *arg0, s32 arg1);  /* 80000644 */
-void ObjChan_InitPot(u8 *arg0, s32 arg1);  /* 80000A1C */
-void ObjChan_PotAction(void *arg0, s32 arg1);  /* 80000A34 */
-void ObjChan_CreateSmashEffects(s32 arg0, s32 arg1);  /* 80000BA8 */
-void ObjChan_Update(void *arg0, s32 arg1);  /* 80000E58 */
-void ObjChan_Draw(s32 arg0, s32 arg1);  /* 80000EAC */
-void ObjChan_DrawPot(s32 arg0, s32 arg1);  /* 80000FB4 */
-void ObjChan_DrawFire(void *arg0, void *arg1);  /* 80001050 */
+void ObjChan_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjChan_Destroy(Actor *thisx, PlayState *play);  /* 80000110 */
+u32 func_8000013C(ObjChan *this, f32 arg1);
+void ObjChan_CalculatePotPosition(Vec3f *childPosOut, Vec3s *childRotOut, Vec3f *parentPos, Vec3s *parentRot, s16 childAngle);  /* 80000260 */
+void ObjChan_InitChandelier(ObjChan *this, PlayState *play);  /* 80000328 */
+void ObjChan_ChandelierAction(ObjChan *this, PlayState *play);  /* 80000644 */
+void ObjChan_InitPot(ObjChan *this, PlayState *play);  /* 80000A1C */
+void ObjChan_PotAction(ObjChan *this, PlayState *play);  /* 80000A34 */
+void ObjChan_CreateSmashEffects(ObjChan *this, PlayState *play);  /* 80000BA8 */
+void ObjChan_Update(Actor *thisx, PlayState *play);  /* 80000E58 */
+void ObjChan_Draw(Actor *thisx, PlayState *play);  /* 80000EAC */
+void ObjChan_DrawPot(Actor *thisx, PlayState *play);  /* 80000FB4 */
+void ObjChan_DrawFire(ObjChan *this, PlayState *play);  /* 80001050 */
 
 #endif

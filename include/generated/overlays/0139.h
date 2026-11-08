@@ -4,16 +4,18 @@
 #define GENERATED_OVERLAYS_0139_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ArrowFire ArrowFire;
 
 void ArrowFire_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ArrowFire_Init(void *arg0, s32 arg1);  /* 8000000C */
-void ArrowFire_Destroy(s32 arg0, s32 arg1);  /* 800000B8 */
-void FireArrow_ChargeAndWait(void *arg0, s32 arg1);  /* 80000100 */
-void FireArrow_Lerp(void *arg0, void *arg1, s32 arg2);  /* 800001F4 */
-void FireArrow_Hit(void *arg0, s32 arg1);  /* 8000024C */
-void FireArrow_Fly(void *arg0, s32 arg1);  /* 80000460 */
-void ArrowFire_Update(u8 *arg0, u8 *arg1);  /* 800005B4 */
-void FireArrow_SetQuadVerticies(s32 arg0);  /* 80000608 */
+void ArrowFire_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ArrowFire_Destroy(Actor *thisx, PlayState *play);  /* 800000B8 */
+void FireArrow_ChargeAndWait(ArrowFire *this, PlayState *play);  /* 80000100 */
+void FireArrow_Lerp(Vec3f *firedPos, Vec3f *pos, f32 scale);  /* 800001F4 */
+void FireArrow_Hit(ArrowFire *this, PlayState *play);  /* 8000024C */
+void FireArrow_Fly(ArrowFire *this, PlayState *play);  /* 80000460 */
+void ArrowFire_Update(Actor *thisx, PlayState *play);  /* 800005B4 */
+void FireArrow_SetQuadVerticies(ArrowFire *this);  /* 80000608 */
 void func_800006E4(void *arg0, void *arg1);
 
 #endif

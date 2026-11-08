@@ -5,13 +5,13 @@
 
 M2C_UNK func_80AD5244();                            /* extern */
 
-void ObjLupygamelift_Wait(u8 *arg0, M2C_UNK arg1) {
+void ObjLupygamelift_Wait(ObjLupygamelift *this, PlayState *play) {
     s16 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s16 *, 0x170);
+    temp_v0 = M2C_FIELD(this, s16 *, 0x170);
     if (temp_v0 == 0) {
         func_80AD5244();
         return;
     }
-    M2C_FIELD(arg0, s16 *, 0x170) = (s16) (temp_v0 - 1);
+    M2C_FIELD(this, s16 *, 0x170) = (s16) (temp_v0 - 1);
 }

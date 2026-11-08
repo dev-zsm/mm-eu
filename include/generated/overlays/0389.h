@@ -4,42 +4,50 @@
 #define GENERATED_OVERLAYS_0389_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjTokeidai ObjTokeidai;
+typedef struct ObjTokeidai_Clock ObjTokeidai_Clock;
+typedef struct ObjTokeidai_Counterweight ObjTokeidai_Counterweight;
+typedef struct ObjTokeidai_ExteriorGear ObjTokeidai_ExteriorGear;
+typedef struct ObjTokeidai_TowerClock ObjTokeidai_TowerClock;
 
 s32 ObjTokeidai_GetTargetSunMoonPanelRotation(void);  /* 80000000 */
-void ObjTokeidai_SetupClockOrExteriorGear(void *arg0);  /* 80000024 */
-void ObjTokeidai_Clock_Init(s32 arg0);  /* 800000A4 */
-void ObjTokeidai_ExteriorGear_Init(void *arg0, s32 arg1);  /* 80000138 */
-void ObjTokeidai_TowerClock_Init(void *arg0, s32 arg1);  /* 80000268 */
-void ObjTokeidai_Counterweight_Init(void *arg0, void *arg1);  /* 8000042C */
-void ObjTokeidai_Init(void *arg0, s32 arg1);  /* 8000065C */
-void ObjTokeidai_RotateOnMinuteChange(void *arg0, s32 arg1);  /* 80000880 */
-void ObjTokeidai_ExteriorGear_Collapse(void *arg0, s32 arg1);  /* 80000A0C */
-void ObjTokeidai_ExteriorGear_OpenedIdle(s32 arg0, s32 arg1);  /* 80000AB0 */
-void ObjTokeidai_TowerClock_Fall(u8 *arg0, s32 arg1);  /* 80000B60 */
-void ObjTokeidai_TowerClock_SlideOff(void *arg0, s32 arg1);  /* 80000BE0 */
-void ObjTokeidai_TowerClock_OpenedIdle(s32 arg0, s32 arg1);  /* 80000D3C */
-void ObjTokeidai_Counterweight_Collapse(u8 *arg0, s32 arg1);  /* 80000DB4 */
-void ObjTokeidai_Counterweight_OpenedIdle(s32 arg0, s32 arg1);  /* 80000E08 */
-void ObjTokeidai_TerminaFieldWalls_Collapse(u8 *a0, s32 a1);  /* 80000EAC */
-void ObjTokeidai_TerminaFieldWalls_Idle(s32 arg0, s32 arg1);  /* 80000ECC */
-void ObjTokeidai_TowerOpening_EndCutscene(s32 arg0, void *arg1);  /* 80000F34 */
-void ObjTokeidai_TowerOpening_FinishOpening(u8 *arg0);  /* 80001078 */
-void ObjTokeidai_TowerOpening_Wait(u8 *arg0, s32 arg1);  /* 800010F0 */
-void ObjTokeidai_TowerOpening_DropCounterweight(void *arg0, s32 arg1);  /* 80001120 */
-void ObjTokeidai_TowerOpening_FinishRaise(void *arg0, s32 arg1);  /* 8000122C */
-void ObjTokeidai_TowerOpening_RaiseTower(void *arg0, s32 arg1);  /* 800012EC */
-void ObjTokeidai_TowerOpening_Start(s32 arg0, s32 arg1);  /* 800013A4 */
-void ObjTokeidai_SetupTowerOpening(u8 *arg0);  /* 80001420 */
-void ObjTokeidai_DoNothing(s32 arg0, s32 arg1);  /* 80001448 */
-void ObjTokeidai_StaircaseToRooftop_Idle(u8 *arg0, s32 arg1);  /* 80001458 */
-void ObjTokeidai_IsPostFirstCycleFinalHours(s32 arg0, s32 arg1);  /* 800014C0 */
-void ObjTokeidai_RotateOnHourChange(void *arg0, s32 arg1);  /* 8000153C */
-void ObjTokeidai_TowerClock_Idle(u8 *arg0, u8 *arg1);  /* 80001740 */
-void ObjTokeidai_ExteriorGear_Idle(void *arg0, s32 arg1);  /* 800018F0 */
-void ObjTokeidai_Counterweight_Idle(void *arg0, s32 arg1);  /* 800019D0 */
-void ObjTokeidai_Draw(s32 arg0, void *arg1);  /* 80001B0C */
-void ObjTokeidai_Clock_Draw(s32 arg0, s32 arg1);  /* 80001C04 */
-void ObjTokeidai_Counterweight_Draw(void *arg0, void *arg1);  /* 80001ED4 */
-void ObjTokeidai_ExteriorGear_Draw(void *arg0, s32 arg1);  /* 80002104 */
+void ObjTokeidai_SetupClockOrExteriorGear(ObjTokeidai *this);  /* 80000024 */
+void ObjTokeidai_Clock_Init(ObjTokeidai *this);  /* 800000A4 */
+void ObjTokeidai_ExteriorGear_Init(ObjTokeidai *this, PlayState *play);  /* 80000138 */
+void ObjTokeidai_TowerClock_Init(ObjTokeidai *this, PlayState *play);  /* 80000268 */
+void ObjTokeidai_Counterweight_Init(ObjTokeidai *this, PlayState *play);  /* 8000042C */
+void ObjTokeidai_Init(Actor *thisx, PlayState *play);  /* 8000065C */
+void ObjTokeidai_Destroy(Actor *thisx, PlayState *play);  /* 80000870 */
+void ObjTokeidai_RotateOnMinuteChange(ObjTokeidai *this, s32 playSfx);  /* 80000880 */
+void ObjTokeidai_ExteriorGear_Collapse(ObjTokeidai *this, PlayState *play);  /* 80000A0C */
+void ObjTokeidai_ExteriorGear_OpenedIdle(ObjTokeidai *this, PlayState *play);  /* 80000AB0 */
+void ObjTokeidai_TowerClock_Fall(ObjTokeidai *this, PlayState *play);  /* 80000B60 */
+void ObjTokeidai_TowerClock_SlideOff(ObjTokeidai *this, PlayState *play);  /* 80000BE0 */
+void ObjTokeidai_TowerClock_OpenedIdle(ObjTokeidai *this, PlayState *play);  /* 80000D3C */
+void ObjTokeidai_Counterweight_Collapse(ObjTokeidai *this, PlayState *play);  /* 80000DB4 */
+void ObjTokeidai_Counterweight_OpenedIdle(ObjTokeidai *this, PlayState *play);  /* 80000E08 */
+void ObjTokeidai_TerminaFieldWalls_Collapse(ObjTokeidai *this, PlayState *play);  /* 80000EAC */
+void ObjTokeidai_TerminaFieldWalls_Idle(ObjTokeidai *this, PlayState *play);  /* 80000ECC */
+void ObjTokeidai_TowerOpening_EndCutscene(ObjTokeidai *this, PlayState *play);  /* 80000F34 */
+void ObjTokeidai_TowerOpening_FinishOpening(ObjTokeidai *this);  /* 80001078 */
+void ObjTokeidai_TowerOpening_Wait(ObjTokeidai *this, PlayState *play);  /* 800010F0 */
+void ObjTokeidai_TowerOpening_DropCounterweight(ObjTokeidai *this, PlayState *play);  /* 80001120 */
+void ObjTokeidai_TowerOpening_FinishRaise(ObjTokeidai *this, PlayState *play);  /* 8000122C */
+void ObjTokeidai_TowerOpening_RaiseTower(ObjTokeidai *this, PlayState *play);  /* 800012EC */
+void ObjTokeidai_TowerOpening_Start(ObjTokeidai *this, PlayState *play);  /* 800013A4 */
+void ObjTokeidai_SetupTowerOpening(ObjTokeidai *this);  /* 80001420 */
+void ObjTokeidai_DoNothing(ObjTokeidai *this, PlayState *play);  /* 80001448 */
+void ObjTokeidai_StaircaseToRooftop_Idle(ObjTokeidai *this, PlayState *play);  /* 80001458 */
+s32 ObjTokeidai_IsPostFirstCycleFinalHours(ObjTokeidai *this, PlayState *play);  /* 800014C0 */
+void ObjTokeidai_RotateOnHourChange(ObjTokeidai *this, PlayState *play);  /* 8000153C */
+void ObjTokeidai_TowerClock_Idle(ObjTokeidai *this, PlayState *play);  /* 80001740 */
+void ObjTokeidai_ExteriorGear_Idle(ObjTokeidai *this, PlayState *play);  /* 800018F0 */
+void ObjTokeidai_Counterweight_Idle(ObjTokeidai *this, PlayState *play);  /* 800019D0 */
+void ObjTokeidai_Update(Actor *thisx);  /* 80001AE8 */
+void ObjTokeidai_Draw(Actor *thisx, PlayState *play);  /* 80001B0C */
+void ObjTokeidai_Clock_Draw(Actor *thisx, PlayState *play);  /* 80001C04 */
+void ObjTokeidai_Counterweight_Draw(Actor *thisx, PlayState *play);  /* 80001ED4 */
+void ObjTokeidai_ExteriorGear_Draw(Actor *thisx, PlayState *play);  /* 80002104 */
 
 #endif

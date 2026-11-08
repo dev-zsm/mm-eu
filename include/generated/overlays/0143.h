@@ -31,6 +31,5 @@ void func_80001958(void *arg0, s32 arg1);
 void func_80001C1C(void *arg0);
 void func_80001CAC(void *arg0, s32 arg1);
 void func_80001D6C(void *arg0, s32 arg1);
-void func_80001EF0(void *arg0, s32 arg1);
 
 #endif

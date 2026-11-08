@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0419_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgCtowerGear BgCtowerGear;
 
-void BgCtowerGear_Splash(void *arg0, s32 arg1);  /* 80000000 */
-void BgCtowerGear_Update(void *arg0);  /* 80000468 */
-void BgCtowerGear_UpdateOrgan(void *arg0, s32 arg1);  /* 800004E4 */
-void BgCtowerGear_DrawOrgan(s32 arg0, s32 arg1);  /* 800005F4 */
+void BgCtowerGear_Splash(BgCtowerGear *this, PlayState *play);  /* 80000000 */
+void BgCtowerGear_Init(Actor *thisx, PlayState *play);  /* 80000314 */
+void BgCtowerGear_Destroy(Actor *thisx, PlayState *play);  /* 8000041C */
+void BgCtowerGear_Update(Actor *thisx, PlayState *play);  /* 80000468 */
+void BgCtowerGear_UpdateOrgan(Actor *thisx, PlayState *play);  /* 800004E4 */
+void BgCtowerGear_DrawOrgan(Actor *thisx, PlayState *play);  /* 800005F4 */
 
 #endif

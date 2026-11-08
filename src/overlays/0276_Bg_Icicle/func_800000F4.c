@@ -6,7 +6,7 @@
 M2C_UNK func_800C625C(s32, s32, s32, s32);          /* extern */
 M2C_UNK func_800E0FAC(s32, u8 *);                 /* extern */
 
-void BgIcicle_Destroy(u8 *arg0, s32 arg1) {
-    func_800C625C(arg1, arg1 + 0x880, M2C_FIELD(arg0, s32 *, 0x144), arg1);
-    func_800E0FAC(arg1, arg0 + 0x164);
+void BgIcicle_Destroy(Actor *thisx, PlayState *play) {
+    func_800C625C(play, (u8 *)play + 0x880, M2C_FIELD(thisx, s32 *, 0x144), play);
+    func_800E0FAC(play, (u8 *)thisx + 0x164);
 }

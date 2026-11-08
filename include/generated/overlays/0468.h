@@ -4,22 +4,24 @@
 #define GENERATED_OVERLAYS_0468_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnHanabi EnHanabi;
 
 void func_80000000(void *arg0);
-void func_8000002C(s32 arg0, s32 arg1);
+void func_8000002C(void *arg0, s32 arg1);
 void func_80000080(s32 arg0, void *arg1, s32 arg2);
 void func_8000020C(void *arg0);
-void func_80000334(void *arg0);
-void func_800003A8(void *arg0, void *arg1);
-void EnHanabi_Init(void *arg0, s32 arg1);  /* 80000718 */
-void EnHanabi_Destroy(void *arg0, s32 arg1);  /* 80000850 */
-void func_800008C8(void *arg0);
-void func_800009CC(s32 arg0, s32 arg1, s32 arg2);
-void func_80000AC8(void *arg0, s32 arg1);
+s32 func_80000334(void *arg0);
+void func_800003A8(void *arg0, PlayState *play2);
+void EnHanabi_Init(Actor *thisx, PlayState *play2);  /* 80000718 */
+void EnHanabi_Destroy(Actor *thisx, PlayState *play2);  /* 80000850 */
+void func_800008C8(EnHanabi *this);
+void func_800009CC(EnHanabi *this, Vec3f *arg1, s32 arg2);
+void func_80000AC8(EnHanabi *this, PlayState *play);
 void func_80000C94(s32 arg0);
 void func_80000D10(u8 *arg0, s32 arg1);
-void func_80000D34(s32 arg0, void *arg1);
-void EnHanabi_Update(void *arg0);  /* 80000DFC */
-void EnHanabi_Draw(s32 arg0, s32 arg1);  /* 80000E38 */
+void func_80000D34(EnHanabi *this, PlayState *play);
+void EnHanabi_Update(Actor *thisx, PlayState *play);  /* 80000DFC */
+void EnHanabi_Draw(Actor *thisx, PlayState *play);  /* 80000E38 */
 
 #endif

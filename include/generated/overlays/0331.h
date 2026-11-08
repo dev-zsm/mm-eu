@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0331_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnSekihi EnSekihi;
 
-void EnSekihi_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_80000168(void *arg0, s32 arg1);
+void EnSekihi_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnSekihi_Destroy(Actor *thisx, PlayState *play);  /* 80000134 */
+void func_80000168(EnSekihi *this, PlayState *play);
 void func_800002C0(s32 arg0, s32 arg1);
-void func_80000430(s32 arg0, s32 arg1);
-void EnSekihi_DoNothing(s32 arg0, s32 arg1);  /* 800004B0 */
-void EnSekihi_Draw(s32 arg0, void *arg1);  /* 800004E4 */
+void func_80000430(EnSekihi *this, PlayState *play);
+void EnSekihi_DoNothing(EnSekihi *this, PlayState *play);  /* 800004B0 */
+void EnSekihi_Update(Actor *thisx);  /* 800004C0 */
+void EnSekihi_Draw(Actor *thisx, PlayState *play);  /* 800004E4 */
 
 #endif

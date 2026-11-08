@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80BED970;
 
-void func_8000013C(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80BED970;
+void func_8000013C(ObjKzsaku *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80BED970;
 }

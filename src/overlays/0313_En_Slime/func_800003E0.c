@@ -5,8 +5,8 @@
 
 extern M2C_UNK D_80A13ED4;
 
-void EnSlime_SetupIdle(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x14C) = 0x19;
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80A13ED4;
-    M2C_FIELD(arg0, f32 *, 0x70) = 0.0f;
+void EnSlime_SetupIdle(EnSlime *this) {
+    M2C_FIELD(this, s16 *, 0x14C) = 0x19;
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80A13ED4;
+    M2C_FIELD(this, f32 *, 0x70) = 0.0f;
 }

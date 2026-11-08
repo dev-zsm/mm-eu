@@ -4,9 +4,14 @@
 #define GENERATED_OVERLAYS_0248_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMakekinsuta ObjMakekinsuta;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_80000124(void *arg0, s32 arg1);
-void func_8000033C(void *arg0, s32 arg1);
+s32 func_80000000(ObjMakekinsuta *this, PlayState *play);
+void ObjMakekinsuta_Init(Actor *thisx, PlayState *play);  /* 80000070 */
+void ObjMakekinsuta_Destroy(Actor *thisx, PlayState *play);  /* 800000E0 */
+void func_80000124(Actor *thisx, PlayState *play);
+void ObjMakekinsuta_Update(Actor *thisx, PlayState *play);  /* 80000280 */
+void func_8000033C(Actor *thisx, PlayState *play);
 
 #endif

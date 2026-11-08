@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0612_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnScopecoin EnScopecoin;
 
-void EnScopecoin_Spin(u8 *arg0, s32 arg1);  /* 80000000 */
-void EnScopecoin_CheckCollectible(u8 *arg0, s32 arg1);  /* 80000018 */
-void EnScopecoin_Init(void *arg0, s32 arg1);  /* 80000070 */
-void EnScopecoin_Draw(s32 arg0, s32 arg1);  /* 800001DC */
+void EnScopecoin_Spin(EnScopecoin *this, PlayState *play);  /* 80000000 */
+void EnScopecoin_CheckCollectible(EnScopecoin *this, PlayState *play);  /* 80000018 */
+void EnScopecoin_Init(Actor *thisx, PlayState *play);  /* 80000070 */
+void EnScopecoin_Destroy(Actor *thisx, PlayState *play);  /* 800001A8 */
+void EnScopecoin_Update(Actor *thisx);  /* 800001B8 */
+void EnScopecoin_Draw(Actor *thisx, PlayState *play);  /* 800001DC */
 
 #endif

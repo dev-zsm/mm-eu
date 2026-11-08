@@ -4,20 +4,24 @@
 #define GENERATED_OVERLAYS_0154_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjBombiwa ObjBombiwa;
 
 s32 func_80000000(u8 *arg0);
 s32 func_800000C0(u8 *arg0);
-s32 ObjBombiwa_IsUnderwater(u8 *arg0, s32 arg1);  /* 8000016C */
-void func_800001E4(void *arg0, s32 arg1);
-void ObjBombiwa_Init(void *arg0, s32 arg1);  /* 8000024C */
+s32 ObjBombiwa_IsUnderwater(ObjBombiwa *this, PlayState *play);  /* 8000016C */
+void func_800001E4(ObjBombiwa *this, PlayState *play);
+void ObjBombiwa_Init(Actor *thisx, PlayState *play);  /* 8000024C */
+void ObjBombiwa_Destroy(Actor *thisx, PlayState *play);  /* 800003B8 */
 void func_800003E4(void *arg0, s32 arg1);
 void func_800005E4(s32 arg0, void *arg1);
 void func_800008A0(s32 arg0, void *arg1);
 void func_80000B30(u8 *arg0);
-void func_80000B44(void *arg0, s32 arg1);
-void func_80000CD0(void *arg0);
-void func_80000E40(void *arg0, s32 arg1);
-void func_80001068(void *arg0, s32 arg1);
-void func_80001258(void *arg0, void *arg1);
+void func_80000B44(ObjBombiwa *this, PlayState *play);
+void func_80000CD0(ObjBombiwa *this);
+void func_80000E40(ObjBombiwa *this, PlayState *play);
+void ObjBombiwa_Update(Actor *thisx);  /* 80001044 */
+void func_80001068(Actor *thisx, PlayState *play);
+void func_80001258(Actor *thisx, PlayState *play);
 
 #endif

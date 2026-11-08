@@ -4,26 +4,29 @@
 #define GENERATED_OVERLAYS_0080_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBubble EnBubble;
 
-void EnBubble_SetDimensions(void *arg0, s32 arg1);  /* 80000000 */
-s32 func_800000BC(u8 *arg0);
-s32 func_800000F0(void *a);
-void EnBubble_DamagePlayer(s32 arg0, s32 arg1);  /* 80000114 */
-void EnBubble_Explosion(void *arg0, s32 arg1);  /* 80000180 */
-s32 func_800003DC(u8 *arg0);
-void func_80000428(void *arg0);
-void EnBubble_Vec3fNormalizedReflect(s32 arg0, s32 arg1, s32 arg2);  /* 8000047C */
-void EnBubble_Vec3fNormalize(void *arg0);  /* 80000504 */
-void EnBubble_Fly(void *arg0, s32 arg1);  /* 80000574 */
-void func_80000A50(void *arg0);
-void EnBubble_IsPopped(void *arg0);  /* 80000AEC */
-void func_80000B7C(void *arg0);
-void EnBubble_Init(void *arg0, s32 arg1);  /* 80000C90 */
-void EnBubble_Wait(void *arg0, s32 arg1);  /* 80000DBC */
-void EnBubble_Pop(s32 arg0, s32 arg1);  /* 80000E70 */
-void EnBubble_Disappear(u8 *arg0, s32 arg1);  /* 80000EC0 */
-void EnBubble_Regrow(s32 arg0, s32 arg1);  /* 80000F08 */
-void EnBubble_Update(void *arg0, s32 arg1);  /* 80000F78 */
-void EnBubble_Draw(void *arg0, void *arg1);  /* 80000FF4 */
+void EnBubble_SetDimensions(EnBubble *this, f32 dim);  /* 80000000 */
+s32 func_800000BC(EnBubble *this);
+s32 func_800000F0(EnBubble *this);
+void EnBubble_DamagePlayer(EnBubble *this, PlayState *play);  /* 80000114 */
+s32 EnBubble_Explosion(EnBubble *this, PlayState *play);  /* 80000180 */
+s32 func_800003DC(EnBubble *this);
+s32 func_80000428(EnBubble *this);
+void EnBubble_Vec3fNormalizedReflect(Vec3f *vec1, Vec3f *vec2, Vec3f *dest);  /* 8000047C */
+void EnBubble_Vec3fNormalize(Vec3f *vec);  /* 80000504 */
+void EnBubble_Fly(EnBubble *this, PlayState *play);  /* 80000574 */
+s32 func_80000A50(EnBubble *this);
+s32 EnBubble_IsPopped(EnBubble *this, PlayState *play);  /* 80000AEC */
+void func_80000B7C(EnBubble *this);
+void EnBubble_Init(Actor *thisx, PlayState *play);  /* 80000C90 */
+void EnBubble_Destroy(Actor *thisx, PlayState *play);  /* 80000D90 */
+void EnBubble_Wait(EnBubble *this, PlayState *play);  /* 80000DBC */
+void EnBubble_Pop(EnBubble *this, PlayState *play);  /* 80000E70 */
+void EnBubble_Disappear(EnBubble *this, PlayState *play);  /* 80000EC0 */
+void EnBubble_Regrow(EnBubble *this, PlayState *play);  /* 80000F08 */
+void EnBubble_Update(Actor *thisx, PlayState *play);  /* 80000F78 */
+void EnBubble_Draw(Actor *thisx, PlayState *play);  /* 80000FF4 */
 
 #endif

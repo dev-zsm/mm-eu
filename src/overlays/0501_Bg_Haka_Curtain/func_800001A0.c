@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80B52ACC;
 
-void func_800001A0(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80B52ACC;
-    M2C_FIELD(arg0, f32 *, 0x68) = 0.0f;
+void func_800001A0(BgHakaCurtain *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80B52ACC;
+    M2C_FIELD(this, f32 *, 0x68) = 0.0f;
 }

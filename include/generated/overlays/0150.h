@@ -4,13 +4,16 @@
 #define GENERATED_OVERLAYS_0150_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjIcePoly ObjIcePoly;
 
-void ObjIcePoly_Init(void *arg0, void *arg1);  /* 80000000 */
-void ObjIcePoly_Destroy(s32 arg0, s32 arg1);  /* 80000244 */
-void func_800002C8(void *arg0, s32 arg1);
-void func_800004D8(void *arg0, void *arg1);
-void func_800008F8(void *arg0, s32 arg1);
+void ObjIcePoly_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjIcePoly_Destroy(Actor *thisx, PlayState *play);  /* 80000244 */
+void func_800002C8(ObjIcePoly *this, PlayState *play);
+void func_800004D8(ObjIcePoly *this, PlayState *play);
+void func_800008F8(ObjIcePoly *this, PlayState *play);
 void func_8000098C(void *arg0, s32 arg1);
-void ObjIcePoly_Draw(s32 arg0, void *arg1);  /* 80000C5C */
+void ObjIcePoly_Update(Actor *thisx);  /* 80000C38 */
+void ObjIcePoly_Draw(Actor *thisx, PlayState *play);  /* 80000C5C */
 
 #endif

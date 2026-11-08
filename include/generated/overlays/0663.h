@@ -4,10 +4,13 @@
 #define GENERATED_OVERLAYS_0663_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnInvisibleRuppe EnInvisibleRuppe;
 
-void func_80000000(s32 arg0, s32 arg1);
+void func_80000000(EnInvisibleRuppe *this, PlayState *play);
 void func_8000006C(u8 *arg0, s32 arg1);
 void func_80000148(s32 a0, s32 a1);
-void EnInvisibleRuppe_Init(void *arg0, s32 arg1);  /* 8000016C */
+void EnInvisibleRuppe_Init(Actor *thisx, PlayState *play);  /* 8000016C */
+void EnInvisibleRuppe_Destroy(Actor *thisx, PlayState *play);  /* 8000021C */
 
 #endif

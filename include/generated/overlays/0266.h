@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0266_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjChikuwa ObjChikuwa;
 
-void func_80000000(void *arg0, s32 arg1);
-void ObjChikuwa_Init(void *arg0, s32 arg1);  /* 800000DC */
+void func_80000000(Actor *thisx, PlayState *play);
+void ObjChikuwa_Init(Actor *thisx, PlayState *play);  /* 800000DC */
+void ObjChikuwa_Destroy(Actor *thisx, PlayState *play);  /* 8000024C */
 void func_80000280(s32 arg0, void *arg1, void *arg2);
-void func_80000550(void *arg0);
-void ObjChikuwa_Update(void *arg0, void *arg1);  /* 80000698 */
-void ObjChikuwa_Draw(void *arg0, s32 arg1);  /* 80000840 */
+void func_80000550(ObjChikuwa *this);
+void ObjChikuwa_Update(Actor *thisx, PlayState *play);  /* 80000698 */
+void ObjChikuwa_Draw(Actor *thisx, PlayState *play);  /* 80000840 */
 
 #endif

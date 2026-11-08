@@ -4,17 +4,21 @@
 #define GENERATED_OVERLAYS_0282_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgSpdweb BgSpdweb;
 
-void BgSpdweb_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_800001A8(void *arg0);
-void func_8000029C(void *arg0);
+void BgSpdweb_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgSpdweb_Destroy(Actor *thisx, PlayState *play);  /* 80000160 */
+void func_800001A8(BgSpdweb *this);
+void func_8000029C(BgSpdweb *this);
 void func_80000310(u8 *arg0, s32 arg1);
-void func_80000374(void *arg0, s32 arg1);
-void func_80000608(void *arg0, s32 arg1);
-void func_80000970(void *arg0, s32 arg1);
-void func_80000D00(void *arg0, s32 arg1);
+void func_80000374(BgSpdweb *this, PlayState *play);
+void func_80000608(BgSpdweb *this, PlayState *play);
+void func_80000970(BgSpdweb *this, PlayState *play);
+void func_80000D00(BgSpdweb *this, PlayState *play);
 void func_80000FB4(u8 *arg0);
-void func_80000FEC(void *arg0, s32 arg1);
-void BgSpdweb_Draw(void *arg0, void *arg1);  /* 80001070 */
+void func_80000FEC(BgSpdweb *this, PlayState *play);
+void BgSpdweb_Update(Actor *thisx);  /* 8000104C */
+void BgSpdweb_Draw(Actor *thisx, PlayState *play);  /* 80001070 */
 
 #endif

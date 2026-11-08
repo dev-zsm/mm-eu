@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0498.h"
 
 void ObjHariko_Destroy(Actor *thisx, PlayState *play) {
 

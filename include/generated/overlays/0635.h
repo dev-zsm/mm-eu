@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0635_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjJgameLight ObjJgameLight;
 
-void ObjJgameLight_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjJgameLight_Destroy(s32 arg0, s32 arg1);  /* 8000013C */
-void ObjJgameLight_UpdateFlame(void *arg0, s32 arg1);  /* 80000184 */
-void ObjJgameLight_UpdateCollision(s32 arg0, s32 arg1);  /* 800003D4 */
-void ObjJgameLight_UpdateSignal(u8 *arg0, s32 arg1);  /* 80000428 */
-void ObjJgameLight_Draw(s32 arg0, s32 arg1);  /* 80000538 */
+void ObjJgameLight_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjJgameLight_Destroy(Actor *thisx, PlayState *play);  /* 8000013C */
+void ObjJgameLight_UpdateFlame(ObjJgameLight *this, PlayState *play);  /* 80000184 */
+void ObjJgameLight_UpdateCollision(ObjJgameLight *this, PlayState *play);  /* 800003D4 */
+void ObjJgameLight_UpdateSignal(ObjJgameLight *this, PlayState *play);  /* 80000428 */
+void ObjJgameLight_Update(Actor *thisx, PlayState *play);  /* 800004E4 */
+void ObjJgameLight_Draw(Actor *thisx, PlayState *play);  /* 80000538 */
 
 #endif

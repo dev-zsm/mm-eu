@@ -4,7 +4,12 @@
 #define GENERATED_OVERLAYS_0601_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjDinner ObjDinner;
 
-void ObjDinner_Draw(s32 arg0, s32 arg1);  /* 8000009C */
+void ObjDinner_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void func_8000007C(Actor *thisx, PlayState *play);
+void func_8000008C(Actor *thisx, PlayState *play);
+void ObjDinner_Draw(Actor *thisx, PlayState *play);  /* 8000009C */
 
 #endif

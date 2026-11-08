@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0457_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnOnpuman EnOnpuman;
 
-void EnOnpuman_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnOnpuman_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnOnpuman_Destroy(Actor *thisx, PlayState *play);  /* 800000B8 */
 void func_80000118(void *arg0, s32 arg1);
 void func_800001CC(void *arg0, s32 arg1);
 void func_8000031C(u8 *arg0, s32 arg1);
-void func_80000378(void *arg0, s32 arg1);
-void EnOnpuman_Update(void *arg0, s32 arg1);  /* 80000478 */
+void func_80000378(EnOnpuman *this, PlayState *play);
+void EnOnpuman_Update(Actor *thisx, PlayState *play);  /* 80000478 */
 
 #endif

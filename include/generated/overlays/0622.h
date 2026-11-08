@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0622_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffZoraband EffZoraband;
 
-void EffZoraband_MikauFadeOut(void *arg0, s32 arg1);  /* 80000050 */
-void EffZoraband_Draw(s32 arg0, s32 arg1);  /* 8000017C */
+void EffZoraband_Destroy(Actor *thisx, PlayState *play);  /* 80000040 */
+void EffZoraband_MikauFadeOut(EffZoraband *this, PlayState *play);  /* 80000050 */
+void EffZoraband_Update(Actor *thisx);  /* 80000158 */
+void EffZoraband_Draw(Actor *thisx, PlayState *play);  /* 8000017C */
 
 #endif

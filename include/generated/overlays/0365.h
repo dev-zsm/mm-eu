@@ -12,7 +12,7 @@ void func_800003D0(void *arg0, s32 arg1);
 s32 func_800004C0(s32 arg0);
 void func_80000518(u8 *a0);
 void func_80000538(void *arg0, s32 arg1);
-void func_800011C8(void *arg0);
+void func_800011C8(u8 *a);
 void func_80001224(void *arg0, s32 arg1);
 void func_8000143C(s32 arg0, void *arg1);
 void func_800014A8(void *arg0, s32 arg1);
@@ -46,7 +46,7 @@ void func_80002D64(void *arg0, s32 arg1);
 void func_80002F2C(u8 *arg0, s32 arg1);
 void func_80002FA0(void *arg0, s32 arg1);
 void func_8000325C(void *arg0, s32 arg1);
-void func_80003688(s32 arg0, s32 arg1, void *arg2, s32 arg3);
+s32 func_80003688(s32 a, s32 limb, u32 *dl, s32 d, s32 e, u8 *thisx);
 void func_800036DC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80003BE8(void *arg0, void *arg1);
 

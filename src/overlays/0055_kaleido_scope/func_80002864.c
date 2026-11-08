@@ -3,7 +3,7 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0055.h"
 
-s32 KaleidoScope_UpdateQuestStatusPoint(u8 *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 0x23C) = arg1;
+s32 KaleidoScope_UpdateQuestStatusPoint(void *pauseCtx, s16 point) {
+    M2C_FIELD(pauseCtx, s16 *, 0x23C) = point;
     return 1;
 }

@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0229_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnNutsball EnNutsball;
 
-void EnNutsball_Update(void *arg0, s32 arg1);  /* 80000128 */
-void EnNutsball_Draw(s32 arg0, s32 arg1);  /* 800004E0 */
+void EnNutsball_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnNutsball_Destroy(Actor *thisx, PlayState *play);  /* 800000D0 */
+void EnNutsball_Update(Actor *thisx, PlayState *play);  /* 80000128 */
+void EnNutsball_Draw(Actor *thisx, PlayState *play);  /* 800004E0 */
 
 #endif

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0309.h"
 
-void func_80000000(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x144) = arg1;
+void func_80000000(Actor *thisx, s32 arg1) {
+    M2C_FIELD(thisx, s32 *, 0x144) = arg1;
 }

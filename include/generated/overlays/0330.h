@@ -4,22 +4,25 @@
 #define GENERATED_OVERLAYS_0330_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBat EnBat;
 
-void EnBat_Init(void *arg0, s32 arg1);  /* 80000000 */
-s32 EnBat_IsGraveyardOnSecondDay(u8 *arg0);  /* 800002EC */
-void EnBat_StepAnimation(void *arg0, s32 arg1);  /* 80000330 */
-void EnBat_SetupPerch(void *arg0);  /* 80000390 */
-void EnBat_Perch(s32 a0, s32 a1);  /* 800003F4 */
-void EnBat_SetupFlyIdle(u8 *arg0);  /* 80000418 */
-void EnBat_FlyIdle(void *arg0, s32 arg1);  /* 8000044C */
-void EnBat_SetupDiveAttack(u8 *arg0);  /* 800007C0 */
-void EnBat_DiveAttack(void *arg0, s32 arg1);  /* 80000808 */
-void EnBat_SetupDie(void *arg0, s32 arg1);  /* 80000A80 */
-void EnBat_Die(void *arg0, s32 arg1);  /* 80000C34 */
-void EnBat_SetupStunned(void *arg0);  /* 80000DB4 */
-void EnBat_Stunned(s32 arg0, s32 arg1);  /* 80000E3C */
-void EnBat_UpdateDamage(void *arg0, s32 arg1);  /* 80000EF8 */
-void EnBat_Update(void *arg0, s32 arg1);  /* 80000FD8 */
-void EnBat_Draw(void *arg0, s32 arg1);  /* 80001338 */
+void EnBat_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnBat_Destroy(Actor *thisx, PlayState *play);  /* 800002C0 */
+s32 EnBat_IsGraveyardOnSecondDay(PlayState *play);  /* 800002EC */
+void EnBat_StepAnimation(EnBat *this, s32 frameStep);  /* 80000330 */
+void EnBat_SetupPerch(EnBat *this);  /* 80000390 */
+void EnBat_Perch(EnBat *this, PlayState *play);  /* 800003F4 */
+void EnBat_SetupFlyIdle(EnBat *this);  /* 80000418 */
+void EnBat_FlyIdle(EnBat *this, PlayState *play);  /* 8000044C */
+void EnBat_SetupDiveAttack(EnBat *this);  /* 800007C0 */
+void EnBat_DiveAttack(EnBat *this, PlayState *play);  /* 80000808 */
+void EnBat_SetupDie(EnBat *this, PlayState *play);  /* 80000A80 */
+void EnBat_Die(EnBat *this, PlayState *play);  /* 80000C34 */
+void EnBat_SetupStunned(EnBat *this);  /* 80000DB4 */
+void EnBat_Stunned(EnBat *this, PlayState *play);  /* 80000E3C */
+void EnBat_UpdateDamage(EnBat *this, PlayState *play);  /* 80000EF8 */
+void EnBat_Update(Actor *thisx, PlayState *play);  /* 80000FD8 */
+void EnBat_Draw(Actor *thisx, PlayState *play);  /* 80001338 */
 
 #endif

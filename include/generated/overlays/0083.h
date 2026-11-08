@@ -4,12 +4,14 @@
 #define GENERATED_OVERLAYS_0083_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTorch2 EnTorch2;
 
-void EnTorch2_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void EnTorch2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
 void EnTorch2_Destroy(u8 *arg0, s32 arg1);  /* 8000008C */
-void EnTorch2_Update(void *arg0, s32 arg1);  /* 80000100 */
-void EnTorch2_UpdateIdle(u8 *arg0, s32 arg1);  /* 80000278 */
-void EnTorch2_UpdateDeath(u8 *arg0, s32 arg1);  /* 800002A8 */
-void EnTorch2_Draw(s32 arg0, void *arg1);  /* 80000308 */
+void EnTorch2_Update(Actor *thisx, PlayState *play);  /* 80000100 */
+void EnTorch2_UpdateIdle(Actor *thisx, PlayState *play);  /* 80000278 */
+void EnTorch2_UpdateDeath(Actor *thisx, PlayState *play);  /* 800002A8 */
+void EnTorch2_Draw(Actor *thisx, PlayState *play);  /* 80000308 */
 
 #endif

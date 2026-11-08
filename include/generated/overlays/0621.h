@@ -4,12 +4,15 @@
 #define GENERATED_OVERLAYS_0621_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkninside BgIkninside;
 
-void BgIkninside_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgIkninside_Destroy(s32 arg0, s32 arg1);  /* 800000C8 */
+void BgIkninside_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgIkninside_Destroy(Actor *thisx, PlayState *play);  /* 800000C8 */
 void func_80000110(s32 arg0, s32 arg1);
-void func_80000120(void *arg0, s32 arg1);
-void func_800001C0(void *arg0, s32 arg1);
-void BgIkninside_Draw(s32 arg0, void *arg1);  /* 800004D8 */
+void func_80000120(BgIkninside *this, PlayState *play);
+void func_800001C0(BgIkninside *this, PlayState *play);
+void BgIkninside_Update(Actor *thisx);  /* 800004B4 */
+void BgIkninside_Draw(Actor *thisx, PlayState *play);  /* 800004D8 */
 
 #endif

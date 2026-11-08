@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80A42424;
 
-void func_80002550(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x190) = &D_80A42424;
+void func_80002550(EnKusa2 *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x190) = &D_80A42424;
 }

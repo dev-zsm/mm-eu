@@ -4,30 +4,32 @@
 #define GENERATED_OVERLAYS_0095_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgBreakwall BgBreakwall;
 
 void BgBreakwall_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 s32 func_8000000C(s32 arg0, s32 arg1);
 s32 func_80000020(s32 arg0, s32 arg1);
-void func_80000064(s32 arg0, s32 arg1);
+s32 func_80000064(BgBreakwall *this, PlayState *play);
 s32 func_8000009C(s32 arg0, s32 arg1);
-void func_800000B0(void *arg0, s32 arg1);
+s32 func_800000B0(BgBreakwall *this, PlayState *play);
 s32 func_80000100(u8 *arg0, s32 arg1);
 s32 func_80000148(s32 arg0, s32 arg1);
 s32 func_80000178(s32 arg0, s32 arg1);
-void func_800001BC(s32 arg0, s32 arg1);
-void BgBreakwall_Init(void *arg0, s32 arg1);  /* 80000250 */
-void BgBreakwall_Destroy(void *arg0, s32 arg1);  /* 8000031C */
-void func_8000036C(void *arg0, s32 arg1);
+s32 func_800001BC(BgBreakwall *this, PlayState *play);
+void BgBreakwall_Init(Actor *thisx, PlayState *play);  /* 80000250 */
+void BgBreakwall_Destroy(Actor *thisx, PlayState *play);  /* 8000031C */
+void func_8000036C(BgBreakwall *this, PlayState *play);
 void func_80000470(s32 arg0, s32 arg1);
 void func_80000480(u8 *arg0, s32 arg1);
 void func_800004CC(u8 *arg0, s32 arg1);
 void func_80000544(void *a0, s32 a1);
 void func_8000057C(s32 arg0, s32 arg1);
-void func_800005B4(s32 arg0, s32 arg1);
+void func_800005B4(BgBreakwall *this, PlayState *play);
 void func_800006B0(u8 *arg0, s32 arg1);
-void func_80000730(s32 arg0, void *arg1);
-void func_800007F4(s32 arg0, s32 arg1);
-void func_800009D4(s32 arg0, s32 arg1);
-void BgBreakwall_Draw(void *arg0, void *arg1);  /* 80000C84 */
+void func_80000730(Actor *thisx, PlayState *play);
+void func_800007F4(Actor *thisx, PlayState *play);
+void func_800009D4(Actor *thisx, PlayState *play);
+void BgBreakwall_Draw(Actor *thisx, PlayState *play);  /* 80000C84 */
 
 #endif

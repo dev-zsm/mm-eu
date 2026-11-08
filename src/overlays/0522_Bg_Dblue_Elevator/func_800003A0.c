@@ -5,8 +5,8 @@
 
 s32 func_800B5B20(M2C_UNK, s32, u8 *, M2C_UNK);   /* extern */
 
-s32 BgDblueElevator_GetWaterFlowFromCeiling(u8 *arg0, M2C_UNK arg1) {
-    if (func_800B5B20(arg1, M2C_FIELD(arg0, s16 *, 0x1C) & 0x7F, arg0, arg1) != 0) {
+s32 BgDblueElevator_GetWaterFlowFromCeiling(BgDblueElevator *this, PlayState *play) {
+    if (func_800B5B20(play, M2C_FIELD(this, s16 *, 0x1C) & 0x7F, this, play) != 0) {
         return 0;
     }
     return 1;

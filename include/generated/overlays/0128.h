@@ -4,19 +4,23 @@
 #define GENERATED_OVERLAYS_0128_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBomChu EnBomChu;
 
-void EnBomChu_UpdateFloorPoly(void *arg0, void *arg1, s32 arg2);  /* 80000120 */
-void EnBomChu_UpdateRotation(void *arg0);  /* 80000334 */
-void EnBomChu_WaitForRelease(void *arg0, void *arg1);  /* 800003B8 */
-void EnBomChu_IsOnCollisionPoly(s32 arg0);  /* 80000494 */
-void EnBomChu_SetupMove(void *arg0);  /* 80000524 */
-void EnBomChu_Move(void *arg0, s32 arg1);  /* 800005D4 */
-void EnBomChu_Explode(void *arg0, s32 arg1);  /* 800009C4 */
-void EnBomChu_WaitForDeath(u8 *arg0, s32 arg1);  /* 80000AF0 */
-void EnBomChu_ActorCoordsToWorld(void *arg0, void *arg1, void *arg2);  /* 80000B20 */
-void EnBomChu_SpawnRipplesAndSplashes(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000BD0 */
-void EnBomChu_HandleNonSceneCollision(void *arg0, s32 arg1);  /* 80000CDC */
-void EnBomChu_Update(void *arg0, s32 arg1);  /* 80000F08 */
-void EnBomChu_Draw(void *arg0, s32 arg1);  /* 80001264 */
+void EnBomChu_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnBomChu_Destroy(Actor *thisx, PlayState *play);  /* 800000D0 */
+s32 EnBomChu_UpdateFloorPoly(EnBomChu *this, void *floorPoly, PlayState *play);  /* 80000120 */
+void EnBomChu_UpdateRotation(EnBomChu *this);  /* 80000334 */
+void EnBomChu_WaitForRelease(EnBomChu *this, PlayState *play);  /* 800003B8 */
+s32 EnBomChu_IsOnCollisionPoly(PlayState *play, Vec3f *posA, Vec3f *posB, Vec3f *posResult, void *poly, s32 *bgId);  /* 80000494 */
+void EnBomChu_SetupMove(EnBomChu *this);  /* 80000524 */
+void EnBomChu_Move(EnBomChu *this, PlayState *play);  /* 800005D4 */
+void EnBomChu_Explode(EnBomChu *this, PlayState *play);  /* 800009C4 */
+void EnBomChu_WaitForDeath(EnBomChu *this, PlayState *play);  /* 80000AF0 */
+void EnBomChu_ActorCoordsToWorld(EnBomChu *this, Vec3f *offset, Vec3f *pos);  /* 80000B20 */
+void EnBomChu_SpawnRipplesAndSplashes(EnBomChu *this, PlayState *play, f32 y, s32 spawnExtraRipples);  /* 80000BD0 */
+void EnBomChu_HandleNonSceneCollision(EnBomChu *this, PlayState *play);  /* 80000CDC */
+void EnBomChu_Update(Actor *thisx, PlayState *play);  /* 80000F08 */
+void EnBomChu_Draw(Actor *thisx, PlayState *play);  /* 80001264 */
 
 #endif

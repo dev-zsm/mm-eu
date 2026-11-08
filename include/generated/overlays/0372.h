@@ -4,9 +4,13 @@
 #define GENERATED_OVERLAYS_0372_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTest5 EnTest5;
 
 void EnTest5_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void EnTest5_HandleBottleAction(void *arg0, s32 arg1);  /* 800000C8 */
-void EnTest5_Update(void *arg0, void *arg1);  /* 800001F4 */
+void EnTest5_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void EnTest5_Destroy(Actor *thisx, PlayState *play);  /* 800000B8 */
+void EnTest5_HandleBottleAction(EnTest5 *this, PlayState *play);  /* 800000C8 */
+void EnTest5_Update(Actor *thisx, PlayState *play);  /* 800001F4 */
 
 #endif

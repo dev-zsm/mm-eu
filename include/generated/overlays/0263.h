@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0263_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBu EnBu;
 
-void EnBu_DoNothing(s32 arg0, s32 arg1);  /* 80000028 */
-void EnBu_Draw(void *arg0, s32 arg1);  /* 80000070 */
+void EnBu_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnBu_Destroy(Actor *thisx, PlayState *play);  /* 80000018 */
+void EnBu_DoNothing(EnBu *this, PlayState *play);  /* 80000028 */
+void EnBu_Draw(Actor *thisx, PlayState *play);  /* 80000070 */
 
 #endif

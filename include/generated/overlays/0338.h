@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0338_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgLadder BgLadder;
 
-void BgLadder_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgLadder_Wait(u8 *arg0, s32 arg1);  /* 80000198 */
-void BgLadder_StartCutscene(void *arg0, s32 arg1);  /* 800001E8 */
-void BgLadder_FadeIn(void *arg0, s32 arg1);  /* 80000258 */
-void BgLadder_DoNothing(s32 arg0, s32 arg1);  /* 800002DC */
-void BgLadder_Draw(s32 arg0, s32 arg1);  /* 80000310 */
+void BgLadder_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgLadder_Destroy(Actor *thisx, PlayState *play);  /* 80000164 */
+void BgLadder_Wait(BgLadder *this, PlayState *play);  /* 80000198 */
+void BgLadder_StartCutscene(BgLadder *this, PlayState *play);  /* 800001E8 */
+void BgLadder_FadeIn(BgLadder *this, PlayState *play);  /* 80000258 */
+void BgLadder_DoNothing(BgLadder *this, PlayState *play);  /* 800002DC */
+void BgLadder_Update(Actor *thisx);  /* 800002EC */
+void BgLadder_Draw(Actor *thisx, PlayState *play);  /* 80000310 */
 
 #endif

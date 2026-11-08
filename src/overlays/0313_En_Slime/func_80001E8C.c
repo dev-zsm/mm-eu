@@ -5,13 +5,13 @@
 
 M2C_UNK func_80A15998();                            /* extern */
 
-void EnSlime_WaitForRevive(u8 *arg0, M2C_UNK arg1) {
+void EnSlime_WaitForRevive(EnSlime *this, PlayState *play) {
     s16 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s16 *, 0x14C);
+    temp_v0 = M2C_FIELD(this, s16 *, 0x14C);
     if (temp_v0 == 0) {
         func_80A15998();
         return;
     }
-    M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (temp_v0 - 1);
+    M2C_FIELD(this, s16 *, 0x14C) = (s16) (temp_v0 - 1);
 }

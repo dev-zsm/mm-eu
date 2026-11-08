@@ -4,9 +4,13 @@
 #define GENERATED_OVERLAYS_0458_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgTobira01 BgTobira01;
 
-void BgTobira01_Action(void *arg0, s32 arg1);  /* 80000000 */
-void BgTobira01_Init(void *arg0, s32 arg1);  /* 8000025C */
-void BgTobira01_Draw(s32 arg0, s32 arg1);  /* 80000338 */
+void BgTobira01_Action(BgTobira01 *this, PlayState *play);  /* 80000000 */
+void BgTobira01_Init(Actor *thisx, PlayState *play);  /* 8000025C */
+void BgTobira01_Destroy(Actor *thisx, PlayState *play);  /* 800002E0 */
+void BgTobira01_Update(Actor *thisx);  /* 80000314 */
+void BgTobira01_Draw(Actor *thisx, PlayState *play);  /* 80000338 */
 
 #endif

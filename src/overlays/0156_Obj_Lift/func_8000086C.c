@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0156.h"
 
 void ObjLift_Update(Actor *thisx) {
     s16 temp_v0;

@@ -5,13 +5,13 @@
 
 M2C_UNK func_8019FF78(M2C_UNK);                     /* extern */
 
-void EnTest6_SetupInvertedSoTCutscene(u8 *arg0, M2C_UNK arg1) {
+void EnTest6_SetupInvertedSoTCutscene(EnTest6 *this, PlayState *play) {
     s16 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s16 *, 0x1C);
-    M2C_FIELD(arg0, s16 *, 0x274) = 0x5A;
-    M2C_FIELD(arg0, s16 *, 0x27A) = 0x64;
-    M2C_FIELD(arg0, s16 *, 0x286) = 0;
+    temp_v0 = M2C_FIELD(this, s16 *, 0x1C);
+    M2C_FIELD(this, s16 *, 0x274) = 0x5A;
+    M2C_FIELD(this, s16 *, 0x27A) = 0x64;
+    M2C_FIELD(this, s16 *, 0x286) = 0;
     if (temp_v0 == 0x19) {
         func_8019FF78(0x485D);
         return;

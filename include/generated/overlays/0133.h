@@ -4,13 +4,18 @@
 #define GENERATED_OVERLAYS_0133_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffDust EffDust;
 
-void func_80000000(void *arg0);
-void EffDust_Init(void *arg0, s32 arg1);  /* 80000078 */
-void func_80000224(void *arg0, s32 arg1);
-void func_800004A4(void *arg0, s32 arg1);
-void func_800006F0(void *arg0, void *arg1);
-void func_80000C28(void *arg0, void *arg1);
-void func_80000EBC(void *arg0, void *arg1);
+void func_80000000(EffDust *this);
+void EffDust_Init(Actor *thisx, PlayState *play);  /* 80000078 */
+void EffDust_Destroy(Actor *thisx, PlayState *play);  /* 80000214 */
+void func_80000224(EffDust *this, PlayState *play);
+void func_800004A4(EffDust *this, PlayState *play);
+void func_800006F0(EffDust *this, PlayState *play);
+void EffDust_Update(Actor *thisx);  /* 80000C04 */
+void func_80000C28(Actor *thisx, PlayState *play2);
+void func_80000EBC(Actor *thisx, PlayState *play2);
+void EffDust_Draw(Actor *thisx);  /* 80001228 */
 
 #endif

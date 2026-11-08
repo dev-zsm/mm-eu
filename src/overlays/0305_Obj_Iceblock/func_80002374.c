@@ -3,9 +3,9 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0305.h"
 
-void func_80002374(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x270) = 0;
-    M2C_FIELD(arg0, s16 *, 0x272) = 0;
-    M2C_FIELD(arg0, s16 *, 0x274) = 0;
-    M2C_FIELD(arg0, s16 *, 0x26E) = 0;
+void func_80002374(ObjIceblock *this) {
+    M2C_FIELD(this, s16 *, 0x270) = 0;
+    M2C_FIELD(this, s16 *, 0x272) = 0;
+    M2C_FIELD(this, s16 *, 0x274) = 0;
+    M2C_FIELD(this, s16 *, 0x26E) = 0;
 }

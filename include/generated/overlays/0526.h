@@ -4,7 +4,12 @@
 #define GENERATED_OVERLAYS_0526_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjJgGakki ObjJgGakki;
 
-void ObjJgGakki_Init(s32 arg0, void *arg1);  /* 80000000 */
+void ObjJgGakki_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjJgGakki_Destroy(Actor *thisx, PlayState *play);  /* 80000140 */
+void ObjJgGakki_Update(Actor *thisx, PlayState *play);  /* 8000016C */
+void ObjJgGakki_Draw(Actor *thisx, PlayState *play);  /* 80000198 */
 
 #endif

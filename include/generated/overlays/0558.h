@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0558_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgF40Switch BgF40Switch;
 
-void BgF40Switch_CheckAll(void *arg0, void *arg1);  /* 80000000 */
-void BgF40Switch_Init(s32 arg0, s32 arg1);  /* 8000028C */
-void BgF40Switch_Unpress(void *arg0, s32 arg1);  /* 80000370 */
-void BgF40Switch_IdlePressed(u8 *arg0, s32 arg1);  /* 800003E4 */
-void BgF40Switch_Press(void *arg0, s32 arg1);  /* 80000408 */
-void BgF40Switch_WaitToPress(void *arg0, s32 arg1);  /* 800004B8 */
-void BgF40Switch_IdleUnpressed(u8 *arg0, s32 arg1);  /* 80000580 */
+void BgF40Switch_CheckAll(BgF40Switch *this, PlayState *play);  /* 80000000 */
+void BgF40Switch_Init(Actor *thisx, PlayState *play);  /* 8000028C */
+void BgF40Switch_Destroy(Actor *thisx, PlayState *play);  /* 8000033C */
+void BgF40Switch_Unpress(BgF40Switch *this, PlayState *play);  /* 80000370 */
+void BgF40Switch_IdlePressed(BgF40Switch *this, PlayState *play);  /* 800003E4 */
+void BgF40Switch_Press(BgF40Switch *this, PlayState *play);  /* 80000408 */
+void BgF40Switch_WaitToPress(BgF40Switch *this, PlayState *play);  /* 800004B8 */
+void BgF40Switch_IdleUnpressed(BgF40Switch *this, PlayState *play);  /* 80000580 */
+void BgF40Switch_Draw(Actor *thisx, PlayState *play);  /* 800005E0 */
 
 #endif

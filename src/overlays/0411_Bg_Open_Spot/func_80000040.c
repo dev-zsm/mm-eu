@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0411.h"
 
 void BgOpenSpot_Destroy(Actor *thisx, PlayState *play) {
 

@@ -4,23 +4,27 @@
 #define GENERATED_OVERLAYS_0369_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjPurify ObjPurify;
 
-void ObjPurify_SetSysMatrix(f32 arg0);  /* 80000000 */
-void ObjPurify_IsPurified(void *arg0);  /* 80000028 */
-void ObjPurify_Init(void *arg0, s32 arg1);  /* 80000098 */
-void func_800001DC(u8 *arg0);
-void func_800001F0(void *arg0, s32 arg1);
-void func_800002D0(u8 *arg0);
+void ObjPurify_SetSysMatrix(f32 yPos);  /* 80000000 */
+s32 ObjPurify_IsPurified(ObjPurify *this);  /* 80000028 */
+void ObjPurify_Init(Actor *thisx, PlayState *play);  /* 80000098 */
+void ObjPurify_Destroy(Actor *thisx, PlayState *play);  /* 80000198 */
+void func_800001DC(ObjPurify *this);
+void func_800001F0(ObjPurify *this, PlayState *play);
+void func_800002D0(ObjPurify *this);
 void func_800002E4(s32 arg0, s32 arg1);
-void func_8000031C(u8 *arg0);
+void func_8000031C(ObjPurify *this);
 void func_80000340(s32 arg0, s32 arg1);
 void func_80000378(u8 *arg0);
 void func_800003A4(u8 *arg0, s32 arg1);
 void func_800003E0(u8 *arg0);
 void func_80000418(u8 *arg0, s32 arg1);
 void func_8000048C(u8 *arg0);
-void ObjPurify_DoNothing(s32 arg0, s32 arg1);  /* 800004C4 */
-void func_800004F8(void *arg0, void *arg1);
-void func_80000634(void *arg0, void *arg1);
+void ObjPurify_DoNothing(ObjPurify *this, PlayState *play);  /* 800004C4 */
+void ObjPurify_Update(Actor *thisx);  /* 800004D4 */
+void func_800004F8(Actor *thisx, PlayState *play);
+void func_80000634(Actor *thisx, PlayState *play);
 
 #endif

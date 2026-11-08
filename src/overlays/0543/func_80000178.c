@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0543.h"
 u8 *func_80000178(u8 *a, s16 b) {
     u8 *p;
 

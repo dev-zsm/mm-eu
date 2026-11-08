@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0579.h"
 
-void BgIknvDoukutu_DoNothing(s32 arg0, M2C_UNK arg1) {
+void BgIknvDoukutu_DoNothing(BgIknvDoukutu *this, PlayState *play) {
 
 }

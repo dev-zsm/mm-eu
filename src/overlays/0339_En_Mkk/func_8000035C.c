@@ -9,13 +9,13 @@ extern M2C_UNK D_80A344E0;
 extern M2C_UNK D_80A344E4;
 extern M2C_UNK D_80A344E8;
 
-void func_8000035C(u8 *arg0, s32 arg1) {
+void func_8000035C(EnMkk *this, PlayState *play) {
     f32 sp34;
     f32 sp30;
     f32 sp2C;
 
-    sp2C = M2C_FIELD(arg0, f32 *, 0x24);
-    sp30 = M2C_FIELD(arg0, f32 *, 0x28) + 15.0f;
-    sp34 = M2C_FIELD(arg0, f32 *, 0x2C);
-    func_800B1300(arg1, &sp2C, &D_801C9EE0, &D_80A344E8, &D_80A344E0, &D_80A344E4, 0x15E, 0x14);
+    sp2C = M2C_FIELD(this, f32 *, 0x24);
+    sp30 = M2C_FIELD(this, f32 *, 0x28) + 15.0f;
+    sp34 = M2C_FIELD(this, f32 *, 0x2C);
+    func_800B1300(play, &sp2C, &D_801C9EE0, &D_80A344E8, &D_80A344E0, &D_80A344E4, 0x15E, 0x14);
 }

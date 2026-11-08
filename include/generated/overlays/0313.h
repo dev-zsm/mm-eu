@@ -4,45 +4,48 @@
 #define GENERATED_OVERLAYS_0313_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnSlime EnSlime;
 
-void EnSlime_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnSlime_Freeze(void *arg0);  /* 8000020C */
-void EnSlime_Thaw(void *arg0, s32 arg1);  /* 80000288 */
-void EnSlime_Blink(void *arg0);  /* 80000308 */
-void EnSlime_SetupInitializeIdle(void *arg0);  /* 80000370 */
-void EnSlime_InitializeIdle(u8 *arg0, s32 arg1);  /* 800003A0 */
-void EnSlime_SetupIdle(u8 *arg0);  /* 800003E0 */
-void EnSlime_Idle(void *arg0, s32 arg1);  /* 80000404 */
-void EnSlime_SetupMoveInDirection(void *arg0);  /* 800005B4 */
-void EnSlime_MoveInDirection(void *arg0, s32 arg1);  /* 80000678 */
-void EnSlime_SetupMoveToHome(void *arg0);  /* 800008E4 */
-void EnSlime_MoveToHome(void *arg0, s32 arg1);  /* 8000092C */
-void EnSlime_SetupTurnToPlayer(u8 *arg0);  /* 80000B14 */
-void EnSlime_TurnToPlayer(void *arg0, s32 arg1);  /* 80000B40 */
-void EnSlime_SetupJump(void *arg0);  /* 80000C00 */
-void EnSlime_Jump(void *arg0, s32 arg1);  /* 80000CE8 */
-void EnSlime_SetupLand(void *arg0);  /* 80000DC0 */
-void EnSlime_Land(void *arg0, s32 arg1);  /* 80000E00 */
-void EnSlime_SetupReactToBluntHit(void *arg0);  /* 80000FF4 */
-void EnSlime_ReactToBluntHit(void *arg0, s32 arg1);  /* 80001098 */
-void EnSlime_SetupDamaged(void *arg0, s32 arg1, s32 arg2);  /* 80001278 */
-void EnSlime_Damaged(void *arg0, s32 arg1);  /* 800015A4 */
-void EnSlime_SetupDead(void *arg0);  /* 800016B4 */
-void EnSlime_Dead(void *arg0, s32 arg1);  /* 80001718 */
-void EnSlime_SnapIceBlockPosition(f32 arg0);  /* 8000198C */
-void EnSlime_SetupSpawnIceBlock(void *arg0);  /* 800019D8 */
-void EnSlime_SpawnIceBlock(void *arg0, s32 arg1);  /* 80001A80 */
-void EnSlime_IceBlock(void *arg0, s32 arg1);  /* 80001BA4 */
-void EnSlime_SetupStun(void *arg0);  /* 80001C28 */
-void EnSlime_Stun(void *arg0, s32 arg1);  /* 80001C80 */
-void EnSlime_SetupIceBlockThaw(void *arg0);  /* 80001CF0 */
-void EnSlime_IceBlockThaw(void *arg0, s32 arg1);  /* 80001D44 */
-void EnSlime_SetupWaitForRevive(void *arg0);  /* 80001E40 */
-void EnSlime_WaitForRevive(u8 *arg0, s32 arg1);  /* 80001E8C */
-void EnSlime_SetupRevive(void *arg0);  /* 80001EC8 */
-void EnSlime_Revive(void *arg0, s32 arg1);  /* 80001F4C */
-void EnSlime_UpdateDamage(void *arg0, s32 arg1);  /* 800021F8 */
-void EnSlime_Update(void *arg0, void *arg1);  /* 80002448 */
-void EnSlime_Draw(void *arg0, s32 arg1);  /* 800026EC */
+void EnSlime_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnSlime_Destroy(Actor *thisx, PlayState *play);  /* 800001E0 */
+void EnSlime_Freeze(EnSlime *this);  /* 8000020C */
+void EnSlime_Thaw(EnSlime *this, PlayState *play);  /* 80000288 */
+void EnSlime_Blink(EnSlime *this);  /* 80000308 */
+void EnSlime_SetupInitializeIdle(EnSlime *this);  /* 80000370 */
+void EnSlime_InitializeIdle(EnSlime *this, PlayState *play);  /* 800003A0 */
+void EnSlime_SetupIdle(EnSlime *this);  /* 800003E0 */
+void EnSlime_Idle(EnSlime *this, PlayState *play);  /* 80000404 */
+void EnSlime_SetupMoveInDirection(EnSlime *this);  /* 800005B4 */
+void EnSlime_MoveInDirection(EnSlime *this, PlayState *play);  /* 80000678 */
+void EnSlime_SetupMoveToHome(EnSlime *this);  /* 800008E4 */
+void EnSlime_MoveToHome(EnSlime *this, PlayState *play);  /* 8000092C */
+void EnSlime_SetupTurnToPlayer(EnSlime *this);  /* 80000B14 */
+void EnSlime_TurnToPlayer(EnSlime *this, PlayState *play);  /* 80000B40 */
+void EnSlime_SetupJump(EnSlime *this);  /* 80000C00 */
+void EnSlime_Jump(EnSlime *this, PlayState *play);  /* 80000CE8 */
+void EnSlime_SetupLand(EnSlime *this);  /* 80000DC0 */
+void EnSlime_Land(EnSlime *this, PlayState *play);  /* 80000E00 */
+void EnSlime_SetupReactToBluntHit(EnSlime *this);  /* 80000FF4 */
+void EnSlime_ReactToBluntHit(EnSlime *this, PlayState *play);  /* 80001098 */
+void EnSlime_SetupDamaged(EnSlime *this, PlayState *play, s32 arg2);  /* 80001278 */
+void EnSlime_Damaged(EnSlime *this, PlayState *play);  /* 800015A4 */
+void EnSlime_SetupDead(EnSlime *this);  /* 800016B4 */
+void EnSlime_Dead(EnSlime *this, PlayState *play);  /* 80001718 */
+f32 EnSlime_SnapIceBlockPosition(f32 currentPosition, f32 homePosition);  /* 8000198C */
+void EnSlime_SetupSpawnIceBlock(EnSlime *this);  /* 800019D8 */
+void EnSlime_SpawnIceBlock(EnSlime *this, PlayState *play);  /* 80001A80 */
+void EnSlime_IceBlock(EnSlime *this, PlayState *play);  /* 80001BA4 */
+void EnSlime_SetupStun(EnSlime *this);  /* 80001C28 */
+void EnSlime_Stun(EnSlime *this, PlayState *play);  /* 80001C80 */
+void EnSlime_SetupIceBlockThaw(EnSlime *this);  /* 80001CF0 */
+void EnSlime_IceBlockThaw(EnSlime *this, PlayState *play);  /* 80001D44 */
+void EnSlime_SetupWaitForRevive(EnSlime *this);  /* 80001E40 */
+void EnSlime_WaitForRevive(EnSlime *this, PlayState *play);  /* 80001E8C */
+void EnSlime_SetupRevive(EnSlime *this);  /* 80001EC8 */
+void EnSlime_Revive(EnSlime *this, PlayState *play);  /* 80001F4C */
+void EnSlime_UpdateDamage(EnSlime *this, PlayState *play);  /* 800021F8 */
+void EnSlime_Update(Actor *thisx, PlayState *play);  /* 80002448 */
+void EnSlime_Draw(Actor *thisx, PlayState *play);  /* 800026EC */
 
 #endif

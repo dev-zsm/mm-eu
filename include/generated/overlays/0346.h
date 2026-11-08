@@ -4,23 +4,27 @@
 #define GENERATED_OVERLAYS_0346_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHugebombiwa ObjHugebombiwa;
 
-void func_80000000(s32 arg0, void *arg1);
-void func_80000280(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_80000614(void *arg0, s32 arg1);
+void func_80000000(PlayState *play, Vec3f *arg1);
+void func_80000280(PlayState *play, Vec3f *arg1, f32 arg2, f32 arg3);
+void func_80000614(ObjHugebombiwa *this, PlayState *play);
 void func_80000A20(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void ObjHugebombiwa_RequestQuakeAndRumble(s32 arg0, void *arg1, s32 arg2);  /* 80000DA0 */
-void func_80000E2C(void *arg0);
-void ObjHugebombiwa_Init(void *arg0, s32 arg1);  /* 80000EE0 */
+void ObjHugebombiwa_RequestQuakeAndRumble(ObjHugebombiwa *this, PlayState *play, s32 quakeVerticalMag);  /* 80000DA0 */
+s32 func_80000E2C(ObjHugebombiwa *this);
+void ObjHugebombiwa_Init(Actor *thisx, PlayState *play);  /* 80000EE0 */
+void ObjHugebombiwa_Destroy(Actor *thisx, PlayState *play);  /* 80000FE4 */
 void func_80001010(u8 *arg0);
-void func_80001024(void *arg0, s32 arg1);
+void func_80001024(ObjHugebombiwa *this, PlayState *play);
 void func_800010F8(u8 *arg0);
-void func_8000110C(void *arg0, s32 arg1);
-void func_80001230(void *arg0);
-void func_80001484(void *arg0, s32 arg1);
-void func_80001730(void *arg0);
-void func_80001984(void *arg0, s32 arg1);
-void ObjHugebombiwa_Draw(void *arg0, void *arg1);  /* 80001C40 */
-void func_80001F54(void *arg0, void *arg1);
+void func_8000110C(ObjHugebombiwa *this, PlayState *play);
+void func_80001230(ObjHugebombiwa *this);
+void func_80001484(ObjHugebombiwa *this, PlayState *play);
+void func_80001730(ObjHugebombiwa *this);
+void func_80001984(ObjHugebombiwa *this, PlayState *play);
+void ObjHugebombiwa_Update(Actor *thisx);  /* 80001C1C */
+void ObjHugebombiwa_Draw(Actor *thisx, PlayState *play);  /* 80001C40 */
+void func_80001F54(Actor *thisx, PlayState *play);
 
 #endif

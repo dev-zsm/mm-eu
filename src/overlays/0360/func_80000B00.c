@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0360.h"
 extern struct { u8 pad0[0xF37]; u8 fF37; } D_801E6EF0;
 extern u8 D_80A5495C[];
 void func_801A6A90(s32 a);

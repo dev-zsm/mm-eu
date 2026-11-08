@@ -4,51 +4,54 @@
 #define GENERATED_OVERLAYS_0368_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMine ObjMine;
 
-void ObjMine_Path_MoveToWaypoint(u8 *arg0, s32 arg1);  /* 80000000 */
-s32 ObjMine_GetUnitVec3f(u8 *arg0, u8 *arg1);  /* 8000003C */
-s32 ObjMine_GetUnitVec3fNorm(u8 *arg0, u8 *arg1, f32 *arg2, f32 *arg3);  /* 800000B8 */
-void ObjMine_Path_SpawnBomb(s32 arg0, s32 arg1);  /* 8000014C */
-void ObjMine_AirWater_SpawnBomb(s32 arg0, s32 arg1);  /* 800001B4 */
-s32 ObjMine_AirWater_CheckOC(u8 *arg0);  /* 8000023C */
-void ObjMine_Air_CheckAC(void *arg0, s32 arg1, s32 arg2);  /* 8000029C */
-void ObjMine_Water_CheckAC(void *arg0, s32 arg1);  /* 80000374 */
-void ObjMine_AirWater_Noop(s32 arg0);  /* 80000470 */
-void ObjMine_SetMatrixTranslation(u8 *arg0);  /* 8000047C */
-void ObjMine_SetMatrixRotation(s32 arg0);  /* 800004B4 */
-void ObjMine_StepUntilParallel(s32 arg0, s32 arg1, s32 arg2);  /* 80000544 */
-void ObjMine_UpdateCollider(u8 *arg0);  /* 80000648 */
-void ObjMine_Air_InitChain(void *arg0, s32 arg1);  /* 80000698 */
-void ObjMine_Air_InitCollider(u8 *arg0, s32 arg1);  /* 800007D4 */
-void ObjMine_Air_SetBasis(void *arg0);  /* 80000830 */
-void ObjMine_Air_SetWorld(void *arg0);  /* 800008D4 */
-void ObjMine_Air_SetChainXZ(void *arg0);  /* 80000944 */
-void ObjMine_Water_InitChain(void *arg0, s32 arg1);  /* 800009AC */
-void ObjMine_Water_InitCollider(u8 *arg0, s32 arg1);  /* 80000BA0 */
-void ObjMine_Water_SetWorld(void *arg0);  /* 80000C1C */
-void ObjMine_Water_WallCheck(void *arg0, s32 arg1);  /* 80000CAC */
-void ObjMine_Water_ApplyForces(void *arg0);  /* 80000E2C */
-void ObjMine_Water_UpdateLinks(void *arg0);  /* 800016D8 */
-void ObjMine_Water_UpdateChain(s32 arg0);  /* 80001A58 */
-void ObjMine_Init(void *arg0, s32 arg1);  /* 80001A8C */
-void ObjMine_Path_SetupStationary(u8 *arg0);  /* 80001DB4 */
-void ObjMine_Path_Stationary(s32 arg0, s32 arg1);  /* 80001DC8 */
-void ObjMine_Path_Move(void *arg0, s32 arg1);  /* 80001DF8 */
-void ObjMine_SetupExplode(void *arg0);  /* 80002044 */
-void ObjMine_Explode(void *arg0, s32 arg1);  /* 80002088 */
-void ObjMine_Air_SetupChained(u8 *arg0);  /* 800020EC */
-void ObjMine_Air_Chained(void *arg0, s32 arg1);  /* 80002100 */
-void ObjMine_Air_SetupStationary(u8 *arg0);  /* 800028A4 */
-void ObjMine_Air_Stationary(s32 arg0, s32 arg1);  /* 800028B8 */
-void ObjMine_Water_SetupChained(u8 *arg0);  /* 80002944 */
-void ObjMine_Water_Chained(void *arg0, s32 arg1);  /* 80002958 */
-void ObjMine_Water_SetupStationary(u8 *arg0);  /* 80002B1C */
-void ObjMine_Water_Stationary(s32 arg0, s32 arg1);  /* 80002B30 */
-void ObjMine_Path_Update(void *arg0, s32 arg1);  /* 80002BBC */
-void ObjMine_AirWater_Update(u8 *arg0);  /* 80002CAC */
-void ObjMine_Path_Draw(void *arg0, s32 arg1);  /* 80002CD0 */
-void ObjMine_DrawExplosion(s32 arg0, void *arg1);  /* 80002DEC */
-void ObjMine_Air_Draw(void *arg0, void *arg1);  /* 80002EB8 */
-void ObjMine_Water_Draw(void *arg0, void *arg1);  /* 80003168 */
+void ObjMine_Path_MoveToWaypoint(ObjMine *this, s32 index);  /* 80000000 */
+s32 ObjMine_GetUnitVec3f(Vec3f *src, Vec3f *dst);  /* 8000003C */
+s32 ObjMine_GetUnitVec3fNorm(Vec3f *src, Vec3f *dst, f32 *norm, f32 *invNorm);  /* 800000B8 */
+void ObjMine_Path_SpawnBomb(ObjMine *this, PlayState *play);  /* 8000014C */
+void ObjMine_AirWater_SpawnBomb(ObjMine *this, PlayState *play);  /* 800001B4 */
+s32 ObjMine_AirWater_CheckOC(ObjMine *this);  /* 8000023C */
+void ObjMine_Air_CheckAC(ObjMine *this, s16 *hitAngle, s16 *torqueAngle);  /* 8000029C */
+void ObjMine_Water_CheckAC(ObjMine *this, Vec3f *knockbackDir);  /* 80000374 */
+void ObjMine_AirWater_Noop(ObjMine *this);  /* 80000470 */
+void ObjMine_SetMatrixTranslation(Vec3f *translation);  /* 8000047C */
+void ObjMine_SetMatrixRotation(void *basis);  /* 800004B4 */
+s32 ObjMine_StepUntilParallel(Vec3f *value, Vec3f *target, f32 angleStep);  /* 80000544 */
+void ObjMine_UpdateCollider(ObjMine *this);  /* 80000648 */
+void ObjMine_Air_InitChain(ObjMine *this, s32 linkCount);  /* 80000698 */
+void ObjMine_Air_InitCollider(ObjMine *this, s32 linkCount);  /* 800007D4 */
+void ObjMine_Air_SetBasis(ObjMine *this);  /* 80000830 */
+void ObjMine_Air_SetWorld(ObjMine *this);  /* 800008D4 */
+void ObjMine_Air_SetChainXZ(ObjMine *this);  /* 80000944 */
+void ObjMine_Water_InitChain(ObjMine *this, s32 linkCount);  /* 800009AC */
+void ObjMine_Water_InitCollider(ObjMine *this, s32 linkCount);  /* 80000BA0 */
+void ObjMine_Water_SetWorld(ObjMine *this);  /* 80000C1C */
+void ObjMine_Water_WallCheck(ObjMine *this, PlayState *play);  /* 80000CAC */
+void ObjMine_Water_ApplyForces(ObjMine *this);  /* 80000E2C */
+void ObjMine_Water_UpdateLinks(ObjMine *this);  /* 800016D8 */
+void ObjMine_Water_UpdateChain(ObjMine *this);  /* 80001A58 */
+void ObjMine_Init(Actor *thisx, PlayState *play);  /* 80001A8C */
+void ObjMine_Destroy(Actor *thisx, PlayState *play);  /* 80001D88 */
+void ObjMine_Path_SetupStationary(ObjMine *this);  /* 80001DB4 */
+void ObjMine_Path_Stationary(ObjMine *this, PlayState *play);  /* 80001DC8 */
+void ObjMine_Path_Move(ObjMine *this, PlayState *play);  /* 80001DF8 */
+void ObjMine_SetupExplode(ObjMine *this);  /* 80002044 */
+void ObjMine_Explode(ObjMine *this, PlayState *play);  /* 80002088 */
+void ObjMine_Air_SetupChained(ObjMine *this);  /* 800020EC */
+void ObjMine_Air_Chained(ObjMine *this, PlayState *play);  /* 80002100 */
+void ObjMine_Air_SetupStationary(ObjMine *this);  /* 800028A4 */
+void ObjMine_Air_Stationary(ObjMine *this, PlayState *play);  /* 800028B8 */
+void ObjMine_Water_SetupChained(ObjMine *this);  /* 80002944 */
+void ObjMine_Water_Chained(ObjMine *this, PlayState *play);  /* 80002958 */
+void ObjMine_Water_SetupStationary(ObjMine *this);  /* 80002B1C */
+void ObjMine_Water_Stationary(ObjMine *this, PlayState *play);  /* 80002B30 */
+void ObjMine_Path_Update(Actor *thisx, PlayState *play);  /* 80002BBC */
+void ObjMine_AirWater_Update(Actor *thisx);  /* 80002CAC */
+void ObjMine_Path_Draw(Actor *thisx, PlayState *play);  /* 80002CD0 */
+void ObjMine_DrawExplosion(Actor *thisx, PlayState *play);  /* 80002DEC */
+void ObjMine_Air_Draw(Actor *thisx, PlayState *play);  /* 80002EB8 */
+void ObjMine_Water_Draw(Actor *thisx, PlayState *play);  /* 80003168 */
 
 #endif

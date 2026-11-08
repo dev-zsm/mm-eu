@@ -5,8 +5,8 @@
 
 s16 func_800F1E68(s16, u8 *);                     /* extern */
 
-void func_80000424(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x282) = (s16) M2C_FIELD(arg0, s8 *, 0x38);
-    M2C_FIELD(arg0, s16 *, 0x284) = func_800F1E68(M2C_FIELD(arg0, s16 *, 0x282), arg0);
-    M2C_FIELD(arg0, s16 *, 0x286) = func_800F1E68(M2C_FIELD(arg0, s16 *, 0x284), arg0);
+void func_80000424(Actor *thisx) {
+    M2C_FIELD(thisx, s16 *, 0x282) = (s16) M2C_FIELD(thisx, s8 *, 0x38);
+    M2C_FIELD(thisx, s16 *, 0x284) = func_800F1E68(M2C_FIELD(thisx, s16 *, 0x282), thisx);
+    M2C_FIELD(thisx, s16 *, 0x286) = func_800F1E68(M2C_FIELD(thisx, s16 *, 0x284), thisx);
 }

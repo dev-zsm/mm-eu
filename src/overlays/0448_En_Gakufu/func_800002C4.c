@@ -3,8 +3,8 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0448.h"
 
-s32 EnGakufu_IsPlayerInRange(u8 *arg0, M2C_UNK arg1) {
-    if (M2C_FIELD(arg0, f32 *, 0x98) < 600.0f) {
+s32 EnGakufu_IsPlayerInRange(EnGakufu *this, PlayState *play) {
+    if (M2C_FIELD(this, f32 *, 0x98) < 600.0f) {
         return 1;
     }
     return 0;

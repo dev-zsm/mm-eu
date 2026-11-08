@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80A556AC;
 
-void func_80000280(u8 *arg0, M2C_UNK arg1) {
+void func_80000280(u8 *arg0, PlayState *play) {
     M2C_FIELD(arg0, f32 *, 0x164) = 0.0f;
     M2C_FIELD(arg0, f32 *, 0x160) = 0.0f;
     M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80A556AC;

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0186.h"
 
-void EnMag_Destroy(s32 arg0, M2C_UNK arg1) {
+void EnMag_Destroy(Actor *thisx, PlayState *play) {
 
 }

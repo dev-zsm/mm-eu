@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "actor.h"
+#include "generated/overlays/0129.h"
 extern void (*D_808F931C[])(void);
 void func_80001024(Actor *thisx) {
     void (*f)(void);

@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0638.h"
 
-void DemoMoonend_DoNothing(s32 arg0, M2C_UNK arg1) {
+void DemoMoonend_DoNothing(DemoMoonend *this, PlayState *play) {
 
 }

@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0479.h"
 
 void func_80000C74(Actor *thisx) {
     M2C_FIELD(thisx, M2C_UNK (**)(), 0x288)();

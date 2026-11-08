@@ -4,6 +4,12 @@
 #define GENERATED_OVERLAYS_0336_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmStatue DmStatue;
 
+void DmStatue_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DmStatue_Destroy(Actor *thisx, PlayState *play);  /* 80000024 */
+void DmStatue_Update(Actor *thisx, PlayState *play);  /* 80000034 */
+void DmStatue_Draw(Actor *thisx, PlayState *play);  /* 80000044 */
 
 #endif

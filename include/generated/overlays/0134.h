@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0134_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgUmajump BgUmajump;
 
-void func_80000000(void *arg0, s32 arg1);
-void BgUmajump_StopCutscene(u8 *arg0, u8 *arg1);  /* 80000098 */
-void BgUmajump_PlayCutscene(u8 *arg0, s32 arg1);  /* 80000114 */
-void BgUmajump_CheckDistance(void *arg0, void *arg1);  /* 80000188 */
-void BgUmajump_Init(void *arg0, s32 arg1);  /* 800001F4 */
-void BgUmajump_Update(void *arg0, s32 arg1);  /* 800003DC */
-void func_80000670(void *arg0, s32 arg1);
-void BgUmajump_Draw(void *arg0, s32 arg1);  /* 80000880 */
+void func_80000000(BgUmajump *this, PlayState *play);
+void BgUmajump_StopCutscene(BgUmajump *this, PlayState *play);  /* 80000098 */
+void BgUmajump_PlayCutscene(BgUmajump *this, PlayState *play);  /* 80000114 */
+void BgUmajump_CheckDistance(BgUmajump *this, PlayState *play);  /* 80000188 */
+void BgUmajump_Init(Actor *thisx, PlayState *play);  /* 800001F4 */
+void BgUmajump_Destroy(Actor *thisx, PlayState *play);  /* 800003A8 */
+void BgUmajump_Update(Actor *thisx, PlayState *play);  /* 800003DC */
+void func_80000670(Actor *thisx, PlayState *play);
+void BgUmajump_Draw(Actor *thisx, PlayState *play);  /* 80000880 */
 
 #endif

@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0644_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnFall2 EnFall2;
 
-void EnFall2_Init(void *arg0, s32 arg1);  /* 80000000 */
+void EnFall2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnFall2_Destroy(Actor *thisx, PlayState *play);  /* 800000B8 */
 void func_800000E4(f32 arg0);
-void EnFall2_DoNothing(s32 arg0, s32 arg1);  /* 80000264 */
-void func_800002B0(void *arg0);
-void EnFall2_HandleCutscene(void *arg0, s32 arg1);  /* 80000394 */
-void EnFall2_Draw(s32 arg0, void *arg1);  /* 800004AC */
+void EnFall2_DoNothing(EnFall2 *this, PlayState *play);  /* 80000264 */
+void func_800002B0(EnFall2 *this);
+void EnFall2_HandleCutscene(EnFall2 *this, PlayState *play);  /* 80000394 */
+void EnFall2_Update(Actor *thisx);  /* 80000488 */
+void EnFall2_Draw(Actor *thisx, PlayState *play);  /* 800004AC */
 
 #endif

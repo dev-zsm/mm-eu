@@ -4,14 +4,20 @@
 #define GENERATED_OVERLAYS_0576_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakaBombwall BgHakaBombwall;
 
 s32 func_80000000(u8 *arg0);
 void func_8000006C(void *arg0, s32 arg1);
+void BgHakaBombwall_Init(Actor *thisx, PlayState *play);  /* 80000360 */
+void BgHakaBombwall_Destroy(Actor *thisx, PlayState *play);  /* 80000418 */
 void func_80000460(u8 *arg0);
-void func_80000474(s32 arg0, s32 arg1);
-void BgHakaBombwall_SetupPlayCutscene(u8 *arg0);  /* 800004D0 */
-void BgHakaBombwall_PlayCutscene(void *arg0, s32 arg1);  /* 80000514 */
-void BgHakaBombwall_SetupEndCutscene(u8 *arg0);  /* 800005B4 */
-void BgHakaBombwall_EndCutscene(u8 *arg0, s32 arg1);  /* 800005D0 */
+void func_80000474(BgHakaBombwall *this, PlayState *play);
+void BgHakaBombwall_SetupPlayCutscene(BgHakaBombwall *this);  /* 800004D0 */
+void BgHakaBombwall_PlayCutscene(BgHakaBombwall *this, PlayState *play);  /* 80000514 */
+void BgHakaBombwall_SetupEndCutscene(BgHakaBombwall *this);  /* 800005B4 */
+void BgHakaBombwall_EndCutscene(BgHakaBombwall *this, PlayState *play);  /* 800005D0 */
+void BgHakaBombwall_Update(Actor *thisx);  /* 80000620 */
+void BgHakaBombwall_Draw(Actor *thisx, PlayState *play);  /* 80000644 */
 
 #endif

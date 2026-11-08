@@ -4,16 +4,18 @@
 #define GENERATED_OVERLAYS_0404_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct TransitionWipe3 TransitionWipe3;
 
-void TransitionWipe3_Start(void *arg0);  /* 80000000 */
-s32 TransitionWipe3_Init(s32 arg0);  /* 8000013C */
-void TransitionWipe3_Destroy(s32 arg0);  /* 80000168 */
-void TransitionWipe3_UpdateScrollY(u8 *arg0, f32 arg1);  /* 80000174 */
-void TransitionWipe3_Update(void *arg0, s32 arg1);  /* 800001A0 */
-void TransitionWipe3_Draw(void *arg0, s32 arg1);  /* 800002B8 */
-u8 TransitionWipe3_IsDone(u8 *arg0);  /* 800004A4 */
-void TransitionWipe3_SetType(void *arg0, s32 arg1);  /* 800004B0 */
+void TransitionWipe3_Start(void *thisx);  /* 80000000 */
+void *TransitionWipe3_Init(void *thisx);  /* 8000013C */
+void TransitionWipe3_Destroy(void *thisx);  /* 80000168 */
+void TransitionWipe3_UpdateScrollY(void *thisx, f32 scroll);  /* 80000174 */
+void TransitionWipe3_Update(void *thisx, s32 updateRate);  /* 800001A0 */
+void TransitionWipe3_Draw(void *thisx, void *gfxP);  /* 800002B8 */
+s32 TransitionWipe3_IsDone(void *thisx);  /* 800004A4 */
+void TransitionWipe3_SetType(void *thisx, s32 type);  /* 800004B0 */
 void TransitionWipe3_SetColor(s32 *arg0, s32 arg1);  /* 800004FC */
-void TransitionWipe3_SetEnvColor(u8 *arg0, s32 arg1);  /* 80000508 */
+void TransitionWipe3_SetEnvColor(void *thisx, u32 color);  /* 80000508 */
 
 #endif

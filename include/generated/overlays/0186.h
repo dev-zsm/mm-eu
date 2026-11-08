@@ -4,17 +4,19 @@
 #define GENERATED_OVERLAYS_0186_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnMag EnMag;
 
-void EnMag_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void EnMag_Destroy(s32 arg0, s32 arg1);  /* 800002E4 */
-void EnMag_UpdateDisplayEffectColors(s32 arg0);  /* 800002F4 */
+void EnMag_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnMag_Destroy(Actor *thisx, PlayState *play);  /* 800002E4 */
+void EnMag_UpdateDisplayEffectColors(Actor *thisx);  /* 800002F4 */
 void func_8000063C(s32 arg0, s32 arg1);
 void EnMag_DrawTextureI8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800016E0 */
 void EnMag_DrawTextureIA8(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 800018F8 */
 void EnMag_DrawEffectTextures(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80001B10 */
 void EnMag_DrawImageRGBA32(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80001F78 */
 void EnMag_DrawCharTexture(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80002354 */
-void func_80002494(s32 arg0, s32 arg1, s32 arg2);
-void EnMag_Draw(s32 arg0, s32 arg1);  /* 800036EC */
+void func_80002494(EnMag *this, PlayState *play, s32 arg2);
+void EnMag_Draw(Actor *thisx, PlayState *play);  /* 800036EC */
 
 #endif

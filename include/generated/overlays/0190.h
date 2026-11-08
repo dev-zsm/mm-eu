@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0190_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMakeoshihiki ObjMakeoshihiki;
 
-void ObjMakeoshihiki_GetChildSpawnPointIndex(s32 arg0, s32 arg1);  /* 80000000 */
-void ObjMakeoshihiki_SetSwitchFlags(void *arg0, s32 arg1, s32 arg2);  /* 80000074 */
-void ObjMakeoshihiki_Init(void *arg0, s32 arg1);  /* 80000104 */
-void ObjMakeoshihiki_Update(void *arg0, s32 arg1);  /* 800001F8 */
+s32 ObjMakeoshihiki_GetChildSpawnPointIndex(ObjMakeoshihiki *this, PlayState *play);  /* 80000000 */
+void ObjMakeoshihiki_SetSwitchFlags(ObjMakeoshihiki *this, PlayState *play, s32 pathIndex);  /* 80000074 */
+void ObjMakeoshihiki_Init(Actor *thisx, PlayState *play);  /* 80000104 */
+void ObjMakeoshihiki_Update(Actor *thisx, PlayState *play);  /* 800001F8 */
 
 #endif

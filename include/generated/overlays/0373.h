@@ -4,27 +4,31 @@
 #define GENERATED_OVERLAYS_0373_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTest6 EnTest6;
 
-void EnTest6_SetupCutscene(void *arg0, void *arg1);  /* 80000000 */
-void EnTest6_EnableMotionBlur(s32 arg0);  /* 800004D8 */
+void EnTest6_SetupCutscene(EnTest6 *this, PlayState *play);  /* 80000000 */
+void EnTest6_EnableMotionBlur(s16 alpha);  /* 800004D8 */
 void EnTest6_DisableMotionBlur(void);  /* 80000504 */
-void EnTest6_EnableWhiteFillScreen(s32 arg0, s32 arg1);  /* 80000524 */
-void EnTest6_DisableWhiteFillScreen(u8 *arg0);  /* 800005F0 */
-void EnTest6_DrawAmmoDropDefault(s32 arg0, s32 arg1, void *arg2);  /* 80000604 */
-void EnTest6_DrawAmmoDropRupee(s32 arg0, void *arg1, void *arg2);  /* 80000890 */
+void EnTest6_EnableWhiteFillScreen(PlayState *play, f32 alphaRatio);  /* 80000524 */
+void EnTest6_DisableWhiteFillScreen(PlayState *play);  /* 800005F0 */
+void EnTest6_DrawAmmoDropDefault(EnTest6 *this, PlayState *play, void *ammoDrop);  /* 80000604 */
+void EnTest6_DrawAmmoDropRupee(EnTest6 *this, PlayState *play, void *ammoDrop);  /* 80000890 */
 void EnTest6_SetupAction(u8 *arg0, s32 arg1);  /* 80000BF4 */
-void EnTest6_Init(void *arg0, s32 arg1);  /* 80000C00 */
-void EnTest6_Destroy(void *arg0, s32 arg1);  /* 80000D6C */
-void EnTest6_StartCutscene(s32 arg0, s32 arg1);  /* 80000E3C */
-void EnTest6_SetupInvertedSoTCutscene(u8 *arg0, s32 arg1);  /* 80000F60 */
-void EnTest6_StopInvertedSoTCutscene(s32 arg0, void *arg1);  /* 80000FC0 */
-void EnTest6_InvertedSoTCutscene(void *arg0, void *arg1);  /* 80001030 */
-void EnTest6_SetupDoubleSoTCutscene(void *arg0, void *arg1);  /* 80001998 */
-void EnTest6_StopDoubleSoTCutscene(s32 arg0, void *arg1);  /* 800019E8 */
-void EnTest6_DoubleSoTCutscene(void *arg0, void *arg1);  /* 80001A58 */
-void EnTest6_SharedSoTCutscene(void *arg0, void *arg1);  /* 80002220 */
-void EnTest6_DrawThreeDayResetSoTCutscene(void *arg0, void *arg1);  /* 80002B68 */
-void EnTest6_DrawDoubleSoTCutscene(void *arg0, void *arg1);  /* 80002F6C */
-void EnTest6_DrawInvertedSoTCutscene(void *arg0, void *arg1);  /* 800032B8 */
+void EnTest6_Init(Actor *thisx, PlayState *play);  /* 80000C00 */
+void EnTest6_Destroy(Actor *thisx, PlayState *play);  /* 80000D6C */
+void EnTest6_StartCutscene(EnTest6 *this, PlayState *play);  /* 80000E3C */
+void EnTest6_SetupInvertedSoTCutscene(EnTest6 *this, PlayState *play);  /* 80000F60 */
+void EnTest6_StopInvertedSoTCutscene(EnTest6 *this, PlayState *play);  /* 80000FC0 */
+void EnTest6_InvertedSoTCutscene(EnTest6 *this, PlayState *play);  /* 80001030 */
+void EnTest6_SetupDoubleSoTCutscene(EnTest6 *this, PlayState *play);  /* 80001998 */
+void EnTest6_StopDoubleSoTCutscene(EnTest6 *this, PlayState *play);  /* 800019E8 */
+void EnTest6_DoubleSoTCutscene(EnTest6 *this, PlayState *play);  /* 80001A58 */
+void EnTest6_Update(Actor *thisx);  /* 800021FC */
+void EnTest6_SharedSoTCutscene(EnTest6 *this, PlayState *play);  /* 80002220 */
+void EnTest6_DrawThreeDayResetSoTCutscene(EnTest6 *this, PlayState *play);  /* 80002B68 */
+void EnTest6_DrawDoubleSoTCutscene(EnTest6 *this, PlayState *play);  /* 80002F6C */
+void EnTest6_DrawInvertedSoTCutscene(EnTest6 *this, PlayState *play2);  /* 800032B8 */
+void EnTest6_Draw(Actor *thisx);  /* 800036B8 */
 
 #endif

@@ -4,10 +4,13 @@
 #define GENERATED_OVERLAYS_0588_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnNimotsu EnNimotsu;
 
-void EnNimotsu_UpdateCollision(s32 arg0, s32 arg1);  /* 80000000 */
-void EnNimotsu_Init(s32 arg0, s32 arg1);  /* 8000006C */
-void EnNimotsu_Update(void *arg0, s32 arg1);  /* 80000108 */
-void EnNimotsu_Draw(s32 arg0, s32 arg1);  /* 8000021C */
+void EnNimotsu_UpdateCollision(EnNimotsu *this, PlayState *play);  /* 80000000 */
+void EnNimotsu_Init(Actor *thisx, PlayState *play);  /* 8000006C */
+void EnNimotsu_Destroy(Actor *thisx, PlayState *play);  /* 800000DC */
+void EnNimotsu_Update(Actor *thisx, PlayState *play);  /* 80000108 */
+void EnNimotsu_Draw(Actor *thisx, PlayState *play);  /* 8000021C */
 
 #endif

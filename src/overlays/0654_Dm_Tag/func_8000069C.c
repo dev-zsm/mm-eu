@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0654.h"
 
-void DmTag_DoNothing(s32 arg0, M2C_UNK arg1) {
+void DmTag_DoNothing(DmTag *this, PlayState *play) {
 
 }

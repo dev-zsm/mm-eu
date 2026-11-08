@@ -4,17 +4,20 @@
 #define GENERATED_OVERLAYS_0235_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjKibako2 ObjKibako2;
 
-void ObjKibako2_ContainsSkulltula(void *arg0, s32 arg1);  /* 80000000 */
-void ObjKibako2_Break(void *arg0, s32 arg1);  /* 8000006C */
-void ObjKibako2_SpawnCollectible(void *arg0, s32 arg1);  /* 800002E8 */
-void ObjKibako2_SpawnSkulltula(void *arg0, s32 arg1);  /* 80000340 */
-void ObjKibako2_SpawnContents(u8 *arg0);  /* 80000404 */
-void ObjKibako2_Init(void *arg0, s32 arg1);  /* 80000448 */
-void ObjKibako2_Destroy(s32 arg0, s32 arg1);  /* 80000570 */
-void ObjKibako2_ShouldBreak(void *arg0);  /* 800005B8 */
-void ObjKibako2_Idle(u8 *arg0, s32 arg1);  /* 800006A8 */
-void ObjKibako2_Kill(s32 arg0);  /* 80000760 */
-void ObjKibako2_Update(void *arg0, s32 arg1);  /* 8000078C */
+s32 ObjKibako2_ContainsSkulltula(ObjKibako2 *this, PlayState *play);  /* 80000000 */
+void ObjKibako2_Break(ObjKibako2 *this, PlayState *play);  /* 8000006C */
+void ObjKibako2_SpawnCollectible(ObjKibako2 *this, PlayState *play);  /* 800002E8 */
+void ObjKibako2_SpawnSkulltula(ObjKibako2 *this, PlayState *play);  /* 80000340 */
+void ObjKibako2_SpawnContents(ObjKibako2 *this);  /* 80000404 */
+void ObjKibako2_Init(Actor *thisx, PlayState *play);  /* 80000448 */
+void ObjKibako2_Destroy(Actor *thisx, PlayState *play);  /* 80000570 */
+s32 ObjKibako2_ShouldBreak(ObjKibako2 *this);  /* 800005B8 */
+void ObjKibako2_Idle(ObjKibako2 *this, PlayState *play);  /* 800006A8 */
+void ObjKibako2_Kill(ObjKibako2 *this);  /* 80000760 */
+void ObjKibako2_Update(Actor *thisx, PlayState *play);  /* 8000078C */
+void ObjKibako2_Draw(Actor *thisx, PlayState *play);  /* 8000084C */
 
 #endif

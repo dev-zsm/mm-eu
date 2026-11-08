@@ -6,6 +6,6 @@
 M2C_UNK func_800BDD44(M2C_UNK, M2C_UNK *, M2C_UNK); /* extern */
 extern M2C_UNK D_6003B08;
 
-void BgF40Swlift_Draw(s32 arg0, M2C_UNK arg1) {
-    func_800BDD44(arg1, &D_6003B08, arg1);
+void BgF40Swlift_Draw(Actor *thisx, PlayState *play) {
+    func_800BDD44(play, &D_6003B08, play);
 }

@@ -4,20 +4,24 @@
 #define GENERATED_OVERLAYS_0573_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaBombwall BgIkanaBombwall;
 
 void func_80000000(void *arg0, s32 arg1);
 void func_800002F4(void *arg0, s32 arg1);
-void BgIkanaBombwall_Init(void *arg0, s32 arg1);  /* 800005D4 */
+void BgIkanaBombwall_Init(Actor *thisx, PlayState *play);  /* 800005D4 */
+void BgIkanaBombwall_Destroy(Actor *thisx, PlayState *play);  /* 800006DC */
 s32 func_80000724(u8 *arg0);
 s32 func_8000078C(u8 *arg0);
 void func_800007F8(u8 *arg0);
-void func_8000080C(s32 arg0, s32 arg1);
+void func_8000080C(u8 *a, u8 *play);
 void func_80000868(u8 *arg0);
-void func_8000087C(s32 arg0, s32 arg1);
+void func_8000087C(u8 *a, u8 *play);
 void func_800008D8(u8 *arg0);
-void func_8000091C(void *arg0, s32 arg1);
+void func_8000091C(BgIkanaBombwall *this, PlayState *play);
 void func_800009F8(u8 *arg0);
-void func_80000A14(void *arg0, s32 arg1);
-void BgIkanaBombwall_Draw(void *arg0, s32 arg1);  /* 80000AE0 */
+void func_80000A14(BgIkanaBombwall *this, PlayState *play);
+void BgIkanaBombwall_Update(Actor *thisx);  /* 80000ABC */
+void BgIkanaBombwall_Draw(Actor *thisx, PlayState *play);  /* 80000AE0 */
 
 #endif

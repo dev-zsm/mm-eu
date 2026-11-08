@@ -4,13 +4,16 @@
 #define GENERATED_OVERLAYS_0536_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct MirRay3 MirRay3;
 
-void MirRay3_Init(void *arg0, s32 arg1);  /* 80000000 */
-void MirRay3_Update(void *arg0, void *arg1);  /* 80000158 */
-void func_80000284(s32 arg0, void *arg1);
-void func_80000334(void *arg0, void *arg1, void *arg2);
-void func_80000510(s32 arg0);
-void func_80000614(s32 arg0, s32 arg1, void *arg2);
-void MirRay3_Draw(s32 arg0, void *arg1);  /* 80000CB0 */
+void MirRay3_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void MirRay3_Destroy(Actor *thisx, PlayState *play);  /* 80000118 */
+void MirRay3_Update(Actor *thisx, PlayState *play);  /* 80000158 */
+void func_80000284(MirRay3 *this, PlayState *play);
+void func_80000334(MirRay3 *this, PlayState *play, void *ptr);
+void func_80000510(void *ptr);
+void func_80000614(MirRay3 *this, PlayState *play, void *ptr);
+void MirRay3_Draw(Actor *thisx, PlayState *play);  /* 80000CB0 */
 
 #endif

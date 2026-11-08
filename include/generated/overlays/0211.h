@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0211_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsSibuki EffectSsSibuki;
 
-void EffectSsSibuki_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsSibuki_Draw(void *arg0, s32 arg1, void *arg2);  /* 8000017C */
-void EffectSsSibuki_Update(void *arg0, s32 arg1, void *arg2);  /* 800002FC */
+u32 EffectSsSibuki_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsSibuki_Draw(PlayState *play, u32 index, void *this);  /* 8000017C */
+void EffectSsSibuki_Update(PlayState *play, u32 index, void *this);  /* 800002FC */
 
 #endif

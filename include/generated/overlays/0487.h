@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0487_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgGoronOyu BgGoronOyu;
 
 void func_80000000(u8 *arg0);
-void func_8000001C(void *arg0);
+void func_8000001C(BgGoronOyu *this);
 void func_80000048(s32 arg0, s32 arg1);
 void func_80000080(u8 *arg0, s32 arg1);
-void func_800000E0(void *arg0, s32 arg1);
-void func_80000178(void *arg0, s32 arg1);
-void BgGoronOyu_UpdateWaterBoxInfo(u8 *arg0, s32 arg1);  /* 80000288 */
-void BgGoronOyu_SpawnEffects(void *arg0, void *arg1);  /* 80000314 */
-void BgGoronOyu_Draw(s32 arg0, s32 arg1);  /* 80000618 */
+void func_800000E0(BgGoronOyu *this, PlayState *play);
+void func_80000178(BgGoronOyu *this, PlayState *play);
+void BgGoronOyu_UpdateWaterBoxInfo(BgGoronOyu *this, PlayState *play);  /* 80000288 */
+void BgGoronOyu_SpawnEffects(BgGoronOyu *this, PlayState *play);  /* 80000314 */
+void BgGoronOyu_Init(Actor *thisx, PlayState *play);  /* 800004EC */
+void BgGoronOyu_Destroy(Actor *thisx, PlayState *play);  /* 800005A8 */
+void BgGoronOyu_Draw(Actor *thisx, PlayState *play);  /* 80000618 */
 
 #endif

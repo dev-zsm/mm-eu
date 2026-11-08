@@ -5,8 +5,8 @@
 
 M2C_UNK func_800B6490();                            /* extern */
 
-void EnEgblock_Inactive(u8 *arg0, M2C_UNK arg1) {
-    if (M2C_FIELD(arg0, s16 *, 0x1AA) == 0) {
+void EnEgblock_Inactive(EnEgblock *this, PlayState *play) {
+    if (M2C_FIELD(this, s16 *, 0x1AA) == 0) {
         func_800B6490();
     }
 }

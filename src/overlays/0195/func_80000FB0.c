@@ -6,19 +6,19 @@
 M2C_UNK func_800B8C4C(u8 *, M2C_UNK);             /* extern */
 M2C_UNK func_809592D0(u8 *);                      /* extern */
 
-s32 func_80000FB0(u8 *arg0, M2C_UNK arg1) {
+s32 func_80000FB0(u8 *arg0, PlayState *play) {
     s32 var_v1;
     u8 temp_v0_3;
     u8 *temp_v0;
     u8 *temp_v0_2;
 
     var_v1 = 0;
-    temp_v0 = arg0 + 0x2F4;
+    temp_v0 = (u8 *)arg0 + 0x2F4;
     if (M2C_FIELD(arg0, u8 *, 0x305) & 2) {
         var_v1 = 1;
         M2C_FIELD(temp_v0, u8 *, 0x11) = (u8) (M2C_FIELD(temp_v0, u8 *, 0x11) & 0xFFFD);
     }
-    temp_v0_2 = arg0 + 0x340;
+    temp_v0_2 = (u8 *)arg0 + 0x340;
     if (M2C_FIELD(arg0, u8 *, 0x351) & 2) {
         var_v1 = 1;
         M2C_FIELD(temp_v0_2, u8 *, 0x11) = (u8) (M2C_FIELD(temp_v0_2, u8 *, 0x11) & 0xFFFD);

@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0521_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjTokeiTurret ObjTokeiTurret;
 
-void ObjTokeiTurret_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjTokeiTurret_Draw(void *arg0, void *arg1);  /* 80000104 */
+void ObjTokeiTurret_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjTokeiTurret_Destroy(Actor *thisx, PlayState *play);  /* 800000C0 */
+void ObjTokeiTurret_Update(Actor *thisx, PlayState *play);  /* 800000F4 */
+void ObjTokeiTurret_Draw(Actor *thisx, PlayState *play);  /* 80000104 */
 
 #endif

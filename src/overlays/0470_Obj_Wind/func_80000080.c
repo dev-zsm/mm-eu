@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0470.h"
 
 void ObjWind_Destroy(Actor *thisx, PlayState *play) {
 

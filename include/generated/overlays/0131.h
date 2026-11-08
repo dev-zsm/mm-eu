@@ -4,6 +4,11 @@
 #define GENERATED_OVERLAYS_0131_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnFr EnFr;
 
+void EnFr_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnFr_Destroy(Actor *thisx, PlayState *play);  /* 8000005C */
+void EnFr_Update(Actor *thisx, PlayState *play);  /* 8000006C */
 
 #endif

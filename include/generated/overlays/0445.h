@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0445_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgDanpeiMovebg BgDanpeiMovebg;
 
 s32 func_80000000(s32 arg0, u8 *arg1);
-void BgDanpeiMovebg_Init(void *arg0, s32 arg1);  /* 8000004C */
-void func_800000C8(void *arg0, s32 arg1);
-void func_8000027C(s32 arg0, s32 arg1);
+void BgDanpeiMovebg_Init(Actor *thisx, PlayState *play);  /* 8000004C */
+void func_800000C8(BgDanpeiMovebg *this, PlayState *play);
+void BgDanpeiMovebg_Destroy(Actor *thisx, PlayState *play);  /* 80000210 */
+void BgDanpeiMovebg_Update(Actor *thisx);  /* 80000244 */
+u16 func_8000027C(BgDanpeiMovebg *this, u16 flags);
 void func_8000031C(u8 *arg0, s32 arg1);
-void func_8000041C(void *arg0, s32 arg1);
-void func_80000518(void *arg0, s32 arg1);
-void func_80000574(void *arg0, s32 arg1);
-void func_8000068C(void *arg0, s32 arg1);
+void func_8000041C(BgDanpeiMovebg *this, PlayState *play);
+void func_80000518(BgDanpeiMovebg *this, PlayState *play);
+void func_80000574(BgDanpeiMovebg *this, PlayState *play);
+void func_8000068C(BgDanpeiMovebg *this, PlayState *play);
 
 #endif

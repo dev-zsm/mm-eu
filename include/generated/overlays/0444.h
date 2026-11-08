@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0444_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnGamelupy EnGamelupy;
 
-void EnGamelupy_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnGamelupy_SpawnSparkles(void *arg0, s32 arg1);  /* 800000F4 */
-void EnGamelupy_SetupFindSharedMemory(u8 *arg0);  /* 800001E4 */
-void EnGamelupy_FindSharedMemory(u8 *arg0, s32 arg1);  /* 800001F8 */
-void EnGamelupy_SetupIdle(u8 *arg0);  /* 80000234 */
-void EnGamelupy_Idle(void *arg0, s32 arg1);  /* 80000248 */
-void EnGamelupy_Collected(void *arg0, void *arg1);  /* 80000318 */
-void EnGamelupy_UpdateCollision(s32 arg0, s32 arg1);  /* 800003E0 */
-void EnGamelupy_Draw(s32 arg0, s32 arg1);  /* 80000498 */
+void EnGamelupy_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnGamelupy_Destroy(Actor *thisx, PlayState *play);  /* 800000C8 */
+void EnGamelupy_SpawnSparkles(EnGamelupy *this, PlayState *play);  /* 800000F4 */
+void EnGamelupy_SetupFindSharedMemory(EnGamelupy *this);  /* 800001E4 */
+void EnGamelupy_FindSharedMemory(EnGamelupy *this, PlayState *play);  /* 800001F8 */
+void EnGamelupy_SetupIdle(EnGamelupy *this);  /* 80000234 */
+void EnGamelupy_Idle(EnGamelupy *this, PlayState *play);  /* 80000248 */
+void EnGamelupy_Collected(EnGamelupy *this, PlayState *play);  /* 80000318 */
+void EnGamelupy_UpdateCollision(EnGamelupy *this, PlayState *play);  /* 800003E0 */
+void EnGamelupy_Update(Actor *thisx, PlayState *play);  /* 80000424 */
+void EnGamelupy_Draw(Actor *thisx, PlayState *play);  /* 80000498 */
 
 #endif

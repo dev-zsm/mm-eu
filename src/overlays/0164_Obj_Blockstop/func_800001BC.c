@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0164.h"
 
-void ObjBlockstop_Update(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK (**)(), 0x144)();
+void ObjBlockstop_Update(Actor *thisx) {
+    M2C_FIELD(thisx, M2C_UNK (**)(), 0x144)();
 }

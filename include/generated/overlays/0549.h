@@ -4,11 +4,15 @@
 #define GENERATED_OVERLAYS_0549_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTanron1 EnTanron1;
 
-void func_80000050(void *arg0, void *arg1, s32 arg2);
-void EnTanron1_Update(void *arg0, s32 arg1);  /* 80000128 */
+void EnTanron1_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnTanron1_Destroy(Actor *thisx, PlayState *play);  /* 80000040 */
+void func_80000050(void *arg0, Vec3f *arg1, s16 arg2);
+void EnTanron1_Update(Actor *thisx, PlayState *play);  /* 80000128 */
 void EnTanron1_Draw(void);  /* 800004F8 */
 void func_80000518(void *arg0, void *arg1);
-void func_80000CAC(void *arg0, void *arg1);
+void func_80000CAC(EnTanron1 *this, PlayState *play);
 
 #endif

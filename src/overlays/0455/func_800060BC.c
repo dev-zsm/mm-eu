@@ -5,7 +5,7 @@
 
 M2C_UNK func_800FEE3C(s32, s32, s32);               /* extern */
 
-void func_800060BC(u8 *arg0) {
+void func_800060BC(Actor *thisx) {
     f32 temp_f0;
     s32 var_s2;
     s32 var_s3;
@@ -13,9 +13,9 @@ void func_800060BC(u8 *arg0) {
     u8 *var_s1;
 
     var_s2 = 0;
-    var_s0 = arg0;
-    var_s1 = arg0 + 0x9F8;
-    var_s3 = arg0 + 0x9FC;
+    var_s0 = thisx;
+    var_s1 = (u8 *)thisx + 0x9F8;
+    var_s3 = (u8 *)thisx + 0x9FC;
     do {
         func_800FEE3C(var_s3, M2C_FIELD(var_s0, s32 *, 0xA04), M2C_FIELD(var_s0, s32 *, 0xA08));
         temp_f0 = M2C_FIELD(var_s1, f32 *, 0x10);

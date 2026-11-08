@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0251.h"
 
-void EnZl4_PostLimbDraw(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, M2C_UNK arg3) {
+void EnZl4_PostLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3s *rot, Actor *thisx) {
 
 }

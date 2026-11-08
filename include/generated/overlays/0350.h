@@ -4,64 +4,67 @@
 #define GENERATED_OVERLAYS_0350_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnKusa2 EnKusa2;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800001D4(void *arg0, s32 arg1);
-void func_8000025C(void *arg0);
-void func_80000330(void *arg0, s32 arg1);
-void func_800003A8();
-void func_800007F4(s32 arg0, s32 arg1);
-void func_800008F8(void *arg0, s32 arg1);
-void func_8000099C(s32 arg0, s32 arg1);
-void func_800009E0(void *arg0, s32 arg1, s32 arg2);
-void func_80000BB4(void *arg0, s32 arg1, s32 arg2);
-void func_80000C34(u8 *arg0);
-void func_80000C50(void *arg0, s32 arg1);
-void func_80000DD8(void *arg0, s32 arg1);
-void func_80000E24(s32 arg0, s32 arg1);
-void func_80000E78(void *arg0, s32 arg1);
-void func_80000F14(void *arg0);
-void func_80000F58(void *arg0);
-void func_80000FA4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8000119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800012B0(void *arg0, s32 arg1, void *arg2);
+void func_80000000(EnKusa2 *this, PlayState *play);
+void func_800001D4(EnKusa2 *this, PlayState *play);
+void func_8000025C(EnKusa2 *this);
+void func_80000330(EnKusa2 *this, PlayState *play);
+void func_800003A8(void);
+void func_800007F4(void *matrix, f32 arg1);
+s32 func_800008F8(EnKusa2 *this, PlayState *play);
+void func_8000099C(EnKusa2 *this, PlayState *play);
+void func_800009E0(EnKusa2 *this, PlayState *play, s32 arg2);
+void func_80000BB4(EnKusa2 *this, PlayState *play, s32 arg2);
+void func_80000C34(EnKusa2 *this);
+void func_80000C50(EnKusa2 *this, PlayState *play);
+void func_80000DD8(EnKusa2 *this, s32 arg1);
+void func_80000E24(EnKusa2 *this, PlayState *play);
+s32 func_80000E78(EnKusa2 *this, PlayState *play);
+void *func_80000F14(void *arg0);
+void *func_80000F58(void *arg0);
+void *func_80000FA4(void *arg0, Vec3f *arg1, f32 arg2, f32 arg3, s16 arg4, s16 arg5);
+void *func_8000119C(void *arg0, f32 arg1, Vec3f *arg2, Vec3f *arg3, Vec3s *arg4, Vec3s *arg5);
+void func_800012B0(void *arg0, void *arg1, Vec3f *arg2);
 void func_800015AC(s32 arg0);
 void func_800015B8(void *arg0);
-void func_80001690(s32 arg0, void *arg1);
-void func_800017B8(s32 arg0, void *arg1);
+void func_80001690(void *arg0, void *arg1);
+void func_800017B8(void *arg0, void *arg1);
 void func_80001974(s32 a0);
-void func_80001994(s32 arg0);
-void func_80001A14(void *arg0);
-void func_80001B74(u8 *arg0);
-void func_80001BAC(void *arg0);
-void func_80001DE4(void *arg0);
-void func_80002018(void *arg0);
-void EnKusa2_Init(void *arg0, s32 arg1);  /* 8000228C */
-void func_80002480(u8 *arg0);
+void func_80001994(void *arg0);
+void func_80001A14(EnKusa2 *this);
+void func_80001B74(EnKusa2 *this);
+void func_80001BAC(EnKusa2 *this);
+void func_80001DE4(EnKusa2 *this);
+void func_80002018(EnKusa2 *this);
+void EnKusa2_Init(Actor *thisx, PlayState *play);  /* 8000228C */
+void func_80002480(EnKusa2 *this);
 void func_80002494(void *a, s32 b);
 void func_800024B8(u8 *arg0);
-void func_800024CC(void *arg0);
-void func_80002550(u8 *arg0);
-void func_80002564(void *arg0, s32 arg1);
-void func_800025F4(u8 *arg0);
+void func_800024CC(EnKusa2 *this, PlayState *play);
+void func_80002550(EnKusa2 *this);
+void func_80002564(EnKusa2 *this, PlayState *play);
+void func_800025F4(EnKusa2 *this);
 void func_80002634(s32 arg0, s32 arg1);
-void func_80002644(u8 *arg0);
-void func_80002664(void *arg0, s32 arg1);
-void func_80002804(u8 *arg0);
-void func_80002868(void *arg0, s32 arg1);
-void func_80002B10(u8 *arg0);
-void func_80002B38(void *arg0, s32 arg1);
-void func_80002CB8(u8 *arg0);
-void func_80002D54(void *arg0, s32 arg1);
-void func_80003078(u8 *arg0);
-void func_800030B0(void *arg0, s32 arg1);
-void func_800032B8(void *arg0);
-void func_8000335C(void *arg0, s32 arg1);
-void func_800034A4(void *arg0, s32 arg1);
-void func_80003590(s32 arg0, void *arg1);
-void func_800036AC(s32 arg0, s32 arg1);
-void EnKusa2_Draw(void *arg0, s32 arg1);  /* 80003760 */
-void func_80003854(void *arg0, s32 arg1);
-void func_800038E8(void *arg0, s32 arg1);
+void func_80002644(EnKusa2 *this);
+void func_80002664(EnKusa2 *this, PlayState *play);
+void func_80002804(EnKusa2 *this);
+void func_80002868(EnKusa2 *this, PlayState *play);
+void func_80002B10(EnKusa2 *this);
+void func_80002B38(EnKusa2 *this, PlayState *play);
+void func_80002CB8(EnKusa2 *this);
+void func_80002D54(EnKusa2 *this, PlayState *play);
+void func_80003078(EnKusa2 *this);
+void func_800030B0(EnKusa2 *this, PlayState *play);
+void func_800032B8(EnKusa2 *this);
+void func_8000335C(EnKusa2 *this, PlayState *play);
+void func_800034A4(Actor *thisx, PlayState *play);
+void EnKusa2_Update(Actor *thisx);  /* 80003544 */
+void func_80003590(Actor *thisx, PlayState *play);
+void func_800036AC(PlayState *play, s32 arg1);
+void EnKusa2_Draw(Actor *thisx, PlayState *play);  /* 80003760 */
+void func_80003854(Actor *thisx, PlayState *play);
+void func_800038E8(Actor *thisx, PlayState *play);
 
 #endif

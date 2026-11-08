@@ -5,6 +5,6 @@
 
 M2C_UNK func_800FF34C(u8 *, s32, u8 *, s32);    /* extern */
 
-void ObjMine_Path_MoveToWaypoint(u8 *arg0, s32 arg1) {
-    func_800FF34C(arg0 + 0x24, M2C_FIELD(arg0, s32 *, 0x1B4) + (arg1 * 6), arg0, arg1);
+void ObjMine_Path_MoveToWaypoint(ObjMine *this, s32 index) {
+    func_800FF34C((u8 *)this + 0x24, M2C_FIELD(this, s32 *, 0x1B4) + (index * 6), this, index);
 }

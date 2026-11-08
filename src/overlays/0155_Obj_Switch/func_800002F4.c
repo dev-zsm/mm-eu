@@ -3,8 +3,8 @@
 
 extern void func_800B8C4C();
 
-void ObjSwitch_PlayFootSwitchSfx(u8 *a0) {
-    if (!(((s8 *)a0)[0x165] > 0)) {
-        func_800B8C4C(a0, 0x2815);
+void ObjSwitch_PlayFootSwitchSfx(ObjSwitch *this) {
+    if (!(((s8 *)this)[0x165] > 0)) {
+        func_800B8C4C(this, 0x2815);
     }
 }

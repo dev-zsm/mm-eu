@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0207_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsLightning EffectSsLightning;
 
-void EffectSsLightning_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsLightning_NewLightning(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000114 */
-void EffectSsLightning_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800001B8 */
-void EffectSsLightning_Update(void *arg0, s32 arg1, void *arg2);  /* 80000418 */
+u32 EffectSsLightning_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsLightning_NewLightning(PlayState *play, Vec3f *pos, s32 yaw, void *this);  /* 80000114 */
+void EffectSsLightning_Draw(PlayState *play, u32 index, void *this);  /* 800001B8 */
+void EffectSsLightning_Update(PlayState *play, u32 index, void *this);  /* 80000418 */
 
 #endif

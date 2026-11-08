@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0204_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsGRipple EffectSsGRipple;
 
-void EffectSsGRipple_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
+u32 EffectSsGRipple_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
 void EffectSsGRipple_DrawRipple(void *arg0, void *arg1, s32 arg2);  /* 80000108 */
-void EffectSsGRipple_Draw(void *a0, s32 a1, u8 *a2);  /* 80000318 */
-void EffectSsGRipple_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000350 */
+void EffectSsGRipple_Draw(PlayState *play, u32 index, void *this);  /* 80000318 */
+void EffectSsGRipple_Update(PlayState *play, u32 index, void *this);  /* 80000350 */
 
 #endif

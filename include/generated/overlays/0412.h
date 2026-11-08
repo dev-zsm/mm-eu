@@ -4,9 +4,14 @@
 #define GENERATED_OVERLAYS_0412_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgFuKaiten BgFuKaiten;
 
-void BgFuKaiten_UpdateRotation(void *arg0);  /* 800000B4 */
-void BgFuKaiten_UpdateHeight(void *arg0);  /* 8000010C */
-void BgFuKaiten_Draw(s32 arg0, s32 arg1);  /* 800001A0 */
+void BgFuKaiten_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgFuKaiten_Destroy(Actor *thisx, PlayState *play);  /* 80000080 */
+void BgFuKaiten_UpdateRotation(BgFuKaiten *this);  /* 800000B4 */
+void BgFuKaiten_UpdateHeight(BgFuKaiten *this);  /* 8000010C */
+void BgFuKaiten_Update(Actor *thisx, PlayState *play);  /* 80000170 */
+void BgFuKaiten_Draw(Actor *thisx, PlayState *play);  /* 800001A0 */
 
 #endif

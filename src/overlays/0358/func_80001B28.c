@@ -1,5 +1,6 @@
 #include "types.h"
 #include "actor.h"
+#include "generated/overlays/0358.h"
 void func_800E09D8();
 void func_80A4D8CC();
 void func_80001B28(Actor *thisx, PlayState *play) {

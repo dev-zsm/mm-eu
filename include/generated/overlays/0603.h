@@ -4,16 +4,19 @@
 #define GENERATED_OVERLAYS_0603_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaDharma BgIkanaDharma;
 
-void BgIkanaDharma_SpawnEffects(void *arg0, s32 arg1);  /* 80000000 */
-void BgIkanaDharma_Init(void *arg0, s32 arg1);  /* 800001B4 */
-void BgIkanaDharma_Destroy(s32 arg0, s32 arg1);  /* 80000320 */
-void BgIkanaDharma_SetupWaitForHit(u8 *arg0);  /* 80000384 */
-void BgIkanaDharma_WaitForHit(void *arg0, s32 arg1);  /* 800003A0 */
-void BgIkanaDharma_SetupStartCutscene(u8 *arg0);  /* 80000518 */
-void BgIkanaDharma_StartCutscene(u8 *arg0, s32 arg1);  /* 80000550 */
-void BgIkanaDharma_SetupWaitForCutsceneToEnd(u8 *arg0);  /* 800005AC */
-void BgIkanaDharma_WaitForCutsceneToEnd(void *arg0, s32 arg1);  /* 800005C8 */
-void BgIkanaDharma_Update(void *arg0, s32 arg1);  /* 80000680 */
+void BgIkanaDharma_SpawnEffects(BgIkanaDharma *this, PlayState *play);  /* 80000000 */
+void BgIkanaDharma_Init(Actor *thisx, PlayState *play);  /* 800001B4 */
+void BgIkanaDharma_Destroy(Actor *thisx, PlayState *play);  /* 80000320 */
+void BgIkanaDharma_SetupWaitForHit(BgIkanaDharma *this);  /* 80000384 */
+void BgIkanaDharma_WaitForHit(BgIkanaDharma *this, PlayState *play);  /* 800003A0 */
+void BgIkanaDharma_SetupStartCutscene(BgIkanaDharma *this);  /* 80000518 */
+void BgIkanaDharma_StartCutscene(BgIkanaDharma *this, PlayState *play);  /* 80000550 */
+void BgIkanaDharma_SetupWaitForCutsceneToEnd(BgIkanaDharma *this);  /* 800005AC */
+void BgIkanaDharma_WaitForCutsceneToEnd(BgIkanaDharma *this, PlayState *play);  /* 800005C8 */
+void BgIkanaDharma_Update(Actor *thisx, PlayState *play);  /* 80000680 */
+void BgIkanaDharma_Draw(Actor *thisx, PlayState *play);  /* 80000840 */
 
 #endif

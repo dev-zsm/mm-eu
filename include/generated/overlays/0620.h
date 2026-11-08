@@ -4,16 +4,21 @@
 #define GENERATED_OVERLAYS_0620_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMuPict ObjMuPict;
 
-void ObjMuPict_Init(s32 arg0, s32 arg1);  /* 80000000 */
+void ObjMuPict_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjMuPict_Destroy(Actor *thisx, PlayState *play);  /* 800000AC */
 void func_800000BC(u8 *arg0);
-void func_800000D0(void *arg0, s32 arg1);
-void func_800001B4(u8 *arg0);
+void func_800000D0(ObjMuPict *this, PlayState *play);
+void func_800001B4(ObjMuPict *this);
 void func_800001C8(u8 *arg0, s32 arg1);
 void func_80000224(u8 *arg0);
-void func_80000238(void *arg0, s32 arg1);
-void func_800002F0(u8 *arg0, u8 *arg1);
-void func_80000328(void *arg0, s32 arg1);
-void func_800003E8(void *arg0, s32 arg1);
+void func_80000238(ObjMuPict *this, PlayState *play);
+void func_800002F0(ObjMuPict *this, PlayState *play);
+void func_80000328(ObjMuPict *this, PlayState *play);
+void func_800003E8(ObjMuPict *this, PlayState *play);
+void ObjMuPict_Update(Actor *thisx);  /* 8000050C */
+void func_80000530(Actor *thisx, PlayState *play);
 
 #endif

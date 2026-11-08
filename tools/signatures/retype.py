@@ -10,13 +10,14 @@ For each function with a verified source file the tool
   4. compiles the result with the flags of the file and compares it with the ROM bytes (tools/lib/match.py rules),
 and restores the previous text when anything fails (a clash of names, a type that is already defined locally, a different byte).
 A function without a source file yet is skipped: run the tool again when it has one. Summary: converted / already / failed / pending."""
-import re, sys
+import hashlib, os, re, sys, threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") if d.name != "vendor"]
 import match  # noqa: E402
+import names  # noqa: E402
 import objcache  # noqa: E402
 import srcpath  # noqa: E402
 
@@ -44,10 +45,29 @@ def params(text: str):
     return out
 
 
-def matches(seg: str, fn: str, path: Path) -> bool:
+DECL = re.compile(r"^[^/(]*?(\w+)\(")   # a line of a generated header: the function it declares
+
+
+def shadow_dir(header: str, hide: str) -> str:
+    """A directory holding the header without the declaration of `hide`, for a file about to change the prototype of that function: the
+    declaration the header carries is the old one. Named after the content, since the compiled objects are cached by their flags."""
+    text = (ROOT / "include" / header).read_text()
+    text = "".join(l for l in text.splitlines(keepends=True) if not (m := DECL.match(l)) or m.group(1) != hide)
+    d = ROOT / "build" / "shadow" / hashlib.sha1(text.encode()).hexdigest()[:16]
+    target = d / header
+    if not target.exists():
+        target.parent.mkdir(parents=True, exist_ok=True)
+        tmp = target.with_suffix(f".{os.getpid()}.{threading.get_ident()}.tmp")
+        tmp.write_text(text)
+        os.replace(tmp, target)
+    return str(d)
+
+
+def matches(seg: str, fn: str, path: Path, shadow: str = "") -> bool:
     try:
         want, _ = match.original(seg, fn)
-        got, masks = match.compiled(path, fn, match.file_flags(path), len(want))
+        flags = match.file_flags(path)
+        got, masks = match.compiled(path, fn, ["-I" + shadow] + flags if shadow else flags, len(want))
     except Exception:
         return False
     if len(got) > len(want) and not any(got[len(want):]):
@@ -95,12 +115,29 @@ def rewrite(text: str, fn: str, header: str, proto: str, fit: bool = False):
     return out, ""
 
 
+_names = {}
+
+
+def real_name(seg: str, fn: str) -> str:
+    """The name a source gives the function once config/<segment>/names.txt is applied to it (the sources of named functions use it)."""
+    if seg not in _names:
+        _names[seg] = names.load(seg)
+    return _names[seg].get(fn, fn)
+
+
 def work(entry):
     seg, fn, header, proto = entry
     path = source(seg, fn)
     if not path.exists():
         return entry, "pending", ""
     old = path.read_text()
+    if "generated/mm/" in old:   # written by tools/search/ref_import.py: it has the reference's own prototype
+        return entry, "imported", ""
+    addr, fn = fn, real_name(seg, fn)   # a named function is defined under its name
+    if fn != addr and f"{fn}(" in old:
+        proto = re.sub(r"\b" + re.escape(addr) + r"\(", fn + "(", proto, count=1)
+    else:
+        fn = addr
     if (header == "-" or f'#include "{header}"' in old) and proto.rstrip(";") in old:
         return entry, "already", ""
     why = ""
@@ -112,7 +149,8 @@ def work(entry):
                 return entry, "failed", why
             continue
         path.write_text(new)
-        if matches(seg, fn, path):
+        hdr = ROOT / "include" / header
+        if matches(seg, addr, path, shadow_dir(header, real_name(seg, addr)) if hdr.exists() else ""):
             return entry, "converted" if not fit else "converted_fit", ""
         path.write_text(old)
     return entry, "failed", why or "no longer matches (or does not compile)"

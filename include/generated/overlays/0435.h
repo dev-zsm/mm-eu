@@ -4,15 +4,18 @@
 #define GENERATED_OVERLAYS_0435_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjBigicicle ObjBigicicle;
 
-void ObjBigicicle_Init(void *arg0, s32 arg1);  /* 80000000 */
-void func_80000274(void *arg0, s32 arg1);
-void func_80000464(void *arg0);
-void func_80000520(void *arg0, s32 arg1);
-void func_80000610(void *arg0, s32 arg1);
-void func_800006E8(void *arg0, s32 arg1);
-void func_8000082C(void *arg0, s32 arg1);
-void ObjBigicicle_Update(void *arg0, s32 arg1);  /* 80000A04 */
-void ObjBigicicle_Draw(s32 arg0, s32 arg1);  /* 80000C10 */
+void ObjBigicicle_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjBigicicle_Destroy(Actor *thisx, PlayState *play);  /* 80000234 */
+void func_80000274(ObjBigicicle *this, PlayState *play);
+void func_80000464(ObjBigicicle *this, PlayState *play);
+void func_80000520(ObjBigicicle *this, PlayState *play);
+void func_80000610(ObjBigicicle *this, PlayState *play);
+void func_800006E8(ObjBigicicle *this, PlayState *play);
+void func_8000082C(ObjBigicicle *this, PlayState *play);
+void ObjBigicicle_Update(Actor *thisx, PlayState *play);  /* 80000A04 */
+void ObjBigicicle_Draw(Actor *thisx, PlayState *play);  /* 80000C10 */
 
 #endif

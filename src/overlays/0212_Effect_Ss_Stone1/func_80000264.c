@@ -5,8 +5,8 @@
 
 extern u8 *D_801EB7E0;
 
-void EffectSsStone1_Update(s32 arg0, M2C_UNK arg1, u8 *arg2) {
-    if ((M2C_FIELD(arg2, s16 *, 0x5C) == 6) && (M2C_FIELD(arg2, s16 *, 0x40) != 0)) {
+void EffectSsStone1_Update(PlayState *play, u32 index, void *this) {
+    if ((M2C_FIELD(this, s16 *, 0x5C) == 6) && (M2C_FIELD(this, s16 *, 0x40) != 0)) {
         M2C_FIELD(D_801EB7E0, s16 *, 0xD38) = 0;
     }
 }

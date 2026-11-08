@@ -12,7 +12,7 @@ void func_8000036C(void);
 void func_80000374(s32 arg0, s32 arg1);
 void func_80000520(s32 arg0, s32 arg1);
 void func_8000058C(void *arg0, s32 arg1);
-void func_80000854(s32 arg0, s32 arg1);
+void func_80000854(u8 *a, u8 *play, s32 c);
 void func_8000089C(u8 *arg0, s32 arg1);
 void func_800008F0(s32 arg0, s32 arg1);
 void func_80000900(void *arg0, s32 arg1);

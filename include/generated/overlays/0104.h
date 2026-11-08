@@ -4,13 +4,15 @@
 #define GENERATED_OVERLAYS_0104_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnWood02 EnWood02;
 
-void EnWood02_SpawnZoneCheck(void *arg0, s32 arg1, s32 arg2);  /* 80000000 */
-void EnWood02_SpawnOffspring(void *arg0, s32 arg1);  /* 80000128 */
-void EnWood02_Init(void *arg0, s32 arg1);  /* 80000330 */
-void EnWood02_Destroy(void *arg0, s32 arg1);  /* 80000814 */
-void func_80000858(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void EnWood02_Update(void *arg0, void *arg1);  /* 80000984 */
-void EnWood02_Draw(s32 arg0, s32 arg1);  /* 80000E3C */
+s32 EnWood02_SpawnZoneCheck(EnWood02 *this, PlayState *play, Vec3f *arg2);  /* 80000000 */
+void EnWood02_SpawnOffspring(EnWood02 *this, PlayState *play);  /* 80000128 */
+void EnWood02_Init(Actor *thisx, PlayState *play);  /* 80000330 */
+void EnWood02_Destroy(Actor *thisx, PlayState *play);  /* 80000814 */
+void func_80000858(EnWood02 *this, PlayState *play, Vec3f *arg2, u16 arg3);
+void EnWood02_Update(Actor *thisx, PlayState *play);  /* 80000984 */
+void EnWood02_Draw(Actor *thisx, PlayState *play);  /* 80000E3C */
 
 #endif

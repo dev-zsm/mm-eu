@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0122_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgCtowerRot BgCtowerRot;
 
-void BgCtowerRot_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgCtowerRot_CorridorRotate(s32 arg0, s32 arg1);  /* 8000018C */
-void BgCtowerRot_DoorDoNothing(s32 arg0, s32 arg1);  /* 8000026C */
-void BgCtowerRot_DoorClose(void *arg0, s32 arg1);  /* 8000027C */
-void BgCtowerRot_DoorIdle(s32 arg0, void *arg1);  /* 80000360 */
-void BgCtowerRot_SetupDoorClose(u8 *arg0, s32 arg1);  /* 800003D4 */
-void BgCtowerRot_Draw(s32 arg0, s32 arg1);  /* 80000468 */
+void BgCtowerRot_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgCtowerRot_Destroy(Actor *thisx, PlayState *play);  /* 80000158 */
+void BgCtowerRot_CorridorRotate(BgCtowerRot *this, PlayState *play);  /* 8000018C */
+void BgCtowerRot_DoorDoNothing(BgCtowerRot *this, PlayState *play);  /* 8000026C */
+void BgCtowerRot_DoorClose(BgCtowerRot *this, PlayState *play);  /* 8000027C */
+void BgCtowerRot_DoorIdle(BgCtowerRot *this, PlayState *play);  /* 80000360 */
+void BgCtowerRot_SetupDoorClose(BgCtowerRot *this, PlayState *play);  /* 800003D4 */
+void BgCtowerRot_Update(Actor *thisx);  /* 80000444 */
+void BgCtowerRot_Draw(Actor *thisx, PlayState *play);  /* 80000468 */
 
 #endif

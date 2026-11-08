@@ -4,7 +4,12 @@
 #define GENERATED_OVERLAYS_0636_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjYado ObjYado;
 
-void ObjYado_Draw(void *arg0, void *arg1);  /* 8000007C */
+void ObjYado_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjYado_Destroy(Actor *thisx, PlayState *play);  /* 80000054 */
+void ObjYado_Update(Actor *thisx, PlayState *play);  /* 80000064 */
+void ObjYado_Draw(Actor *thisx, PlayState *play);  /* 8000007C */
 
 #endif

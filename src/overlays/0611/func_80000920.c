@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0611.h"
 u8 *func_80000920(u8 *a, u8 *play) {
     u8 *p;
 

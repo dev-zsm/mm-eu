@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_809FF758;
 
-void BgNumaHana_SetupDoNothing(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x234) = &D_809FF758;
+void BgNumaHana_SetupDoNothing(BgNumaHana *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x234) = &D_809FF758;
 }

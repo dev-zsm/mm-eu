@@ -5,6 +5,6 @@
 
 u8 *func_801812C4();                              /* extern */
 
-void ObjPurify_SetSysMatrix(f32 arg0) {
-    M2C_FIELD(func_801812C4(), f32 *, 0x34) = arg0;
+void ObjPurify_SetSysMatrix(f32 yPos) {
+    M2C_FIELD(func_801812C4(), f32 *, 0x34) = yPos;
 }

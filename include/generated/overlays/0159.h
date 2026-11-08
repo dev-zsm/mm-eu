@@ -4,49 +4,52 @@
 #define GENERATED_OVERLAYS_0159_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnGoroiwa EnGoroiwa;
 
 void func_80000000(u8 *arg0);
 void func_8000007C(u8 *arg0);
-void func_80000098(void *arg0);
-void func_80000110(void *arg0, s32 arg1);
-void func_80000234(s32 arg0, s32 arg1);
-void func_800002B8(u8 *arg0, s32 arg1);
-void func_800002D4(void *arg0, s32 arg1);
-void func_800003B0(void *arg0);
-void func_80000434(void *arg0);
-void func_80000578(void *arg0, s32 arg1);
+void func_80000098(EnGoroiwa *this);
+void func_80000110(EnGoroiwa *this, PlayState *play);
+s32 func_80000234(Vec3f *arg0, Vec3f *arg1);
+void func_800002B8(EnGoroiwa *this, PlayState *play);
+f32 func_800002D4(EnGoroiwa *this, PlayState *play);
+void func_800003B0(EnGoroiwa *this);
+void func_80000434(EnGoroiwa *this);
+void func_80000578(EnGoroiwa *this, PlayState *play);
 void func_800005C4(u8 *arg0, s32 arg1);
-void func_8000063C(void *arg0);
-void func_800006B4(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void func_800008F8(s32 arg0, void *arg1, s32 arg2);
-void func_80000AAC(void *arg0);
-void func_80000BF8(void *arg0);
-void func_80000D4C(void *arg0);
-void func_80000E58(void *arg0, s32 arg1);
-void func_80001204(void *arg0, s32 arg1);
-void func_80001360(void *arg0);
-void func_800013CC(void *arg0, s32 arg1);
+s32 func_8000063C(EnGoroiwa *this);
+void func_800006B4(PlayState *play, void *arg1, s32 arg2, s32 arg3);
+void func_800008F8(PlayState *play, Vec3f *arg1, f32 arg2);
+s32 func_80000AAC(EnGoroiwa *this);
+s32 func_80000BF8(EnGoroiwa *this);
+s32 func_80000D4C(EnGoroiwa *this);
+s32 func_80000E58(EnGoroiwa *this, PlayState *play);
+void func_80001204(EnGoroiwa *this, PlayState *play);
+void func_80001360(EnGoroiwa *this);
+void func_800013CC(EnGoroiwa *this, PlayState *play);
 void func_800017F0(void *arg0, s32 arg1);
-void func_80001CE8(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8000217C(s32 arg0, s32 arg1, void *arg2, s32 arg3);
-void func_80002598(void *arg0, s32 arg1);
-void func_800027C0(void *arg0, s32 arg1);
+void func_80001CE8(PlayState *play, s32 arg1, s32 arg2, s32 arg3);
+void func_8000217C(PlayState *play, s32 arg1, void *arg2, s32 arg3);
+void func_80002598(EnGoroiwa *this, PlayState *play);
+void func_800027C0(EnGoroiwa *this, PlayState *play);
 void func_800029D4(s32 arg0, s32 arg1);
-void EnGoroiwa_Init(void *arg0, s32 arg1);  /* 80002A0C */
-void func_80002CCC(void *arg0, s32 arg1);
+void EnGoroiwa_Init(Actor *thisx, PlayState *play);  /* 80002A0C */
+void EnGoroiwa_Destroy(Actor *thisx, PlayState *play);  /* 80002C8C */
+s32 func_80002CCC(EnGoroiwa *this, PlayState *play);
 void func_80003170(void *arg0, void *arg1);
-void func_80003514(void *arg0);
+void func_80003514(EnGoroiwa *this);
 void func_80003588(u8 *arg0, s32 arg1);
-void func_80003614(void *arg0);
+void func_80003614(EnGoroiwa *this);
 void func_80003670(u8 *arg0);
-void func_800036B4(void *arg0);
+void func_800036B4(EnGoroiwa *this);
 void func_80003704(void *arg0, void *arg1);
-void func_800037E4(void *arg0);
+void func_800037E4(EnGoroiwa *this);
 void func_80003850(void *arg0, void *arg1);
-void func_8000396C(void *arg0, s32 arg1);
-void func_80003D64(void *arg0, s32 arg1);
-void EnGoroiwa_Update(void *arg0, s32 arg1);  /* 80003DC8 */
-void func_8000427C(void *arg0, void *arg1);
-void EnGoroiwa_Draw(void *arg0, s32 arg1);  /* 80004494 */
+void func_8000396C(EnGoroiwa *this, PlayState *play);
+void func_80003D64(EnGoroiwa *this, PlayState *play);
+void EnGoroiwa_Update(Actor *thisx, PlayState *play);  /* 80003DC8 */
+void func_8000427C(EnGoroiwa *this, PlayState *play);
+void EnGoroiwa_Draw(Actor *thisx, PlayState *play);  /* 80004494 */
 
 #endif

@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0547_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjKinoko ObjKinoko;
 
-void ObjKinoko_Update(void *arg0, void *arg1);  /* 80000030 */
-void ObjKinoko_Draw(s32 arg0, s32 arg1);  /* 800001E4 */
+void ObjKinoko_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjKinoko_Destroy(Actor *thisx, PlayState *play);  /* 80000020 */
+void ObjKinoko_Update(Actor *thisx, PlayState *play);  /* 80000030 */
+void ObjKinoko_Draw(Actor *thisx, PlayState *play);  /* 800001E4 */
 
 #endif

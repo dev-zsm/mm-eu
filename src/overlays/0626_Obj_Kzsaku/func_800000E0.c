@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80BED91C;
 
-void ObjKzsaku_SetupIdle(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80BED91C;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+void ObjKzsaku_SetupIdle(ObjKzsaku *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80BED91C;
+    M2C_FIELD(this, f32 *, 0x28) = (f32) M2C_FIELD(this, f32 *, 0xC);
 }

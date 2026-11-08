@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0411_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgOpenSpot BgOpenSpot;
 
-void BgOpenSpot_Update(s32 arg0, s32 arg1);  /* 80000050 */
-void BgOpenSpot_Draw(void *arg0, s32 arg1);  /* 800000D0 */
+void BgOpenSpot_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgOpenSpot_Destroy(Actor *thisx, PlayState *play);  /* 80000040 */
+void BgOpenSpot_Update(Actor *thisx, PlayState *play);  /* 80000050 */
+void BgOpenSpot_Draw(Actor *thisx, PlayState *play);  /* 800000D0 */
 
 #endif

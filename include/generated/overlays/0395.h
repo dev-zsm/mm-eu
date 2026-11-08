@@ -4,8 +4,13 @@
 #define GENERATED_OVERLAYS_0395_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakuginElvpole BgHakuginElvpole;
 
-void func_800000FC(void *arg0, s32 arg1);
-void BgHakuginElvpole_Draw(s32 arg0, void *arg1);  /* 8000038C */
+void BgHakuginElvpole_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgHakuginElvpole_Destroy(Actor *thisx, PlayState *play);  /* 800000C8 */
+void func_800000FC(BgHakuginElvpole *this, PlayState *play);
+void BgHakuginElvpole_Update(Actor *thisx);  /* 80000368 */
+void BgHakuginElvpole_Draw(Actor *thisx, PlayState *play);  /* 8000038C */
 
 #endif

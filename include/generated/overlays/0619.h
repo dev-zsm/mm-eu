@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0619_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjMoonStone ObjMoonStone;
 
+void ObjMoonStone_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjMoonStone_Destroy(Actor *thisx, PlayState *play);  /* 8000010C */
 void func_8000011C(u8 *arg0);
-void func_80000130(void *arg0, void *arg1);
-void func_800001E8(u8 *arg0);
+void func_80000130(ObjMoonStone *this, PlayState *play);
+void func_800001E8(ObjMoonStone *this);
 void func_800001FC(u8 *arg0);
-void func_8000022C(u8 *arg0);
+void func_8000022C(ObjMoonStone *this);
 void func_80000258(u8 *arg0, s32 arg1);
 void func_8000034C(u8 *arg0);
 void func_80000360(s32 arg0, s32 arg1);
-void ObjMoonStone_Draw(s32 arg0, void *arg1);  /* 80000400 */
+void ObjMoonStone_Draw(Actor *thisx, PlayState *play);  /* 80000400 */
 
 #endif

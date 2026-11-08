@@ -4,14 +4,20 @@
 #define GENERATED_OVERLAYS_0502_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgKin2Bombwall BgKin2Bombwall;
 
-s32 BgKin2Bombwall_IsHitFromNearby(u8 *arg0, s32 arg1);  /* 80000000 */
-void BgKin2Bombwall_SpawnEffects(void *arg0, s32 arg1);  /* 80000070 */
-void BgKin2Bombwall_SetupWait(u8 *arg0);  /* 80000498 */
-void BgKin2Bombwall_Wait(s32 arg0, s32 arg1);  /* 800004AC */
-void BgKin2Bombwall_SetupPlayCutscene(u8 *arg0);  /* 80000524 */
-void BgKin2Bombwall_PlayCutscene(void *arg0, s32 arg1);  /* 80000538 */
-void BgKin2Bombwall_SetupEndCutscene(u8 *arg0);  /* 800005D8 */
-void BgKin2Bombwall_EndCutscene(u8 *arg0, s32 arg1);  /* 800005F4 */
+s32 BgKin2Bombwall_IsHitFromNearby(BgKin2Bombwall *this, PlayState *play);  /* 80000000 */
+void BgKin2Bombwall_SpawnEffects(BgKin2Bombwall *this, PlayState *play);  /* 80000070 */
+void BgKin2Bombwall_Init(Actor *thisx, PlayState *play);  /* 8000038C */
+void BgKin2Bombwall_Destroy(Actor *thisx, PlayState *play);  /* 80000450 */
+void BgKin2Bombwall_SetupWait(BgKin2Bombwall *this);  /* 80000498 */
+void BgKin2Bombwall_Wait(BgKin2Bombwall *this, PlayState *play);  /* 800004AC */
+void BgKin2Bombwall_SetupPlayCutscene(BgKin2Bombwall *this);  /* 80000524 */
+void BgKin2Bombwall_PlayCutscene(BgKin2Bombwall *this, PlayState *play);  /* 80000538 */
+void BgKin2Bombwall_SetupEndCutscene(BgKin2Bombwall *this);  /* 800005D8 */
+void BgKin2Bombwall_EndCutscene(BgKin2Bombwall *this, PlayState *play);  /* 800005F4 */
+void BgKin2Bombwall_Update(Actor *thisx);  /* 80000644 */
+void BgKin2Bombwall_Draw(Actor *thisx, PlayState *play);  /* 80000668 */
 
 #endif

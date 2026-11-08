@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0512.h"
 
-s32 func_8000011C(u8 *arg0, M2C_UNK arg1) {
-    return M2C_FIELD(arg0, s8 *, 0x17B) >= 0xB;
+s32 func_8000011C(BgIkanaBlock *this, PlayState *play) {
+    return M2C_FIELD(this, s8 *, 0x17B) >= 0xB;
 }

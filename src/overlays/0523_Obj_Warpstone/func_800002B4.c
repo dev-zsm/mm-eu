@@ -3,7 +3,7 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0523.h"
 
-s32 ObjWarpstone_OpenedIdle(u8 *arg0, M2C_UNK arg1) {
-    M2C_FIELD(arg0, s16 *, 0x116) = 0xC01;
+s32 ObjWarpstone_OpenedIdle(ObjWarpstone *this, PlayState *play) {
+    M2C_FIELD(this, s16 *, 0x116) = 0xC01;
     return 0;
 }

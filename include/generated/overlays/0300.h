@@ -4,28 +4,31 @@
 #define GENERATED_OVERLAYS_0300_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSpinyroll ObjSpinyroll;
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_8000005C(s32 arg0, s32 arg1, s32 arg2);
-void func_800000DC(void *arg0);
-void func_8000020C(void *arg0);
+void func_80000000(PlayState *play, ObjSpinyroll *this, s32 arg2, s32 arg3);
+void func_8000005C(Vec3f *arg0, Vec3f *arg1, s16 arg2);
+void func_800000DC(Actor *thisx);
+void func_8000020C(ObjSpinyroll *this);
 void func_8000027C(u8 *arg0);
-void func_800002C8(void *arg0);
-void func_800003C0(void *arg0);
-void func_80000408(u8 *a0);
+void func_800002C8(ObjSpinyroll *this);
+void func_800003C0(ObjSpinyroll *this);
+void func_80000408(ObjSpinyroll *this);
 void func_80000434(u8 *arg0);
-void func_80000468(void *arg0);
-void func_80000550(void *arg0);
-void func_80000624(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000888(s32 arg0, s32 arg1, s32 arg2);
-void func_800008E4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000944(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000988(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000BF8(s32 arg0, s32 arg1, s32 arg2);
+s32 func_80000468(ObjSpinyroll *this);
+void func_80000550(ObjSpinyroll *this);
+s32 func_80000624(ObjSpinyroll *this, PlayState *play, Vec3f *arg2, s32 arg3);
+s32 func_80000888(ObjSpinyroll *this, PlayState *play, s32 arg2);
+s32 func_800008E4(void *colCtx, f32 *arg1, void *polyOut, s32 *bgId, Vec3f *arg4, ObjSpinyroll *this);
+s32 func_80000944(void *colCtx, f32 *arg1, void *polyOut, s32 *bgId, Vec3f *arg4, ObjSpinyroll *this);
+s32 func_80000988(ObjSpinyroll *this, PlayState *play, f32 *arg2, s32 arg3);
+s32 func_80000BF8(ObjSpinyroll *this, PlayState *play, s32 arg2);
 s32 func_80000C44(u8 *arg0, s32 arg1);
 s32 func_80000C84(void);
-void ObjSpinyroll_Init(void *arg0, s32 arg1);  /* 80000CD8 */
-void func_80000F74(u8 *arg0);
+void ObjSpinyroll_Init(Actor *thisx, PlayState *play);  /* 80000CD8 */
+void ObjSpinyroll_Destroy(Actor *thisx, PlayState *play);  /* 80000F2C */
+void func_80000F74(ObjSpinyroll *this);
 void func_80000F90(u8 *arg0, s32 arg1);
 void func_80000FFC(u8 *arg0, s32 arg1);
 void func_8000105C(u8 *a0);
@@ -36,7 +39,7 @@ void func_800011D4(u8 *arg0);
 void func_800011E8(u8 *arg0, s32 arg1);
 void func_80001270(u8 *arg0);
 void func_80001284(u8 *arg0, s32 arg1);
-void ObjSpinyroll_Update(void *arg0, s32 arg1);  /* 80001320 */
-void ObjSpinyroll_Draw(void *arg0, void *arg1);  /* 800013CC */
+void ObjSpinyroll_Update(Actor *thisx, PlayState *play);  /* 80001320 */
+void ObjSpinyroll_Draw(Actor *thisx, PlayState *play);  /* 800013CC */
 
 #endif

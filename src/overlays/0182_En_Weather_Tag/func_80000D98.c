@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0182.h"
 
-void EnWeatherTag_DoNothing(s32 arg0, M2C_UNK arg1) {
+void EnWeatherTag_DoNothing(EnWeatherTag *this, PlayState *play) {
 
 }

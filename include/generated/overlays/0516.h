@@ -4,23 +4,28 @@
 #define GENERATED_OVERLAYS_0516_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgDblueWaterfall BgDblueWaterfall;
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_80000084(void *arg0, s32 arg1);
-s32 func_800000D8(u8 *arg0, s32 arg1);
-void func_80000114(void *arg0, s32 arg1);
-void func_8000019C(void *arg0, s32 arg1);
-void func_80000224(void *arg0, s32 arg1);
-void func_80000520(void *arg0, s32 arg1);
-void func_800006C8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800008E8(void *arg0, s32 arg1);
-void func_80000990(void *arg0, void *arg1);
-void func_80000BCC(s32 arg0, s32 arg1);
-void func_80000CA8(void *arg0, s32 arg1);
-void func_80000E54(u8 *arg0, s32 arg1);
+s32 func_80000000(Vec3f *arg0, Vec3f *arg1);
+s32 func_80000084(BgDblueWaterfall *this, PlayState *play);
+s32 func_800000D8(BgDblueWaterfall *this, PlayState *play);
+void func_80000114(BgDblueWaterfall *this, PlayState *play);
+void func_8000019C(BgDblueWaterfall *this, PlayState *play);
+void func_80000224(BgDblueWaterfall *this, PlayState *play);
+void func_80000520(BgDblueWaterfall *this, PlayState *play);
+void func_800006C8(BgDblueWaterfall *this, PlayState *play, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, s32 arg8);
+void func_800008E8(BgDblueWaterfall *this, PlayState *play);
+void func_80000990(BgDblueWaterfall *this, PlayState *play);
+void BgDblueWaterfall_Init(Actor *thisx, PlayState *play);  /* 80000AF8 */
+void BgDblueWaterfall_Destroy(Actor *thisx, PlayState *play);  /* 80000BA0 */
+void func_80000BCC(BgDblueWaterfall *this, PlayState *play);
+void func_80000CA8(BgDblueWaterfall *this, PlayState *play);
+void func_80000E54(BgDblueWaterfall *this, PlayState *play);
 void func_80000E6C(u8 *arg0, s32 arg1);
-void func_80000F4C(void *arg0, s32 arg1);
-void func_800012A0(void *arg0);
-void BgDblueWaterfall_Draw(s32 arg0, s32 arg1);  /* 800013CC */
+void func_80000F4C(BgDblueWaterfall *this, PlayState *play);
+void func_800012A0(BgDblueWaterfall *this, PlayState *play);
+void BgDblueWaterfall_Update(Actor *thisx);  /* 800013A8 */
+void BgDblueWaterfall_Draw(Actor *thisx, PlayState *play);  /* 800013CC */
 
 #endif

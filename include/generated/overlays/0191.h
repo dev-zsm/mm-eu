@@ -4,13 +4,15 @@
 #define GENERATED_OVERLAYS_0191_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct OceffSpot OceffSpot;
 
 void OceffSpot_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void OceffSpot_Init(void *arg0, void *arg1);  /* 8000000C */
-void OceffSpot_Destroy(s32 arg0, s32 arg1);  /* 8000016C */
-void OceffSpot_End(u8 *arg0, u8 *arg1);  /* 800001C4 */
-void OceffSpot_GrowCylinder(void *arg0, s32 arg1);  /* 800002B4 */
-void OceffSpot_Update(void *arg0, s32 arg1);  /* 80000318 */
-void OceffSpot_Draw(s32 arg0, void *arg1);  /* 800005D4 */
+void OceffSpot_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void OceffSpot_Destroy(Actor *thisx, PlayState *play);  /* 8000016C */
+void OceffSpot_End(OceffSpot *this, PlayState *play);  /* 800001C4 */
+void OceffSpot_GrowCylinder(OceffSpot *this, PlayState *play);  /* 800002B4 */
+void OceffSpot_Update(Actor *thisx, PlayState *play);  /* 80000318 */
+void OceffSpot_Draw(Actor *thisx, PlayState *play);  /* 800005D4 */
 
 #endif

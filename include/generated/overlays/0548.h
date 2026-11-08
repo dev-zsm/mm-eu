@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0548_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjYasi ObjYasi;
 
-void ObjYasi_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ObjYasi_Update(void *arg0, s32 arg1);  /* 800000B0 */
+void ObjYasi_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjYasi_Destroy(Actor *thisx, PlayState *play);  /* 8000007C */
+void ObjYasi_Update(Actor *thisx, PlayState *play);  /* 800000B0 */
+void ObjYasi_Draw(Actor *thisx, PlayState *play);  /* 800001C0 */
 
 #endif

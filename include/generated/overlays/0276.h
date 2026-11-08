@@ -4,17 +4,19 @@
 #define GENERATED_OVERLAYS_0276_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIcicle BgIcicle;
 
-void BgIcicle_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgIcicle_Destroy(u8 *arg0, s32 arg1);  /* 800000F4 */
-void BgIcicle_Break(void *arg0, s32 arg1, s32 arg2);  /* 8000013C */
-void BgIcicle_DoNothing(s32 arg0, s32 arg1);  /* 8000031C */
-void BgIcicle_Wait(u8 *arg0, s32 arg1);  /* 8000032C */
-void BgIcicle_Shiver(void *arg0, s32 arg1);  /* 80000364 */
-void BgIcicle_Fall(void *arg0, s32 arg1);  /* 800004C8 */
-void BgIcicle_Regrow(u8 *arg0, s32 arg1);  /* 8000060C */
-void BgIcicle_UpdateAttacked(void *arg0, s32 arg1);  /* 8000065C */
-void BgIcicle_Update(void *arg0, s32 arg1);  /* 80000798 */
-void BgIcicle_Draw(s32 arg0, s32 arg1);  /* 8000081C */
+void BgIcicle_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgIcicle_Destroy(Actor *thisx, PlayState *play);  /* 800000F4 */
+void BgIcicle_Break(BgIcicle *this, PlayState *play, f32 arg2);  /* 8000013C */
+void BgIcicle_DoNothing(BgIcicle *this, PlayState *play);  /* 8000031C */
+void BgIcicle_Wait(BgIcicle *this, PlayState *play);  /* 8000032C */
+void BgIcicle_Shiver(BgIcicle *this, PlayState *play);  /* 80000364 */
+void BgIcicle_Fall(BgIcicle *this, PlayState *play);  /* 800004C8 */
+void BgIcicle_Regrow(BgIcicle *this, PlayState *play);  /* 8000060C */
+void BgIcicle_UpdateAttacked(BgIcicle *this, PlayState *play);  /* 8000065C */
+void BgIcicle_Update(Actor *thisx, PlayState *play);  /* 80000798 */
+void BgIcicle_Draw(Actor *thisx, PlayState *play);  /* 8000081C */
 
 #endif

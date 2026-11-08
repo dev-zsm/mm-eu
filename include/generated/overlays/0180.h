@@ -4,12 +4,16 @@
 #define GENERATED_OVERLAYS_0180_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnStream EnStream;
 
 void EnStream_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void EnStream_Init(void *arg0, s32 arg1);  /* 8000000C */
-void EnStream_PlayerIsInRange(void *arg0, void *arg1, void *arg2, s32 arg3);  /* 80000084 */
-void EnStream_SuckPlayer(void *arg0, s32 arg1);  /* 800001A4 */
-void EnStream_WaitForPlayer(s32 arg0, s32 arg1);  /* 8000032C */
-void EnStream_Draw(s32 arg0, void *arg1);  /* 800003B4 */
+void EnStream_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void EnStream_Destroy(Actor *thisx, PlayState *play);  /* 80000074 */
+s32 EnStream_PlayerIsInRange(Vec3f *vortexWorldPos, Vec3f *playerWorldPos, Vec3f *posDifference, f32 vortexYScale);  /* 80000084 */
+void EnStream_SuckPlayer(EnStream *this, PlayState *play);  /* 800001A4 */
+void EnStream_WaitForPlayer(EnStream *this, PlayState *play);  /* 8000032C */
+void EnStream_Update(Actor *thisx);  /* 80000380 */
+void EnStream_Draw(Actor *thisx, PlayState *play);  /* 800003B4 */
 
 #endif

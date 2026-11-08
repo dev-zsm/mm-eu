@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0138_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ItemEtcetera ItemEtcetera;
 
 void ItemEtcetera_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ItemEtcetera_Init(void *arg0, s32 arg1);  /* 8000000C */
-void ItemEtcetera_WaitForObject(u8 *arg0, s32 arg1);  /* 80000154 */
-void func_800001AC(s32 arg0, s32 arg1);
+void ItemEtcetera_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ItemEtcetera_Destroy(Actor *thisx, PlayState *play);  /* 80000144 */
+void ItemEtcetera_WaitForObject(ItemEtcetera *this, PlayState *play);  /* 80000154 */
+void func_800001AC(ItemEtcetera *this, PlayState *play);
 void func_80000208(u8 *arg0, s32 arg1);
-void ItemEtcetera_DrawThroughLens(s32 arg0, void *arg1);  /* 80000274 */
-void ItemEtcetera_Draw(u8 *arg0, s32 arg1);  /* 800002CC */
+void ItemEtcetera_Update(Actor *thisx);  /* 80000250 */
+void ItemEtcetera_DrawThroughLens(Actor *thisx, PlayState *play);  /* 80000274 */
+void ItemEtcetera_Draw(Actor *thisx, PlayState *play);  /* 800002CC */
 
 #endif

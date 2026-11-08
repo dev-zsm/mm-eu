@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0331.h"
 
-void EnSekihi_DoNothing(s32 arg0, M2C_UNK arg1) {
+void EnSekihi_DoNothing(EnSekihi *this, PlayState *play) {
 
 }

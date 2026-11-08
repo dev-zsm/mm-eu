@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0125.h"
 void func_800FF488(s32, f32);
 f32 func_8017B984();
 void func_80000470(s32 a) {

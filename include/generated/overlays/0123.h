@@ -4,17 +4,19 @@
 #define GENERATED_OVERLAYS_0123_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct MirRay MirRay;
 
-void MirRay_SetupCollider(void *arg0);  /* 80000000 */
-void MirRay_MakeShieldLight(void *arg0, s32 arg1);  /* 800000C8 */
-void MirRay_Init(void *arg0, s32 arg1);  /* 8000026C */
-void MirRay_Destroy(s32 arg0, s32 arg1);  /* 80000504 */
-void MirRay_Update(void *arg0, void *arg1);  /* 8000057C */
-void MirRay_SetIntensity(void *arg0, s32 arg1);  /* 80000668 */
-void MirRay_SetupReflectionPolys(void *arg0, void *arg1, void *arg2);  /* 8000081C */
-void MirRay_RemoveSimilarReflections(s32 arg0);  /* 800009F8 */
-void MirRay_ReflectedBeam(void *arg0, void *arg1, void *arg2);  /* 80000AFC */
-void MirRay_Draw(void *arg0, void *arg1);  /* 800010A4 */
-void MirRay_CheckInFrustum(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80001384 */
+void MirRay_SetupCollider(MirRay *this);  /* 80000000 */
+void MirRay_MakeShieldLight(MirRay *this, PlayState *play);  /* 800000C8 */
+void MirRay_Init(Actor *thisx, PlayState *play);  /* 8000026C */
+void MirRay_Destroy(Actor *thisx, PlayState *play);  /* 80000504 */
+void MirRay_Update(Actor *thisx, PlayState *play);  /* 8000057C */
+void MirRay_SetIntensity(MirRay *this, PlayState *play);  /* 80000668 */
+void MirRay_SetupReflectionPolys(MirRay *this, PlayState *play, void *reflection);  /* 8000081C */
+void MirRay_RemoveSimilarReflections(void *reflection);  /* 800009F8 */
+void MirRay_ReflectedBeam(MirRay *this, PlayState *play, void *reflection);  /* 80000AFC */
+void MirRay_Draw(Actor *thisx, PlayState *play);  /* 800010A4 */
+s32 MirRay_CheckInFrustum(Vec3f *vecA, Vec3f *vecB, f32 pointx, f32 pointy, f32 pointz, s16 radiusA, s16 radiusB);  /* 80001384 */
 
 #endif

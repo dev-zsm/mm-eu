@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0057_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTest EnTest;
 
 void func_80000000(void *arg0);
-void func_8000014C(void *arg0, s32 arg1);
+void func_8000014C(void *arg0, Vec3f *arg1);
 void func_8000036C(void *arg0);
-void func_800004D8(void *arg0, void *arg1);
-void EnTest_Init(void *arg0, s32 arg1);  /* 80000618 */
-void EnTest_Update(void *arg0, s32 arg1);  /* 800007CC */
-void EnTest_OverrideLimbDraw(void *arg0, s32 arg1, s32 arg2, void *arg3);  /* 80000948 */
-void EnTest_Draw(void *arg0, void *arg1);  /* 80000B38 */
+void func_800004D8(PlayState *play, void *arg1);
+void EnTest_Init(Actor *thisx, PlayState *play);  /* 80000618 */
+void EnTest_Destroy(Actor *thisx, PlayState *play);  /* 800007A0 */
+void EnTest_Update(Actor *thisx, PlayState *play);  /* 800007CC */
+s32 EnTest_OverrideLimbDraw(PlayState *play, void *kfSkelAnime, s32 limbIndex, void *dList, u8 *flags, void *thisx, Vec3f *scale, Vec3s *rot, Vec3f *pos);  /* 80000948 */
+void EnTest_Draw(Actor *thisx, PlayState *play);  /* 80000B38 */
 
 #endif

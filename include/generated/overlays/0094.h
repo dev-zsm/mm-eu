@@ -4,18 +4,21 @@
 #define GENERATED_OVERLAYS_0094_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnMThunder EnMThunder;
 
-void EnMThunder_UnkType_Setup(void *arg0, s32 arg1);  /* 80000000 */
-void EnMThunder_Init(void *arg0, void *arg1);  /* 8000009C */
-void EnMThunder_Destroy(s32 arg0, s32 arg1);  /* 80000460 */
-void EnMThunder_AdjustLights(s32 a0, f32 a1);  /* 800004D0 */
-void EnMThunder_Spin_AttackNoMagic(s32 arg0, void *arg1);  /* 8000050C */
-void EnMThunder_Charge(void *arg0, s32 arg1);  /* 800005C4 */
-void func_80000B2C(void *arg0, s32 arg1);
-void EnMThunder_Spin_Attack(void *arg0, s32 arg1);  /* 80000BA8 */
-void EnMThunder_SwordBeam_Attack(void *arg0, s32 arg1);  /* 80000D14 */
-void EnMThunder_UnkType_Attack(void *arg0, s32 arg1);  /* 80000F50 */
-void EnMThunder_UnkType_Update(u8 *arg0);  /* 800011FC */
-void EnMThunder_Draw(s32 arg0, void *arg1);  /* 800013BC */
+void EnMThunder_UnkType_Setup(EnMThunder *this, PlayState *play);  /* 80000000 */
+void EnMThunder_Init(Actor *thisx, PlayState *play);  /* 8000009C */
+void EnMThunder_Destroy(Actor *thisx, PlayState *play);  /* 80000460 */
+void EnMThunder_AdjustLights(PlayState *play, f32 arg1);  /* 800004D0 */
+void EnMThunder_Spin_AttackNoMagic(EnMThunder *this, PlayState *play);  /* 8000050C */
+void EnMThunder_Charge(EnMThunder *this, PlayState *play);  /* 800005C4 */
+void func_80000B2C(EnMThunder *this, PlayState *play);
+void EnMThunder_Spin_Attack(EnMThunder *this, PlayState *play);  /* 80000BA8 */
+void EnMThunder_SwordBeam_Attack(EnMThunder *this, PlayState *play);  /* 80000D14 */
+void EnMThunder_UnkType_Attack(EnMThunder *this, PlayState *play);  /* 80000F50 */
+void EnMThunder_Update(Actor *thisx, PlayState *play);  /* 80001028 */
+void EnMThunder_UnkType_Update(Actor *thisx);  /* 800011FC */
+void EnMThunder_Draw(Actor *thisx, PlayState *play);  /* 800013BC */
 
 #endif

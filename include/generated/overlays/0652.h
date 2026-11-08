@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0652_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnPaper EnPaper;
 
-void EnPaper_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnPaper_SetupSpreadConfettiGroup(u8 *arg0);  /* 8000009C */
-void EnPaper_SpreadConfettiGroup(s32 arg0, s32 arg1);  /* 800000B0 */
-void EnPaper_SetupFlyConfettiGroup(u8 *arg0);  /* 80000118 */
-void EnPaper_FlyConfettiGroup(s32 arg0, s32 arg1);  /* 8000012C */
-void EnPaper_InitConfettiPiece(s32 arg0, void *arg1);  /* 8000018C */
-void EnPaper_FlyConfettiPiece(s32 arg0, void *arg1);  /* 80000310 */
-void EnPaper_UpdateWind(void *arg0);  /* 800004AC */
-void EnPaper_Draw(void *arg0, s32 arg1);  /* 80000600 */
+void EnPaper_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnPaper_Destroy(Actor *thisx, PlayState *play);  /* 8000008C */
+void EnPaper_SetupSpreadConfettiGroup(EnPaper *this);  /* 8000009C */
+void EnPaper_SpreadConfettiGroup(EnPaper *this, PlayState *play);  /* 800000B0 */
+void EnPaper_SetupFlyConfettiGroup(EnPaper *this);  /* 80000118 */
+void EnPaper_FlyConfettiGroup(EnPaper *this, PlayState *play);  /* 8000012C */
+void EnPaper_InitConfettiPiece(EnPaper *this, void *piece);  /* 8000018C */
+void EnPaper_FlyConfettiPiece(EnPaper *this, void *piece);  /* 80000310 */
+void EnPaper_UpdateWind(EnPaper *this);  /* 800004AC */
+void EnPaper_Update(Actor *thisx);  /* 800005AC */
+void EnPaper_Draw(Actor *thisx, PlayState *play);  /* 80000600 */
 
 #endif

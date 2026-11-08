@@ -4,16 +4,21 @@
 #define GENERATED_OVERLAYS_0662_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSwprize ObjSwprize;
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_80000070(void *arg0, s32 arg1);
+void func_80000000(ObjSwprize *this, Vec3f *vec);
+void func_80000070(ObjSwprize *this, PlayState *play);
+void ObjSwprize_Init(Actor *thisx, PlayState *play);  /* 8000027C */
+void ObjSwprize_Destroy(Actor *thisx, PlayState *play);  /* 800002D0 */
 void func_800002E0(u8 *arg0);
 void func_800002F4(u8 *arg0, s32 arg1);
 void func_80000338(u8 *arg0);
-void func_8000034C(void *arg0, s32 arg1);
-void func_800003B0(u8 *arg0);
+void func_8000034C(ObjSwprize *this, PlayState *play);
+void func_800003B0(ObjSwprize *this);
 void func_800003CC(u8 *arg0, s32 arg1);
-void ObjSwprize_SetupDoNothing(u8 *arg0);  /* 80000420 */
-void ObjSwprize_DoNothing(s32 arg0, s32 arg1);  /* 80000434 */
+void ObjSwprize_SetupDoNothing(ObjSwprize *this);  /* 80000420 */
+void ObjSwprize_DoNothing(ObjSwprize *this, PlayState *play);  /* 80000434 */
+void ObjSwprize_Update(Actor *thisx);  /* 80000444 */
 
 #endif

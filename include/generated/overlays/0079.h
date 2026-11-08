@@ -4,16 +4,18 @@
 #define GENERATED_OVERLAYS_0079_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnViewer EnViewer;
 
 void EnViewer_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void EnViewer_Init(void *arg0, s32 arg1);  /* 8000000C */
-void EnViewer_Destroy(s32 a, s32 b);  /* 800001D0 */
-void func_800001F4(void *arg0, s32 arg1, s32 arg2);
-void func_80000280(s32 arg0, void *arg1);
-void func_8000035C(void *arg0, void *arg1);
-void func_800003F8(void *arg0, void *arg1);
-void func_800004A4(s32 arg0, void *arg1);
-void EnViewer_Update(void *arg0, void *arg1);  /* 80000560 */
-void EnViewer_Draw(s32 arg0, s32 arg1);  /* 800005A8 */
+void EnViewer_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void EnViewer_Destroy(Actor *thisx, PlayState *play);  /* 800001D0 */
+void func_800001F4(EnViewer *this, PlayState *play, f32 arg2);
+void func_80000280(EnViewer *this, PlayState *play);
+void func_8000035C(EnViewer *this, PlayState *play);
+void func_800003F8(EnViewer *this, PlayState *play);
+void func_800004A4(EnViewer *this, PlayState *play);
+void EnViewer_Update(Actor *thisx, PlayState *play2);  /* 80000560 */
+void EnViewer_Draw(Actor *thisx, PlayState *play);  /* 800005A8 */
 
 #endif

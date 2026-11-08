@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0181_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnMm EnMm;
 
 void EnMm_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_8000000C(s32 arg0);
-void EnMm_Init(void *arg0, s32 arg1);  /* 8000005C */
-void func_8000018C(s32 arg0, s32 arg1);
-void func_80000204(void *arg0, s32 arg1);
-void func_8000056C(void *arg0, s32 arg1);
-void EnMm_Update(void *arg0, s32 arg1);  /* 8000060C */
-void EnMm_Draw(s32 arg0, s32 arg1);  /* 80000688 */
+void func_8000000C(EnMm *this);
+void EnMm_Init(Actor *thisx, PlayState *play);  /* 8000005C */
+void EnMm_Destroy(Actor *thisx, PlayState *play);  /* 80000160 */
+void func_8000018C(EnMm *this, PlayState *play);
+void func_80000204(EnMm *this, PlayState *play);
+void func_8000056C(EnMm *this, PlayState *play);
+void EnMm_Update(Actor *thisx, PlayState *play);  /* 8000060C */
+void EnMm_Draw(Actor *thisx, PlayState *play);  /* 80000688 */
 
 #endif

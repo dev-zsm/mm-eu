@@ -4,15 +4,18 @@
 #define GENERATED_OVERLAYS_0399_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnDoorEtc EnDoorEtc;
 
-void EnDoorEtc_Init(void *arg0, void *arg1);  /* 80000000 */
-void EnDoorEtc_IsDistanceGreater(void *arg0, void *arg1, s32 arg2);  /* 80000174 */
-void EnDoorEtc_WaitForObject(void *arg0, s32 arg1);  /* 800001D8 */
+void EnDoorEtc_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnDoorEtc_Destroy(Actor *thisx, PlayState *play);  /* 80000148 */
+s32 EnDoorEtc_IsDistanceGreater(Vec3f *a, Vec3f *b, f32 c);  /* 80000174 */
+void EnDoorEtc_WaitForObject(EnDoorEtc *this, PlayState *play);  /* 800001D8 */
 void func_80000248(u8 *arg0, s32 arg1);
 void func_80000284(u8 *arg0, s32 arg1);
-void func_800002D0(void *arg0, s32 arg1);
-void func_80000484(void *arg0, void *arg1);
-void EnDoorEtc_Update(void *arg0, s32 arg1);  /* 80000560 */
-void EnDoorEtc_Draw(s32 arg0, s32 arg1);  /* 800005D8 */
+void func_800002D0(EnDoorEtc *this, PlayState *play);
+void func_80000484(EnDoorEtc *this, PlayState *play);
+void EnDoorEtc_Update(Actor *thisx, PlayState *play);  /* 80000560 */
+void EnDoorEtc_Draw(Actor *thisx, PlayState *play);  /* 800005D8 */
 
 #endif

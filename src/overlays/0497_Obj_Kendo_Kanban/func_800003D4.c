@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0497.h"
 
-void ObjKendoKanban_DoNothing(s32 arg0, M2C_UNK arg1) {
+void ObjKendoKanban_DoNothing(ObjKendoKanban *this, PlayState *play) {
 
 }

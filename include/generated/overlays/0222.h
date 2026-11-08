@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0222_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsExtra EffectSsExtra;
 
-void EffectSsExtra_Init(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000000 */
-void EffectSsExtra_Draw(void *arg0, s32 arg1, void *arg2);  /* 80000144 */
-void EffectSsExtra_Update(s32 arg0, s32 arg1, void *arg2);  /* 800002AC */
+u32 EffectSsExtra_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsExtra_Draw(PlayState *play, u32 index, void *this);  /* 80000144 */
+void EffectSsExtra_Update(PlayState *play, u32 index, void *this);  /* 800002AC */
 
 #endif

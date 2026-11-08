@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0136.h"
 extern f32 D_80901E8C;
 extern s16 D_80901E90;
 extern f32 D_80901EF4;

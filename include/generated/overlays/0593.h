@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0593_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnTanron6 EnTanron6;
 
-void EnTanron6_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnTanron6_DoNothing(u8 *arg0);  /* 8000007C */
+void EnTanron6_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnTanron6_Destroy(Actor *thisx, PlayState *play);  /* 8000006C */
+void EnTanron6_DoNothing(EnTanron6 *this);  /* 8000007C */
 void func_80000090(s32 arg0, s32 arg1);
-void EnTanron6_Update(void *arg0, s32 arg1);  /* 800000A0 */
+void EnTanron6_Update(Actor *thisx, PlayState *play);  /* 800000A0 */
+void func_80000100(Actor *thisx, PlayState *play);
 
 #endif

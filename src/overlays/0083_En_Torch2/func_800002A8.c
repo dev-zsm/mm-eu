@@ -7,11 +7,11 @@ M2C_UNK func_800B6490(u8 *);                      /* extern */
 M2C_UNK func_800B680C(u8 *);                      /* extern */
 s32 func_800FED2C(s32, M2C_UNK, M2C_UNK, u8 *);   /* extern */
 
-void EnTorch2_UpdateDeath(u8 *arg0, M2C_UNK arg1) {
-    if (func_800FED2C(arg0 + 0x192, 0, 8, arg0) != 0) {
-        func_800B6490(arg0);
+void EnTorch2_UpdateDeath(Actor *thisx, PlayState *play) {
+    if (func_800FED2C((u8 *)thisx + 0x192, 0, 8, thisx) != 0) {
+        func_800B6490(thisx);
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0x74) = -1.0f;
-    func_800B680C(arg0);
+    M2C_FIELD(thisx, f32 *, 0x74) = -1.0f;
+    func_800B680C(thisx);
 }

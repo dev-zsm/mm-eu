@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80BED658;
 
-void EnNnh_SetupDialogue(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x190) = &D_80BED658;
+void EnNnh_SetupDialogue(EnNnh *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x190) = &D_80BED658;
 }

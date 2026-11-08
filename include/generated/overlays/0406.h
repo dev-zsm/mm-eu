@@ -4,15 +4,17 @@
 #define GENERATED_OVERLAYS_0406_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct TransitionWipe5 TransitionWipe5;
 
-void TransitionWipe5_Start(void *arg0);  /* 80000000 */
-s32 TransitionWipe5_Init(s32 arg0);  /* 80000084 */
-void TransitionWipe5_Destroy(s32 arg0);  /* 800000B0 */
-void TransitionWipe5_Update(void *arg0, s32 arg1);  /* 800000BC */
-void TransitionWipe5_Draw(void *arg0, s32 arg1);  /* 8000012C */
-u8 TransitionWipe5_IsDone(u8 *arg0);  /* 80000360 */
+void TransitionWipe5_Start(void *thisx);  /* 80000000 */
+void *TransitionWipe5_Init(void *thisx);  /* 80000084 */
+void TransitionWipe5_Destroy(void *thisx);  /* 800000B0 */
+void TransitionWipe5_Update(void *thisx, s32 updateRate);  /* 800000BC */
+void TransitionWipe5_Draw(void *thisx, void *gfxP);  /* 8000012C */
+s32 TransitionWipe5_IsDone(void *thisx);  /* 80000360 */
 void TransitionWipe5_SetType(u8 *arg0, u32 arg1);  /* 8000036C */
 void TransitionWipe5_SetColor(s32 *arg0, s32 arg1);  /* 800003A4 */
-void TransitionWipe5_SetEnvColor(u8 *arg0, s32 arg1);  /* 800003B0 */
+void TransitionWipe5_SetEnvColor(void *thisx, u32 color);  /* 800003B0 */
 
 #endif

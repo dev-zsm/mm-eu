@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0202_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsDFire EffectSsDFire;
 
-void EffectSsDFire_CheckForObject(s32 arg0, s32 arg1);  /* 80000000 */
-void EffectSsDFire_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000078 */
-void EffectSsDFire_Draw(void *arg0, s32 arg1, void *arg2);  /* 8000015C */
-void EffectSsDFire_Update(s32 arg0, s32 arg1, void *arg2);  /* 80000324 */
+s32 EffectSsDFire_CheckForObject(void *this, PlayState *play);  /* 80000000 */
+u32 EffectSsDFire_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000078 */
+void EffectSsDFire_Draw(PlayState *play, u32 index, void *this);  /* 8000015C */
+void EffectSsDFire_Update(PlayState *play, u32 index, void *this);  /* 80000324 */
 
 #endif

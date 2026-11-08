@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_8091CCB4;
 
-void func_800014C0(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_8091CCB4;
+void func_800014C0(ObjBean *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_8091CCB4;
 }

@@ -4,8 +4,10 @@
 #define GENERATED_OVERLAYS_0438_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgMarketStep BgMarketStep;
 
-void BgMarketStep_Init(void *a0, s32 a1);  /* 80000000 */
-void BgMarketStep_Draw(void *arg0, s32 arg1);  /* 80000028 */
+void BgMarketStep_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgMarketStep_Draw(Actor *thisx, PlayState *play);  /* 80000028 */
 
 #endif

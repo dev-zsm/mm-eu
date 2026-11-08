@@ -4,19 +4,23 @@
 #define GENERATED_OVERLAYS_0477_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSpidertent ObjSpidertent;
 
-void func_80000000(s32 arg0, s32 arg1);
-void func_80000084(void *arg0, s32 arg1, void *arg2, s32 arg3);
-void func_80000188(void *arg0, void *arg1);
-void func_800005E4(s32 arg0, s32 arg1, void *arg2, void *arg3);
-void func_80000900(s32 arg0);
-void func_80000970(void *arg0, void *arg1, s32 arg2);
-void ObjSpidertent_Init(void *arg0, s32 arg1);  /* 80000A6C */
-void func_80000CF8(void *arg0, s32 arg1);
-void func_80000F1C(u8 *a0);
-void func_80000F3C(void *arg0, s32 arg1);
-void func_80000FC4(u8 *arg0);
-void func_80000FE8(void *arg0, s32 arg1);
-void ObjSpidertent_Draw(void *arg0, void *arg1);  /* 800013E8 */
+s32 func_80000000(Vec3f *arg0, Vec3f *arg1);
+s32 func_80000084(Vec3f *arg0, f32 arg1, void *triNorm, Vec3f *arg3, f32 *arg4);
+s32 func_80000188(void *triNorm, Vec3f *arg1);
+void func_800005E4(ObjSpidertent *thisx, PlayState *play, void *triNorm, Vec3f *arg3, f32 arg4, s32 arg5);
+void func_80000900(ObjSpidertent *this);
+s32 func_80000970(ObjSpidertent *this, PlayState *play, Vec3f *arg2);
+void ObjSpidertent_Init(Actor *thisx, PlayState *play);  /* 80000A6C */
+void ObjSpidertent_Destroy(Actor *thisx, PlayState *play);  /* 80000C88 */
+void func_80000CF8(ObjSpidertent *this, PlayState *play);
+void func_80000F1C(ObjSpidertent *this);
+void func_80000F3C(ObjSpidertent *this, PlayState *play);
+void func_80000FC4(ObjSpidertent *this);
+void func_80000FE8(ObjSpidertent *this, PlayState *play);
+void ObjSpidertent_Update(Actor *thisx);  /* 800013C4 */
+void ObjSpidertent_Draw(Actor *thisx, PlayState *play);  /* 800013E8 */
 
 #endif

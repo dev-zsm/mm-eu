@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0384.h"
 
-s32 DmChar05_OverrideLimbDraw(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, M2C_UNK arg3) {
+s32 DmChar05_OverrideLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
     return 0;
 }

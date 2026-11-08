@@ -4,7 +4,11 @@
 #define GENERATED_OVERLAYS_0093_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnMFire1 EnMFire1;
 
-void EnMFire1_Update(s32 arg0, s32 arg1);  /* 80000090 */
+void EnMFire1_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnMFire1_Destroy(Actor *thisx, PlayState *play);  /* 80000064 */
+void EnMFire1_Update(Actor *thisx, PlayState *play);  /* 80000090 */
 
 #endif

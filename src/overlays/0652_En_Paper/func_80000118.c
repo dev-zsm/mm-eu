@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80C0429C;
 
-void EnPaper_SetupFlyConfettiGroup(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80C0429C;
+void EnPaper_SetupFlyConfettiGroup(EnPaper *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80C0429C;
 }

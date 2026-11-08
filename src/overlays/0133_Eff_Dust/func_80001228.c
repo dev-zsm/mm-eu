@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0133.h"
 
 void EffDust_Draw(Actor *thisx) {
     M2C_FIELD(thisx, M2C_UNK (**)(), 0x55C)();

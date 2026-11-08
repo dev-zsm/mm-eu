@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80AD88D0;
 
-void ObjLightblock_SetupPlayCutscene(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x1A8) = &D_80AD88D0;
+void ObjLightblock_SetupPlayCutscene(ObjLightblock *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x1A8) = &D_80AD88D0;
 }

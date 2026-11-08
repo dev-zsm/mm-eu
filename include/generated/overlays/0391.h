@@ -4,15 +4,18 @@
 #define GENERATED_OVERLAYS_0391_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnEgblock EnEgblock;
 
-void EnEgblock_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnEgblock_Active(void *arg0, s32 arg1);  /* 80000104 */
-void EnEgblock_Inactive(u8 *arg0, s32 arg1);  /* 800001E8 */
-void EnEgblock_DoNothing(s32 arg0, s32 arg1);  /* 80000218 */
-void EnEgblock_Update(void *arg0, s32 arg1);  /* 80000228 */
-void EnEgblock_Draw(s32 arg0, s32 arg1);  /* 80000274 */
-void EnEgblock_SpawnEffect(void *arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000354 */
-void EnEgblock_UpdateEffects(void *arg0, s32 arg1);  /* 80000514 */
-void EnEgblock_DrawEffects(void *arg0, void *arg1);  /* 800006C4 */
+void EnEgblock_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnEgblock_Destroy(Actor *thisx, PlayState *play);  /* 800000C8 */
+void EnEgblock_Active(EnEgblock *this, PlayState *play);  /* 80000104 */
+void EnEgblock_Inactive(EnEgblock *this, PlayState *play);  /* 800001E8 */
+void EnEgblock_DoNothing(EnEgblock *this, PlayState *play);  /* 80000218 */
+void EnEgblock_Update(Actor *thisx, PlayState *play);  /* 80000228 */
+void EnEgblock_Draw(Actor *thisx, PlayState *play);  /* 80000274 */
+void EnEgblock_SpawnEffect(EnEgblock *this, Vec3f *pos, s16 lifetime, s16 arg3);  /* 80000354 */
+void EnEgblock_UpdateEffects(EnEgblock *this, PlayState *play);  /* 80000514 */
+void EnEgblock_DrawEffects(EnEgblock *this, PlayState *play);  /* 800006C4 */
 
 #endif

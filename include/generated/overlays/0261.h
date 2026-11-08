@@ -4,11 +4,13 @@
 #define GENERATED_OVERLAYS_0261_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjGrassUnit ObjGrassUnit;
 
-void ObjGrassUnit_SpawnObjGrass(s32 arg0, s32 arg1);  /* 80000000 */
-void ObjGrassUnit_SpawnObjGrassCarry0(s32 arg0, s32 arg1);  /* 80000074 */
-void ObjGrassUnit_SpawnObjGrassCarry1(s32 arg0, s32 arg1);  /* 800000E4 */
-void ObjGrassUnit_IsUnderwater(s32 arg0, s32 arg1);  /* 80000158 */
-void ObjGrassUnit_Init(void *arg0, s32 arg1);  /* 800001C8 */
+s32 ObjGrassUnit_SpawnObjGrass(Actor *this, PlayState *play);  /* 80000000 */
+s32 ObjGrassUnit_SpawnObjGrassCarry0(Actor *this, PlayState *play);  /* 80000074 */
+s32 ObjGrassUnit_SpawnObjGrassCarry1(Actor *this, PlayState *play);  /* 800000E4 */
+s32 ObjGrassUnit_IsUnderwater(PlayState *play, Vec3f *pos);  /* 80000158 */
+void ObjGrassUnit_Init(Actor *this, PlayState *play2);  /* 800001C8 */
 
 #endif

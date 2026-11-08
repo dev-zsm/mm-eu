@@ -4,23 +4,27 @@
 #define GENERATED_OVERLAYS_0539_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjNozoki ObjNozoki;
 
 void ObjNozoki_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ObjNozoki_Init(void *arg0, s32 arg1);  /* 8000000C */
-void func_800000F4(void *arg0, s32 arg1);
-void func_80000288(void *arg0);
-void func_800002E8(s32 arg0, void *arg1);
+void ObjNozoki_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ObjNozoki_Destroy(Actor *thisx, PlayState *play);  /* 800000BC */
+void func_800000F4(ObjNozoki *this, PlayState *play);
+s32 func_80000288(ObjNozoki *this);
+s32 func_800002E8(ObjNozoki *this, PlayState *play);
 void func_800003A4(u8 *arg0, u8 *arg1);
-void func_800004BC(void *arg0, s32 arg1);
-void func_80000694(void *arg0, s32 arg1);
-void func_80000744(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000784(void *arg0, s32 arg1);
-void func_80000808(void *arg0);
-void func_80000874(void *arg0, void *arg1);
-void func_80000C24(void *arg0, s32 arg1);
-void func_80000CFC(void *arg0, s32 arg1);
-void func_80000E10(void *arg0, void *arg1);
-void func_80000F24(void *arg0, s32 arg1);
-void ObjNozoki_Draw(void *arg0, s32 arg1);  /* 80001014 */
+void func_800004BC(ObjNozoki *this, PlayState *play);
+void func_80000694(ObjNozoki *this, PlayState *play);
+void func_80000744(ObjNozoki *this, PlayState *play, s32 arg2, s32 arg3);
+void func_80000784(ObjNozoki *this, PlayState *play);
+s32 func_80000808(ObjNozoki *this);
+void func_80000874(ObjNozoki *this, PlayState *play);
+void func_80000C24(ObjNozoki *this, PlayState *play);
+void func_80000CFC(ObjNozoki *this, PlayState *play);
+void func_80000E10(ObjNozoki *this, PlayState *play);
+void func_80000F24(ObjNozoki *this, PlayState *play);
+void ObjNozoki_Update(Actor *thisx);  /* 80000FF0 */
+void ObjNozoki_Draw(Actor *thisx, PlayState *play);  /* 80001014 */
 
 #endif

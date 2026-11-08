@@ -4,12 +4,13 @@
 #define GENERATED_OVERLAYS_0171_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnKanban EnKanban;
 
 void func_80000000(s32 arg0);
-void EnKanban_Init(void *arg0, s32 arg1);  /* 800000BC */
-void EnKanban_Destroy(void *arg0, s32 arg1);  /* 80000250 */
+void EnKanban_Init(Actor *thisx, PlayState *play);  /* 800000BC */
 void func_80000288(void *arg0, s32 arg1);
-void EnKanban_Update(void *arg0, s32 arg1);  /* 80000340 */
-void EnKanban_Draw(void *arg0, void *arg1);  /* 80001FF4 */
+void EnKanban_Update(Actor *thisx, PlayState *play);  /* 80000340 */
+void EnKanban_Draw(Actor *thisx, PlayState *play);  /* 80001FF4 */
 
 #endif

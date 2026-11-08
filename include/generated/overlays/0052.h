@@ -4,11 +4,13 @@
 #define GENERATED_OVERLAYS_0052_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct TitleSetup TitleSetup;
 
-void TitleSetup_SetupTitleScreen(s32 arg0);  /* 80000000 */
+void TitleSetup_SetupTitleScreen(void *this);  /* 80000000 */
 void func_800000B0(void *a0);
 void TitleSetup_Main(s32 *arg0);  /* 800000D0 */
-void TitleSetup_Destroy(s32 a0);  /* 8000011C */
-void TitleSetup_Init(u8 *arg0);  /* 80000140 */
+void TitleSetup_Destroy(void *thisx);  /* 8000011C */
+void TitleSetup_Init(void *thisx);  /* 80000140 */
 
 #endif

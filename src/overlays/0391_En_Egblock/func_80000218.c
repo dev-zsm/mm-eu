@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0391.h"
 
-void EnEgblock_DoNothing(s32 arg0, M2C_UNK arg1) {
+void EnEgblock_DoNothing(EnEgblock *this, PlayState *play) {
 
 }

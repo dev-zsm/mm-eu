@@ -4,8 +4,13 @@
 #define GENERATED_OVERLAYS_0425_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgFuMizu BgFuMizu;
 
-void func_800000B4(s32 arg0, void *arg1);
-void BgFuMizu_Draw(s32 arg0, s32 arg1);  /* 800001EC */
+void BgFuMizu_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgFuMizu_Destroy(Actor *thisx, PlayState *play);  /* 80000080 */
+s32 func_800000B4(BgFuMizu *this, PlayState *play);
+void BgFuMizu_Update(Actor *thisx);  /* 80000108 */
+void BgFuMizu_Draw(Actor *thisx, PlayState *play);  /* 800001EC */
 
 #endif

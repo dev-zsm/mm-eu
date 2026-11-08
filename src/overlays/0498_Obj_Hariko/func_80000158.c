@@ -6,8 +6,8 @@
 s32 func_8012C098();                                /* extern */
 M2C_UNK func_80B4B7D0(s32);                         /* extern */
 
-void ObjHariko_CheckForQuakes(s32 arg0) {
+void ObjHariko_CheckForQuakes(ObjHariko *this) {
     if (func_8012C098() != 0) {
-        func_80B4B7D0(arg0);
+        func_80B4B7D0(this);
     }
 }

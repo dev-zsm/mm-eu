@@ -26,7 +26,7 @@ void func_800014E0(void *arg0, void *arg1);
 void func_8000178C(u8 *arg0, s32 arg1);
 void func_800017EC(u8 *arg0, s32 arg1);
 void func_8000185C(void *arg0, s32 arg1);
-void func_800018EC(void *arg0, s32 arg1);
+void func_800018EC(u8 *a, u8 *play);
 void func_80001940(u8 *arg0, s32 arg1);
 void func_800019B0(void *arg0, s32 arg1);
 void func_80001AFC(void *arg0, s32 arg1);
@@ -58,7 +58,6 @@ void func_80002E68(s32 arg0, s32 arg1);
 void func_80002E78(void *arg0, s32 arg1);
 void func_80002F88(void *arg0, s32 arg1);
 void func_80003194(void *arg0, s32 arg1);
-void func_800031FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80003244(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800032D4(void *arg0, s32 arg1);
 

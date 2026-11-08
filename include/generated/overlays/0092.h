@@ -4,12 +4,14 @@
 #define GENERATED_OVERLAYS_0092_H
 
 #include "types.h"
+#include "actor.h"
 
-void func_80000000(void *arg0, s32 arg1);
+void func_80000000(Actor *thisx, PlayState *play);
+void func_800001D4(Actor *thisx, PlayState *play);
 void func_80000200(void *arg0);
 void func_80000288(void *arg0);
-void func_8000038C(void *arg0, s32 arg1, s32 arg2);
-void func_80000468(void *arg0);
+void func_8000038C(void *arg0, PlayState *play, s32 arg2);
+void func_80000468(Actor *thisx);
 void func_800004E4(void *arg0, s32 arg1);
 void func_80000578(void *arg0);
 void func_800007E4(void *arg0, s32 arg1);
@@ -29,25 +31,25 @@ void func_80001D14(u8 *arg0);
 void func_80001D48(void *arg0, s32 arg1);
 void func_80001E40(void *arg0, s32 arg1);
 void func_80001F50(void *arg0, s32 arg1);
-void func_80002060(void *arg0);
+void func_80002060(Actor *thisx);
 void func_800020D4(void *arg0, s32 arg1);
 void func_80002438(s32 arg0);
 void func_800024B8(void *arg0, s32 arg1);
 void func_8000267C(void *arg0);
 void func_80002818(s32 arg0, s32 arg1);
-void func_800028B4(void *arg0);
+void func_800028B4(Actor *thisx);
 void func_80002920(void *arg0, s32 arg1);
-void func_80002A44(u8 *arg0);
+void func_80002A44(Actor *thisx);
 void func_80002A78(void *arg0);
 void func_80002B10(s32 arg0, s32 arg1);
 void func_80002BB8(void *arg0, s32 arg1);
-void func_80002C20(void *arg0, s32 arg1);
-void func_80002FCC(void *arg0, s32 arg1);
-void func_80003218(void *arg0, void *arg1);
-void func_8000332C(void *arg0, s32 arg1);
-void func_800035CC(s32 arg0, s32 arg1);
-void func_80003698(void *arg0, s32 arg1);
+void func_80002C20(Actor *thisx, PlayState *play);
+void func_80002FCC(Actor *thisx, PlayState *play);
+void func_80003218(Actor *thisx, PlayState *play);
+void func_8000332C(void *arg0, PlayState *play);
+void func_800035CC(Actor *thisx, PlayState *play);
+void func_80003698(Actor *thisx, PlayState *play);
 void func_8000378C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void func_800037C8(void *arg0, s32 arg1);
+void func_800037C8(Actor *thisx, PlayState *play);
 
 #endif

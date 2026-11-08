@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0664.h"
 
-void ObjEnding_Update(s32 arg0, M2C_UNK arg1) {
+void ObjEnding_Update(Actor *thisx, PlayState *play) {
 
 }

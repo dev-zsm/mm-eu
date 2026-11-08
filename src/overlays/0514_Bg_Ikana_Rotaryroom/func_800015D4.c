@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80B665E8;
 
-void func_800015D4(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x200) = &D_80B665E8;
+void func_800015D4(BgIkanaRotaryroom *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x200) = &D_80B665E8;
 }

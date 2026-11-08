@@ -5,7 +5,7 @@
 
 extern M2C_UNK D_80913B64;
 
-void EnHonotrap_SetupEyeAttack2(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80913B64;
-    M2C_FIELD(arg0, s16 *, 0x222) = 0;
+void EnHonotrap_SetupEyeAttack2(EnHonotrap *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80913B64;
+    M2C_FIELD(this, s16 *, 0x222) = 0;
 }

@@ -4,9 +4,13 @@
 #define GENERATED_OVERLAYS_0098_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ItemBHeart ItemBHeart;
 
-void ItemBHeart_Init(void *arg0, s32 arg1);  /* 80000000 */
-void ItemBHeart_UpdateModel(void *arg0, s32 arg1);  /* 80000164 */
-void ItemBHeart_Draw(void *arg0, void *arg1);  /* 800001D4 */
+void ItemBHeart_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ItemBHeart_Destroy(Actor *thisx, PlayState *play);  /* 800000B8 */
+void ItemBHeart_Update(Actor *thisx, PlayState *play);  /* 800000C8 */
+void ItemBHeart_UpdateModel(ItemBHeart *this, PlayState *play);  /* 80000164 */
+void ItemBHeart_Draw(Actor *thisx, PlayState *play);  /* 800001D4 */
 
 #endif

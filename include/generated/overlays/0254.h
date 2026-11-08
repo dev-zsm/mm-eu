@@ -4,21 +4,24 @@
 #define GENERATED_OVERLAYS_0254_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjPzlblock ObjPzlblock;
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void func_80000068(void *arg0);
-void func_80000100(void *arg0, s32 arg1);
-void func_8000020C(void *arg0, s32 arg1);
-void func_8000038C(void *arg0, s32 arg1);
-void ObjPzlblock_Init(void *arg0, s32 arg1);  /* 80000438 */
+s32 func_80000000(ObjPzlblock *this, PlayState *play, s16 arg2);
+s32 func_80000068(ObjPzlblock *this);
+s32 func_80000100(ObjPzlblock *this, s32 arg1);
+s32 func_8000020C(ObjPzlblock *this, s32 arg1);
+void func_8000038C(ObjPzlblock *this, s32 arg1);
+void ObjPzlblock_Init(Actor *thisx, PlayState *play);  /* 80000438 */
+void ObjPzlblock_Destroy(Actor *thisx, PlayState *play);  /* 80000634 */
 void func_80000668(u8 *arg0);
-void func_80000694(void *arg0, s32 arg1);
-void func_800007C4(u8 *arg0);
-void func_800007E0(void *arg0, s32 arg1);
+void func_80000694(ObjPzlblock *this, PlayState *play);
+void func_800007C4(ObjPzlblock *this);
+void func_800007E0(ObjPzlblock *this, PlayState *play);
 void func_8000093C(u8 *arg0);
-void func_80000958(void *arg0, void *arg1);
-void ObjPzlblock_Update(void *arg0, s32 arg1);  /* 8000099C */
-void func_80000A78(void *arg0, s32 arg1);
-void func_80000B2C(s32 arg0, s32 arg1);
+void func_80000958(ObjPzlblock *this, PlayState *play);
+void ObjPzlblock_Update(Actor *thisx, PlayState *play);  /* 8000099C */
+void func_80000A78(Actor *thisx, PlayState *play);
+void func_80000B2C(Actor *thisx, PlayState *play);
 
 #endif

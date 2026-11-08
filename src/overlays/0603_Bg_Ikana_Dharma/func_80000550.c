@@ -8,11 +8,11 @@ s32 func_800F1984(s8, u8 *);                      /* extern */
 M2C_UNK func_800F1A08(s8, u8 *);                  /* extern */
 M2C_UNK func_80BD158C(u8 *);                      /* extern */
 
-void BgIkanaDharma_StartCutscene(u8 *arg0, M2C_UNK arg1) {
-    if (func_800F1984(M2C_FIELD(arg0, s8 *, 0x38), arg0) != 0) {
-        func_800F1A08(M2C_FIELD(arg0, s8 *, 0x38), arg0);
-        func_80BD158C(arg0);
+void BgIkanaDharma_StartCutscene(BgIkanaDharma *this, PlayState *play) {
+    if (func_800F1984(M2C_FIELD(this, s8 *, 0x38), this) != 0) {
+        func_800F1A08(M2C_FIELD(this, s8 *, 0x38), this);
+        func_80BD158C(this);
         return;
     }
-    func_800F1944(M2C_FIELD(arg0, s8 *, 0x38), arg0);
+    func_800F1944(M2C_FIELD(this, s8 *, 0x38), this);
 }

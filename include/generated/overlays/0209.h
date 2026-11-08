@@ -4,12 +4,14 @@
 #define GENERATED_OVERLAYS_0209_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsHahen EffectSsHahen;
 
-void EffectSsHahen_CheckForObject(void *arg0, s32 arg1);  /* 80000000 */
-void EffectSsHahen_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000074 */
-void EffectSsHahen_DrawOpa(void *arg0, void *arg1);  /* 800001B4 */
-void EffectSsHahen_DrawXlu(void *arg0, void *arg1);  /* 80000294 */
-void EffectSsHahen_Draw(s32 arg0, s32 arg1, void *arg2);  /* 80000374 */
-void EffectSsHahen_Update(void *arg0, s32 arg1, void *arg2);  /* 80000498 */
+void EffectSsHahen_CheckForObject(void *this, PlayState *play);  /* 80000000 */
+u32 EffectSsHahen_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000074 */
+void EffectSsHahen_DrawOpa(PlayState *play, void *this);  /* 800001B4 */
+void EffectSsHahen_DrawXlu(PlayState *play, void *this);  /* 80000294 */
+void EffectSsHahen_Draw(PlayState *play, u32 index, void *this);  /* 80000374 */
+void EffectSsHahen_Update(PlayState *play, u32 index, void *this);  /* 80000498 */
 
 #endif

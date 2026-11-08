@@ -7,8 +7,8 @@ M2C_UNK func_8098EFB8(s32, s32);                    /* extern */
 M2C_UNK func_8098F28C(s32, s32);                    /* extern */
 M2C_UNK func_8098F4D8(s32, s32);                    /* extern */
 
-void ObjGrass_Draw(s32 arg0, s32 arg1) {
-    func_8098EFB8(arg0, arg1);
-    func_8098F28C(arg0, arg1);
-    func_8098F4D8(arg0, arg1);
+void ObjGrass_Draw(Actor *thisx, PlayState *play) {
+    func_8098EFB8(thisx, play);
+    func_8098F28C(thisx, play);
+    func_8098F4D8(thisx, play);
 }

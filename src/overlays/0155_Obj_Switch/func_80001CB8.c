@@ -6,6 +6,6 @@
 M2C_UNK func_800BDD44(M2C_UNK, M2C_UNK *, M2C_UNK); /* extern */
 extern M2C_UNK D_5007E00;
 
-void ObjSwitch_DrawRustyFloorSwitch(s32 arg0, M2C_UNK arg1) {
-    func_800BDD44(arg1, &D_5007E00, arg1);
+void ObjSwitch_DrawRustyFloorSwitch(ObjSwitch *this, PlayState *play) {
+    func_800BDD44(play, &D_5007E00, play);
 }

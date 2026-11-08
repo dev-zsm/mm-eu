@@ -4,10 +4,14 @@
 #define GENERATED_OVERLAYS_0386_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmChar07 DmChar07;
 
 void DmChar07_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void DmChar07_Init(void *arg0, s32 arg1);  /* 8000000C */
-void DmChar07_DoNothing(s32 arg0, s32 arg1);  /* 800000FC */
-void DmChar07_Draw(s32 arg0, s32 arg1);  /* 80000130 */
+void DmChar07_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void DmChar07_Destroy(Actor *thisx, PlayState *play);  /* 800000C4 */
+void DmChar07_DoNothing(DmChar07 *this, PlayState *play);  /* 800000FC */
+void DmChar07_Update(Actor *thisx);  /* 8000010C */
+void DmChar07_Draw(Actor *thisx, PlayState *play);  /* 80000130 */
 
 #endif

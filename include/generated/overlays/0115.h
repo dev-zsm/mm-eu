@@ -4,21 +4,25 @@
 #define GENERATED_OVERLAYS_0115_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjectKankyo ObjectKankyo;
 
 void ObjectKankyo_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void func_8000000C(s32 a0);
-void func_80000030(void *arg0, s32 arg1);
-void func_80000130(void *arg0, s32 arg1);
-void func_800001B8(s32 arg0, s32 arg1);
-void ObjectKankyo_Init(void *arg0);  /* 8000023C */
-void func_8000030C(void *arg0, void *arg1);
-void func_800005D4(void *arg0, void *arg1);
-void func_80000CFC(s32 arg0, void *arg1);
+void func_80000030(ObjectKankyo *this, PlayState *play);
+void func_80000130(ObjectKankyo *this, PlayState *play);
+void func_800001B8(ObjectKankyo *this, PlayState *play);
+void ObjectKankyo_Init(Actor *thisx, PlayState *play);  /* 8000023C */
+void ObjectKankyo_Destroy(Actor *thisx, PlayState *play);  /* 800002E8 */
+void func_8000030C(ObjectKankyo *this, PlayState *play);
+void func_800005D4(ObjectKankyo *this, PlayState *play);
+void func_80000CFC(ObjectKankyo *this, PlayState *play);
 void func_80000D78(void *arg0, void *arg1);
-void func_80000F34(void *arg0, void *arg1);
-void ObjectKankyo_Draw(void *arg0);  /* 800014E4 */
-void func_80001548(void *arg0, void *arg1);
-void func_80001AF0(s32 arg0, void *arg1);
+void func_80000F34(ObjectKankyo *this, PlayState *play);
+void ObjectKankyo_Update(Actor *thisx);  /* 800014C0 */
+void ObjectKankyo_Draw(Actor *thisx, PlayState *play);  /* 800014E4 */
+void func_80001548(Actor *thisx, PlayState *play2);
+void func_80001AF0(Actor *thisx, PlayState *play2);
 f32 func_80001FF4(void);
 void func_8000201C(void *arg0, void *arg1);
 

@@ -4,46 +4,49 @@
 #define GENERATED_OVERLAYS_0376_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgHakuginPost BgHakuginPost;
 
 void func_80000000(s32 a0);
 void func_80000020(void);
-void func_80000048(s32 arg0, s32 arg1, void *arg2);
-void func_8000016C(s32 arg0, s32 arg1);
-void func_800001E8(void *arg0, s32 arg1, void *arg2);
-void func_800002E4(void *arg0, s32 arg1, void *arg2);
-void func_80000490(void *arg0, s32 arg1);
-void func_80000574(void *arg0);
-void func_800005E8(void *arg0);
-void func_8000065C(void *arg0, s32 arg1);
+void func_80000048(BgHakuginPost *this, PlayState *play, void *unkStruct);
+void func_8000016C(BgHakuginPost *this, PlayState *play);
+void func_800001E8(BgHakuginPost *this, PlayState *play, void *unkStruct);
+void func_800002E4(BgHakuginPost *this, PlayState *play, void *unkStruct);
+void func_80000490(void *unkStruct, PlayState *play);
+f32 func_80000574(void *unkStruct);
+f32 func_800005E8(void *unkStruct);
+void *func_8000065C(void *unkStruct, void *unkStruct1);
 void func_800006B4(u8 *arg0);
-void func_800006EC(s32 arg0, s32 arg1);
-void func_8000079C(void *arg0, s32 arg1);
-void func_80000884(void *arg0, s32 arg1, s32 arg2, void *arg3);
-void func_80000F3C(void *arg0);
-void func_80001054(s32 arg0, s32 arg1, void *arg2);
-void func_80001388(void *arg0, s32 arg1, void *arg2);
-void BgHakuginPost_RequestQuakeAndRumble(void *arg0, void *arg1);  /* 800014BC */
-void func_80001558(void *arg0, s32 arg1, s32 arg2);
-void func_80001964(void *arg0, s32 arg1);
-void func_80001B84(void *arg0, s32 arg1);
-void BgHakuginPost_Init(void *arg0, s32 arg1);  /* 80001C9C */
-void func_80001DC4(u8 *arg0);
-void func_80001DD8(void *arg0, s32 arg1);
-void func_80001FB4(u8 *arg0);
-void func_80001FD0(void *arg0, s32 arg1);
+void func_800006EC(BgHakuginPost *this, PlayState *play);
+void func_8000079C(BgHakuginPost *this, PlayState *play);
+void func_80000884(BgHakuginPost *this, PlayState *play, void *unkStruct, void *unkStruct1);
+void func_80000F3C(void *unkStruct);
+void func_80001054(BgHakuginPost *this, PlayState *play, void *unkStruct);
+void func_80001388(BgHakuginPost *this, PlayState *play, void *unkStruct);
+void BgHakuginPost_RequestQuakeAndRumble(BgHakuginPost *this, PlayState *play);  /* 800014BC */
+void func_80001558(BgHakuginPost *this, PlayState *play, void *unkStruct);
+void func_80001964(BgHakuginPost *this, PlayState *play);
+void func_80001B84(BgHakuginPost *this, PlayState *play);
+void BgHakuginPost_Init(Actor *thisx, PlayState *play);  /* 80001C9C */
+void BgHakuginPost_Destroy(Actor *thisx, PlayState *play);  /* 80001D74 */
+void func_80001DC4(BgHakuginPost *this);
+void func_80001DD8(BgHakuginPost *this, PlayState *play);
+void func_80001FB4(BgHakuginPost *this);
+void func_80001FD0(BgHakuginPost *this, PlayState *play);
 void func_80002030(u8 *arg0);
-void func_80002044(void *arg0, s32 arg1);
+void func_80002044(BgHakuginPost *this, PlayState *play);
 void func_80002130(u8 *arg0);
-void func_8000214C(void *arg0, s32 arg1);
+void func_8000214C(BgHakuginPost *this, PlayState *play);
 void func_800023D0(u8 *arg0);
-void func_800023E4(void *arg0, s32 arg1);
+void func_800023E4(BgHakuginPost *this, PlayState *play);
 void func_80002510(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80002590(u8 *arg0, s32 arg1);
 void func_800025F4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80002690(void *arg0, s32 arg1);
-void func_80002714(u8 *arg0);
+void func_80002690(BgHakuginPost *this, PlayState *play);
+void func_80002714(BgHakuginPost *this);
 void func_80002764(u8 *arg0, s32 arg1);
-void BgHakuginPost_Update(void *arg0, s32 arg1);  /* 800027C8 */
-void func_8000294C(void *arg0, s32 arg1);
+void BgHakuginPost_Update(Actor *thisx, PlayState *play);  /* 800027C8 */
+void func_8000294C(Actor *thisx, PlayState *play);
 
 #endif

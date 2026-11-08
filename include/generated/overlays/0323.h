@@ -4,9 +4,12 @@
 #define GENERATED_OVERLAYS_0323_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmTsg DmTsg;
 
-void DmTsg_Init(void *arg0, s32 arg1);  /* 80000000 */
-void DmTsg_Update(void *arg0, s32 arg1);  /* 800000E8 */
-void DmTsg_Draw(void *arg0, s32 arg1);  /* 80000268 */
+void DmTsg_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void DmTsg_Destroy(Actor *thisx, PlayState *play);  /* 800000D8 */
+void DmTsg_Update(Actor *thisx, PlayState *play);  /* 800000E8 */
+void DmTsg_Draw(Actor *thisx, PlayState *play);  /* 80000268 */
 
 #endif

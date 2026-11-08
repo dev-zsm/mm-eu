@@ -4,8 +4,13 @@
 #define GENERATED_OVERLAYS_0605_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffStk EffStk;
 
-void func_80000050(void *arg0, s32 arg1);
-void EffStk_Draw(s32 arg0, void *arg1);  /* 80000180 */
+void EffStk_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EffStk_Destroy(Actor *thisx, PlayState *play);  /* 80000040 */
+void func_80000050(EffStk *this, PlayState *play);
+void EffStk_Update(Actor *thisx);  /* 8000015C */
+void EffStk_Draw(Actor *thisx, PlayState *play);  /* 80000180 */
 
 #endif

@@ -4,28 +4,31 @@
 #define GENERATED_OVERLAYS_0299_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjFlowerpot ObjFlowerpot;
 
-void func_80000000();
-void func_80000470(s32 arg0);
-void func_80000544(void *arg0, s32 arg1);
-void func_800005C4(s32 arg0, s32 arg1);
-void func_800005FC(s32 arg0, s32 arg1);
-void func_80000634(u8 *arg0, s32 arg1);
-void func_80000674(void *arg0, s32 arg1);
-void func_800009B0(void *arg0, s32 arg1);
-void func_80000D2C(s32 arg0, s32 arg1);
-void func_80000F58(s32 arg0, s32 arg1);
-void func_80001184(void *arg0);
-void func_80001218(s32 arg0, s32 arg1);
-void func_8000125C(u8 *arg0, u8 *arg1);
-void ObjFlowerpot_Init(void *arg0, s32 arg1);  /* 80001294 */
+void func_80000000(void);
+void func_80000470(void *matrix);
+void func_80000544(ObjFlowerpot *this, PlayState *play);
+void func_800005C4(ObjFlowerpot *this, PlayState *play);
+void func_800005FC(ObjFlowerpot *this, PlayState *play);
+void func_80000634(ObjFlowerpot *this, s32 arg1);
+void func_80000674(ObjFlowerpot *this, PlayState *play);
+void func_800009B0(ObjFlowerpot *this, PlayState *play);
+void func_80000D2C(ObjFlowerpot *this, PlayState *play);
+void func_80000F58(ObjFlowerpot *this, PlayState *play);
+void func_80001184(ObjFlowerpot *this);
+void func_80001218(ObjFlowerpot *this, PlayState *play);
+void func_8000125C(ObjFlowerpot *this, PlayState *play);
+void ObjFlowerpot_Init(Actor *thisx, PlayState *play);  /* 80001294 */
+void ObjFlowerpot_Destroy(Actor *thisx, PlayState *play);  /* 8000141C */
 void func_80001448(u8 *a0);
-void func_80001468(void *arg0, void *arg1);
-void func_80001828(u8 *arg0);
-void func_8000183C(void *arg0, void *arg1);
-void func_80001940(void *arg0);
-void func_80001B24(void *arg0, s32 arg1);
-void ObjFlowerpot_Update(void *arg0, s32 arg1);  /* 80001D7C */
-void ObjFlowerpot_Draw(void *arg0, s32 arg1);  /* 80001DFC */
+void func_80001468(ObjFlowerpot *this, PlayState *play);
+void func_80001828(ObjFlowerpot *this);
+void func_8000183C(ObjFlowerpot *this, PlayState *play);
+void func_80001940(ObjFlowerpot *this);
+void func_80001B24(ObjFlowerpot *this, PlayState *play);
+void ObjFlowerpot_Update(Actor *thisx, PlayState *play);  /* 80001D7C */
+void ObjFlowerpot_Draw(Actor *thisx, PlayState *play);  /* 80001DFC */
 
 #endif

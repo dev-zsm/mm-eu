@@ -4,20 +4,23 @@
 #define GENERATED_OVERLAYS_0325_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjVspinyroll ObjVspinyroll;
 
-void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void func_80000080(void *arg0);
-void func_80000178(void *arg0);
+void func_80000000(Vec3f *arg0, Vec3f *arg1, s16 arg2);
+void func_80000080(ObjVspinyroll *this);
+void func_80000178(ObjVspinyroll *this);
 void func_800001EC(u8 *arg0);
-void func_80000220(void *arg0);
-void func_80000308(void *arg0);
-void func_800003F8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800006B4(s32 arg0, s32 arg1, s32 arg2);
+s32 func_80000220(ObjVspinyroll *this);
+void func_80000308(ObjVspinyroll *this);
+s32 func_800003F8(ObjVspinyroll *this, PlayState *play, Vec3f *arg2, s32 arg3);
+s32 func_800006B4(ObjVspinyroll *this, PlayState *play, s32 arg2);
 s32 func_80000710(u8 *arg0, s32 arg1);
 s32 func_80000750(void);
 void func_800007A4(f32 arg0);
-void ObjVspinyroll_Init(void *arg0, s32 arg1);  /* 800007D4 */
-void func_800009E4(u8 *arg0);
+void ObjVspinyroll_Init(Actor *thisx, PlayState *play);  /* 800007D4 */
+void ObjVspinyroll_Destroy(Actor *thisx, PlayState *play);  /* 8000099C */
+void func_800009E4(ObjVspinyroll *this);
 void func_80000A00(u8 *arg0, s32 arg1);
 void func_80000A6C(u8 *arg0, s32 arg1);
 void func_80000B00(u8 *arg0, s32 arg1);
@@ -25,8 +28,8 @@ void func_80000B44(u8 *arg0);
 void func_80000B58(u8 *arg0, s32 arg1);
 void func_80000C08(u8 *arg0);
 void func_80000C1C(u8 *arg0, s32 arg1);
-void ObjVspinyroll_Update(void *arg0, s32 arg1);  /* 80000CA4 */
-void ObjVspinyroll_Draw(void *arg0, s32 arg1);  /* 80000D30 */
-void func_80000DE0(void *arg0, s32 arg1);
+void ObjVspinyroll_Update(Actor *thisx, PlayState *play);  /* 80000CA4 */
+void ObjVspinyroll_Draw(Actor *thisx, PlayState *play);  /* 80000D30 */
+void func_80000DE0(Actor *thisx, PlayState *play);
 
 #endif

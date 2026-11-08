@@ -4,13 +4,15 @@
 #define GENERATED_OVERLAYS_0141_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ArrowLight ArrowLight;
 
 void ArrowLight_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ArrowLight_Init(void *arg0, s32 arg1);  /* 8000000C */
-void ArrowLight_Destroy(s32 arg0, s32 arg1);  /* 80000088 */
-void ArrowLight_Charge(void *arg0, s32 arg1);  /* 800000AC */
-void ArrowLight_Lerp(void *arg0, void *arg1, s32 arg2);  /* 800001A0 */
-void ArrowLight_Hit(void *arg0, s32 arg1);  /* 800001F8 */
+void ArrowLight_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ArrowLight_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
+void ArrowLight_Charge(ArrowLight *this, PlayState *play);  /* 800000AC */
+void ArrowLight_Lerp(Vec3f *firedPos, Vec3f *pos, f32 scale);  /* 800001A0 */
+void ArrowLight_Hit(ArrowLight *this, PlayState *play);  /* 800001F8 */
 void func_800003C4(void *arg0, s32 arg1);
 void func_80000518(u8 *arg0, u8 *arg1);
 void func_8000056C(void *arg0, void *arg1);

@@ -11,23 +11,23 @@ M2C_UNK func_801A00B8();                            /* extern */
 M2C_UNK func_801A00E0();                            /* extern */
 extern s16 D_801E6F2A;
 
-void EnKujiya_HandlePlayerChoice(u8 *arg0, u8 *arg1) {
-    if (func_80147B34(arg1) != 0) {
-        if (M2C_FIELD(arg1, u8 *, 0x1692D) == 0) {
+void EnKujiya_HandlePlayerChoice(EnKujiya *this, PlayState *play) {
+    if (func_80147B34(play) != 0) {
+        if (M2C_FIELD(play, u8 *, 0x1692D) == 0) {
             if (D_801E6F2A < 0xA) {
                 func_8019FF78(0x4806);
-                func_80151DF4(arg1, 0x2B62, arg0);
-                M2C_FIELD(arg0, s16 *, 0x14A) = 0x2B62;
+                func_80151DF4(play, 0x2B62, this);
+                M2C_FIELD(this, s16 *, 0x14A) = 0x2B62;
                 return;
             }
             func_801A00B8();
             func_80115C10(-0xA);
-            func_80151DF4(arg1, 0x2B5F, arg0);
-            M2C_FIELD(arg0, s16 *, 0x14A) = 0x2B5F;
+            func_80151DF4(play, 0x2B5F, this);
+            M2C_FIELD(this, s16 *, 0x14A) = 0x2B5F;
             return;
         }
         func_801A00E0();
-        func_80151DF4(arg1, 0x2B5E, arg0);
-        M2C_FIELD(arg0, s16 *, 0x14A) = 0x2B5E;
+        func_80151DF4(play, 0x2B5E, this);
+        M2C_FIELD(this, s16 *, 0x14A) = 0x2B5E;
     }
 }

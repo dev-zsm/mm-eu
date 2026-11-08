@@ -4,10 +4,12 @@
 #define GENERATED_OVERLAYS_0188_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgF40Swlift BgF40Swlift;
 
-void BgF40Swlift_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgF40Swlift_Destroy(u8 *arg0, s32 arg1);  /* 800000CC */
-void BgF40Swlift_Update(void *arg0, s32 arg1);  /* 80000100 */
-void BgF40Swlift_Draw(s32 arg0, s32 arg1);  /* 8000037C */
+void BgF40Swlift_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgF40Swlift_Destroy(Actor *thisx, PlayState *play);  /* 800000CC */
+void BgF40Swlift_Update(Actor *thisx, PlayState *play2);  /* 80000100 */
+void BgF40Swlift_Draw(Actor *thisx, PlayState *play);  /* 8000037C */
 
 #endif

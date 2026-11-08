@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80A0A4E4;
 
-void ObjIceBlock_SetupAttemptSpawnCutscene(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x1A8) = &D_80A0A4E4;
+void ObjIceBlock_SetupAttemptSpawnCutscene(ObjIceblock *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x1A8) = &D_80A0A4E4;
 }

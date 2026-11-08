@@ -4,17 +4,22 @@
 #define GENERATED_OVERLAYS_0572_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHgdoor ObjHgdoor;
 
 void ObjHgdoor_SetChild(u8 *arg0, u8 *arg1);  /* 80000000 */
-void ObjHgdoor_SetParent(u8 *arg0, u8 *arg1);  /* 80000040 */
-void ObjHgdoor_SetupIdle(u8 *arg0);  /* 80000158 */
-void ObjHgdoor_Idle(void *arg0, s32 arg1);  /* 8000016C */
-void ObjHgdoor_SetupCutscene(u8 *arg0);  /* 8000021C */
-void ObjHgdoor_PlayCutscene(u8 *arg0, s32 arg1);  /* 80000230 */
-void ObjHgdoor_SetupHandleCutscene(u8 *arg0);  /* 800002AC */
-void ObjHgdoor_HandleCutscene(void *arg0, s32 arg1);  /* 800002C8 */
-void ObjHgdoor_SetupStopCs(u8 *arg0);  /* 800003D0 */
-void ObjHgdoor_StopCs(void *arg0, s32 arg1);  /* 800003E8 */
-void ObjHgdoor_Draw(s32 arg0, s32 arg1);  /* 800004E0 */
+void ObjHgdoor_SetParent(ObjHgdoor *this, PlayState *play);  /* 80000040 */
+void ObjHgdoor_Init(Actor *thisx, PlayState *play);  /* 80000078 */
+void ObjHgdoor_Destroy(Actor *thisx, PlayState *play);  /* 80000124 */
+void ObjHgdoor_SetupIdle(ObjHgdoor *this);  /* 80000158 */
+void ObjHgdoor_Idle(ObjHgdoor *this, PlayState *play);  /* 8000016C */
+void ObjHgdoor_SetupCutscene(ObjHgdoor *this);  /* 8000021C */
+void ObjHgdoor_PlayCutscene(ObjHgdoor *this, PlayState *play);  /* 80000230 */
+void ObjHgdoor_SetupHandleCutscene(ObjHgdoor *this);  /* 800002AC */
+void ObjHgdoor_HandleCutscene(ObjHgdoor *this, PlayState *play);  /* 800002C8 */
+void ObjHgdoor_SetupStopCs(ObjHgdoor *this);  /* 800003D0 */
+void ObjHgdoor_StopCs(ObjHgdoor *this, PlayState *play);  /* 800003E8 */
+void ObjHgdoor_Update(Actor *thisx);  /* 800004B0 */
+void ObjHgdoor_Draw(Actor *thisx, PlayState *play);  /* 800004E0 */
 
 #endif

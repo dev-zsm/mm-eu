@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0317_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjBell ObjBell;
 
-void func_80000000(void *arg0, s32 arg1);
-void func_800001C8(void *arg0);
-void func_80000298(void *arg0, s32 arg1);
-void func_80000408(void *arg0, s32 arg1);
-void func_800004C0(void *arg0, s32 arg1);
-void func_80000624(void *arg0, s32 arg1);
-void func_800006E0(void *arg0, s32 arg1);
-void ObjBell_Update(void *arg0, s32 arg1);  /* 8000089C */
-void ObjBell_Draw(s32 arg0, s32 arg1);  /* 800008E8 */
+s32 func_80000000(ObjBell *this, s32 arg1);
+s32 func_800001C8(ObjBell *this);
+void func_80000298(ObjBell *this, PlayState *play);
+void func_80000408(ObjBell *this, PlayState *play);
+void func_800004C0(Actor *thisx, PlayState *play);
+void func_80000624(Actor *thisx, PlayState *play);
+void func_800006E0(Actor *thisx, PlayState *play);
+void ObjBell_Init(Actor *thisx, PlayState *play);  /* 800007A4 */
+void ObjBell_Destroy(Actor *thisx, PlayState *play);  /* 80000844 */
+void ObjBell_Update(Actor *thisx, PlayState *play);  /* 8000089C */
+void ObjBell_Draw(Actor *thisx, PlayState *play);  /* 800008E8 */
 
 #endif

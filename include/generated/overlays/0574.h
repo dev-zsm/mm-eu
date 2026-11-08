@@ -4,10 +4,16 @@
 #define GENERATED_OVERLAYS_0574_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaRay BgIkanaRay;
 
-void BgIkanaRay_SetDeactivated(u8 *arg0);  /* 800000D8 */
-void BgIkanaRay_UpdateCheckForActivation(u8 *arg0, s32 arg1);  /* 800000FC */
-void BgIkanaRay_SetActivated(u8 *arg0);  /* 80000140 */
-void BgIkanaRay_UpdateActivated(s32 arg0, s32 arg1);  /* 80000170 */
+void BgIkanaRay_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgIkanaRay_Destroy(Actor *thisx, PlayState *play);  /* 800000AC */
+void BgIkanaRay_SetDeactivated(BgIkanaRay *this);  /* 800000D8 */
+void BgIkanaRay_UpdateCheckForActivation(BgIkanaRay *this, PlayState *play);  /* 800000FC */
+void BgIkanaRay_SetActivated(BgIkanaRay *this);  /* 80000140 */
+void BgIkanaRay_UpdateActivated(BgIkanaRay *this, PlayState *play);  /* 80000170 */
+void BgIkanaRay_Update(Actor *thisx);  /* 800001AC */
+void BgIkanaRay_Draw(Actor *thisx, PlayState *play);  /* 800001D0 */
 
 #endif

@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0120_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnEncount2 EnEncount2;
 
-void EnEncount2_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnEncount2_SetupIdle(u8 *arg0);  /* 8000019C */
-void EnEncount2_Idle(u8 *arg0, s32 arg1);  /* 800001B4 */
-void EnEncount2_Popped(void *arg0, s32 arg1);  /* 80000264 */
-void EnEncount2_Die(void *arg0, s32 arg1);  /* 80000348 */
-void EnEncount2_Update(void *arg0, s32 arg1);  /* 80000398 */
-void EnEncount2_InitEffects(void *arg0, void *arg1, s32 arg2);  /* 800004C4 */
-void EnEncount2_UpdateEffects(void *arg0, s32 arg1);  /* 800005EC */
-void EnEncount2_DrawEffects(void *arg0, void *arg1);  /* 8000073C */
+void EnEncount2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnEncount2_Destroy(Actor *thisx, PlayState *play);  /* 80000154 */
+void EnEncount2_SetupIdle(EnEncount2 *this);  /* 8000019C */
+void EnEncount2_Idle(EnEncount2 *this, PlayState *play);  /* 800001B4 */
+void EnEncount2_Popped(EnEncount2 *this, PlayState *play);  /* 80000264 */
+void EnEncount2_Die(EnEncount2 *this, PlayState *play);  /* 80000348 */
+void EnEncount2_Update(Actor *thisx, PlayState *play);  /* 80000398 */
+void EnEncount2_Draw(Actor *thisx, PlayState *play);  /* 80000464 */
+void EnEncount2_InitEffects(EnEncount2 *this, Vec3f *pos, s16 fadeDelay);  /* 800004C4 */
+void EnEncount2_UpdateEffects(EnEncount2 *this, PlayState *play);  /* 800005EC */
+void EnEncount2_DrawEffects(EnEncount2 *this, PlayState *play);  /* 8000073C */
 
 #endif

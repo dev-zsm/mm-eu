@@ -4,13 +4,16 @@
 #define GENERATED_OVERLAYS_0513_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaMirror BgIkanaMirror;
 
-void BgIkanaMirror_SetQuadVertices(void *arg0);  /* 80000000 */
-void BgIkanaMirror_Init(void *arg0, s32 arg1);  /* 80000120 */
-void BgIkanaMirror_Destroy(void *arg0, s32 arg1);  /* 800002D0 */
-void BgIkanaMirror_SetupWait(u8 *arg0);  /* 80000354 */
-void BgIkanaMirror_Wait(void *arg0, s32 arg1);  /* 8000036C */
-void BgIkanaMirror_EmitLight(void *arg0, s32 arg1);  /* 80000474 */
-void BgIkanaMirror_Draw(s32 arg0, s32 arg1);  /* 800005AC */
+void BgIkanaMirror_SetQuadVertices(BgIkanaMirror *this);  /* 80000000 */
+void BgIkanaMirror_Init(Actor *thisx, PlayState *play);  /* 80000120 */
+void BgIkanaMirror_Destroy(Actor *thisx, PlayState *play);  /* 800002D0 */
+void BgIkanaMirror_SetupWait(BgIkanaMirror *this);  /* 80000354 */
+void BgIkanaMirror_Wait(BgIkanaMirror *this, PlayState *play);  /* 8000036C */
+void BgIkanaMirror_EmitLight(BgIkanaMirror *this, PlayState *play);  /* 80000474 */
+void BgIkanaMirror_Update(Actor *thisx);  /* 80000588 */
+void BgIkanaMirror_Draw(Actor *thisx, PlayState *play);  /* 800005AC */
 
 #endif

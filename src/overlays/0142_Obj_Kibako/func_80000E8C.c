@@ -11,7 +11,7 @@ extern s16 D_8090BE78;
 extern s16 D_8090BE7C;
 extern f32 D_8090BF14;
 
-void ObjKibako_SetupThrown(u8 *arg0) {
+void ObjKibako_SetupThrown(ObjKibako *this) {
     f32 sp1C;
     f32 temp_f2;
 
@@ -21,6 +21,6 @@ void ObjKibako_SetupThrown(u8 *arg0) {
     D_8090BE78 = (s16) (s32) temp_f2;
     D_8090BE74 = (s16) (s32) ((func_8008704C() - 2.0f) * D_8090BF14);
     D_8090BE7C = (s16) (s32) (sp1C * 3.0f);
-    M2C_FIELD(arg0, s16 *, 0x194) = 0x50;
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_8090BBE8;
+    M2C_FIELD(this, s16 *, 0x194) = 0x50;
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_8090BBE8;
 }

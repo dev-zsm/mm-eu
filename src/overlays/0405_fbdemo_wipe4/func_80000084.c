@@ -5,7 +5,7 @@
 
 M2C_UNK func_800897D0(s32, M2C_UNK);                /* extern */
 
-s32 TransitionWipe4_Init(s32 arg0) {
-    func_800897D0(arg0, 0x28);
-    return arg0;
+void * TransitionWipe4_Init(void *thisx) {
+    func_800897D0(thisx, 0x28);
+    return thisx;
 }

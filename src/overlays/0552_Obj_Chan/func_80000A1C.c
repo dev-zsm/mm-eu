@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80B9F0B4;
 
-void ObjChan_InitPot(u8 *arg0, M2C_UNK arg1) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80B9F0B4;
+void ObjChan_InitPot(ObjChan *this, PlayState *play) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80B9F0B4;
 }

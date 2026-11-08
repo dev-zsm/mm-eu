@@ -4,18 +4,21 @@
 #define GENERATED_OVERLAYS_0654_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmTag DmTag;
 
-void DmTag_FindActor(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000000 */
-s32 func_800000B0(s32 arg0, s16 arg1);
-void func_8000012C(void *arg0, s32 arg1);
-void func_80000188(void *arg0, s32 arg1);
-void func_80000498(void *arg0, s32 arg1);
-void DmTag_GetMsgScript(void *arg0, s32 arg1);  /* 80000530 */
-void func_800005CC(void *arg0, s32 arg1);
+Actor *DmTag_FindActor(DmTag *this, PlayState *play, u8 actorCategory, s16 actorId);  /* 80000000 */
+s32 func_800000B0(DmTag *this, s16 arg1);
+s16 func_8000012C(DmTag *this, s32 numCutscenes);
+s32 func_80000188(Actor *thisx, PlayState *play);
+s32 func_80000498(Actor *thisx, PlayState *play);
+void *DmTag_GetMsgScript(DmTag *this, PlayState *play);  /* 80000530 */
+s32 func_800005CC(DmTag *this, PlayState *play);
 void func_8000065C(u8 *arg0, s32 arg1);
-void DmTag_DoNothing(s32 arg0, s32 arg1);  /* 8000069C */
-void func_800006AC(void *arg0);
-void DmTag_Init(s32 arg0, void *arg1);  /* 800006F0 */
-void DmTag_Update(void *arg0, s32 arg1);  /* 800007F0 */
+void DmTag_DoNothing(DmTag *this, PlayState *play);  /* 8000069C */
+void func_800006AC(DmTag *this, PlayState *play);
+void DmTag_Init(Actor *thisx, PlayState *play);  /* 800006F0 */
+void DmTag_Destroy(Actor *thisx, PlayState *play);  /* 800007E0 */
+void DmTag_Update(Actor *thisx, PlayState *play);  /* 800007F0 */
 
 #endif

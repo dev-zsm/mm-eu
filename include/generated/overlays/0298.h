@@ -4,25 +4,27 @@
 #define GENERATED_OVERLAYS_0298_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgNumaHana BgNumaHana;
 
-s32 BgNumaHana_SpawnOpenFlowerCollisionChild(u8 *arg0, s32 arg1);  /* 80000000 */
-void BgNumaHana_UpdatePetalPosRots(void *arg0);  /* 8000006C */
-void BgNumaHana_UpdateSettleRotation(s32 arg0, void *arg1, s32 arg2, s32 arg3);  /* 80000250 */
-void BgNumaHana_Init(void *arg0, s32 arg1);  /* 800002CC */
-void BgNumaHana_Destroy(s32 arg0, s32 arg1);  /* 800004AC */
-void BgNumaHana_SetupDoNothing(u8 *arg0);  /* 80000514 */
-void BgNumaHana_DoNothing(s32 arg0, s32 arg1);  /* 80000528 */
-void BgNumaHana_SetupClosedIdle(u8 *arg0);  /* 80000538 */
-void BgNumaHana_ClosedIdle(void *arg0, s32 arg1);  /* 8000054C */
-void BgNumaHana_SetupUnfoldInnerPetals(u8 *arg0);  /* 800005E8 */
-void BgNumaHana_UnfoldInnerPetals(void *arg0, s32 arg1);  /* 80000600 */
-void BgNumaHana_SetupUnfoldOuterPetals(u8 *arg0);  /* 800006D8 */
-void BgNumaHana_UnfoldOuterPetals(void *arg0, s32 arg1);  /* 800006F0 */
-void BgNumaHana_SetupRaiseFlower(u8 *arg0);  /* 800007CC */
-void BgNumaHana_RaiseFlower(void *arg0, s32 arg1);  /* 800007E0 */
-void BgNumaHana_SetupOpenedIdle(u8 *arg0);  /* 80000908 */
-void BgNumaHana_OpenedIdle(void *arg0, s32 arg1);  /* 8000091C */
-void BgNumaHana_Update(void *arg0, s32 arg1);  /* 8000096C */
-void BgNumaHana_Draw(s32 arg0, void *arg1);  /* 80000A68 */
+s32 BgNumaHana_SpawnOpenFlowerCollisionChild(BgNumaHana *this, PlayState *play);  /* 80000000 */
+void BgNumaHana_UpdatePetalPosRots(BgNumaHana *this);  /* 8000006C */
+void BgNumaHana_UpdateSettleRotation(s16 *settleRotZ, s16 *settleAngle, f32 *settleScale, f32 scaleStep);  /* 80000250 */
+void BgNumaHana_Init(Actor *thisx, PlayState *play);  /* 800002CC */
+void BgNumaHana_Destroy(Actor *thisx, PlayState *play);  /* 800004AC */
+void BgNumaHana_SetupDoNothing(BgNumaHana *this);  /* 80000514 */
+void BgNumaHana_DoNothing(BgNumaHana *this, PlayState *play);  /* 80000528 */
+void BgNumaHana_SetupClosedIdle(BgNumaHana *this);  /* 80000538 */
+void BgNumaHana_ClosedIdle(BgNumaHana *this, PlayState *play);  /* 8000054C */
+void BgNumaHana_SetupUnfoldInnerPetals(BgNumaHana *this);  /* 800005E8 */
+void BgNumaHana_UnfoldInnerPetals(BgNumaHana *this, PlayState *play);  /* 80000600 */
+void BgNumaHana_SetupUnfoldOuterPetals(BgNumaHana *this);  /* 800006D8 */
+void BgNumaHana_UnfoldOuterPetals(BgNumaHana *this, PlayState *play);  /* 800006F0 */
+void BgNumaHana_SetupRaiseFlower(BgNumaHana *this);  /* 800007CC */
+void BgNumaHana_RaiseFlower(BgNumaHana *this, PlayState *play);  /* 800007E0 */
+void BgNumaHana_SetupOpenedIdle(BgNumaHana *this);  /* 80000908 */
+void BgNumaHana_OpenedIdle(BgNumaHana *this, PlayState *play);  /* 8000091C */
+void BgNumaHana_Update(Actor *thisx, PlayState *play);  /* 8000096C */
+void BgNumaHana_Draw(Actor *thisx, PlayState *play);  /* 80000A68 */
 
 #endif

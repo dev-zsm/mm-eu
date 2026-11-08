@@ -4,24 +4,26 @@
 #define GENERATED_OVERLAYS_0142_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjKibako ObjKibako;
 
-void ObjKibako_SpawnCollectible(void *arg0, s32 arg1);  /* 80000000 */
-void ObjKibako_SetShadow(void *arg0);  /* 80000074 */
-void func_8000010C(u8 *arg0);
-void func_80000168(void *arg0, void *arg1);
-void func_800001E4(u8 *arg0, u8 *arg1);
-void ObjKibako_Init(void *arg0, s32 arg1);  /* 80000218 */
-void ObjKibako_Destroy(s32 arg0, s32 arg1);  /* 80000330 */
-void ObjKibako_AirBreak(s32 arg0, s32 arg1);  /* 8000035C */
-void ObjKibako_WaterBreak(void *arg0, s32 arg1);  /* 8000063C */
-void func_80000990(u8 *arg0);
+void ObjKibako_SpawnCollectible(ObjKibako *this, PlayState *play);  /* 80000000 */
+void ObjKibako_SetShadow(ObjKibako *this);  /* 80000074 */
+void func_8000010C(ObjKibako *this);
+void func_80000168(ObjKibako *this, PlayState *play);
+void func_800001E4(ObjKibako *this, PlayState *play);
+void ObjKibako_Init(Actor *thisx, PlayState *play2);  /* 80000218 */
+void ObjKibako_Destroy(Actor *thisx, PlayState *play2);  /* 80000330 */
+void ObjKibako_AirBreak(ObjKibako *this, PlayState *play);  /* 8000035C */
+void ObjKibako_WaterBreak(ObjKibako *this, PlayState *play);  /* 8000063C */
+void func_80000990(ObjKibako *this);
 void func_800009A4(u8 *arg0, s32 arg1);
-void ObjKibako_SetupIdle(u8 *arg0);  /* 80000A30 */
-void ObjKibako_Idle(void *arg0, s32 arg1);  /* 80000A44 */
-void ObjKibako_SetupHeld(u8 *arg0);  /* 80000D44 */
-void ObjKibako_Held(void *arg0, s32 arg1);  /* 80000D58 */
-void ObjKibako_SetupThrown(u8 *arg0);  /* 80000E8C */
-void ObjKibako_Thrown(void *arg0, s32 arg1);  /* 80000F48 */
-void ObjKibako_Update(u8 *arg0);  /* 80001154 */
+void ObjKibako_SetupIdle(ObjKibako *this);  /* 80000A30 */
+void ObjKibako_Idle(ObjKibako *this, PlayState *play);  /* 80000A44 */
+void ObjKibako_SetupHeld(ObjKibako *this);  /* 80000D44 */
+void ObjKibako_Held(ObjKibako *this, PlayState *play);  /* 80000D58 */
+void ObjKibako_SetupThrown(ObjKibako *this);  /* 80000E8C */
+void ObjKibako_Thrown(ObjKibako *this, PlayState *play);  /* 80000F48 */
+void ObjKibako_Update(Actor *thisx);  /* 80001154 */
 
 #endif

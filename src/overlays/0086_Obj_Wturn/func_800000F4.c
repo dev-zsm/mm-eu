@@ -6,7 +6,7 @@
 M2C_UNK func_800F1944(s8);                          /* extern */
 extern M2C_UNK D_808A717C;
 
-void ObjWturn_TriggerInversion(u8 *arg0) {
-    func_800F1944(M2C_FIELD(arg0, s8 *, 0x38));
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_808A717C;
+void ObjWturn_TriggerInversion(ObjWturn *this) {
+    func_800F1944(M2C_FIELD(this, s8 *, 0x38));
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_808A717C;
 }

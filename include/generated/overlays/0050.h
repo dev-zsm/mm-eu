@@ -4,12 +4,13 @@
 #define GENERATED_OVERLAYS_0050_H
 
 #include "types.h"
+#include "actor.h"
 
 void func_80000000(void *arg0);
-void ConsoleLogo_RenderView(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000009C */
+void ConsoleLogo_RenderView(void *this, f32 x, f32 y, f32 z);  /* 8000009C */
 void func_80000134(void *arg0);
 void func_8000066C(void *arg0);
-void ConsoleLogo_Destroy(s32 a0);  /* 80000738 */
+void ConsoleLogo_Destroy(void *thisx);  /* 80000738 */
 void func_80000768(void *arg0);
 
 #endif

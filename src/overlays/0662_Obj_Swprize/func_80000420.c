@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80C0A534;
 
-void ObjSwprize_SetupDoNothing(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80C0A534;
+void ObjSwprize_SetupDoNothing(ObjSwprize *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80C0A534;
 }

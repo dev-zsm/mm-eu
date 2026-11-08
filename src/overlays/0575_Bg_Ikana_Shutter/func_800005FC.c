@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0575.h"
 
-void BgIkanaShutter_DoNothing(s32 arg0, M2C_UNK arg1) {
+void BgIkanaShutter_DoNothing(BgIkanaShutter *this, PlayState *play) {
 
 }

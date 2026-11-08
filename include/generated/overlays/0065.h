@@ -4,15 +4,18 @@
 #define GENERATED_OVERLAYS_0065_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBom EnBom;
 
-void EnBom_Init(void *arg0, void *arg1);  /* 80000000 */
-void EnBom_Move(void *arg0, s32 arg1);  /* 800002A8 */
-void EnBom_WaitForRelease(void *arg0, s32 arg1);  /* 80000724 */
-void EnBom_Explode(void *arg0, s32 arg1);  /* 80000808 */
-void EnBom_Update(void *arg0, void *arg1);  /* 80000BF8 */
-void EnBom_Draw(void *arg0, s32 arg1);  /* 80001544 */
-void func_80001898(s32 arg0, s32 arg1);
-void func_8000192C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void EnBom_DrawKeg(void *arg0, s32 arg1);  /* 80001E10 */
+void EnBom_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnBom_Destroy(Actor *thisx, PlayState *play);  /* 80000248 */
+void EnBom_Move(EnBom *this, PlayState *play);  /* 800002A8 */
+void EnBom_WaitForRelease(EnBom *this, PlayState *play);  /* 80000724 */
+void EnBom_Explode(EnBom *this, PlayState *play);  /* 80000808 */
+void EnBom_Update(Actor *thisx, PlayState *play);  /* 80000BF8 */
+void EnBom_Draw(Actor *thisx, PlayState *play);  /* 80001544 */
+void func_80001898(PlayState *play, Vec3f *arg1);
+void func_8000192C(PlayState *play, Vec3f *arg1, Vec3f *arg2, Vec3f *arg3, s32 arg4);
+void EnBom_DrawKeg(PlayState *play, s32 arg1);  /* 80001E10 */
 
 #endif

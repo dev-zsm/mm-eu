@@ -5,9 +5,9 @@
 
 M2C_UNK func_800F1D6C(s8, u8 *);                  /* extern */
 
-void ObjSwitch_StopCutscene(u8 *arg0) {
-    if (M2C_FIELD(arg0, s8 *, 0x172) != 0) {
-        func_800F1D6C(M2C_FIELD(arg0, s8 *, 0x38), arg0);
-        M2C_FIELD(arg0, s8 *, 0x172) = 0;
+void ObjSwitch_StopCutscene(ObjSwitch *this) {
+    if (M2C_FIELD(this, s8 *, 0x172) != 0) {
+        func_800F1D6C(M2C_FIELD(this, s8 *, 0x38), this);
+        M2C_FIELD(this, s8 *, 0x172) = 0;
     }
 }

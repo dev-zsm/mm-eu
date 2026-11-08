@@ -4,7 +4,9 @@
 #define GENERATED_OVERLAYS_0296_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjFunen ObjFunen;
 
-void ObjFunen_Draw(s32 arg0, void *arg1);  /* 80000038 */
+void ObjFunen_Draw(Actor *thisx, PlayState *play);  /* 80000038 */
 
 #endif

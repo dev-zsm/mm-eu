@@ -6,7 +6,7 @@
 f32 func_8017B984();                                /* extern */
 extern f32 D_80A69284;
 
-s32 ObjMine_GetUnitVec3fNorm(u8 *arg0, u8 *arg1, f32 *arg2, f32 *arg3) {
+s32 ObjMine_GetUnitVec3fNorm(Vec3f *src, Vec3f *dst, f32 *norm, f32 *invNorm) {
     f32 temp_f0;
     f32 temp_f2;
 
@@ -15,10 +15,10 @@ s32 ObjMine_GetUnitVec3fNorm(u8 *arg0, u8 *arg1, f32 *arg2, f32 *arg3) {
         return 0;
     }
     temp_f2 = 1.0f / temp_f0;
-    M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) * temp_f2);
-    M2C_FIELD(arg1, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) * temp_f2);
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) * temp_f2);
-    *arg2 = temp_f0;
-    *arg3 = temp_f2;
+    M2C_FIELD(dst, f32 *, 0) = (f32) (M2C_FIELD(src, f32 *, 0) * temp_f2);
+    M2C_FIELD(dst, f32 *, 4) = (f32) (M2C_FIELD(src, f32 *, 4) * temp_f2);
+    M2C_FIELD(dst, f32 *, 8) = (f32) (M2C_FIELD(src, f32 *, 8) * temp_f2);
+    *norm = temp_f0;
+    *invNorm = temp_f2;
     return 1;
 }

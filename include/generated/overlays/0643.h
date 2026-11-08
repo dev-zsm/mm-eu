@@ -4,13 +4,17 @@
 #define GENERATED_OVERLAYS_0643_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjDanpeilift ObjDanpeilift;
 
-void ObjDanpeilift_UpdatePosition(u8 *arg0, s32 arg1);  /* 80000000 */
-void ObjDanpeilift_Init(void *arg0, s32 arg1);  /* 8000003C */
-void ObjDanpeilift_DoNothing(s32 arg0, s32 arg1);  /* 800001C4 */
-void ObjDanpeilift_Move(void *arg0, s32 arg1);  /* 800001D4 */
-void ObjDanpeilift_Teleport(u8 *arg0, s32 arg1);  /* 80000450 */
-void ObjDanpeilift_Wait(u8 *arg0, s32 arg1);  /* 800004AC */
-void ObjDanpeilift_Update(void *arg0);  /* 800004E4 */
+void ObjDanpeilift_UpdatePosition(ObjDanpeilift *this, s32 index);  /* 80000000 */
+void ObjDanpeilift_Init(Actor *thisx, PlayState *play);  /* 8000003C */
+void ObjDanpeilift_Destroy(Actor *thisx, PlayState *play);  /* 80000190 */
+void ObjDanpeilift_DoNothing(ObjDanpeilift *this, PlayState *play);  /* 800001C4 */
+void ObjDanpeilift_Move(ObjDanpeilift *this, PlayState *play);  /* 800001D4 */
+void ObjDanpeilift_Teleport(ObjDanpeilift *this, PlayState *play);  /* 80000450 */
+void ObjDanpeilift_Wait(ObjDanpeilift *this, PlayState *play);  /* 800004AC */
+void ObjDanpeilift_Update(Actor *thisx, PlayState *play);  /* 800004E4 */
+void ObjDanpeilift_Draw(Actor *thisx, PlayState *play);  /* 80000724 */
 
 #endif

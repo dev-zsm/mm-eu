@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0096.h"
 
 M2C_UNK func_800B6564(u8 *, f32);                 /* extern */
 

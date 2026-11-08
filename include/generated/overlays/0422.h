@@ -4,10 +4,16 @@
 #define GENERATED_OVERLAYS_0422_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgLotus BgLotus;
 
-void func_800000D0(void *arg0);
-void func_8000017C(void *arg0, s32 arg1);
-void func_80000328(void *arg0, s32 arg1);
+void BgLotus_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgLotus_Destroy(Actor *thisx, PlayState *play);  /* 8000009C */
+void func_800000D0(BgLotus *this);
+void func_8000017C(BgLotus *this, PlayState *play);
+void func_80000328(BgLotus *this, PlayState *play);
 void func_80000408(u8 *arg0, s32 arg1);
+void BgLotus_Update(Actor *thisx, PlayState *play);  /* 800004FC */
+void BgLotus_Draw(Actor *thisx, PlayState *play);  /* 8000055C */
 
 #endif

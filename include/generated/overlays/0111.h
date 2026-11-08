@@ -4,23 +4,24 @@
 #define GENERATED_OVERLAYS_0111_H
 
 #include "types.h"
+#include "actor.h"
 
-void func_80000000(void *arg0, s32 arg1);
-void func_8000032C(s32 arg0, s32 arg1);
+void func_80000000(Actor *thisx, PlayState *play);
+void func_8000032C(u8 *thisx, s32 play2);
 void func_80000370(void *arg0, s32 arg1, s32 arg2);
 s32 func_800003DC(s32 arg0);
-void func_80000440(void *arg0, s32 arg1);
+void func_80000440(Actor *thisx, PlayState *play);
 void func_800004E8(void *arg0);
 void func_8000058C(void *arg0, s32 arg1);
-void func_800007B4(s32 arg0);
+void func_800007B4(Actor *thisx);
 void func_80000840(void *arg0, s32 arg1);
-void func_800009BC(s32 arg0);
+void func_800009BC(Actor *thisx);
 void func_80000A48(void *arg0, s32 arg1);
 void func_80000BC4(u8 *arg0, u8 *arg1);
-void func_80000C70(s32 arg0);
+void func_80000C70(Actor *thisx);
 void func_80000D00(void *arg0, s32 arg1);
 void func_80000E88(s32 arg0, s32 arg1);
-void func_80000FA4(void *arg0);
+void func_80000FA4(Actor *thisx);
 void func_80001040(void *arg0, s32 arg1);
 void func_800011C0(s32 arg0, s32 arg1);
 void func_8000124C(void *arg0, s32 arg1);
@@ -44,15 +45,15 @@ void func_8000234C(u8 *arg0);
 void func_800023E0(void *arg0, s32 arg1);
 void func_800024F0(u8 *arg0);
 void func_80002568(void *arg0, s32 arg1);
-void func_800026B0(void *arg0);
+void func_800026B0(Actor *thisx);
 void func_8000279C(void *arg0, s32 arg1);
-void func_80002880(void *arg0, s32 arg1);
-void func_800029F4(void *arg0, s32 arg1);
-void func_80002C74(void *arg0, s32 arg1);
-void func_80002D44(void *arg0, s32 arg1);
-void func_80002DF0(void *arg0, s32 arg1);
+void func_80002880(Actor *thisx, PlayState *play);
+void func_800029F4(Actor *thisx, PlayState *play);
+void func_80002C74(Actor *thisx, PlayState *play);
+void func_80002D44(Actor *thisx, PlayState *play);
+void func_80002DF0(Actor *thisx, PlayState *play);
 void func_80002F80(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80002FDC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800030B8(void *arg0, void *arg1);
+void func_800030B8(Actor *thisx, PlayState *play);
 
 #endif

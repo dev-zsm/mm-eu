@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0580.h"
 
-void BgIknvObj_DoNothing(s32 arg0, M2C_UNK arg1) {
+void BgIknvObj_DoNothing(BgIknvObj *this, PlayState *play) {
 
 }

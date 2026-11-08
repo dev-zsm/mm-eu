@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80913BA8;
 
-void EnHonotrap_SetupEyeClose2(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x144) = &D_80913BA8;
+void EnHonotrap_SetupEyeClose2(EnHonotrap *this) {
+    M2C_FIELD(this, M2C_UNK **, 0x144) = &D_80913BA8;
 }

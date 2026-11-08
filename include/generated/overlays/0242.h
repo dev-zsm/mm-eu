@@ -4,8 +4,12 @@
 #define GENERATED_OVERLAYS_0242_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjSound ObjSound;
 
-void ObjSound_Update(void *arg0, s32 arg1);  /* 80000084 */
-void ObjSound_Draw(u8 *arg0, s32 arg1);  /* 80000164 */
+void ObjSound_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjSound_Destroy(Actor *thisx, PlayState *play);  /* 8000004C */
+void ObjSound_Update(Actor *thisx, PlayState *play);  /* 80000084 */
+void ObjSound_Draw(Actor *thisx, PlayState *play);  /* 80000164 */
 
 #endif

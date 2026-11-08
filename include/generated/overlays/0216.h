@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0216_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsSolderSrchBall EffectSsSolderSrchBall;
 
-void EffectSsSolderSrchBall_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsSolderSrchBall_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800000A4 */
-void EffectSsSolderSrchBall_Update(void *arg0, s32 arg1, void *arg2);  /* 8000029C */
+u32 EffectSsSolderSrchBall_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsSolderSrchBall_Draw(PlayState *play, u32 index, void *this);  /* 800000A4 */
+void EffectSsSolderSrchBall_Update(PlayState *play, u32 index, void *this);  /* 8000029C */
 
 #endif

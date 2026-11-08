@@ -5,8 +5,8 @@
 
 M2C_UNK func_809138F8();                            /* extern */
 
-void EnHonotrap_EyeAttack(u8 *arg0, M2C_UNK arg1) {
-    if (M2C_FIELD(arg0, s16 *, 0x220) <= 0) {
+void EnHonotrap_EyeAttack(EnHonotrap *this, PlayState *play) {
+    if (M2C_FIELD(this, s16 *, 0x220) <= 0) {
         func_809138F8();
     }
 }

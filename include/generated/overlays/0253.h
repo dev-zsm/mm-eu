@@ -4,17 +4,19 @@
 #define GENERATED_OVERLAYS_0253_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DoorSpiral DoorSpiral;
 
 void DoorSpiral_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_80000010(void *arg0, s32 arg1);
-void func_80000098(void *arg0);
-void DoorSpiral_Init(void *arg0, s32 arg1);  /* 80000118 */
-void func_80000250(void *arg0, s32 arg1);
-void func_800002A8(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000340(s32 arg0, void *arg1);
-void func_80000498(void *arg0, s32 arg1);
-void func_80000538(s32 arg0, void *arg1);
-void DoorSpiral_Update(void *arg0, void *arg1);  /* 80000580 */
-void DoorSpiral_Draw(void *arg0, s32 arg1);  /* 800005D4 */
+s32 func_80000010(DoorSpiral *this, PlayState *play);
+void func_80000098(PlayState *play);
+void DoorSpiral_Init(Actor *thisx, PlayState *play);  /* 80000118 */
+void func_80000250(DoorSpiral *this, PlayState *play);
+f32 func_800002A8(PlayState *play, DoorSpiral *this, f32 arg2, f32 arg3, f32 arg4);
+s32 func_80000340(DoorSpiral *this, PlayState *play);
+void func_80000498(DoorSpiral *this, PlayState *play);
+void func_80000538(DoorSpiral *this, PlayState *play);
+void DoorSpiral_Update(Actor *thisx, PlayState *play);  /* 80000580 */
+void DoorSpiral_Draw(Actor *thisx, PlayState *play);  /* 800005D4 */
 
 #endif

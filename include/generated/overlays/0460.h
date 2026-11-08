@@ -4,22 +4,28 @@
 #define GENERATED_OVERLAYS_0460_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjDhouse ObjDhouse;
 
+void ObjDhouse_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjDhouse_Destroy(Actor *thisx, PlayState *play);  /* 8000009C */
 void func_800000D0(f32 *a0, f32 *a1, f32 *a2);
-void func_80000108(void *arg0);
-void func_800001B8(void *arg0, s32 arg1);
-void func_800003F8(void *arg0);
-void func_800004FC(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800007F0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80000AF4(s32 arg0, s32 arg1, void *arg2);
-void func_80000DA4(void *arg0, s32 arg1);
+void func_80000108(Actor *thisx);
+void func_800001B8(ObjDhouse *this, PlayState *play);
+s32 func_800003F8(ObjDhouse *this);
+void func_800004FC(ObjDhouse *this, PlayState *play, void *ptr, void *ptr3);
+void func_800007F0(ObjDhouse *this, PlayState *play, void *ptr, void *ptr3);
+void func_80000AF4(ObjDhouse *this, PlayState *play, Vec3f *arg2);
+void func_80000DA4(ObjDhouse *this, PlayState *play);
 void func_80000F88(u8 *arg0);
 void func_80000F9C(s32 arg0, s32 arg1);
 void func_80000FAC(u8 *arg0);
 void func_80000FC0(u8 *arg0, s32 arg1);
 void func_80001058(u8 *arg0);
-void func_80001074(void *arg0, s32 arg1);
-void func_80001288(void *arg0, void *arg1);
+void func_80001074(ObjDhouse *this, PlayState *play);
+void ObjDhouse_Update(Actor *thisx);  /* 80001234 */
+void ObjDhouse_Draw(Actor *thisx, PlayState *play);  /* 80001258 */
+void func_80001288(Actor *thisx, PlayState *play);
 void func_800014C0(s32 arg0, s32 arg1);
 
 #endif

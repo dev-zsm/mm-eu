@@ -6,23 +6,23 @@
 M2C_UNK func_80112D7C(u8 *, M2C_UNK);             /* extern */
 M2C_UNK func_80115C10(s16);                         /* extern */
 
-void EnGirlA_BuyBombs(u8 *arg0, u8 *arg1) {
+void EnGirlA_BuyBombs(PlayState *play, EnGirlA *this) {
     s16 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg1, s16 *, 0x1C2);
+    temp_v0 = M2C_FIELD(this, s16 *, 0x1C2);
     switch (temp_v0) {                              /* irregular */
     case 5:
-        func_80112D7C(arg0, 0x8F);
+        func_80112D7C(play, 0x8F);
         break;
     case 10:
-        func_80112D7C(arg0, 0x90);
+        func_80112D7C(play, 0x90);
         break;
     case 20:
-        func_80112D7C(arg0, 0x91);
+        func_80112D7C(play, 0x91);
         break;
     case 30:
-        func_80112D7C(arg0, 0x92);
+        func_80112D7C(play, 0x92);
         break;
     }
-    func_80115C10((s16) (M2C_FIELD(arg0, s32 *, 0x16978) * -1));
+    func_80115C10((s16) (M2C_FIELD(play, s32 *, 0x16978) * -1));
 }

@@ -6,8 +6,8 @@
 M2C_UNK func_800F1944(s8, u8 *);                  /* extern */
 extern M2C_UNK D_80BBB0B4;
 
-void BgHakaBombwall_SetupPlayCutscene(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 4) | 0x10);
-    func_800F1944(M2C_FIELD(arg0, s8 *, 0x38), arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x1A8) = &D_80BBB0B4;
+void BgHakaBombwall_SetupPlayCutscene(BgHakaBombwall *this) {
+    M2C_FIELD(this, s32 *, 4) = (s32) (M2C_FIELD(this, s32 *, 4) | 0x10);
+    func_800F1944(M2C_FIELD(this, s8 *, 0x38), this);
+    M2C_FIELD(this, M2C_UNK **, 0x1A8) = &D_80BBB0B4;
 }

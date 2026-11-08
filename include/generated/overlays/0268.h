@@ -4,14 +4,18 @@
 #define GENERATED_OVERLAYS_0268_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnWarptag EnWarptag;
 
-void EnWarptag_Init(void *arg0, s32 arg1);  /* 80000000 */
-void EnWarpTag_CheckDungeonKeepObject(void *arg0, s32 arg1);  /* 800000FC */
-void EnWarpTag_WaitForPlayer(s32 arg0, s32 arg1);  /* 80000180 */
-void EnWarpTag_Unused809C09A0(s32 arg0, s32 arg1);  /* 80000240 */
-void EnWarpTag_Unused809C0A20(s32 arg0, s32 arg1);  /* 800002C0 */
-void EnWarpTag_RespawnPlayer(void *arg0, s32 arg1);  /* 80000354 */
-void EnWarpTag_GrottoReturn(void *arg0, s32 arg1);  /* 800006D0 */
-void EnWarpTag_Draw(s32 arg0, s32 arg1);  /* 800007DC */
+void EnWarptag_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnWarptag_Destroy(Actor *thisx, PlayState *play);  /* 800000C4 */
+void EnWarpTag_CheckDungeonKeepObject(EnWarptag *this, PlayState *play);  /* 800000FC */
+void EnWarpTag_WaitForPlayer(EnWarptag *this, PlayState *play);  /* 80000180 */
+void EnWarpTag_Unused809C09A0(EnWarptag *this, PlayState *play);  /* 80000240 */
+void EnWarpTag_Unused809C0A20(EnWarptag *this, PlayState *play);  /* 800002C0 */
+void EnWarpTag_RespawnPlayer(EnWarptag *this, PlayState *play);  /* 80000354 */
+void EnWarpTag_GrottoReturn(EnWarptag *this, PlayState *play);  /* 800006D0 */
+void EnWarptag_Update(Actor *thisx);  /* 800007B8 */
+void EnWarpTag_Draw(Actor *thisx, PlayState *play);  /* 800007DC */
 
 #endif

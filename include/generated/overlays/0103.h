@@ -4,7 +4,12 @@
 #define GENERATED_OVERLAYS_0103_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgKeikokuSpr BgKeikokuSpr;
 
-void BgKeikokuSpr_Draw(s32 arg0, void *arg1);  /* 80000048 */
+void BgKeikokuSpr_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgKeikokuSpr_Destroy(Actor *thisx, PlayState *play);  /* 80000028 */
+void BgKeikokuSpr_Update(Actor *thisx, PlayState *play);  /* 80000038 */
+void BgKeikokuSpr_Draw(Actor *thisx, PlayState *play);  /* 80000048 */
 
 #endif

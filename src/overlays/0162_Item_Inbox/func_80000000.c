@@ -1,5 +1,6 @@
 #include "types.h"
 #include "actor.h"
+#include "generated/overlays/0162.h"
 
 extern void func_800B6564();
 extern u8 D_8092A024;

@@ -4,23 +4,25 @@
 #define GENERATED_OVERLAYS_0534_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjHunsui ObjHunsui;
 
 void func_80000000(s32 arg0, s32 arg1, s32 arg2);
-void func_80000198(void *arg0, s32 arg1);
-void ObjHunsui_Init(void *arg0, s32 arg1);  /* 800005B4 */
-void ObjHunsui_Destroy(u8 *arg0, s32 arg1);  /* 80000938 */
-void ObjHunsui_Update(void *arg0);  /* 8000096C */
-void func_80000A14(void *arg0, s32 arg1);
-void func_80000C44(void *arg0, s32 arg1);
+void func_80000198(ObjHunsui *this, PlayState *play);
+void ObjHunsui_Init(Actor *thisx, PlayState *play);  /* 800005B4 */
+void ObjHunsui_Destroy(Actor *thisx, PlayState *play);  /* 80000938 */
+void ObjHunsui_Update(Actor *thisx, PlayState *play);  /* 8000096C */
+void func_80000A14(ObjHunsui *this, PlayState *play);
+void func_80000C44(ObjHunsui *this, PlayState *play);
 void func_80000CAC(u8 *arg0, s32 arg1);
-void func_80000CD0(void *arg0, s32 arg1);
+void func_80000CD0(ObjHunsui *this, PlayState *play);
 s32 func_80000E38(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
 void func_80000E6C(u8 *arg0, s32 arg1);
-void func_80000EE4(void *arg0, s32 arg1);
+void func_80000EE4(ObjHunsui *this, PlayState *play);
 void func_80001080(u8 *a0, s32 a1);
-void func_800010B8(void *arg0, s32 arg1);
-void func_800012C4(void *arg0, void *arg1);
-void ObjHunsui_Draw(void *arg0, s32 arg1);  /* 80001574 */
-void func_80001610(void *arg0, void *arg1);
+void func_800010B8(ObjHunsui *this, PlayState *play);
+void func_800012C4(ObjHunsui *this, PlayState *play);
+void ObjHunsui_Draw(Actor *thisx, PlayState *play);  /* 80001574 */
+void func_80001610(Actor *thisx, PlayState *play);
 
 #endif

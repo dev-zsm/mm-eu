@@ -4,14 +4,17 @@
 #define GENERATED_OVERLAYS_0523_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjWarpstone ObjWarpstone;
 
 void ObjWarpstone_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void ObjWarpstone_Init(void *arg0, s32 arg1);  /* 8000000C */
-void ObjWarpstone_ClosedIdle(void *arg0, s32 arg1);  /* 800000F0 */
-void ObjWarpstone_BeginOpeningCutscene(void *arg0, s32 arg1);  /* 80000138 */
-void ObjWarpstone_PlayOpeningCutscene(void *arg0, s32 arg1);  /* 800001C0 */
-s32 ObjWarpstone_OpenedIdle(u8 *arg0, s32 arg1);  /* 800002B4 */
-void ObjWarpstone_Update(void *arg0, s32 arg1);  /* 800002CC */
-void ObjWarpstone_Draw(s32 arg0, s32 arg1);  /* 80000430 */
+void ObjWarpstone_Init(Actor *thisx, PlayState *play);  /* 8000000C */
+void ObjWarpstone_Destroy(Actor *thisx, PlayState *play);  /* 800000C4 */
+s32 ObjWarpstone_ClosedIdle(ObjWarpstone *this, PlayState *play);  /* 800000F0 */
+s32 ObjWarpstone_BeginOpeningCutscene(ObjWarpstone *this, PlayState *play);  /* 80000138 */
+s32 ObjWarpstone_PlayOpeningCutscene(ObjWarpstone *this, PlayState *play);  /* 800001C0 */
+s32 ObjWarpstone_OpenedIdle(ObjWarpstone *this, PlayState *play);  /* 800002B4 */
+void ObjWarpstone_Update(Actor *thisx, PlayState *play);  /* 800002CC */
+void ObjWarpstone_Draw(Actor *thisx, PlayState *play);  /* 80000430 */
 
 #endif

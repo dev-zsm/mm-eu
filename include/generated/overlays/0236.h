@@ -4,7 +4,13 @@
 #define GENERATED_OVERLAYS_0236_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnHs2 EnHs2;
 
-void EnHs2_DoNothing(s32 arg0, s32 arg1);  /* 8000004C */
+void EnHs2_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnHs2_Destroy(Actor *thisx, PlayState *play);  /* 8000003C */
+void EnHs2_DoNothing(EnHs2 *this, PlayState *play);  /* 8000004C */
+void EnHs2_Update(Actor *thisx);  /* 8000005C */
+void func_80000080(Actor *thisx, PlayState *play);
 
 #endif

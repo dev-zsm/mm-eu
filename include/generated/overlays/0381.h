@@ -4,15 +4,19 @@
 #define GENERATED_OVERLAYS_0381_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct DmChar02 DmChar02;
 
-void DmChar02_ChangeAnim(s32 arg0, s32 arg1, s32 arg2);  /* 80000000 */
-void DmChar02_PlaySfxForDroppingOcarinaCutscene(s32 arg0, void *arg1);  /* 8000009C */
-void DmChar02_PlaySfxForCutscenes(s32 arg0, void *arg1);  /* 800000FC */
-void DmChar02_Init(void *arg0, s32 arg1);  /* 80000148 */
-void DmChar02_HandleCutscene(void *arg0, s32 arg1);  /* 8000021C */
-s32 DmChar02_OverrideLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 8000040C */
-void DmChar02_PostLimbDraw(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 80000428 */
-void DmChar02_TransformLimbDraw(s32 arg0, s32 arg1, s32 arg2);  /* 80000440 */
-void DmChar02_Draw(void *arg0, void *arg1);  /* 80000454 */
+void DmChar02_ChangeAnim(void *skelAnime, void *animInfo, u16 animIndex);  /* 80000000 */
+void DmChar02_PlaySfxForDroppingOcarinaCutscene(DmChar02 *this, PlayState *play);  /* 8000009C */
+void DmChar02_PlaySfxForCutscenes(DmChar02 *this, PlayState *play);  /* 800000FC */
+void DmChar02_Init(Actor *thisx, PlayState *play);  /* 80000148 */
+void DmChar02_Destroy(Actor *thisx, PlayState *play);  /* 8000020C */
+void DmChar02_HandleCutscene(DmChar02 *this, PlayState *play);  /* 8000021C */
+void DmChar02_Update(Actor *thisx, PlayState *play);  /* 8000036C */
+s32 DmChar02_OverrideLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3f *pos, Vec3s *rot, Actor *thisx);  /* 8000040C */
+void DmChar02_PostLimbDraw(PlayState *play, s32 limbIndex, void *dList, Vec3s *rot, Actor *thisx);  /* 80000428 */
+void DmChar02_TransformLimbDraw(PlayState *play, s32 limbIndex, Actor *thisx);  /* 80000440 */
+void DmChar02_Draw(Actor *thisx, PlayState *play);  /* 80000454 */
 
 #endif

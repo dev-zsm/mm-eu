@@ -4,20 +4,25 @@
 #define GENERATED_OVERLAYS_0504_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgKin2Picture BgKin2Picture;
 
-void BgKin2Picture_IsSkulltulaCollected(s32 arg0, s32 arg1);  /* 80000000 */
-void BgKin2Picture_SpawnSkulltula(void *arg0, s32 arg1);  /* 8000004C */
-void BgKin2Picture_SpawnDust(void *arg0, s32 arg1);  /* 800000F8 */
-void BgKin2Picture_Init(void *arg0, s32 arg1);  /* 8000033C */
-void BgKin2Picture_SetupWait(u8 *arg0);  /* 80000520 */
-void BgKin2Picture_Wait(u8 *arg0, s32 arg1);  /* 80000534 */
-void BgKin2Picture_SetupPlayCutscene(u8 *arg0);  /* 80000604 */
-void BgKin2Picture_PlayCutscene(u8 *arg0, s32 arg1);  /* 80000618 */
-void BgKin2Picture_SetupShiver(u8 *arg0);  /* 8000067C */
-void BgKin2Picture_Shiver(void *arg0, s32 arg1);  /* 800006A0 */
-void BgKin2Picture_SetupFall(u8 *arg0);  /* 80000768 */
-void BgKin2Picture_Fall(void *arg0, s32 arg1);  /* 8000078C */
-void BgKin2Picture_SetupDoNothing(u8 *arg0);  /* 80000958 */
-void BgKin2Picture_DoNothing(s32 arg0, s32 arg1);  /* 8000096C */
+s32 BgKin2Picture_IsSkulltulaCollected(PlayState *play, s32 skulltulaParams);  /* 80000000 */
+void BgKin2Picture_SpawnSkulltula(BgKin2Picture *this, PlayState *play2);  /* 8000004C */
+void BgKin2Picture_SpawnDust(BgKin2Picture *this, PlayState *play);  /* 800000F8 */
+void BgKin2Picture_Init(Actor *thisx, PlayState *play);  /* 8000033C */
+void BgKin2Picture_Destroy(Actor *thisx, PlayState *play);  /* 800004D8 */
+void BgKin2Picture_SetupWait(BgKin2Picture *this);  /* 80000520 */
+void BgKin2Picture_Wait(BgKin2Picture *this, PlayState *play);  /* 80000534 */
+void BgKin2Picture_SetupPlayCutscene(BgKin2Picture *this);  /* 80000604 */
+void BgKin2Picture_PlayCutscene(BgKin2Picture *this, PlayState *play);  /* 80000618 */
+void BgKin2Picture_SetupShiver(BgKin2Picture *this);  /* 8000067C */
+void BgKin2Picture_Shiver(BgKin2Picture *this, PlayState *play);  /* 800006A0 */
+void BgKin2Picture_SetupFall(BgKin2Picture *this);  /* 80000768 */
+void BgKin2Picture_Fall(BgKin2Picture *this, PlayState *play);  /* 8000078C */
+void BgKin2Picture_SetupDoNothing(BgKin2Picture *this);  /* 80000958 */
+void BgKin2Picture_DoNothing(BgKin2Picture *this, PlayState *play);  /* 8000096C */
+void BgKin2Picture_Update(Actor *thisx);  /* 8000097C */
+void BgKin2Picture_Draw(Actor *thisx, PlayState *play);  /* 800009A0 */
 
 #endif

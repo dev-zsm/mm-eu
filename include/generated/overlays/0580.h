@@ -4,19 +4,22 @@
 #define GENERATED_OVERLAYS_0580_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIknvObj BgIknvObj;
 
-void BgIknvObj_Init(void *arg0, s32 arg1);  /* 80000000 */
-void BgIknvObj_Destroy(void *arg0, s32 arg1);  /* 800001CC */
-void func_8000023C(void *arg0);
-void BgIknvObj_UpdateWaterwheel(void *arg0, void *arg1);  /* 800002BC */
-void func_8000035C(void *arg0, s32 arg1, s32 arg2);
-void func_80000428(void *arg0, s32 arg1);
-void func_8000049C(void *arg0, s32 arg1);
-void func_8000052C(void *arg0, s32 arg1);
-void func_80000590(s32 arg0, s32 arg1);
-void BgIknvObj_UpdateSakonDoor(u8 *arg0, s32 arg1);  /* 800005E8 */
-void BgIknvObj_UpdateRaisedDoor(s32 arg0, s32 arg1);  /* 8000064C */
-void BgIknvObj_DoNothing(s32 arg0, s32 arg1);  /* 8000065C */
-void BgIknvObj_Draw(s32 arg0, void *arg1);  /* 80000690 */
+void BgIknvObj_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void BgIknvObj_Destroy(Actor *thisx, PlayState *play);  /* 800001CC */
+s32 func_8000023C(BgIknvObj *this);
+void BgIknvObj_UpdateWaterwheel(BgIknvObj *this, PlayState *play);  /* 800002BC */
+s32 func_8000035C(BgIknvObj *this, s16 targetRotation, PlayState *play);
+void func_80000428(BgIknvObj *this, PlayState *play);
+void func_8000049C(BgIknvObj *this, PlayState *play);
+void func_8000052C(BgIknvObj *this, PlayState *play);
+void func_80000590(BgIknvObj *this, PlayState *play);
+void BgIknvObj_UpdateSakonDoor(BgIknvObj *this, PlayState *play);  /* 800005E8 */
+void BgIknvObj_UpdateRaisedDoor(BgIknvObj *this, PlayState *play);  /* 8000064C */
+void BgIknvObj_DoNothing(BgIknvObj *this, PlayState *play);  /* 8000065C */
+void BgIknvObj_Update(Actor *thisx);  /* 8000066C */
+void BgIknvObj_Draw(Actor *thisx, PlayState *play);  /* 80000690 */
 
 #endif

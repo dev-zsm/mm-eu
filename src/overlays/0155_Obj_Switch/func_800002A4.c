@@ -3,6 +3,6 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0155.h"
 
-void ObjSwitch_CrystalUpdateTimer(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x168) = (s32) (M2C_FIELD(arg0, s32 *, 0x168) + 1);
+void ObjSwitch_CrystalUpdateTimer(ObjSwitch *this) {
+    M2C_FIELD(this, s32 *, 0x168) = (s32) (M2C_FIELD(this, s32 *, 0x168) + 1);
 }

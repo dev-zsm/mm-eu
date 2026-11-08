@@ -5,6 +5,6 @@
 
 extern M2C_UNK D_80BEF1B8;
 
-void BgAstrBombwall_SetupExploding(u8 *arg0, M2C_UNK arg1) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x15C) = &D_80BEF1B8;
+void BgAstrBombwall_SetupExploding(BgAstrBombwall *this, PlayState *play) {
+    M2C_FIELD(this, M2C_UNK **, 0x15C) = &D_80BEF1B8;
 }

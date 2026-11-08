@@ -6,9 +6,9 @@
 M2C_UNK func_800B6490(u8 *);                      /* extern */
 M2C_UNK func_80971810();                            /* extern */
 
-void EnSi_DraggedByHookshot(u8 *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 4) & 0x2000) != 0x2000) {
+void EnSi_DraggedByHookshot(EnSi *this) {
+    if ((M2C_FIELD(this, s32 *, 4) & 0x2000) != 0x2000) {
         func_80971810();
-        func_800B6490(arg0);
+        func_800B6490(this);
     }
 }

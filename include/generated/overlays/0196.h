@@ -4,9 +4,12 @@
 #define GENERATED_OVERLAYS_0196_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct OceffWipe OceffWipe;
 
-void OceffWipe_Init(s32 arg0, s32 arg1);  /* 80000000 */
-void OceffWipe_Update(void *arg0, void *arg1);  /* 80000090 */
-void OceffWipe_Draw(s32 arg0, void *arg1);  /* 800000F0 */
+void OceffWipe_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void OceffWipe_Destroy(Actor *thisx, PlayState *play);  /* 8000005C */
+void OceffWipe_Update(Actor *thisx, PlayState *play);  /* 80000090 */
+void OceffWipe_Draw(Actor *thisx, PlayState *play);  /* 800000F0 */
 
 #endif

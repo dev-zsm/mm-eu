@@ -4,22 +4,26 @@
 #define GENERATED_OVERLAYS_0356_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct ObjDriftice ObjDriftice;
 
 void func_80000000(u8 *arg0, s32 arg1);
 void func_8000003C(s16 *a, s16 b);
-void func_8000007C(void *arg0, void *arg1);
-void func_80000280(void *arg0, s32 arg1);
-void func_800003C0(void *arg0, void *arg1, s32 arg2, void *arg3);
-void func_800006DC(void *arg0, s32 arg1, s32 arg2, void *arg3);
-void func_800008C0(s32 arg0, void *arg1);
-void ObjDriftice_Init(void *arg0, s32 arg1);  /* 80000A24 */
-void func_80000C38(u8 *arg0);
+f32 func_8000007C(void *arg0, ObjDriftice *this);
+f32 func_80000280(void *arg0, ObjDriftice *this);
+void func_800003C0(void *arg0, ObjDriftice *this, s16 *arg2, s16 *arg3);
+void func_800006DC(void *arg0, ObjDriftice *this, s16 *arg2, s16 *arg3);
+void func_800008C0(void *arg0, ObjDriftice *this);
+void ObjDriftice_Init(Actor *thisx, PlayState *play);  /* 80000A24 */
+void ObjDriftice_Destroy(Actor *thisx, PlayState *play);  /* 80000C04 */
+void func_80000C38(ObjDriftice *this);
 void func_80000C4C(s32 arg0, s32 arg1);
 void func_80000C5C(u8 *arg0);
-void func_80000C70(void *arg0, s32 arg1);
-void func_80000ECC(u8 *arg0);
-void func_80000EE0(void *arg0, s32 arg1);
-void func_80000F38(u8 *arg0);
-void ObjDriftice_Update(s32 arg0, s32 arg1);  /* 80000F8C */
+void func_80000C70(ObjDriftice *this, PlayState *play);
+void func_80000ECC(ObjDriftice *this);
+void func_80000EE0(ObjDriftice *this, PlayState *play);
+void func_80000F38(ObjDriftice *this);
+void ObjDriftice_Update(Actor *thisx, PlayState *play);  /* 80000F8C */
+void ObjDriftice_Draw(Actor *thisx, PlayState *play);  /* 80001054 */
 
 #endif

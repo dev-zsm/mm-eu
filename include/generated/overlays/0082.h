@@ -4,13 +4,15 @@
 #define GENERATED_OVERLAYS_0082_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EnBoom EnBoom;
 
 void EnBoom_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
-void func_8000000C(void *arg0, s32 arg1);
-void EnBoom_Init(void *arg0, s32 arg1);  /* 80000230 */
-void EnBoom_Destroy(s32 arg0, void *arg1);  /* 80000398 */
-void func_80000448(void *arg0, s32 arg1);
-void EnBoom_Update(void *arg0, void *arg1);  /* 800008C4 */
-void EnBoom_Draw(void *arg0, s32 arg1);  /* 8000099C */
+void func_8000000C(EnBoom *this, PlayState *play);
+void EnBoom_Init(Actor *thisx, PlayState *play);  /* 80000230 */
+void EnBoom_Destroy(Actor *thisx, PlayState *play);  /* 80000398 */
+void func_80000448(EnBoom *this, PlayState *play);
+void EnBoom_Update(Actor *thisx, PlayState *play);  /* 800008C4 */
+void EnBoom_Draw(Actor *thisx, PlayState *play);  /* 8000099C */
 
 #endif

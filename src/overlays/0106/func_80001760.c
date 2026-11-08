@@ -11,11 +11,11 @@ M2C_UNK func_808CAAE8();                            /* extern */
 M2C_UNK func_808CABF4();                            /* extern */
 M2C_UNK func_808CAD78();                            /* extern */
 
-void func_80001760(u8 *arg0) {
+void func_80001760(Actor *thisx) {
     s16 temp_v0;
     u8 temp_v0_2;
 
-    temp_v0 = M2C_FIELD(arg0, s16 *, 0x1C);
+    temp_v0 = M2C_FIELD(thisx, s16 *, 0x1C);
     if (temp_v0 == 6) {
         func_808CABF4();
         return;
@@ -29,7 +29,7 @@ void func_80001760(u8 *arg0) {
         return;
     }
     if (temp_v0 == 4) {
-        temp_v0_2 = M2C_FIELD(arg0, u8 *, 0x148);
+        temp_v0_2 = M2C_FIELD(thisx, u8 *, 0x148);
         if ((temp_v0_2 == 0) || (temp_v0_2 == 0xA)) {
             func_808CAAE8();
             return;

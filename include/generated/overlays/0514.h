@@ -4,34 +4,37 @@
 #define GENERATED_OVERLAYS_0514_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgIkanaRotaryroom BgIkanaRotaryroom;
 
-void func_80000000(void *arg0);
-void func_80000078(void *arg0);
-void func_80000160(void *arg0, s32 arg1);
-void func_80000270(void *arg0, void *arg1);
-void func_80000498(void *arg0, s32 arg1, void *arg2);
-void func_800005B4(void *arg0, s32 arg1);
-void func_800009A8(s32 arg0, s32 arg1);
-void func_80000C28(void *arg0, s32 arg1);
-void func_80000D30(s32 arg0, s32 arg1);
-void func_80000F54(s32 arg0, s32 arg1);
+void func_80000000(BgIkanaRotaryroom *this);
+void func_80000078(Vec3f *arg0);
+void func_80000160(BgIkanaRotaryroom *this, PlayState *play);
+void func_80000270(BgIkanaRotaryroom *this, PlayState *play);
+void *func_80000498(BgIkanaRotaryroom *this, PlayState *play, Actor *arg2);
+void func_800005B4(BgIkanaRotaryroom *this, PlayState *play);
+void func_800009A8(BgIkanaRotaryroom *this, PlayState *play);
+s32 func_80000C28(BgIkanaRotaryroom *this, PlayState *play);
+void func_80000D30(BgIkanaRotaryroom *this, PlayState *play);
+void func_80000F54(BgIkanaRotaryroom *this, PlayState *play);
 void func_800011D8(u8 *arg0, u8 *arg1);
-void func_80001290(void *arg0, s32 arg1);
-void func_800013C4(void *arg0);
-void BgIkanaRotaryroom_Init(void *arg0, s32 arg1);  /* 80001418 */
-void func_800015D4(u8 *arg0);
-void func_800015E8(void *arg0, s32 arg1);
-void func_80001698(u8 *arg0);
+void func_80001290(BgIkanaRotaryroom *this, PlayState *play);
+s32 func_800013C4(BgIkanaRotaryroom *this);
+void BgIkanaRotaryroom_Init(Actor *thisx, PlayState *play);  /* 80001418 */
+void BgIkanaRotaryroom_Destroy(Actor *thisx, PlayState *play);  /* 8000158C */
+void func_800015D4(BgIkanaRotaryroom *this);
+void func_800015E8(Actor *thisx, PlayState *play);
+void func_80001698(BgIkanaRotaryroom *this);
 void func_800016AC(u8 *arg0, s32 arg1);
 void func_800016FC(u8 *arg0);
-void func_80001710(void *arg0, s32 arg1);
-void func_80001784(u8 *arg0);
-void func_800017A0(s32 arg0, s32 arg1);
-void func_800018A4(u8 *arg0);
-void func_800018C0(void *arg0, s32 arg1);
-void func_80001ACC(u8 *arg0);
-void func_80001AE8(void *arg0, s32 arg1);
-void BgIkanaRotaryroom_Update(void *arg0, s32 arg1);  /* 80001BC8 */
-void BgIkanaRotaryroom_Draw(void *arg0, s32 arg1);  /* 80001D50 */
+void func_80001710(Actor *thisx, PlayState *play);
+void func_80001784(BgIkanaRotaryroom *this);
+void func_800017A0(Actor *thisx, PlayState *play);
+void func_800018A4(BgIkanaRotaryroom *this);
+void func_800018C0(Actor *thisx, PlayState *play);
+void func_80001ACC(BgIkanaRotaryroom *this);
+void func_80001AE8(Actor *thisx, PlayState *play);
+void BgIkanaRotaryroom_Update(Actor *thisx, PlayState *play);  /* 80001BC8 */
+void BgIkanaRotaryroom_Draw(Actor *thisx, PlayState *play);  /* 80001D50 */
 
 #endif

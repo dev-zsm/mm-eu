@@ -3,12 +3,12 @@
 #include "m2c_compat.h"
 #include "generated/overlays/0127.h"
 
-s32 func_80000260(u8 *arg0, M2C_UNK arg1) {
+s32 func_80000260(Actor *thisx, PlayState *play) {
     u8 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, u8 *, 0x1FD);
+    temp_v0 = M2C_FIELD(thisx, u8 *, 0x1FD);
     if (temp_v0 & 2) {
-        M2C_FIELD(arg0, u8 *, 0x1FD) = (u8) (temp_v0 & 0xFFFD);
+        M2C_FIELD(thisx, u8 *, 0x1FD) = (u8) (temp_v0 & 0xFFFD);
     }
     return 0;
 }

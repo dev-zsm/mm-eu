@@ -4,10 +4,13 @@
 #define GENERATED_OVERLAYS_0165_H
 
 #include "types.h"
+#include "actor.h"
 
-void EnSda_Draw(void *arg0, void *arg1);  /* 8000005C */
-void func_800000F0(void *arg0, s32 arg1, s32 arg2);
-void func_8000075C(void *arg0, void *arg1, void *arg2, s32 arg3);
-void func_80000D98(s32 arg0, void *arg1, void *arg2);
+void func_80000000(Actor *thisx, PlayState *play);
+void func_80000010(Actor *thisx, PlayState *play);
+void EnSda_Draw(Actor *thisx, PlayState *play);  /* 8000005C */
+void func_800000F0(void *player, u8 *shadowTexture, f32 arg2);
+void func_8000075C(void *this, u8 *shadowTexture, void *player, PlayState *play);
+void func_80000D98(u8 *shadowTexture, void *player, PlayState *play);
 
 #endif

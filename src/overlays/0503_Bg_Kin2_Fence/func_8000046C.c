@@ -5,12 +5,12 @@
 
 M2C_UNK func_80B539F4();                            /* extern */
 
-void BgKin2Fence_WaitBeforeOpen(u8 *arg0, M2C_UNK arg1) {
+void BgKin2Fence_WaitBeforeOpen(BgKin2Fence *this, PlayState *play) {
     s8 temp_v0;
 
-    temp_v0 = M2C_FIELD(arg0, s8 *, 0x282);
+    temp_v0 = M2C_FIELD(this, s8 *, 0x282);
     if (temp_v0 > 0) {
-        M2C_FIELD(arg0, s8 *, 0x282) = (s8) (temp_v0 - 1);
+        M2C_FIELD(this, s8 *, 0x282) = (s8) (temp_v0 - 1);
         return;
     }
     func_80B539F4();

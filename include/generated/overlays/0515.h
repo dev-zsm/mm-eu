@@ -4,25 +4,28 @@
 #define GENERATED_OVERLAYS_0515_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct BgDblueBalance BgDblueBalance;
 
-void func_80000000(void *arg0);
-void func_800000A4(void *arg0, s32 arg1);
-void func_800001EC(void *arg0, s32 arg1);
-void func_8000029C(void *arg0);
-void func_80000534(void *arg0, s32 arg1);
-void func_800005BC(s32 arg0, void *arg1, s32 arg2);
-void func_80000750(s32 arg0, s32 arg1, s32 arg2);
-void BgDblueBalance_Init(void *arg0, s32 arg1);  /* 800007B0 */
-void func_80000A14(u8 *arg0);
-void func_80000A30(void *arg0, s32 arg1);
-void BgDblueBalance_Update(void *arg0, s32 arg1);  /* 80000F18 */
+void func_80000000(BgDblueBalance *this);
+s32 func_800000A4(BgDblueBalance *this, PlayState *play);
+void func_800001EC(BgDblueBalance *this, PlayState *play);
+void func_8000029C(BgDblueBalance *this);
+void func_80000534(BgDblueBalance *this, PlayState *play);
+void func_800005BC(PlayState *play, void *arg1, s32 arg2);
+s32 func_80000750(s16 arg0, s16 arg1, s16 arg2);
+void BgDblueBalance_Init(Actor *thisx, PlayState *play);  /* 800007B0 */
+void BgDblueBalance_Destroy(Actor *thisx, PlayState *play);  /* 80000960 */
+void func_80000A14(BgDblueBalance *this);
+void func_80000A30(BgDblueBalance *this, PlayState *play);
+void BgDblueBalance_Update(Actor *thisx, PlayState *play);  /* 80000F18 */
 void func_80000F5C(u8 *arg0, s32 arg1);
 void func_80000F94(u8 *arg0);
 void func_80000FAC(u8 *arg0, s32 arg1);
 void func_80000FF8(u8 *arg0);
-void func_80001014(void *arg0, s32 arg1);
-void func_80001168(void *arg0, s32 arg1);
-void BgDblueBalance_Draw(void *arg0, s32 arg1);  /* 80001234 */
-void func_800013A8(void *arg0, s32 arg1);
+void func_80001014(BgDblueBalance *this, PlayState *play);
+void func_80001168(Actor *thisx, PlayState *play);
+void BgDblueBalance_Draw(Actor *thisx, PlayState *play);  /* 80001234 */
+void func_800013A8(Actor *thisx, PlayState *play);
 
 #endif

@@ -4,9 +4,11 @@
 #define GENERATED_OVERLAYS_0213_H
 
 #include "types.h"
+#include "actor.h"
+typedef struct EffectSsHitmark EffectSsHitmark;
 
-void EffectSsHitmark_Init(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 80000000 */
-void EffectSsHitmark_Draw(s32 arg0, s32 arg1, void *arg2);  /* 800000D0 */
-void EffectSsHitmark_Update(s32 arg0, s32 arg1, void *arg2);  /* 800002BC */
+u32 EffectSsHitmark_Init(PlayState *play, u32 index, void *this, void *initParamsx);  /* 80000000 */
+void EffectSsHitmark_Draw(PlayState *play, u32 index, void *this);  /* 800000D0 */
+void EffectSsHitmark_Update(PlayState *play, u32 index, void *this);  /* 800002BC */
 
 #endif

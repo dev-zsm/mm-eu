@@ -2,6 +2,7 @@
 #include "types.h"
 #include "m2c_compat.h"
 #include "actor.h"
+#include "generated/overlays/0322.h"
 
 void func_80000510(Actor *thisx, PlayState *play) {
 
