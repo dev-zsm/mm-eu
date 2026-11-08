@@ -17,13 +17,16 @@
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetInfo2 CollisionCheck_SetInfo2
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define Gfx_SetupDL25_Opa func_8012C73C
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_Pop Matrix_Pop
 #define Matrix_Push Matrix_Push
+#define Matrix_RotateAxisS func_801838DC
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define Matrix_Translate func_8018132C
 #define ObjKendoKanban_DoNothing D_80B4A5C4
 #define ObjKendoKanban_Draw ObjKendoKanban_Draw
 #define ObjKendoKanban_HandlePhysics ObjKendoKanban_HandlePhysics
@@ -35,6 +38,7 @@
 #define ObjKendoKanban_SetupTumble ObjKendoKanban_SetupTumble
 #define ObjKendoKanban_Tumble ObjKendoKanban_Tumble
 #define ObjKendoKanban_UpdateCollision ObjKendoKanban_UpdateCollision
+#define gKendoKanbanDL D_6000180
 #define sCenterPointBottomHalf D_80B4B3D8
 #define sCenterPointLeftHalf D_80B4B3C0
 #define sCenterPointRightHalf D_80B4B3CC
@@ -42,6 +46,7 @@
 #define sColChkInfoInit D_80B4B540
 #define sCylinderInit D_80B4B4F4
 #define sDamageTable D_80B4B520
+#define sDisplayLists D_80B4B3F0
 #define sPointBC D_80B4B454
 #define sPointBL D_80B4B448
 #define sPointBR D_80B4B460
@@ -58,6 +63,8 @@
 #define sVelocityRightHalf D_80B4B39C
 #define sVelocityTopHalf D_80B4B3B4
 #define sZeroVec D_80B4B54C
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Obj_Kendo_Kanban/z_obj_kendo_kanban.h"
 #include "assets/objects/object_dora/object_dora.h"
@@ -97,7 +104,7 @@ extern Vec3f sCenterPointLeftHalf;
 extern Vec3f sCenterPointRightHalf;
 extern Vec3f sCenterPointBottomHalf;
 extern Vec3f sCenterPointTopHalf;
-extern Gfx* sDisplayLists[];
+extern Gfx* sDisplayLists[4];
 extern Vec3f sPointTL;
 extern Vec3f sPointTC;
 extern Vec3f sPointTR;
@@ -107,7 +114,7 @@ extern Vec3f sPointCR;
 extern Vec3f sPointBL;
 extern Vec3f sPointBC;
 extern Vec3f sPointBR;
-extern ColliderTrisElementInit sTrisElementsInit[];
+extern ColliderTrisElementInit sTrisElementsInit[2];
 extern ColliderTrisInit sTrisInit;
 extern ColliderCylinderInit sCylinderInit;
 extern DamageTable sDamageTable;

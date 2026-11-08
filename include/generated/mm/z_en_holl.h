@@ -3,6 +3,8 @@
 #define MM_Z_EN_HOLL_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill func_800B6490
+#define Actor_PlaySfx_Flagged func_800B8D94
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define EnHoll_ChangeRooms EnHoll_ChangeRooms
@@ -21,11 +23,21 @@
 #define Matrix_RotateYF Matrix_RotateYF
 #define Room_FinishRoomChange Room_FinishRoomChange
 #define Room_RequestNewRoom Room_RequestNewRoom
+#define Scene_SetExitFade func_80130A44
 #define gDbgCamEnabled D_801C9630
 #define gEnHollCentralPlaneDL D_80899CB0
+#define gSaveContext D_801E6EF0
+#define ref_D_801AED48 D_801AF878
 #define sActionFuncs D_80899CDC
+#define sActivationPlaneDistance D_80899CFC
 #define sInitChain D_80899CF0
 #define sInstancePlayingSound D_80899CD8
+#define sLoadingPlaneDistance D_80899D00
+#define sTranslucencyPlaneDistance D_80899D04
+#define sTransparencyPlaneDistance D_80899D08
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_801AED48 ref_D_801AED48
 
 #include "overlays/actors/ovl_En_Holl/z_en_holl.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
@@ -43,9 +55,10 @@ void EnHoll_VerticalBgCoverIdle(EnHoll* this, PlayState* play);;
 void EnHoll_RoomTransitionIdle(EnHoll* this, PlayState* play);;
 extern ActorProfile En_Holl_Profile;
 #include "assets/overlays/ovl_En_Holl/ovl_En_Holl.c"
+#undef D_801AED48
 extern EnHoll* sInstancePlayingSound;
-extern EnHollActionFunc sActionFuncs[];
-extern InitChainEntry sInitChain[];
+extern EnHollActionFunc sActionFuncs[5];
+extern InitChainEntry sInitChain[3];
 extern f32 sActivationPlaneDistance;
 extern f32 sLoadingPlaneDistance;
 extern f32 sTranslucencyPlaneDistance;

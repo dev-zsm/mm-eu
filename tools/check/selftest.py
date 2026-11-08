@@ -79,12 +79,14 @@ check(tr[2] == [(0x18C, 0, ("f", 0x80000100))] and tr[1] == [(0x18C, 0, {0: ("p"
 import ref_import  # noqa: E402
 chunks = ref_import.top_chunks("#include \"a.h\"\n// c\nstatic s32 sX[] = { 1, 2 };\nvoid F(s32 a) {\n    if (a) { return; }\n}\ntypedef struct { s32 x; } T;\n")
 check([c[0] for c in chunks] == ["pp", "decl", "func", "decl"], f"ref_import.top_chunks {[c[0] for c in chunks]}")
-check(ref_import.as_extern("static s32 sX[] = { 1, 2 }") == "extern s32 sX[]", "ref_import.as_extern drops the initialiser")
+check(ref_import.as_extern("static s32 sX[] = { 1, 2 }") == "extern s32 sX[2]", "ref_import.as_extern drops the initialiser, keeps the size")
+check([ref_import.initializer_count(s) for s in ("{ 1, F(2, 3), { 4, 5 }, \"a,b\", }", "{ }", "\"abc\"", "{ {1}, {2} };")] == [4, 0, 0, 2],
+      "ref_import.initializer_count")
 check(ref_import.func_name(chunks[2][1]) == "F", "ref_import.func_name")
 
 func = "void F(void) {\n    func_80001234();\n}"
 h = ref_import.build_header("x", [("pp", '#include "a.h"'), ("decl", "static s32 sA[] = { 1 }"), ("func", func)], {"sA": "D_80000000"})
-check(h.index("#define sA D_80000000") < h.index('#include "a.h"') and "extern s32 sA[];" in h and "void F(void);" in h, "ref_import.build_header")
+check(h.index("#define sA D_80000000") < h.index('#include "a.h"') and "extern s32 sA[1];" in h and "void F(void);" in h, "ref_import.build_header")
 check("ref_func_80001234" in ref_import.function_file("x", [("func", func)], "F"), "ref_import prefixes the reference's address names")
 
 import srcpath  # noqa: E402

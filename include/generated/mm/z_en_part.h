@@ -3,22 +3,37 @@
 #define MM_Z_EN_PART_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill func_800B6490
 #define Actor_MoveWithGravity Actor_MoveWithGravity
+#define BgCheck_SphVsFirstPoly func_800C57B0
+#define EffectSsDtBubble_SpawnColorProfile func_800B25B0
 #define EnPart_Draw EnPart_Draw
 #define EnPart_Update EnPart_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_Vec3f_Copy func_800FF30C
 #define Matrix_RotateZF Matrix_RotateZF
+#define Rand_CenteredFloat func_8017A870
+#define Rand_S16Offset func_800FF250
 #define Rand_ZeroOne func_8008704C
+#define SoundSource_PlaySfxAtFixedWorldPos func_800F0308
 #define func_80865390 func_80000020
 #define func_808654C4 func_80000154
 #define gEmptyDL D_801C29C0
+#define gZeroVec3f D_801C9EE0
+#define ref_func_800B3030 func_800B3550
 #define ref_func_800B8050 func_800B7DD4
 #define ref_func_80865390 func_80000020
 #define ref_func_808654C4 func_80000154
 #define sActionFuncs D_8086502C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B3030 ref_func_800B3030
+#define func_800B8050 ref_func_800B8050
+
 #include "overlays/actors/ovl_En_Part/z_en_part.h"
 #include "overlays/effects/ovl_Effect_Ss_Dt_Bubble/z_eff_ss_dt_bubble.h"
+#undef func_800B3030
+#undef func_800B8050
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void EnPart_Init(Actor* thisx, PlayState* play);;
 void EnPart_Destroy(Actor* thisx, PlayState* play);;
@@ -31,7 +46,7 @@ void EnPart_Init(Actor* thisx, PlayState* play);
 void EnPart_Destroy(Actor* thisx, PlayState* play);
 void ref_func_80865390(EnPart* this, PlayState* play);
 void ref_func_808654C4(EnPart* this, PlayState* play);
-extern EnPartActionFunc sActionFuncs[];
+extern EnPartActionFunc sActionFuncs[2];
 void EnPart_Update(Actor* thisx, PlayState* play);
 void EnPart_Draw(Actor* thisx, PlayState* play);
 

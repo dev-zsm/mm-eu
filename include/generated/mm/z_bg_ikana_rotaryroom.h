@@ -5,6 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_Spawn func_800BA9E4
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
@@ -78,6 +79,7 @@
 #define ref_D_80B8216C D_80B66E8C
 #define ref_D_80B82178 D_80B66E98
 #define ref_D_80B82184 D_80B66EA4
+#define ref_D_80B821C4 D_80B66EE4
 #define ref_D_80B82200 D_80B66F20
 #define ref_D_80B82218 D_80B66F38
 #define ref_func_80B802E0 func_80000000
@@ -107,12 +109,16 @@
 #define sJntSphInit1 D_80B66E48
 #define sJntSphInit2 D_80B66E7C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_80169EFC ref_func_80169EFC
+
 #include "overlays/actors/ovl_Bg_Ikana_Rotaryroom/z_bg_ikana_rotaryroom.h"
 #include "z64quake.h"
 #include "overlays/actors/ovl_Bg_Ikana_Block/z_bg_ikana_block.h"
 #include "overlays/actors/ovl_En_Torch2/z_en_torch2.h"
 #include "overlays/actors/ovl_En_Water_Effect/z_en_water_effect.h"
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"
+#undef func_80169EFC
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
 void BgIkanaRotaryroom_Init(Actor* thisx, PlayState* play);;
 void BgIkanaRotaryroom_Destroy(Actor* thisx, PlayState* play);;
@@ -144,10 +150,10 @@ typedef struct {
       Vec3f unk_04;
 } BgIkanaRotaryroomStruct4;;
 extern BgIkanaRotaryroomStruct4 ref_D_80B82184[2][2];
-extern Vec3s ref_D_80B821C4[];
-extern f32 ref_D_80B82200[];
-extern InitChainEntry sInitChain[];
-extern CollisionHeader* ref_D_80B82218[];
+extern Vec3s ref_D_80B821C4[10];
+extern f32 ref_D_80B82200[5];
+extern InitChainEntry sInitChain[1];
+extern CollisionHeader* ref_D_80B82218[2];
 void ref_func_80B802E0(BgIkanaRotaryroom* this);
 void ref_func_80B80358(Vec3f* arg0);
 void ref_func_80B80440(BgIkanaRotaryroom* this, PlayState* play);

@@ -14,6 +14,7 @@
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define CollisionCheck_SetOC CollisionCheck_SetOC
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
@@ -45,6 +46,9 @@
 #define object_bombiwa_DL_004688 D_6004688
 #define object_bombiwa_DL_005990 D_6005990
 #define ref_D_8093A998 D_8091F488
+#define ref_D_8093A9D0 D_8091F4C0
+#define ref_D_8093A9E0 D_8091F4D0
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_80939594 func_800001E4
 #define ref_func_80939794 func_800003E4
 #define ref_func_80939994 func_800005E4
@@ -58,8 +62,12 @@
 #define sColChkInfoInit D_8091F4A8
 #define sInitChain D_8091F4B0
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Obj_Bombiwa/z_obj_bombiwa.h"
 #include "assets/objects/object_bombiwa/object_bombiwa.h"
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 void ObjBombiwa_Init(Actor* thisx, PlayState* play);;
 void ObjBombiwa_Destroy(Actor* thisx, PlayState* play2);;
@@ -81,11 +89,11 @@ typedef struct {
       ActorFunc unk_08;
       s32 (*unk_0C)(Actor*);
 } ObjBombiwaStruct2;;
-extern ObjBombiwaStruct2 ref_D_8093A998[];
+extern ObjBombiwaStruct2 ref_D_8093A998[2];
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern InitChainEntry sInitChain[];
-extern s16 ref_D_8093A9D0[];
-extern s16 ref_D_8093A9E0[];
+extern InitChainEntry sInitChain[4];
+extern s16 ref_D_8093A9D0[8];
+extern s16 ref_D_8093A9E0[8];
 s32 ref_func_809393B0(Actor* thisx);
 s32 ref_func_80939470(Actor* thisx);
 s32 ObjBombiwa_IsUnderwater(ObjBombiwa* this, PlayState* play);

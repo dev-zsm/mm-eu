@@ -9,8 +9,13 @@
 #define TransitionWipe3_SetType TransitionWipe3_SetType
 #define TransitionWipe3_Start TransitionWipe3_Start
 #define TransitionWipe3_Update TransitionWipe3_Update
+#define guLookAt func_8008BB14
+#define guPerspective func_8008AE20
 #define guScale func_80088440
 #define sTransWipe3DL D_80AACFB0
+#define sTransWipe3Textures D_80AAD080
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "global.h"
 #include "overlays/fbdemos/ovl_fbdemo_wipe3/z_fbdemo_wipe3.h"
@@ -24,7 +29,7 @@ void TransitionWipe3_SetColor(void* thisx, u32 color);;
 void TransitionWipe3_SetEnvColor(void* thisx, u32 color);;
 s32 TransitionWipe3_IsDone(void* thisx);;
 #include "assets/overlays/ovl_fbdemo_wipe3/ovl_fbdemo_wipe3.c"
-extern TexturePtr sTransWipe3Textures[];
+extern TexturePtr sTransWipe3Textures[8];
 extern TransitionProfile TransitionWipe3_Profile;
 #define TRANS3_GET_SPEED(type) ((type)&1)
 #define TRANS3_GET_TEX_INDEX(type) (((type) >> 1) & 7)

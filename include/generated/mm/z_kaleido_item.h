@@ -27,24 +27,26 @@
 #define sMagicArrowEffectsG D_8082AC1C
 #define sMagicArrowEffectsR D_8082AC14
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
 #include "assets/interface/parameter_static/parameter_static.h"
 extern s16 sEquipState;
 extern s16 sEquipMagicArrowSlotHoldTimer;
 extern s16 sEquipAnimTimer;
 extern u8 gPlayerFormSlotRestrictions[PLAYER_FORM_MAX][ITEM_NUM_SLOTS];
-extern s16 sAmmoRectLeft[];
-extern s16 sAmmoRectHeight[];
+extern s16 sAmmoRectLeft[8];
+extern s16 sAmmoRectHeight[8];
 void KaleidoScope_DrawAmmoCount(PauseContext* pauseCtx, GraphicsContext* gfxCtx, s16 item, u16 ammoIndex);
 void KaleidoScope_SetCursorVtxPos(PauseContext* pauseCtx, u16 vtxIndex, Vtx* vtx);
-extern s16 sMagicArrowEffectsR[];
-extern s16 sMagicArrowEffectsG[];
-extern s16 sMagicArrowEffectsB[];
+extern s16 sMagicArrowEffectsR[3];
+extern s16 sMagicArrowEffectsG[3];
+extern s16 sMagicArrowEffectsB[3];
 void KaleidoScope_DrawItemSelect(PlayState* play);
 extern u8 sPlayerFormItems[PLAYER_FORM_MAX];
 void KaleidoScope_UpdateItemCursor(PlayState* play);
-extern s16 sCButtonPosX[];
-extern s16 sCButtonPosY[];
+extern s16 sCButtonPosX[3];
+extern s16 sCButtonPosY[3];
 void KaleidoScope_UpdateItemEquip(PlayState* play);
 
 #endif

@@ -7,6 +7,7 @@
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
+#define BgCheck_EntityLineTest3 func_800C5470
 #define BgCheck_EntityRaycastFloor6 BgCheck_EntityRaycastFloor6
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
@@ -14,13 +15,18 @@
 #define DynaPoly_GetActor DynaPoly_GetActor
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304
+#define Math3D_Vec3fDistSq func_8017B9A8
+#define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
+#define Math_Vec3f_Diff func_800FF3F4
 #define ObjSkateblock_Draw ObjSkateblock_Draw
 #define ObjSkateblock_Init ObjSkateblock_Init
 #define Player_InCsMode Player_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
+#define Rand_ZeroOne func_8008704C
+#define gZeroVec3f D_801C9EE0
 #define gameplay_dangeon_keep_Colheader_007498 D_5007498
 #define gameplay_dangeon_keep_DL_0182A8 D_50182A8
 #define gameplay_dangeon_keep_Matanimheader_01B370 D_501B370
@@ -29,8 +35,16 @@
 #define ref_D_80A22A18 D_80A07748
 #define ref_D_80A22A1C D_80A0774C
 #define ref_D_80A22A44 D_80A07774
+#define ref_D_80A22A6C D_80A0779C
+#define ref_D_80A22A94 D_80A077C4
+#define ref_D_80A22ABC D_80A077EC
+#define ref_D_80A22AC4 D_80A077F4
+#define ref_D_80A22ACC D_80A077FC
+#define ref_D_80A22AD8 D_80A07808
+#define ref_D_80A22ADC D_80A0780C
 #define ref_D_80A22AF8 D_80A07828
 #define ref_D_80A22B08 D_80A07838
+#define ref_func_800B0E48 func_800B1368
 #define ref_func_80A21150 func_80000000
 #define ref_func_80A211F4 func_800000A4
 #define ref_func_80A212F0 func_800001A0
@@ -56,8 +70,12 @@
 #define ref_func_80A227A4 func_80A074D4
 #define sInitChain D_80A07810
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B0E48 ref_func_800B0E48
+
 #include "overlays/actors/ovl_Obj_Skateblock/z_obj_skateblock.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
+#undef func_800B0E48
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjSkateblock_Init(Actor* thisx, PlayState* play);;
 void ObjSkateblock_Destroy(Actor* thisx, PlayState* play);;
@@ -77,18 +95,18 @@ extern ActorProfile Obj_Skateblock_Profile;
 extern s32 ref_D_80A22A10;
 extern s32 ref_D_80A22A14;
 extern AnimatedMaterial* ref_D_80A22A18;
-extern Vec2f ref_D_80A22A1C[];
-extern Vec2f ref_D_80A22A44[];
-extern Vec2f ref_D_80A22A6C[];
-extern Vec2f ref_D_80A22A94[];
-extern f32 ref_D_80A22ABC[];
-extern f32 ref_D_80A22AC4[];
+extern Vec2f ref_D_80A22A1C[5];
+extern Vec2f ref_D_80A22A44[5];
+extern Vec2f ref_D_80A22A6C[5];
+extern Vec2f ref_D_80A22A94[5];
+extern f32 ref_D_80A22ABC[2];
+extern f32 ref_D_80A22AC4[2];
 extern Vec3f ref_D_80A22ACC;
 extern Color_RGBA8 ref_D_80A22AD8;
 extern Color_RGBA8 ref_D_80A22ADC;
-extern InitChainEntry sInitChain[];
-extern f32 ref_D_80A22AF8[];
-extern Color_RGB8 ref_D_80A22B08[];
+extern InitChainEntry sInitChain[6];
+extern f32 ref_D_80A22AF8[4];
+extern Color_RGB8 ref_D_80A22B08[16];
 s32 ref_func_80A21150(ObjSkateblock* this);
 void ref_func_80A211F4(ObjSkateblock* this, s32 arg1);
 void ref_func_80A212F0(Vec3f* arg0, Vec3f* arg1, s16 arg2);

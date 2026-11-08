@@ -4,10 +4,13 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain func_800FF8DC
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define BgIcefloe_Destroy BgIcefloe_Destroy
 #define BgIcefloe_Grow BgIcefloe_Grow
 #define BgIcefloe_Init BgIcefloe_Init
+#define DynaPolyActor_Init func_800CABA0
+#define DynaPolyActor_LoadMesh func_800CABC4
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define EffectSsIceBlock_Spawn func_800B378C
 #define EffectSsIceSmoke_Spawn func_800B372C
@@ -17,14 +20,19 @@
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80AC4C34 func_80000344
 #define func_80AC4D2C func_8000043C
+#define gIcefloePlatformCol D_6000C90
 #define gZeroVec3f D_801C9EE0
 #define numberSpawned D_80AA9D90
+#define ref_func_80AC4A80 func_80AA97B0
 #define ref_func_80AC4C18 func_80AA9948
 #define ref_func_80AC4C34 func_80000344
 #define ref_func_80AC4CF0 func_80AA9A20
 #define ref_func_80AC4D2C func_8000043C
 #define sIceBlockAccel D_80AA9C70
+#define sInitChain D_80AA9C6C
 #define sSpawnedInstances D_80AA9C60
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Bg_Icefloe/z_bg_icefloe.h"
 #include "assets/objects/object_icefloe/object_icefloe.h"
@@ -40,8 +48,8 @@ void ref_func_80AC4D2C(BgIcefloe* this, PlayState* play);;
 void ref_func_80AC4C34(BgIcefloe* this, PlayState* play);;
 void ref_func_80AC4CF0(BgIcefloe* this);;
 extern ActorProfile Bg_Icefloe_Profile;
-extern BgIcefloe* sSpawnedInstances[];
-extern InitChainEntry sInitChain[];
+extern BgIcefloe* sSpawnedInstances[3];
+extern InitChainEntry sInitChain[1];
 extern s32 numberSpawned;;
 void BgIcefloe_Init(Actor* thisx, PlayState* play);
 void BgIcefloe_Destroy(Actor* thisx, PlayState* play);

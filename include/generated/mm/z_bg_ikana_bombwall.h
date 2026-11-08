@@ -18,9 +18,18 @@
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Math_CosS func_800FEB44
+#define Math_SinS func_800FEB84
+#define Matrix_MultVec3f func_80182B28
+#define Matrix_Pop func_8018125C
+#define Matrix_Push func_8018122C
+#define Matrix_RotateYS func_80181A3C
+#define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80BD4720 func_80000000
 #define func_80BD4A14 func_800002F4
@@ -28,7 +37,10 @@
 #define func_80BD5134 func_80000A14
 #define object_ikana_obj_Colheader_000128 D_6000128
 #define object_ikana_obj_Colheader_000488 D_6000488
+#define object_ikana_obj_DL_000288 D_6000288
+#define ref_D_80BD52C8 D_80BBA068
 #define ref_D_80BD52E0 D_80BBA080
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_80BD4720 func_80000000
 #define ref_func_80BD4A14 func_800002F4
 #define ref_func_80BD4F18 func_80BB9CB8
@@ -40,8 +52,12 @@
 #define sCylinderInit2 D_80BBA03C
 #define sInitChain D_80BBA070
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Bg_Ikana_Bombwall/z_bg_ikana_bombwall.h"
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"
+#undef func_800BBFB0
 #define FLAGS (ACTOR_FLAG_UCODE_POINT_LIGHT_ENABLED)
 void BgIkanaBombwall_Init(Actor* thisx, PlayState* play);;
 void BgIkanaBombwall_Destroy(Actor* thisx, PlayState* play);;
@@ -58,9 +74,9 @@ void ref_func_80BD5134(BgIkanaBombwall* this, PlayState* play);;
 extern ActorProfile Bg_Ikana_Bombwall_Profile;
 extern ColliderCylinderInit sCylinderInit1;
 extern ColliderCylinderInit sCylinderInit2;
-extern s16 ref_D_80BD52C8[];
-extern InitChainEntry sInitChain[];
-extern Gfx* ref_D_80BD52E0[];
+extern s16 ref_D_80BD52C8[4];
+extern InitChainEntry sInitChain[4];
+extern Gfx* ref_D_80BD52E0[2];
 void ref_func_80BD4720(BgIkanaBombwall* this, PlayState* play);
 void ref_func_80BD4A14(BgIkanaBombwall* this, PlayState* play);
 void BgIkanaBombwall_Init(Actor* thisx, PlayState* play);

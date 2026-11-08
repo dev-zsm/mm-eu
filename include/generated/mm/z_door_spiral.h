@@ -33,6 +33,10 @@
 #define sInitChain D_80988048
 #define sSpiralInfoTable D_80987F90
 #define sSpiralObjectInfoTable D_80988010
+#define sSpiralSceneInfoTable D_8098802C
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_80122F28 ref_func_80122F28
 
 #include "overlays/actors/ovl_Door_Spiral/z_door_spiral.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
@@ -41,6 +45,7 @@
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"
 #include "assets/objects/object_ikninside_obj/object_ikninside_obj.h"
 #include "assets/objects/object_danpei_object/object_danpei_object.h"
+#undef func_80122F28
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void DoorSpiral_Init(Actor* thisx, PlayState* play);;
 void DoorSpiral_Destroy(Actor* thisx, PlayState* play);;
@@ -64,18 +69,18 @@ typedef struct {
       u8 unk_0B;
       u8 unk_0C;
 } SpiralInfo;;
-extern SpiralInfo sSpiralInfoTable[];
+extern SpiralInfo sSpiralInfoTable[8];
 typedef struct {
       s16 objectId;
       u8 index;
 } SpiralObjectInfo;;
-extern SpiralObjectInfo sSpiralObjectInfoTable[];
+extern SpiralObjectInfo sSpiralObjectInfoTable[7];
 typedef struct {
       s16 sceneId;
       u8 index;
 } SpiralSceneInfo;;
-extern SpiralSceneInfo sSpiralSceneInfoTable[];
-extern InitChainEntry sInitChain[];
+extern SpiralSceneInfo sSpiralSceneInfoTable[7];
+extern InitChainEntry sInitChain[4];
 void DoorSpiral_SetupAction(DoorSpiral* this, DoorSpiralActionFunc actionFunc);
 s32 ref_func_809A2B70(DoorSpiral* this, PlayState* play);
 u8 ref_func_809A2BF8(PlayState* play);

@@ -9,6 +9,8 @@
 #define OceffWipe4_Init OceffWipe4_Init
 #define OceffWipe4_Update OceffWipe4_Update
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "overlays/actors/ovl_Oceff_Wipe4/z_oceff_wipe4.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_UPDATE_DURING_OCARINA)
 void OceffWipe4_Init(Actor* thisx, PlayState* play);;

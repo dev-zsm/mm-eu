@@ -8,9 +8,12 @@
 #define BgSpoutFire_Draw BgSpoutFire_Draw
 #define BgSpoutFire_Init BgSpoutFire_Init
 #define BgSpoutFire_Update BgSpoutFire_Update
+#define Collider_InitAndSetCylinder func_800E1134
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define CollisionCheck_SetInfo func_800E72F0
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Gfx_SetupDL Gfx_SetupDL
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
@@ -24,10 +27,17 @@
 #define ref_func_80A60D10 func_800001F0
 #define ref_func_80A60DA0 func_80A45B00
 #define ref_func_80A60E08 func_800002E8
+#define sColChkInfoInit D_80A45EEC
+#define sCylinderInit D_80A45EC0
 #define sFlameTextures D_80A45EF4
+#define sTexturesDesegmented D_80A45F14
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8D98 ref_func_800B8D98
 
 #include "overlays/actors/ovl_Bg_Spout_Fire/z_bg_spout_fire.h"
 #include "assets/objects/object_fwall/object_fwall.h"
+#undef func_800B8D98
 #define FLAGS 0x00000000
 void BgSpoutFire_Init(Actor* thisx, PlayState* play);;
 void BgSpoutFire_Destroy(Actor* thisx, PlayState* play);;
@@ -41,7 +51,7 @@ void ref_func_80A60E08(BgSpoutFire* this, PlayState* play);;
 extern ActorProfile Bg_Spout_Fire_Profile;
 extern ColliderCylinderInit sCylinderInit;
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern TexturePtr sFlameTextures[];
+extern TexturePtr sFlameTextures[8];
 extern s32 sTexturesDesegmented;
 void BgSpoutFire_Init(Actor* thisx, PlayState* play);
 void BgSpoutFire_Destroy(Actor* thisx, PlayState* play);

@@ -26,9 +26,13 @@
 #define object_fall2_KFAnim_005EF4 D_6005EF4
 #define object_fall2_KFSkel_008898 D_6008898
 #define object_fall2_Matanimheader_008840 D_6008840
+#define object_fall2_Vtx_005F10 D_6005F10
 #define ref_func_80C1B724 func_800000E4
 #define ref_func_80C1B8B4 func_80C00654
 #define ref_func_80C1B8F0 func_800002B0
+#define sAlphaTableIndices D_80C009A0
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_En_Fall2/z_en_fall2.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
@@ -41,7 +45,7 @@ void EnFall2_HandleCutscene(EnFall2* this, PlayState* play);;
 extern ActorProfile En_Fall2_Profile;
 void EnFall2_Init(Actor* thisx, PlayState* play);
 void EnFall2_Destroy(Actor* thisx, PlayState* play);
-extern u8 sAlphaTableIndices[];
+extern u8 sAlphaTableIndices[239];
 void ref_func_80C1B724(f32 arg0);
 void EnFall2_DoNothing(EnFall2* this, PlayState* play);
 void ref_func_80C1B8B4(EnFall2* this);

@@ -54,11 +54,15 @@
 #define sSoTCsAmmoDropTextures D_80A78CAC
 #define sSoTCsAmmoDrops D_80A79590
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BCBF4 ref_func_800BCBF4
+
 #include "overlays/actors/ovl_En_Test6/z_en_test6.h"
 #include "z64cutscene_commands.h"
 #include "zelda_arena.h"
 #include "z64quake.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800BCBF4
 #define FLAGS                                                                \
     (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED | \
      ACTOR_FLAG_UPDATE_DURING_SOARING_AND_SOT_CS | ACTOR_FLAG_UPDATE_DURING_OCARINA)
@@ -94,8 +98,8 @@ void EnTest6_DoubleSoTCutscene(EnTest6* this, PlayState* play);;
 void EnTest6_SharedSoTCutscene(EnTest6* this, PlayState* play);;
 extern SoTCsAmmoDrops sSoTCsAmmoDrops[12];;
 extern ActorProfile En_Test6_Profile;
-extern CutsceneData sDoubleSoTCsCamData[];
-extern TexturePtr sSoTCsAmmoDropTextures[];
+extern CutsceneData sDoubleSoTCsCamData[41];
+extern TexturePtr sSoTCsAmmoDropTextures[7];
 typedef enum SoTCsDrawType {
       SOTCS_DRAW_DOUBLE_SOT,
       SOTCS_DRAW_RESET_CYCLE_SOT,

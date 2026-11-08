@@ -12,22 +12,32 @@
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Math_ApproachF func_800FFBF8
+#define Math_ApproachZeroF func_800FFC68
+#define Math_Atan2S_XY func_80181190
 #define Matrix_Pop Matrix_Pop
 #define Matrix_Push Matrix_Push
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
+#define Play_InCsMode func_8016A23C
 #define Player_GetMask Player_GetMask
+#define Rand_S16Offset func_800FF250
 #define func_809AD084 func_80000144
 #define func_809AD194 func_80000254
 #define gRingOfFireDL D_60009A0
 #define ref_D_809AD810 D_80992550
+#define ref_func_800B8D50 func_800B8AD4
 #define ref_func_809AD058 func_80991D98
 #define ref_func_809AD084 func_80000144
 #define ref_func_809AD194 func_80000254
 #define ref_func_809AD1EC D_80991F2C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8D50 ref_func_800B8D50
+
 #include "overlays/actors/ovl_En_Encount3/z_en_encount3.h"
 #include "assets/objects/object_big_fwall/object_big_fwall.h"
+#undef func_800B8D50
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED | ACTOR_FLAG_LOCK_ON_DISABLED)
 void EnEncount3_Init(Actor* thisx, PlayState* play);;
 void EnEncount3_Destroy(Actor* thisx, PlayState* play);;

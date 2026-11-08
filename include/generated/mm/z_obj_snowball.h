@@ -28,12 +28,17 @@
 #define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
+#define Gfx_DrawDListOpa func_800BDD44
+#define Gfx_SetupDL44_Xlu func_8012C8F8
 #define Item_DropCollectible Item_DropCollectible
 #define Math3D_CosOut Math3D_CosOut
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_Put func_8018129C
 #define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale func_8018142C
+#define Matrix_SetTranslateRotateYXZ func_801826E0
 #define ObjSnowball_Init ObjSnowball_Init
 #define ObjSnowball_Update ObjSnowball_Update
 #define Rand_Next func_80087010
@@ -54,7 +59,9 @@
 #define func_80B046E4 func_80001A14
 #define func_80B047C0 func_80001AF0
 #define func_80B04D34 func_80002064
+#define gCircleShadowDL D_4076BC0
 #define gZeroVec3f D_801C9EE0
+#define object_goroiwa_DL_0082D0 D_60082D0
 #define ref_D_80B04F84 D_80AE9CB4
 #define ref_D_80B04FB4 D_80AE9CE4
 #define ref_D_80B04FB8 D_80AE9CE8
@@ -62,6 +69,7 @@
 #define ref_D_80B04FC8 D_80AE9CF8
 #define ref_func_800A8150 func_800A8670
 #define ref_func_800B0E48 func_800B1368
+#define ref_func_800C0094 func_800BFE24
 #define ref_func_80B02CD0 func_80000000
 #define ref_func_80B02D58 func_80000088
 #define ref_func_80B02DB0 func_800000E0
@@ -85,10 +93,22 @@
 #define sInitChain D_80AE9D04
 #define sJntSphInit D_80AE9CA4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80B04FD8 ref_D_80B04FD8
+#define D_80B04FE4 ref_D_80B04FE4
+#define func_800A8150 ref_func_800A8150
+#define func_800B0E48 ref_func_800B0E48
+#define func_800C0094 ref_func_800C0094
+
 #include "overlays/actors/ovl_Obj_Snowball/z_obj_snowball.h"
 #include "z_en_item00.h"
 #include "assets/objects/object_goroiwa/object_goroiwa.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef D_80B04FD8
+#undef D_80B04FE4
+#undef func_800A8150
+#undef func_800B0E48
+#undef func_800C0094
 #define FLAGS 0x00000000
 void ObjSnowball_Init(Actor* thisx, PlayState* play);;
 void ObjSnowball_Destroy(Actor* thisx, PlayState* play);;
@@ -117,12 +137,12 @@ typedef struct {
       s16 unk_02;
       ObjSnowballActionFunc unk_04;
 } ObjSnowballStruct2;;
-extern ObjSnowballStruct2 ref_D_80B04F84[];
+extern ObjSnowballStruct2 ref_D_80B04F84[6];
 extern Color_RGBA8 ref_D_80B04FB4;
 extern Color_RGBA8 ref_D_80B04FB8;
 extern Vec3f ref_D_80B04FBC;
-extern Gfx* ref_D_80B04FC8[];
-extern InitChainEntry sInitChain[];
+extern Gfx* ref_D_80B04FC8[3];
+extern InitChainEntry sInitChain[1];
 void ref_func_80B02CD0(ObjSnowball* this, PlayState* play);
 void ref_func_80B02D58(ObjSnowball* this, PlayState* play);
 void ref_func_80B02DB0(ObjSnowball* this, PlayState* play);

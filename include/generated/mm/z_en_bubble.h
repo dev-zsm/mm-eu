@@ -47,6 +47,7 @@
 #define func_8089FF30 func_80000A50
 #define func_808A005C func_80000B7C
 #define gBubbleDL D_6001000
+#define ref_func_800B8E1C func_800B8BA0
 #define ref_func_8089F59C func_8089ECBC
 #define ref_func_8089F908 func_80000428
 #define ref_func_8089FF30 func_80000A50
@@ -54,8 +55,12 @@
 #define sColChkInfoInit D_8089FE78
 #define sJntSphInit D_8089FE68
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8E1C ref_func_800B8E1C
+
 #include "overlays/actors/ovl_En_Bubble/z_en_bubble.h"
 #include "z_en_item00.h"
+#undef func_800B8E1C
 #define FLAGS (ACTOR_FLAG_ATTENTION_ENABLED)
 void EnBubble_Init(Actor* thisx, PlayState* play);;
 void EnBubble_Destroy(Actor* thisx, PlayState* play);;

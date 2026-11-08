@@ -14,6 +14,7 @@
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
@@ -23,19 +24,27 @@
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Rand_Centered func_800870A0
+#define Rand_ZeroOne func_8008704C
 #define SubS_FillCutscenesList SubS_FillCutscenesList
 #define func_80C184EC func_800002AC
 #define func_80C187F8 func_800005B8
+#define object_last_obj_DL_000098 D_6000098
 #define ref_D_80C18A48 D_80BFD7E8
 #define ref_D_80C18AC0 D_80BFD860
 #define ref_D_80C18AC8 D_80BFD868
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_80C184EC func_800002AC
 #define ref_func_80C187E4 func_80BFD584
 #define ref_func_80C187F8 func_800005B8
 #define ref_func_80C1886C func_80BFD60C
 #define sTrisInit D_80BFD7D8
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Bg_Last_Bwall/z_bg_last_bwall.h"
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 typedef struct {
       Vec3s* posOffsets;
@@ -61,17 +70,17 @@ void ref_func_80C18884(BgLastBwall* this, PlayState* play);;
 void ref_func_80C188C4(BgLastBwall* this, PlayState* play);;
 void BgLastBwall_DoNothing(BgLastBwall* this, PlayState* play);;
 extern ActorProfile Bg_Last_Bwall_Profile;
-extern ColliderTrisElementInit sTrisElementsInit[];
+extern ColliderTrisElementInit sTrisElementsInit[2];
 extern ColliderTrisInit sTrisInit;
-extern BgLastBwallModelInfo ref_D_80C18A48[];
-extern Vec3s ref_D_80C18A60[];
-extern s16 ref_D_80C18A78[];
+extern BgLastBwallModelInfo ref_D_80C18A48[2];
+extern Vec3s ref_D_80C18A60[4];
+extern s16 ref_D_80C18A78[6];
 extern BgLastBwallInitColliderStruct ref_D_80C18A84;
-extern Vec3s ref_D_80C18A90[];
-extern s16 ref_D_80C18AA8[];
+extern Vec3s ref_D_80C18A90[4];
+extern s16 ref_D_80C18AA8[6];
 extern BgLastBwallInitColliderStruct ref_D_80C18AB4;
-extern BgLastBwallInitColliderStruct* ref_D_80C18AC0[];
-extern InitChainEntry ref_D_80C18AC8[];
+extern BgLastBwallInitColliderStruct* ref_D_80C18AC0[2];
+extern InitChainEntry ref_D_80C18AC8[1];
 void BgLastBwall_InitCollider(ColliderTrisInit* init, Vec3f* pos, Vec3s* rot, ColliderTris* collider,
                               BgLastBwallInitColliderStruct* arg4);
 void BgLastBwall_Init(Actor* thisx, PlayState* play);

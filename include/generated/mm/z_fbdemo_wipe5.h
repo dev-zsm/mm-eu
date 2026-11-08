@@ -7,11 +7,15 @@
 #define TransitionWipe5_Start TransitionWipe5_Start
 #define TransitionWipe5_Update TransitionWipe5_Update
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_0F000000 ref_D_0F000000
+
 #include "global.h"
 #include "PR/gs2dex.h"
 #include "sys_cfb.h"
 #include "sys_ucode.h"
 #include "overlays/fbdemos/ovl_fbdemo_wipe5/z_fbdemo_wipe5.h"
+#undef D_0F000000
 void* TransitionWipe5_Init(void* thisx);;
 void TransitionWipe5_Destroy(void* thisx);;
 void TransitionWipe5_Update(void* thisx, s32 updateRate);;

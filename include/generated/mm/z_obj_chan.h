@@ -14,6 +14,7 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_Stop func_800F1D6C
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL Gfx_SetupDL
@@ -48,6 +49,7 @@
 #define ObjChan_InitPot func_80B9F09C
 #define ObjChan_PotAction ObjChan_PotAction
 #define ObjChan_Update ObjChan_Update
+#define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define SubS_FillCutscenesList SubS_FillCutscenesList
 #define SubS_StartCutscene SubS_StartCutscene
@@ -56,6 +58,8 @@
 #define gChandelierPotDL D_6002358
 #define gChandelierPotHolderDL D_6000A10
 #define gEffFire1DL D_407D590
+#define gPotShardDL D_6001960
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_80BB9A1C func_8000013C
 #define sInitChain D_80B9F8FC
 #define sObjChanCylinderInit D_80B9F8D0
@@ -63,10 +67,14 @@
 #define sObjChanFlameYOffset D_80B9F918
 #define sObjChanLoaded D_80B9FA30
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Obj_Chan/z_obj_chan.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #include "assets/objects/object_obj_chan/object_obj_chan.h"
 #include "assets/objects/object_tsubo/object_tsubo.h"
+#undef func_800BBFB0
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
 #define OBJCHAN_ROTATION_SPEED 364 // == (65536 * 2/360) i.e. 2 degrees per second
 void ObjChan_Init(Actor* thisx, PlayState* play);;
@@ -77,7 +85,7 @@ void ObjChan_ChandelierAction(ObjChan* this, PlayState* play);;
 void ObjChan_PotAction(ObjChan* this, PlayState* play);;
 extern ActorProfile Obj_Chan_Profile;
 extern ColliderCylinderInit sObjChanCylinderInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[1];
 void ObjChan_InitChandelier(ObjChan* this, PlayState* play);;
 void ObjChan_InitPot(ObjChan* this, PlayState* play);;
 void ObjChan_CreateSmashEffects(ObjChan* this, PlayState* play);;

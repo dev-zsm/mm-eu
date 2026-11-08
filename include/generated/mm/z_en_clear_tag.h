@@ -5,6 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Audio_PlaySfx_AtPosWithReverb Audio_PlaySfx_AtPosWithReverb
+#define BgCheck_GetWaterSurfaceNoBgIdAlt func_800C9F3C
 #define BgCheck_SphVsFirstPoly BgCheck_SphVsFirstPoly
 #define Cutscene_StartManual func_800E9E74
 #define Cutscene_StopManual Cutscene_StopManual
@@ -20,13 +21,23 @@
 #define EnClearTag_Init EnClearTag_Init
 #define EnClearTag_UpdateCamera EnClearTag_UpdateCamera
 #define EnClearTag_UpdateEffects EnClearTag_UpdateEffects
+#define Gfx_SetupDL25_Opa func_8012C73C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_SetupDL61_Xlu func_8012CE6C
+#define Gfx_TwoTexScroll func_8012D080
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_ApproachF Math_ApproachF
 #define Math_ApproachZeroF Math_ApproachZeroF
 #define Math_Atan2F_XY Math_Atan2F_XY
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_MultVecZ Matrix_MultVecZ
+#define Matrix_Put func_8018129C
+#define Matrix_ReplaceRotation func_80183130
 #define Matrix_RotateXFApply Matrix_RotateXFApply
 #define Matrix_RotateYF Matrix_RotateYF
+#define Matrix_RotateZF func_80181F20
+#define Matrix_Scale func_8018142C
+#define Matrix_Translate func_8018132C
 #define Message_GetState func_801529DC
 #define Message_StartTextbox func_80151DF4
 #define Play_ChangeCameraStatus Play_ChangeCameraStatus
@@ -37,7 +48,18 @@
 #define Rand_CenteredFloat Rand_CenteredFloat
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define cosf func_800920E0
+#define gClearTagDebrisEffectDL D_8092FC00
+#define gClearTagDebrisEffectMaterialDL D_8092FB80
+#define gClearTagFireEffectDL D_809302F0
+#define gClearTagFireEffectMaterialDL D_80930248
+#define gClearTagFlashEffectDL D_80931350
+#define gClearTagFlashEffectGroundDL D_80931600
+#define gClearTagLightRayEffectDL D_80932738
+#define gClearTagLightRayEffectMaterialDL D_809326C8
+#define gEffShockwaveDL D_4030100
+#define gEffWaterSplashDL D_403A0F0
 #define gSfxDefaultPos D_801D3DD4
+#define ref_func_800C0094 func_800BFE24
 #define ref_func_80169AFC func_8016AC6C
 #define sDebrisScale D_8092F8DC
 #define sFlashMaxScale D_8092F8BC
@@ -48,8 +70,13 @@
 #define sLightRayScale D_8092F8E8
 #define sShockwaveMaxScale D_8092F8D0
 #define sSmokeScale D_8092F8C8
+#define sWaterSplashTextures D_8092F924
 #define sZeroVector D_8092F850
 #define sinf func_800884F0
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800C0094 ref_func_800C0094
+#define func_80169AFC ref_func_80169AFC
 
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"
 #include "attributes.h"
@@ -76,17 +103,19 @@ void EnClearTag_UpdateEffects(EnClearTag* this, PlayState* play);;
 void EnClearTag_DrawEffects(Actor* thisx, PlayState* play);;
 extern ActorProfile En_Clear_Tag_Profile;
 extern Vec3f sZeroVector;
-extern Vec3f sLightRayEnvColor[];
-extern Vec3f sLightRayPrimColor[];
-extern f32 sFlashMaxScale[];
-extern f32 sSmokeScale[];
-extern f32 sShockwaveMaxScale[];
-extern f32 sDebrisScale[];
-extern f32 sLightRayScale[];
-extern f32 sLightRayMaxScaleTarget[];
-extern f32 sLightRayMaxScale[];
-extern TexturePtr sWaterSplashTextures[];
+extern Vec3f sLightRayEnvColor[4];
+extern Vec3f sLightRayPrimColor[4];
+extern f32 sFlashMaxScale[3];
+extern f32 sSmokeScale[2];
+extern f32 sShockwaveMaxScale[3];
+extern f32 sDebrisScale[3];
+extern f32 sLightRayScale[5];
+extern f32 sLightRayMaxScaleTarget[5];
+extern f32 sLightRayMaxScale[5];
+extern TexturePtr sWaterSplashTextures[11];
 #include "assets/overlays/ovl_En_Clear_Tag/ovl_En_Clear_Tag.c"
+#undef func_800C0094
+#undef func_80169AFC
 void EnClearTag_CreateDebrisEffect(EnClearTag* this, Vec3f* pos, Vec3f* velocity, Vec3f* accel, f32 scale,
                                    f32 rotationZ);
 void EnClearTag_CreateSmokeEffect(EnClearTag* this, Vec3f* pos, f32 scale);

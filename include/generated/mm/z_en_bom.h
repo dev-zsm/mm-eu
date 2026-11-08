@@ -19,6 +19,7 @@
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Audio_PlaySfx_AtPosWithChannelIO Audio_PlaySfx_AtPosWithChannelIO
+#define BgCheck_EntityRaycastFloor1 func_800C3D30
 #define BgCheck_EntityRaycastFloor3 BgCheck_EntityRaycastFloor3
 #define Camera_AddQuake Camera_AddQuake
 #define Collider_InitCylinder Collider_InitCylinder
@@ -28,6 +29,7 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionCheck_SetAT func_800E2318
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSpk_SpawnFuse EffectSsGSpk_SpawnFuse
@@ -56,8 +58,10 @@
 #define Math_Vec3f_ToVec3s Math_Vec3f_ToVec3s
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_MultVecZ func_80182CA0
 #define Matrix_ReplaceRotation Matrix_ReplaceRotation
 #define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYF func_80181BD8
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
@@ -65,6 +69,8 @@
 #define Play_InCsMode Play_InCsMode
 #define Player_GetMask Player_GetMask
 #define Player_IsBurningStickInRange Player_IsBurningStickInRange
+#define Rand_ZeroFloat func_8017A844
+#define Rumble_Request func_8013F090
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define SurfaceType_GetFloorEffect SurfaceType_GetFloorEffect
 #define SurfaceType_GetFloorType SurfaceType_GetFloorType
@@ -85,7 +91,9 @@
 #define ref_D_80872EF8 D_80872618
 #define ref_D_80872F04 D_80872624
 #define ref_func_800B0DE0 func_800B1300
+#define ref_func_800B0F18 func_800B1438
 #define ref_func_800B8050 func_800B7DD4
+#define ref_func_80123590 func_80123A40
 #define ref_func_80872648 func_80001898
 #define ref_func_808726DC func_8000192C
 #define sCylinderInit D_808724E8
@@ -95,6 +103,17 @@
 #define sPowderKegFuseSegments D_80873D70
 #define sQuakeDurations D_808725BC
 #define sQuakeY D_808725B8
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80872E68 ref_D_80872E68
+#define D_80872E8C ref_D_80872E8C
+#define D_80872E90 ref_D_80872E90
+#define D_80872E94 ref_D_80872E94
+#define D_80872ED4 ref_D_80872ED4
+#define func_800B0DE0 ref_func_800B0DE0
+#define func_800B0F18 ref_func_800B0F18
+#define func_800B8050 ref_func_800B8050
+#define func_80123590 ref_func_80123590
 
 #include "overlays/actors/ovl_En_Bom/z_en_bom.h"
 #include "z64rumble.h"
@@ -118,26 +137,35 @@ typedef struct {
 } PowderKegFuseSegment;;
 extern PowderKegFuseSegment sPowderKegFuseSegments[16];;
 extern ActorProfile En_Bom_Profile;
-extern f32 enBomScales[];
+extern f32 enBomScales[2];
 extern ColliderCylinderInit sCylinderInit;
 extern ColliderJntSphElementInit sJntSphElementsInit1[1];
 extern ColliderJntSphInit sJntSphInit1;
 extern ColliderJntSphElementInit sJntSphElementsInit2[1];
 extern ColliderJntSphInit sJntSphInit2;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[3];
 void EnBom_Init(Actor* thisx, PlayState* play);
 void EnBom_Destroy(Actor* thisx, PlayState* play);
 void EnBom_Move(EnBom* this, PlayState* play);
 void EnBom_WaitForRelease(EnBom* this, PlayState* play);
 void EnBom_Explode(EnBom* this, PlayState* play);
-extern s16 sQuakeY[];
-extern s16 sQuakeDurations[];
+extern s16 sQuakeY[2];
+extern s16 sQuakeDurations[2];
 void EnBom_Update(Actor* thisx, PlayState* play);
 extern Vec3f ref_D_80872EE0;
 extern Vec3f ref_D_80872EEC;
 extern Vec3f ref_D_80872EF8;
 extern Vec3f ref_D_80872F04;
 #include "assets/overlays/ovl_En_Bom/ovl_En_Bom.c"
+#undef D_80872E68
+#undef D_80872E8C
+#undef D_80872E90
+#undef D_80872E94
+#undef D_80872ED4
+#undef func_800B0DE0
+#undef func_800B0F18
+#undef func_800B8050
+#undef func_80123590
 void EnBom_Draw(Actor* thisx, PlayState* play);
 void ref_func_80872648(PlayState* play, Vec3f* arg1);
 void ref_func_808726DC(PlayState* play, Vec3f* arg1, Vec3f* arg2, Vec3f* arg3, s32 arg4);

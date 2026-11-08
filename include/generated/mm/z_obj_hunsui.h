@@ -49,6 +49,7 @@
 #define object_hunsui_DL_000EC0 D_6000EC0
 #define object_hunsui_Matanimheader_000BF0 D_6000BF0
 #define object_hunsui_Matanimheader_001888 D_6001888
+#define ref_D_80B9DC70 D_80B82A10
 #define ref_D_80B9DED0 D_80B82C70
 #define ref_D_80B9DED4 D_80B82C74
 #define ref_D_80B9DED8 D_80B82C78
@@ -68,9 +69,19 @@
 #define ref_func_80B9DA60 func_80001610
 #define sInitChain D_80B82A4C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80B9DED0 ref_D_80B9DED0
+#define D_80B9DED4 ref_D_80B9DED4
+#define D_80B9DED8 ref_D_80B9DED8
+#define func_800F22C4 ref_func_800F22C4
+
 #include "overlays/actors/ovl_Obj_Hunsui/z_obj_hunsui.h"
 #include "attributes.h"
 #include "assets/objects/object_hunsui/object_hunsui.h"
+#undef D_80B9DED0
+#undef D_80B9DED4
+#undef D_80B9DED8
+#undef func_800F22C4
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
 void ObjHunsui_Init(Actor* thisx, PlayState* play);;
 void ObjHunsui_Destroy(Actor* thisx, PlayState* play);;
@@ -96,9 +107,9 @@ typedef struct {
       u8 unk_00;
       u8 unk_01;
 } ObjHansuiStruct;;
-extern ObjHansuiStruct ref_D_80B9DC70[];
+extern ObjHansuiStruct ref_D_80B9DC70[14];
 extern ActorProfile Obj_Hunsui_Profile;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 s32 ref_func_80B9C450(PlayState* play, s32 switchFlagBase, s32 arg2);
 void ref_func_80B9C5E8(ObjHunsui* this, PlayState* play);
 void ObjHunsui_Init(Actor* thisx, PlayState* play);

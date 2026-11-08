@@ -8,21 +8,28 @@
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_UpdateBgCheckInfo func_800B763C
 #define Actor_UpdateVelocityWithGravity Actor_UpdateVelocityWithGravity
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
 #define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_SetJntSph Collider_SetJntSph
+#define CollisionCheck_SetAC func_800E2500
+#define CollisionCheck_SetAT func_800E2318
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
+#define CollisionCheck_SetOC func_800E26E8
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
 #define EffectSsIceSmoke_Spawn func_800B372C
+#define EffectSsKakera_Spawn func_800B2D30
 #define Effect_Add Effect_Add
+#define Effect_GetByIndex func_800AFC40
 #define EnGoroiwa_Draw EnGoroiwa_Draw
 #define EnGoroiwa_Init EnGoroiwa_Init
 #define EnGoroiwa_Update EnGoroiwa_Update
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
+#define Gfx_SetupDL44_Xlu func_8012C8F8
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Lib_SegmentedToVirtual func_80100304
 #define Math3D_CosOut Math3D_CosOut
@@ -37,22 +44,29 @@
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
+#define Math_Vec3f_Sum func_800FF3BC
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_Get Matrix_Get
 #define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_Put func_8018129C
 #define Matrix_RotateAxisF Matrix_RotateAxisF
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale func_8018142C
+#define Matrix_SetTranslateRotateYXZ func_801826E0
+#define Player_PlaySfx func_800B8BDC
 #define Quake_Request Quake_Request
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations
 #define Quake_SetSpeed Quake_SetSpeed
 #define Rand_Next func_80087010
+#define Rand_ZeroFloat func_8017A844
 #define Rand_ZeroOne func_8008704C
+#define SurfaceType_GetFloorType func_800C9764
 #define func_8093E938 func_80000098
 #define func_8093E9B0 func_80000110
 #define func_8093EAD4 func_80000234
@@ -86,16 +100,25 @@
 #define func_8094220C func_8000396C
 #define func_80942604 func_80003D64
 #define func_80942B1C func_8000427C
+#define gCircleShadowDL D_4076BC0
+#define object_goroiwa_DL_0032E0 D_60032E0
+#define object_goroiwa_DL_0082D0 D_60082D0
 #define ref_D_80942DFC D_809278EC
 #define ref_D_80942E0C D_809278FC
 #define ref_D_80942E30 D_80927920
 #define ref_D_80942E38 D_80927928
 #define ref_D_80942E3C D_8092792C
 #define ref_D_80942E44 D_80927934
+#define ref_D_80942E48 D_80927938
+#define ref_D_80942E54 D_80927944
 #define ref_D_80942E60 D_80927950
 #define ref_D_80942E6C D_8092795C
 #define ref_D_80942E8C D_8092797C
+#define ref_func_800AE930 func_800AEE50
+#define ref_func_800AEF44 func_800AF464
 #define ref_func_800B0E48 func_800B1368
+#define ref_func_800B8D50 func_800B8AD4
+#define ref_func_800C0094 func_800BFE24
 #define ref_func_8093E8A0 func_80923390
 #define ref_func_8093E91C func_8092340C
 #define ref_func_8093E938 func_80000098
@@ -107,6 +130,8 @@
 #define ref_func_8093EC50 func_800003B0
 #define ref_func_8093ECD4 func_80000434
 #define ref_func_8093ED80 func_80923870
+#define ref_func_8093EDB0 func_809238A0
+#define ref_func_8093EDD8 func_809238C8
 #define ref_func_8093EE18 func_80000578
 #define ref_func_8093EE64 func_80923954
 #define ref_func_8093EEBC func_809239AC
@@ -146,11 +171,31 @@
 #define sInitChain D_80927968
 #define sJntSphInit D_809278D4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80942E94 ref_D_80942E94
+#define D_80942E9C ref_D_80942E9C
+#define D_80942EAC ref_D_80942EAC
+#define D_80942EB4 ref_D_80942EB4
+#define func_800AE930 ref_func_800AE930
+#define func_800AEF44 ref_func_800AEF44
+#define func_800B0E48 ref_func_800B0E48
+#define func_800B8D50 ref_func_800B8D50
+#define func_800C0094 ref_func_800C0094
+
 #include "overlays/actors/ovl_En_Goroiwa/z_en_goroiwa.h"
 #include "z_en_item00.h"
 #include "z64quake.h"
 #include "assets/objects/object_goroiwa/object_goroiwa.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef D_80942E94
+#undef D_80942E9C
+#undef D_80942EAC
+#undef D_80942EB4
+#undef func_800AE930
+#undef func_800AEF44
+#undef func_800B0E48
+#undef func_800B8D50
+#undef func_800C0094
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_MINIMAP_ICON_ENABLED)
 void EnGoroiwa_Init(Actor* thisx, PlayState* play);;
 void EnGoroiwa_Destroy(Actor* thisx, PlayState* play);;
@@ -174,18 +219,18 @@ extern ActorProfile En_Goroiwa_Profile;
 extern ColliderJntSphElementInit sJntSphElementsInit[1];
 extern ColliderJntSphInit sJntSphInit;
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern f32 ref_D_80942DFC[];
-extern Gfx* ref_D_80942E0C[][3];
-extern Color_RGBA8 ref_D_80942E30[];
+extern f32 ref_D_80942DFC[4];
+extern Gfx* ref_D_80942E0C[3][3];
+extern Color_RGBA8 ref_D_80942E30[2];
 extern Color_RGBA8 ref_D_80942E38;
-extern Color_RGBA8 ref_D_80942E3C[];
+extern Color_RGBA8 ref_D_80942E3C[2];
 extern Color_RGBA8 ref_D_80942E44;
 extern Vec3f ref_D_80942E48;
 extern Vec3f ref_D_80942E54;
 extern Vec3f ref_D_80942E60;
 extern Vec3f ref_D_80942E6C;
-extern InitChainEntry sInitChain[];
-extern UNK_TYPE ref_D_80942E8C[];
+extern InitChainEntry sInitChain[5];
+extern UNK_TYPE ref_D_80942E8C[2];
 void ref_func_8093E8A0(EnGoroiwa* this);
 void ref_func_8093E91C(EnGoroiwa* this);
 void ref_func_8093E938(EnGoroiwa* this);

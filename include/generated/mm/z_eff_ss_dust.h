@@ -20,6 +20,8 @@
 #define sDustTextures D_8095C660
 #define sUpdateFuncs D_8095C658
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "overlays/effects/ovl_Effect_Ss_Dust/z_eff_ss_dust.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #define rPrimColorR regs[0]
@@ -41,8 +43,8 @@ void EffectSsDust_Update(PlayState* play, u32 index, EffectSs* this);;
 void EffectSsDust_UpdateFire(PlayState* play, u32 index, EffectSs* this);;
 void EffectSsDust_Draw(PlayState* play, u32 index, EffectSs* this);;
 extern EffectSsProfile Effect_Ss_Dust_Profile;
-extern EffectSsUpdateFunc sUpdateFuncs[];
-extern TexturePtr sDustTextures[];
+extern EffectSsUpdateFunc sUpdateFuncs[2];
+extern TexturePtr sDustTextures[8];
 u32 EffectSsDust_Init(PlayState* play, u32 index, EffectSs* this, void* initParamsx);
 void EffectSsDust_Draw(PlayState* play, u32 index, EffectSs* this);
 void EffectSsDust_Update(PlayState* play, u32 index, EffectSs* this);

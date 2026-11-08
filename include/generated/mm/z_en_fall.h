@@ -84,8 +84,12 @@
 #define gMoonFireRingDL D_6003C30
 #define gMoonFireRingTexAnim D_6004E38
 #define gMoonFireballDL D_60011D0
+#define gMoonFireballVtx D_60004C0
 #define gOpenMouthMoonDL D_6002970
 #define gSaveContext D_801E6EF0
+#define sAlphaTableIndices D_80A53214
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_En_Fall/z_en_fall.h"
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"
@@ -142,7 +146,7 @@ void EnFall_MoonsTear_Initialize(EnFall* this);
 void EnFall_MoonsTear_DoNothing(EnFall* this, PlayState* play);
 void EnFall_MoonsTear_Fall(EnFall* this, PlayState* play);
 void EnFall_Update(Actor* thisx, PlayState* play);
-extern u8 sAlphaTableIndices[];
+extern u8 sAlphaTableIndices[209];
 void EnFall_Fireball_SetPerVertexAlpha(f32 fireballAlpha);
 void EnFall_Fireball_Update(Actor* thisx, PlayState* play);
 void EnFall_RisingDebris_UpdateEffects(EnFall* this);

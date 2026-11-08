@@ -17,9 +17,11 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define CutsceneManager_Stop func_800F1D6C
 #define EffectSsEnIce_Spawn EffectSsEnIce_Spawn
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define Flags_GetSwitch Flags_GetSwitch
+#define Flags_SetSwitch func_800B5B64
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define ObjIcePoly_Destroy ObjIcePoly_Destroy
@@ -37,6 +39,7 @@
 #define gZeroVec3f D_801C9EE0
 #define ref_D_80932378 D_80916E68
 #define ref_D_8093237C D_80916E6C
+#define ref_func_800B0DE0 func_800B1300
 #define ref_func_800B8118 func_800B7E9C
 #define ref_func_80931828 func_800002C8
 #define ref_func_80931A38 func_800004D8
@@ -45,9 +48,21 @@
 #define sCylinderInit1 D_80916E10
 #define sCylinderInit2 D_80916E3C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80932380 ref_D_80932380
+#define D_80932384 ref_D_80932384
+#define D_80932388 ref_D_80932388
+#define func_800B0DE0 ref_func_800B0DE0
+#define func_800B8118 ref_func_800B8118
+
 #include "overlays/actors/ovl_Obj_Ice_Poly/z_obj_ice_poly.h"
 #include "overlays/actors/ovl_Obj_Aqua/z_obj_aqua.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef D_80932380
+#undef D_80932384
+#undef D_80932388
+#undef func_800B0DE0
+#undef func_800B8118
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjIcePoly_Init(Actor* thisx, PlayState* play);;
 void ObjIcePoly_Destroy(Actor* thisx, PlayState* play);;

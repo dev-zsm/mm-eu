@@ -67,6 +67,7 @@
 #define object_bombiwa_DL_003110 D_6003110
 #define ref_D_80A55D2C D_80A3AA8C
 #define ref_func_800B0E48 func_800B1368
+#define ref_func_800B1210 func_800B1730
 #define ref_func_800B12F0 func_800B1810
 #define ref_func_80A53BE0 func_80000000
 #define ref_func_80A53E60 func_80000280
@@ -85,10 +86,32 @@
 #define sCylinderInit D_80A3AA60
 #define sInitChain D_80A3AADC
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80A55D38 ref_D_80A55D38
+#define D_80A55D3C ref_D_80A55D3C
+#define D_80A55D40 ref_D_80A55D40
+#define D_80A55D50 ref_D_80A55D50
+#define D_80A55D60 ref_D_80A55D60
+#define D_80A55D70 ref_D_80A55D70
+#define D_80A55D74 ref_D_80A55D74
+#define func_800B0E48 ref_func_800B0E48
+#define func_800B1210 ref_func_800B1210
+#define func_800B12F0 ref_func_800B12F0
+
 #include "overlays/actors/ovl_Obj_Hugebombiwa/z_obj_hugebombiwa.h"
 #include "z64quake.h"
 #include "z64rumble.h"
 #include "assets/objects/object_bombiwa/object_bombiwa.h"
+#undef D_80A55D38
+#undef D_80A55D3C
+#undef D_80A55D40
+#undef D_80A55D50
+#undef D_80A55D60
+#undef D_80A55D70
+#undef D_80A55D74
+#undef func_800B0E48
+#undef func_800B1210
+#undef func_800B12F0
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjHugebombiwa_Init(Actor* thisx, PlayState* play);;
 void ObjHugebombiwa_Destroy(Actor* thisx, PlayState* play2);;
@@ -112,7 +135,7 @@ void ref_func_80A541F4(ObjHugebombiwa* this, PlayState* play);
 void ref_func_80A54600(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3);
 void ObjHugebombiwa_RequestQuakeAndRumble(ObjHugebombiwa* this, PlayState* play, s32 quakeVerticalMag);
 s32 ref_func_80A54A0C(ObjHugebombiwa* this);
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[3];
 void ObjHugebombiwa_Init(Actor* thisx, PlayState* play);
 void ObjHugebombiwa_Destroy(Actor* thisx, PlayState* play2);
 void ref_func_80A54BF0(ObjHugebombiwa* this);

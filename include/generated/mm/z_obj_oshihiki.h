@@ -8,6 +8,8 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
+#define BgCheck_EntityLineTest3 func_800C5470
+#define BgCheck_EntityRaycastFloor6 func_800C3FD0
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPolyActor_SetActorOnTop DynaPolyActor_SetActorOnTop
@@ -52,7 +54,13 @@
 #define gameplay_dangeon_keep_Colheader_007498 D_5007498
 #define gameplay_dangeon_keep_DL_0182A8 D_50182A8
 #define gameplay_dangeon_keep_Matanimheader_01B370 D_501B370
+#define ref_D_80918940 D_808FD430
+#define sColCheckPoints D_808FD394
+#define sFaceDirection D_808FD400
+#define sFaceVtx D_808FD3D0
 #define sInitChain D_808FD388
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Obj_Oshihiki/z_obj_oshihiki.h"
 #include "overlays/actors/ovl_Obj_Switch/z_obj_switch.h"
@@ -70,13 +78,13 @@ void ObjOshihiki_Push(ObjOshihiki* this, PlayState* play);;
 void ObjOshihiki_SetupFall(ObjOshihiki* this, PlayState* play);;
 void ObjOshihiki_Fall(ObjOshihiki* this, PlayState* play);;
 extern ActorProfile Obj_Oshihiki_Profile;
-extern f32 sScales[];
-extern Color_RGB8 sColors[];
-extern InitChainEntry sInitChain[];
-extern Vec3f sColCheckPoints[];
-extern Vec2f sFaceVtx[];
-extern Vec2f sFaceDirection[];
-extern s8 ref_D_80918940[];
+extern f32 sScales[6];
+extern Color_RGB8 sColors[16];
+extern InitChainEntry sInitChain[3];
+extern Vec3f sColCheckPoints[5];
+extern Vec2f sFaceVtx[6];
+extern Vec2f sFaceDirection[6];
+extern s8 ref_D_80918940[16];
 void ObjOshihiki_RotateXZ(Vec3f* out, Vec3f* in, f32 sn, f32 cs);
 s32 ObjOshihiki_StrongEnough(ObjOshihiki* this, PlayState* play);
 void ObjOshihiki_ResetFloors(ObjOshihiki* this);

@@ -40,6 +40,7 @@
 #define gSun1Tex D_4079B10
 #define gSunSparkleMaterialDL D_407AB10
 #define gSunSparkleModelDL D_407AB58
+#define ref_D_80B23AA0 D_80B087D0
 #define ref_D_80B23C2C D_80B0895C
 #define ref_D_80B23C40 D_80B08970
 #define ref_func_80B22C00 func_80000000
@@ -54,6 +55,8 @@
 #define ref_func_80B23910 D_80B08640
 #define ref_func_80B23934 func_80000D34
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "overlays/actors/ovl_En_Hanabi/z_en_hanabi.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
@@ -66,9 +69,9 @@ void ref_func_80B23910(EnHanabi* this, PlayState* play);;
 void ref_func_80B23934(EnHanabi* this, PlayState* play);;
 void EnHanabi_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile En_Hanabi_Profile;
-extern Vec3s ref_D_80B23AA0[];
-extern u8 ref_D_80B23C2C[];
-extern u8 ref_D_80B23C40[];
+extern Vec3s ref_D_80B23AA0[66];
+extern u8 ref_D_80B23C2C[18];
+extern u8 ref_D_80B23C40[18];
 void ref_func_80B22C00(EnHanabiStruct* arg0);
 void ref_func_80B22C2C(EnHanabiStruct* arg0, s32 arg1);
 s32 ref_func_80B22C80(Vec3f* arg0, EnHanabiStruct* arg1, f32 arg2);

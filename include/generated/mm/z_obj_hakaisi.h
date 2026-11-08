@@ -59,8 +59,16 @@
 #define ref_func_80B1544C func_800012CC
 #define ref_func_80B154A0 func_80001320
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80B15600 ref_D_80B15600
+#define func_800B0EB0 ref_func_800B0EB0
+#define func_800C0094 ref_func_800C0094
+
 #include "overlays/actors/ovl_Obj_Hakaisi/z_obj_hakaisi.h"
 #include "assets/objects/object_hakaisi/object_hakaisi.h"
+#undef D_80B15600
+#undef func_800B0EB0
+#undef func_800C0094
 #define FLAGS (ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_FRIENDLY | ACTOR_FLAG_DRAW_CULLING_DISABLED)
 void ObjHakaisi_Init(Actor* thisx, PlayState* play);;
 void ObjHakaisi_Destroy(Actor* thisx, PlayState* play);;
@@ -88,7 +96,7 @@ void ref_func_80B1544C(Actor* thisx, PlayState* play);;
 void ref_func_80B154A0(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Hakaisi_Profile;
 extern Vec3f ref_D_80B155B0;
-extern Vec3f ref_D_80B155BC[];
+extern Vec3f ref_D_80B155BC[3];
 void ObjHakaisi_Init(Actor* thisx, PlayState* play);
 void ObjHakaisi_Destroy(Actor* thisx, PlayState* play);
 void ref_func_80B1444C(ObjHakaisi* this);

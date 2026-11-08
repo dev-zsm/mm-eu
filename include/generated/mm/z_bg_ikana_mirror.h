@@ -3,6 +3,7 @@
 #define MM_Z_BG_IKANA_MIRROR_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain func_800FF8DC
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgIkanaMirror_Destroy BgIkanaMirror_Destroy
 #define BgIkanaMirror_Draw BgIkanaMirror_Draw
@@ -14,20 +15,35 @@
 #define BgIkanaMirror_Wait BgIkanaMirror_Wait
 #define Collider_DestroyQuad Collider_DestroyQuad
 #define Collider_DestroyTris Collider_DestroyTris
+#define Collider_InitQuad func_800E1BD8
+#define Collider_InitTris func_800E1490
+#define Collider_SetQuad func_800E1CE0
 #define Collider_SetQuadVertices func_800E7C1C
+#define Collider_SetTris func_800E1718
+#define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
+#define DynaPolyActor_Init func_800CABA0
+#define DynaPolyActor_LoadMesh func_800CABC4
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_Pop Matrix_Pop
 #define Matrix_Push Matrix_Push
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
+#define gStoneTowerTempleMirrorCol D_6002358
 #define gStoneTowerTempleMirrorDL D_6001E18
 #define gStoneTowerTempleMirrorLightAbsorptionDL D_60014B0
+#define gStoneTowerTempleMirrorLightAbsorptionTexAnim D_6001678
 #define gStoneTowerTempleMirrorLightEmissionDL D_6001880
+#define gStoneTowerTempleMirrorLightEmissionTexAnim D_6001AD8
+#define sInitChain D_80B64F3C
 #define sLightRaysCollidersInit D_80B64E9C
+#define sMirrorColliderInit D_80B64E8C
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Bg_Ikana_Mirror/z_bg_ikana_mirror.h"
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"
@@ -41,10 +57,10 @@ void BgIkanaMirror_Wait(BgIkanaMirror* this, PlayState* play);;
 void BgIkanaMirror_SetupEmitLight(BgIkanaMirror* this);;
 void BgIkanaMirror_EmitLight(BgIkanaMirror* this, PlayState* play);;
 extern ActorProfile Bg_Ikana_Mirror_Profile;
-extern ColliderTrisElementInit sMirrorColliderElementsInit[];
+extern ColliderTrisElementInit sMirrorColliderElementsInit[9];
 extern ColliderTrisInit sMirrorColliderInit;
-extern ColliderQuadInit sLightRaysCollidersInit[];
-extern InitChainEntry sInitChain[];
+extern ColliderQuadInit sLightRaysCollidersInit[2];
+extern InitChainEntry sInitChain[4];
 void BgIkanaMirror_SetQuadVertices(BgIkanaMirror* this);
 void BgIkanaMirror_Init(Actor* thisx, PlayState* play2);
 void BgIkanaMirror_Destroy(Actor* thisx, PlayState* play);

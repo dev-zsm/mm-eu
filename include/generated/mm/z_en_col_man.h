@@ -24,6 +24,8 @@
 #define Gfx_SetupDL66 Gfx_SetupDL66
 #define Lib_SegmentedToVirtual func_80100304
 #define Play_SetFog Play_SetFog
+#define Rand_CenteredFloat func_8017A870
+#define Rand_ZeroFloat func_8017A844
 #define func_80AFDE00 func_800001C0
 #define func_80AFDF60 func_80000320
 #define func_80AFDFB4 func_80000374
@@ -37,6 +39,7 @@
 #define gHeartPieceInteriorDL D_405AAB0
 #define gItemDropDL D_405F6F0
 #define gameplay_keep_DL_06AB30 D_406AB30
+#define ref_func_800B0EB0 func_800B13D0
 #define ref_func_800B8118 func_800B7E9C
 #define ref_func_80AFDD60 func_80AE2A90
 #define ref_func_80AFDE00 func_800001C0
@@ -50,10 +53,16 @@
 #define ref_func_80AFE650 func_80000A10
 #define sCylinderInit D_80AE3460
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B0EB0 ref_func_800B0EB0
+#define func_800B8118 ref_func_800B8118
+
 #include "overlays/actors/ovl_En_Col_Man/z_en_col_man.h"
 #include "overlays/actors/ovl_En_Bom/z_en_bom.h"
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800B0EB0
+#undef func_800B8118
 #define FLAGS (ACTOR_FLAG_FREEZE_EXCEPTION)
 void EnColMan_Init(Actor* thisx, PlayState* play);;
 void EnColMan_Destroy(Actor* thisx, PlayState* play);;

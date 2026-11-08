@@ -10,18 +10,27 @@
 #define BgAstrBombwall_Standing BgAstrBombwall_Standing
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_SetSwitch Flags_SetSwitch
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
+#define Rand_Centered func_800870A0
+#define Rand_ZeroOne func_8008704C
 #define gAstralObservatoryBombWallCrackDL D_60022E0
 #define gAstralObservatoryBombWallDL D_6002380
+#define gAstralObservatoryBombWallFragmentDL D_6002178
 #define gSetupDLs D_801C1BB0
+#define ref_func_800BBFB0 func_800BBD34
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
 
 #include "overlays/actors/ovl_Bg_Astr_Bombwall/z_bg_astr_bombwall.h"
 #include "assets/objects/object_astr_obj/object_astr_obj.h"
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 void BgAstrBombwall_Init(Actor* thisx, PlayState* play);;
 void BgAstrBombwall_Destroy(Actor* thisx, PlayState* play);;
@@ -36,7 +45,7 @@ void BgAstrBombwall_Collapsing(BgAstrBombwall* this, PlayState* play);;
 extern ActorProfile Bg_Astr_Bombwall_Profile;
 extern ColliderTrisElementInit sTrisElementsInit[2];
 extern ColliderTrisInit sTrisInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[1];
 void BgAstrBombwall_InitCollider(ColliderTrisInit* init, Vec3f* pos, Vec3s* rot, ColliderTris* collider);
 void BgAstrBombwall_Init(Actor* thisx, PlayState* play);
 void BgAstrBombwall_Destroy(Actor* thisx, PlayState* play);

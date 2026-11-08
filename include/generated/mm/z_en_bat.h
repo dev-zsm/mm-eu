@@ -74,9 +74,13 @@
 #define sSphereInit D_80A29760
 #define sWingsDLs D_80A297C4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B3030 ref_func_800B3030
+
 #include "overlays/actors/ovl_En_Bat/z_en_bat.h"
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"
 #include "assets/objects/object_bat/object_bat.h"
+#undef func_800B3030
 #define FLAGS \
     (ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_HOSTILE | ACTOR_FLAG_IGNORE_QUAKE | ACTOR_FLAG_CAN_ATTACH_TO_ARROW)
 #define BAD_BAT_FLAP_FRAME 5
@@ -105,8 +109,8 @@ typedef enum {
 } BatDamageEffect;;
 extern DamageTable sDamageTable;
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern InitChainEntry sInitChain[];
-extern Gfx* sWingsDLs[];
+extern InitChainEntry sInitChain[4];
+extern Gfx* sWingsDLs[9];
 #define BAD_BAT_MAX_NUMBER_ATTACKING 3
 extern s32 sNumberAttacking;;
 extern s32 sAlreadySpawned;;

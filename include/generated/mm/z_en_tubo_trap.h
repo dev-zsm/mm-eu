@@ -36,12 +36,19 @@
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define gameplay_dangeon_keep_DL_018090 D_5018090
 #define ref_func_800A8150 func_800A8670
+#define ref_func_800BBFB0 func_800BBD34
 #define sCylinderInit D_80915F00
 #define sInitChain D_80915F4C
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800A8150 ref_func_800A8150
+#define func_800BBFB0 ref_func_800BBFB0
 
 #include "overlays/actors/ovl_En_Tubo_Trap/z_en_tubo_trap.h"
 #include "z_en_item00.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
+#undef func_800A8150
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 void EnTuboTrap_Init(Actor* thisx, PlayState* play);;
 void EnTuboTrap_Destroy(Actor* thisx, PlayState* play);;
@@ -52,7 +59,7 @@ void EnTuboTrap_Levitate(EnTuboTrap* this, PlayState* play);;
 void EnTuboTrap_FlyAtPlayer(EnTuboTrap* this, PlayState* play);;
 extern ColliderCylinderInit sCylinderInit;
 extern ActorProfile En_Tubo_Trap_Profile;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 void EnTuboTrap_Init(Actor* thisx, PlayState* play);
 void EnTuboTrap_Destroy(Actor* thisx, PlayState* play);
 void EnTuboTrap_DropCollectible(EnTuboTrap* this, PlayState* play);

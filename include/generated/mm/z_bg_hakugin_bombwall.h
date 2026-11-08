@@ -41,11 +41,13 @@
 #define func_80ABCCE4 func_80000D24
 #define func_80ABCD98 func_80000DD8
 #define func_80ABCE60 func_80000EA0
+#define gZeroVec3f D_801C9EE0
 #define object_hakugin_obj_DL_009830 D_6009830
 #define ref_D_80ABCFAC D_80AA1CDC
 #define ref_D_80ABCFB0 D_80AA1CE0
 #define ref_D_80ABCFB4 D_80AA1CE4
 #define ref_D_80ABCFC0 D_80AA1CF0
+#define ref_D_80ABD020 D_80AA1D50
 #define ref_D_80ABD034 D_80AA1D64
 #define ref_func_800B0E48 func_800B1368
 #define ref_func_80ABBFC0 func_80000000
@@ -60,8 +62,12 @@
 #define sCylinderInit D_80AA1CB0
 #define sInitChain D_80AA1D70
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B0E48 ref_func_800B0E48
+
 #include "overlays/actors/ovl_Bg_Hakugin_Bombwall/z_bg_hakugin_bombwall.h"
 #include "assets/objects/object_hakugin_obj/object_hakugin_obj.h"
+#undef func_800B0E48
 #define FLAGS 0x00000000
 void BgHakuginBombwall_Init(Actor* thisx, PlayState* play);;
 void BgHakuginBombwall_Destroy(Actor* thisx, PlayState* play);;
@@ -96,10 +102,10 @@ typedef struct {
       BgHakuginBombwallUnkFunc2 unk_28;
       s32 unk_2C;
 } BgHakuginBombwallStruct;;
-extern BgHakuginBombwallStruct ref_D_80ABCFC0[];
-extern s32 ref_D_80ABD020[];
+extern BgHakuginBombwallStruct ref_D_80ABCFC0[2];
+extern s32 ref_D_80ABD020[5];
 extern Vec3f ref_D_80ABD034;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[2];
 void ref_func_80ABBFC0(BgHakuginBombwall* this, PlayState* play);
 void ref_func_80ABC2E0(BgHakuginBombwall* this, PlayState* play);
 void ref_func_80ABC58C(BgHakuginBombwall* this, PlayState* play);

@@ -45,6 +45,7 @@
 #define func_80C173B4 func_80000F34
 #define func_80C17468 func_80000FE8
 #define func_80C17690 func_80001210
+#define object_syotenVtx_0018C0 D_60018C0
 #define object_syoten_DL_001370 D_6001370
 #define object_syoten_DL_001730 D_6001730
 #define object_syoten_DL_001DD0 D_6001DD0
@@ -57,6 +58,7 @@
 #define object_syoten_Matanimheader_0018B8 D_60018B8
 #define object_syoten_Matanimheader_002B88 D_6002B88
 #define object_syoten_Matanimheader_002B98 D_6002B98
+#define ref_D_80C177D0 D_80BFC570
 #define ref_D_80C17824 D_80BFC5C4
 #define ref_D_80C17834 D_80BFC5D4
 #define ref_func_80C16760 func_800002E0
@@ -72,6 +74,8 @@
 #define ref_func_80C173B4 func_80000F34
 #define ref_func_80C17468 func_80000FE8
 #define ref_func_80C17690 func_80001210
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Demo_Syoten/z_demo_syoten.h"
 #include "assets/objects/object_syoten/object_syoten.h"
@@ -89,9 +93,9 @@ void ref_func_80C17008(DemoSyoten* this, PlayState* play);;
 void ref_func_80C173B4(Actor* thisx, PlayState* play);;
 void ref_func_80C17690(Actor* thisx, PlayState* play);;
 extern ActorProfile Demo_Syoten_Profile;
-extern u8 ref_D_80C177D0[];
-extern Color_RGBA8 ref_D_80C17824[];
-extern Color_RGBA8 ref_D_80C17834[];
+extern u8 ref_D_80C177D0[81];
+extern Color_RGBA8 ref_D_80C17824[4];
+extern Color_RGBA8 ref_D_80C17834[4];
 void DemoSyoten_Init(Actor* thisx, PlayState* play);
 void DemoSyoten_Destroy(Actor* thisx, PlayState* play);
 void ref_func_80C16760(DemoSyoten* this, PlayState* play);

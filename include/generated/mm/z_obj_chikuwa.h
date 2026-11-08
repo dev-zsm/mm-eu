@@ -9,6 +9,7 @@
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
+#define Math3D_Vec3fMagnitude func_8017B984
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_Scale Matrix_Scale
@@ -20,26 +21,34 @@
 #define Quake_SetDuration Quake_SetDuration
 #define Quake_SetPerturbations Quake_SetPerturbations
 #define Quake_SetSpeed Quake_SetSpeed
+#define Rand_ZeroOne func_8008704C
 #define func_809B1550 func_80000000
 #define func_809B17D0 func_80000280
 #define func_809B1AA0 func_80000550
 #define gDampeGraveBrownElevatorCol D_6000F00
 #define gDampeGraveBrownElevatorDL D_6000D10
+#define ref_D_809B1FD0 D_80996D10
+#define ref_D_809B1FDC D_80996D1C
+#define ref_func_800B1210 func_800B1730
 #define ref_func_809B1550 func_80000000
 #define ref_func_809B17D0 func_80000280
 #define ref_func_809B1AA0 func_80000550
 #define sInitChain D_80996D00
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B1210 ref_func_800B1210
+
 #include "overlays/actors/ovl_Obj_Chikuwa/z_obj_chikuwa.h"
 #include "z64quake.h"
 #include "assets/objects/object_d_lift/object_d_lift.h"
+#undef func_800B1210
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjChikuwa_Init(Actor* thisx, PlayState* play);;
 void ObjChikuwa_Destroy(Actor* thisx, PlayState* play);;
 void ObjChikuwa_Update(Actor* thisx, PlayState* play);;
 void ObjChikuwa_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Chikuwa_Profile;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 extern Vec3f ref_D_809B1FD0;
 extern Vec3f ref_D_809B1FDC;
 void ref_func_809B1550(Actor* thisx, PlayState* play);

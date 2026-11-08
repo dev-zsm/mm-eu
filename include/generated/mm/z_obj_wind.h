@@ -4,12 +4,23 @@
 
 /* names of ours that symbols of the reference stand for */
 #define AnimatedMat_Draw AnimatedMat_Draw
+#define Flags_GetSwitch func_800B5B20
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
+#define Math3D_LineClosestToPoint func_8017ACF4
+#define Math_Atan2S_XY func_80181190
+#define Math_CosS func_800FEB44
+#define Math_SinS func_800FEB84
+#define Math_Vec3f_Copy func_800FF30C
+#define Math_Vec3f_DistXYZAndStoreDiff func_800FF6D4
 #define ObjWind_Draw ObjWind_Draw
 #define ObjWind_Update ObjWind_Update
 #define gameplay_keep_DL_07E8C0 D_407E8C0
 #define gameplay_keep_Matanimheader_07F218 D_407F218
+#define ref_D_80B2448C D_80B091BC
+#define ref_D_80B245CC D_80B092FC
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Obj_Wind/z_obj_wind.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
@@ -19,7 +30,7 @@ void ObjWind_Destroy(Actor* thisx, PlayState* play);;
 void ObjWind_Update(Actor* thisx, PlayState* play);;
 void ObjWind_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Wind_Profile;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[3];
 void ObjWind_Init(Actor* thisx, PlayState* play);
 void ObjWind_Destroy(Actor* thisx, PlayState* play);
 typedef struct ObjWindStruct {
@@ -29,7 +40,7 @@ typedef struct ObjWindStruct {
       s16 unk_6;
       s16 unk_8;
 } ObjWindStruct;;
-extern ObjWindStruct ref_D_80B2448C[];
+extern ObjWindStruct ref_D_80B2448C[32];
 extern s32 ref_D_80B245CC;
 void ObjWind_Update(Actor* thisx, PlayState* play);
 void ObjWind_Draw(Actor* thisx, PlayState* play);

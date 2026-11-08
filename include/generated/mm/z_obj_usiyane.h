@@ -7,17 +7,25 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Cutscene_GetCueChannel Cutscene_GetCueChannel
 #define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
+#define Gfx_DrawDListOpa func_800BDD44
 #define Math3D_Normalize Math3D_Normalize
+#define Matrix_MultVec3f func_80182B28
+#define Matrix_Pop func_8018125C
+#define Matrix_Push func_8018122C
+#define Matrix_Put func_8018129C
 #define ObjUsiyane_Draw ObjUsiyane_Draw
 #define ObjUsiyane_GetAlienSpawnTime ObjUsiyane_GetAlienSpawnTime
 #define Rand_Centered func_800870A0
 #define Rand_Next func_80087010
+#define SkinMatrix_SetScaleRotateRPYTranslate func_80139BC0
 #define func_80C07CD0 func_80000050
 #define func_80C07DFC func_8000017C
 #define func_80C07F30 func_800002B0
 #define func_80C081C8 func_80000548
 #define func_80C082E0 func_80000660
 #define gZeroVec3f D_801C9EE0
+#define object_obj_usiyane_DL_000098 D_6000098
+#define object_obj_usiyane_DL_000838 D_6000838
 #define ref_D_80C08660 D_80BED400
 #define ref_func_800B12F0 func_800B1810
 #define ref_func_80C07CD0 func_80000050
@@ -26,16 +34,20 @@
 #define ref_func_80C081C8 func_80000548
 #define ref_func_80C082E0 func_80000660
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B12F0 ref_func_800B12F0
+
 #include "overlays/actors/ovl_Obj_Usiyane/z_obj_usiyane.h"
 #include "assets/objects/object_obj_usiyane/object_obj_usiyane.h"
+#undef func_800B12F0
 #define FLAGS (ACTOR_FLAG_DRAW_CULLING_DISABLED)
 void ObjUsiyane_Init(Actor* thisx, PlayState* play);;
 void ObjUsiyane_Destroy(Actor* thisx, PlayState* play);;
 void ObjUsiyane_Update(Actor* thisx, PlayState* play);;
 void ObjUsiyane_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Usiyane_Profile;
-extern PosRot ref_D_80C08660[];
-extern InitChainEntry sInitChain[];
+extern PosRot ref_D_80C08660[4];
+extern InitChainEntry sInitChain[3];
 s32 ObjUsiyane_GetAlienSpawnTime(s32 alienIndex);
 s32 ref_func_80C07CD0(void);
 void ref_func_80C07DC4(ObjUsiyane* this, PlayState* play);

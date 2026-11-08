@@ -3,11 +3,15 @@
 #define MM_Z_EN_WEATHER_TAG_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ChangeCategory func_800BBED8
+#define Actor_GetClosestPosOnPath func_800BCA60
 #define Actor_Kill Actor_Kill
 #define Actor_WorldDistXZToActor Actor_WorldDistXZToActor
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_Start func_800F1B24
+#define Cutscene_GetCueChannel func_800EDFA0
+#define Cutscene_IsCueInChannel func_800EE03C
 #define EnWeatherTag_Die D_8094B5D4
 #define EnWeatherTag_DoNothing D_8094BC98
 #define EnWeatherTag_Init EnWeatherTag_Init
@@ -16,11 +20,17 @@
 #define EnWeatherTag_Unused_80967250 EnWeatherTag_Unused_80967250
 #define Environment_PlayStormNatureAmbience Environment_PlayStormNatureAmbience
 #define Environment_StopStormNatureAmbience Environment_StopStormNatureAmbience
+#define Lib_SegmentedToVirtual func_80100304
+#define Math_SmoothStepToF func_800FFAD8
+#define Math_SmoothStepToS func_800FFCBC
 #define Play_GetScreenPos Play_GetScreenPos
 #define gInterruptSongOfStorms D_801BE708
 #define gLightConfigAfterUnderwater D_801BE704
+#define gSaveContext D_801E6EF0
 #define gSkyboxNumStars D_801EC702
 #define gWeatherMode D_801BE700
+#define ref_D_801F4E30 D_801EC6B8
+#define ref_D_801F4E74 D_801EC6FC
 #define ref_func_80966608 func_800001F8
 #define ref_func_80966758 func_80000348
 #define ref_func_8096689C func_8000048C
@@ -31,6 +41,7 @@
 #define ref_func_80966D20 func_80000910
 #define ref_func_80966E0C func_800009FC
 #define ref_func_80966E84 D_8094B974
+#define ref_func_80966EF0 D_8094B9E0
 #define ref_func_80966FEC func_80000BDC
 #define ref_func_80967060 func_80000C50
 #define ref_func_80967148 func_80000D38
@@ -38,7 +49,13 @@
 #define ref_func_809674C8 func_800010B8
 #define ref_func_80967608 func_800011F8
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_801F4E30 ref_D_801F4E30
+#define D_801F4E74 ref_D_801F4E74
+
 #include "overlays/actors/ovl_En_Weather_Tag/z_en_weather_tag.h"
+#undef D_801F4E30
+#undef D_801F4E74
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void EnWeatherTag_Init(Actor* thisx, PlayState* play);;
 void EnWeatherTag_Destroy(Actor* thisx, PlayState* play);;

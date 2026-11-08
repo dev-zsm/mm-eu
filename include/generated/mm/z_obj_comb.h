@@ -58,6 +58,7 @@
 #define gBeehiveDL D_6000CB0
 #define gBeehiveFragmentDL D_6001040
 #define ref_func_800A8150 func_800A8670
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_8098CE40 func_80000000
 #define ref_func_8098CEAC func_8000006C
 #define ref_func_8098D19C func_8000035C
@@ -76,9 +77,15 @@
 #define sInitChain D_809731B4
 #define sJntSphInit D_809731A4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800A8150 ref_func_800A8150
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Obj_Comb/z_obj_comb.h"
 #include "z_en_item00.h"
 #include "assets/objects/object_comb/object_comb.h"
+#undef func_800A8150
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 void ObjComb_Init(Actor* thisx, PlayState* play);;
 void ObjComb_Destroy(Actor* thisx, PlayState* play2);;
@@ -92,7 +99,7 @@ void ref_func_8098E0B8(ObjComb* this, PlayState* play);;
 extern ActorProfile Obj_Comb_Profile;
 extern ColliderJntSphElementInit sJntSphElementsInit[1];
 extern ColliderJntSphInit sJntSphInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 bool ref_func_8098CE40(ObjComb* this, PlayState* play);
 void ref_func_8098CEAC(ObjComb* this, PlayState* play);
 void ref_func_8098D19C(ObjComb* this, PlayState* play);

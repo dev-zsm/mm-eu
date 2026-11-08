@@ -20,6 +20,7 @@
 #define CutsceneManager_Stop func_800F1D6C
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define EffectSsGRipple_Spawn func_800B2414
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Lib_SegmentedToVirtual func_80100304
@@ -36,6 +37,8 @@
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Matrix_Translate Matrix_Translate
+#define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
 #define func_80B823B0 func_80000000
 #define func_80B82454 func_800000A4
 #define func_80B8259C func_800001EC
@@ -52,6 +55,8 @@
 #define gGreatBayTempleObjectWaterwheelSplashDL D_600CD10
 #define gGreatBayTempleObjectWaterwheelSplashTexAnim D_600CE00
 #define gSetupDLs D_801C1BB0
+#define ref_D_80B83A90 D_80B687B0
+#define ref_D_80B83A94 D_80B687B4
 #define ref_D_80B83C70 D_80B68990
 #define ref_D_80B83C74 D_80B68994
 #define ref_func_80B823B0 func_80000000
@@ -71,8 +76,14 @@
 #define sInitChain D_80B687B8
 #define sTypeInfo D_80B68740
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80B83C70 ref_D_80B83C70
+#define D_80B83C74 ref_D_80B83C74
+
 #include "overlays/actors/ovl_Bg_Dblue_Balance/z_bg_dblue_balance.h"
 #include "assets/objects/object_dblue_object/object_dblue_object.h"
+#undef D_80B83C70
+#undef D_80B83C74
 #define FLAGS 0x00000000
 void BgDblueBalance_Init(Actor* thisx, PlayState* play);;
 void BgDblueBalance_Destroy(Actor* thisx, PlayState* play);;
@@ -99,10 +110,10 @@ typedef struct {
       ActorFunc update;
       ActorFunc draw;
 } BgDblueBalanceTypeInfo;;
-extern BgDblueBalanceTypeInfo sTypeInfo[];
-extern s8 ref_D_80B83A90[];
-extern s8 ref_D_80B83A94[];
-extern InitChainEntry sInitChain[];
+extern BgDblueBalanceTypeInfo sTypeInfo[4];
+extern s8 ref_D_80B83A90[2];
+extern s8 ref_D_80B83A94[4];
+extern InitChainEntry sInitChain[2];
 void ref_func_80B823B0(BgDblueBalance* this);
 s32 ref_func_80B82454(BgDblueBalance* this, PlayState* play);
 void ref_func_80B8259C(BgDblueBalance* this, PlayState* play);

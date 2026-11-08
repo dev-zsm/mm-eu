@@ -6,6 +6,7 @@
 #define Audio_PlaySfx Audio_PlaySfx
 #define ConsoleLogo_Init D_80800768
 #define Entrance_Create Entrance_Create
+#define GameState_SetFramerateDivisor func_80174568
 #define GfxPrint_Close func_80086110
 #define GfxPrint_Destroy func_800860D4
 #define GfxPrint_Init func_80086080
@@ -14,38 +15,49 @@
 #define GfxPrint_SetColor func_80085A2C
 #define GfxPrint_SetPos func_80085A9C
 #define Gfx_SetupDL28_Opa func_8012C970
+#define MapSelect_Destroy D_80801B48
 #define MapSelect_Draw MapSelect_Draw
 #define MapSelect_DrawLoadingScreen MapSelect_DrawLoadingScreen
 #define MapSelect_DrawMenu MapSelect_DrawMenu
 #define MapSelect_Init MapSelect_Init
 #define MapSelect_LoadConsoleLogo MapSelect_LoadConsoleLogo
 #define MapSelect_LoadGame MapSelect_LoadGame
+#define MapSelect_Main D_80801B1C
 #define MapSelect_PrintAgeSetting MapSelect_PrintAgeSetting
 #define MapSelect_PrintCutsceneSetting MapSelect_PrintCutsceneSetting
 #define MapSelect_PrintLoadingMessage MapSelect_PrintLoadingMessage
 #define MapSelect_PrintMenu MapSelect_PrintMenu
 #define MapSelect_UpdateMenu MapSelect_UpdateMenu
 #define Play_Init D_8016B450
+#define Rand_ZeroOne func_8008704C
+#define ShrinkWindow_Init func_80161E10
 #define Sram_InitDebugSave Sram_InitDebugSave
 #define View_Apply View_Apply
+#define View_Init func_8013F2A4
 #define gSaveContext D_801E6EF0
 #define gWeatherMode D_801BE700
 #define ref_func_8012CF0C func_8012D3BC
 #define sFormLabel D_80802384
+#define sLoadingMessages D_80802354
+#define sScenes D_80801CA0
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_8012CF0C ref_func_8012CF0C
 
 #include "overlays/gamestates/ovl_select/z_select.h"
 #include "z64shrink_window.h"
 #include "z64view.h"
 #include "alloca.h"
 #include "overlays/gamestates/ovl_title/z_title.h"
+#undef func_8012CF0C
 void MapSelect_LoadConsoleLogo(MapSelectState* this, u32 entrance, s32 spawn);
 void MapSelect_LoadGame(MapSelectState* this, u32 entrance, s32 spawn);
-extern SceneSelectEntry sScenes[];
+extern SceneSelectEntry sScenes[143];
 void MapSelect_UpdateMenu(MapSelectState* this);
 void MapSelect_PrintMenu(MapSelectState* this, GfxPrint* printer);
-extern const char* sLoadingMessages[];
+extern const char* sLoadingMessages[12];
 void MapSelect_PrintLoadingMessage(MapSelectState* this, GfxPrint* printer);
-extern const char* sFormLabel[][2];
+extern const char* sFormLabel[5][2];
 void MapSelect_PrintAgeSetting(MapSelectState* this, GfxPrint* printer, s32 playerForm);
 void MapSelect_PrintCutsceneSetting(MapSelectState* this, GfxPrint* printer, u16 csIndex);
 void MapSelect_DrawMenu(MapSelectState* this);

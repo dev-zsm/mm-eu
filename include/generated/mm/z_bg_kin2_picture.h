@@ -5,6 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain func_800FF8DC
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
@@ -14,10 +15,17 @@
 #define BgKin2Picture_IsSkulltulaCollected BgKin2Picture_IsSkulltulaCollected
 #define BgKin2Picture_SetupDoNothing func_80B54628
 #define BgKin2Picture_SetupFall func_80B54438
+#define BgKin2Picture_SetupWait func_80B541F0
 #define BgKin2Picture_Shiver BgKin2Picture_Shiver
 #define BgKin2Picture_SpawnDust BgKin2Picture_SpawnDust
 #define BgKin2Picture_SpawnSkulltula BgKin2Picture_SpawnSkulltula
+#define Collider_InitTris func_800E1490
+#define Collider_SetTris func_800E1718
+#define Collider_SetTrisVertices func_800E7C8C
 #define CutsceneManager_Stop func_800F1D6C
+#define DynaPolyActor_Init func_800CABA0
+#define DynaPolyActor_LoadMesh func_800CABC4
+#define DynaPoly_DisableCollision func_800C604C
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define Flags_GetTreasure Flags_GetTreasure
 #define Math_CosS Math_CosS
@@ -28,9 +36,20 @@
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_SetTranslateRotateYXZ func_801826E0
+#define Rand_ZeroOne func_8008704C
+#define gOceanSpiderHouseSkullkidPaintingCol D_6000798
+#define ref_func_800B1210 func_800B1730
+#define sDustBasePos D_80B54748
+#define sInitChain D_80B54754
+#define sTrisInit D_80B54738
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B1210 ref_func_800B1210
 
 #include "overlays/actors/ovl_Bg_Kin2_Picture/z_bg_kin2_picture.h"
 #include "assets/objects/object_kin2_obj/object_kin2_obj.h"
+#undef func_800B1210
 #define FLAGS 0x00000000
 void BgKin2Picture_Init(Actor* thisx, PlayState* play);;
 void BgKin2Picture_Destroy(Actor* thisx, PlayState* play);;
@@ -47,10 +66,10 @@ void BgKin2Picture_Fall(BgKin2Picture* this, PlayState* play);;
 void BgKin2Picture_SetupDoNothing(BgKin2Picture* this);;
 void BgKin2Picture_DoNothing(BgKin2Picture* this, PlayState* play);;
 extern ActorProfile Bg_Kin2_Picture_Profile;
-extern ColliderTrisElementInit sTrisElementsInit[];
+extern ColliderTrisElementInit sTrisElementsInit[2];
 extern ColliderTrisInit sTrisInit;
 extern Vec3f sDustBasePos;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[6];
 bool BgKin2Picture_IsSkulltulaCollected(PlayState* play, s32 skulltulaParams);
 void BgKin2Picture_SpawnSkulltula(BgKin2Picture* this, PlayState* play2);
 #define DUST_COUNT 20

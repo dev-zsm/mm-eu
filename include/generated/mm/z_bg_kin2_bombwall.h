@@ -14,11 +14,28 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_SetSwitch Flags_SetSwitch
+#define Matrix_MultVec3f func_80182B28
+#define Matrix_RotateYS func_80181A3C
+#define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
+#define gOceanSpiderHouseBombableWallDebrisDL D_6000128
+#define gZeroVec3f D_801C9EE0
+#define ref_func_800B0E48 func_800B1368
+#define sDustAccel D_80B53454
+#define sEnvColor D_80B53450
+#define sPrimColor D_80B5344C
+#define sRandomYOffsets D_80B53460
+#define sScales D_80B53468
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B0E48 ref_func_800B0E48
 
 #include "overlays/actors/ovl_Bg_Kin2_Bombwall/z_bg_kin2_bombwall.h"
 #include "assets/objects/object_kin2_obj/object_kin2_obj.h"
+#undef func_800B0E48
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_UCODE_POINT_LIGHT_ENABLED)
 void BgKin2Bombwall_Init(Actor* thisx, PlayState* play);;
 void BgKin2Bombwall_Destroy(Actor* thisx, PlayState* play);;
@@ -36,10 +53,10 @@ s32 BgKin2Bombwall_IsHitFromNearby(BgKin2Bombwall* this, PlayState* play);
 extern Color_RGBA8 sPrimColor;
 extern Color_RGBA8 sEnvColor;
 extern Vec3f sDustAccel;
-extern s8 sRandomYOffsets[];
-extern s16 sScales[];
+extern s8 sRandomYOffsets[5];
+extern s16 sScales[8];
 void BgKin2Bombwall_SpawnEffects(BgKin2Bombwall* this, PlayState* play);
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 void BgKin2Bombwall_Init(Actor* thisx, PlayState* play);
 void BgKin2Bombwall_Destroy(Actor* thisx, PlayState* play);
 void BgKin2Bombwall_SetupWait(BgKin2Bombwall* this);

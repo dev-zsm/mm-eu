@@ -11,16 +11,29 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_SetSwitch Flags_SetSwitch
+#define Matrix_MultVec3f func_80182B28
+#define Matrix_Pop func_8018125C
+#define Matrix_Push func_8018122C
+#define Matrix_RotateYS func_80181A3C
+#define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80BD5E6C func_8000006C
 #define func_80BD6274 func_80000474
+#define object_haka_obj_DL_001680 D_6001680
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_80BD5E00 func_80BBABA0
 #define ref_func_80BD5E6C func_8000006C
 #define ref_func_80BD6274 func_80000474
+#define sRockScales D_80BBB26C
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
 
 #include "overlays/actors/ovl_Bg_Haka_Bombwall/z_bg_haka_bombwall.h"
 #include "assets/objects/object_haka_obj/object_haka_obj.h"
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 void BgHakaBombwall_Init(Actor* thisx, PlayState* play);;
 void BgHakaBombwall_Destroy(Actor* thisx, PlayState* play);;
@@ -36,7 +49,7 @@ void BgHakaBombwall_EndCutscene(BgHakaBombwall* this, PlayState* play);;
 extern ActorProfile Bg_Haka_Bombwall_Profile;
 extern ColliderCylinderInit sCylinderInit;
 extern s16 sRockScales[4];
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 s32 ref_func_80BD5E00(BgHakaBombwall* this);
 void ref_func_80BD5E6C(BgHakaBombwall* this, PlayState* play);
 void BgHakaBombwall_Init(Actor* thisx, PlayState* play);

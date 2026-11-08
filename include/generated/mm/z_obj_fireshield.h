@@ -3,10 +3,13 @@
 #define MM_Z_OBJ_FIRESHIELD_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_PlaySfx_Flagged func_800B8D94
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CollisionCheck_SetAT func_800E2318
+#define CollisionCheck_SetOC func_800E26E8
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
@@ -34,6 +37,7 @@
 #define ref_D_80A4D874 D_80A325D4
 #define ref_D_80A4D884 D_80A325E4
 #define ref_D_80A4D894 D_80A325F4
+#define ref_func_800B8D98 func_800B8B1C
 #define ref_func_80A4CA90 func_80A317F0
 #define ref_func_80A4CABC func_8000002C
 #define ref_func_80A4CB7C func_800000EC
@@ -43,11 +47,16 @@
 #define ref_func_80A4CD34 func_800002A4
 #define ref_func_80A4CE28 func_80000398
 #define ref_func_80A4D174 func_800006E4
+#define ref_func_80A4D1CC func_80A31F2C
 #define sCylinderInit D_80A32580
 #define sInitChain D_80A32604
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8D98 ref_func_800B8D98
+
 #include "overlays/actors/ovl_Obj_Fireshield/z_obj_fireshield.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800B8D98
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjFireshield_Init(Actor* thisx, PlayState* play);;
 void ObjFireshield_Destroy(Actor* thisx, PlayState* play);;
@@ -64,12 +73,12 @@ typedef struct {
       f32 unk_00;
       f32 unk_04;
 } ObjFireshieldStruct;;
-extern ObjFireshieldStruct ref_D_80A4D84C[];
-extern s32 ref_D_80A4D864[];
-extern s32 ref_D_80A4D874[];
-extern s32 ref_D_80A4D884[];
-extern s32 ref_D_80A4D894[];
-extern InitChainEntry sInitChain[];
+extern ObjFireshieldStruct ref_D_80A4D84C[3];
+extern s32 ref_D_80A4D864[4];
+extern s32 ref_D_80A4D874[4];
+extern s32 ref_D_80A4D884[4];
+extern s32 ref_D_80A4D894[4];
+extern InitChainEntry sInitChain[3];
 void ref_func_80A4CA90(ObjFireshield* this);
 void ref_func_80A4CABC(ObjFireshield* this);
 void ref_func_80A4CB7C(ObjFireshield* this);

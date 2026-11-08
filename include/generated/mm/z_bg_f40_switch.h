@@ -25,6 +25,8 @@
 #define sBgF40SwitchLastUpdateFrame D_80BA9CC0
 #define sInitChain D_80BA9BA4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "overlays/actors/ovl_Bg_F40_Switch/z_bg_f40_switch.h"
 #include "z64rumble.h"
 #include "assets/objects/object_f40_switch/object_f40_switch.h"
@@ -47,7 +49,7 @@ extern u32 sBgF40SwitchLastUpdateFrame;;
 #if MM_VERSION >= N64_US
 void BgF40Switch_CheckAll(BgF40Switch* this, PlayState* play);
 #endif
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 void BgF40Switch_Init(Actor* thisx, PlayState* play);
 void BgF40Switch_Destroy(Actor* thisx, PlayState* play);
 void BgF40Switch_Unpress(BgF40Switch* this, PlayState* play);

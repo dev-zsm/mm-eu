@@ -14,6 +14,7 @@
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
 #define Audio_PlaySfx Audio_PlaySfx
+#define BgCheck_EntityLineTest2 func_800C53E0
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
@@ -43,7 +44,15 @@
 #define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Math_Vec3f_Diff Math_Vec3f_Diff
 #define Math_Vec3f_Scale Math_Vec3f_Scale
+#define Math_Vec3f_Sum func_800FF3BC
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
+#define Matrix_Get func_80181278
+#define Matrix_MtxFToYXZRot func_8018322C
+#define Matrix_MultVec3f func_80182B28
+#define Matrix_Put func_8018129C
+#define Matrix_RotateXS func_80181508
+#define Matrix_RotateYS func_80181A3C
+#define Matrix_RotateZS func_80181D88
 #define Matrix_Scale Matrix_Scale
 #define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjBean_Init ObjBean_Init
@@ -76,6 +85,7 @@
 #define object_mamenoki_DL_0002D0 D_60002D0
 #define object_mamenoki_DL_000530 D_6000530
 #define ref_D_80938FF8 D_8091DAE8
+#define ref_func_800C0094 func_800BFE24
 #define ref_func_800FE9B4 func_800FE7AC
 #define ref_func_80936CF0 func_80000000
 #define ref_func_80936D58 func_80000068
@@ -123,9 +133,19 @@
 #define sCylinderInit2 D_8091DABC
 #define sInitChain D_8091DB1C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80939018 ref_D_80939018
+#define D_80939024 ref_D_80939024
+#define func_800C0094 ref_func_800C0094
+#define func_800FE9B4 ref_func_800FE9B4
+
 #include "overlays/actors/ovl_Obj_Bean/z_obj_bean.h"
 #include "assets/objects/object_mamenoki/object_mamenoki.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef D_80939018
+#undef D_80939024
+#undef func_800C0094
+#undef func_800FE9B4
 #define FLAGS (ACTOR_FLAG_IGNORE_LEGACY_POINT_LIGHTS)
 void ObjBean_Init(Actor* thisx, PlayState* play);;
 void ObjBean_Destroy(Actor* thisx, PlayState* play);;
@@ -191,7 +211,7 @@ s32 ref_func_80937468(ObjBean* this, PlayState* play);
 ObjBean* ref_func_809374F8(ObjBean* this, PlayState* play);
 void ref_func_809375C8(ObjBean* this, PlayState* play);
 void ref_func_809375F4(ObjBean* this, PlayState* play);
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 void ObjBean_Init(Actor* thisx, PlayState* play);
 void ObjBean_Destroy(Actor* thisx, PlayState* play);
 void ref_func_80937B54(ObjBean* this);

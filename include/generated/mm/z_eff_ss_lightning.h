@@ -10,9 +10,22 @@
 #define EffectSsLightning_Update EffectSsLightning_Update
 #define EffectSs_Delete EffectSs_Delete
 #define EffectSs_Insert EffectSs_Insert
+#define Gfx_SetupDL61_Xlu func_8012CE6C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Rand_ZeroOne func_8008704C
+#define SkinMatrix_MtxFMtxFMult func_801390E8
+#define SkinMatrix_MtxFToNewMtx func_80139FC8
+#define SkinMatrix_SetRotateRPY func_8013983C
+#define SkinMatrix_SetScale func_801397D8
+#define SkinMatrix_SetTranslate func_80139B5C
+#define gEffLightningDL D_403F230
+#define gIdentityMtx D_801CA710
+#define sLightningTextures D_8095F9C0
+#define sTexturesDesegmented D_8095F9E8
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/effects/ovl_Effect_Ss_Lightning/z_eff_ss_lightning.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
@@ -32,7 +45,7 @@
 u32 EffectSsLightning_Init(PlayState* play, u32 index, EffectSs* this, void* initParamsx);;
 void EffectSsLightning_Update(PlayState* play, u32 index, EffectSs* this);;
 void EffectSsLightning_Draw(PlayState* play, u32 index, EffectSs* this);;
-extern TexturePtr sLightningTextures[];
+extern TexturePtr sLightningTextures[8];
 extern EffectSsProfile Effect_Ss_Lightning_Profile;
 extern s32 sTexturesDesegmented;
 u32 EffectSsLightning_Init(PlayState* play, u32 index, EffectSs* this, void* initParamsx);

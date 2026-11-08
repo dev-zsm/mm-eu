@@ -3,6 +3,9 @@
 #define MM_Z_OBJ_SWITCH_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_SetFocus func_800B64E0
+#define Actor_SetScale func_800B6564
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_InitTris Collider_InitTris
@@ -15,14 +18,17 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
+#define DynaPolyActor_Init func_800CABA0
 #define DynaPolyActor_IsHeavySwitchPressed func_800CAD6C
 #define DynaPolyActor_IsSwitchPressed func_800CAD48
+#define DynaPolyActor_LoadMesh func_800CABC4
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Cos Math3D_Cos
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
@@ -49,12 +55,17 @@
 #define ObjSwitch_DrawInvisibleEyeSwitch ObjSwitch_DrawInvisibleEyeSwitch
 #define ObjSwitch_DrawVisibleEyeSwitch ObjSwitch_DrawVisibleEyeSwitch
 #define ObjSwitch_EyeSwitchClosed ObjSwitch_EyeSwitchClosed
+#define ObjSwitch_EyeSwitchClosedInit func_80920900
+#define ObjSwitch_EyeSwitchFrozenInit func_809207B8
+#define ObjSwitch_EyeSwitchOpenInit func_80920824
 #define ObjSwitch_EyeSwitchOpeningInit func_809209E0
 #define ObjSwitch_FloorSwitchDown ObjSwitch_FloorSwitchDown
+#define ObjSwitch_FloorSwitchDownInit func_809204B0
 #define ObjSwitch_FloorSwitchPushDownInit func_8092041C
 #define ObjSwitch_FloorSwitchRiseUpInit func_8092064C
 #define ObjSwitch_FloorSwitchSnapPlayerToSwitchEdge ObjSwitch_FloorSwitchSnapPlayerToSwitchEdge
 #define ObjSwitch_FloorSwitchUp ObjSwitch_FloorSwitchUp
+#define ObjSwitch_FloorSwitchUpInit func_809201E4
 #define ObjSwitch_Init ObjSwitch_Init
 #define ObjSwitch_InitJntSphCollider ObjSwitch_InitJntSphCollider
 #define ObjSwitch_InitTrisCollider ObjSwitch_InitTrisCollider
@@ -62,9 +73,11 @@
 #define ObjSwitch_LargeFloorSwitchDown ObjSwitch_LargeFloorSwitchDown
 #define ObjSwitch_LargeFloorSwitchDownInit ObjSwitch_LargeFloorSwitchDownInit
 #define ObjSwitch_LargeFloorSwitchRiseUpInit func_80921074
+#define ObjSwitch_LargeFloorSwitchUpInit func_80920DA4
 #define ObjSwitch_PlayDiamondSwitchSfx func_8091F9E0
 #define ObjSwitch_SetFloorSwitchSnapPlayerState func_8091FA0C
 #define ObjSwitch_SetSwitchFlagState ObjSwitch_SetSwitchFlagState
+#define ObjSwitch_SpawnIce func_8091F898
 #define ObjSwitch_StopCutscene func_8091F978
 #define ObjSwitch_TryPlayCutscene ObjSwitch_TryPlayCutscene
 #define ObjSwitch_TryPlayCutsceneInit func_80920138
@@ -73,19 +86,32 @@
 #define gCrystalSwitchBaseDL D_501C058
 #define gCrystalSwitchCoreDL D_501BEE0
 #define gCrystalSwitchDiamondDL D_501BFB8
+#define gCrystalSwitchTexAnim D_501C118
 #define gFloorSwitch1DL D_501B508
+#define gFloorSwitchCol D_5008018
 #define gSetupDLs D_801C1BB0
 #define ref_func_800B8118 func_800B7E9C
 #define sCrystalSwitchAnimatedMat D_80921EA0
 #define sEyeSwitchDL D_80921930
 #define sEyeSwitchTextures D_80921750
+#define sEyeSwitchTrisInit D_809218C4
 #define sFloorSwitchDL D_8092191C
+#define sHeights D_80921794
+#define sInitChain D_80921908
 #define sJntSphInit D_809218F8
+#define sRustyFloorTrisInit D_8092183C
+#define sSakonHideoutColor D_80921914
+#define sScale D_809217AC
+#define sTexturesDesegmented D_80921770
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8118 ref_func_800B8118
 
 #include "overlays/actors/ovl_Obj_Switch/z_obj_switch.h"
 #include "z64rumble.h"
 #include "overlays/actors/ovl_Obj_Ice_Poly/z_obj_ice_poly.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
+#undef func_800B8118
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 #define COS_OF_5_PI_DIV_8 -0.38268343f
 void ObjSwitch_Init(Actor* thisx, PlayState* play);;
@@ -134,21 +160,21 @@ void ObjSwitch_DrawVisibleEyeSwitch(ObjSwitch* this, PlayState* play);;
 void ObjSwitch_DrawInvisibleEyeSwitch(ObjSwitch* this, PlayState* play);;
 void ObjSwitch_DrawEyeSwitch(ObjSwitch* this, PlayState* play);;
 void ObjSwitch_DrawCrystalSwitch(ObjSwitch* this, PlayState* play);;
-extern TexturePtr sEyeSwitchTextures[][4];
+extern TexturePtr sEyeSwitchTextures[2][4];
 extern s32 sTexturesDesegmented;
 extern ActorProfile Obj_Switch_Profile;
-extern f32 sHeights[];
-extern f32 sScale[];
+extern f32 sHeights[6];
+extern f32 sScale[6];
 extern ColliderTrisElementInit sRustyFloorTrisElementsInit[2];
 extern ColliderTrisInit sRustyFloorTrisInit;
 extern ColliderTrisElementInit sEyeSwitchTrisElementsInit[2];
 extern ColliderTrisInit sEyeSwitchTrisInit;
 extern ColliderJntSphElementInit sJntSphElementsInit[1];
 extern ColliderJntSphInit sJntSphInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[3];
 extern Color_RGB8 sSakonHideoutColor[2];
-extern Gfx* sFloorSwitchDL[];
-extern Gfx* sEyeSwitchDL[];
+extern Gfx* sFloorSwitchDL[5];
+extern Gfx* sEyeSwitchDL[2];
 extern AnimatedMaterial* sCrystalSwitchAnimatedMat;;
 void ObjSwitch_InitJntSphCollider(Actor* thisx, PlayState* play, ColliderJntSphInit* init);
 void ObjSwitch_InitTrisCollider(Actor* thisx, PlayState* play, ColliderTrisInit* init);

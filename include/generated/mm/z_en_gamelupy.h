@@ -20,16 +20,25 @@
 #define EnGamelupy_SetupFindSharedMemory func_80ADB674
 #define EnGamelupy_SpawnSparkles EnGamelupy_SpawnSparkles
 #define EnGamelupy_UpdateCollision EnGamelupy_UpdateCollision
+#define Gfx_SetupDL25_Opa func_8012C73C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Rand_Next func_80087010
 #define Rupees_ChangeBy func_80115C10
+#define gRupeeDL D_40622C0
+#define ref_func_800B8050 func_800B7DD4
 #define sCylinderInit D_80ADBA20
 #define sEnvColor D_80ADBA64
 #define sPrimColor D_80ADBA60
+#define sRupeeTextures D_80ADBA4C
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8050 ref_func_800B8050
 
 #include "overlays/actors/ovl_En_Gamelupy/z_en_gamelupy.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800B8050
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void EnGamelupy_Init(Actor* thisx, PlayState* play);;
 void EnGamelupy_Destroy(Actor* thisx, PlayState* play);;
@@ -43,7 +52,7 @@ void EnGamelupy_SetupIdle(EnGamelupy* this);;
 void EnGamelupy_SetupCollected(EnGamelupy* this);;
 extern ActorProfile En_Gamelupy_Profile;
 extern ColliderCylinderInit sCylinderInit;
-extern TexturePtr sRupeeTextures[];
+extern TexturePtr sRupeeTextures[5];
 extern Color_RGBA8 sPrimColor;
 extern Color_RGBA8 sEnvColor;
 void EnGamelupy_Init(Actor* thisx, PlayState* play);

@@ -4,15 +4,26 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
+#define Actor_ProcessInitChain func_800FF8DC
 #define Actor_Spawn Actor_Spawn
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define Collider_InitCylinder func_800E0F5C
+#define Collider_SetCylinder func_800E10CC
+#define Collider_UpdateCylinder func_800E7BB8
+#define DynaPolyActor_Init func_800CABA0
+#define DynaPolyActor_LoadMesh func_800CABC4
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetTreasure Flags_GetTreasure
+#define Item_CanDropBigFairy func_800A86C4
 #define Item_DropCollectible Item_DropCollectible
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
+#define Math_CosS func_800FEB44
+#define Math_SinS func_800FEB84
 #define ObjKibako2_Break ObjKibako2_Break
 #define ObjKibako2_ContainsSkulltula ObjKibako2_ContainsSkulltula
 #define ObjKibako2_Destroy ObjKibako2_Destroy
+#define ObjKibako2_Idle D_809739A8
 #define ObjKibako2_Init ObjKibako2_Init
 #define ObjKibako2_ShouldBreak ObjKibako2_ShouldBreak
 #define ObjKibako2_SpawnCollectible ObjKibako2_SpawnCollectible
@@ -21,12 +32,23 @@
 #define Rand_Next func_80087010
 #define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C
+#define gLargeCrateCol D_6000B70
+#define gLargeCrateFragment1DL D_6001040
 #define ref_func_800A8150 func_800A8670
+#define ref_func_800BBFB0 func_800BBD34
+#define sCylinderInit D_80973BA0
+#define sInitChain D_80973BCC
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800A8150 ref_func_800A8150
+#define func_800BBFB0 ref_func_800BBFB0
 
 #include "overlays/actors/ovl_Obj_Kibako2/z_obj_kibako2.h"
 #include "z_en_item00.h"
 #include "assets/objects/object_kibako2/object_kibako2.h"
 #include "overlays/effects/ovl_Effect_Ss_Kakera/z_eff_ss_kakera.h"
+#undef func_800A8150
+#undef func_800BBFB0
 #define FLAGS 0x00000000
 void ObjKibako2_Init(Actor* thisx, PlayState* play);;
 void ObjKibako2_Destroy(Actor* thisx, PlayState* play);;
@@ -36,7 +58,7 @@ void ObjKibako2_Idle(ObjKibako2* this, PlayState* play);;
 void ObjKibako2_Kill(ObjKibako2* this, PlayState* play);;
 extern ActorProfile Obj_Kibako2_Profile;
 extern ColliderCylinderInit sCylinderInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 bool ObjKibako2_ContainsSkulltula(ObjKibako2* this, PlayState* play);
 void ObjKibako2_Break(ObjKibako2* this, PlayState* play);
 void ObjKibako2_SpawnCollectible(ObjKibako2* this, PlayState* play);

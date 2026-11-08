@@ -47,6 +47,16 @@ def run(*a, **k):
     return subprocess.run(a, capture_output=True, text=True, **k)
 
 
+_FP = [None]   # fingerprint of the stand-ins (see stand_state), set by stub_loop before each round
+
+
+def stand_state():
+    """What a failed compile of the reference depends on besides the file: the stand-ins written so far."""
+    base = REF / "extracted" / "n64-us"
+    files = sorted(p for p in base.rglob("*") if p.is_file()) if base.exists() else []
+    return objcache.digest(*(str(p.relative_to(base)).encode() + b"\0" + p.read_bytes() for p in files))[:16]
+
+
 @functools.lru_cache(maxsize=1)
 def ref_commit():
     return run("git", "-C", str(REF), "rev-parse", "HEAD").stdout.strip()
@@ -61,9 +71,15 @@ def ref_compile(f):
     if obj.exists():
         return obj, ""
     obj.parent.mkdir(parents=True, exist_ok=True)
+    if _FP[0] is None:
+        _FP[0] = stand_state()
+    failure = obj.with_name(f"{key}.{_FP[0]}.err")   # a failure holds for the stand-ins it was compiled with
+    if failure.exists():
+        return None, failure.read_text(errors="replace")
     with tempfile.TemporaryDirectory() as d:
         r = run(str(objcache._compiler("71")), *REF_FLAGS, "-o", d + "/x.o", str(f.relative_to(REF)), cwd=REF)
         if r.returncode:
+            failure.write_text(r.stderr)
             return None, r.stderr
         tmp = obj.with_suffix(f".{os.getpid()}.tmp")
         shutil.move(d + "/x.o", tmp)
@@ -85,15 +101,19 @@ def vendor():
     if not REF.exists():
         REF.parent.mkdir(parents=True, exist_ok=True)
         run("git", "clone", "--depth", "1", "https://github.com/zeldaret/mm", str(REF))
+    commit = ref_commit()
+    stamp = MM / "REFERENCE_COMMIT"
+    # the stamp is written after the copy: with the same version of the reference, include/ src/ and assets/ are already in include/mm
+    # (the copy of ~1500 small files took a minute on the Windows disk); the stand-ins grow from run to run, so they are always looked at
+    done = stamp.exists() and stamp.read_text().strip() == commit
     # additive: the stand-ins of earlier runs stay
-    for base, dst_base in ((REF / "include", MM), (REF / "src", MM), (REF / "assets", MM / "assets"),
-                           (REF / "extracted" / "n64-us", MM)):   # the last one holds only the stand-ins written by stub_loop
-        for h in base.rglob("*"):
+    for base, dst_base in (((REF / "extracted" / "n64-us", MM),) if done else
+                           ((REF / "include", MM), (REF / "src", MM), (REF / "assets", MM / "assets"), (REF / "extracted" / "n64-us", MM))):
+        for h in base.rglob("*"):   # the last base holds only the stand-ins written by stub_loop
             if h.is_file() and (base != REF / "src" and base != REF / "assets" or h.suffix == ".h"):
                 copy_new(h, dst_base / h.relative_to(base))
-    commit = run("git", "-C", str(REF), "rev-parse", "HEAD").stdout.strip()
-    (MM / "REFERENCE_COMMIT").write_text(commit + "\n")   # the import can be redone exactly
-    print(f"{sum(1 for _ in MM.rglob('*') if _.is_file())} files in {MM.relative_to(ROOT)} (reference {commit[:8]})")
+    stamp.write_text(commit + "\n")   # the import can be redone exactly
+    print(f"include/mm: reference {commit[:8]}" + (" (headers already copied)" if done else ""))
 
 
 # ---------------------------------------------------------------- the reference side
@@ -106,35 +126,37 @@ def stub_loop(files):
     known = set(re.findall(r"extern u8 (\w+)\[\];", syms.read_text()))
     todo = list(files)
     for _ in range(14):
-        errs, failed = [], []
+        _FP[0] = stand_state()
+        errs = {}
 
         def one(f):
             obj, err = ref_compile(f)
             if obj is None:
-                errs.append(err)
-                failed.append(f)
+                errs[f] = err
 
         with ThreadPoolExecutor(objcache.JOBS) as ex:
             list(ex.map(one, todo))
-        todo = failed   # a stand-in only helps the files that failed
-        new, add = 0, []
-        text = "\n".join(errs)
-        for m in re.finditer(r"Cannot open file (\S+) for #include", text):
-            p = base / m.group(1)
-            if not p.exists():
-                p.parent.mkdir(parents=True, exist_ok=True)
-                p.write_text('#include "assets/_syms.h"\n')
-                new += 1
-        for m in re.finditer(r"'(\w+)' undefined", text):
-            if m.group(1) not in known:
-                known.add(m.group(1))
-                add.append(m.group(1))
-                new += 1
-        if add:
-            with syms.open("a") as f:
-                f.write("".join(f"extern u8 {n}[];\n" for n in add))
-        if not new:
+        made = set()   # what this round created: the files whose error names it are compiled again, the others cannot change
+        for err in errs.values():
+            for m in re.finditer(r"Cannot open file (\S+) for #include", err):
+                p = base / m.group(1)
+                if not p.exists():
+                    p.parent.mkdir(parents=True, exist_ok=True)
+                    p.write_text('#include "assets/_syms.h"\n')
+                    made.add(m.group(1))
+            add = []
+            for m in re.finditer(r"'(\w+)' undefined", err):
+                if m.group(1) not in known:
+                    known.add(m.group(1))
+                    add.append(m.group(1))
+                    made.add(m.group(1))
+            if add:
+                with syms.open("a") as f:
+                    f.write("".join(f"extern u8 {n}[];\n" for n in add))
+        if not made:
             break
+        todo = [f for f, err in errs.items()
+                if any(re.search(rf"Cannot open file {re.escape(n)} for #include|'{re.escape(n)}' undefined", err) for n in made)]
 
 
 def ref_functions(obj):
@@ -157,9 +179,14 @@ def asm_text(seg):
     return match.asm_file(seg).read_text()
 
 
+@functools.lru_cache(maxsize=None)
+def overlay_dir(index):
+    return srcpath.overlay_dir(index)   # a glob of src/overlays: 13,000 of them took a minute and a half on the Windows disk
+
+
 def source_path(seg, fn):
     """Where the C file of one of our functions lives: src/overlays/<index>/ for an overlay, else src/<seg>/<module>/."""
-    return srcpath.overlay_dir(seg[3:]) / f"{fn}.c" if seg.startswith("ovl") else srcpath.path(seg, fn)
+    return overlay_dir(seg[3:]) / f"{fn}.c" if seg.startswith("ovl") else srcpath.path(seg, fn)
 
 
 def our_symbols(seg, fn):
@@ -300,10 +327,49 @@ def top_chunks(text):
     return out
 
 
+def chunks_of(f):
+    """The chunks of a reference file, with the `.c` files it includes (`#include "z_en_kanban_gfx.c"`) written in place: its header could not
+    include them, they hold definitions and the functions the object has."""
+    out = []
+    for ch in top_chunks(f.read_text()):
+        m = re.fullmatch(r'#include "([^"]+\.c)"', ch[1]) if ch[0] == "pp" else None
+        inc = next((p for p in (f.parent / m.group(1), REF / "src" / m.group(1)) if p.is_file()), None) if m else None
+        out += chunks_of(inc) if inc else [ch]
+    return out
+
+
 def func_name(chunk):
     head = chunk[:chunk.index("{")]
     m = re.search(r"(\w+)\s*\(", head)
     return m.group(1) if m else None
+
+
+def initializer_count(init):
+    """Number of elements of a `{ a, b, { c, d }, }` initialiser (0 when it is not a brace list). A macro that expands to several elements
+    is counted as one: the size is then wrong, and the function that depends on it is rejected by the byte check."""
+    init = init.strip().rstrip(";").rstrip()
+    if not init.startswith("{") or not init.endswith("}"):
+        return 0
+    depth, parts, cur, i = 0, 0, False, 0
+    while i < len(init):
+        c = init[i]
+        if c in "\"'":
+            j = i + 1
+            while j < len(init) and init[j] != c:
+                j += 2 if init[j] == "\\" else 1
+            i, cur = j, True
+        elif c in "({[":
+            depth += 1
+            cur = cur or depth > 1
+        elif c in ")}]":
+            depth -= 1
+        elif c == "," and depth == 1:
+            parts += cur
+            cur = False
+        elif not c.isspace() and depth >= 1:
+            cur = True
+        i += 1
+    return parts + cur
 
 
 def as_extern(decl):
@@ -324,7 +390,10 @@ def as_extern(decl):
             eq = k
             break
     if eq is not None:
+        n = initializer_count(s[eq + 1:])
         s = s[:eq].rstrip()
+        if n:   # `T x[]` has no size without its initialiser: sizeof / ARRAY_COUNT need it (a declaration with a size reaches the same symbol)
+            s = re.sub(r"\[\s*\]", f"[{n}]", s, count=1)
     s = re.sub(r"\bstatic\b\s*", "", s).strip()
     if "(" in s and eq is None:
         return s  # a prototype
@@ -371,18 +440,29 @@ def build_header(stem, chunks, aliases, refdir=""):
     out = ["/* Generated by tools/search/ref_import.py: what the functions imported from one file of the reference need. */",
            f"#ifndef {guard}", f"#define {guard}", ""]
     out += [ALIAS_MARK] + [f"#define {a} {b}" for a, b in sorted(aliases.items())] + [""]
-    n_alias = len(out)
-    for ch in chunks:
+    # an address name that the file uses but only a header of the reference declares (data or functions of `code`): the body spells it with
+    # the prefix, so the declaration of the header must too, or the prefixed name is undeclared (an unsized array, a function taken as a
+    # value, a call with the wrong argument types). The names are renamed only while the headers are read.
+    mine = {name for ch in chunks if ch[0] == "func" for name in [func_name(ch[1])] if name}
+    mine |= {x for ch in chunks if ch[0] == "decl" for x in US.findall(as_extern(ch[1]))
+             if re.search(rf"\b{x}\b\s*(\[[^\]]*\]\s*)*($|\()", as_extern(ch[1]))}
+    outside = sorted({x for ch in chunks if ch[0] != "pp" for x in US.findall(ch[1])} - mine)
+    last_include = max((i for i, ch in enumerate(chunks) if ch[0] == "pp" and ch[1].startswith("#include")), default=-1)
+    if last_include >= 0:
+        out += ["/* names declared by the headers of the reference, prefixed while they are read */"]
+        out += [f"#define {x} ref_{x}" for x in outside] + [""]
+    tail = []
+    for i, ch in enumerate(chunks):
         if ch[0] == "pp":
             if not ch[1].startswith("#pragma"):
-                out.append(next_to_the_file(ch[1], refdir))
+                tail.append(US.sub(r"ref_\1", next_to_the_file(ch[1], refdir)))
         elif ch[0] == "func":
-            out.append(re.sub(r"\b(static|inline)\b\s*", "", ch[1][:ch[1].index("{")].rstrip()) + ";")
+            tail.append(US.sub(r"ref_\1", re.sub(r"\b(static|inline)\b\s*", "", ch[1][:ch[1].index("{")].rstrip()) + ";"))
         else:
-            out.append(as_extern(ch[1]) + ";")
-    out += ["", "#endif", ""]
-    # the reference's own address names are prefixed; the aliases point at names of ours, which stay as they are
-    return "\n".join(out[:n_alias] + [US.sub(r"ref_\1", line) for line in out[n_alias:]])
+            tail.append(US.sub(r"ref_\1", as_extern(ch[1]) + ";"))
+        if i == last_include:
+            tail += [f"#undef {x}" for x in outside]
+    return "\n".join(out + tail + ["", "#endif", ""])
 
 
 def next_to_the_file(line, refdir):
@@ -458,7 +538,7 @@ def code_candidates(only=None):
             NEW_NAMES[fn] = real
             match.NAMES[fn] = real   # the files define the real name; the checks look it up here
             items[fname].append((SEG, fn, real))
-    return {relkey(f): (top_chunks(f.read_text()), items[relkey(f)]) for f, _ in scans if items.get(relkey(f))}
+    return {relkey(f): (chunks_of(f), items[relkey(f)]) for f, _ in scans if items.get(relkey(f))}
 
 
 def opcodes(code):
@@ -486,6 +566,8 @@ def overlay_candidates(only=None, names_mode=False):
 
     with ThreadPoolExecutor(objcache.JOBS) as ex:
         scans = [s for s in ex.map(scan, files) if s[1]]
+    if "--why" in sys.argv:
+        print(f"  why {len(files) - len(scans)} of {len(files)} reference files without object: " + " ".join(sorted(f.name for f in files if f not in {s[0] for s in scans}))[:3000])
     lap("reference objects read")
     free = collections.defaultdict(list)   # (size, opcodes) -> [(overlay segment, function, its bytes)] without verified C
     for line in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines():
@@ -512,6 +594,8 @@ def overlay_candidates(only=None, names_mode=False):
                 for seg in {seg for seg, _ in found}:
                     votes[seg] += 1
         ranked = votes.most_common(2)
+        if "--why" in sys.argv:
+            print(f"  why {relkey(f)}: {len(fns)} functions, {sum(1 for v in hits.values() if v)} with a twin, votes {votes.most_common(3)}")
         if not ranked or (len(ranked) > 1 and ranked[0][1] == ranked[1][1]):
             continue   # no overlay, or two overlays equally likely: no guess
         best = ranked[0][0]
@@ -526,13 +610,38 @@ def overlay_candidates(only=None, names_mode=False):
         if len(found) == 1:
             fname, real = found[0]
             items[fname].append((seg, fn, real))
-    return {relkey(f): (top_chunks(f.read_text()), items[relkey(f)]) for f, _ in scans if items.get(relkey(f))}
+    return {relkey(f): (chunks_of(f), items[relkey(f)]) for f, _ in scans if items.get(relkey(f))}
 
 
-def aligned_names(claims, chosen, scans):
-    """{(overlay segment, our function): (name, evidence)} for the functions that sit between two functions with identical bytes, at the same
-    rank and with the same size as a function of the reference file: the functions of a file are in the same order in the ROM and in the source.
-    Only the gaps between two anchors of one file count, and only when both sides have the same number of functions with the same sizes."""
+def embed(short, long):
+    """The positions of `long` where the items of `short` appear in order, when there is exactly one way to place them, else None."""
+    n, m = len(short), len(long)
+    ways = [[0] * (m + 1) for _ in range(n + 1)]   # embeddings of short[i:] in long[j:], counted up to 2
+    ways[n] = [1] * (m + 1)
+    for i in range(n - 1, -1, -1):
+        for j in range(m - 1, -1, -1):
+            ways[i][j] = min(2, ways[i][j + 1] + (ways[i + 1][j + 1] if short[i] == long[j] else 0))
+    if ways[0][0] != 1:
+        return None
+    pos, j = [], 0
+    for i in range(n):
+        while not (short[i] == long[j] and ways[i + 1][j + 1]):
+            j += 1
+        pos.append(j)
+        j += 1
+    return pos
+
+
+NAME_RULES = ("gap", "edge", "partial", "embed", "single")
+
+
+def aligned_names(claims, chosen, scans, hide=frozenset(), rules=NAME_RULES):
+    """{(overlay segment, our function): (name, evidence)} for functions that have no identical bytes in the reference but whose place
+    proves the name: the functions of a file are in the same order in the ROM and in the source, and the anchors are the functions with
+    identical bytes. Between two anchors of one file (`gap`), or before the first and after the last one (`edge`), when both sides have the
+    same number of functions with the same sizes; `partial` when the numbers are equal and only some sizes agree (the others stay
+    unnamed); `embed` when the numbers differ but the shorter side has exactly one way to sit in the longer one with the same size and
+    instruction opcodes; `single` for the one function left of its size and opcodes on both sides. `hide` anchors are ignored (to test)."""
     out = {}
     fns_of = {f: fns for f, fns in scans}
     for f, seg, votes in chosen:
@@ -540,19 +649,85 @@ def aligned_names(claims, chosen, scans):
             continue
         ref = sorted(fns_of[f].items(), key=lambda kv: kv[1][0])   # the functions of the file in source order
         ref_index = {real: i for i, (real, _) in enumerate(ref)}
+        ref_key = [(len(v[1]), opcodes(v[1])) for _, v in ref]
         sizes = match._sizes(seg)
         ours = sorted(sizes, key=lambda n: int(n[-8:], 16))
         our_index = {fn: i for i, fn in enumerate(ours)}
+        our_key = [(sizes[fn], opcodes(match.original(seg, fn)[0])) for fn in ours]
         anchors = sorted((our_index[fn], ref_index[found[0][1]]) for (s, fn), found in claims.items()
-                         if s == seg and len(found) == 1 and found[0][0] == relkey(f) and found[0][1] in ref_index and fn in our_index)
-        for (o1, r1), (o2, r2) in zip(anchors, anchors[1:]):
+                         if s == seg and len(found) == 1 and found[0][0] == relkey(f) and found[0][1] in ref_index and fn in our_index
+                         and (s, fn) not in hide)
+        if not anchors:
+            continue
+        done_o, done_r = {o for o, _ in anchors}, {r for _, r in anchors}
+        found = {}   # our index -> (reference index, rule)
+
+        def put(a, b, rule):
+            if rules and rule in rules:
+                found[a] = (b, rule)
+                done_o.add(a)
+                done_r.add(b)
+
+        cuts = [(-1, -1)] + anchors + [(len(ours), len(ref))]
+        for (o1, r1), (o2, r2) in zip(cuts, cuts[1:]):
             if r2 <= r1 or o2 <= o1:
                 continue   # the two orders disagree here
-            gap_o, gap_r = range(o1 + 1, o2), range(r1 + 1, r2)
-            if len(gap_o) == len(gap_r) and all(sizes[ours[a]] == len(ref[b][1][1]) for a, b in zip(gap_o, gap_r)):
-                for a, b in zip(gap_o, gap_r):
-                    out[(seg, ours[a])] = (ref[b][0], "same rank and size between two functions with identical bytes")
+            go, gr = list(range(o1 + 1, o2)), list(range(r1 + 1, r2))
+            if not go or not gr:
+                continue
+            edge = o1 < 0 or o2 == len(ours)
+            if len(go) == len(gr):
+                same = [(a, b) for a, b in zip(go, gr) if our_key[a][0] == ref_key[b][0]]
+                if len(same) == len(go):
+                    for a, b in same:
+                        put(a, b, "edge" if edge else "gap")
+                else:
+                    for a, b in same:
+                        put(a, b, "partial")
+            else:
+                short, long_ = (go, gr) if len(go) < len(gr) else (gr, go)
+                keys = (our_key, ref_key) if short is go else (ref_key, our_key)
+                pos = embed([keys[0][i] for i in short], [keys[1][i] for i in long_])
+                if pos is not None:
+                    for i, p in zip(short, pos):
+                        a, b = (i, long_[p]) if short is go else (long_[p], i)
+                        put(a, b, "embed")
+        left_o, left_r = collections.defaultdict(list), collections.defaultdict(list)
+        for i, k in enumerate(our_key):
+            if i not in done_o:
+                left_o[k].append(i)
+        for i, k in enumerate(ref_key):
+            if i not in done_r:
+                left_r[k].append(i)
+        for k, los in left_o.items():
+            if len(los) == 1 and len(left_r.get(k, ())) == 1:
+                put(los[0], left_r[k][0], "single")
+        why = {"gap": "same rank and size between two functions with identical bytes",
+               "edge": "same rank and size after the last (or before the first) function with identical bytes",
+               "partial": "same rank and size between two functions with identical bytes (other functions of the gap differ in size)",
+               "embed": "only place with the same size and opcodes between two functions with identical bytes",
+               "single": "only function of its size and opcodes left on both sides"}
+        for a, (b, rule) in found.items():
+            out[(seg, ours[a])] = (ref[b][0], why[rule], rule)
     return out
+
+
+def validate_names(claims, chosen, scans):
+    """How many of the names that each rule gives are right: a quarter of the anchors (functions with identical bytes, so the right name
+    is known) is hidden, the rules run, and the names they give to the hidden ones are compared with the truth."""
+    import random
+    rnd = random.Random(1)
+    truth = {(seg, fn): found[0][1] for (seg, fn), found in claims.items() if len(found) == 1}
+    hide = frozenset(k for k in sorted(truth) if rnd.random() < 0.25)
+    stats = collections.defaultdict(collections.Counter)
+    for rule in NAME_RULES:
+        for key, (real, _, r) in aligned_names(claims, chosen, scans, hide, (rule,)).items():
+            if key in hide:
+                stats[rule]["right" if truth[key] == real else "wrong"] += 1
+            else:
+                stats[rule]["on others"] += 1
+    for rule in NAME_RULES:
+        print(f"  {rule:8s} {dict(stats[rule])}")
 
 
 def write_overlay_names(claims, chosen, scans):
@@ -570,7 +745,11 @@ def write_overlay_names(claims, chosen, scans):
         rows.append((seg, fn, real, "bytes identical to the reference function of that name, unique match in its overlay"))
     known = {(seg, fn) for seg, fn, _, _ in rows}
     taken_names = collections.Counter((seg, real) for seg, _, real, _ in rows)
-    for (seg, fn), (real, why) in sorted(aligned_names(claims, chosen, scans).items()):
+    if "--validate" in sys.argv:
+        validate_names(claims, chosen, scans)
+    aligned = aligned_names(claims, chosen, scans)
+    print(f"{len(rows)} names by identical bytes, aligned: " + str(dict(collections.Counter(r for _, _, r in aligned.values()))))
+    for (seg, fn), (real, why, _) in sorted(aligned.items()):
         if (seg, fn) not in known and not US.fullmatch(real) and not real.startswith("D_") and taken_names[(seg, real)] == 0:
             rows.append((seg, fn, real, why))
             taken_names[(seg, real)] += 1
@@ -619,6 +798,12 @@ def import_module(fname, chunks, items, reasons):
     existed = header.exists()   # an earlier run wrote it: functions already in the repository include it
     known = read_aliases(header)   # kept: the functions of this file imported by an earlier run use them
     overlay = items[0][0] != SEG
+    if overlay:   # a function that an earlier run imported under this name has the alias: a second twin of it would take it over
+        keep = [it for it in items if known.get(US.sub(r"ref_\1", it[2]), names.load(it[0]).get(it[1], it[1])) == names.load(it[0]).get(it[1], it[1])]
+        reasons["name taken by an earlier import"] += len(items) - len(keep)
+        items = keep
+        if not items:
+            return 0
     # an overlay function has no name of ours: the reference's name is an alias of its address name, so that the file defines that
     selfalias = {US.sub(r"ref_\1", real): names.load(seg).get(fn, fn) for seg, fn, real in items} if overlay else {}   # the body spells func_80862B70 as ref_func_80862B70
     header.write_text(build_header(stem, chunks, {**known, **selfalias}, refdir))

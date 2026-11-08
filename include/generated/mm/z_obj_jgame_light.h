@@ -3,16 +3,23 @@
 #define MM_Z_OBJ_JGAME_LIGHT_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShape_Init func_800B3B14
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_SetFocus func_800B64E0
+#define Actor_SetScale func_800B6564
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Collider_DestroyCylinder Collider_DestroyCylinder
+#define Collider_InitCylinder func_800E0F5C
+#define Collider_SetCylinder func_800E10CC
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define LightContext_InsertLight func_80102424
 #define LightContext_RemoveLight LightContext_RemoveLight
+#define Lights_PointGlowSetInfo func_80101860
 #define Lights_PointSetColorAndRadius Lights_PointSetColorAndRadius
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
@@ -27,6 +34,13 @@
 #define gObjJgameLightCorrectDL D_80BFAE50
 #define gObjJgameLightIncorrectDL D_80BFADD0
 #define gObjectSyokudaiTypeSwitchCausesFlameDL D_60003A0
+#define ref_func_800B4AEC func_800B4A5C
+#define ref_func_800B4B50 D_800B4AC0
+#define sCylinderInit D_80BFA960
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B4AEC ref_func_800B4AEC
+#define func_800B4B50 ref_func_800B4B50
 
 #include "overlays/actors/ovl_Obj_Jgame_Light/z_obj_jgame_light.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
@@ -47,6 +61,8 @@ void ObjJgameLight_UpdateSignal(ObjJgameLight* this, PlayState* play);;
 extern ActorProfile Obj_Jgame_Light_Profile;
 extern ColliderCylinderInit sCylinderInit;
 #include "assets/overlays/ovl_Obj_Jgame_Light/ovl_Obj_Jgame_Light.c"
+#undef func_800B4AEC
+#undef func_800B4B50
 void ObjJgameLight_Init(Actor* thisx, PlayState* play);
 void ObjJgameLight_Destroy(Actor* thisx, PlayState* play);
 void ObjJgameLight_UpdateFlame(ObjJgameLight* this, PlayState* play);

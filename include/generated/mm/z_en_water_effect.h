@@ -8,6 +8,7 @@
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define AnimatedMat_Draw AnimatedMat_Draw
+#define BgCheck_EntityRaycastFloor1 func_800C3D30
 #define Camera_GetInputDirYaw Camera_GetInputDirYaw
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
@@ -35,8 +36,11 @@
 #define Matrix_RotateZF Matrix_RotateZF
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
+#define Play_InCsMode func_8016A23C
 #define Play_SetFog Play_SetFog
+#define Player_PlaySfx func_800B8BDC
 #define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_S16Offset func_800FF250
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
@@ -62,6 +66,7 @@
 #define object_water_effect_Matanimheader_000E0C D_6000E0C
 #define object_water_effect_Matanimheader_000E40 D_6000E40
 #define object_water_effect_Matanimheader_000E58 D_6000E58
+#define ref_func_800B8D50 func_800B8AD4
 #define ref_func_80A587A0 func_80000000
 #define ref_func_80A58908 func_80000168
 #define ref_func_80A599E8 func_80001248
@@ -71,10 +76,14 @@
 #define ref_func_80A5A6B8 func_80001F18
 #define sZeroVec D_80A3FD10
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8D50 ref_func_800B8D50
+
 #include "overlays/actors/ovl_En_Water_Effect/z_en_water_effect.h"
 #include "overlays/actors/ovl_Bg_Ikana_Rotaryroom/z_bg_ikana_rotaryroom.h"
 #include "assets/objects/object_water_effect/object_water_effect.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800B8D50
 #define FLAGS                                                                                 \
     (ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_HOSTILE | ACTOR_FLAG_UPDATE_CULLING_DISABLED | \
      ACTOR_FLAG_DRAW_CULLING_DISABLED)

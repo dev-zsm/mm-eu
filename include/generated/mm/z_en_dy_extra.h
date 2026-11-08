@@ -11,7 +11,17 @@
 #define EnDyExtra_Init EnDyExtra_Init
 #define EnDyExtra_Update EnDyExtra_Update
 #define EnDyExtra_WaitForTrigger EnDyExtra_WaitForTrigger
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_TwoTexScroll func_8012D080
+#define Lib_SegmentedToVirtual func_80100304
 #define Math_ApproachF Math_ApproachF
+#define gGreatFairySpiralBeamDL D_600DEF0
+#define gGreatFairySpiralBeamVtx D_600DD40
+#define sAlphaTypeIndices D_80A464C8
+#define sEnvColors D_80A464B4
+#define sPrimColors D_80A464A0
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_En_Dy_Extra/z_en_dy_extra.h"
 #include "assets/objects/object_dy_obj/object_dy_obj.h"
@@ -28,9 +38,9 @@ void EnDyExtra_Init(Actor* thisx, PlayState* play);
 void EnDyExtra_WaitForTrigger(EnDyExtra* this, PlayState* play);
 void EnDyExtra_Fall(EnDyExtra* this, PlayState* play);
 void EnDyExtra_Update(Actor* thisx, PlayState* play);
-extern Color_RGBA8 sPrimColors[];
-extern Color_RGBA8 sEnvColors[];
-extern u8 sAlphaTypeIndices[];
+extern Color_RGBA8 sPrimColors[5];
+extern Color_RGBA8 sEnvColors[5];
+extern u8 sAlphaTypeIndices[27];
 void EnDyExtra_Draw(Actor* thisx, PlayState* play);
 
 #endif

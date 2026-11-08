@@ -3,19 +3,27 @@
 #define MM_Z_OBJ_MINE_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShadow_DrawCircle D_800B3F30
+#define ActorShape_Init func_800B3B14
 #define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain func_800FF8DC
 #define Actor_Spawn Actor_Spawn
+#define Actor_UpdateBgCheckInfo func_800B763C
 #define Actor_WorldYawTowardActor Actor_WorldYawTowardActor
 #define BgCheck_EntityLineTest1 BgCheck_EntityLineTest1
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
+#define Collider_InitJntSph func_800E090C
+#define Collider_SetJntSph func_800E0C20
 #define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
+#define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Cos Math3D_Cos
 #define Math3D_Dist2DSq Math3D_Dist2DSq
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
+#define Math3D_Vec3fReflect func_8017B214
 #define Math3D_Vec3f_Cross func_8017BA68
 #define Math_CosF Math_CosF
 #define Math_CosS Math_CosS
@@ -43,16 +51,21 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
+#define Matrix_SetTranslateRotateYXZ func_801826E0
 #define ObjMine_AirWater_CheckOC func_80A6608C
 #define ObjMine_AirWater_Noop func_80A662C0
 #define ObjMine_AirWater_SpawnBomb ObjMine_AirWater_SpawnBomb
+#define ObjMine_AirWater_Update D_80A68AFC
 #define ObjMine_Air_Chained ObjMine_Air_Chained
 #define ObjMine_Air_CheckAC ObjMine_Air_CheckAC
 #define ObjMine_Air_Draw ObjMine_Air_Draw
 #define ObjMine_Air_InitChain ObjMine_Air_InitChain
+#define ObjMine_Air_InitCollider func_80A66624
 #define ObjMine_Air_SetBasis ObjMine_Air_SetBasis
 #define ObjMine_Air_SetChainXZ ObjMine_Air_SetChainXZ
 #define ObjMine_Air_SetWorld ObjMine_Air_SetWorld
+#define ObjMine_Air_SetupChained func_80A67F3C
+#define ObjMine_Air_SetupStationary func_80A686F4
 #define ObjMine_DrawExplosion ObjMine_DrawExplosion
 #define ObjMine_Explode ObjMine_Explode
 #define ObjMine_GetUnitVec3f func_80A65E8C
@@ -61,6 +74,8 @@
 #define ObjMine_Path_Draw ObjMine_Path_Draw
 #define ObjMine_Path_Move ObjMine_Path_Move
 #define ObjMine_Path_MoveToWaypoint func_80A65E50
+#define ObjMine_Path_SetupMove func_80A67C28
+#define ObjMine_Path_SetupStationary func_80A67C04
 #define ObjMine_Path_SpawnBomb ObjMine_Path_SpawnBomb
 #define ObjMine_Path_Update ObjMine_Path_Update
 #define ObjMine_SetMatrixRotation ObjMine_SetMatrixRotation
@@ -73,7 +88,10 @@
 #define ObjMine_Water_CheckAC ObjMine_Water_CheckAC
 #define ObjMine_Water_Draw ObjMine_Water_Draw
 #define ObjMine_Water_InitChain ObjMine_Water_InitChain
+#define ObjMine_Water_InitCollider func_80A669F0
 #define ObjMine_Water_SetWorld ObjMine_Water_SetWorld
+#define ObjMine_Water_SetupChained func_80A68794
+#define ObjMine_Water_SetupStationary func_80A6896C
 #define ObjMine_Water_UpdateChain func_80A678A8
 #define ObjMine_Water_UpdateLinks ObjMine_Water_UpdateLinks
 #define ObjMine_Water_WallCheck ObjMine_Water_WallCheck
@@ -84,14 +102,26 @@
 #define object_ny_DL_000030 D_6000030
 #define object_ny_DL_002068 D_6002068
 #define object_ny_DL_002188 D_6002188
+#define ref_func_800B4AEC func_800B4A5C
 #define ref_func_800B8050 func_800B7DD4
 #define ref_func_800B8118 func_800B7E9C
+#define sInitChain D_80A69268
+#define sJntSphInit D_80A69214
 #define sLastLinkAccel D_80A69650
+#define sPathSpeeds D_80A69224
 #define sStandardBasis D_80A69244
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B4AEC ref_func_800B4AEC
+#define func_800B8050 ref_func_800B8050
+#define func_800B8118 ref_func_800B8118
 
 #include "overlays/actors/ovl_Obj_Mine/z_obj_mine.h"
 #include "overlays/actors/ovl_En_Bom/z_en_bom.h"
 #include "assets/objects/object_ny/object_ny.h"
+#undef func_800B4AEC
+#undef func_800B8050
+#undef func_800B8118
 #define FLAGS 0x00000000
 #define LINK_SIZE 12.0f
 #define ATTACH_OFFSET 10.0f
@@ -125,9 +155,9 @@ void ObjMine_Water_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Mine_Profile;
 extern ColliderJntSphElementInit sJntSphElementsInit[1];
 extern ColliderJntSphInit sJntSphInit;
-extern f32 sPathSpeeds[];
+extern f32 sPathSpeeds[8];
 extern ObjMineMtxF3 sStandardBasis;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 void ObjMine_Path_MoveToWaypoint(ObjMine* this, s32 index);
 s32 ObjMine_GetUnitVec3f(Vec3f* src, Vec3f* dst);
 s32 ObjMine_GetUnitVec3fNorm(Vec3f* src, Vec3f* dst, f32* norm, f32* invNorm);

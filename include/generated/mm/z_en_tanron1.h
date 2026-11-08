@@ -3,23 +3,38 @@
 #define MM_Z_EN_TANRON1_H
 
 /* names of ours that symbols of the reference stand for */
+#define Audio_PlaySfx_AtPos func_801A0070
+#define BgCheck_EntityRaycastFloor1 func_800C3D30
+#define BgCheck_GetWaterSurfaceNoBgIdAlt func_800C9F3C
 #define EnTanron1_Update EnTanron1_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Math_ApproachF func_800FFBF8
+#define Math_ApproachS func_800FFDD8
+#define Math_ApproachZeroF func_800FFC68
+#define Math_Atan2S func_80180F74
+#define Math_SinS func_800FEB84
+#define Matrix_MultVecZ func_80182CA0
 #define Matrix_RotateXS Matrix_RotateXS
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
+#define Rand_CenteredFloat func_8017A870
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
+#define SkinMatrix_Vec3fMtxFMultXYZW func_80138F50
 #define func_80BB4E50 func_80000050
 #define func_80BB5318 func_80000518
 #define func_80BB5AAC func_80000CAC
 #define ovl_En_Tanron1_DL_001428 D_80B9AFC8
 #define ovl_En_Tanron1_DL_001888 D_80B9B428
 #define ovl_En_Tanron1_DL_001900 D_80B9B4A0
+#define ref_func_800B8D10 func_800B8A94
 #define ref_func_80BB4E50 func_80000050
 #define ref_func_80BB5318 func_80000518
 #define ref_func_80BB5AAC func_80000CAC
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8D10 ref_func_800B8D10
 
 #include "overlays/actors/ovl_En_Tanron1/z_en_tanron1.h"
 #define FLAGS                                                                                 \
@@ -34,6 +49,7 @@ void ref_func_80BB5AAC(EnTanron1* this, PlayState* play);;
 extern ActorProfile En_Tanron1_Profile;
 extern s32 sPad;
 #include "assets/overlays/ovl_En_Tanron1/ovl_En_Tanron1.c"
+#undef func_800B8D10
 void EnTanron1_Init(Actor* thisx, PlayState* play);
 void EnTanron1_Destroy(Actor* thisx, PlayState* play);
 void ref_func_80BB4E50(EnTanron1Struct* arg0, Vec3f* arg1, s16 arg2);

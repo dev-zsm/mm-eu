@@ -12,6 +12,7 @@
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
@@ -23,6 +24,7 @@
 #define ObjHamishi_Init ObjHamishi_Init
 #define ObjHamishi_IsUnderwater func_80986148
 #define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
 #define func_809A0F20 func_80000000
 #define func_809A0F78 func_80000058
 #define func_809A10F4 func_800001D4
@@ -30,6 +32,9 @@
 #define gActorSetupOpaDL D_801AFAD0
 #define gActorSetupXluDL D_801AFAB8
 #define gFieldSilverBoulderDL D_50061E8
+#define gFieldSilverBoulderDebrisDL D_5006420
+#define ref_D_809A1AD4 D_80986814
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_809A0F20 func_80000000
 #define ref_func_809A0F78 func_80000058
 #define ref_func_809A10F4 func_800001D4
@@ -38,8 +43,12 @@
 #define sCylinderInit D_809867E0
 #define sInitChain D_80986828
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Obj_Hamishi/z_obj_hamishi.h"
 #include "assets/objects/gameplay_field_keep/gameplay_field_keep.h"
+#undef func_800BBFB0
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjHamishi_Init(Actor* thisx, PlayState* play);;
 void ObjHamishi_Destroy(Actor* thisx, PlayState* play2);;
@@ -48,8 +57,8 @@ void ObjHamishi_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Hamishi_Profile;
 extern ColliderCylinderInit sCylinderInit;
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern s16 ref_D_809A1AD4[];
-extern InitChainEntry sInitChain[];
+extern s16 ref_D_809A1AD4[9];
+extern InitChainEntry sInitChain[4];
 void ref_func_809A0F20(Actor* thisx, PlayState* play);
 void ref_func_809A0F78(ObjHamishi* this);
 void ref_func_809A10F4(ObjHamishi* this, PlayState* play);

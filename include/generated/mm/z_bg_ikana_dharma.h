@@ -4,9 +4,12 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_MoveWithGravity func_800B680C
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetFocus func_800B64E0
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
+#define Actor_UpdateBgCheckInfo func_800B763C
 #define BgIkanaDharma_Destroy BgIkanaDharma_Destroy
 #define BgIkanaDharma_Init BgIkanaDharma_Init
 #define BgIkanaDharma_SetupStartCutscene func_80BD14F8
@@ -24,21 +27,31 @@
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
+#define DynaPoly_GetActor func_800C5FD8
 #define EffectSsKirakira_SpawnSmallYellow EffectSsKirakira_SpawnSmallYellow
 #define Flags_SetSwitch Flags_SetSwitch
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
+#define Quake_Request func_8012AF4C
+#define Quake_SetDuration func_8012ADA0
+#define Quake_SetPerturbations func_8012AE28
+#define Quake_SetSpeed func_8012AD58
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
 #define gStoneTowerTemplePunchablePillarCol D_6000C50
+#define ref_func_800B4AEC func_800B4A5C
 #define sCylinderInit D_80BD1870
 #define sFirstHitBgIkanaDharma D_80BD1970
 #define sInitChain D_80BD189C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B4AEC ref_func_800B4AEC
+
 #include "overlays/actors/ovl_Bg_Ikana_Dharma/z_bg_ikana_dharma.h"
 #include "z64quake.h"
 #include "assets/objects/object_ikana_obj/object_ikana_obj.h"
+#undef func_800B4AEC
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void BgIkanaDharma_Init(Actor* thisx, PlayState* play2);;
 void BgIkanaDharma_Destroy(Actor* thisx, PlayState* play);;
@@ -52,7 +65,7 @@ void BgIkanaDharma_SetupWaitForCutsceneToEnd(BgIkanaDharma* this);;
 void BgIkanaDharma_WaitForCutsceneToEnd(BgIkanaDharma* this, PlayState* play);;
 extern ActorProfile Bg_Ikana_Dharma_Profile;
 extern ColliderCylinderInit sCylinderInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 extern BgIkanaDharma* sFirstHitBgIkanaDharma;;
 void BgIkanaDharma_SpawnEffects(BgIkanaDharma* this, PlayState* play);
 void BgIkanaDharma_Init(Actor* thisx, PlayState* play2);

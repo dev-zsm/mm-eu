@@ -4,7 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
+#define Actor_SetScale func_800B6564
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
+#define BgCheck_EntityRaycastFloor3 func_800C3E44
 #define EnTest_Draw EnTest_Draw
 #define EnTest_Init EnTest_Init
 #define EnTest_OverrideLimbDraw EnTest_OverrideLimbDraw
@@ -12,29 +14,40 @@
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Keyframe_DrawFlex Keyframe_DrawFlex
+#define Keyframe_FlexPlayOnce func_80184548
+#define Keyframe_InitFlex func_801844D0
 #define Keyframe_UpdateFlex Keyframe_UpdateFlex
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_Finalize Matrix_Finalize
+#define Matrix_MtxFToYXZRot func_8018322C
 #define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
+#define SurfaceType_GetMaterial func_800C9948
 #define func_80862B70 func_80000000
 #define func_80862CBC func_8000014C
 #define func_80862EDC func_8000036C
 #define func_80863048 func_800004D8
 #define gameplay_keep_DL_06AB30 D_406AB30
+#define gameplay_keep_KFAnim_06BB0C D_406BB0C
+#define gameplay_keep_KFSkel_06EB70 D_406EB70
 #define gameplay_keep_Matanimheader_06B6A0 D_406B6A0
 #define gameplay_keep_Matanimheader_06B730 D_406B730
+#define ref_func_800C0094 func_800BFE24
 #define ref_func_80862B70 func_80000000
 #define ref_func_80862CBC func_8000014C
 #define ref_func_80862EDC func_8000036C
 #define ref_func_80863048 func_800004D8
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800C0094 ref_func_800C0094
+
 #include "overlays/actors/ovl_En_Test/z_en_test.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800C0094
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void EnTest_Init(Actor* thisx, PlayState* play2);;
 void EnTest_Destroy(Actor* thisx, PlayState* play);;

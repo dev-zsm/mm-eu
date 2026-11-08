@@ -7,11 +7,14 @@
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetColorFilter func_800BC8F4
 #define Actor_SetScale Actor_SetScale
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CollisionCheck_SetAC func_800E2500
+#define CollisionCheck_SetOC func_800E26E8
 #define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Math_CosS Math_CosS
@@ -32,8 +35,10 @@
 #define ref_D_809A4CDC D_80989A1C
 #define ref_D_809A4D0C D_80989A4C
 #define ref_func_800B2B44 func_800B3064
+#define ref_func_800B8DD4 func_800B8B58
 #define ref_func_809A41C0 func_80000000
 #define ref_func_809A42A0 func_800000E0
+#define ref_func_809A43A8 func_809890E8
 #define ref_func_809A43EC func_8000022C
 #define ref_func_809A4744 func_80989484
 #define ref_func_809A477C func_800005BC
@@ -44,8 +49,16 @@
 #define sCylinderInit D_809899F0
 #define sInitChain D_80989A54
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B2B44 ref_func_800B2B44
+#define func_800B8050 ref_func_800B8050
+#define func_800B8DD4 ref_func_800B8DD4
+
 #include "overlays/actors/ovl_Obj_Toge/z_obj_toge.h"
 #include "assets/objects/object_trap/object_trap.h"
+#undef func_800B2B44
+#undef func_800B8050
+#undef func_800B8DD4
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjToge_Init(Actor* thisx, PlayState* play);;
 void ObjToge_Destroy(Actor* thisx, PlayState* play2);;
@@ -59,10 +72,10 @@ void ref_func_809A488C(ObjToge* this);;
 void ref_func_809A48AC(ObjToge* this, PlayState* play);;
 extern ActorProfile Obj_Toge_Profile;
 extern ColliderCylinderInit sCylinderInit;
-extern f32 ref_D_809A4CDC[];
-extern s16 ref_D_809A4CFC[];
-extern f32 ref_D_809A4D0C[];
-extern InitChainEntry sInitChain[];
+extern f32 ref_D_809A4CDC[8];
+extern s16 ref_D_809A4CFC[8];
+extern f32 ref_D_809A4D0C[2];
+extern InitChainEntry sInitChain[4];
 void ref_func_809A41C0(ObjToge* this, PlayState* play);
 void ref_func_809A42A0(ObjToge* this, PlayState* play);
 void ref_func_809A43A8(ObjToge* this, PlayState* play);

@@ -6,10 +6,21 @@
 #define EffectSsDeadDd_Draw EffectSsDeadDd_Draw
 #define EffectSsDeadDd_Init EffectSsDeadDd_Init
 #define EffectSsDeadDd_Update EffectSsDeadDd_Update
+#define Gfx_SetupDL60_XluNoCD func_8012CE24
 #define Rand_ZeroOne func_8008704C
+#define SkinMatrix_MtxFMtxFMult func_801390E8
+#define SkinMatrix_MtxFToNewMtx func_80139FC8
+#define SkinMatrix_SetScale func_801397D8
+#define SkinMatrix_SetTranslate func_80139B5C
+#define gLensFlareCircleDL D_4054940
+#define ref_D_01000000 D_1000000
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_01000000 ref_D_01000000
 
 #include "overlays/effects/ovl_Effect_Ss_Dead_Dd/z_eff_ss_dead_dd.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef D_01000000
 #define rScale regs[0]
 #define rPrimColorR regs[2]
 #define rPrimColorG regs[3]

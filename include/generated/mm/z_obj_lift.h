@@ -12,6 +12,7 @@
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
+#define EffectSsKakera_Spawn func_800B2D30
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
@@ -28,11 +29,14 @@
 #define Quake_SetPerturbations Quake_SetPerturbations
 #define Quake_SetSpeed Quake_SetSpeed
 #define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define gDampeGraveBrownElevatorCol D_6000F00
 #define gDampeGraveBrownElevatorDL D_6000D10
 #define ref_D_8093DD50 D_80922840
+#define ref_D_8093DD60 D_80922850
 #define ref_D_8093DD98 D_80922888
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_8093D3C0 func_80000000
 #define ref_func_8093D760 func_80922250
 #define ref_func_8093D7A0 func_800003E0
@@ -46,9 +50,13 @@
 #define sInitChain D_80922874
 #define yOffsets D_80922890
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Obj_Lift/z_obj_lift.h"
 #include "z64quake.h"
 #include "assets/objects/object_d_lift/object_d_lift.h"
+#undef func_800BBFB0
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjLift_Init(Actor* thisx, PlayState* play);;
 void ObjLift_Destroy(Actor* thisx, PlayState* play);;
@@ -64,11 +72,11 @@ void ref_func_8093DB70(ObjLift* this);;
 void ref_func_8093DB90(ObjLift* this, PlayState* play);;
 void ref_func_8093DC90(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Lift_Profile;
-extern s16 ref_D_8093DD50[];
-extern Vec2s ref_D_8093DD60[];
-extern InitChainEntry sInitChain[];
-extern f32 ref_D_8093DD98[];
-extern f32 yOffsets[];
+extern s16 ref_D_8093DD50[7];
+extern Vec2s ref_D_8093DD60[9];
+extern InitChainEntry sInitChain[5];
+extern f32 ref_D_8093DD98[2];
+extern f32 yOffsets[2];
 void ref_func_8093D3C0(ObjLift* this, PlayState* play);
 void ObjLift_Init(Actor* thisx, PlayState* play);
 void ObjLift_Destroy(Actor* thisx, PlayState* play);

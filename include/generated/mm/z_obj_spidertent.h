@@ -65,6 +65,8 @@
 #define ref_func_80B30AF8 func_80000FE8
 #define sInitChain D_80B16148
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "overlays/actors/ovl_Obj_Spidertent/z_obj_spidertent.h"
 #include "assets/objects/object_spidertent/object_spidertent.h"
 #define FLAGS (ACTOR_FLAG_UCODE_POINT_LIGHT_ENABLED)
@@ -79,9 +81,9 @@ void ref_func_80B30A4C(ObjSpidertent* this, PlayState* play);;
 void ref_func_80B30AD4(ObjSpidertent* this);;
 void ref_func_80B30AF8(ObjSpidertent* this, PlayState* play);;
 extern ActorProfile Obj_Spidertent_Profile;
-extern ColliderTrisElementInit sTrisElementsInit1[];
+extern ColliderTrisElementInit sTrisElementsInit1[6];
 extern ColliderTrisInit sTrisInit1;
-extern ColliderTrisElementInit sTrisElementsInit2[];
+extern ColliderTrisElementInit sTrisElementsInit2[6];
 extern ColliderTrisInit sTrisInit2;
 typedef struct {
       Gfx* unk_00;
@@ -95,7 +97,7 @@ typedef struct {
       f32 unk_20;
       f32 unk_24;
 } ObjSpidertentStruct;;
-extern ObjSpidertentStruct ref_D_80B31350[];
+extern ObjSpidertentStruct ref_D_80B31350[2];
 typedef struct {
       f32 unk_00;
       f32 unk_04;
@@ -106,10 +108,10 @@ typedef struct {
       Color_RGBA8 unk_10;
       Color_RGBA8 unk_14;
 } ObjSpidertentStruct2;;
-extern ObjSpidertentStruct2 ref_D_80B313A0[];
+extern ObjSpidertentStruct2 ref_D_80B313A0[4];
 extern Vec3f ref_D_80B31400;
 extern Vec3f ref_D_80B3140C;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 s32 ref_func_80B2FB10(Vec3f* arg0, Vec3f* arg1);
 s32 ref_func_80B2FB94(Vec3f* arg0, f32 arg1, TriNorm* triNorm, Vec3f* arg3, f32* arg4);
 bool ref_func_80B2FC98(TriNorm* triNorm, Vec3f* arg1);

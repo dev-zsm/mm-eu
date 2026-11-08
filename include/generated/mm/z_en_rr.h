@@ -29,6 +29,7 @@
 #define Enemy_StartFinishingBlow Enemy_StartFinishingBlow
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define Inventory_DeleteEquipment func_8012F128
 #define Item_DropCollectible Item_DropCollectible
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Math_CosS Math_CosS
@@ -46,6 +47,8 @@
 #define Matrix_Scale Matrix_Scale
 #define Matrix_ToMtx Matrix_ToMtx
 #define Matrix_Translate Matrix_Translate
+#define Message_GetState func_801529DC
+#define Message_StartTextbox func_80151DF4
 #define Player_GetMask Player_GetMask
 #define Rumble_Request Rumble_Request
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
@@ -75,6 +78,7 @@
 #define gLikeLikeDL D_6000470
 #define gZeroVec3f D_801C9EE0
 #define ref_func_800B3030 func_800B3550
+#define ref_func_800B8D50 func_800B8AD4
 #define ref_func_808FA01C func_8000021C
 #define ref_func_808FA11C func_8000031C
 #define ref_func_808FA19C func_8000039C
@@ -107,11 +111,21 @@
 #define sDamageTable D_808FB868
 #define sInitChain D_808FB890
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_808FC1E4 ref_D_808FC1E4
+#define D_808FC1F8 ref_D_808FC1F8
+#define func_800B3030 ref_func_800B3030
+#define func_800B8D50 ref_func_800B8D50
+
 #include "overlays/actors/ovl_En_Rr/z_en_rr.h"
 #include "z_en_item00.h"
 #include "z64rumble.h"
 #include "overlays/actors/ovl_En_Clear_Tag/z_en_clear_tag.h"
 #include "assets/objects/object_rr/object_rr.h"
+#undef D_808FC1E4
+#undef D_808FC1F8
+#undef func_800B3030
+#undef func_800B8D50
 #define FLAGS (ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_HOSTILE | ACTOR_FLAG_HOOKSHOT_PULLS_PLAYER)
 void EnRr_Init(Actor* thisx, PlayState* play);;
 void EnRr_Destroy(Actor* thisx, PlayState* play);;
@@ -131,7 +145,7 @@ extern ColliderCylinderInit sCylinderInit1;
 extern ColliderCylinderInit sCylinderInit2;
 extern DamageTable sDamageTable;
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[5];
 void EnRr_Init(Actor* thisx, PlayState* play);
 void EnRr_Destroy(Actor* thisx, PlayState* play);
 void ref_func_808FA01C(EnRr* this, PlayState* play, ColliderCylinder* collider);

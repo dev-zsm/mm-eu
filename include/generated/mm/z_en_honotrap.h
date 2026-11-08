@@ -84,6 +84,7 @@
 #define Rand_ZeroOne func_8008704C
 #define gEffFire1DL D_407D590
 #define gEyeSwitchSilverDL D_50085F0
+#define ref_func_800B8D98 func_800B8B1C
 #define sColChkInfoInit D_80914FC8
 #define sCylinderInit D_80914F9C
 #define sInitChain D_80914FD0
@@ -91,9 +92,13 @@
 #define sTexturesNotDesegmented D_80914EF0
 #define sTrisInit D_80914F8C
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8D98 ref_func_800B8D98
+
 #include "overlays/actors/ovl_En_Honotrap/z_en_honotrap.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
+#undef func_800B8D98
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 #define HONOTRAP_AT_ACTIVE (1 << 0)
 #define HONOTRAP_AC_ACTIVE (1 << 1)
@@ -148,11 +153,11 @@ void EnHonotrap_DrawFlameGroup(Actor* thisx, PlayState* play);;
 extern TexturePtr sSilverEyeTextures[HONOTRAP_EYE_MAX];
 extern s32 sTexturesNotDesegmented;
 extern ActorProfile En_Honotrap_Profile;
-extern ColliderTrisElementInit sTrisElementsInit[];
+extern ColliderTrisElementInit sTrisElementsInit[2];
 extern ColliderTrisInit sTrisInit;
 extern ColliderCylinderInit sCylinderInit;
 extern CollisionCheckInfoInit sColChkInfoInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[3];
 void EnHonotrap_FlameCollisionCheck(EnHonotrap* this, PlayState* play);
 void EnHonotrap_GetNormal(Vec3f* normal, Vec3f* vec);
 void EnHonotrap_InitEye(EnHonotrap* this, PlayState* play);

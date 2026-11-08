@@ -50,6 +50,7 @@
 #define ref_D_8092738C D_8090BE7C
 #define ref_func_800A8150 func_800A8670
 #define ref_func_800A817C func_800A869C
+#define ref_func_800BBFB0 func_800BBD34
 #define ref_func_809262BC func_8090ADAC
 #define ref_func_80926318 func_80000168
 #define ref_func_80926394 func_8090AE84
@@ -59,10 +60,18 @@
 #define sKakeraDisplayLists D_8090BED0
 #define sObjectIds D_8090BECC
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800A8150 ref_func_800A8150
+#define func_800A817C ref_func_800A817C
+#define func_800BBFB0 ref_func_800BBFB0
+
 #include "overlays/actors/ovl_Obj_Kibako/z_obj_kibako.h"
 #include "z_en_item00.h"
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
 #include "assets/objects/object_kibako/object_kibako.h"
+#undef func_800A8150
+#undef func_800A817C
+#undef func_800BBFB0
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_CAN_PRESS_SWITCHES)
 void ObjKibako_Init(Actor* thisx, PlayState* play2);;
 void ObjKibako_Destroy(Actor* thisx, PlayState* play2);;
@@ -87,10 +96,10 @@ extern s16 ref_D_80927388;
 extern s16 ref_D_8092738C;
 extern ActorProfile Obj_Kibako_Profile;
 extern ColliderCylinderInit sCylinderInit;
-extern s16 sObjectIds[];
-extern Gfx* sKakeraDisplayLists[];
-extern Gfx* sDisplayLists[];
-extern InitChainEntry sInitChain[];
+extern s16 sObjectIds[2];
+extern Gfx* sKakeraDisplayLists[2];
+extern Gfx* sDisplayLists[2];
+extern InitChainEntry sInitChain[4];
 void ObjKibako_SpawnCollectible(ObjKibako* this, PlayState* play);
 void ObjKibako_SetShadow(ObjKibako* this);
 void ref_func_809262BC(ObjKibako* this);

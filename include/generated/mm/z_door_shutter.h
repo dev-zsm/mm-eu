@@ -4,8 +4,11 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_DrawDoorLock Actor_DrawDoorLock
+#define Actor_Kill func_800B6490
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_SetFocus func_800B64E0
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define Actor_WorldYawTowardPoint Actor_WorldYawTowardPoint
 #define Audio_RestorePrevBgm func_801A3D9C
@@ -37,6 +40,7 @@
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
+#define Object_GetSlot func_8012F9A8
 #define Object_IsLoaded Object_IsLoaded
 #define Player_InCsMode Player_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors
@@ -58,6 +62,9 @@
 #define gSaveContext D_801E6EF0
 #define ref_D_808A2180 D_808A18A0
 #define ref_D_808A21B0 D_808A18D0
+#define ref_D_808A2240 D_808A1960
+#define ref_D_808A2258 D_808A1978
+#define ref_D_808A22A0 D_808A19C0
 #define ref_D_808A22C4 D_808A19E4
 #define ref_D_808A22D0 D_808A19F0
 #define ref_D_808A22DC D_808A19FC
@@ -81,6 +88,12 @@
 #define ref_func_808A1A70 func_80001180
 #define ref_func_808A1C50 func_80001360
 #define ref_func_808A1D68 func_80001478
+#define sInitChain D_808A1968
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800F22C4 ref_func_800F22C4
+#define func_801226E0 ref_func_801226E0
+#define func_80122F28 ref_func_80122F28
 
 #include "overlays/actors/ovl_Door_Shutter/z_door_shutter.h"
 #include "z64quake.h"
@@ -97,6 +110,9 @@
 #include "assets/objects/object_kinsta1_obj/object_kinsta1_obj.h"
 #include "assets/objects/object_kaizoku_obj/object_kaizoku_obj.h"
 #include "assets/objects/object_last_obj/object_last_obj.h"
+#undef func_800F22C4
+#undef func_801226E0
+#undef func_80122F28
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void DoorShutter_Init(Actor* thisx, PlayState* play2);;
 void DoorShutter_Destroy(Actor* thisx, PlayState* play);;
@@ -118,7 +134,7 @@ typedef struct {
       u8 index1;
       u8 index2;
 } ShutterObjectInfo;;
-extern ShutterObjectInfo ref_D_808A2180[];
+extern ShutterObjectInfo ref_D_808A2180[12];
 typedef struct {
       Gfx* unk_00;
       Gfx* unk_04;
@@ -127,23 +143,23 @@ typedef struct {
       u8 unk_0A;
       u8 unk_0B;
 } ShutterInfo;;
-extern ShutterInfo ref_D_808A21B0[];
-extern s8 ref_D_808A2240[];
-extern InitChainEntry sInitChain[];
+extern ShutterInfo ref_D_808A21B0[12];
+extern s8 ref_D_808A2240[8];
+extern InitChainEntry sInitChain[4];
 typedef struct {
       s16 sceneId;
       u8 index;
 } ShutterSceneInfo;;
-extern ShutterSceneInfo ref_D_808A2258[];
+extern ShutterSceneInfo ref_D_808A2258[18];
 typedef struct {
       s16 dungeonSceneId;
       s16 bossSceneId;
       u8 index;
 } BossDoorInfo;;
-extern BossDoorInfo ref_D_808A22A0[];
+extern BossDoorInfo ref_D_808A22A0[6];
 extern Vec3f ref_D_808A22C4;
 extern Vec3f ref_D_808A22D0;
-extern TexturePtr ref_D_808A22DC[];
+extern TexturePtr ref_D_808A22DC[5];
 void DoorShutter_SetupAction(DoorShutter* this, DoorShutterActionFunc actionFunc);
 s32 ref_func_808A0900(DoorShutter* this, PlayState* play);
 s32 DoorShutter_SetupDoor(DoorShutter* this, PlayState* play);

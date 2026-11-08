@@ -51,10 +51,14 @@
 #define sWood02SpawnDistance D_808C440C
 #define sWood02SpawnSin D_808C4644
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800A8150 ref_func_800A8150
+
 #include "overlays/actors/ovl_En_Wood02/z_en_wood02.h"
 #include "attributes.h"
 #include "z_en_item00.h"
 #include "assets/objects/object_wood02/object_wood02.h"
+#undef func_800A8150
 #define FLAGS 0x00000000
 void EnWood02_Init(Actor* thisx, PlayState* play);;
 void EnWood02_Destroy(Actor* thisx, PlayState* play);;
@@ -77,11 +81,11 @@ extern f32 sWood02SpawnCos;;
 extern f32 sWood02SpawnSin;;
 extern ActorProfile En_Wood02_Profile;
 extern ColliderCylinderInit sCylinderInit;
-extern f32 sWood02SpawnDistance[];
-extern s16 sWood02SpawnAngle[];
-extern InitChainEntry sInitChain[];
-extern Gfx* ref_D_808C4D54[];
-extern Gfx* ref_D_808C4D70[];
+extern f32 sWood02SpawnDistance[6];
+extern s16 sWood02SpawnAngle[6];
+extern InitChainEntry sInitChain[1];
+extern Gfx* ref_D_808C4D54[7];
+extern Gfx* ref_D_808C4D70[12];
 s32 EnWood02_SpawnZoneCheck(EnWood02* this, PlayState* play, Vec3f* arg2);
 void EnWood02_SpawnOffspring(EnWood02* this, PlayState* play);
 void EnWood02_Init(Actor* thisx, PlayState* play);

@@ -3,22 +3,45 @@
 #define MM_Z_OBJ_SYOKUDAI_H
 
 /* names of ours that symbols of the reference stand for */
+#define ActorShape_Init func_800B3B14
+#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_SetFocus func_800B64E0
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
+#define Collider_InitAndSetCylinder func_800E1134
+#define Flags_GetSwitch func_800B5B20
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
+#define LightContext_InsertLight func_80102424
+#define Lights_PointGlowSetInfo func_80101860
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define ObjSyokudai_Draw ObjSyokudai_Draw
 #define ObjSyokudai_Init ObjSyokudai_Init
+#define Rand_ZeroOne func_8008704C
 #define gEffFire1DL D_407D590
+#define ref_func_800B4AEC func_800B4A5C
+#define ref_func_800B4B50 D_800B4AC0
+#define sColMaterials D_808BC408
 #define sDLists D_808BC40C
+#define sFlameColliderInit D_808BC3CC
+#define sInitChain D_808BC3F8
+#define sNumLitTorchesInGroup D_808BC4C0
+#define sStandColliderInit D_808BC3A0
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B4AEC ref_func_800B4AEC
+#define func_800B4B50 ref_func_800B4B50
+#define func_800F22C4 ref_func_800F22C4
 
 #include "overlays/actors/ovl_Obj_Syokudai/z_obj_syokudai.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #include "overlays/actors/ovl_En_Arrow/z_en_arrow.h"
 #include "assets/objects/object_syokudai/object_syokudai.h"
+#undef func_800B4AEC
+#undef func_800B4B50
+#undef func_800F22C4
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_HOOKSHOT_PULLS_PLAYER)
 void ObjSyokudai_Init(Actor* thisx, PlayState* play);;
 void ObjSyokudai_Destroy(Actor* thisx, PlayState* play);;
@@ -27,9 +50,9 @@ void ObjSyokudai_Draw(Actor* thisx, PlayState* play);;
 extern ActorProfile Obj_Syokudai_Profile;
 extern ColliderCylinderInit sStandColliderInit;
 extern ColliderCylinderInit sFlameColliderInit;
-extern InitChainEntry sInitChain[];
-extern u8 sColMaterials[];
-extern Gfx* sDLists[];
+extern InitChainEntry sInitChain[4];
+extern u8 sColMaterials[3];
+extern Gfx* sDLists[3];
 extern s32 sNumLitTorchesInGroup;;
 void ObjSyokudai_Init(Actor* thisx, PlayState* play);
 void ObjSyokudai_Destroy(Actor* thisx, PlayState* play);

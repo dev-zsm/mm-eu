@@ -57,9 +57,15 @@
 #define ref_func_800B8050 func_800B7DD4
 #define ref_func_800BE3D0 func_800BE154
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800B8050 ref_func_800B8050
+#define func_800BE3D0 ref_func_800BE3D0
+
 #include "overlays/actors/ovl_En_Bom_Chu/z_en_bom_chu.h"
 #include "overlays/actors/ovl_En_Bom/z_en_bom.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800B8050
+#undef func_800BE3D0
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 #define BOMBCHU_SCALE 0.01f
 void EnBomChu_Init(Actor* thisx, PlayState* play);;
@@ -73,7 +79,7 @@ void EnBomChu_Explode(EnBomChu* this, PlayState* play);;
 void EnBomChu_WaitForDeath(EnBomChu* this, PlayState* play);;
 extern ActorProfile En_Bom_Chu_Profile;
 extern ColliderSphereInit sSphereInit;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[2];
 extern EffectBlureInit2 sBlureInit;
 void EnBomChu_Init(Actor* thisx, PlayState* play);
 void EnBomChu_Destroy(Actor* thisx, PlayState* play);

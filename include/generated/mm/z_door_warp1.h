@@ -122,8 +122,16 @@
 #define ref_func_808BB8D4 func_80003444
 #define sInitChain D_808BB220
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_808BC000 ref_D_808BC000
+#define D_808BC004 ref_D_808BC004
+#define func_80169FDC ref_func_80169FDC
+
 #include "overlays/actors/ovl_Door_Warp1/z_door_warp1.h"
 #include "assets/objects/object_warp1/object_warp1.h"
+#undef D_808BC000
+#undef D_808BC004
+#undef func_80169FDC
 #define FLAGS 0x00000000
 void DoorWarp1_Init(Actor* thisx, PlayState* play);;
 void DoorWarp1_Destroy(Actor* thisx, PlayState* play);;
@@ -161,7 +169,7 @@ void ref_func_808BB8D4(DoorWarp1* this, PlayState* play, s32 arg2);;
 extern s16 ref_D_808BC000;;
 extern f32 ref_D_808BC004;;
 extern ActorProfile Door_Warp1_Profile;
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[4];
 typedef enum {
       DOORWARP1_REMAINS_NONE,
       DOORWARP1_REMAINS_ODOLWA,

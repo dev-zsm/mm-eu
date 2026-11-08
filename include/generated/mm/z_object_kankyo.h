@@ -6,6 +6,7 @@
 #define Camera_GetCamDirPitch Camera_GetCamDirPitch
 #define Camera_GetWaterYPos Camera_GetWaterYPos
 #define Gfx_SetupDL Gfx_SetupDL
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_Vec3f_DistXYZ Math_Vec3f_DistXYZ
@@ -13,6 +14,8 @@
 #define Math_Vec3f_Pitch Math_Vec3f_Pitch
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Matrix_Mult Matrix_Mult
+#define Matrix_RotateXS func_80181508
+#define Matrix_RotateYS func_80181A3C
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define ObjectKankyo_Draw ObjectKankyo_Draw
@@ -34,7 +37,11 @@
 #define func_808DDE9C func_8000201C
 #define gEffDust5Tex D_408EBE0
 #define gEffDustDL D_4023130
+#define gEffShockwaveDL D_4030100
+#define gFallingRainDropDL D_40706E0
 #define gZeroVec3f D_801C9EE0
+#define ref_D_01000000 D_1000000
+#define ref_D_801F4E30 D_801EC6B8
 #define ref_D_808DE340 D_808DDA10
 #define ref_D_808DE5B0 D_808DDC80
 #define ref_func_80173B48 func_80174D08
@@ -49,11 +56,22 @@
 #define ref_func_808DCDB4 func_80000F34
 #define ref_func_808DD3C8 func_80001548
 #define ref_func_808DD970 func_80001AF0
+#define ref_func_808DDE74 func_808DD544
 #define ref_func_808DDE9C func_8000201C
 #define sinf func_800884F0
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_01000000 ref_D_01000000
+#define D_801F4E30 ref_D_801F4E30
+#define D_808DE5B0 ref_D_808DE5B0
+#define func_80173B48 ref_func_80173B48
+
 #include "overlays/actors/ovl_Object_Kankyo/z_object_kankyo.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef D_01000000
+#undef D_801F4E30
+#undef D_808DE5B0
+#undef func_80173B48
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED | ACTOR_FLAG_UPDATE_DURING_OCARINA)
 void ObjectKankyo_Init(Actor* thisx, PlayState* play);;
 void ObjectKankyo_Destroy(Actor* thisx, PlayState* play);;

@@ -15,14 +15,26 @@
 #define BgDblueElevator_WaitActivation BgDblueElevator_WaitActivation
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define EffectSsGRipple_Spawn func_800B2414
+#define EffectSsGSplash_Spawn func_800B246C
 #define Math_SmoothStepToF Math_SmoothStepToF
 #define Math_StepToF Math_StepToF
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_Pop func_8018125C
+#define Matrix_Push func_8018122C
 #define Matrix_RotateYS Matrix_RotateYS
+#define Rand_Next func_80087010
+#define Rand_ZeroOne func_8008704C
 #define gGreatBayTempleObjectElevatorCol D_60005C4
 #define ref_D_80B92960 D_80B77680
+#define ref_D_80B929D0 D_80B776F0
+#define ref_D_80B929D8 D_80B776F8
 #define sInitChain D_80B7770C
+#define sLargeRipplesLives D_80B77700
+#define sSmallRipplesLives D_80B77704
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "overlays/actors/ovl_Bg_Dblue_Elevator/z_bg_dblue_elevator.h"
 #include "assets/objects/object_dblue_object/object_dblue_object.h"
@@ -42,12 +54,12 @@ void BgDblueElevator_Pause(BgDblueElevator* this, PlayState* play);;
 void BgDblueElevator_SetupMove(BgDblueElevator* this);;
 void BgDblueElevator_Move(BgDblueElevator* this, PlayState* play);;
 extern ActorProfile Bg_Dblue_Elevator_Profile;
-extern BgDblueElevatorStruct1 ref_D_80B92960[];
-extern s16 ref_D_80B929D0[];
-extern s16 ref_D_80B929D8[];
-extern s8 sLargeRipplesLives[];
-extern s8 sSmallRipplesLives[];
-extern InitChainEntry sInitChain[];
+extern BgDblueElevatorStruct1 ref_D_80B92960[4];
+extern s16 ref_D_80B929D0[4];
+extern s16 ref_D_80B929D8[4];
+extern s8 sLargeRipplesLives[3];
+extern s8 sSmallRipplesLives[6];
+extern InitChainEntry sInitChain[4];
 void BgDblueElevator_CheckWaterBoxInfo(BgDblueElevator* this, PlayState* play2);
 void BgDblueElevator_SpawnRipplesAndSplashes(BgDblueElevator* this, PlayState* play);
 s32 BgDblueElevator_GetWaterFlowFromCeiling(BgDblueElevator* this, PlayState* play);
