@@ -335,6 +335,9 @@ def strict_match(seg, fn, text):
     p.write_text(text)
     try:
         r = subprocess.run([sys.executable, str(ROOT / "tools/lib/match.py"), seg, fn, str(p)], capture_output=True, text=True)
+        if "MATCH" in r.stdout and r.returncode == 0 and "jtbl_" in match.asm_file(seg).read_text().split(f"glabel {fn}\n", 1)[-1].split("endlabel", 1)[0]:
+            r = subprocess.run([sys.executable, str(ROOT / "tools/search/hard_jt.py"), "check", seg, fn, str(p)], capture_output=True, text=True)
+            return r.stdout.strip().endswith("MATCH")   # a switch: the jump table must be the ROM's too
     finally:
         p.unlink(missing_ok=True)
     return "MATCH" in r.stdout and r.returncode == 0

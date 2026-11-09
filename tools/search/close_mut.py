@@ -559,6 +559,27 @@ def m_inline_local(t, name):
         yield var, new
 
 
+LATE = re.compile(r"(?P<ind>[ \t]*)(?:(?P<ty>[A-Za-z_]\w*\s*\*+)\s*(?P<v>[A-Za-z_]\w*)\s*=|(?P<v2>[A-Za-z_]\w*)\s*=(?!=))\s*(?P<e>[^;=]+);\s*\n"
+                  r"(?P<ind2>[ \t]*)if \((?P<c>[A-Za-z_]\w*)(?: != (?:0|NULL))?\) \{")
+
+
+def m_late_local(t, name):
+    """`T *x = E; if (x != 0) {` becomes `T *x; if (E != 0) { x = E;`: the local is assigned after the test of the expression (the ROM
+    then keeps the loaded value and the local in two registers, and the local takes the second one)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    for m in LATE.finditer(t[bs:be]):
+        v = m.group("v") or m.group("v2")
+        if m.group("c") != v:
+            continue
+        e, ty, a, b = m.group("e").strip(), m.group("ty"), bs + m.start(), bs + m.end()
+        base = re.sub(r"\s+", "", ty)[:-1] if ty else ""
+        head = f"{m.group('ind')}{base} *{v};\n" if ty else ""
+        yield f"{v}@{a}", t[:a] + head + f"{m.group('ind2')}if ({e} != 0) {{\n{m.group('ind2')}    {v} = {e};" + t[b:]
+
+
 def m_extract(t, name):
     """A repeated field/array expression becomes a local (`s32 temp = a->b;`)."""
     loc = locate(t, name)
@@ -932,7 +953,7 @@ MUTATORS = {
     "flags": m_flags, "cmp_swap": m_cmp_swap, "not_form": m_not_form, "cmp_const": m_cmp_const, "bool_swap": m_bool_swap,
     "if_swap": m_if_swap, "dup_return": m_dup_return, "drop_else": m_drop_else, "add_else": m_add_else, "stmt_swap": m_stmt_swap, "decl_swap": m_decl_swap,
     "pad": m_pad, "local_type": m_local_type, "param": m_param, "alias": m_alias, "inline_local": m_inline_local,
-    "extract": m_extract, "chain_assign": m_chain_assign, "commute": m_commute, "float_lit": m_float_lit, "cast": m_cast,
+    "extract": m_extract, "late_local": m_late_local, "chain_assign": m_chain_assign, "commute": m_commute, "float_lit": m_float_lit, "cast": m_cast,
     "addu": m_addu, "ternary": m_ternary, "loop": m_loop, "callf32": m_callf32, "fieldsign": m_fieldsign, "index": m_index, "symarr": m_symarr, "retfold": m_retfold, "dropsp": m_dropsp, "fwdarg": m_fwdarg,
 }
 
