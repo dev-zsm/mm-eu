@@ -20,6 +20,8 @@ extern Gfx *Play_SetFog(Context *ctx, Gfx *dl);
 #define GSET_CMD(pkt, c0, c1) { Gfx *_g = (pkt); _g->w0 = (c0); _g->w1 = (c1); }
 
 void func_800AEE0C(Context *ctx) {
+    s16 pad_h;
+
     GraphicsContext *gfxCtx = ctx->gfxCtx;
 
     GSET_CMD(gfxCtx->dlHead++, 0xE7000000, 0);

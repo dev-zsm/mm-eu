@@ -89,6 +89,15 @@ h = ref_import.build_header("x", [("pp", '#include "a.h"'), ("decl", "static s32
 check(h.index("#define sA D_80000000") < h.index('#include "a.h"') and "extern s32 sA[1];" in h and "void F(void);" in h, "ref_import.build_header")
 check("ref_func_80001234" in ref_import.function_file("x", [("func", func)], "F"), "ref_import prefixes the reference's address names")
 
+import close_mut  # noqa: E402
+src = "void f(s32 a) {\n    s32 b;\n    s32 c;\n    if (a < 3) {\n        b = a;\n    } else {\n        b = 2;\n    }\n    c = 1;\n    b = 4;\n}\n"
+vs = close_mut.variants(src, "f")
+has = lambda m, frag: any(v[0] == m and frag in v[2] for v in vs)
+check(has("cmp_swap", "if (3 > a)") and has("if_swap", "if (a >= 3)") and has("ternary", "b = a < 3 ? a : 2;"), "close_mut cmp_swap, if_swap, ternary")
+check(has("stmt_swap", "b = 4;\n    c = 1;") and has("decl_swap", "s32 c;\n    s32 b;") and has("pad", "s32 pad;"), "close_mut stmt_swap, decl_swap, pad")
+check(close_mut.negate("a < b") == "a >= b" and close_mut.negate("x") == "!x" and close_mut.negate("!x") == "x", "close_mut.negate")
+check(all(v[2].count("{") == v[2].count("}") for v in vs), "close_mut keeps the braces balanced")
+
 import srcpath  # noqa: E402
 check(srcpath.path("overlays", "func_80000000").name == "func_80000000.c", "srcpath.path")
 

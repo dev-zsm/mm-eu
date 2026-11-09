@@ -11,6 +11,8 @@ extern SeqTbl D_801F84B0;
 s32 AudioLoad_SyncLoadFont(s32 a0);
 
 s32 AudioLoad_SyncLoadSeqFonts(s32 seqId, u32 *outFontId) {
+    s16 pad_h;
+    s32 pad2[2];
     s32 ret;
     s32 pad[2];
     u32 fontId;

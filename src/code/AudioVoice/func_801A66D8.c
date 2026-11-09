@@ -55,29 +55,29 @@ void func_801A66D8(void) {
             result = func_8008A310(D_801F4DF8, &D_801F4E08);
             PadMgr_VoiceReleaseSerialEventQueue(queue);
             if (func_801A60C0(result) == 0) {
-                switch (D_801F4E04) {
-                    case 0:
-                        D_801F4DE4 = 2;
-                        break;
-                    case 1: // empty cases keep the switch a jump table, as in the ROM
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        break;
-                    case 7:
-                        D_801F4DE4 = 2;
-                        break;
-                }
+            switch (D_801F4E04) {
+                case 0:
+                    D_801F4DE4 = 2;
+                    break;
+                case 1: // empty cases keep the switch a jump table, as in the ROM
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    break;
+                case 7:
+                    D_801F4DE4 = 2;
+                    break;
+            }
             }
             break;
         case 2:
             if (((D_801F4E08.flags & D_801F4DE0.unk10) == 0) && (D_801F4DE0.unkE >= D_801F4E08.unk2) &&
-                (D_801F4DE0.unkC >= D_801F4E08.unk14) && (D_801F4E08.unk4 >= D_801F4DE0.unk12) &&
-                (D_801F4E08.unk6 >= D_801F4DE0.unk14)) {
-                D_801F4E28 = D_801F4E08;
-                D_801F4DE0.active = &D_801F4E28;
+            (D_801F4DE0.unkC >= D_801F4E08.unk14) && (D_801F4E08.unk4 >= D_801F4DE0.unk12) &&
+            (D_801F4E08.unk6 >= D_801F4DE0.unk14)) {
+            D_801F4E28 = D_801F4E08;
+            D_801F4DE0.active = &D_801F4E28;
             }
             queue = PadMgr_VoiceAcquireSerialEventQueue();
             func_80092460(D_801F4DF8);

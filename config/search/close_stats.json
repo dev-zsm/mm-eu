@@ -1,0 +1,261 @@
+{
+ "ctx": {
+  "opcode": {
+   "flags": 8,
+   "local_type": 6,
+   "pad": 2
+  },
+  "opswap": {
+   "permuter": 1
+  },
+  "order": {
+   "pad": 2
+  },
+  "other": {
+   "flags": 2,
+   "local_type": 2
+  },
+  "stack": {
+   "pad": 4
+  }
+ },
+ "mut": {
+  "add_else": {
+   "helped": 0,
+   "tried": 239,
+   "wins": 0
+  },
+  "addu": {
+   "helped": 0,
+   "tried": 141,
+   "wins": 0
+  },
+  "alias": {
+   "helped": 0,
+   "tried": 387,
+   "wins": 0
+  },
+  "bool_swap": {
+   "helped": 0,
+   "tried": 130,
+   "wins": 0
+  },
+  "cast": {
+   "helped": 0,
+   "tried": 285,
+   "wins": 0
+  },
+  "chain_assign": {
+   "helped": 1,
+   "tried": 177,
+   "wins": 0
+  },
+  "cmp_const": {
+   "helped": 0,
+   "tried": 119,
+   "wins": 0
+  },
+  "cmp_swap": {
+   "helped": 0,
+   "tried": 1071,
+   "wins": 0
+  },
+  "commute": {
+   "helped": 0,
+   "tried": 293,
+   "wins": 0
+  },
+  "decl_swap": {
+   "helped": 3,
+   "tried": 1090,
+   "wins": 0
+  },
+  "drop_else": {
+   "helped": 0,
+   "tried": 19,
+   "wins": 0
+  },
+  "dup_return": {
+   "helped": 0,
+   "tried": 23,
+   "wins": 0
+  },
+  "extract": {
+   "helped": 0,
+   "tried": 759,
+   "wins": 0
+  },
+  "flags": {
+   "helped": 26,
+   "tried": 2532,
+   "wins": 8
+  },
+  "float_lit": {
+   "helped": 0,
+   "tried": 2027,
+   "wins": 0
+  },
+  "if_swap": {
+   "helped": 0,
+   "tried": 148,
+   "wins": 0
+  },
+  "inline_local": {
+   "helped": 0,
+   "tried": 24,
+   "wins": 0
+  },
+  "local_type": {
+   "helped": 17,
+   "tried": 9751,
+   "wins": 6
+  },
+  "loop": {
+   "helped": 0,
+   "tried": 53,
+   "wins": 0
+  },
+  "not_form": {
+   "helped": 2,
+   "tried": 1260,
+   "wins": 0
+  },
+  "pad": {
+   "helped": 24,
+   "tried": 3978,
+   "wins": 6
+  },
+  "param": {
+   "helped": 12,
+   "tried": 680,
+   "wins": 0
+  },
+  "permuter": {
+   "helped": 0,
+   "tried": 0,
+   "wins": 1
+  },
+  "stmt_swap": {
+   "helped": 5,
+   "tried": 4967,
+   "wins": 0
+  },
+  "ternary": {
+   "helped": 0,
+   "tried": 49,
+   "wins": 0
+  }
+ },
+ "wins": [
+  {
+   "ctx": [],
+   "fn": "func_801A66D8",
+   "seg": "code",
+   "seq": []
+  },
+  {
+   "ctx": [
+    "stack"
+   ],
+   "fn": "func_800AEE0C",
+   "seg": "code",
+   "seq": [
+    "pad:first:s16 pad_h;"
+   ]
+  },
+  {
+   "ctx": [
+    "opcode"
+   ],
+   "fn": "func_8019D070",
+   "seg": "code",
+   "seq": [
+    "flags:-O1 -g0",
+    "local_type:param arg0:u8",
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [
+    "opcode"
+   ],
+   "fn": "func_801A6A90",
+   "seg": "code",
+   "seq": [
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [
+    "opcode"
+   ],
+   "fn": "func_801A508C",
+   "seg": "code",
+   "seq": [
+    "local_type:param arg0:u16",
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [
+    "opcode",
+    "other"
+   ],
+   "fn": "func_8019D194",
+   "seg": "code",
+   "seq": [
+    "local_type:param arg0:u16",
+    "flags:-O2 -g0",
+    "local_type:param arg1:u16"
+   ]
+  },
+  {
+   "ctx": [
+    "stack"
+   ],
+   "fn": "func_801903B8",
+   "seg": "code",
+   "seq": [
+    "pad:first:s32 pad2[2];",
+    "pad:first:s16 pad_h;"
+   ]
+  },
+  {
+   "ctx": [
+    "opcode",
+    "order"
+   ],
+   "fn": "func_80092400",
+   "seg": "boot",
+   "seq": [
+    "pad:first:s16 pad_h;"
+   ]
+  },
+  {
+   "ctx": [
+    "opcode"
+   ],
+   "fn": "func_80190100",
+   "seg": "code",
+   "seq": [
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001630",
+   "seg": "ovl0493",
+   "seq": []
+  },
+  {
+   "ctx": [
+    "opswap"
+   ],
+   "fn": "func_8000012C",
+   "seg": "ovl0436",
+   "seq": [
+    "permuter"
+   ]
+  }
+ ]
+}
