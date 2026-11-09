@@ -128,7 +128,7 @@ def make_draft(seg: str, fn: str, asm: str) -> bool:
         s.write_text(asm)
         r = subprocess.run([sys.executable, str(auto_match.M2C), "-t", "mips-ido-c", "--valid-syntax", str(s)],
                            capture_output=True, text=True)
-    if r.returncode or "M2C_ERROR" in r.stdout or f" {fn}(" not in r.stdout:
+    if r.returncode or "M2C_ERROR" in r.stdout or not re.search(rf"[ *]{fn}\(", r.stdout):
         return False
     out = ROOT / "build/auto_drafts" / seg / f"{fn}.c"
     out.parent.mkdir(parents=True, exist_ok=True)

@@ -42,7 +42,7 @@ def attempt(job):
         s.write_text(asm)
         r = subprocess.run([sys.executable, str(M2C), "-t", "mips-ido-c", "--valid-syntax", str(s)],
                            capture_output=True, text=True)
-        if r.returncode or "M2C_ERROR" in r.stdout or f" {fn}(" not in r.stdout:
+        if r.returncode or "M2C_ERROR" in r.stdout or not re.search(rf"[ *]{fn}\(", r.stdout):   # `void *func_...(` has a * before the name
             return fn, "m2c failed", None
         # IDO rejects arithmetic on void *: use u8 * (same scaling)
         src = '#include "types.h"\n#include "m2c_macros.h"\n\n' + r.stdout.replace("void *", "u8 *")
@@ -62,7 +62,7 @@ def main():
     out = ROOT / "build/auto_match" / seg
     out.mkdir(parents=True, exist_ok=True)
     log = out.parent / f"{seg}.txt"
-    done = {l.split()[0] for l in log.read_text().splitlines()} if log.exists() else set()
+    done = {l.split()[0] for l in log.read_text().splitlines() if not l.endswith("m2c failed")} if log.exists() else set()   # tried again: see hard_m2c.py
     asm_only = ROOT / "config" / seg / "asm_only.txt"
     skip = set(asm_only.read_text().split()) if asm_only.exists() else set()
     path, base = match.SEG[seg]

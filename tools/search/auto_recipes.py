@@ -54,7 +54,7 @@ def attempt(job):
         s.write_text(asm)
         r = subprocess.run([sys.executable, str(am.M2C), "-t", "mips-ido-c", "--valid-syntax", str(s)],
                            capture_output=True, text=True)
-        if r.returncode or f" {fn}(" not in r.stdout:
+        if r.returncode or not re.search(rf"[ *]{fn}\(", r.stdout):
             return fn, "m2c failed", None
         body = r.stdout.replace("void *", "u8 *").replace("M2C_UNK8", "M2C_UNK").replace("M2C_UNK16", "M2C_UNK").replace("M2C_UNK32", "M2C_UNK")
         c = Path(d) / f"{fn}.c"

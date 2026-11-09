@@ -100,6 +100,30 @@ first differing instructions), `lines` (`off`, `rom`, `ours` disassembled; singl
 | `tools/search/wave.py`, `tools/search/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
 | `tools/agents/AGENT_BRIEF.md`, `tools/agents/CLEANUP_BRIEF.md` | the rules and techniques given to the AI agents that write and tidy the C |
 
+## The functions the automatic tools skip
+
+`tools/search/hard_*.py` and `tools/lib/hardjt.py` take the functions that `auto_match`, `auto_recipes` and the permuter leave alone. Start with
+`python3 tools/search/hard_scan.py` (counts per segment and category; `--list jtbl|large|hand_unlisted|other [--max-size HEX]` lists the functions).
+
+| Tool | Purpose |
+|---|---|
+| `tools/search/hard_scan.py` | counts the unmatched functions (no verified C file) by category: `jtbl` (jump table, a `switch`), `hand` (outside the C todo: marked `Handwritten function` by splat or in `asm_only.txt`), `hand_unlisted`, `m2c_failed`, `large` (over 0x400 bytes), `other` |
+| `tools/lib/hardjt.py` | the jump tables of the splat assembly: the table of a function (code, boot, overlays: the entries of an overlay table are link-time addresses, the base is found from the `jal` targets), the case bound, the splat fragments of a switch (see below), and `object_tables`/`tables_agree`, which read the case targets from the relocations of our object |
+| `tools/search/hard_jt.py` | `draft`: the m2c draft of a function with a `switch` (m2c refuses it because splat prints the table as raw words: the tool gives m2c the table and a label at every case target); `info`: case values per target; `auto <seg\|overlays> [max_size] [jobs] [--redo]`: draft + the usual flag sets + the recipes of `auto_recipes`, and the **table is checked against the ROM**; matches go to `build/auto_match/<seg>_jt/` and `overlay_auto.py promote` files them; `check <seg> <fn> <file.c>`: `match.py` plus the table, for a hand-written file |
+| `tools/search/hard_m2c.py` | `why`: the reasons m2c refuses functions; `draft`: the first m2c variant that gives C (the table for a switch, then `--gotos-only`, `--no-andor`, `--no-switches`, `--no-stack-spill`); `auto`: the variants times the flag sets on the `m2c failed` functions |
+| `tools/search/hard_blocks.py` | `hard_blocks.py <seg> <fn> <file.c>`: for a big function, aligns the ROM and our instructions (so that one extra instruction does not shift the rest), judges each basic block and prints the **first block that differs** with context. Write the first part of the function, end it with `STUB();` and `return`, run the tool, extend, repeat |
+| `tools/search/hard_hand.py` | classifies the functions that look hand-written: `asm_only` when an instruction proves it (COP0, `cache`, `ll`/`sc`, `eret`, `$k0`/`$k1`, a bare `cfc1`/`ctc1`), else a C candidate with what looks odd; `--apply` adds the proven ones to `config/<seg>/asm_only.txt` |
+
+**Why m2c fails, and what to do.** Counted with `hard_m2c.py why`: (1) a function that returns a pointer (`void *func_...(`) was logged as failed by an old
+check of `auto_match.py` (it looked for ` func_...(`): fixed, such functions are tried now; (2) `jr` to a jump table: m2c needs the table, `hard_jt.py`
+gives it; (3) a table whose entries beyond the bound are zero (`Cannot find jtbl target .L00000000`): `hardjt.head_tables` cuts the table at the
+`sltiu` bound; (4) the case bodies split off by splat (below). A function that m2c still refuses: `hard_m2c.py draft` tries the options one by one.
+
+**Jump tables and the pieces splat cuts off.** IDO puts the case bodies after the first `jr $ra`; when every body returns, splat ends the function
+there and prints each body as a function of its own (`func_800B6DA8` is a case of `func_800B6D4C`, which is `0x5c` bytes of the real `0xC8`). Such a
+chunk is no function: nothing calls it, only the table points to it. `hardjt.fragments` lists them. The switches whose bodies are inside the function
+(most of them) are not cut.
+
 ## Source layout
 
 | Tool | Purpose |
