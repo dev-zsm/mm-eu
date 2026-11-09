@@ -10,7 +10,7 @@ Matching a 400-instruction function: write the first part of the C, end it with 
 the first differing block is the first place where the code you wrote is not the ROM's (blocks after the stub are expected to differ and are
 listed as `missing`). Extend the C, run again. The tail (epilogue) of a stubbed function differs by design: only the first DIFF counts.
 --all prints every differing block; --context N sets the number of equal lines shown before the first difference (default 4)."""
-import difflib, re, struct, sys, tempfile
+import difflib, struct, sys, tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]

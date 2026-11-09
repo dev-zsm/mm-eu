@@ -138,5 +138,21 @@ check(client.local("C:\\Users\\x\\a.c") == Path("/mnt/c/Users/x/a.c") and client
 r = server.do_match({"id": 7, "seg": "boot", "fn": "no_such_function", "source": "void f(void) {}\n"})
 check(r["id"] == 7 and r["status"] == "ERROR" and not r["match"], f"server.do_match reports an error {r}")
 
+import struct  # noqa: E402
+import hardjt  # noqa: E402
+check(hardjt.tables_agree([(0, 0x100), (4, 0x110), (8, 0x100)], 0x100, [[0x1000, 0x1010, 0x1000]], 0x1000), "hardjt.tables_agree: entries are offsets from the function")
+check(not hardjt.tables_agree([(0, 0x100), (8, 0x110)], 0x100, [[0x1000, 0x1010]], 0x1000), "hardjt.tables_agree: a gap between words is no table")
+check(hardjt.bound("a\n  sltiu $at, $t6, 0x5\n  lui $at, %hi(jtbl_80000000)\n", "jtbl_80000000") == 5, "hardjt.bound")
+
+import hard_blocks  # noqa: E402
+check(hard_blocks.kind(0x10400003) == "branch" and hard_blocks.kind(0x0C000010) == "jump" and hard_blocks.kind(0x03E00008) == "jr", "hard_blocks.kind")
+nop, add = 0, 0x24020001
+_a, _b, _pairs, _exact, _ = hard_blocks.compare(struct.pack(">3I", add, nop, 0x03E00008), struct.pack(">4I", add, nop, nop, 0x03E00008), {})
+check(len(_pairs) == 3 and all(_exact.values()), "hard_blocks.compare aligns across an inserted instruction")
+
+import hard_hand  # noqa: E402
+check(hard_hand.classify("  /* 0 80000000 40846800 */  mtc0       $a0, $13\n", 12)[0] == "asm_only"
+      and hard_hand.classify("  /* 0 80000000 03E00008 */  jr         $ra\n", 8)[0] == "c-candidate", "hard_hand.classify")
+
 print(f"{len(failures)} failure(s)" if failures else "selftest: OK")
 sys.exit(1 if failures else 0)

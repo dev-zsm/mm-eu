@@ -47,6 +47,17 @@ code would link to against the ROM's. Inside an overlay the ROM holds the link-t
 relocation table of the overlay corrects when it is loaded: those references are not compared (they are counted as "of unknown
 address"). The ones towards the code and boot segments are.
 
+## Jump tables (switch)
+
+`match.py` does not see a jump table: it lives in the `.rodata` of the overlay, and its entries are link-time addresses that the relocation table
+corrects at load time. A `case` moved to another value keeps the code bytes and changes only the table, so a `switch` can be reported `MATCH` with a
+wrong table (checked: `case 11:` written `case 10:` in a matched function). What can be verified: every entry of the table is an `R_MIPS_32`
+relocation against `.text` in our object, and its addend is the offset of the case label. The ROM's entry minus the link base of the overlay (the
+base is the one for which every `jal` target inside the file is the start of a function, `tools/lib/hardjt.py link_base`) is the same offset.
+`python3 tools/search/hard_jt.py check ovlNNNN <fn> <file.c>` compares the two (code and table); use it instead of `match.py` for a function that
+has a `jtbl_` in its assembly. `hard_jt.py draft` gives m2c the table, `hard_jt.py auto overlays` tries every such function.
+Not verified: a table that C places in `.rodata` next to other constants is compared as a run of consecutive words, not as a section.
+
 ## Order of work
 
 Start with the smallest overlays: they match fastest and show the structure shared by many of them (initialisation,

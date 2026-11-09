@@ -52,8 +52,6 @@ def main():
     for seg in hard_scan.segments(args):
         asm = hard_scan.ROOT / (f"asm/overlays/{seg[3:]}/text.s" if seg.startswith("ovl") else f"asm/{seg}/text.s")
         bodies = {c.split(",")[0].split()[1]: c for c in re.split(r"(?=^nonmatching )", asm.read_text(), flags=re.M)[1:]}
-        listed = ROOT / "config" / seg / "asm_only.txt"
-        have = set(listed.read_text().split()) if listed.exists() else set()
         for fn, size, cats in hard_scan.scan(seg):
             verdict, ev = classify(bodies[fn], size)
             found.setdefault(seg, []).append((fn, size, verdict, ev, "hand" in cats))   # last: already outside the C todo (marked or listed)
