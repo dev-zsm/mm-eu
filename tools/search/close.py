@@ -14,13 +14,17 @@ mutation whose object code is already known is dropped, so only changes that mov
 which mutations are tried comes from config/search/close_stats.json (which mutator helped or won, and in which kind of difference:
 register swap, stack frame, size, order...). A winner is written raw to build/close_wins/<seg>/<fn>.c with the list of mutations
 (<fn>.json), the useless hunks are reverted one by one, and `promote` files it in src/ in the project style."""
-import difflib, hashlib, json, random, re, shutil, subprocess, sys, time
+import difflib, hashlib, json, os, random, re, shutil, subprocess, sys, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") if d.name != "vendor"]
 import check_style  # noqa: E402
+try:
+    import client as fastclient  # noqa: E402
+except ImportError:
+    fastclient = None
 import close_mut as mut  # noqa: E402
 import match  # noqa: E402
 import names as names_mod  # noqa: E402
@@ -55,6 +59,11 @@ class Target:
 
     def score(self, text):
         """(score, exact, tags, signature) or None when the text does not compile or lacks the function."""
+        if fastclient is not None and not os.environ.get("MM_CLOSE_INPROC"):
+            return self.score_many([text])[0]
+        return self.score_local(text)
+
+    def score_local(self, text):
         path = self.dir / f"c_{hashlib.sha1(text.encode()).hexdigest()[:14]}.c"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
@@ -67,13 +76,36 @@ class Target:
         return compare(self.want, got, masks)
 
     def score_many(self, texts, deadline=None):
-        def one(t):
-            return None if deadline and time.time() > deadline else self.score(t)
-        with ThreadPoolExecutor(objcache.JOBS) as ex:
-            return list(ex.map(one, texts))
+        """One result per text (None: does not compile, or out of time). The match server (tools/fast) compiles the batch on its own
+        slots; without it (MM_CLOSE_INPROC=1, or the server does not start) the texts are compiled here."""
+        if fastclient is None or os.environ.get("MM_CLOSE_INPROC"):
+            def one(t):
+                return None if deadline and time.time() > deadline else self.score_local(t)
+            with ThreadPoolExecutor(objcache.JOBS) as ex:
+                return list(ex.map(one, texts))
+        out = [None] * len(texts)
+        for k in range(0, len(texts), 96):
+            if deadline and time.time() > deadline:
+                break
+            cands = [{"id": k + n, "source": project_form(t)} for n, t in enumerate(texts[k:k + 96])]
+            for r in fastclient.batch(self.seg, self.fn, cands, disasm=True, max_diffs=200):
+                out[r["id"]] = from_server(r)
+        return out
 
     def cleanup(self):
         shutil.rmtree(TMP / f"{self.seg}_{self.fn}", ignore_errors=True)
+
+
+def from_server(r):
+    """(score, exact, tags, signature) from an answer of the match server (tools/lib/score.py); None for an error."""
+    if r["status"] == "ERROR":
+        return None
+    sig = hashlib.sha1(json.dumps([r["first"], [l["ours"] for l in r.get("lines", [])], r["our_len"]]).encode()).hexdigest()[:12]
+    if r["match"]:
+        return 0.0, True, [], sig
+    tags = (["size+" if r["size"] > 0 else "size-"] if r["size"] else []) + (["reg"] if r["reg"] else []) + (["order"] if r["moved"] else []) \
+        + (["other"] if r["hard"] else [])
+    return r["score"] + 0.01 * r["diff"], False, tags, sig
 
 
 def compare(want, got, masks):

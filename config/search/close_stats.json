@@ -15,6 +15,12 @@
    "flags": 2,
    "local_type": 2
   },
+  "reg": {
+   "commute": 2,
+   "inline_local": 1,
+   "local_type": 2,
+   "stmt_swap": 1
+  },
   "stack": {
    "pad": 4
   }
@@ -22,52 +28,52 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 239,
+   "tried": 1276,
    "wins": 0
   },
   "addu": {
-   "helped": 0,
-   "tried": 141,
+   "helped": 74,
+   "tried": 2501,
    "wins": 0
   },
   "alias": {
-   "helped": 0,
-   "tried": 387,
+   "helped": 1,
+   "tried": 3056,
    "wins": 0
   },
   "bool_swap": {
-   "helped": 0,
-   "tried": 130,
+   "helped": 12,
+   "tried": 938,
    "wins": 0
   },
   "cast": {
    "helped": 0,
-   "tried": 285,
+   "tried": 3233,
    "wins": 0
   },
   "chain_assign": {
    "helped": 1,
-   "tried": 177,
+   "tried": 606,
    "wins": 0
   },
   "cmp_const": {
    "helped": 0,
-   "tried": 119,
+   "tried": 268,
    "wins": 0
   },
   "cmp_swap": {
    "helped": 0,
-   "tried": 1071,
+   "tried": 7383,
    "wins": 0
   },
   "commute": {
-   "helped": 0,
-   "tried": 293,
-   "wins": 0
+   "helped": 8,
+   "tried": 2729,
+   "wins": 2
   },
   "decl_swap": {
    "helped": 3,
-   "tried": 1090,
+   "tried": 2436,
    "wins": 0
   },
   "drop_else": {
@@ -86,29 +92,29 @@
    "wins": 0
   },
   "flags": {
-   "helped": 26,
-   "tried": 2532,
+   "helped": 34,
+   "tried": 9649,
    "wins": 8
   },
   "float_lit": {
-   "helped": 0,
-   "tried": 2027,
+   "helped": 5,
+   "tried": 12414,
    "wins": 0
   },
   "if_swap": {
    "helped": 0,
-   "tried": 148,
+   "tried": 232,
    "wins": 0
   },
   "inline_local": {
    "helped": 0,
-   "tried": 24,
-   "wins": 0
+   "tried": 137,
+   "wins": 1
   },
   "local_type": {
-   "helped": 17,
-   "tried": 9751,
-   "wins": 6
+   "helped": 25,
+   "tried": 29898,
+   "wins": 8
   },
   "loop": {
    "helped": 0,
@@ -116,18 +122,18 @@
    "wins": 0
   },
   "not_form": {
-   "helped": 2,
-   "tried": 1260,
+   "helped": 7,
+   "tried": 8425,
    "wins": 0
   },
   "pad": {
-   "helped": 24,
-   "tried": 3978,
+   "helped": 27,
+   "tried": 15086,
    "wins": 6
   },
   "param": {
-   "helped": 12,
-   "tried": 680,
+   "helped": 14,
+   "tried": 2758,
    "wins": 0
   },
   "permuter": {
@@ -136,9 +142,9 @@
    "wins": 1
   },
   "stmt_swap": {
-   "helped": 5,
-   "tried": 4967,
-   "wins": 0
+   "helped": 14,
+   "tried": 11972,
+   "wins": 1
   },
   "ternary": {
    "helped": 0,
@@ -255,6 +261,65 @@
    "seg": "ovl0436",
    "seq": [
     "permuter"
+   ]
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000970",
+   "seg": "ovl0091",
+   "seq": []
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8002A0A0",
+   "seg": "ovl0056",
+   "seq": [
+    "commute:paren@513"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000079C",
+   "seg": "ovl0152",
+   "seq": [
+    "inline_local:u",
+    "stmt_swap:@213<183"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800030F8",
+   "seg": "ovl0056",
+   "seq": [
+    "local_type:temp_v0_2:s32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000BC50",
+   "seg": "ovl0056",
+   "seq": [
+    "local_type:temp_v0:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80011DDC",
+   "seg": "ovl0056",
+   "seq": [
+    "commute:paren@309",
+    "commute:paren@220",
+    "commute:paren@407"
    ]
   }
  ]
