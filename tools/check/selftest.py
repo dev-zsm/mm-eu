@@ -83,6 +83,10 @@ check(ref_import.as_extern("static s32 sX[] = { 1, 2 }") == "extern s32 sX[2]", 
 check([ref_import.initializer_count(s) for s in ("{ 1, F(2, 3), { 4, 5 }, \"a,b\", }", "{ }", "\"abc\"", "{ {1}, {2} };")] == [4, 0, 0, 2],
       "ref_import.initializer_count")
 check(ref_import.func_name(chunks[2][1]) == "F", "ref_import.func_name")
+ld_err = ("ld: warning: x\n/n/fn/func_8016C644.o: in function `func_8016C644':\n"
+          "func_8016C644.c:(.text+0x10): warning\nfunc_8016C644.c:(.text+0x14): undefined reference to `gSaveContext'\n")
+check([m.groups() for m in ref_import.UNDEF.finditer(ld_err)] == [("func_8016C644", "gSaveContext")], "ref_import.UNDEF names the object and the symbol of a failed link")
+check(ref_import.CC_ERR.search("cfe: Error: src/code/Play/func_8016C644.c, line 9: 'x' undefined").group(1) == "src/code/Play/func_8016C644.c", "ref_import.CC_ERR")
 
 func = "void F(void) {\n    func_80001234();\n}"
 h = ref_import.build_header("x", [("pp", '#include "a.h"'), ("decl", "static s32 sA[] = { 1 }"), ("func", func)], {"sA": "D_80000000"})

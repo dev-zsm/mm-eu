@@ -15,13 +15,14 @@ flock -n 9 || { echo "daily.sh already running"; exit 0; }
 export PYTHONUNBUFFERED=1
 renice -n 19 $$ > /dev/null 2>&1 || true
 hours="${1:-3}"
+t0=$(date +%s)
 python3 tools/check/selftest.py   # a broken tool stops the round before it spends hours
 
 git fetch -q && { git rebase -q -X ours origin/main 2>/dev/null || git rebase --abort 2>/dev/null; } || true   # another machine may have pushed
 python3 tools/lib/names.py code --apply-src > /dev/null
 python3 tools/check/quarantine.py code
 python3 tools/check/quarantine.py boot
-python3 tools/lib/build_seg.py code extracted/0049_00C8A000.bin > /dev/null
+python3 tools/search/ref_import.py heal > /dev/null   # links the code segment, and deletes the untracked files (left by a failed import) that keep it from linking
 python3 tools/lib/build_seg.py boot build/boot.bin > /dev/null
 
 nice -n 19 python3 tools/search/permute_list.py --auto --hours "$hours"
@@ -42,13 +43,29 @@ if [ -z "${NO_REF:-}" ]; then
         || echo "reference import skipped"
 fi
 
+# what is left of the time budget goes to the adaptive closer (tools/search/close.py) over the near misses, closest first: code, boot, then the
+# overlays, each with an equal share of what remains. The match server is used when it starts on this machine, else the compiles run in
+# the process. A win is filed in src/ only after match.py and the style rules agree; wave_finish below checks everything again. NO_CLOSE=1: skip.
+if [ -z "${NO_CLOSE:-}" ]; then
+    python3 tools/fast/client.py stats > /dev/null 2>&1 || export MM_CLOSE_INPROC=1
+    export MM_JOBS="${MM_JOBS:-$(nproc)}"
+    specs=(code boot 0000-9999)
+    for i in 0 1 2; do
+        left=$(awk -v h="$hours" -v t0="$t0" -v now="$(date +%s)" -v n=$((3 - i)) 'BEGIN { l = (h * 3600 - (now - t0)) / n; print (l > 0 ? int(l) : 0) }')
+        [ "$left" -ge 60 ] || break
+        timeout "$left" nice -n 19 python3 tools/search/close.py sweep "${specs[$i]}" --time 60 || echo "closer on ${specs[$i]}: stopped"
+    done
+    python3 tools/search/close.py learn > /dev/null || true   # the wins of this round join config/search/close_stats.json
+fi
+
 bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks
 
 [ -n "${NO_COMMIT:-}" ] && exit 0
-git add README.md docs/PROGRESS.md include src/boot src/code src/overlays
-# the counters of docs/PROGRESS.md and README.md change with every check: a round that found no function is not worth a commit
-if ! git diff --cached --name-only | grep -qv '^\(README.md\|docs/PROGRESS.md\)$'; then
-    git reset -q README.md docs/PROGRESS.md; git checkout -q -- README.md docs/PROGRESS.md
+git add README.md docs/PROGRESS.md config/search/close_stats.json include src/boot src/code src/overlays
+# the counters of docs/PROGRESS.md and README.md change with every check, and the statistics of the closer with every try: a round that found
+# no function is not worth a commit (the statistics go with the next one that has)
+if ! git diff --cached --name-only | grep -qv '^\(README.md\|docs/PROGRESS.md\|config/search/close_stats.json\)$'; then
+    git reset -q README.md docs/PROGRESS.md config/search/close_stats.json; git checkout -q -- README.md docs/PROGRESS.md config/search/close_stats.json
     echo "nothing new today"; exit 0
 fi
 git commit -q -m "daily run: more verified functions

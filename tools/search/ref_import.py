@@ -2,6 +2,7 @@
 """Functions of `code` and of the overlays that the reference decompilation compiles to the very bytes of this ROM, written as C files of ours. Run in WSL.
 usage: ref_import.py vendor                 copy the headers of the reference clone (build/ref/mm) to include/mm/, with stand-ins for the
                                             generated asset headers (not distributable; every function is checked byte for byte anyway)
+       ref_import.py heal                   link the code segment and delete the untracked files that keep it from linking or compiling
        ref_import.py run [overlays] [--only file.c]   compile every reference file of src/code (or of src/overlays), keep the functions that are byte-identical to
                                             ours and that we do not have in C yet, write them to src/code/ and register their names
 How a function becomes a file: the includes, defines and types of the reference file, the other declarations of that file as `extern`
@@ -21,6 +22,7 @@ import srcpath  # noqa: E402
 
 REF = ROOT / "build" / "ref" / "mm"
 RUNTIME = {}   # symbols the compiler itself calls (__ull_div ...): no source spells them, so the linker is told where they are
+WRITTEN = []   # the files this run kept: dropped again if the segment does not link with them (link_guard)
 new_bases = set()   # symbols at the start of arrays that the imported code reaches with an offset (config/code/bases.txt)
 MM = ROOT / "include" / "mm"
 INC = ROOT / "include" / "generated" / "mm"   # one header per reference file that gave functions
@@ -123,7 +125,11 @@ def stub_loop(files):
     syms = base / "assets" / "_syms.h"
     (base / "assets").mkdir(parents=True, exist_ok=True)
     syms.touch()
-    known = set(re.findall(r"extern u8 (\w+)\[\];", syms.read_text()))
+    kept = MM / "assets" / "_syms.h"   # the stand-ins of the repository: a clone that has fewer must not shrink them (files in src/ use them)
+    if kept.exists():
+        have = syms.read_text().splitlines()
+        syms.write_text("\n".join(have + [l for l in kept.read_text().splitlines() if l not in set(have)]) + "\n")
+    known =set(re.findall(r"extern u8 (\w+)\[\];", syms.read_text()))
     todo = list(files)
     for _ in range(14):
         _FP[0] = stand_state()
@@ -875,6 +881,7 @@ def import_module(fname, chunks, items, reasons):
     for seg, fn, path in kept:
         if _matches(seg, fn, path):
             good += 1
+            WRITTEN.append(path)
         else:
             reasons["bytes or call targets differ"] += 1
             if "--keep" not in sys.argv:
@@ -915,9 +922,60 @@ def save_bases():
             f.write(head + "".join(f"{n} 0x{n[2:]}\n" for n in add) + "".join(f"{n} 0x{a:08X}\n" for n, a in runtime))
 
 
+UNDEF = re.compile(r"/(\w+)\.o: in function `[^']*':\n(?:[^\n]*\n)*?[^\n]*undefined reference to `([^']+)'")
+OBJ_ERR = re.compile(r"AssertionError: (\w+)\.o: non-zero bytes beyond")
+CC_ERR = re.compile(r"Error: (\S+?\.c),? line \d+")
+
+
+def untracked(path):
+    """True if git does not know the file: only what an import wrote may be dropped, never a function of the repository."""
+    return run("git", "ls-files", "--error-unmatch", str(path), cwd=ROOT).returncode == 1   # any other status (no git here): not known, so kept
+
+
+def undefined_files(stderr):
+    """{source file: symbol} for the objects of a failed link that have an undefined reference and are untracked files."""
+    bad = {}
+    for m in UNDEF.finditer(stderr):
+        path = source_path(SEG, m.group(1))
+        if path.exists() and untracked(path):
+            bad.setdefault(path, m.group(2))
+    for m in OBJ_ERR.finditer(stderr):   # or an object that does not fit its place (a function that the layout splits in several)
+        path = source_path(SEG, m.group(1))
+        if path.exists() and untracked(path):
+            bad.setdefault(path, "an object larger than its place")
+    for m in CC_ERR.finditer(stderr):   # or a file that no longer compiles: its header lost the aliases when a round was thrown away
+        path = ROOT / m.group(1)
+        if path.exists() and untracked(path):
+            bad.setdefault(path, "a compile error")
+    return bad
+
+
+def link_guard():
+    """An import must never poison the build: link the code segment (tools/lib/build_seg.py) and drop the untracked files whose object has
+    an undefined reference (a data symbol of the reference that has no name or address on our side). It also heals files left by an
+    earlier round that was thrown away without them. If the link fails for another reason, everything this run wrote goes."""
+    orig = ROOT / "extracted" / "0049_00C8A000.bin"
+    for _ in range(20):
+        r = run(sys.executable, str(ROOT / "tools" / "lib" / "build_seg.py"), SEG, str(orig), cwd=ROOT)
+        if r.returncode == 0:
+            return
+        bad = undefined_files(r.stdout + r.stderr)   # the compiler errors come on stdout (objcache), the linker's on stderr
+        for path, sym in bad.items():
+            print(f"link: {path.name} dropped, undefined reference to {sym}")
+            path.unlink()
+        if not bad:
+            break
+    for path in WRITTEN:
+        if path.exists() and untracked(path):
+            path.unlink()
+    sys.exit("the code segment does not link after the import, the files of this run were dropped\n" + (r.stdout + r.stderr)[-1500:])
+
+
 def main():
     if sys.argv[1:2] == ["vendor"]:
         return vendor()
+    if sys.argv[1:2] == ["heal"]:   # start of a round: drop the untracked files that keep the code segment from linking
+        return link_guard()
     only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
     if sys.argv[1:2] == ["run"] and sys.argv[2:3] == ["names"]:
         overlay_candidates(only, names_mode=True)
@@ -931,6 +989,7 @@ def main():
     lap("functions imported")
     if sys.argv[2:3] != ["overlays"]:
         save_bases()
+        link_guard()
         print(f"{save_names()} functions named from the reference by their bytes")
     print(f"{total} identical candidates in {len(cands)} files, {ok} written and verified, {total - ok} rejected")
     for why, n in reasons.most_common():

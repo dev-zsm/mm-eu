@@ -32,7 +32,7 @@ DITEM = re.compile(r"/\*\s+[0-9A-Fa-f]+\s+([0-9A-Fa-f]{8})\b")  # vram in a data
 def sh(*a):
     r = subprocess.run(a, capture_output=True, text=True)
     if r.returncode:   # the message of the tool is what says which symbol or section is wrong
-        print(r.stderr[-3000:], file=sys.stderr)
+        print(r.stderr[-30000:], file=sys.stderr)
         raise subprocess.CalledProcessError(r.returncode, a, r.stdout, r.stderr)
     return r.stdout
 
@@ -90,7 +90,12 @@ def main():
         return (m.group(1).split() if m else DEFAULT_FLAGS) + CFLAGS
     # compile every C file that is not cached yet on all cores; the loop below then only copies cached objects
     cfiles = srcpath.files(seg)
-    objcache.warm([(lambda c=c: objcache.info(objcache.compile_obj(c, _flags(c)))) for c in cfiles])
+    def _cc(c):
+        try:
+            return objcache.info(objcache.compile_obj(c, _flags(c)))
+        except subprocess.CalledProcessError as e:   # say which file, with the compiler's own message, instead of a bare traceback
+            raise SystemExit(f"{c}: does not compile\n{e.stderr or ''}")
+    objcache.warm([(lambda c=c: _cc(c)) for c in cfiles])
 
     # Nothing to link again when every input is the one of the last link that gave the ROM: the objects (named by the hash of
     # their inputs), the assembly, the configuration, the link scripts, the original and the tools. MM_FULL=1 links anyway.
