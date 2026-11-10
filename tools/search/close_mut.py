@@ -190,7 +190,7 @@ def m_flags(t, name):
         if new != cur:
             body = t[m.end():] if m else t
             yield f"{o} {g}", f"// FLAGS: {' '.join(new)}\n" + body
-    for extra in ("-trapuv",):
+    for extra in ("-trapuv", "-Wab,-r4300_mul"):   # the second gives the `nop` after every mul.s
         new = [f for f in cur if f != extra] if extra in cur else cur + [extra]
         yield extra, f"// FLAGS: {' '.join(new)}\n" + (t[m.end():] if m else t)
 

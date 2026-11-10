@@ -137,6 +137,8 @@ def run_all(spec):
         old = p.read_text().replace("m2c_macros", "m2c_compat")
         norm = normalize(old)
         cands = [c for c in (norm, structify(norm)) if c != old]
+        if re.search(r"\bf32\b.*\*|\* .*\bf32\b", old) and not old.startswith("// FLAGS"):   # float products: the nop after mul.s
+            cands += ["// FLAGS: -O2 -g3 -mips2 -Wab,-r4300_mul\n" + c for c in (norm, structify(norm))]
         if not cands:
             return 0
         a = client.match(seg, fn, source=old)
