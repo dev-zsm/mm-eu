@@ -101,6 +101,19 @@ first differing instructions), `lines` (`off`, `rom`, `ours` disassembled; singl
 | `tools/search/wave.py`, `tools/search/wave_finish.sh` | prepare a wave of functions for the AI agents (smallest first, split in chunks), then file the new sources, apply the names and run the full check |
 | `tools/agents/AGENT_BRIEF.md`, `tools/agents/CLEANUP_BRIEF.md` | the rules and techniques given to the AI agents that write and tidy the C |
 
+## Drafts for the overlays, and idioms the closer learned
+
+| Tool | Purpose |
+|---|---|
+| `tools/search/draft_all.py ovlLO-ovlHI [max_size_hex] [jobs]` | writes the m2c draft of every unmatched overlay function of a range to `build/auto_drafts/<seg>/` (a switch function gets the draft of `hard_jt.py`, with its table); what `close.py sweep` reads |
+| `tools/search/structify.py all ovlLO-ovlHI` | rewrites each draft with one padded struct per `u8 *` variable (real member accesses instead of `M2C_FIELD`), makes drafts compile (sized unknown types, prototypes without float parameters become `f()`), tries `-Wab,-r4300_mul` on float code, and keeps a version only if it scores closer (the old text goes to `<fn>.c.orig`) |
+
+Idioms found with them: `-Wab,-r4300_mul` in the FLAGS line gives the `nop` after `mul.s` (a flag mutation of `close.py`); `x * -1` is a negation that IDO does not fold into
+a subtraction (`y += a * -1` gives `negu` + `addu`); four argument words read from the stack as floats are a struct passed by value; `B *b; if (this->b != 0) { b = this->b; ...`
+(the `late_local` mutator) puts the local in the second register like the ROM; a `Gfx` command written as `{ C *gfx = play->c; s32 pad; { G *g = gfx->g++; g->w0 = ...; g->w1 = ...; } }`
+(nested braces, the unused `pad`, both stores on ONE source line) is the shape of `OPEN_DISPS` and gives the ROM's scheduling; a callee that receives the caller's `a0` untouched is
+declared with empty parentheses and called `f(this, CONST)`, which m2c drafts miss.
+
 ## The functions the automatic tools skip
 
 `tools/search/hard_*.py` and `tools/lib/hardjt.py` take the functions that `auto_match`, `auto_recipes` and the permuter leave alone. Start with

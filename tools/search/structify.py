@@ -57,7 +57,6 @@ def structify(text):
     head_end = m.end()
     params = m.group(2)
     names = set(re.findall(r"\bu8 \*(\w+)", params))
-    body_start = head_end
     for d in re.finditer(r"^\s+u8 \*(\w+);", text[head_end:], re.M):
         names.add(d.group(1))
     calls = [c for c in field_calls(text) if c[0] > head_end and c[2] in names]
@@ -104,7 +103,6 @@ def structify(text):
         text = re.sub(rf"\bu8 \*{base}\b", f"S_{base} *{base}", text)
         text = re.sub(rf"(?<![\w>.]){base} \+ ", f"(u8 *){base} + ", text)
         text = re.sub(rf"(?<![\w>.]){base} - ", f"(u8 *){base} - ", text)
-    pre = text[:text.rfind("\n", 0, m.start() + 1) + 1] if m.start() else ""
     # structs go before the first declaration after the includes
     inc_end = max((x.end() for x in re.finditer(r'^#include .*\n', text, re.M)), default=0)
     return text[:inc_end] + "\n" + "\n".join(structs) + "\n" + text[inc_end:]

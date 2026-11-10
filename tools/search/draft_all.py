@@ -2,7 +2,7 @@
 """Write the m2c draft of every unmatched overlay function of a range to build/auto_drafts/<seg>/<fn>.c (the place close.py sweep reads).
 usage: draft_all.py ovlLO-ovlHI [max_size_hex=0x400] [jobs=3]      (run in WSL, venv active)
 A function with a verified file, a wip file or a draft already is skipped. close.py sweep then measures and closes them."""
-import re, subprocess, sys
+import re, sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
