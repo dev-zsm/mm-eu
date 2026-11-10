@@ -9,17 +9,26 @@
    "permuter": 1
   },
   "order": {
+   "fwdarg": 3,
    "pad": 2
   },
   "other": {
+   "callf32": 12,
+   "fieldsign": 5,
    "flags": 2,
+   "float_lit": 1,
+   "fwdarg": 3,
    "local_type": 2
   },
   "reg": {
-   "commute": 2,
+   "commute": 5,
+   "index": 2,
    "inline_local": 1,
-   "local_type": 2,
-   "stmt_swap": 1
+   "local_type": 3,
+   "stmt_swap": 3
+  },
+  "size+": {
+   "fwdarg": 1
   },
   "stack": {
    "pad": 4
@@ -28,52 +37,57 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 1276,
+   "tried": 3791,
    "wins": 0
   },
   "addu": {
-   "helped": 74,
-   "tried": 2501,
+   "helped": 192,
+   "tried": 8438,
    "wins": 0
   },
   "alias": {
-   "helped": 1,
-   "tried": 3056,
+   "helped": 2,
+   "tried": 9144,
    "wins": 0
   },
   "bool_swap": {
-   "helped": 12,
-   "tried": 938,
+   "helped": 25,
+   "tried": 3943,
    "wins": 0
+  },
+  "callf32": {
+   "helped": 11,
+   "tried": 1789,
+   "wins": 12
   },
   "cast": {
    "helped": 0,
-   "tried": 3233,
+   "tried": 9370,
    "wins": 0
   },
   "chain_assign": {
    "helped": 1,
-   "tried": 606,
+   "tried": 1909,
    "wins": 0
   },
   "cmp_const": {
    "helped": 0,
-   "tried": 268,
+   "tried": 1186,
    "wins": 0
   },
   "cmp_swap": {
-   "helped": 0,
-   "tried": 7383,
+   "helped": 1,
+   "tried": 24640,
    "wins": 0
   },
   "commute": {
-   "helped": 8,
-   "tried": 2729,
-   "wins": 2
+   "helped": 11,
+   "tried": 10273,
+   "wins": 5
   },
   "decl_swap": {
-   "helped": 3,
-   "tried": 2436,
+   "helped": 5,
+   "tried": 7737,
    "wins": 0
   },
   "drop_else": {
@@ -87,34 +101,49 @@
    "wins": 0
   },
   "extract": {
-   "helped": 0,
-   "tried": 759,
+   "helped": 1,
+   "tried": 1250,
    "wins": 0
   },
+  "fieldsign": {
+   "helped": 5,
+   "tried": 7792,
+   "wins": 5
+  },
   "flags": {
-   "helped": 34,
-   "tried": 9649,
+   "helped": 46,
+   "tried": 27799,
    "wins": 8
   },
   "float_lit": {
-   "helped": 5,
-   "tried": 12414,
-   "wins": 0
+   "helped": 18,
+   "tried": 35325,
+   "wins": 1
+  },
+  "fwdarg": {
+   "helped": 34,
+   "tried": 11136,
+   "wins": 3
   },
   "if_swap": {
    "helped": 0,
-   "tried": 232,
+   "tried": 1222,
    "wins": 0
+  },
+  "index": {
+   "helped": 2,
+   "tried": 2,
+   "wins": 2
   },
   "inline_local": {
    "helped": 0,
-   "tried": 137,
+   "tried": 511,
    "wins": 1
   },
   "local_type": {
-   "helped": 25,
-   "tried": 29898,
-   "wins": 8
+   "helped": 50,
+   "tried": 82174,
+   "wins": 9
   },
   "loop": {
    "helped": 0,
@@ -122,18 +151,18 @@
    "wins": 0
   },
   "not_form": {
-   "helped": 7,
-   "tried": 8425,
+   "helped": 22,
+   "tried": 27197,
    "wins": 0
   },
   "pad": {
-   "helped": 27,
-   "tried": 15086,
+   "helped": 28,
+   "tried": 43561,
    "wins": 6
   },
   "param": {
-   "helped": 14,
-   "tried": 2758,
+   "helped": 28,
+   "tried": 7828,
    "wins": 0
   },
   "permuter": {
@@ -142,13 +171,18 @@
    "wins": 1
   },
   "stmt_swap": {
-   "helped": 14,
-   "tried": 11972,
-   "wins": 1
+   "helped": 51,
+   "tried": 47197,
+   "wins": 3
+  },
+  "symarr": {
+   "helped": 1,
+   "tried": 25,
+   "wins": 0
   },
   "ternary": {
    "helped": 0,
-   "tried": 49,
+   "tried": 176,
    "wins": 0
   }
  },
@@ -320,6 +354,365 @@
     "commute:paren@309",
     "commute:paren@220",
     "commute:paren@407"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000D4C",
+   "seg": "ovl0089",
+   "seq": [
+    "stmt_swap:@236"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000814",
+   "seg": "ovl0091",
+   "seq": [
+    "stmt_swap:@271<214",
+    "stmt_swap:@278<214"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000E28",
+   "seg": "ovl0066",
+   "seq": [
+    "callf32:func_800FEE3C#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_8001A780",
+   "seg": "ovl0056",
+   "seq": [
+    "callf32:func_80832628#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800033B0",
+   "seg": "ovl0063",
+   "seq": [
+    "index:@661"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800007A4",
+   "seg": "ovl0113",
+   "seq": [
+    "index:@833"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800007B0",
+   "seg": "ovl0106",
+   "seq": [
+    "commute:paren@453"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80005568",
+   "seg": "ovl0125",
+   "seq": [
+    "commute:paren@580"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001344",
+   "seg": "ovl0089",
+   "seq": [
+    "commute:paren@780"
+   ]
+  },
+  {
+   "ctx": [
+    "size+",
+    "order",
+    "other"
+   ],
+   "fn": "func_800000D0",
+   "seg": "ovl0257",
+   "seq": [
+    "fwdarg:func_800B6A58+arg0@0",
+    "fwdarg:func_800B6A58+arg1@1"
+   ]
+  },
+  {
+   "ctx": [],
+   "fn": "func_800027D4",
+   "seg": "ovl0067",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000008C",
+   "seg": "ovl0088",
+   "seq": []
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_800008D8",
+   "seg": "ovl0244",
+   "seq": [
+    "fwdarg:func_800B877C+arg0@0"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_800004EC",
+   "seg": "ovl0174",
+   "seq": [
+    "fwdarg:func_800B8254+arg0@0"
+   ]
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001ECC",
+   "seg": "ovl0195",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80012F5C",
+   "seg": "ovl0056",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000920",
+   "seg": "ovl0063",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002548",
+   "seg": "ovl0088",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001094",
+   "seg": "ovl0096",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800013B0",
+   "seg": "ovl0096",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000764",
+   "seg": "ovl0124",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000FC8",
+   "seg": "ovl0144",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800020BC",
+   "seg": "ovl0265",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800017C0",
+   "seg": "ovl0293",
+   "seq": []
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80008D90",
+   "seg": "ovl0290",
+   "seq": [
+    "local_type:temp_v0:s32"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000210",
+   "seg": "ovl0056",
+   "seq": [
+    "fieldsign:@805"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000A00",
+   "seg": "ovl0091",
+   "seq": [
+    "fieldsign:@899"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000AD8",
+   "seg": "ovl0091",
+   "seq": [
+    "callf32:func_800FEE3C#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000248",
+   "seg": "ovl0099",
+   "seq": [
+    "callf32:func_80137884#2"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800016A0",
+   "seg": "ovl0105",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80001D5C",
+   "seg": "ovl0105",
+   "seq": [
+    "callf32:func_800FEE3C#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80002AB0",
+   "seg": "ovl0105",
+   "seq": [
+    "fieldsign:@503"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000D00",
+   "seg": "ovl0110",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000254",
+   "seg": "ovl0124",
+   "seq": [
+    "callf32:func_80137788#3",
+    "float_lit:0.0f->int"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000850",
+   "seg": "ovl0124",
+   "seq": [
+    "callf32:func_800FEE3C#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80002194",
+   "seg": "ovl0125",
+   "seq": [
+    "fieldsign:@709"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800004FC",
+   "seg": "ovl0126",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000030",
+   "seg": "ovl0137",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000094",
+   "seg": "ovl0137",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800018B4",
+   "seg": "ovl0143",
+   "seq": [
+    "fieldsign:@367"
    ]
   }
  ]

@@ -647,6 +647,220 @@ def m_float_lit(t, name):
             yield f"{lit}->float", t[:a] + lit + ".0f" + t[b:]
 
 
+def f32_text(bits):
+    """The shortest decimal literal that is exactly the f32 with these bits (`0.1f`), or None for a NaN or an infinity."""
+    import struct
+    v = struct.unpack(">f", struct.pack(">I", bits))[0]
+    if v != v or v in (float("inf"), float("-inf")):
+        return None
+    for prec in range(1, 10):
+        s = "%.*g" % (prec, v)
+        if struct.pack(">f", float(s)) == struct.pack(">f", v):
+            break
+    if "e" in s and "." not in s.split("e")[0]:
+        s = s.replace("e", ".0e")
+    elif "e" not in s and "." not in s:
+        s += ".0"
+    return s + "f"
+
+
+def m_callf32(t, name):
+    """An argument that is the bit pattern of a float (`0x3C23D70A`) or a `0` goes to a callee whose parameter is an f32: the literal is
+    written as a float and the parameter of the prototype becomes f32 (IDO then passes it in an integer register after a pointer
+    argument, which is what `addiu a1, zero, 0` and `lui a1, 0x3C23` in the ROM are)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    head = t[:loc[0]]
+    for m in re.finditer(r"\b([A-Za-z_]\w*)\s*\(", t[bs:be]):
+        callee = m.group(1)
+        if callee in KEYWORDS or callee == name:
+            continue
+        a = bs + m.end() - 1
+        b = match_close(t, a)
+        if b < 0:
+            continue
+        inner = t[a + 1:b]
+        pieces = [(s, e) for s, e in split_top(inner, ",")] if inner.strip() else []
+        pr = re.search(r"^([^\n;(]*\b" + re.escape(callee) + r"\s*\()([^)]*)(\)\s*;.*)$", head, re.M)
+        if not pr:
+            continue
+        params = [x.strip() for x in pr.group(2).split(",")] if pr.group(2).strip() not in ("", "void") else []
+        if len(params) < len(pieces):
+            params += ["s32"] * (len(pieces) - len(params))
+        for i, (s, e) in enumerate(pieces):
+            arg = inner[s:e].strip()
+            if re.fullmatch(r"0x[0-9A-Fa-f]{8}", arg) and 0x20000000 <= int(arg, 16) < 0xC8000000 and f32_text(int(arg, 16)):
+                lit = f32_text(int(arg, 16))
+            elif arg == "0":
+                lit = "0.0f"
+            else:
+                continue
+            np_ = params[:]
+            np_[i] = "f32"
+            ns = a + 1 + s + (len(inner[s:e]) - len(inner[s:e].lstrip()))
+            ne = a + 1 + s + len(inner[s:e].rstrip())
+            body = t[:ns] + lit + t[ne:]
+            # the prototype sits before the function: its offsets do not move the body text edit (same length change on both sides is irrelevant)
+            h0 = pr.start(2)
+            h1 = pr.end(2)
+            yield f"{callee}#{i}", body[:h0] + ", ".join(np_) + body[h1:]
+
+
+def m_fwdarg(t, name):
+    """A parameter of the function is passed on to a callee that the draft gives fewer arguments (the ROM leaves `a0` untouched across the
+    call and sets `a1`: the callee takes `(arg0, x)`): `f(x)` -> `f(arg0, x)` at every position, the prototype gets the parameter too."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    head = t[:loc[0]]
+    ptxt = t[loc[0]:loc[1]]
+    plist = [x.strip() for x in ptxt.split(",")] if ptxt.strip() not in ("", "void") else []
+    pn = []
+    for x in plist:
+        mm = re.search(r"(\w+)\s*$", x)
+        if mm and mm.group(1) not in BASIC.split("|"):
+            pn.append((mm.group(1), x[:mm.start()].strip()))
+    if not pn:
+        return
+    for m in re.finditer(r"\b(func_[0-9A-Fa-f]{8})\s*\(", t[bs:be]):
+        callee = m.group(1)
+        a = bs + m.end() - 1
+        b = match_close(t, a)
+        if b < 0:
+            continue
+        inner = t[a + 1:b]
+        args = [inner[s:e].strip() for s, e in split_top(inner, ",")] if inner.strip() else []
+        pr = re.search(r"^([^\n;(]*\b" + re.escape(callee) + r"\s*\()([^)]*)(\)\s*;.*)$", head, re.M)
+        if not pr:
+            continue
+        params = [x.strip() for x in pr.group(2).split(",")] if pr.group(2).strip() not in ("", "void") else []
+        for k in range(2, len(pn) + 1):   # the first k parameters together: `f()` -> `f(arg0, arg1)`
+            if not args and k <= 4 and not any(n in args for n, _ in pn[:k]):
+                np_ = params[:]
+                if np_ or pr.group(2).strip() == "":
+                    np_ = [ty or "s32" for _, ty in pn[:k]] + np_ if np_ else []
+                body = t[:a + 1] + ", ".join(n for n, _ in pn[:k]) + t[b:]
+                yield f"{callee}+first{k}", body[:pr.start(2)] + ", ".join(np_) + body[pr.end(2):]
+        for ai, (an, aty) in enumerate(pn):
+            if an in args or len(args) >= 4:
+                continue
+            for pos in range(len(args) + 1):
+                nargs = args[:pos] + [an] + args[pos:]
+                np_ = params[:]
+                if np_:
+                    np_.insert(min(pos, len(np_)), aty or "s32")
+                body = t[:a + 1] + ", ".join(nargs) + t[b:]
+                yield f"{callee}+{an}@{pos}", body[:pr.start(2)] + ", ".join(np_) + body[pr.end(2):]
+
+
+def m_fieldsign(t, name):
+    """`M2C_FIELD(x, s8 *, 0xB6)` <-> `u8 *` (and 16, 32 bits): the signedness of one raw field access (`addiu -1` against `addiu 255`)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    flip = {"s8": "u8", "u8": "s8", "s16": "u16", "u16": "s16", "s32": "u32", "u32": "s32"}
+    for m in re.finditer(r"M2C_FIELD\([^;]*?,\s*(s8|u8|s16|u16|s32|u32)\s*\*\s*,", t[bs:be]):
+        a = bs + m.start(1)
+        yield f"@{a}", t[:a] + flip[m.group(1)] + t[a + len(m.group(1)):]
+
+
+def m_index(t, name):
+    """`M2C_FIELD((p + (i * 4)), s32 *, 0x800)` -> `((s32 *)(p + 0x800))[i]`: an array element (`addu base, index` in that order)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    size = {"s8": 1, "u8": 1, "s16": 2, "u16": 2, "s32": 4, "u32": 4, "f32": 4}
+    for m in re.finditer(r"M2C_FIELD\(", t[bs:be]):
+        a = bs + m.end() - 1
+        b = match_close(t, a)
+        if b < 0:
+            continue
+        inner = t[a + 1:b]
+        cuts = split_top(inner, ",")
+        if len(cuts) != 3:
+            continue
+        base, ty, off = (inner[s:e].strip() for s, e in cuts)
+        tm = re.fullmatch(r"(s8|u8|s16|u16|s32|u32|f32) \*", ty)
+        if not tm:
+            continue
+        bb = strip_parens(base) or base
+        parts = split_top(bb, " + ")
+        if len(parts) != 2:
+            continue
+        p0, p1 = (bb[s:e].strip() for s, e in parts)
+        p1 = strip_parens(p1) or p1
+        mul = split_top(p1, " * ")
+        if len(mul) != 2:
+            continue
+        idx, n = (p1[s:e].strip() for s, e in mul)
+        if not n.isdigit() or int(n) != size[tm.group(1)]:
+            continue
+        yield f"@{a}", t[:bs + m.start()] + f"(({tm.group(1)} *)({p0} + {off}))[{idx}]" + t[b + 1:]
+
+
+def m_symarr(t, name):
+    """`*(&D_8000 + (i * 4))` -> `D_8000[i]` with `extern s32 D_8000[];` (an array of a data symbol; the element type from the stride)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    types = {1: ["u8", "s8"], 2: ["s16", "u16"], 4: ["s32", "u32", "f32"], 8: ["f64"]}
+    for m in re.finditer(r"\*\(&([A-Za-z_]\w*) \+ ", t[bs:be]):
+        a = bs + m.end()
+        k = match_close(t, bs + m.start() + 1)
+        if k < 0:
+            continue
+        rest = t[a:k]                       # "E * N" or "(E * N)" or "E"
+        body = strip_parens(rest) or rest
+        mul = split_top(body, " * ")
+        if len(mul) == 2 and body[mul[1][0]:mul[1][1]].strip().isdigit():
+            idx, n = body[mul[0][0]:mul[0][1]].strip(), int(body[mul[1][0]:mul[1][1]].strip())
+        else:
+            idx, n = body.strip(), 1
+        decl = re.search(r"^extern\s+(?:M2C_UNK|s32|u32|s8|u8|s16|u16|f32)\s+" + re.escape(m.group(1)) + r"(\[\])?;", t, re.M)
+        for ty in types.get(n, []):
+            new = t[:bs + m.start()] + f"{m.group(1)}[{idx}]" + t[k + 1:]
+            if decl:
+                new = new[:decl.start()] + f"extern {ty} {m.group(1)}[];" + new[decl.end():]
+            elif not re.search(r"\b" + re.escape(m.group(1)) + r"\[\]", t):
+                continue
+            yield f"{m.group(1)}:{ty}", new
+
+
+def m_retfold(t, name):
+    """`T v; v = A; if (C) { v = B; } return v;` -> `if (C) { return B; } return A;` (and with an else: `if (C) { return B; } else { return A; }`)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    pat = re.compile(r"(?P<d>[ \t]*(?:s8|u8|s16|u16|s32|u32|f32)\s+(?P<v>\w+);\n)?(?P<i>[ \t]*)(?P=v)\s*=\s*(?P<a>[^;\n]+);\n[ \t]*if \((?P<c>[^\n]+)\) \{\n\s*(?P=v) = (?P<b>[^;\n]+);\n\s*\}\n[ \t]*return (?P=v);")
+    for m in pat.finditer(t[bs:be]):
+        a, b = bs + m.start(), bs + m.end()
+        ind = m.group("i")
+        yield f"@{a}", t[:a] + f"{ind}if ({m.group('c')}) {{\n{ind}    return {m.group('b')};\n{ind}}}\n{ind}return {m.group('a')};" + t[b:]
+
+
+def m_dropsp(t, name):
+    """m2c's `spNN` locals (a copy kept on the stack, written and never read): the declaration and its assignments are removed."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    body = t[bs:be]
+    for m in re.finditer(r"^[ \t]*(?:s8|u8|s16|u16|s32|u32|f32|f64|M2C_UNK)\s+\*?(sp[0-9A-Fa-f]+);\n", body, re.M):
+        v = m.group(1)
+        rest = body[:m.start()] + body[m.end():]
+        stripped = re.sub(r"^[ \t]*" + v + r" = [^;\n]*;\n", "", rest, flags=re.M)
+        if re.search(r"\b" + v + r"\b", stripped):
+            continue
+        yield v, t[:bs] + stripped + t[be:]
+
+
 def m_cast(t, name):
     loc = locate(t, name)
     if not loc:
@@ -664,6 +878,12 @@ def m_addu(t, name):
     bs, be = loc[2], loc[3]
     for m in re.finditer(r"(?<![\w>.])([A-Za-z_]\w*) \+ (0x[0-9A-Fa-f]+|\d+|[A-Za-z_]\w*)(?![\w(\[])", t[bs:be]):
         yield f"@{bs + m.start()}", t[:bs + m.start()] + f"(u8 *)((s32){m.group(1)} + {m.group(2)})" + t[bs + m.end():]
+    for m in re.finditer(r"(?<![\w>.])([A-Za-z_]\w*) \+ \(", t[bs:be]):   # `p + (expr)`: the right operand is a bracketed expression
+        j = bs + m.end() - 1
+        k = match_close(t, j)
+        if k > 0:
+            yield f"@{bs + m.start()}p", t[:bs + m.start()] + f"(u8 *)((s32){m.group(1)} + {t[j:k + 1]})" + t[k + 1:]
+            yield f"@{bs + m.start()}s", t[:bs + m.start()] + f"{t[j:k + 1]} + {m.group(1)}" + t[k + 1:]
 
 
 def m_ternary(t, name):
@@ -713,7 +933,7 @@ MUTATORS = {
     "if_swap": m_if_swap, "dup_return": m_dup_return, "drop_else": m_drop_else, "add_else": m_add_else, "stmt_swap": m_stmt_swap, "decl_swap": m_decl_swap,
     "pad": m_pad, "local_type": m_local_type, "param": m_param, "alias": m_alias, "inline_local": m_inline_local,
     "extract": m_extract, "chain_assign": m_chain_assign, "commute": m_commute, "float_lit": m_float_lit, "cast": m_cast,
-    "addu": m_addu, "ternary": m_ternary, "loop": m_loop,
+    "addu": m_addu, "ternary": m_ternary, "loop": m_loop, "callf32": m_callf32, "fieldsign": m_fieldsign, "index": m_index, "symarr": m_symarr, "retfold": m_retfold, "dropsp": m_dropsp, "fwdarg": m_fwdarg,
 }
 
 

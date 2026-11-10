@@ -4,7 +4,7 @@
 until IDO 7.1 gives the bytes of the ROM, and learn which mutation solved which kind of difference.
 Run in WSL (venv). MM_JOBS caps the compiler workers; MM_CACHE points at a private object cache.
 usage: close.py try <seg> <fn> [file.c] [--time S=90] [--cands N=1500] [--beam W=5] [--per-node K=140] [--permute S] [--promote] [--seed N]
-       close.py sweep <ovlAAAA-BBBB|ovlNNNN|code|boot> [--max-diff N=8] [--max-size HEX=0x300] [--time S=60] [--limit K] [--no-promote]
+       close.py sweep <ovlAAAA-BBBB|ovlNNNN|code|boot> [--max-diff N=8] [--max-size HEX=0x300] [--time S=60] [--limit K] [--no-promote] [--skip-tried]
        close.py score <seg> <fn> <file.c>        distance of a draft to the ROM and the kind of difference
        close.py promote <seg> <fn>               move build/close_wins/<seg>/<fn>.c to src/ (match.py MATCH and the style rules first)
        close.py learn [--show]                   merge the wins found by other runs into config/search/close_stats.json and print the table
@@ -511,9 +511,17 @@ def cmd_sweep(a):
         if r and r[0] <= a.max_diff + 0.6:
             rows.append((r[0], seg, fn, path))
     rows.sort(key=lambda x: (x[0], x[1], x[2]))
-    print(f"{len(rows)} within {a.max_diff} instructions", flush=True)
     stats, won, log = Stats(), 0, ROOT / "build/close"
     log.mkdir(parents=True, exist_ok=True)
+    if a.skip_tried:   # the functions an earlier sweep of this target gave up on (`best`), with the same start score
+        seen = set()
+        old_log = log / f"sweep_{spec}.log"
+        for l in (old_log.read_text().splitlines() if old_log.exists() else []):
+            f = l.split()
+            if len(f) >= 6 and f[2] == "start" and f[4] == "best":
+                seen.add((f[0], f[1], f[3]))
+        rows = [r for r in rows if (r[1], r[2], f"{r[0]:.2f}") not in seen]
+    print(f"{len(rows)} within {a.max_diff} instructions", flush=True)
     with (log / f"sweep_{spec}.log").open("a") as lf:
         for sc, seg, fn, path in rows:
             status, steps = run_target(seg, fn, path.read_text().replace("\r", ""), a, stats, log=lambda s: None)
@@ -581,6 +589,7 @@ def main():
     p.add_argument("--seed", type=int, default=1)
     p.add_argument("--promote", action="store_true")
     p.add_argument("--no-promote", action="store_true")
+    p.add_argument("--skip-tried", action="store_true")
     p.add_argument("--max-diff", type=float, default=8)
     p.add_argument("--max-size", type=lambda x: int(x, 0), default=0x300)
     p.add_argument("--limit", type=int, default=0)
