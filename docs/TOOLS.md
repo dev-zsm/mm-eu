@@ -162,3 +162,19 @@ External tools used (fetched by `make setup` into `tools/vendor/`, or installed 
 | Ghidra | pseudo-C for research |
 | WSL (Ubuntu), Python 3, GNU make | run the tools and the checks on Windows |
 
+
+## What cannot be C (evidence)
+
+`hard_hand.py` decides, `config/<seg>/asm_only.txt` lists. A function stays assembly only with one of these proofs; everything else is a C todo.
+
+| Functions | Proof |
+|---|---|
+| boot `func_80087CA0 func_800881B0 func_80088250 func_8008A760 func_8008A770 func_8008B850 func_8008B860 func_8008D460 func_80091420 func_80091430 func_80091C00 func_80091C70 func_80093F30 func_800969B0 func_800969C0` and code `func_801AB970` | COP0 `mtc0`/`mfc0`: IDO emits no coprocessor 0 access for any C expression |
+| boot `func_8008C100 func_8008EF80 func_80093DA0` | `tlbp`/`tlbr`/`tlbwi` |
+| boot `func_8008A780 func_8008F410 func_8008F490 func_80095760` | `cache` |
+| boot `func_80088CA0 func_800891FC func_800892E4 func_80089444` | `$k0`/`$k1` used as registers (exception handler), `eret` |
+| boot `func_80092E80 func_80092E90` | the whole body is `cfc1`/`ctc1` on fcr31 (osGetFpcCsr/osSetFpcCsr) |
+| boot `func_80080000`, code `func_80186E30 func_8019BCE0 func_8019BD60` | trapping `add`/`addi`/`sub`: IDO emits `addiu`/`addu`/`subu` only (the assembler marks them `handwritten instruction`) |
+| boot libm `floorf floor ceilf ceil truncf trunc roundf round lnearbyintf lnearbyint` and the float-to-int forms (`func_80086CE0` to `func_80086DB0`) | the result stays in the FPU (`floor.w.s $f12; cvt.s.w $f0,$f12`). The C form `return (f32)(s32)x;` gives `trunc.w.s $f4; mfc1; ...; cvt` (0x20 bytes against the ROM's 0xC), measured with the match server; IDO has no source form for `floor.w.*`, `ceil.w.*`, `round.w.*` |
+
+Not proven, so a C todo: `func_8008942C` (list unlink, 0.5 away: `t9` instead of `t6`), `func_80088440` (guScale) and the other `asm_only.txt` boot entries without an instruction above (`hard_hand.py` prints them as `listed-only`). `func_8008943C` was listed but is an empty function: it matches as C and was taken out of the list.
