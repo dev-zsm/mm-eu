@@ -2,7 +2,7 @@
 
 IDO puts the case bodies after the first `jr $ra` of a function, and splat ends a function at every `jr $ra` that no branch jumps over, so a
 `switch` whose bodies all return is split into a head (up to the first `jr $ra`) and fragments (the case bodies, each its own `nonmatching`
-chunk). The real function is the head and the fragments up to the last case; `merge_chunks.py` joins them in the assembly, `config/<seg>/merged.txt`
+chunk). The real function is the head and the fragments up to the last case; `tools/split/merge_frags.py` joins them in the assembly, `config/<seg>/merge.txt`
 lists them. A fragment is a chunk the jump table points to (or that follows one and that nothing else references)."""
 import functools, re, struct
 from pathlib import Path

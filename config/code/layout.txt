@@ -248,10 +248,6 @@ func_800B6BF0 Actor
 func_800B6C90 Actor
 func_800B6CA4 Player
 func_800B6D4C Camera
-func_800B6DA8 unknown
-func_800B6DDC unknown
-func_800B6DEC unknown
-func_800B6DFC unknown
 func_800B6E14 Camera
 func_800B6E9C Player
 func_800B6EAC Player
@@ -2420,13 +2416,6 @@ func_80161F08 ShrinkWindow
 func_801622F0 unknown
 func_8016230C Cutscene
 func_8016239C CutsceneCmd
-func_801623D0 unknown
-func_801623DC unknown
-func_801623E8 unknown
-func_801623F4 unknown
-func_80162400 unknown
-func_8016240C unknown
-func_80162418 unknown
 func_80162428 CutsceneCmd
 func_80162B08 CutsceneCmd
 func_80162D1C unknown

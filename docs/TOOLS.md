@@ -113,7 +113,7 @@ first differing instructions), `lines` (`off`, `rom`, `ours` disassembled; singl
 | `tools/search/hard_jt.py` | `draft`: the m2c draft of a function with a `switch` (m2c refuses it because splat prints the table as raw words: the tool gives m2c the table and a label at every case target); `info`: case values per target; `auto <seg\|overlays> [max_size] [jobs] [--redo]`: draft + the usual flag sets + the recipes of `auto_recipes`, and the **table is checked against the ROM**; matches go to `build/auto_match/<seg>_jt/` and `overlay_auto.py promote` files them; `check <seg> <fn> <file.c>`: `match.py` plus the table, for a hand-written file |
 | `tools/search/hard_m2c.py` | `why`: the reasons m2c refuses functions; `draft`: the first m2c variant that gives C (the table for a switch, then `--gotos-only`, `--no-andor`, `--no-switches`, `--no-stack-spill`); `auto`: the variants times the flag sets on the `m2c failed` functions |
 | `tools/search/hard_blocks.py` | `hard_blocks.py <seg> <fn> <file.c>`: for a big function, aligns the ROM and our instructions (so that one extra instruction does not shift the rest), judges each basic block and prints the **first block that differs** with context. Write the first part of the function, end it with `STUB();` and `return`, run the tool, extend, repeat |
-| `tools/search/hard_hand.py` | classifies the functions that look hand-written: `asm_only` when an instruction proves it (COP0, `cache`, `ll`/`sc`, `eret`, `$k0`/`$k1`, a bare `cfc1`/`ctc1`), else a C candidate with what looks odd; `--apply` adds the proven ones to `config/<seg>/asm_only.txt` |
+| `tools/search/hard_hand.py` | classifies the functions that look hand-written: `asm_only` when an instruction proves it (COP0, `cache`, `ll`/`sc`, `eret`, `$k0`/`$k1`, a bare `cfc1`/`ctc1`, trapping `add`/`addi`/`sub`, which IDO never emits), else a C candidate with what looks odd; `--apply` adds the proven ones to `config/<seg>/asm_only.txt` |
 
 **Why m2c fails, and what to do.** Counted with `hard_m2c.py why`: (1) a function that returns a pointer (`void *func_...(`) was logged as failed by an old
 check of `auto_match.py` (it looked for ` func_...(`): fixed, such functions are tried now; (2) `jr` to a jump table: m2c needs the table, `hard_jt.py`
@@ -123,7 +123,7 @@ gives it; (3) a table whose entries beyond the bound are zero (`Cannot find jtbl
 **Jump tables and the pieces splat cuts off.** IDO puts the case bodies after the first `jr $ra`; when every body returns, splat ends the function
 there and prints each body as a function of its own (`func_800B6DA8` is a case of `func_800B6D4C`, which is `0x5c` bytes of the real `0xC8`). Such a
 chunk is no function: nothing calls it, only the table points to it. `hardjt.fragments` lists them. The switches whose bodies are inside the function
-(most of them) are not cut.
+(most of them) are not cut. `config/<seg>/merge.txt` lists `head fragment fragment ...` and `tools/split/merge_frags.py` (run by `make split` after splat, idempotent) rewrites `asm/<seg>/text.s` so that the fragments become `alabel`s inside the head: one `nonmatching`, one `endlabel`, size = the sum, the bytes unchanged (`verify_asm.sh` still gives IDENTICAL). `func_800B6D4C` (0xC8, 4 fragments) and `func_8016239C` (0x8C, 7 fragments) are merged and in C; the fragments had been counted as functions of their own (a `return CutsceneCamera_Interp_None;`), they are now cases of one switch.
 
 ## Source layout
 
@@ -136,6 +136,7 @@ chunk is no function: nothing calls it, only the table points to it. `hardjt.fra
 
 | Tool | Purpose |
 |---|---|
+| `tools/split/merge_frags.py` | after splat: join the case bodies splat cut off a switch function (`config/<seg>/merge.txt`), see the jump-table paragraph above |
 | `tools/split/overlays.py` | list the overlays of the ROM file table in `config/overlays/list.txt` (file, section sizes, relocation count) |
 | `tools/split/overlay_split.py` | disassemble every overlay with splat and check that the assembly rebuilds the extracted file (`asm/overlays/`) |
 | `tools/search/overlay_auto.py` | automatic pass on the overlays (m2c drafts, mechanical recipes), then promote what matches to `src/overlays/` |

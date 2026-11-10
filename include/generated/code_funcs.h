@@ -333,10 +333,6 @@ f32 Actor_WorldDistXZToPoint(u8 *actor, void *point);  /* 800B6BCC */
 f32 func_800B6C90(void *arg0, void *arg1);
 void func_800B6CA4(void *arg0, void *arg1, s32 arg2, s32 arg3);
 f32 func_800B6D4C(void *);
-void func_800B6DA8(void *arg0);
-void func_800B6DDC();
-void func_800B6DEC();
-void func_800B6DFC();
 f32 func_800B6E14(u8 *arg0);
 s32 func_800B6E9C(void *arg0);
 s32 func_800B6EAC(s32 a0);
@@ -2047,14 +2043,7 @@ void ShrinkWindow_Destroy(void);  /* 80161E44 */
 void ShrinkWindow_Update(s32 div);  /* 80161E54 */
 void ShrinkWindow_Draw(s32 arg0);  /* 80161F08 */
 s32 func_801622F0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 func_8016239C(s32 arg0);
-void *func_801623D0(void);
-void *func_801623DC(void);
-void *func_801623E8(void);
-void *func_801623F4(void);
-void *func_80162400(void);
-void *func_8016240C(void);
-void *func_80162418(void);
+void *func_8016239C(u8 arg0);
 s32 CutsceneCamera_ProcessSpline(void *arg0);  /* 80162428 */
 s32 CutsceneCamera_UpdateSplines(s32, s32 *);  /* 80162B08 */
 s16 func_80162D1C(void);

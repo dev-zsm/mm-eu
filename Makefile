@@ -8,7 +8,7 @@ setup:            ## one-time: IDO 7.1, splat, m2c, asm-differ (needs binutils-m
 	bash tools/split/setup_wsl.sh
 
 split:            ## disassemble boot, code and the overlays into asm/ with splat (make check needs all three)
-	. ~/mm-venv/bin/activate && splat split config/boot/splat.yaml && splat split config/code/splat.yaml && python3 tools/split/overlay_split.py
+	. ~/mm-venv/bin/activate && splat split config/boot/splat.yaml && splat split config/code/splat.yaml && python3 tools/split/merge_frags.py && python3 tools/split/overlay_split.py
 
 verify:           ## every C function == ROM bytes, and the segment rebuilt from C + asm == ROM
 	bash tools/check/verify_all.sh $(SEG)

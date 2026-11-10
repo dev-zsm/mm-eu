@@ -1,0 +1,3 @@
+# case bodies that splat cut off the function with the switch (tools/split/merge_frags.py)
+func_800B6D4C func_800B6DA8 func_800B6DDC func_800B6DEC func_800B6DFC
+func_8016239C func_801623D0 func_801623DC func_801623E8 func_801623F4 func_80162400 func_8016240C func_80162418

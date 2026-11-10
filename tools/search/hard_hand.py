@@ -3,6 +3,7 @@
 usage: hard_hand.py [boot|code|overlays|ovlNNNN ...] [--apply]
 For every unmatched function (no verified C file) the instructions give evidence:
   asm_only   (solid)   an instruction IDO never emits for C: COP0 (mtc0, mfc0, eret, tlb*), cache, ll/sc, sync, syscall, a use of $k0/$k1 as a register,
+                       trapping add/addi/sub (the assembler flags them `handwritten instruction`: IDO emits only addiu/addu/subu),
                        or a floating point status register access with no call (`cfc1`/`ctc1` as the whole point of the function: osGetFpcCsr/osSetFpcCsr)
   c-candidate          no such evidence: written in C even if it looks odd (hand copy loops with lwl/lwr/swl/swr, filled delay slots, tail jumps).
                        The list says what makes it look odd, so an agent can start with the right idiom.
@@ -16,6 +17,7 @@ sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") i
 import hard_scan  # noqa: E402
 
 PRIV = re.compile(r"^\s*/\*.*?\*/\s+(mtc0|mfc0|dmtc0|dmfc0|eret|cache|ll|sc|lld|scd|tlbr|tlbwi|tlbwr|tlbp|sync|syscall)\s", re.M)
+HANDINS = re.compile(r"^\s*/\*.*?\*/\s+(addi|add|sub|dadd|daddi|dsub)\s.*handwritten instruction", re.M)   # trapping arithmetic: IDO emits addiu/addu/subu only
 KREG = re.compile(r"\$k[01]\b")
 FPCSR = re.compile(r"^\s*/\*.*?\*/\s+(cfc1|ctc1)\s+.*\$(?:31|fcr31)", re.M)
 UNALIGNED = re.compile(r"^\s*/\*.*?\*/\s+(lwl|lwr|swl|swr|ldl|ldr|sdl|sdr)\s", re.M)
@@ -26,6 +28,7 @@ LOOP = re.compile(r"^\s*/\*.*?\*/\s+b\w*\s+.*\.L", re.M)
 def classify(text, size):
     """(verdict, evidence list)."""
     ev = sorted({m.group(1) for m in PRIV.finditer(text)})
+    ev += sorted({m.group(1) + " (trapping)" for m in HANDINS.finditer(text)})
     if KREG.search(text):
         ev.append("$k0/$k1")
     if FPCSR.search(text) and not CALL.search(text) and size <= 0x20:
