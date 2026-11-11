@@ -90,7 +90,9 @@ commands to write and check a function, and what stays assembly.
 When the repository is on the Windows disk (`/mnt/c/...` in WSL), every file access goes through a slow layer and
 `make check` takes several times longer than on the native Linux disk. `make fastcheck` (`tools/check/fastcheck.sh`) mirrors
 what the checks read to `~/.cache/mm-eu-work` (only changed files are copied) and runs `make check` there; nothing is
-copied back. On a native checkout it simply runs `make check`. `tools/check/check_style.py` keeps a cache of the files it has
+copied back. On a native checkout it simply runs `make check`. The checks only look again at what changed since the last green
+run (see docs/TOOLS.md); `MM_FULL=1 make fastcheck` checks everything again, and `make selfcheck` proves both agree. The object
+cache is shared by all checkouts and capped (`MM_CACHE_MAX`, 8 GB by default): do not set a private `MM_CACHE`. `tools/check/check_style.py` keeps a cache of the files it has
 already checked (`build/style_cache.json`), and the permuter tools run at the lowest priority so that the checks keep
 the processor.
 

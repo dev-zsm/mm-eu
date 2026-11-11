@@ -118,6 +118,33 @@ with tempfile.TemporaryDirectory() as td:
     empty.write_bytes(b"")
     full.write_bytes(b"x")
     check(not objcache.good(empty) and not empty.exists() and objcache.good(full), "objcache.good deletes an empty object")
+    # deps: only the headers a source can reach change its key, through a nested include and through a header that appears
+    for name, text in (("a.h", '#include <b.h>\n'), ("inc/b.h", "int b;\n"), ("inc/other.h", "int o;\n")):
+        Path(td, name).parent.mkdir(exist_ok=True)
+        Path(td, name).write_text(text)
+    dep = lambda: (objcache._HDR.clear(), objcache._REACH.clear(), objcache.deps(b'#include "a.h"\n', Path(td, "x.c"), ["-O2", "-I" + td + "/inc"]))[2]
+    d0 = dep()
+    Path(td, "inc/other.h").write_text("int changed;\n")
+    d1 = dep()
+    Path(td, "inc/b.h").write_text("int changed;\n")
+    d2 = dep()
+    Path(td, "b.h").write_text("int shadows;\n")   # found first by the compiler: next to the file that includes it
+    check(d0 == d1 and d1 != d2 and d2 != dep(), "objcache.deps follows the headers a file can reach, and only those")
+    # trim: over the cap, the least recently used objects go first, down to 80 % of it; one used in the last hour never goes
+    import os, time  # noqa: E402
+    saved = objcache.CACHE, objcache.MAX
+    objcache.CACHE, objcache.MAX = Path(td, "cache"), 5 * 8192
+    Path(td, "cache/obj").mkdir(parents=True)
+    for i in range(8):   # 8 objects of 8192 bytes, i hours old; number 0 is used now
+        Path(td, f"cache/obj/{i}.o").write_bytes(b"x" * 8192)
+        os.utime(Path(td, f"cache/obj/{i}.o"), (time.time() - 3600 * i - 60,) * 2)
+    freed = objcache.trim(force=True)
+    left = sorted(p.name for p in Path(td, "cache/obj").iterdir())
+    check(freed == 4 * 8192 and left == ["0.o", "1.o", "2.o", "3.o"], f"objcache.trim deletes the least recently used objects ({freed}, {left})")
+    objcache.MAX = 0
+    check(objcache.trim() == 0 and objcache.trim(force=True) == 3 * 8192 and Path(td, "cache/obj/0.o").exists(),
+          "objcache.trim scans once every five minutes and keeps an object used in the last hour")
+    objcache.CACHE, objcache.MAX = saved
 
 import server  # noqa: E402
 import client  # noqa: E402

@@ -2,7 +2,7 @@
 """Adaptive near-miss closer: take a C draft that is a few instructions away from the ROM and search source-level mutations
 (tools/search/close_mut.py: operand order, statement order, declaration order, padding, types, aliases, ternaries, loops, IDO flags...)
 until IDO 7.1 gives the bytes of the ROM, and learn which mutation solved which kind of difference.
-Run in WSL (venv). MM_JOBS caps the compiler workers; MM_CACHE points at a private object cache.
+Run in WSL (venv). MM_JOBS caps the compiler workers; the object cache is shared and capped (tools/lib/objcache.py).
 usage: close.py try <seg> <fn> [file.c] [--time S=90] [--cands N=1500] [--beam W=5] [--per-node K=140] [--permute S] [--promote] [--seed N]
        close.py sweep <ovlAAAA-BBBB|ovlNNNN|code|boot> [--max-diff N=8] [--max-size HEX=0x300] [--time S=60] [--limit K] [--no-promote] [--skip-tried]
        close.py score <seg> <fn> <file.c>        distance of a draft to the ROM and the kind of difference

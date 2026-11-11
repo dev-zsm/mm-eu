@@ -64,6 +64,11 @@ first differing instructions), `lines` (`off`, `rom`, `ours` disassembled; singl
   (`MM_CACHE`) and exits after `MM_FAST_IDLE` seconds (default 7200) without a request.
 - **Cache**: `tools/lib/objcache.py` now ignores and deletes an empty object, writes through a temporary name private to the
   thread, and compiles a key once per process; `fast scrub` deletes the empty files and stale temporary files already there.
+  One cache (`~/.cache/mm-n64-decomp`, moved by `MM_CACHE`) is shared by every checkout, mirror and process of the machine: nobody
+  needs a private one. Its key holds the headers a file can reach (not the whole of `include/`), so a header change compiles only
+  the files that see it. It is capped at `MM_CACHE_MAX` GB (default 8): above the cap the least recently used objects are deleted
+  (one scan every five minutes at most, never an object used in the last hour); the verdicts and link objects of a checkout live
+  in `<cache>/tree/<checkout>` and go a week after its last check.
 - **Scoring** (`tools/lib/score.py`, `score.score(rom_words, our_words)`, usable by any search): `diff` (what `match.py` counts),
   `reg` (differ only in register fields), `moved` (the ROM has the word elsewhere among the differing ones: an ordering
   difference), `hard`, `size` (our length minus the ROM's, in words), `edit` (instructions outside the longest common subsequence: one
@@ -76,7 +81,8 @@ first differing instructions), `lines` (`off`, `rom`, `ours` disassembled; singl
 | Tool | Purpose |
 |---|---|
 | `tools/check/verify_src.py`, `tools/check/verify_all.sh`, `tools/check/verify_overlays.sh` | check every C function (boot, code, overlays), then the whole rebuilt segment |
-| `tools/check/fastcheck.sh` (`make fastcheck`) | `make check` on the native disk of WSL: when the repository is under `/mnt/`, it mirrors what the checks read (incrementally) and runs them there, 3-4 times faster; nothing is copied back |
+| `tools/check/fastcheck.sh` (`make fastcheck`) | `make check` on the native disk of WSL: when the repository is under `/mnt/`, it mirrors what the checks read (incrementally, eight folders at a time) and runs them there, 3-4 times faster; nothing is copied back. The checks are incremental: a function is compared again only when its source, a header it can reach, its ROM bytes, a symbol address it refers to, the compiler or the checking tools changed, and a segment is linked again only when an input of the last identical link changed. `MM_FULL=1 make fastcheck` trusts no earlier verdict and no earlier link (also what a new cache or changed tools give) |
+| `tools/check/incremental_selfcheck.py` (`make selfcheck`, or `tools/check/fastcheck.sh selfcheck` on the Windows disk) | about a minute: in a scratch copy of boot, compares the incremental verdict with a full run on an empty cache for a clean tree, a broken function, a broken nested header, a flipped ROM byte and two swapped names; run it after changing `objcache.py`, `verify_src.py` or `build_seg.py` |
 | `tools/lib/build_seg.py` | rebuild a segment from per-function objects and compare it to the ROM |
 | `tools/check/verify_asm.sh` | reassemble the splat output of a segment and check it is byte-identical to the ROM |
 | `tools/lib/objcache.py` | content-addressed cache of compiled objects shared by the checks (about ten times faster re-verification) |

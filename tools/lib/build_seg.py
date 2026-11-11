@@ -2,7 +2,7 @@
 """Rebuild one code segment from per-function objects: C (IDO 7.1) where src/<seg>/<fn>.c exists,
 the splat assembly otherwise. Links them at the original addresses and compares with the ROM bytes.
 Run in WSL.  usage: build_seg.py <boot|code> <original.bin>"""
-import re, shutil, struct, subprocess, sys
+import json, os, re, shutil, struct, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -63,8 +63,6 @@ def main():
     seg, orig = sys.argv[1], Path(sys.argv[2])
     out = ROOT / "build" / seg
     objdir = objcache.WORK / seg / "fn"  # native disk, see objcache.py; tools/search/permute_setup.py reads the objects from here
-    shutil.rmtree(objdir, ignore_errors=True)
-    objdir.mkdir(parents=True, exist_ok=True)
     cfg = (ROOT / "config" / seg / "splat.yaml").read_text()
     vram = int(re.search(r"vram: (0x[0-9A-Fa-f]+)", cfg).group(1), 16)
     text_end = vram + int(re.search(r"\[(0x[0-9A-Fa-f]+), data", cfg).group(1), 16)
@@ -91,7 +89,28 @@ def main():
         m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
         return (m.group(1).split() if m else DEFAULT_FLAGS) + CFLAGS
     # compile every C file that is not cached yet on all cores; the loop below then only copies cached objects
-    objcache.warm([(lambda c=c: objcache.info(objcache.compile_obj(c, _flags(c)))) for c in srcpath.files(seg)])
+    cfiles = srcpath.files(seg)
+    objcache.warm([(lambda c=c: objcache.info(objcache.compile_obj(c, _flags(c)))) for c in cfiles])
+
+    # Nothing to link again when every input is the one of the last link that gave the ROM: the objects (named by the hash of
+    # their inputs), the assembly, the configuration, the link scripts, the original and the tools. MM_FULL=1 links anyway.
+    binutils = [(t, os.stat(shutil.which(t)).st_size, os.stat(shutil.which(t)).st_mtime_ns) for t in ("mips-linux-gnu-as", "mips-linux-gnu-ld", "mips-linux-gnu-objcopy")]
+    inputs = [Path(__file__), Path(_names.__file__), Path(srcpath.__file__), Path(objcache.__file__), orig, ROOT / "include/macro.inc",
+              ROOT / "asm" / seg / "text.s", ROOT / "asm" / seg / "data" / "data.data.s", out / f"{seg}.ld",
+              out / "undefined_syms_auto.txt", out / "undefined_funcs_auto.txt", *sorted(p for p in (ROOT / "config" / seg).iterdir() if p.is_file())]
+    stamp = objcache.digest(repr(binutils).encode(), *(p.name.encode() + p.read_bytes() for p in inputs),
+                            *((c.name + objcache.compile_obj(c, _flags(c)).name).encode() for c in cfiles))
+    last = objcache.WORK / seg / "link.json"
+    try:
+        saved = json.loads(last.read_text())
+    except (OSError, ValueError):
+        saved = {}
+    if not objcache.FULL and saved.get("stamp") == stamp and objdir.is_dir() and (out / "built_from_asm.txt").exists():
+        print(saved["said"] + "  (same inputs as the last link: not linked again)")
+        return
+    last.unlink(missing_ok=True)
+    shutil.rmtree(objdir, ignore_errors=True)
+    objdir.mkdir(parents=True, exist_ok=True)
 
     script_objs, n_c, data_pending = [], 0, []
     for i, (name, ch) in enumerate(zip(names, chunks)):
@@ -217,8 +236,11 @@ def main():
     (out / "built_from_asm.txt").write_text("".join(f"{n}\n" for n in data_pending))   # tools/check/progress.py reports the count
     if data_pending:
         print(f"note: {len(data_pending)} verified C functions still built from asm (own constant pool): {' '.join(data_pending)}")
-    print(f"{seg}: {n_c} C functions + {len(chunks) - n_c} asm -> {'IDENTICAL to ROM' if ok else 'DIFFERENT'} "
-          f"({binf.stat().st_size:#x} vs {orig.stat().st_size:#x} bytes)")
+    said = (f"{seg}: {n_c} C functions + {len(chunks) - n_c} asm -> {'IDENTICAL to ROM' if ok else 'DIFFERENT'} "
+            f"({binf.stat().st_size:#x} vs {orig.stat().st_size:#x} bytes)")
+    print(said)
+    if ok:
+        last.write_text(json.dumps({"stamp": stamp, "said": said}))
     sys.exit(0 if ok else 1)
 
 

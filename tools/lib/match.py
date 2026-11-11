@@ -43,7 +43,7 @@ def _sizes(seg: str) -> dict:
     """{function: size} from the splat asm (`nonmatching name, size`), read once per process and kept on disk while the file stays the same."""
     path = asm_file(seg)
     st = path.stat()
-    cache = objcache.CACHE / "sizes" / f"{seg}.json"
+    cache = objcache.STATE / "sizes" / f"{seg}.json"
     try:
         saved = json.loads(cache.read_text())
         if saved["key"] == [st.st_size, st.st_mtime_ns]:
