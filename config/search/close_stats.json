@@ -9,23 +9,31 @@
    "permuter": 1
   },
   "order": {
-   "fwdarg": 3,
-   "pad": 2
+   "callf32": 1,
+   "fwdarg": 4,
+   "pad": 2,
+   "stmt_swap": 2,
+   "ternary": 1
   },
   "other": {
-   "callf32": 12,
-   "fieldsign": 5,
+   "callf32": 25,
+   "commute": 3,
+   "fieldsign": 11,
    "flags": 2,
    "float_lit": 1,
    "fwdarg": 3,
-   "local_type": 2
+   "local_type": 2,
+   "stmt_swap": 1,
+   "symarr": 3
   },
   "reg": {
-   "commute": 5,
+   "commute": 12,
+   "fieldsign": 1,
    "index": 2,
    "inline_local": 1,
-   "local_type": 3,
-   "stmt_swap": 3
+   "local_type": 6,
+   "stmt_swap": 28,
+   "symarr": 3
   },
   "size+": {
    "fwdarg": 1
@@ -37,67 +45,72 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 3791,
+   "tried": 4124,
    "wins": 0
   },
   "addu": {
-   "helped": 192,
-   "tried": 8438,
+   "helped": 207,
+   "tried": 11310,
    "wins": 0
   },
   "alias": {
    "helped": 2,
-   "tried": 9144,
+   "tried": 12019,
    "wins": 0
   },
   "bool_swap": {
    "helped": 25,
-   "tried": 3943,
+   "tried": 4962,
    "wins": 0
   },
   "callf32": {
-   "helped": 11,
-   "tried": 1789,
-   "wins": 12
+   "helped": 31,
+   "tried": 3862,
+   "wins": 25
   },
   "cast": {
    "helped": 0,
-   "tried": 9370,
+   "tried": 12469,
    "wins": 0
   },
   "chain_assign": {
    "helped": 1,
-   "tried": 1909,
+   "tried": 2419,
    "wins": 0
   },
   "cmp_const": {
-   "helped": 0,
-   "tried": 1186,
+   "helped": 1,
+   "tried": 1436,
    "wins": 0
   },
   "cmp_swap": {
    "helped": 1,
-   "tried": 24640,
+   "tried": 31281,
    "wins": 0
   },
   "commute": {
-   "helped": 11,
-   "tried": 10273,
-   "wins": 5
+   "helped": 28,
+   "tried": 13782,
+   "wins": 15
   },
   "decl_swap": {
    "helped": 5,
-   "tried": 7737,
+   "tried": 11887,
    "wins": 0
   },
   "drop_else": {
    "helped": 0,
-   "tried": 19,
+   "tried": 20,
+   "wins": 0
+  },
+  "dropsp": {
+   "helped": 0,
+   "tried": 74,
    "wins": 0
   },
   "dup_return": {
    "helped": 0,
-   "tried": 23,
+   "tried": 59,
    "wins": 0
   },
   "extract": {
@@ -106,28 +119,28 @@
    "wins": 0
   },
   "fieldsign": {
-   "helped": 5,
-   "tried": 7792,
-   "wins": 5
+   "helped": 15,
+   "tried": 14173,
+   "wins": 11
   },
   "flags": {
-   "helped": 46,
-   "tried": 27799,
+   "helped": 59,
+   "tried": 41702,
    "wins": 8
   },
   "float_lit": {
-   "helped": 18,
-   "tried": 35325,
+   "helped": 21,
+   "tried": 48341,
    "wins": 1
   },
   "fwdarg": {
-   "helped": 34,
-   "tried": 11136,
-   "wins": 3
+   "helped": 56,
+   "tried": 20586,
+   "wins": 4
   },
   "if_swap": {
-   "helped": 0,
-   "tried": 1222,
+   "helped": 4,
+   "tried": 1592,
    "wins": 0
   },
   "index": {
@@ -136,14 +149,19 @@
    "wins": 2
   },
   "inline_local": {
-   "helped": 0,
-   "tried": 511,
+   "helped": 1,
+   "tried": 780,
    "wins": 1
   },
+  "late_local": {
+   "helped": 0,
+   "tried": 40,
+   "wins": 0
+  },
   "local_type": {
-   "helped": 50,
-   "tried": 82174,
-   "wins": 9
+   "helped": 82,
+   "tried": 118229,
+   "wins": 12
   },
   "loop": {
    "helped": 0,
@@ -151,18 +169,18 @@
    "wins": 0
   },
   "not_form": {
-   "helped": 22,
-   "tried": 27197,
+   "helped": 38,
+   "tried": 38590,
    "wins": 0
   },
   "pad": {
-   "helped": 28,
-   "tried": 43561,
+   "helped": 29,
+   "tried": 61889,
    "wins": 6
   },
   "param": {
-   "helped": 28,
-   "tried": 7828,
+   "helped": 50,
+   "tried": 10950,
    "wins": 0
   },
   "permuter": {
@@ -171,19 +189,19 @@
    "wins": 1
   },
   "stmt_swap": {
-   "helped": 51,
-   "tried": 47197,
-   "wins": 3
+   "helped": 85,
+   "tried": 59558,
+   "wins": 30
   },
   "symarr": {
-   "helped": 1,
-   "tried": 25,
-   "wins": 0
+   "helped": 5,
+   "tried": 58,
+   "wins": 3
   },
   "ternary": {
-   "helped": 0,
-   "tried": 176,
-   "wins": 0
+   "helped": 1,
+   "tried": 273,
+   "wins": 1
   }
  },
  "wins": [
@@ -713,6 +731,634 @@
    "seg": "ovl0143",
    "seq": [
     "fieldsign:@367"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_8000097C",
+   "seg": "ovl0144",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000D70",
+   "seg": "ovl0144",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80001D48",
+   "seg": "ovl0174",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_8000235C",
+   "seg": "ovl0189",
+   "seq": [
+    "callf32:func_800FFBF8#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800014D8",
+   "seg": "ovl0232",
+   "seq": [
+    "callf32:func_8096E7DC#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80002B68",
+   "seg": "ovl0232",
+   "seq": [
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000B28",
+   "seg": "ovl0240",
+   "seq": [
+    "fieldsign:@272"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000C38",
+   "seg": "ovl0240",
+   "seq": [
+    "fieldsign:@272"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000D48",
+   "seg": "ovl0240",
+   "seq": [
+    "fieldsign:@272"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800011EC",
+   "seg": "ovl0240",
+   "seq": [
+    "callf32:func_800FFBF8#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000B94",
+   "seg": "ovl0243",
+   "seq": [
+    "callf32:func_800FEE3C#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0257",
+   "seq": [
+    "fieldsign:@707"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80002170",
+   "seg": "ovl0288",
+   "seq": [
+    "callf32:func_80137828#2"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80010460",
+   "seg": "ovl0290",
+   "seq": [
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "order"
+   ],
+   "fn": "func_80002018",
+   "seg": "ovl0063",
+   "seq": [
+    "stmt_swap:@642"
+   ]
+  },
+  {
+   "ctx": [
+    "order"
+   ],
+   "fn": "func_80000934",
+   "seg": "ovl0074",
+   "seq": [
+    "ternary:if2tern@524"
+   ]
+  },
+  {
+   "ctx": [
+    "order"
+   ],
+   "fn": "func_800010D4",
+   "seg": "ovl0228",
+   "seq": [
+    "stmt_swap:@586"
+   ]
+  },
+  {
+   "ctx": [
+    "order"
+   ],
+   "fn": "func_80002AAC",
+   "seg": "ovl0232",
+   "seq": [
+    "fwdarg:func_800B8254+first2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001C40",
+   "seg": "ovl0063",
+   "seq": [
+    "stmt_swap:@751"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000C2C",
+   "seg": "ovl0089",
+   "seq": [
+    "stmt_swap:@166"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000D6C",
+   "seg": "ovl0100",
+   "seq": [
+    "local_type:temp_v0:s16"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000CC0",
+   "seg": "ovl0102",
+   "seq": [
+    "local_type:temp_v0:s32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000684",
+   "seg": "ovl0114",
+   "seq": [
+    "commute:paren@469"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000036C",
+   "seg": "ovl0284",
+   "seq": [
+    "commute:paren@590"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000042C",
+   "seg": "ovl0286",
+   "seq": [
+    "commute:paren@590"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0287",
+   "seq": [
+    "commute:paren@590"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000188",
+   "seg": "ovl0288",
+   "seq": [
+    "commute:paren@590"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000230",
+   "seg": "ovl0290",
+   "seq": [
+    "commute:paren@590"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800014D0",
+   "seg": "ovl0294",
+   "seq": [
+    "commute:paren@196"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80026654",
+   "seg": "ovl0056",
+   "seq": [
+    "callf32:func_800BA9E4#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002940",
+   "seg": "ovl0063",
+   "seq": [
+    "stmt_swap:@423<328"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800007C8",
+   "seg": "ovl0064",
+   "seq": [
+    "stmt_swap:@348"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001E18",
+   "seg": "ovl0076",
+   "seq": [
+    "stmt_swap:@598<503"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800028CC",
+   "seg": "ovl0076",
+   "seq": [
+    "stmt_swap:@510<415"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000688",
+   "seg": "ovl0091",
+   "seq": [
+    "stmt_swap:@397<302"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000B10",
+   "seg": "ovl0099",
+   "seq": [
+    "stmt_swap:@326"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000894",
+   "seg": "ovl0100",
+   "seq": [
+    "stmt_swap:@742"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000080C",
+   "seg": "ovl0102",
+   "seq": [
+    "stmt_swap:@704"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000348C",
+   "seg": "ovl0125",
+   "seq": [
+    "stmt_swap:@758"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000814",
+   "seg": "ovl0144",
+   "seq": [
+    "stmt_swap:@454<359",
+    "stmt_swap:@484<359"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000EE0",
+   "seg": "ovl0175",
+   "seq": [
+    "stmt_swap:@362"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001128",
+   "seg": "ovl0239",
+   "seq": [
+    "stmt_swap:@340"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800023C0",
+   "seg": "ovl0239",
+   "seq": [
+    "stmt_swap:@685"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002A5C",
+   "seg": "ovl0239",
+   "seq": [
+    "stmt_swap:@575"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800016B4",
+   "seg": "ovl0240",
+   "seq": [
+    "local_type:temp_v0:s32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_8000D67C",
+   "seg": "ovl0056",
+   "seq": [
+    "symarr:D_8085B7CC:s32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_8000FD40",
+   "seg": "ovl0056",
+   "seq": [
+    "symarr:D_8085B82C:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002C74",
+   "seg": "ovl0088",
+   "seq": [
+    "stmt_swap:@537"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002438",
+   "seg": "ovl0092",
+   "seq": [
+    "stmt_swap:@385"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800028B4",
+   "seg": "ovl0092",
+   "seq": [
+    "stmt_swap:@450"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000084",
+   "seg": "ovl0113",
+   "seq": [
+    "stmt_swap:@293"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001900",
+   "seg": "ovl0137",
+   "seq": [
+    "stmt_swap:@472"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002AEC",
+   "seg": "ovl0293",
+   "seq": [
+    "stmt_swap:@537"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80013474",
+   "seg": "ovl0056",
+   "seq": [
+    "symarr:D_8085C650:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0228",
+   "seq": [
+    "stmt_swap:@550",
+    "fieldsign:@636"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000EDF4",
+   "seg": "ovl0056",
+   "seq": [
+    "stmt_swap:@248"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800018F4",
+   "seg": "ovl0239",
+   "seq": [
+    "stmt_swap:@538<402"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80012334",
+   "seg": "ovl0056",
+   "seq": [
+    "commute:paren@728"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800020D0",
+   "seg": "ovl0063",
+   "seq": [
+    "commute:paren@518"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80003948",
+   "seg": "ovl0069",
+   "seq": [
+    "callf32:func_8013F090#0"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80008E34",
+   "seg": "ovl0069",
+   "seq": [
+    "callf32:func_800B3B14#1",
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80001664",
+   "seg": "ovl0074",
+   "seq": [
+    "commute:paren@483"
    ]
   }
  ]
