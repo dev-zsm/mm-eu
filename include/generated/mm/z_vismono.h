@@ -3,11 +3,19 @@
 #define MM_Z_VISMONO_H
 
 /* names of ours that symbols of the reference stand for */
+#define ref_D_0E000000 D_0E000000
+#define ref_D_0F000000 D_F000000
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_0E000000 ref_D_0E000000
+#define D_0F000000 ref_D_0F000000
 
 #include "z64vis.h"
 #include "gfxalloc.h"
 #include "global.h"
 #include "libc64/malloc.h"
+#undef D_0E000000
+#undef D_0F000000
 #define VISMONO_CFBFRAG_HEIGHT ((TMEM_SIZE / 2) / (SCREEN_WIDTH * G_IM_SIZ_16b_BYTES))
 #define VISMONO_DLSIZE (3 + SCREEN_HEIGHT / VISMONO_CFBFRAG_HEIGHT * (7 + 2 + 2 + 3) + 2 + 2)
 #define VISMONO_FAC_RED 2

@@ -4,6 +4,10 @@
 
 /* names of ours that symbols of the reference stand for */
 #define SysCfb_GetZBufferInt func_80179D08
+#define gameplay_keep_DL_029CB0 D_4029CB0
+#define gameplay_keep_DL_029CF0 D_4029CF0
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z64light.h"
 #include "sys_cfb.h"

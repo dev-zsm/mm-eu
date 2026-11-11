@@ -6,9 +6,13 @@
 #define Gfx_SetupDL38_Xlu func_8012CA10
 #define Gfx_SetupDL47_Xlu func_8012CBAC
 #define Gfx_SetupDL4_Xlu func_8012CA38
+#define Lib_SegmentedToVirtual func_80100304
 #define gIdentityMtx D_801CA710
 #define sDebugDisplayLight1 D_801BBB80
 #define sDebugDisplaySpriteDL D_801BBB28
+#define sDebugPathVtxOffsets D_801BBB98
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z64debug_display.h"
 #include "global.h"
@@ -26,8 +30,8 @@ DebugDispObject* DebugDisplay_AddObject(f32 posX, f32 posY, f32 posZ, s16 rotX, 
                                         f32 scaleY, f32 scaleZ, u8 red, u8 green, u8 blue, u8 alpha, s16 type,
                                         GraphicsContext* gfxCtx);
 #include "assets/code/debug_display/debug_display.c"
-extern DebugDispObjectDrawFunc sDebugObjectDrawFuncTable[];
-extern DebugDispObjectInfo sDebugObjectInfoTable[];
+extern DebugDispObjectDrawFunc sDebugObjectDrawFuncTable[2];
+extern DebugDispObjectInfo sDebugObjectInfoTable[7];
 void DebugDisplay_DrawObjects(PlayState* play);
 void DebugDisplay_DrawSpriteI8(DebugDispObject* dispObj, void* texture, PlayState* play);
 extern Lights1 sDebugDisplayLight1;
@@ -39,7 +43,7 @@ void DebugDisplay_DrawPath(PlayState* play, Path* path);
 #define R_DRAW_PATH_GREEN 0    // bREG(85)
 #define R_DRAW_PATH_BLUE 0     // bREG(86)
 #define R_DRAW_PATH_ALPHA 0    // bREG(87)
-extern Vec3s sDebugPathVtxOffsets[][2];
+extern Vec3s sDebugPathVtxOffsets[3][2];
 Gfx* DebugDisplay_PathDisplayList(GraphicsContext* gfxCtx, Path* path);
 
 #endif

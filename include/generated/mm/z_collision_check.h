@@ -43,6 +43,45 @@
 #define sOCResetFuncs D_801BAE90
 #define sOCVsFuncs D_801BAF50
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_801EDE00 ref_D_801EDE00
+#define D_801EDE10 ref_D_801EDE10
+#define D_801EDE20 ref_D_801EDE20
+#define D_801EDE30 ref_D_801EDE30
+#define D_801EDE40 ref_D_801EDE40
+#define D_801EDE78 ref_D_801EDE78
+#define D_801EDEB0 ref_D_801EDEB0
+#define D_801EDEC8 ref_D_801EDEC8
+#define D_801EDF00 ref_D_801EDF00
+#define D_801EDF38 ref_D_801EDF38
+#define D_801EDF48 ref_D_801EDF48
+#define D_801EDF58 ref_D_801EDF58
+#define D_801EDF90 ref_D_801EDF90
+#define D_801EDFC8 ref_D_801EDFC8
+#define D_801EDFE0 ref_D_801EDFE0
+#define D_801EDFF0 ref_D_801EDFF0
+#define D_801EE000 ref_D_801EE000
+#define D_801EE038 ref_D_801EE038
+#define D_801EE070 ref_D_801EE070
+#define D_801EE0D8 ref_D_801EE0D8
+#define D_801EE0E8 ref_D_801EE0E8
+#define D_801EE150 ref_D_801EE150
+#define D_801EE188 ref_D_801EE188
+#define D_801EE1C0 ref_D_801EE1C0
+#define D_801EE1D0 ref_D_801EE1D0
+#define D_801EE1E0 ref_D_801EE1E0
+#define D_801EE1F0 ref_D_801EE1F0
+#define D_801EE200 ref_D_801EE200
+#define D_801EE6C8 ref_D_801EE6C8
+#define D_801EE700 ref_D_801EE700
+#define D_801EE738 ref_D_801EE738
+#define D_801EEC00 ref_D_801EEC00
+#define D_801EF0C8 ref_D_801EF0C8
+#define D_801EF590 ref_D_801EF590
+#define D_801EF5C8 ref_D_801EF5C8
+#define D_801EF600 ref_D_801EF600
+#define D_801EF638 ref_D_801EF638
+
 #include "z64collision_check.h"
 #include "stdbool.h"
 #include "macros.h"
@@ -53,6 +92,43 @@
 #include "z64frameadvance.h"
 #include "zelda_arena.h"
 #include "z64math.h"
+#undef D_801EDE00
+#undef D_801EDE10
+#undef D_801EDE20
+#undef D_801EDE30
+#undef D_801EDE40
+#undef D_801EDE78
+#undef D_801EDEB0
+#undef D_801EDEC8
+#undef D_801EDF00
+#undef D_801EDF38
+#undef D_801EDF48
+#undef D_801EDF58
+#undef D_801EDF90
+#undef D_801EDFC8
+#undef D_801EDFE0
+#undef D_801EDFF0
+#undef D_801EE000
+#undef D_801EE038
+#undef D_801EE070
+#undef D_801EE0D8
+#undef D_801EE0E8
+#undef D_801EE150
+#undef D_801EE188
+#undef D_801EE1C0
+#undef D_801EE1D0
+#undef D_801EE1E0
+#undef D_801EE1F0
+#undef D_801EE200
+#undef D_801EE6C8
+#undef D_801EE700
+#undef D_801EE738
+#undef D_801EEC00
+#undef D_801EF0C8
+#undef D_801EF590
+#undef D_801EF5C8
+#undef D_801EF600
+#undef D_801EF638
 typedef s32 (*ColChkResetFunc)(struct PlayState*, Collider*);;
 typedef void (*ColChkBloodFunc)(struct PlayState*, Collider*, Vec3f*);;
 typedef void (*ColChkApplyFunc)(struct PlayState*, CollisionCheckContext*, Collider*);;
@@ -222,8 +298,8 @@ void CollisionCheck_RedBlood(struct PlayState* play, Collider* col, Vec3f* v);
 void CollisionCheck_RedBloodUnused(struct PlayState* play, Collider* col, Vec3f* v);
 void CollisionCheck_HitSolid(struct PlayState* play, ColliderElement* elem, Collider* col, Vec3f* hitPos);
 s32 CollisionCheck_SwordHitAudio(Collider* at, ColliderElement* acElem);
-extern ColChkBloodFunc sBloodFuncs[];
-extern HitInfo sHitInfo[];
+extern ColChkBloodFunc sBloodFuncs[6];
+extern HitInfo sHitInfo[14];
 void CollisionCheck_HitEffects(struct PlayState* play, Collider* at, ColliderElement* atElem, Collider* ac,
                                ColliderElement* acElem, Vec3f* hitPos);
 void CollisionCheck_SetBounce(Collider* at, Collider* ac);

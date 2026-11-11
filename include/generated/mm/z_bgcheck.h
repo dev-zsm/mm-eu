@@ -3,6 +3,7 @@
 #define MM_Z_BGCHECK_H
 
 /* names of ours that symbols of the reference stand for */
+#define Fault_AddHungupAndCrash func_80083EAC
 #define Fault_AddHungupAndCrashImpl func_80083E54
 #define Math3D_LineVsCube Math3D_LineVsCube
 #define Math3D_PointRelativeToCubeEdges Math3D_PointRelativeToCubeEdges
@@ -17,7 +18,19 @@
 #define ref_D_801EDAA8 D_801E5418
 #define ref_D_801EDAF8 D_801E51D0
 #define sModelToWorldMtxF D_801E53B0
+#define sSceneSubdivisionList D_801B520C
+#define sSmallMemSceneIds D_801B5200
 #define sprintf func_80087A44
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_801ED950 ref_D_801ED950
+#define D_801ED9A0 ref_D_801ED9A0
+#define D_801ED9F0 ref_D_801ED9F0
+#define D_801EDA18 ref_D_801EDA18
+#define D_801EDA80 ref_D_801EDA80
+#define D_801EDAA8 ref_D_801EDAA8
+#define D_801EDAF8 ref_D_801EDAF8
+#define D_801EDB48 ref_D_801EDB48
 
 #include "z64bgcheck.h"
 #include "libc64/fixed_point.h"
@@ -27,20 +40,28 @@
 #include "fault.h"
 #include "vt.h"
 #include "z64actor.h"
+#undef D_801ED950
+#undef D_801ED9A0
+#undef D_801ED9F0
+#undef D_801EDA18
+#undef D_801EDA80
+#undef D_801EDAA8
+#undef D_801EDAF8
+#undef D_801EDB48
 #define DYNA_RAYCAST_FLOORS 1
 #define DYNA_RAYCAST_WALLS 2
 #define DYNA_RAYCAST_CEILINGS 4
 extern u32 sWallFlags[WALL_TYPE_MAX];
 extern u16 sSurfaceSfxOffsets[SURFACE_MATERIAL_MAX];
 extern u8 sSurfaceMaterialProperties[SURFACE_MATERIAL_MAX];
-extern s16 sSmallMemSceneIds[];
+extern s16 sSmallMemSceneIds[1];
 typedef struct {
       s16 sceneId;
       u32 memSize;
 } BgCheckSceneMemEntry;;
-extern BgCheckSceneMemEntry sSceneMemList[];
-extern BgCheckSceneSubdivisionEntry sSceneSubdivisionList[];
-extern BgSpecialSceneMaxObjects sCustomDynapolyMem[];
+extern BgCheckSceneMemEntry sSceneMemList[1];
+extern BgCheckSceneSubdivisionEntry sSceneSubdivisionList[3];
+extern BgSpecialSceneMaxObjects sCustomDynapolyMem[1];
 extern char ref_D_801ED950[80];;
 extern char ref_D_801ED9A0[80];;
 extern Vec3f ref_D_801ED9F0[3];;

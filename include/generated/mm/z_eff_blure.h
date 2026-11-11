@@ -6,7 +6,12 @@
 #define Gfx_SetupDL38_Xlu func_8012CA10
 #define Math_FNearbyIntF func_80086884
 #define gIdentityMtx D_801CA710
+#define gameplay_keep_Tex_014570 D_4014570
+#define ref_D_801AE26C D_801AF12C
+#define ref_D_801AE2AC D_801AF16C
 #define sSetupHandlers D_801AF120
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z64eff_blure.h"
 #include "stdbool.h"
@@ -37,8 +42,8 @@ void EffectBlure_SetupSimpleAlt(GraphicsContext* gfxCtx, EffectBlure* this, Vtx*
 typedef void (*SetupHandler)(GraphicsContext* gfxCtx, EffectBlure* this, Vtx* vtx);;
 extern SetupHandler sSetupHandlers[EFF_BLURE_DRAW_MODE_MAX];
 void EffectBlure_DrawSimpleVertices(GraphicsContext* gfxCtx, EffectBlure* this, Vtx* vtx);
-extern Vtx_t ref_D_801AE26C[];
-extern Vtx_t ref_D_801AE2AC[];
+extern Vtx_t ref_D_801AE26C[4];
+extern Vtx_t ref_D_801AE2AC[4];
 void EffectBlure_DrawSimple(EffectBlure* this2, GraphicsContext* gfxCtx);
 void EffectBlure_Draw(void* thisx, GraphicsContext* gfxCtx);
 

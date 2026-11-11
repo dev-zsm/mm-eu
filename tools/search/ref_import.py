@@ -5,6 +5,10 @@ usage: ref_import.py vendor                 copy the headers of the reference cl
        ref_import.py heal                   link the code segment and delete the untracked files that keep it from linking or compiling
        ref_import.py run [overlays] [--only file.c]   compile every reference file of src/code (or of src/overlays), keep the functions that are byte-identical to
                                             ours and that we do not have in C yet, write them to src/code/ and register their names
+       ref_import.py alias fn...                 add the aliases a matching draft needs to its header (it then links)
+       ref_import.py near [--seg boot] [--max-score N] [--min-size HEX]   the other functions that can be paired with one of the reference by
+                                            name (config/<seg>/names.txt): compile the reference source, score it against the ROM (tools/lib/score.py)
+                                            and write the ones below N (default 40) to src/<seg>/wip/ as drafts tagged with their score
 How a function becomes a file: the includes, defines and types of the reference file, the other declarations of that file as `extern`
 (initialisers dropped), the function itself. A symbol that the reference calls or reads under another name than the one our code
 uses gets a `#define` to ours (found by pairing the relocations of the reference object with the ones in our assembly, so the evidence is
@@ -18,6 +22,7 @@ sys.path[:0] = [str(d) for d in Path(__file__).resolve().parents[1].glob("*/") i
 import match  # noqa: E402
 import names  # noqa: E402
 import objcache  # noqa: E402
+import score  # noqa: E402
 import srcpath  # noqa: E402
 
 REF = ROOT / "build" / "ref" / "mm"
@@ -923,6 +928,7 @@ def save_bases():
 
 
 UNDEF = re.compile(r"/(\w+)\.o: in function `[^']*':\n(?:[^\n]*\n)*?[^\n]*undefined reference to `([^']+)'")
+UNDEF_LINE = re.compile(r"/(\w+)\.c:\d+:\(\.text[^)]*\): undefined reference to `([^']+)'")
 OBJ_ERR = re.compile(r"AssertionError: (\w+)\.o: non-zero bytes beyond")
 CC_ERR = re.compile(r"Error: (\S+?\.c),? line \d+")
 
@@ -936,6 +942,10 @@ def undefined_files(stderr):
     """{source file: symbol} for the objects of a failed link that have an undefined reference and are untracked files."""
     bad = {}
     for m in UNDEF.finditer(stderr):
+        path = source_path(SEG, m.group(1))
+        if path.exists() and untracked(path):
+            bad.setdefault(path, m.group(2))
+    for m in UNDEF_LINE.finditer(stderr):   # an object with line numbers (-g3): the message names file and line, no "in function"
         path = source_path(SEG, m.group(1))
         if path.exists() and untracked(path):
             bad.setdefault(path, m.group(2))
@@ -971,12 +981,136 @@ def link_guard():
     sys.exit("the code segment does not link after the import, the files of this run were dropped\n" + (r.stdout + r.stderr)[-1500:])
 
 
+def near_run():
+    """Reference functions that are not identical to ours but are paired by name with one of our unmatched functions: scored with
+    tools/lib/score.py, the ones below --max-score are written to src/<seg>/wip/<fn>.c (a better draft than the one already there only)."""
+    global SEG
+    arg = lambda k, d: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+    SEG = arg("--seg", "code")
+    limit, min_size = float(arg("--max-score", 40)), int(arg("--min-size", "0x20"), 16)
+    NM = names.load(SEG)
+    have = {p.stem for p in srcpath.files(SEG) if "wip" not in p.parts}   # verified files (srcpath.files lists the drafts too)
+    sizes = match._sizes(SEG)
+    want_real = {NM[fn]: fn for fn, size in sizes.items() if fn in NM and fn not in have and size >= min_size}
+    files = sorted((REF / "src" / SEG).glob("*.c"))
+    stub_loop(files)
+    vendor()
+
+    def scan(f):
+        obj, _ = ref_compile(f)
+        return (f, ref_functions(obj)) if obj else (f, None)
+
+    with ThreadPoolExecutor(objcache.JOBS) as ex:
+        scans = [s for s in ex.map(scan, files) if s[1]]
+    wipdir = ROOT / "src" / SEG / "wip"
+    wipdir.mkdir(parents=True, exist_ok=True)
+    paired = drafted = 0
+    rows = []
+    for f, fns in scans:
+        chunks = None
+        for real in fns:
+            fn = want_real.get(real)
+            if fn is None:
+                continue
+            paired += 1
+            if chunks is None:
+                chunks = chunks_of(f)
+            stem = Path(relkey(f)).stem
+            hname = ctx_name(stem)
+            text = function_file(hname, chunks, real)
+            if text is None:
+                continue
+            header = INC / f"{hname}.h"
+            header.parent.mkdir(parents=True, exist_ok=True)
+            if not header.exists():
+                header.write_text(build_header(stem, chunks, {}, Path(relkey(f)).parent.as_posix()))
+            want, _ = match.original(SEG, fn)
+            with tempfile.TemporaryDirectory() as d:
+                path = Path(d) / f"{fn}.c"
+                path.write_text(text)
+                try:
+                    got, masks = match.compiled(path, fn, match.file_flags(path), len(want))
+                except Exception:
+                    rows.append((None, fn, real))
+                    continue
+            a = match.mask(want, masks)
+            b = match.mask(got, masks)
+            r = score.score(a, b)
+            rows.append((r["score"], fn, real))
+            if r["score"] > limit:
+                continue
+            dst = wipdir / f"{fn}.c"
+            if dst.exists():
+                old = dst.read_text()
+                m = re.search(r"// STATUS: reference draft, score ([\d.]+)", old)
+                try:
+                    got_old, masks_old = match.compiled(dst, fn, match.file_flags(dst), len(want))
+                    old_score = score.score(match.mask(want, masks_old), match.mask(got_old, masks_old))["score"]
+                except Exception:
+                    old_score = 1e9   # the old draft does not compile
+                if m and float(m.group(1)) <= r["score"] or old_score <= r["score"]:
+                    continue   # a draft as close or closer is there (the old one is replaced only by a closer reference draft)
+            first, rest = text.split("\n", 1)
+            dst.write_text(first + f"\n// STATUS: reference draft, score {r['score']:.2f} ({r['diff']} differ, size {r['size']:+d})\n" + rest)
+            drafted += 1
+    rows.sort(key=lambda t: (t[0] is None, t[0] or 0))
+    for sc, fn, real in rows[:60]:
+        print(f"  {sc if sc is not None else 'no compile':>8} {fn} {real}")
+    print(f"{paired} paired with a reference function, {sum(1 for r in rows if r[0] is not None)} compiled, {drafted} drafts written to src/{SEG}/wip")
+
+
+def alias_run():
+    """`alias fn...`: the drafts (src or wip) whose bytes already match, written by hand or by `near`: pair their relocations with our assembly
+    like an import does and add the `#define`s of the symbols the reference spells differently to the header of the file, so that they link."""
+    fns = [a for a in sys.argv[2:] if not a.startswith("--")]
+    nm = names.load(SEG)
+    registered = set(nm.values())
+    for fn in fns:
+        path = source_path(SEG, fn)
+        if not path.exists():
+            path = ROOT / "src" / SEG / "wip" / f"{fn}.c"
+        text = path.read_text()
+        m = re.search(r'#include "generated/mm/(\w+)\.h"', text)
+        if not m:
+            print(fn, "no generated header")
+            continue
+        header = INC / f"{m.group(1)}.h"
+        known = read_aliases(header)
+        try:
+            want, _ = match.original(SEG, fn)
+            got, _ = match.compiled(path, fn, match.file_flags(path), len(want))
+            bases, exact = pair(SEG, fn, match.last_relocs(), got)
+        except Exception as e:
+            print(fn, "no pairing:", str(e)[:80])
+            continue
+        add = {}
+        for sym, base in bases.items():
+            if address_of(sym) is not None or sym in known.values() or sym in known:
+                continue
+            token = exact.get(base)
+            target = nm.get(token, token) if token is not None else f"D_{base:08X}"
+            if sym != target and sym not in registered:
+                add[sym] = target
+        if add:
+            lines = header.read_text().split("
+")
+            at = lines.index(ALIAS_MARK) + 1
+            lines[at:at] = [f"#define {a} {b}" for a, b in sorted(add.items())]
+            header.write_text("
+".join(lines))
+        print(fn, "aliases added:", add)
+
+
 def main():
     if sys.argv[1:2] == ["vendor"]:
         return vendor()
     if sys.argv[1:2] == ["heal"]:   # start of a round: drop the untracked files that keep the code segment from linking
         return link_guard()
     only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
+    if sys.argv[1:2] == ["near"]:
+        return near_run()
+    if sys.argv[1:2] == ["alias"]:
+        return alias_run()
     if sys.argv[1:2] == ["run"] and sys.argv[2:3] == ["names"]:
         overlay_candidates(only, names_mode=True)
         return

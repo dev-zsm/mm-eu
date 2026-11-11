@@ -5,6 +5,8 @@
 /* names of ours that symbols of the reference stand for */
 #define ref_func_80170200 func_801713C0
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "z64prerender.h"
 #include "alloca.h"
 #include "stdbool.h"

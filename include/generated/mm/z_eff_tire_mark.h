@@ -3,10 +3,18 @@
 #define MM_Z_EFF_TIRE_MARK_H
 
 /* names of ours that symbols of the reference stand for */
+#define gIdentityMtx D_801CA710
+#define gameplay_keep_Tex_014570 D_4014570
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BFD84 ref_func_800BFD84
+#define func_800BFDEC ref_func_800BFDEC
 
 #include "z64eff_tire_mark.h"
 #include "global.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
+#undef func_800BFD84
+#undef func_800BFDEC
 void ref_func_800AE930(CollisionContext* colCtx, EffectTireMark* this, Vec3f* pos, f32 arg3, s16 angle,
                    CollisionPoly* colPoly, s32 bgId);
 void ref_func_800AEF44(EffectTireMark* this);

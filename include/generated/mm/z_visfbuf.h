@@ -3,13 +3,22 @@
 #define MM_Z_VISFBUF_H
 
 /* names of ours that symbols of the reference stand for */
+#define gCfbWidth D_801F344C
 #define guS2DInitBg func_80092C20
+#define ref_D_0E000000 D_0E000000
+#define ref_D_0F000000 D_F000000
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_0E000000 ref_D_0E000000
+#define D_0F000000 ref_D_0F000000
 
 #include "z64visfbuf.h"
 #include "gfxalloc.h"
 #include "global.h"
 #include "sys_cfb.h"
 #include "sys_ucode.h"
+#undef D_0E000000
+#undef D_0F000000
 #define SCALE_MIN 0.032f
 #define SCALE_MAX 1.0f //!< also unchanged scale
 void VisFbuf_Init(VisFbuf* this);

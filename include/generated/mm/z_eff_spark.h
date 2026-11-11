@@ -4,6 +4,10 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Rand_ZeroOne func_8008704C
+#define gIdentityMtx D_801CA710
+#define gameplay_keep_Tex_054F20 D_4054F20
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z64eff_spark.h"
 #include "global.h"

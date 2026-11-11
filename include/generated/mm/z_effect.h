@@ -6,6 +6,8 @@
 #define sEffectContext D_801DB840
 #define sEffectInfoTable D_801AF1F0
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "z64effect.h"
 #include "global.h"
 #define SPARK_COUNT 3

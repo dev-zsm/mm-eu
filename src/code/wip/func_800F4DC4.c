@@ -1,18 +1,23 @@
-#include "types.h"
-extern u8 D_801BE660[];
-extern u8 D_AA0000[];
-void func_80080CE0(void *dst, void *src, u32 size);
-void Font_LoadOrderedFont(u8 *font) {
-    u8 *p = D_801BE660;
-    u8 *dst = font + 0x7880;
-    u32 off;
-    do {
-        if (*p != 0) {
-            off = *p << 7;
-        } else {
-            off = 0;
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+// STATUS: reference draft, bytes match; links once `sFontOrdering` and the other symbols of the reference have names of ours
+#include "generated/mm/z_kanfont.h"
+
+void Font_LoadOrderedFont(Font* font) {
+    u32 loadOffset;
+    s32 codePointIndex = 0;
+    u8* writeLocation;
+
+    while (1) {
+        writeLocation = &font->fontBuf[codePointIndex * FONT_CHAR_TEX_SIZE];
+        loadOffset = sFontOrdering[codePointIndex] * FONT_CHAR_TEX_SIZE;
+        if (sFontOrdering[codePointIndex] == 0) {
+            loadOffset = 0;
         }
-        func_80080CE0(dst, D_AA0000 + off, 0x80);
-        dst += 0x80;
-    } while (*p++ != 0x8F);
+
+        DmaMgr_RequestSync(writeLocation, SEGMENT_ROM_START(nes_font_static) + loadOffset, FONT_CHAR_TEX_SIZE);
+        if (sFontOrdering[codePointIndex] == 0x8F) {
+            break;
+        }
+        codePointIndex++;
+    }
 }

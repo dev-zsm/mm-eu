@@ -3,15 +3,20 @@
 #define MM_Z_FIREOBJ_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL25_Xlu func_8012C78C
 #define Rand_ZeroOne func_8008704C
+#define gEffFire1DL D_407D590
+#define sFireObjColors D_801BE42C
 #define sFireObjLightParams D_801BE434
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z_fireobj.h"
 #include "overlays/actors/ovl_En_Arrow/z_en_arrow.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 extern ColliderCylinderInit sFireObjCollisionInit;
-extern FireObjColors sFireObjColors[];
-extern FireObjLightParams sFireObjLightParams[];
+extern FireObjColors sFireObjColors[1];
+extern FireObjLightParams sFireObjLightParams[1];
 void FireObj_InitWithParams(PlayState* play, FireObj* fire, FireObjInitParams* init);
 void FireObj_SetState(FireObj* fire, f32 dynamicSizeStep, u8 newState);
 void FireObj_SetPosition(FireObj* fire, Vec3f* pos);

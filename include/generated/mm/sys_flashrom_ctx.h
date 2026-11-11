@@ -7,6 +7,8 @@
 #define free func_80086EC0
 #define malloc func_80086E40
 
+/* names declared by the headers of the reference, prefixed while they are read */
+
 #include "sys_flashrom.h"
 #include "libc64/malloc.h"
 #include "PR/os_internal_flash.h"

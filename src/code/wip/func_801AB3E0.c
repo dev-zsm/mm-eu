@@ -1,36 +1,32 @@
-// FLAGS: -O2 -g3 -mips2
-#include "types.h"
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+// STATUS: reference draft, score 39.00 (54 differ, size +1)
+#include "generated/mm/jpegdecoder.h"
 
-extern s32 D_802006D0;
-extern s32 D_802006D4;
-extern struct {
-    u8 bitPos;
-    u8 sawFF;
-} D_802006D8;
-extern u32 D_802006DC;
+u16 JpegDecoder_ReadBits(u8 len) {
+    u8 byteCount;
+    u8 data;
+    s32 ret;
+    u32 temp;
+    ret = 0; 
 
-u16 JpegDecoder_ReadBits(u8 bits) {
-    u8 byte;
-    u8 pos = D_802006D8.bitPos;
-    u8 n = pos >> 3;
-
-    while (n > 0) {
-        pos = D_802006D8.bitPos;
-        byte = *(u8 *)(D_802006D4++ + D_802006D0);
-        if (D_802006D8.sawFF && byte == 0) {
-            byte = *(u8 *)(D_802006D4++ + D_802006D0);
+    for (byteCount = sJpegBitStreamBitIdx >> 3; byteCount > 0; byteCount--) {
+        data = sJpegBitStreamPtr[sJpegBitStreamByteIdx++];
+        if (sJpegBitStreamDontSkip) {
+            if (data == 0) {
+                data = sJpegBitStreamPtr[sJpegBitStreamByteIdx++];
+            }
         }
-        if (byte == 0xFF) {
-            D_802006D8.sawFF = 1;
-        } else {
-            D_802006D8.sawFF = 0;
-        }
-        D_802006DC <<= 8;
-        D_802006DC |= byte;
-        n--;
-        pos -= 8;
-        D_802006D8.bitPos = pos;
+
+        sJpegBitStreamDontSkip = (data == 0xFF) ? true : false;
+
+        sJpegBitStreamCurWord <<= 8;
+        sJpegBitStreamCurWord |= data;
+        sJpegBitStreamBitIdx -= 8;
     }
-    D_802006D8.bitPos = pos + bits;
-    return (D_802006DC << pos) >> -bits;
+
+    ret = (sJpegBitStreamCurWord << (sJpegBitStreamBitIdx));
+    temp = ret;
+    ret = temp >> -len;
+    sJpegBitStreamBitIdx += len;
+    return ret;
 }

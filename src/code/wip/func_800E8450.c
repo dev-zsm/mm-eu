@@ -1,23 +1,33 @@
-#include "types.h"
-typedef struct { f32 x, y, z; } Vec;
-extern u8 D_801BB038[];
-extern s16 D_801BB03A[3];
-extern s16 D_801BB066[3];
-void Effect_Add(s32, void *, s32, s32, s32, void *);
-void Audio_PlaySfx_AtPos(s32, s32);
-void CollisionCheck_SpawnShieldParticlesWood(s32 a0, Vec *pos, s32 sfx) {
-    s32 sp24;
-    s32 x = pos->x;
-    s32 y;
-    s32 z;
-    D_801BB03A[0] = x;
-    y = pos->y;
-    D_801BB03A[1] = y;
-    z = pos->z;
-    D_801BB03A[2] = z;
-    D_801BB066[0] = x;
-    D_801BB066[1] = y;
-    D_801BB066[2] = z;
-    Effect_Add(a0, &sp24, 3, 0, 1, D_801BB038);
-    Audio_PlaySfx_AtPos(sfx, 0x1837);
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+// STATUS: reference draft, score 8.00 (13 differ, size +3)
+#include "generated/mm/z_collision_check.h"
+
+void CollisionCheck_SpawnShieldParticlesWood(struct PlayState* play, Vec3f* v, Vec3f* pos) {
+    static EffectShieldParticleInit sShieldParticleInitWood = {
+        16,
+        { 0, 0, 0 },
+        { 0, 200, 255, 255 },
+        { 255, 255, 255, 255 },
+        { 255, 255, 128, 255 },
+        { 255, 255, 0, 255 },
+        { 255, 64, 0, 200 },
+        { 255, 0, 0, 255 },
+        2.1f,
+        35.0f,
+        30.0f,
+        8,
+        { 0, 0, 0, { 0, 128, 255 }, 0, 300 },
+        0,
+    };
+    s32 effectIndex;
+
+    sShieldParticleInitWood.position.x = v->x;
+    sShieldParticleInitWood.position.y = v->y;
+    sShieldParticleInitWood.position.z = v->z;
+    sShieldParticleInitWood.lightPoint.x = sShieldParticleInitWood.position.x;
+    sShieldParticleInitWood.lightPoint.y = sShieldParticleInitWood.position.y;
+    sShieldParticleInitWood.lightPoint.z = sShieldParticleInitWood.position.z;
+
+    Effect_Add(play, &effectIndex, EFFECT_SHIELD_PARTICLE, 0, 1, &sShieldParticleInitWood);
+    Audio_PlaySfx_AtPos(pos, NA_SE_IT_REFLECTION_WOOD);
 }

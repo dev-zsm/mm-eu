@@ -3,28 +3,46 @@
 #define MM_Z_SRAM_NES_H
 
 /* names of ours that symbols of the reference stand for */
+#define Interface_LoadItemIconImpl func_80112A3C
+#define Inventory_DeleteItem func_8011489C
 #define Lib_MemCpy func_800FEA90
+#define Play_GetOriginalSceneId func_8016AE44
+#define Play_SaveCycleSceneFlags func_8016AEC8
 #define bzero func_800897D0
+#define gAmmoItems D_801C7C70
 #define gFlashSaveNumPages D_801C7CB0
 #define gFlashSaveStartPages D_801C7C88
+#define gHorseIsMounted D_801BE5CC
 #define gSaveContext D_801E6EF0
 #define osGetTime func_800905C0
+#define ref_D_801BDAA0 D_801BE5D0
 #define ref_D_801C6A48 D_801C7F08
 #define ref_D_801C6A50 D_801C7F10
 #define ref_D_801F6AF0 D_801EE370
 #define ref_D_801F6AF2 D_801EE372
 #define ref_func_80147314 func_80147818
 #define ref_func_80147414 func_80147918
+#define sBitFlags8 D_801C7D50
+#define sPersistentCycleSceneFlags D_801C7480
+#define sPersistentCycleWeekEventRegs D_801C7B90
 #define sSaveDebugChecksum D_801C7F04
 #define sSaveDebugInventory D_801C7E7C
 #define sSaveDebugItemEquips D_801C7E58
 #define sSaveDebugPlayerData D_801C7E30
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_801BDAA0 ref_D_801BDAA0
+#define D_801F6AF0 ref_D_801F6AF0
+#define D_801F6AF2 ref_D_801F6AF2
 
 #include "z64save.h"
 #include "global.h"
 #include "sys_flashrom.h"
 #include "z64horse.h"
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
+#undef D_801BDAA0
+#undef D_801F6AF0
+#undef D_801F6AF2
 void Sram_SyncWriteToFlash(SramContext* sramCtx, s32 curPage, s32 numPages);;
 void ref_func_80147314(SramContext* sramCtx, s32 fileNum);;
 void ref_func_80147414(SramContext* sramCtx, s32 fileNum, s32 arg2);;
@@ -52,17 +70,17 @@ extern u16 sPersistentCycleWeekEventRegs[ARRAY_COUNT(gSaveContext.save.saveInfo.
 #define OOT_SLOT_SIZE (OOT_SAVECONTEXT_SIZE + 0x28)
 #define OOT_SRAM_HEADER_SIZE 0x10
 #define OOT_SLOT_OFFSET(index) (OOT_SRAM_HEADER_SIZE + 0x10 + (index * OOT_SLOT_SIZE))
-extern u32 gSramSlotOffsets[];
+extern u32 gSramSlotOffsets[6];
 extern u8 gAmmoItems[ITEM_NUM_SLOTS];
-extern s32 gFlashSaveStartPages[];
-extern s32 gFlashSaveNumPages[];
-extern s32 gFlashSpecialSaveNumPages[];
-extern s32 gFlashOwlSaveStartPages[];
-extern s32 gFlashOwlSaveNumPages[];
-extern s32 gFlashOptionsSaveStartPages[];
-extern s32 gFlashOptionsSaveNumPages[];
-extern s32 gFlashSaveSizes[];
-extern u8 sBitFlags8[];
+extern s32 gFlashSaveStartPages[10];
+extern s32 gFlashSaveNumPages[10];
+extern s32 gFlashSpecialSaveNumPages[10];
+extern s32 gFlashOwlSaveStartPages[4];
+extern s32 gFlashOwlSaveNumPages[4];
+extern s32 gFlashOptionsSaveStartPages[2];
+extern s32 gFlashOptionsSaveNumPages[2];
+extern s32 gFlashSaveSizes[8];
+extern u8 sBitFlags8[8];
 extern u16 ref_D_801F6AF0;;
 extern u8 ref_D_801F6AF2;;
 void Sram_ActivateOwl(u8 owlWarpId);

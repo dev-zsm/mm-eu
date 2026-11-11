@@ -1,24 +1,32 @@
-#include "types.h"
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+// STATUS: reference draft, score 6.00 (10 differ, size +3)
+#include "generated/mm/z_collision_check.h"
 
-typedef struct { f32 x, y, z; } Vec3f;
-typedef struct { u8 pad0[2]; s16 x, y, z; } Init;
+void CollisionCheck_SpawnShieldParticles(struct PlayState* play, Vec3f* v) {
+    static EffectShieldParticleInit sShieldParticleInitMetal = {
+        16,
+        { 0, 0, 0 },
+        { 0, 200, 255, 255 },
+        { 255, 255, 255, 255 },
+        { 255, 255, 128, 255 },
+        { 255, 255, 0, 255 },
+        { 255, 64, 0, 200 },
+        { 255, 0, 0, 255 },
+        2.1f,
+        35.0f,
+        30.0f,
+        8,
+        { 0, 0, 0, { 0, 128, 255 }, 0, 300 },
+        1,
+    };
+    s32 effectIndex;
 
-extern Init D_801BAFF8;
-extern s16 D_801BB026[3];
-extern void Effect_Add(void *, s32 *, s32, s32, s32, void *);
+    sShieldParticleInitMetal.position.x = v->x;
+    sShieldParticleInitMetal.position.y = v->y;
+    sShieldParticleInitMetal.position.z = v->z;
+    sShieldParticleInitMetal.lightPoint.x = sShieldParticleInitMetal.position.x;
+    sShieldParticleInitMetal.lightPoint.y = sShieldParticleInitMetal.position.y;
+    sShieldParticleInitMetal.lightPoint.z = sShieldParticleInitMetal.position.z;
 
-void CollisionCheck_SpawnShieldParticles(void *play, Vec3f *pos) {
-    s32 index;
-    s32 x, y, z;
-
-    x = pos->x;
-    D_801BAFF8.x = x;
-    y = pos->y;
-    D_801BAFF8.y = y;
-    z = pos->z;
-    D_801BAFF8.z = z;
-    D_801BB026[0] = x;
-    D_801BB026[1] = y;
-    D_801BB026[2] = z;
-    Effect_Add(play, &index, 3, 0, 1, &D_801BAFF8);
+    Effect_Add(play, &effectIndex, EFFECT_SHIELD_PARTICLE, 0, 1, &sShieldParticleInitMetal);
 }

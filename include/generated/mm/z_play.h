@@ -5,19 +5,39 @@
 /* names of ours that symbols of the reference stand for */
 #define BombersNotebook_Destroy func_80170E50
 #define BombersNotebook_Draw BombersNotebook_Draw
+#define BombersNotebook_Init func_80170E30
+#define Camera_ChangeStatus func_800DE0B8
+#define Camera_InitFocalActorSettings func_800DDE9C
+#define Cutscene_InitContext func_800E9E00
+#define DayTelop_Init D_808176A0
+#define Environment_DrawRain func_800FA7BC
 #define FileSelect_Init D_80815250
 #define Interface_Destroy func_8012223C
+#define Interface_Init func_8012226C
 #define Interface_SetHudVisibility func_8010EE64
+#define Interface_SetSceneRestrictions func_801128E0
+#define Magic_Reset func_80115F80
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Message_Draw func_80156C8C
+#define Message_Init func_80158E1C
 #define Object_InitContext Object_InitContext
 #define Play_Init Play_Init
+#define PreRender_Init func_80170EEC
+#define PreRender_SetValuesSave func_80170EB0
+#define Rand_Seed func_80087040
+#define Regs_InitData func_801AB960
+#define Sram_Alloc func_80147374
 #define SysCfb_GetFramebuffer func_80179C60
 #define SysCfb_GetZBuffer func_80179C88
 #define SysCfb_SetHiResMode func_80179A40
 #define SysCfb_SetLoResMode func_80179930
 #define TitleSetup_Init D_80803F50
 #define gActiveViMode D_801F3408
+#define gCfbHeight D_801F344E
+#define gCfbWidth D_801F344C
+#define gDbgCamEnabled D_801C9630
+#define gHiBuffer D_80780000
+#define gPlayVisMonoColor D_801EE5C0
 #define gRegEditor D_801EB7E0
 #define gSaveContext D_801E6EF0
 #define gSceneTable D_801C4960
@@ -27,17 +47,34 @@
 #define gViConfigFeatures D_80096CCC
 #define gViConfigXScale D_80096CD0
 #define gViConfigYScale D_80096CD4
+#define gWorkBuffer D_801F3410
 #define gZBufferPtr D_801F340C
+#define osGetTime func_800905C0
+#define ref_D_0E000000 D_0E000000
 #define ref_D_801D0D54 D_801C9634
 #define ref_D_801F6C18 D_801EE4A8
+#define ref_func_800EDDB0 func_800EDB50
+#define ref_func_8012CF0C func_8012D3BC
+#define ref_func_80170798 func_80171958
 #define ref_func_80170AE0 func_80171CA0
 #define sBombersNotebook D_801EE5E0
 #define sBombersNotebookOpen D_801EE68C
 #define sMotionBlurStatus D_801EE68D
+#define sPlayVisFbuf D_801EE5C8
 #define sPlayVisFbufInstance D_801EE5DC
 #define sPlayVisMono D_801EE5A8
 #define sTransitionFillTimer D_801EE4A0
 #define sTransitionTile D_801EE4C0
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_0E000000 ref_D_0E000000
+#define D_801F6C18 ref_D_801F6C18
+#define D_80784600 ref_D_80784600
+#define func_800C0094 ref_func_800C0094
+#define func_800EDDB0 ref_func_800EDDB0
+#define func_8012CF0C ref_func_8012CF0C
+#define func_80170798 ref_func_80170798
+#define func_80170AE0 ref_func_80170AE0
 
 #include "PR/ultratypes.h"
 extern s16 sTransitionFillTimer;;
@@ -71,6 +108,14 @@ extern u8 sMotionBlurStatus;;
 #include "overlays/gamestates/ovl_opening/z_opening.h"
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
 #include "libu64/debug.h"
+#undef D_0E000000
+#undef D_801F6C18
+#undef D_80784600
+#undef func_800C0094
+#undef func_800EDDB0
+#undef func_8012CF0C
+#undef func_80170798
+#undef func_80170AE0
 extern s32 gDbgCamEnabled;
 extern u8 ref_D_801D0D54;
 typedef enum {
@@ -109,7 +154,7 @@ void Play_DecompressI5ToI8(void* srcI5, void* destI8, size_t size);
 f32 Play_GetWaterSurface(PlayState* this, Vec3f* pos, s32* lightIndex);
 void Play_UpdateWaterCamera(PlayState* this, Camera* camera);
 void Play_UpdateTransition(PlayState* this);
-extern const char ref_D_801DFA34[][4];
+extern const char ref_D_801DFA34[62][4];
 void Play_UpdateMain(PlayState* this);
 void Play_Update(PlayState* this);
 void Play_PostWorldDraw(PlayState* this);
@@ -156,7 +201,7 @@ s32 FrameAdvance_IsEnabled(PlayState* this);
 s32 ref_func_8016A02C(PlayState* this, Actor* actor, s16* yaw);
 s32 Play_IsUnderwater(PlayState* this, Vec3f* pos);
 s32 Play_IsDebugCamEnabled(void);
-extern s16 sPlayerCsIdToCsCamId[];
+extern s16 sPlayerCsIdToCsCamId[10];
 void Play_AssignPlayerCsIdsFromScene(PlayState* this, s32 spawnCsId);
 void Play_FillScreen(PlayState* this, s16 fillScreenOn, u8 red, u8 green, u8 blue, u8 alpha);
 void Play_Init(GameState* thisx);

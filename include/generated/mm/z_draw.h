@@ -5,7 +5,11 @@
 /* names of ours that symbols of the reference stand for */
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
+#define gGiFairyBottleTexAnim D_6001254
+#define gGiMoonsTearTexAnim D_6001C60
 #define sDrawItemTable D_801BBCA0
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "global.h"
 #include "assets/objects/object_gi_arrow/object_gi_arrow.h"
@@ -121,7 +125,7 @@ typedef struct {
       void (*drawFunc)(PlayState*, s16);
       void* drawResources[8]; 
 } DrawItemTableEntry;;
-extern DrawItemTableEntry sDrawItemTable[];
+extern DrawItemTableEntry sDrawItemTable[118];
 void GetItem_Draw(PlayState* play, s16 drawId);
 void GetItem_DrawBombchu(PlayState* play, s16 drawId);
 void GetItem_DrawPoes(PlayState* play, s16 drawId);

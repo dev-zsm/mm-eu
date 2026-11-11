@@ -21,10 +21,24 @@
 #define ref_func_8012C268 func_8012C718
 #define sZeroVec D_801C29D0
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_800BA798 ref_func_800BA798
+#define func_800BCBF4 ref_func_800BCBF4
+#define func_800BCC68 ref_func_800BCC68
+#define func_800FEAB0 ref_func_800FEAB0
+#define func_80123140 ref_func_80123140
+#define func_8012C268 ref_func_8012C268
+
 #include "global.h"
 #include "PR/gs2dex.h"
 #include "libu64/debug.h"
 #include "sys_ucode.h"
+#undef func_800BA798
+#undef func_800BCBF4
+#undef func_800BCC68
+#undef func_800FEAB0
+#undef func_80123140
+#undef func_8012C268
 void Room_Noop(PlayState* play, Room* room, Input* input, s32 arg3);
 void Room_DrawNone(PlayState* play, Room* room, u32 flags);
 extern Vec3f sZeroVec;
@@ -53,7 +67,7 @@ void Room_Init(PlayState* play, RoomContext* roomCtx);
 size_t Room_SetupFirstRoom(PlayState* play, RoomContext* roomCtx);
 s32 Room_RequestNewRoom(PlayState* play, RoomContext* roomCtx, s32 index);
 s32 Room_ProcessRoomRequest(PlayState* play, RoomContext* roomCtx);
-extern RoomDrawHandler sRoomDrawHandlers[];
+extern RoomDrawHandler sRoomDrawHandlers[4];
 void Room_Draw(PlayState* play, Room* room, u32 flags);
 void Room_FinishRoomChange(PlayState* play, RoomContext* roomCtx);
 

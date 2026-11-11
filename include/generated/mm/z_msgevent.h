@@ -9,9 +9,15 @@
 #define gItemSlots D_801C2D38
 #define gSaveContext D_801E6EF0
 #define ref_func_80123810 func_80123CC0
+#define sMsgScriptCmdHandlers D_801C0110
+#define sMsgScriptCmdSizes D_801C01DC
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define func_80123810 ref_func_80123810
 
 #include "global.h"
 #include "attributes.h"
+#undef func_80123810
 s32 MsgEvent_CheckWeekEventReg(Actor* actor, PlayState* play, u8** script, MsgScriptCallback callback, s32* endScript);
 s32 MsgEvent_CheckGoron(Actor* actor, PlayState* play, u8** script, MsgScriptCallback callback, s32* endScript);
 s32 MsgEvent_CheckZora(Actor* actor, PlayState* play, u8** script, MsgScriptCallback callback, s32* endScript);
@@ -66,8 +72,8 @@ s32 MsgEvent_PlayDecide(Actor* actor, PlayState* play, u8** script, MsgScriptCal
 s32 MsgEvent_PlayCancel(Actor* actor, PlayState* play, u8** script, MsgScriptCallback callback, s32* endScript);
 s32 MsgEvent_PlayError(Actor* actor, PlayState* play, u8** script, MsgScriptCallback callback, s32* endScript);
 typedef s32 (*MsgScriptCmdHandler)(struct Actor*, struct PlayState*, u8**, MsgScriptCallback, s32*);;
-extern MsgScriptCmdHandler sMsgScriptCmdHandlers[];
-extern u8 sMsgScriptCmdSizes[];
+extern MsgScriptCmdHandler sMsgScriptCmdHandlers[51];
+extern u8 sMsgScriptCmdSizes[51];
 s32 MsgEvent_RunScript(Actor* actor, PlayState* play, MsgScript* script, MsgScriptCallback callback, s32* pos);
 
 #endif

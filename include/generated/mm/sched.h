@@ -21,6 +21,9 @@
 #define sRSPOtherStartTime D_801F3340
 #define usleep func_80087BBC
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80096B20 ref_D_80096B20
+
 #include "scheduler.h"
 #include "libc64/sleep.h"
 #include "fault.h"
@@ -31,6 +34,7 @@
 #include "viconfig.h"
 #include "z64speed_meter.h"
 #include "z64thread.h"
+#undef D_80096B20
 extern FaultClient sSchedFaultClient;;
 extern OSTime sRSPGFXStartTime;;
 extern OSTime sRSPAudioStartTime;;

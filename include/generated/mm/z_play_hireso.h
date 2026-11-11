@@ -3,11 +3,35 @@
 #define MM_Z_PLAY_HIRESO_H
 
 /* names of ours that symbols of the reference stand for */
+#define BombersNotebook_DrawHeaders func_8016BF9C
+#define BombersNotebook_DrawTimeOfDay func_8016DEE0
 #define DmaMgr_RequestAsync func_80080C54
+#define gBombersNotebookBackgroundTex D_80013D8
+#define gBombersNotebookCursorTex D_80018D0
+#define gBombersNotebookEntryBoxEndTex D_8001240
+#define gBombersNotebookEntryBoxMiddleTex D_80012C0
+#define gBombersNotebookStampTex D_8000100
+#define gBombersNotebookSubColumnBoxTex D_8001340
+#define gBombersNotebookWeekEventFlags D_801C7FE8
 #define gCfbLeftAdjust D_801F3450
 #define gCfbUpperAdjust D_801F3452
 #define osCreateMesgQueue func_8008F3E0
 #define osRecvMesg func_80088070
+#define ref_D_0E000000 D_0E000000
+#define ref_func_8012CF0C func_8012D3BC
+#define sBombersNotebookColumnColors D_801C9C48
+#define sBombersNotebookDayRectRectLeft D_801C9B10
+#define sBombersNotebookEntries D_801C9660
+#define sBombersNotebookEntryIconColors D_801C9C78
+#define sBombersNotebookEventColorWeekEventFlags D_801C9BEC
+#define sBombersNotebookEventIconHeights D_801C9BE0
+#define sBombersNotebookEventIconTextures D_801C9C6C
+#define sBombersNotebookEventIconWidths D_801C9BD4
+#define sBombersNotebookEventIcons D_801C9B48
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_0E000000 ref_D_0E000000
+#define func_8012CF0C ref_func_8012CF0C
 
 #include "global.h"
 #include "sys_cfb.h"
@@ -17,6 +41,8 @@
 #include "attributes.h"
 #include "assets/interface/schedule_static/schedule_static.h"
 #include "assets/archives/schedule_dma_static/schedule_dma_static_yar.h"
+#undef D_0E000000
+#undef func_8012CF0C
 #define BOMBERS_NOTEBOOK_ENTRY_SIZE 3
 #define BOMBERS_NOTEBOOK_ENTRY_MAX 10
 #define BOMBERS_NOTEBOOK_ENTRY_GET_DAY(row, entry) (((&sBombersNotebookEntries[row][entry])[0] & 0xF00) >> 8)
@@ -37,38 +63,38 @@ typedef enum {
 #define BOMBERS_NOTEBOOK_EVENT_COLOR_WEEKEVENTREG_NONE 0xFFF0
 #define BOMBERS_NOTEBOOK_EVENT_COLOR_WEEKEVENTREG_DEPOSITED_LETTER_TO_KAFEI 0xFFF1
 extern u16 sBombersNotebookEntries[BOMBERS_NOTEBOOK_PERSON_MAX][BOMBERS_NOTEBOOK_ENTRY_MAX * BOMBERS_NOTEBOOK_ENTRY_SIZE];
-extern s16 sBombersNotebookDayRectRectLeft[];
-extern TexturePtr sBombersNotebookDayTextures[];
+extern s16 sBombersNotebookDayRectRectLeft[4];
+extern TexturePtr sBombersNotebookDayTextures[3];
 #define DEFINE_PERSON(_enum, _photo, _description, metEnum, _metMessage, _metFlag)
 #define DEFINE_EVENT(_enum, icon, _colorFlag, _description, _completedMessage, _completedFlag) icon,
-extern s32 sBombersNotebookEventIcons[];
+extern s32 sBombersNotebookEventIcons[1];
 #undef DEFINE_PERSON
 #undef DEFINE_EVENT
-extern s32 sBombersNotebookEventIconWidths[];
-extern s32 sBombersNotebookEventIconHeights[];
+extern s32 sBombersNotebookEventIconWidths[3];
+extern s32 sBombersNotebookEventIconHeights[3];
 #define DEFINE_PERSON(_enum, _photo, _description, metEnum, _metMessage, _metFlag)
 #define DEFINE_EVENT(_enum, _icon, colorFlag, _description, _completedMessage, _completedFlag) colorFlag,
-extern u16 sBombersNotebookEventColorWeekEventFlags[];
+extern u16 sBombersNotebookEventColorWeekEventFlags[1];
 #undef DEFINE_PERSON
 #undef DEFINE_EVENT
 void BombersNotebook_DrawScisTexRect(Gfx** gfxP, s32 rxl, s32 ryl, s32 rxh, s32 ryh, s32 tile, s32 s, s32 t, s32 dsdx,
                                      s32 dtdy);
-extern s16 sBombersNotebookHeaderColors[][3];
+extern s16 sBombersNotebookHeaderColors[3][3];
 void BombersNotebook_DrawHeaders(Gfx** gfxP);
-extern s16 sBombersNotebookColumnColors[][2][3];
+extern s16 sBombersNotebookColumnColors[3][2][3];
 void BombersNotebook_DrawColumns(Gfx** gfxP);
-extern TexturePtr sBombersNotebookEventIconTextures[];
-extern s16 sBombersNotebookEntryIconColors[][3];
+extern TexturePtr sBombersNotebookEventIconTextures[3];
+extern s16 sBombersNotebookEntryIconColors[3][3];
 void BombersNotebook_DrawEntries(Gfx** gfxP, s32 row, u32 rectTop);
 #define DEFINE_PERSON(_enum, photo, _description, _metEnum, _metMessage, _metFlag) photo,
 #define DEFINE_EVENT(enum, _icon, _colorFlag, _description, _completedMessage, _completedFlag)
-extern TexturePtr sBombersNotebookPhotoTextures[];
+extern TexturePtr sBombersNotebookPhotoTextures[1];
 #undef DEFINE_PERSON
 #undef DEFINE_EVENT
 void BombersNotebook_DrawRows(BombersNotebook* this, Gfx** gfxP);
-extern TexturePtr sBombersNotebookDigitTextures[];
-extern u8 sBombersNotebookDigitRectLeftOffsets[];
-extern s16 sBombersNotebookDayTexRectLeftOffsets[];
+extern TexturePtr sBombersNotebookDigitTextures[10];
+extern u8 sBombersNotebookDigitRectLeftOffsets[10];
+extern s16 sBombersNotebookDayTexRectLeftOffsets[3];
 #define CURRENT_DAY_CLAMP_MIN_1 ((CURRENT_DAY == 0) ? 1 : CURRENT_DAY)
 void BombersNotebook_DrawTimeOfDay(Gfx** gfxP);
 void BombersNotebook_DrawCursor(BombersNotebook* this, Gfx** gfxP);
@@ -77,7 +103,7 @@ void BombersNotebook_Draw(BombersNotebook* this, GraphicsContext* gfxCtx);
 void BombersNotebook_LoadFiles(BombersNotebook* this, s32 flag);
 #define DEFINE_PERSON(_enum, _photo, description, _metEnum, _metMessage, _metFlag) description,
 #define DEFINE_EVENT(_enum, _icon, _colorFlag, description, _completedMessage, _completedFlag) description,
-extern u16 sBombersNotebookTextIds[];
+extern u16 sBombersNotebookTextIds[1];
 #undef DEFINE_PERSON
 #undef DEFINE_EVENT
 void BombersNotebook_Update(PlayState* play, BombersNotebook* this, Input* input);

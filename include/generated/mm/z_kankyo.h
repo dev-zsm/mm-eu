@@ -5,12 +5,26 @@
 /* names of ours that symbols of the reference stand for */
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define DmaMgr_RequestAsync func_80080C54
+#define Environment_JumpForwardInTime func_800FE8B8
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Gfx_SetupDL54_Opa func_8012C5F8
+#define Gfx_SetupDL57_Opa func_8012C530
+#define Gfx_SetupDL64 func_8012C854
+#define Lib_SegmentedToVirtual func_80100304
+#define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Play_CamIsNotFixed func_8016B184
 #define Rand_ZeroOne func_8008704C
 #define gCustomLensFlare1On D_801EC6BA
 #define gCustomLensFlare1Pos D_801EC6C0
 #define gCustomLensFlare2On D_801EC6D6
 #define gCustomLensFlare2Pos D_801EC6D8
+#define gEffLightningDL D_403F230
+#define gEffShockwaveDL D_4030100
+#define gFallingRainDropDL D_40706E0
+#define gFieldSandstormDL D_50089D0
+#define gInterruptSongOfStorms D_801BE708
+#define gLensFlareCircleDL D_4054940
+#define gLensFlareRingDL D_40549A8
 #define gLightConfigAfterUnderwater D_801BE704
 #define gLightningStrike D_801EC6F0
 #define gRandFloat D_8009D120
@@ -18,10 +32,17 @@
 #define gSaveContext D_801E6EF0
 #define gSceneSeqState D_801BE718
 #define gSkyboxNumStars D_801EC702
+#define gSunDL D_407AB70
+#define gWeatherMode D_801BE700
+#define gZeroVec3f D_801C9EE0
 #define memset func_80096A20
 #define osCreateMesgQueue func_8008F3E0
 #define osRecvMesg func_80088070
+#define ref_D_01000000 D_1000000
+#define ref_D_0E000000 D_0E000000
 #define ref_D_801BDBA8 D_801BE6F8
+#define ref_D_801F4DDC D_801EC65C
+#define ref_D_801F4E30 D_801EC6B8
 #define ref_D_801F4E44 D_801EC6CC
 #define ref_D_801F4E48 D_801EC6D0
 #define ref_D_801F4E4C D_801EC6D4
@@ -36,10 +57,18 @@
 #define ref_D_801F4F33 D_801EC6B1
 #define ref_func_800F6CEC func_800F6AAC
 #define ref_func_800FE5D0 func_800FE3C8
+#define ref_func_80173B48 func_80174D08
+#define sEnvIsTimeStopped D_801EC6B0
 #define sEnvSkyboxNumStars D_801BE6E8
 #define sGameOverLightsIntensity D_801EC6B2
 #define sInitSkyboxConfig D_801EC6B9
+#define sLensFlareAlphas D_801BF40C
+#define sLensFlareColors D_801BF3C4
+#define sLensFlareScales D_801BF3E4
+#define sLensFlareTypes D_801BF434
+#define sLightningBolts D_801EC708
 #define sLightningFlashAlpha D_801EC7B4
+#define sLightningTextures D_801BF45C
 #define sNGameOverLightInfo D_801EC770
 #define sNGameOverLightNode D_801EC768
 #define sNextSandstormColorIndex D_801BE6F4
@@ -47,17 +76,45 @@
 #define sSGameOverLightInfo D_801EC788
 #define sSGameOverLightNode D_801EC780
 #define sSandstormColorIndex D_801BE6F0
+#define sSandstormEnvColors D_801BF494
 #define sSandstormLerpScale D_801BE6E0
+#define sSandstormPrimColors D_801BF47C
+#define sSandstormScroll D_801EC7B6
 #define sSkyboxEnvColors D_801BF224
 #define sSkyboxIsChanging D_801BE70C
 #define sSkyboxPrimColors D_801BF084
 #define sSkyboxStarsDList D_801EC6B4
 #define sSunColor D_801EC79C
+#define sSunDepthTestX D_801EC7A8
+#define sSunDepthTestY D_801EC7AC
 #define sSunEnvAlpha D_801EC798
 #define sSunPrimAlpha D_801EC7A4
 #define sSunScale D_801EC7A0
+#define sSunScreenDepth D_801BE6E4
 #define sTimeBasedLightConfigs D_801BE71C
 #define sTimeBasedSkyboxConfigs D_801BE844
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_01000000 ref_D_01000000
+#define D_0E000000 ref_D_0E000000
+#define D_801DD880 ref_D_801DD880
+#define D_801DD8E0 ref_D_801DD8E0
+#define D_801DD900 ref_D_801DD900
+#define D_801F4DDC ref_D_801F4DDC
+#define D_801F4E30 ref_D_801F4E30
+#define D_801F4E44 ref_D_801F4E44
+#define D_801F4E48 ref_D_801F4E48
+#define D_801F4E4C ref_D_801F4E4C
+#define D_801F4E5C ref_D_801F4E5C
+#define D_801F4E60 ref_D_801F4E60
+#define D_801F4E64 ref_D_801F4E64
+#define D_801F4E74 ref_D_801F4E74
+#define D_801F4E78 ref_D_801F4E78
+#define D_801F4F28 ref_D_801F4F28
+#define D_801F4F30 ref_D_801F4F30
+#define D_801F4F31 ref_D_801F4F31
+#define D_801F4F33 ref_D_801F4F33
+#define func_80173B48 ref_func_80173B48
 
 #include "ultra64.h"
 #include "z64light.h"
@@ -121,6 +178,26 @@ extern Gfx* sSkyboxStarsDList;;
 #include "sys_cfb.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #include "assets/objects/gameplay_field_keep/gameplay_field_keep.h"
+#undef D_01000000
+#undef D_0E000000
+#undef D_801DD880
+#undef D_801DD8E0
+#undef D_801DD900
+#undef D_801F4DDC
+#undef D_801F4E30
+#undef D_801F4E44
+#undef D_801F4E48
+#undef D_801F4E4C
+#undef D_801F4E5C
+#undef D_801F4E60
+#undef D_801F4E64
+#undef D_801F4E74
+#undef D_801F4E78
+#undef D_801F4F28
+#undef D_801F4F30
+#undef D_801F4F31
+#undef D_801F4F33
+#undef func_80173B48
 extern f32 sSandstormLerpScale;
 extern s32 sSunScreenDepth;
 extern s32 sEnvSkyboxNumStars;
@@ -142,7 +219,7 @@ typedef struct {
       u8 lightSetting;
       u8 nextLightSetting;
 } TimeBasedLightEntry;;
-extern TimeBasedLightEntry sTimeBasedLightConfigs[][7];
+extern TimeBasedLightEntry sTimeBasedLightConfigs[7][7];
 typedef struct {
       u16 startTime;
       u16 endTime;
@@ -156,7 +233,7 @@ typedef struct {
       RomFile file;
       RomFile palette;
 } SkyboxFile;;
-extern SkyboxFile sNormalSkyFiles[];
+extern SkyboxFile sNormalSkyFiles[2];
 void Environment_UpdatePostmanEvents(PlayState* play);;
 void Environment_UpdateRain(PlayState* play);;
 void Environment_UpdateTimeBasedSequence(PlayState* play);;
@@ -175,8 +252,8 @@ void Environment_Init(PlayState* play2, EnvironmentContext* envCtx, s32 arg2);
 u8 Environment_SmoothStepToU8(u8* pvalue, u8 target, u8 scale, u8 step, u8 minStep);
 f32 Environment_LerpWeight(u16 max, u16 min, u16 val);
 f32 Environment_LerpWeightAccelDecel(u16 endFrame, u16 startFrame, u16 curFrame, u16 accelDuration, u16 decelDuration);
-extern Color_RGBA8 sSkyboxPrimColors[];
-extern Color_RGBA8 sSkyboxEnvColors[];
+extern Color_RGBA8 sSkyboxPrimColors[104];
+extern Color_RGBA8 sSkyboxEnvColors[104];
 void Environment_UpdateSkybox(u8 skyboxId, EnvironmentContext* envCtx, SkyboxContext* skyboxCtx);
 void Environment_EnableUnderwaterLights(PlayState* play, s32 waterLightsIndex);
 void Environment_DisableUnderwaterLights(PlayState* play);
@@ -203,10 +280,10 @@ typedef enum {
       LENS_FLARE_CIRCLE1,
       LENS_FLARE_RING
 } LensFlareType;;
-extern Color_RGB8 sLensFlareColors[];
-extern f32 sLensFlareScales[];
-extern u32 sLensFlareAlphas[];
-extern u32 sLensFlareTypes[];
+extern Color_RGB8 sLensFlareColors[10];
+extern f32 sLensFlareScales[10];
+extern u32 sLensFlareAlphas[10];
+extern u32 sLensFlareTypes[10];
 void Environment_DrawLensFlare(PlayState* play, EnvironmentContext* envCtx, View* view, GraphicsContext* gfxCtx,
                                Vec3f pos, f32 scale, f32 colorIntensity, s16 glareStrength, u8 isSun);
 f32 Environment_RandCentered(void);
@@ -217,7 +294,7 @@ void Environment_DrawSkyboxFilters(PlayState* play);
 void Environment_DrawLightningFlash(PlayState* play, u8 red, u8 green, u8 blue, u8 alpha);
 void Environment_UpdateLightningStrike(PlayState* play);
 void Environment_AddLightningBolts(PlayState* play, u8 num);
-extern TexturePtr sLightningTextures[];
+extern TexturePtr sLightningTextures[8];
 void Environment_DrawLightning(PlayState* play, s32 unused);
 void Environment_PlaySceneSequence(PlayState* play);
 void Environment_UpdateTimeBasedSequence(PlayState* play);
@@ -227,8 +304,8 @@ void Environment_FadeInGameOverLights(PlayState* play);
 void Environment_FadeOutGameOverLights(PlayState* play);
 void Environment_UpdateRain(PlayState* play);
 void Environment_FillScreen(GraphicsContext* gfxCtx, u8 red, u8 green, u8 blue, u8 alpha, u8 drawFlags);
-extern u8 sSandstormPrimColors[];
-extern u8 sSandstormEnvColors[];
+extern u8 sSandstormPrimColors[24];
+extern u8 sSandstormEnvColors[24];
 void Environment_DrawSandstorm(PlayState* play, u8 sandstormState);
 s32 Environment_AdjustLights(PlayState* play, f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 void Environment_LerpRGB8(u8* from, Color_RGB8* to, f32 lerp, s16* dst);

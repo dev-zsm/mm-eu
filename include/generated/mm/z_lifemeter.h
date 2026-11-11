@@ -3,9 +3,20 @@
 #define MM_Z_LIFEMETER_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL42_Overlay func_8012CD84
+#define gDefenseHeartEmptyTex D_2000500
+#define gDefenseHeartFullTex D_2000900
+#define gHeartEmptyTex D_2000000
+#define gHeartFullTex D_2000400
 #define gSaveContext D_801E6EF0
+#define sBeatingHeartsDDEnv D_801EC7C8
+#define sBeatingHeartsDDPrim D_801EC7C0
+#define sHeartDDTextures D_801BF5C0
+#define sHeartTextures D_801BF580
 #define sHeartsDDEnv D_801EC7E0
 #define sHeartsDDPrim D_801EC7D0
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z64lifemeter.h"
 #include "global.h"
@@ -24,8 +35,8 @@ extern s16 sBeatingHeartsDDPrim[3];;
 extern s16 sBeatingHeartsDDEnv[3];;
 extern s16 sHeartsDDPrim[2][3];;
 extern s16 sHeartsDDEnv[2][3];;
-extern TexturePtr sHeartTextures[];
-extern TexturePtr sHeartDDTextures[];
+extern TexturePtr sHeartTextures[16];
+extern TexturePtr sHeartDDTextures[16];
 void LifeMeter_Init(PlayState* play);
 void LifeMeter_UpdateColors(PlayState* play);
 s32 LifeMeter_SaveInterfaceHealth(PlayState* play);

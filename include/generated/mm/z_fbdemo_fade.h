@@ -5,6 +5,11 @@
 /* names of ours that symbols of the reference stand for */
 #define gRegEditor D_801EB7E0
 #define gSaveContext D_801E6EF0
+#define ref_D_0E000000 D_0E000000
+#define sTransFadeSetupDL D_801C9590
+
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_0E000000 ref_D_0E000000
 
 #include "z64transition.h"
 #include "stdbool.h"
@@ -12,6 +17,7 @@
 #include "regs.h"
 #include "z64math.h"
 #include "z64save.h"
+#undef D_0E000000
 typedef enum TransitionFadeDirection {
       TRANS_FADE_DIR_IN,
       TRANS_FADE_DIR_OUT
@@ -21,7 +27,7 @@ typedef enum TransitionFadeType {
       TRANS_FADE_TYPE_ONE_WAY,
       TRANS_FADE_TYPE_FLASH
 } TransitionFadeType;;
-extern Gfx sTransFadeSetupDL[];
+extern Gfx sTransFadeSetupDL[5];
 extern TransitionProfile TransitionFade_Profile;
 void TransitionFade_Start(void* thisx);
 void* TransitionFade_Init(void* thisx);

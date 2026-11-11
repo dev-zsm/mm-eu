@@ -6,7 +6,12 @@
 #define GetFreeArena func_80086F3C
 #define SpeedMeter_InitAllocEntry func_80178C64
 #define THGA_GetRemaining func_80173A30
+#define gIrqMgrRetraceTime D_80096D10
 #define gSysCfbHiResEnabled D_801F3454
+#define sSpeedMeterTimeEntryArray D_801C9E50
+#define sSpeedMeterTimeEntryPtr D_801F33A8
+
+/* names declared by the headers of the reference, prefixed while they are read */
 
 #include "z64speed_meter.h"
 #include "libc64/malloc.h"
@@ -32,7 +37,7 @@ typedef struct {
       u16 color;
 } SpeedMeterTimeEntry;;
 extern SpeedMeterTimeEntry* sSpeedMeterTimeEntryPtr;;
-extern SpeedMeterTimeEntry sSpeedMeterTimeEntryArray[];
+extern SpeedMeterTimeEntry sSpeedMeterTimeEntryArray[4];
 typedef struct {
       s32 maxVal;
       s32 val;
