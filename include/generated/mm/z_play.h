@@ -3,6 +3,15 @@
 #define MM_Z_PLAY_H
 
 /* names of ours that symbols of the reference stand for */
+#define GameOver_FadeLights func_801AB4E4
+#define Interface_Draw func_8011F34C
+#define BombersNotebook_Update func_80170760
+#define gIrqMgrResetStatus D_80096D00
+#define Interface_Update func_80121370
+#define KaleidoSetup_Update func_800F49BC
+#define Message_Update func_80156D40
+#define Room_Noop func_8012D8C0
+#define Sram_UpdateWriteToFlashDefault func_8014756C
 #define BombersNotebook_Destroy func_80170E50
 #define BombersNotebook_Draw BombersNotebook_Draw
 #define BombersNotebook_Init func_80170E30

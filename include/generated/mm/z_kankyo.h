@@ -3,6 +3,7 @@
 #define MM_Z_KANKYO_H
 
 /* names of ours that symbols of the reference stand for */
+#define FrameAdvance_IsEnabled func_8016B1A4
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
 #define DmaMgr_RequestAsync func_80080C54
 #define Environment_JumpForwardInTime func_800FE8B8

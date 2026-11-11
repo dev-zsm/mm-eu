@@ -1062,7 +1062,10 @@ def near_run():
 def alias_run():
     """`alias fn...`: the drafts (src or wip) whose bytes already match, written by hand or by `near`: pair their relocations with our assembly
     like an import does and add the `#define`s of the symbols the reference spells differently to the header of the file, so that they link."""
-    fns = [a for a in sys.argv[2:] if not a.startswith("--")]
+    global SEG
+    if "--seg" in sys.argv:
+        SEG = sys.argv[sys.argv.index("--seg") + 1]
+    fns = [a for a in sys.argv[2:] if not a.startswith("--") and a != SEG]
     nm = names.load(SEG)
     registered = set(nm.values())
     for fn in fns:

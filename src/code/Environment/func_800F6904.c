@@ -1,5 +1,4 @@
 // FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
-// STATUS: reference draft, bytes match; links once `FrameAdvance_IsEnabled` and the other symbols of the reference have names of ours
 #include "generated/mm/z_kankyo.h"
 
 void Environment_UpdateTime(PlayState* play, EnvironmentContext* envCtx, PauseContext* pauseCtx, MessageContext* msgCtx,

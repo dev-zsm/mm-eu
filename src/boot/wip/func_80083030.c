@@ -1,51 +1,67 @@
-// FLAGS: -O2 -g3 -mips2 -trapuv
-#include "types.h"
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+// STATUS: reference draft, score 7.00 (93 differ, size -5)
+#include "generated/mm/fault_ctx.h"
 
-void Fault_WalkStack(u32 *spPtr, u32 *pcPtr, u32 *raPtr) {
-    u32 sp = *spPtr;
-    u32 pc = *pcPtr;
-    u32 ra = *raPtr;
-    u32 lastInst;
-    u32 inst;
-    u16 opcode;
-    s16 imm;
+void Fault_WalkStack(uintptr_t* spPtr, uintptr_t* pcPtr, uintptr_t* raPtr) {
+    uintptr_t sp = *spPtr;
+    uintptr_t pc = *pcPtr;
+    uintptr_t ra = *raPtr;
+    u32 lastInsn;
+    u16 insnHi;
+    s16 insnLo;
+    u32 imm;
 
-    if ((sp & 3) || sp < 0x80000000 || sp >= 0xC0000000 || (ra & 3) || ra < 0x80000000 || ra >= 0xC0000000) {
+    if ((sp % 4 != 0) || (sp < K0BASE) || (sp >= K2BASE) || (ra % 4 != 0) || (ra < K0BASE) || (ra >= K2BASE)) {
         *spPtr = 0;
         *pcPtr = 0;
         *raPtr = 0;
         return;
     }
-    if ((pc & 3) || pc < 0x80000000 || pc >= 0xC0000000) {
+
+    if ((pc % 4 != 0) || (pc < K0BASE) || (pc >= K2BASE)) {
         *pcPtr = ra;
         return;
     }
-    lastInst = 0;
-    while (1) {
-        inst = *(u32 *)pc;
-        opcode = inst >> 16;
-        imm = inst;
-        if (opcode == 0x8FBF) {
-            ra = *(u32 *)(sp + imm);
-        } else if (opcode == 0x27BD) {
+
+    lastInsn = 0;
+    while (true) {
+        insnHi = *(uintptr_t*)pc >> 16;
+        insnLo = *(uintptr_t*)pc & 0xFFFF;
+        imm = insnLo;
+
+        if (insnHi == 0x8FBF) {
+            
+            
+            ra = *(uintptr_t*)(sp + imm);
+        } else if (insnHi == 0x27BD) {
+            
+            
             sp += imm;
-        } else if (inst == 0x42000018) {
+        } else if (*(uintptr_t*)pc == 0x42000018) {
+            
+            
             sp = 0;
             pc = 0;
             ra = 0;
-            break;
+            goto done;
         }
-        if (lastInst == 0x03E00008) {
+        if (lastInsn == 0x3E00008) {
+            
+            
             pc = ra;
-            break;
+            goto done;
+        } else if (lastInsn >> 26 == 2) {
+            
+            
+            pc = (pc >> 28 << 28) | (lastInsn << 6 >> 4);
+            goto done;
         }
-        if ((lastInst >> 26) == 2) {
-            pc = ((pc >> 28) << 28) | ((lastInst << 6) >> 4);
-            break;
-        }
-        lastInst = inst;
-        pc += 4;
+
+        lastInsn = *(uintptr_t*)pc;
+        pc += sizeof(u32);
     }
+
+done:
     *spPtr = sp;
     *pcPtr = pc;
     *raPtr = ra;
