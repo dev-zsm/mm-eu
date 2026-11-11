@@ -3,9 +3,16 @@
 #define MM_Z_FBDEMO_WIPE5_H
 
 /* names of ours that symbols of the reference stand for */
+#define SysUcode_GetUCode func_80183D4C
+#define SysUcode_GetUCodeData func_80183D5C
 #define TransitionWipe5_Draw TransitionWipe5_Draw
 #define TransitionWipe5_Start TransitionWipe5_Start
 #define TransitionWipe5_Update TransitionWipe5_Update
+#define VisFbuf_SetBgSimple func_8014151C
+#define gScreenHeight D_801C9E34
+#define gScreenWidth D_801C9E30
+#define gWorkBuffer D_801F3410
+#define ref_D_0F000000 D_F000000
 
 /* names declared by the headers of the reference, prefixed while they are read */
 #define D_0F000000 ref_D_0F000000

@@ -69,9 +69,15 @@
 #define ref_func_80A2B308 func_80001888
 #define sCsIdList D_80A106A4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80A2BBF0 ref_D_80A2BBF0
+#define D_80A2BBF4 ref_D_80A2BBF4
+
 #include "overlays/actors/ovl_Bg_Dblue_Movebg/z_bg_dblue_movebg.h"
 #include "assets/objects/object_dblue_object/object_dblue_object.h"
 #include "overlays/actors/ovl_Obj_Hunsui/z_obj_hunsui.h"
+#undef D_80A2BBF0
+#undef D_80A2BBF4
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
 void BgDblueMovebg_Init(Actor* thisx, PlayState* play);;
 void BgDblueMovebg_Destroy(Actor* thisx, PlayState* play);;
@@ -95,15 +101,15 @@ typedef struct {
       u8 unk_01;
 } BgDblueMovebgUnkStruct;;
 extern BgDblueMovebgUnkStruct ref_D_80A2BBF4;;
-extern u8 ref_D_80A2B870[][2];
+extern u8 ref_D_80A2B870[14][2];
 extern ActorProfile Bg_Dblue_Movebg_Profile;
-extern Gfx* sOpaDLists[];
-extern Gfx* sXluDLists[];
-extern CollisionHeader* sColHeaders[];
-extern AnimatedMaterial* sTexAnims[];
-extern s16 ref_D_80A2B96C[];
-extern s16 sCsIdList[];
-extern InitChainEntry sInitChain[];
+extern Gfx* sOpaDLists[12];
+extern Gfx* sXluDLists[12];
+extern CollisionHeader* sColHeaders[12];
+extern AnimatedMaterial* sTexAnims[12];
+extern s16 ref_D_80A2B96C[4];
+extern s16 sCsIdList[2];
+extern InitChainEntry sInitChain[4];
 extern Vec3f ref_D_80A2B988;
 s32 ref_func_80A29A80(PlayState* play, s32 switchFlagBase, s32 arg2);
 void BgDblueMovebg_Init(Actor* thisx, PlayState* play);

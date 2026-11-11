@@ -102,6 +102,7 @@
 #define gIceBlockIceBergDL D_60007F0
 #define gIceBlockIceBergSublimatingAirTexAnim D_60009D0
 #define gZeroVec3f D_801C9EE0
+#define ref_func_800B0E48 func_800B1368
 #define ref_func_80A23090 func_80000000
 #define ref_func_80A2311C func_8000008C
 #define ref_func_80A2319C func_8000010C
@@ -160,8 +161,40 @@
 #define sCylinderInit D_80A0BB80
 #define sInitChain D_80A0BCD4
 
+/* names declared by the headers of the reference, prefixed while they are read */
+#define D_80A26E80 ref_D_80A26E80
+#define D_80A26E88 ref_D_80A26E88
+#define D_80A26E90 ref_D_80A26E90
+#define D_80A26EB8 ref_D_80A26EB8
+#define D_80A26EE0 ref_D_80A26EE0
+#define D_80A26F08 ref_D_80A26F08
+#define D_80A26F30 ref_D_80A26F30
+#define D_80A26F38 ref_D_80A26F38
+#define D_80A26F40 ref_D_80A26F40
+#define D_80A26F68 ref_D_80A26F68
+#define D_80A26F90 ref_D_80A26F90
+#define D_80A26F9C ref_D_80A26F9C
+#define D_80A26FA0 ref_D_80A26FA0
+#define D_80A26FC0 ref_D_80A26FC0
+#define func_800B0E48 ref_func_800B0E48
+
 #include "overlays/actors/ovl_Obj_Iceblock/z_obj_iceblock.h"
 #include "assets/objects/object_ice_block/object_ice_block.h"
+#undef D_80A26E80
+#undef D_80A26E88
+#undef D_80A26E90
+#undef D_80A26EB8
+#undef D_80A26EE0
+#undef D_80A26F08
+#undef D_80A26F30
+#undef D_80A26F38
+#undef D_80A26F40
+#undef D_80A26F68
+#undef D_80A26F90
+#undef D_80A26F9C
+#undef D_80A26FA0
+#undef D_80A26FC0
+#undef func_800B0E48
 #define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED)
 void ObjIceblock_Init(Actor* thisx, PlayState* play);;
 void ObjIceblock_Destroy(Actor* thisx, PlayState* play);;
@@ -230,7 +263,7 @@ void ref_func_80A252DC(ObjIceblock* this, s32 arg1);
 void ref_func_80A25404(ObjIceblock* this);
 void ref_func_80A2541C(ObjIceblock* this, PlayState* play);
 void ref_func_80A25440(ObjIceblock* this);
-extern InitChainEntry sInitChain[];
+extern InitChainEntry sInitChain[7];
 void ObjIceblock_Init(Actor* thisx, PlayState* play);
 void ObjIceblock_Destroy(Actor* thisx, PlayState* play);
 void ObjIceBlock_SetupAttemptSpawnCutscene(ObjIceblock* this);

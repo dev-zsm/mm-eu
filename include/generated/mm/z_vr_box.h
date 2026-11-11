@@ -4,6 +4,8 @@
 
 /* names of ours that symbols of the reference stand for */
 #define DmaMgr_RequestAsync func_80080C54
+#define DmaMgr_RequestSync func_80080CE0
+#define gLoBuffer D_80000500
 #define osCreateMesgQueue func_8008F3E0
 #define osRecvMesg func_80088070
 #define sSkybox128TexOffsets D_801C72F0
