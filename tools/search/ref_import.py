@@ -1092,12 +1092,10 @@ def alias_run():
             if sym != target and sym not in registered:
                 add[sym] = target
         if add:
-            lines = header.read_text().split("
-")
+            lines = header.read_text().split("\n")
             at = lines.index(ALIAS_MARK) + 1
             lines[at:at] = [f"#define {a} {b}" for a, b in sorted(add.items())]
-            header.write_text("
-".join(lines))
+            header.write_text("\n".join(lines))
         print(fn, "aliases added:", add)
 
 
