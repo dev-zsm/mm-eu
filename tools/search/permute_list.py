@@ -48,7 +48,7 @@ def measure(seg: str, fn: str):
     return None
 
 
-def auto_queue(tried: set):
+def auto_queue(tried: set, deadline: float = float('inf')):
     queue = []
     for seg in ("code", "boot"):
         skip = {n for n, _, _, hand in wave.functions(seg) if hand}
@@ -56,6 +56,8 @@ def auto_queue(tried: set):
         skip |= set(asm_only.read_text().split()) if asm_only.exists() else set()
         for f in sorted((ROOT / "src" / seg / "wip").glob("func_*.c")):
             if f.stem in skip or f.stem in tried:
+                continue
+            if time.time() > deadline:   # the budget of the run: what is not measured yet is, by the next run
                 continue
             key = measure(seg, f.stem)
             if key is None:
@@ -177,8 +179,8 @@ def main():
         hours = float(sys.argv[sys.argv.index("--hours") + 1]) if "--hours" in sys.argv else 1.0
         global OVERLAY_MEASURE_MINUTES
         OVERLAY_MEASURE_MINUTES = min(OVERLAY_MEASURE_MINUTES, hours * 15)   # measuring never takes more than a quarter of the run
-        todo = auto_queue(tried)
-        deadline = time.time() + hours * 3600
+        deadline = time.time() + hours * 3600   # before the queue: building it compiles every draft and takes long on a cold cache
+        todo = auto_queue(tried, deadline)
     else:
         budget = int(sys.argv[2]) if len(sys.argv) > 2 else 100
         todo = [(a, b, budget) for a, b in (l.split() for l in Path(sys.argv[1]).read_text().splitlines() if l.strip())

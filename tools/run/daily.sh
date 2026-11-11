@@ -25,7 +25,7 @@ python3 tools/check/quarantine.py boot
 python3 tools/search/ref_import.py heal > /dev/null   # links the code segment, and deletes the untracked files (left by a failed import) that keep it from linking
 python3 tools/lib/build_seg.py boot build/boot.bin > /dev/null
 
-nice -n 19 python3 tools/search/permute_list.py --auto --hours "$hours"
+nice -n 19 python3 tools/search/permute_list.py --auto --hours "$(awk -v h="$hours" 'BEGIN { print h * 0.6 }')"   # 60%: it takes all it is given, and the closer below lives on what is left
 python3 tools/search/tidy_perm.py code
 python3 tools/search/tidy_perm.py boot
 for d in build/perm_wins/ovl*/; do if [ -d "$d" ]; then python3 tools/search/tidy_perm.py "$(basename "$d")"; fi; done   # the overlays win too: one folder each
