@@ -62,6 +62,8 @@ import sig_header  # noqa: E402
 check(sig_header.type_known("void", "s32 a, f32 *b") and not sig_header.type_known("void", "PlayState *play"), "sig_header.type_known")
 
 check(sig_header.type_known("void", "Actor *thisx, EnTest *this", sig_header.VOCAB | {"EnTest"}), "sig_header.type_known with the types of actor.h")
+# the header of boot or code must not include actor.h: their files carry their own Vec3f and Actor typedefs (37 functions failed to compile)
+check(not sig_header.vocab("code") and not sig_header.vocab("boot") and "Actor" in sig_header.vocab("ovl0050"), "sig_header.vocab: actor.h types only for an overlay")
 
 import sig_ref  # noqa: E402
 d = sig_ref.definitions("static s32 g(void) {\n}\nvoid EnX_Update(Actor* thisx,\n                PlayState* play) {\n    if (x) {\n    }\n}\n")

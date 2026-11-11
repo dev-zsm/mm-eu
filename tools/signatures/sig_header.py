@@ -217,6 +217,12 @@ def declared_in_sources(seg: str) -> dict:
 VOCAB = {"Actor", "PlayState", "Vec3f", "Vec3s"}   # the types of include/actor.h that an overlay header may spell
 
 
+def vocab(seg: str) -> set:
+    """The types of actor.h a prototype of the segment may spell. Only an overlay: the files of boot and code carry their own typedefs
+    of Vec3f, Actor ... and a header that includes actor.h makes each of them a redeclaration (37 functions failed to compile that way)."""
+    return VOCAB if seg.startswith("ovl") else set()
+
+
 def type_known(ret: str, args: str, extra=frozenset()) -> bool:
     """Whether every type of the prototype is one the header can spell: the basic ones, and `extra` (the types of actor.h and
     the structure of the actor of the overlay)."""
@@ -281,7 +287,7 @@ def build(seg: str):
         SIGS.update({l.split(None, 1)[0]: l.split(None, 1)[1].split("  #")[0].strip() for l in sigs.read_text().splitlines()
                      if l.strip() and not l.startswith("#")})
     tab = proto_table(seg)
-    extra = VOCAB | struct_names(seg)
+    extra = vocab(seg) | struct_names(seg)
     ext = declared_in_sources(seg)
     funcs = [(fn, parse(c)) for fn, c in chunks(seg)]
     known_arity = {}
@@ -367,7 +373,9 @@ def write_header(seg: str, protos: dict):
             m = re.match(r"^[^/(]*?(\w+)\(.*?\);", l)
             if m:
                 old[m.group(1)] = re.sub(r"\s*/\*.*", "", l)
-    protos = {r: (fn, old[r] if r in old and r not in FROM_DEF else p) for r, (fn, p) in protos.items()}
+    # a definition that says `void` does not take the result away from the callers verified against `s32 f();`: its own file need not use it
+    voided = lambda r, p: r in old and re.match(r"void\b[^(]*\(", p) and not old[r].startswith("void")
+    protos = {r: (fn, old[r] if r in old and (r not in FROM_DEF or voided(r, p)) else p) for r, (fn, p) in protos.items()}
     for real, fn in IMPORTED.items():   # the older files that call them were checked against the line that is there: it stays
         if real in old and real not in protos:
             protos[real] = (fn, old[real])
@@ -380,7 +388,7 @@ def write_header(seg: str, protos: dict):
             "   has the prototype of its definition; the others are read from the assembly (arguments, pointers, floats, result). */\n"
             f"#ifndef {guard}\n#define {guard}\n\n#include \"types.h\"\n")
     # an overlay with typed prototypes always declares its types: the definitions that retype.py is about to change will use them
-    used = sorted(t for t in VOCAB | struct_names(seg) if re.search(r"\b" + t + r"\b", body) or proto_table(seg))
+    used = sorted(t for t in vocab(seg) | struct_names(seg) if re.search(r"\b" + t + r"\b", body) or proto_table(seg))
     if used:   # the actor structures are declared without fields: a pointer to one is all the prototypes need
         head += '#include "actor.h"\n' + "".join(f"typedef struct {t} {t};\n" for t in used if t not in VOCAB)
     head += "\n"

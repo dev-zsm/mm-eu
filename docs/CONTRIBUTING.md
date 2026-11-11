@@ -92,7 +92,9 @@ When the repository is on the Windows disk (`/mnt/c/...` in WSL), every file acc
 what the checks read to `~/.cache/mm-eu-work` (only changed files are copied) and runs `make check` there; nothing is
 copied back. On a native checkout it simply runs `make check`. The checks only look again at what changed since the last green
 run (see docs/TOOLS.md); `MM_FULL=1 make fastcheck` checks everything again, and `make selfcheck` proves both agree. The object
-cache is shared by all checkouts and capped (`MM_CACHE_MAX`, 8 GB by default): do not set a private `MM_CACHE`. `tools/check/check_style.py` keeps a cache of the files it has
+cache is shared by all checkouts and capped (`MM_CACHE_MAX`, 8 GB by default): do not set a private `MM_CACHE`.
+Push with `make push` (`tools/check/push.sh`): selftest and fastcheck, then `git push origin HEAD:main`, and nothing is pushed if either fails.
+Heavy commands refuse to start with under 15 GB free on the drive (`MM_MIN_FREE_GB`). `tools/check/check_style.py` keeps a cache of the files it has
 already checked (`build/style_cache.json`), and the permuter tools run at the lowest priority so that the checks keep
 the processor.
 

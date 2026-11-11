@@ -193,7 +193,7 @@ void func_800891FC(s32 arg0);
 void func_800892E4(s32 arg0);
 void func_800893E4(void *arg0, void *arg1);
 s32 func_8008942C(void *arg0);
-void func_8008943C();
+void func_8008943C(void);
 void func_80089444();
 void bzero(void *begin, u32 length);  /* 800897D0 */
 void __osMakeMotorData(s32 channel, u8 *buf);  /* 800899D8 */

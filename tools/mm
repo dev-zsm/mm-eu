@@ -9,6 +9,7 @@ set -e
 cmd=$1; seg=$2; fn=$3; file=$4
 root=$(cd "$(dirname "$0")/.." && pwd)                       # e.g. /c/Users/me/Projets/mm-eu
 case "$root" in /[a-z]/*) wslroot="/mnt/${root:1:1}/${root:3}" ;; *) wslroot="$root" ;; esac
+bash "$root/tools/check/preflight.sh" "$root" || exit 1   # a full drive crashed WSL: no work under 15 GB free (MM_MIN_FREE_GB)
 if [ "$cmd" = fast ]; then   # the match server: tools/mm fast match|batch|sync|stats ... (arguments passed as they are)
   # no shell on the Linux side (--exec): the arguments reach python untouched; MM_JOBS and MM_CACHE are handed over when set
   MSYS_NO_PATHCONV=1 WSLENV="MM_JOBS:MM_CACHE:MM_FAST_HOME:$WSLENV" wsl.exe -d Ubuntu --cd "$wslroot" --exec python3 tools/fast/client.py "${@:2}" 2>&1 | tr -d '\0'

@@ -77,4 +77,7 @@ if match.TARGET_STATS:   # only the functions compiled in this run: a verdict ke
     print(f"  call and data targets compared with the ROM in this run: {match.TARGET_STATS['compared']}, of unknown address (not compared): {match.TARGET_STATS['unknown address']}")
 for n in bad:
     print("  FAIL", n)
+# the files that fail, for tools/check/quarantine.py (which moves them to wip)
+(match.ROOT / "build").mkdir(exist_ok=True)
+(match.ROOT / "build" / f"verify_failed_{seg}.txt").write_text("".join(f"{f.relative_to(match.ROOT).as_posix()}\n" for f, (_, _, good) in zip(listing(), results) if not good))
 sys.exit(1 if bad else 0)

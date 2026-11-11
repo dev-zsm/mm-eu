@@ -9,6 +9,7 @@
 #   MM_WORK=<dir>   where the mirror lives (default: ~/.cache/mm-eu-work)
 set -e
 root=$(cd "$(dirname "$0")/../.." && pwd)
+bash "$root/tools/check/preflight.sh" "$root" "$HOME" || exit 1
 target=${1:-check}
 case "$root" in
   /mnt/*)

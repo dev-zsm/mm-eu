@@ -2,7 +2,7 @@
 SEG ?= boot
 HOURS ?= 1
 
-.PHONY: setup split verify check fastcheck selfcheck selftest auto daily progress names clean
+.PHONY: setup split verify check fastcheck selfcheck push selftest auto daily progress names clean
 
 setup:            ## one-time: IDO 7.1, splat, m2c, asm-differ (needs binutils-mips-linux-gnu)
 	bash tools/split/setup_wsl.sh
@@ -18,6 +18,9 @@ check:            ## run before every commit: verify boot, code and the overlays
 
 fastcheck:        ## same as check, 3-4 times faster when the repository is on the Windows disk (mirrors it to the WSL disk)
 	bash tools/check/fastcheck.sh
+
+push:             ## THE way to push: selftest + fastcheck, then git push origin HEAD:main (rebase on origin/main first)
+	bash tools/check/push.sh
 
 selfcheck:        ## a minute: the incremental checks agree with a full run on deliberately broken trees (on the Windows disk: tools/check/fastcheck.sh selfcheck)
 	. ~/mm-venv/bin/activate && python3 tools/check/incremental_selfcheck.py
