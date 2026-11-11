@@ -8,7 +8,7 @@
 #define TransitionWipe5_Draw TransitionWipe5_Draw
 #define TransitionWipe5_Start TransitionWipe5_Start
 #define TransitionWipe5_Update TransitionWipe5_Update
-#define VisFbuf_SetBgSimple func_8014151C
+#define VisFbuf_SetBgSimple VisFbuf_SetBgSimple
 #define gScreenHeight D_801C9E34
 #define gScreenWidth D_801C9E30
 #define gWorkBuffer D_801F3410
