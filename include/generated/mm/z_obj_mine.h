@@ -4,16 +4,16 @@
 
 /* names of ours that symbols of the reference stand for */
 #define ActorShadow_DrawCircle D_800B3F30
-#define ActorShape_Init func_800B3B14
+#define ActorShape_Init ActorShape_Init
 #define Actor_Kill Actor_Kill
-#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_Spawn Actor_Spawn
-#define Actor_UpdateBgCheckInfo func_800B763C
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Actor_WorldYawTowardActor Actor_WorldYawTowardActor
 #define BgCheck_EntityLineTest1 BgCheck_EntityLineTest1
 #define BgCheck_EntityRaycastFloor5 BgCheck_EntityRaycastFloor5
-#define Collider_InitJntSph func_800E090C
-#define Collider_SetJntSph func_800E0C20
+#define Collider_InitJntSph Collider_InitJntSph
+#define Collider_SetJntSph Collider_SetJntSph
 #define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
@@ -23,7 +23,7 @@
 #define Math3D_Cos Math3D_Cos
 #define Math3D_Dist2DSq Math3D_Dist2DSq
 #define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
-#define Math3D_Vec3fReflect func_8017B214
+#define Math3D_Vec3fReflect Math3D_Vec3fReflect
 #define Math3D_Vec3f_Cross func_8017BA68
 #define Math_CosF Math_CosF
 #define Math_CosS Math_CosS
@@ -51,7 +51,7 @@
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
-#define Matrix_SetTranslateRotateYXZ func_801826E0
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define ObjMine_AirWater_CheckOC func_80A6608C
 #define ObjMine_AirWater_Noop func_80A662C0
 #define ObjMine_AirWater_SpawnBomb ObjMine_AirWater_SpawnBomb

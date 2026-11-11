@@ -6,7 +6,7 @@
 #define Audio_PlaySfx Audio_PlaySfx
 #define ConsoleLogo_Init D_80800768
 #define Entrance_Create Entrance_Create
-#define GameState_SetFramerateDivisor func_80174568
+#define GameState_SetFramerateDivisor GameState_SetFramerateDivisor
 #define GfxPrint_Close func_80086110
 #define GfxPrint_Destroy func_800860D4
 #define GfxPrint_Init func_80086080
@@ -30,10 +30,10 @@
 #define MapSelect_UpdateMenu MapSelect_UpdateMenu
 #define Play_Init D_8016B450
 #define Rand_ZeroOne func_8008704C
-#define ShrinkWindow_Init func_80161E10
+#define ShrinkWindow_Init ShrinkWindow_Init
 #define Sram_InitDebugSave Sram_InitDebugSave
 #define View_Apply View_Apply
-#define View_Init func_8013F2A4
+#define View_Init View_Init
 #define gSaveContext D_801E6EF0
 #define gWeatherMode D_801BE700
 #define ref_func_8012CF0C func_8012D3BC

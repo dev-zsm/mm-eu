@@ -8,7 +8,7 @@
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define BgCheck_EntityRaycastFloor1 func_800C3D30
+#define BgCheck_EntityRaycastFloor1 BgCheck_EntityRaycastFloor1
 #define Camera_GetInputDirYaw Camera_GetInputDirYaw
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSplash_Spawn EffectSsGSplash_Spawn
@@ -36,11 +36,11 @@
 #define Matrix_RotateZF Matrix_RotateZF
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define Play_InCsMode func_8016A23C
+#define Play_InCsMode Play_InCsMode
 #define Play_SetFog Play_SetFog
-#define Player_PlaySfx func_800B8BDC
+#define Player_PlaySfx Player_PlaySfx
 #define Rand_CenteredFloat Rand_CenteredFloat
-#define Rand_S16Offset func_800FF250
+#define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroFloat Rand_ZeroFloat
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos

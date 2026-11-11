@@ -3,19 +3,19 @@
 #define MM_Z_EN_PART_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_Kill func_800B6490
+#define Actor_Kill Actor_Kill
 #define Actor_MoveWithGravity Actor_MoveWithGravity
-#define BgCheck_SphVsFirstPoly func_800C57B0
-#define EffectSsDtBubble_SpawnColorProfile func_800B25B0
+#define BgCheck_SphVsFirstPoly BgCheck_SphVsFirstPoly
+#define EffectSsDtBubble_SpawnColorProfile EffectSsDtBubble_SpawnColorProfile
 #define EnPart_Draw EnPart_Draw
 #define EnPart_Update EnPart_Update
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
-#define Math_Vec3f_Copy func_800FF30C
+#define Math_Vec3f_Copy Math_Vec3f_Copy
 #define Matrix_RotateZF Matrix_RotateZF
-#define Rand_CenteredFloat func_8017A870
-#define Rand_S16Offset func_800FF250
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_S16Offset Rand_S16Offset
 #define Rand_ZeroOne func_8008704C
-#define SoundSource_PlaySfxAtFixedWorldPos func_800F0308
+#define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define func_80865390 func_80000020
 #define func_808654C4 func_80000154
 #define gEmptyDL D_801C29C0

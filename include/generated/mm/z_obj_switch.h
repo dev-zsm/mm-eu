@@ -3,9 +3,9 @@
 #define MM_Z_OBJ_SWITCH_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_ProcessInitChain func_800FF8DC
-#define Actor_SetFocus func_800B64E0
-#define Actor_SetScale func_800B6564
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetFocus Actor_SetFocus
+#define Actor_SetScale Actor_SetScale
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
 #define Collider_InitJntSph Collider_InitJntSph
 #define Collider_InitTris Collider_InitTris
@@ -18,10 +18,10 @@
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
-#define DynaPolyActor_Init func_800CABA0
+#define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsHeavySwitchPressed func_800CAD6C
 #define DynaPolyActor_IsSwitchPressed func_800CAD48
-#define DynaPolyActor_LoadMesh func_800CABC4
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Flags_UnsetSwitch Flags_UnsetSwitch

@@ -8,8 +8,8 @@
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
-#define BgCheck_EntityLineTest3 func_800C5470
-#define BgCheck_EntityRaycastFloor6 func_800C3FD0
+#define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
+#define BgCheck_EntityRaycastFloor6 BgCheck_EntityRaycastFloor6
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPolyActor_SetActorOnTop DynaPolyActor_SetActorOnTop

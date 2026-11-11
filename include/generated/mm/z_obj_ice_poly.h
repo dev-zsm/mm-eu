@@ -21,7 +21,7 @@
 #define EffectSsEnIce_Spawn EffectSsEnIce_Spawn
 #define EffectSsKirakira_SpawnDispersed EffectSsKirakira_SpawnDispersed
 #define Flags_GetSwitch Flags_GetSwitch
-#define Flags_SetSwitch func_800B5B64
+#define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define ObjIcePoly_Destroy ObjIcePoly_Destroy

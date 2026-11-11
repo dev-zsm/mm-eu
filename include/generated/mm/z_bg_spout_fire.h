@@ -8,9 +8,9 @@
 #define BgSpoutFire_Draw BgSpoutFire_Draw
 #define BgSpoutFire_Init BgSpoutFire_Init
 #define BgSpoutFire_Update BgSpoutFire_Update
-#define Collider_InitAndSetCylinder func_800E1134
+#define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
 #define CollisionCheck_SetAT CollisionCheck_SetAT
-#define CollisionCheck_SetInfo func_800E72F0
+#define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Gfx_SetupDL Gfx_SetupDL
 #define Lib_SegmentedToVirtual func_80100304

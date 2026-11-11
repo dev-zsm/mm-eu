@@ -3,23 +3,23 @@
 #define MM_Z_OBJ_JGAME_LIGHT_H
 
 /* names of ours that symbols of the reference stand for */
-#define ActorShape_Init func_800B3B14
+#define ActorShape_Init ActorShape_Init
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
-#define Actor_SetFocus func_800B64E0
-#define Actor_SetScale func_800B6564
+#define Actor_SetFocus Actor_SetFocus
+#define Actor_SetScale Actor_SetScale
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
 #define Collider_DestroyCylinder Collider_DestroyCylinder
-#define Collider_InitCylinder func_800E0F5C
-#define Collider_SetCylinder func_800E10CC
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
-#define LightContext_InsertLight func_80102424
+#define LightContext_InsertLight LightContext_InsertLight
 #define LightContext_RemoveLight LightContext_RemoveLight
-#define Lights_PointGlowSetInfo func_80101860
+#define Lights_PointGlowSetInfo Lights_PointGlowSetInfo
 #define Lights_PointSetColorAndRadius Lights_PointSetColorAndRadius
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale

@@ -40,7 +40,7 @@ typedef struct {
 
 extern Ctx D_801F84B0;
 
-s32 func_801953F8(s32 arg0) {
+s32 AudioThread_CountAndReleaseNotes(s32 arg0) {
     s32 found = 0;
     u32 **p;
     s32 i;

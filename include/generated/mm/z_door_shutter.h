@@ -4,11 +4,11 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_DrawDoorLock Actor_DrawDoorLock
-#define Actor_Kill func_800B6490
+#define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
-#define Actor_ProcessInitChain func_800FF8DC
-#define Actor_SetFocus func_800B64E0
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetFocus Actor_SetFocus
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define Actor_WorldYawTowardPoint Actor_WorldYawTowardPoint
 #define Audio_RestorePrevBgm func_801A3D9C
@@ -40,7 +40,7 @@
 #define Matrix_RotateZS Matrix_RotateZS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
-#define Object_GetSlot func_8012F9A8
+#define Object_GetSlot Object_GetSlot
 #define Object_IsLoaded Object_IsLoaded
 #define Player_InCsMode Player_InCsMode
 #define Player_SetCsActionWithHaltedActors Player_SetCsActionWithHaltedActors

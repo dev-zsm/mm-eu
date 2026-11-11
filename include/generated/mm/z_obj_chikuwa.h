@@ -9,7 +9,7 @@
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
-#define Math3D_Vec3fMagnitude func_8017B984
+#define Math3D_Vec3fMagnitude Math3D_Vec3fMagnitude
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_Scale Matrix_Scale

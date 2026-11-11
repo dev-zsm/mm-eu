@@ -12,7 +12,7 @@
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

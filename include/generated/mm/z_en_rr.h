@@ -29,7 +29,7 @@
 #define Enemy_StartFinishingBlow Enemy_StartFinishingBlow
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
-#define Inventory_DeleteEquipment func_8012F128
+#define Inventory_DeleteEquipment Inventory_DeleteEquipment
 #define Item_DropCollectible Item_DropCollectible
 #define Item_DropCollectibleRandom Item_DropCollectibleRandom
 #define Math_CosS Math_CosS

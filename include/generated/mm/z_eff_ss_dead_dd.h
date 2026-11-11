@@ -6,12 +6,12 @@
 #define EffectSsDeadDd_Draw EffectSsDeadDd_Draw
 #define EffectSsDeadDd_Init EffectSsDeadDd_Init
 #define EffectSsDeadDd_Update EffectSsDeadDd_Update
-#define Gfx_SetupDL60_XluNoCD func_8012CE24
+#define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
 #define Rand_ZeroOne func_8008704C
-#define SkinMatrix_MtxFMtxFMult func_801390E8
-#define SkinMatrix_MtxFToNewMtx func_80139FC8
-#define SkinMatrix_SetScale func_801397D8
-#define SkinMatrix_SetTranslate func_80139B5C
+#define SkinMatrix_MtxFMtxFMult SkinMatrix_MtxFMtxFMult
+#define SkinMatrix_MtxFToNewMtx SkinMatrix_MtxFToNewMtx
+#define SkinMatrix_SetScale SkinMatrix_SetScale
+#define SkinMatrix_SetTranslate SkinMatrix_SetTranslate
 #define gLensFlareCircleDL D_4054940
 #define ref_D_01000000 D_1000000
 

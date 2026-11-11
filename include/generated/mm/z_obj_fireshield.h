@@ -3,13 +3,13 @@
 #define MM_Z_OBJ_FIRESHIELD_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_PlaySfx_Flagged func_800B8D94
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
-#define CollisionCheck_SetAT func_800E2318
-#define CollisionCheck_SetOC func_800E26E8
+#define CollisionCheck_SetAT CollisionCheck_SetAT
+#define CollisionCheck_SetOC CollisionCheck_SetOC
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08

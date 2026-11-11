@@ -7,14 +7,14 @@
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define Actor_SetColorFilter func_800BC8F4
+#define Actor_SetColorFilter Actor_SetColorFilter
 #define Actor_SetScale Actor_SetScale
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Collider_InitCylinder Collider_InitCylinder
 #define Collider_SetCylinder Collider_SetCylinder
 #define Collider_UpdateCylinder Collider_UpdateCylinder
-#define CollisionCheck_SetAC func_800E2500
-#define CollisionCheck_SetOC func_800E26E8
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionCheck_SetOC CollisionCheck_SetOC
 #define Lib_SegmentedToVirtual func_80100304
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Math_CosS Math_CosS

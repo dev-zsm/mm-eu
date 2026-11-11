@@ -3,19 +3,19 @@
 #define MM_Z_EFF_SS_DEAD_DS_H
 
 /* names of ours that symbols of the reference stand for */
-#define BgCheck_EntityRaycastFloor1 func_800C3D30
-#define BgCheck_EntitySphVsWall1 func_800C4A04
+#define BgCheck_EntityRaycastFloor1 BgCheck_EntityRaycastFloor1
+#define BgCheck_EntitySphVsWall1 BgCheck_EntitySphVsWall1
 #define EffectSsDeadDs_Draw EffectSsDeadDs_Draw
 #define EffectSsDeadDs_Init EffectSsDeadDs_Init
 #define EffectSsDeadDs_Update EffectSsDeadDs_Update
-#define Gfx_SetupDL60_XluNoCD func_8012CE24
-#define Matrix_Get func_80181278
-#define Matrix_MtxFToZYXRot func_80183354
-#define Matrix_Put func_8018129C
-#define Matrix_RotateXFApply func_80181848
-#define Matrix_RotateZYX func_801820CC
-#define Matrix_Scale func_8018142C
-#define Matrix_Translate func_8018132C
+#define Gfx_SetupDL60_XluNoCD Gfx_SetupDL60_XluNoCD
+#define Matrix_Get Matrix_Get
+#define Matrix_MtxFToZYXRot Matrix_MtxFToZYXRot
+#define Matrix_Put Matrix_Put
+#define Matrix_RotateXFApply Matrix_RotateXFApply
+#define Matrix_RotateZYX Matrix_RotateZYX
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define gLensFlareCircleDL D_4054940
 #define ref_func_800C0094 func_800BFE24
 

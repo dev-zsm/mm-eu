@@ -4,22 +4,22 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx Actor_PlaySfx
-#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_Spawn Actor_Spawn
 #define Collider_DestroyCylinder Collider_DestroyCylinder
-#define Collider_InitCylinder func_800E0F5C
-#define Collider_SetCylinder func_800E10CC
-#define Collider_UpdateCylinder func_800E7BB8
-#define DynaPolyActor_Init func_800CABA0
-#define DynaPolyActor_LoadMesh func_800CABC4
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
+#define Collider_UpdateCylinder Collider_UpdateCylinder
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetTreasure Flags_GetTreasure
-#define Item_CanDropBigFairy func_800A86C4
+#define Item_CanDropBigFairy Item_CanDropBigFairy
 #define Item_DropCollectible Item_DropCollectible
 #define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
-#define Math_CosS func_800FEB44
-#define Math_SinS func_800FEB84
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
 #define ObjKibako2_Break ObjKibako2_Break
 #define ObjKibako2_ContainsSkulltula ObjKibako2_ContainsSkulltula
 #define ObjKibako2_Destroy ObjKibako2_Destroy

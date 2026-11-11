@@ -5,7 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define Actor_Spawn func_800BA9E4
+#define Actor_Spawn Actor_Spawn
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgCheck_EntityRaycastFloor5_2 BgCheck_EntityRaycastFloor5_2

@@ -4,15 +4,15 @@
 
 /* names of ours that symbols of the reference stand for */
 #define AnimatedMat_Draw AnimatedMat_Draw
-#define Flags_GetSwitch func_800B5B20
+#define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
-#define Math3D_LineClosestToPoint func_8017ACF4
-#define Math_Atan2S_XY func_80181190
-#define Math_CosS func_800FEB44
-#define Math_SinS func_800FEB84
-#define Math_Vec3f_Copy func_800FF30C
-#define Math_Vec3f_DistXYZAndStoreDiff func_800FF6D4
+#define Math3D_LineClosestToPoint Math3D_LineClosestToPoint
+#define Math_Atan2S_XY Math_Atan2S_XY
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
+#define Math_Vec3f_Copy Math_Vec3f_Copy
+#define Math_Vec3f_DistXYZAndStoreDiff Math_Vec3f_DistXYZAndStoreDiff
 #define ObjWind_Draw ObjWind_Draw
 #define ObjWind_Update ObjWind_Update
 #define gameplay_keep_DL_07E8C0 D_407E8C0

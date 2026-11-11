@@ -12,7 +12,7 @@
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa

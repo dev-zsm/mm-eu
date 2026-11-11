@@ -20,7 +20,7 @@
 #define CutsceneManager_Stop func_800F1D6C
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
-#define EffectSsGRipple_Spawn func_800B2414
+#define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa
 #define Lib_SegmentedToVirtual func_80100304

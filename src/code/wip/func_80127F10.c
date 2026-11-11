@@ -16,12 +16,12 @@ extern f32 D_801D5E20;
 extern f32 D_801D5E24;
 extern Vec3s_ D_801ED258;
 
-void func_8018122C(void *, s32);
-void func_8018125C(void);
-void func_801826E0(f32, f32, f32, s16 *);
-void func_80182AA8(s32);
+void Matrix_Push(void *, s32);
+void Matrix_Pop(void);
+void Matrix_SetTranslateRotateYXZ(f32, f32, f32, s16 *);
+void Matrix_ToMtx(s32);
 
-void func_80127F10(Gfx_ **arg0) {
+void Player_DrawBunnyHood(Gfx_ **arg0) {
     s16 sp2C[3];
     s32 sp34;
     s32 temp;
@@ -33,17 +33,17 @@ void func_80127F10(Gfx_ **arg0) {
     (*arg0)->p = p + 2;
     p[1] = temp;
     p[0] = 0xDB06002C;
-    func_8018122C(arg0, temp);
+    Matrix_Push(arg0, temp);
     sp2C[0] = D_801ED258.y + 0x3E2;
     sp2C[1] = D_801ED258.z + 0xDBE;
     sp2C[2] = D_801ED258.x - 0x348A;
-    func_801826E0(97.0f, D_801D5E20, -240.0f, sp2C);
+    Matrix_SetTranslateRotateYXZ(97.0f, D_801D5E20, -240.0f, sp2C);
     sp34 = temp + 0x40;
-    func_80182AA8(temp);
+    Matrix_ToMtx(temp);
     sp2C[0] = D_801ED258.y - 0x3E2;
     sp2C[1] = -0xDBE - D_801ED258.z;
     sp2C[2] = D_801ED258.x - 0x348A;
-    func_801826E0(97.0f, D_801D5E24, 240.0f, sp2C);
-    func_80182AA8(sp34);
-    func_8018125C();
+    Matrix_SetTranslateRotateYXZ(97.0f, D_801D5E24, 240.0f, sp2C);
+    Matrix_ToMtx(sp34);
+    Matrix_Pop();
 }

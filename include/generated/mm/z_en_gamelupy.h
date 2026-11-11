@@ -20,7 +20,7 @@
 #define EnGamelupy_SetupFindSharedMemory func_80ADB674
 #define EnGamelupy_SpawnSparkles EnGamelupy_SpawnSparkles
 #define EnGamelupy_UpdateCollision EnGamelupy_UpdateCollision
-#define Gfx_SetupDL25_Opa func_8012C73C
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS

@@ -10,7 +10,7 @@
 #define BgAstrBombwall_Standing BgAstrBombwall_Standing
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_SetSwitch Flags_SetSwitch
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MultVec3f Matrix_MultVec3f

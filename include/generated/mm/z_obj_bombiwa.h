@@ -14,7 +14,7 @@
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define CollisionCheck_SetOC CollisionCheck_SetOC
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_DrawDListOpa Gfx_DrawDListOpa

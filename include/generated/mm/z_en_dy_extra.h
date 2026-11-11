@@ -12,7 +12,7 @@
 #define EnDyExtra_Update EnDyExtra_Update
 #define EnDyExtra_WaitForTrigger EnDyExtra_WaitForTrigger
 #define Gfx_SetupDL25_Xlu func_8012C78C
-#define Gfx_TwoTexScroll func_8012D080
+#define Gfx_TwoTexScroll Gfx_TwoTexScroll
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_ApproachF Math_ApproachF
 #define gGreatFairySpiralBeamDL D_600DEF0

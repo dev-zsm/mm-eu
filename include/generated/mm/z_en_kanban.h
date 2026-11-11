@@ -3,27 +3,27 @@
 #define MM_Z_EN_KANBAN_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_OfferTalk func_800B8398
-#define Actor_SetScale func_800B6564
-#define Actor_TalkOfferAccepted func_800B8254
-#define Actor_TextboxIsClosing func_800B8400
-#define Actor_UpdateBgCheckInfo func_800B763C
-#define Collider_InitCylinder func_800E0F5C
-#define Collider_SetCylinder func_800E10CC
+#define Actor_OfferTalk Actor_OfferTalk
+#define Actor_SetScale Actor_SetScale
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
+#define Actor_TextboxIsClosing Actor_TextboxIsClosing
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_SetCylinder Collider_SetCylinder
 #define EnKanban_Draw EnKanban_Draw
 #define EnKanban_Init EnKanban_Init
-#define Gfx_SetupDL25_Opa func_8012C73C
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_FAtan2F func_80086BA0
-#define Math_SinS func_800FEB84
-#define Matrix_RotateXFApply func_80181848
-#define Matrix_RotateXS func_80181508
-#define Matrix_RotateYS func_80181A3C
-#define Matrix_RotateZF func_80181F20
-#define Matrix_Scale func_8018142C
-#define Matrix_Translate func_8018132C
-#define Rand_ZeroFloat func_8017A844
+#define Math_SinS Math_SinS
+#define Matrix_RotateXFApply Matrix_RotateXFApply
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
+#define Matrix_RotateZF Matrix_RotateZF
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
+#define Rand_ZeroFloat Rand_ZeroFloat
 #define gEnKanban_D_80957DE0 D_8093C8D0
 #define gSignMaterialDL D_6000C30
 #define gSignParticleDL D_6001630

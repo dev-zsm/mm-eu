@@ -3,15 +3,15 @@
 #define MM_Z_EN_WEATHER_TAG_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_ChangeCategory func_800BBED8
-#define Actor_GetClosestPosOnPath func_800BCA60
+#define Actor_ChangeCategory Actor_ChangeCategory
+#define Actor_GetClosestPosOnPath Actor_GetClosestPosOnPath
 #define Actor_Kill Actor_Kill
 #define Actor_WorldDistXZToActor Actor_WorldDistXZToActor
 #define CutsceneManager_IsNext CutsceneManager_IsNext
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_Start func_800F1B24
-#define Cutscene_GetCueChannel func_800EDFA0
-#define Cutscene_IsCueInChannel func_800EE03C
+#define Cutscene_GetCueChannel Cutscene_GetCueChannel
+#define Cutscene_IsCueInChannel Cutscene_IsCueInChannel
 #define EnWeatherTag_Die D_8094B5D4
 #define EnWeatherTag_DoNothing D_8094BC98
 #define EnWeatherTag_Init EnWeatherTag_Init
@@ -21,8 +21,8 @@
 #define Environment_PlayStormNatureAmbience Environment_PlayStormNatureAmbience
 #define Environment_StopStormNatureAmbience Environment_StopStormNatureAmbience
 #define Lib_SegmentedToVirtual func_80100304
-#define Math_SmoothStepToF func_800FFAD8
-#define Math_SmoothStepToS func_800FFCBC
+#define Math_SmoothStepToF Math_SmoothStepToF
+#define Math_SmoothStepToS Math_SmoothStepToS
 #define Play_GetScreenPos Play_GetScreenPos
 #define gInterruptSongOfStorms D_801BE708
 #define gLightConfigAfterUnderwater D_801BE704

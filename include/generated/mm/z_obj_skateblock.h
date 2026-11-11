@@ -7,7 +7,7 @@
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
-#define BgCheck_EntityLineTest3 func_800C5470
+#define BgCheck_EntityLineTest3 BgCheck_EntityLineTest3
 #define BgCheck_EntityRaycastFloor6 BgCheck_EntityRaycastFloor6
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop
@@ -15,12 +15,12 @@
 #define DynaPoly_GetActor DynaPoly_GetActor
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Lib_SegmentedToVirtual func_80100304
-#define Math3D_Vec3fDistSq func_8017B9A8
+#define Math3D_Vec3fDistSq Math3D_Vec3fDistSq
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
-#define Math_Vec3f_Diff func_800FF3F4
+#define Math_Vec3f_Diff Math_Vec3f_Diff
 #define ObjSkateblock_Draw ObjSkateblock_Draw
 #define ObjSkateblock_Init ObjSkateblock_Init
 #define Player_InCsMode Player_InCsMode

@@ -3,17 +3,17 @@
 #define MM_Z_OBJ_SYOKUDAI_H
 
 /* names of ours that symbols of the reference stand for */
-#define ActorShape_Init func_800B3B14
-#define Actor_ProcessInitChain func_800FF8DC
-#define Actor_SetFocus func_800B64E0
+#define ActorShape_Init ActorShape_Init
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetFocus Actor_SetFocus
 #define Camera_GetCamDirYaw Camera_GetCamDirYaw
-#define Collider_InitAndSetCylinder func_800E1134
-#define Flags_GetSwitch func_800B5B20
+#define Collider_InitAndSetCylinder Collider_InitAndSetCylinder
+#define Flags_GetSwitch Flags_GetSwitch
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Gfx_TwoTexScroll Gfx_TwoTexScroll
-#define LightContext_InsertLight func_80102424
-#define Lights_PointGlowSetInfo func_80101860
+#define LightContext_InsertLight LightContext_InsertLight
+#define Lights_PointGlowSetInfo Lights_PointGlowSetInfo
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate

@@ -14,7 +14,7 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CutsceneManager_Stop func_800F1D6C
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_GetSwitch Flags_GetSwitch
 #define Flags_SetSwitch Flags_SetSwitch
 #define Gfx_SetupDL Gfx_SetupDL

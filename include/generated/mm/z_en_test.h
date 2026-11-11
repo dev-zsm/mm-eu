@@ -4,9 +4,9 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
-#define Actor_SetScale func_800B6564
+#define Actor_SetScale Actor_SetScale
 #define AnimatedMat_DrawStep AnimatedMat_DrawStep
-#define BgCheck_EntityRaycastFloor3 func_800C3E44
+#define BgCheck_EntityRaycastFloor3 BgCheck_EntityRaycastFloor3
 #define EnTest_Draw EnTest_Draw
 #define EnTest_Init EnTest_Init
 #define EnTest_OverrideLimbDraw EnTest_OverrideLimbDraw
@@ -14,19 +14,19 @@
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Keyframe_DrawFlex Keyframe_DrawFlex
-#define Keyframe_FlexPlayOnce func_80184548
-#define Keyframe_InitFlex func_801844D0
+#define Keyframe_FlexPlayOnce Keyframe_FlexPlayOnce
+#define Keyframe_InitFlex Keyframe_InitFlex
 #define Keyframe_UpdateFlex Keyframe_UpdateFlex
 #define Lib_SegmentedToVirtual func_80100304
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Matrix_Finalize Matrix_Finalize
-#define Matrix_MtxFToYXZRot func_8018322C
+#define Matrix_MtxFToYXZRot Matrix_MtxFToYXZRot
 #define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define Rand_ZeroOne func_8008704C
-#define SurfaceType_GetMaterial func_800C9948
+#define SurfaceType_GetMaterial SurfaceType_GetMaterial
 #define func_80862B70 func_80000000
 #define func_80862CBC func_8000014C
 #define func_80862EDC func_8000036C

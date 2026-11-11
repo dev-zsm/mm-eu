@@ -24,8 +24,8 @@
 #define Gfx_SetupDL66 Gfx_SetupDL66
 #define Lib_SegmentedToVirtual func_80100304
 #define Play_SetFog Play_SetFog
-#define Rand_CenteredFloat func_8017A870
-#define Rand_ZeroFloat func_8017A844
+#define Rand_CenteredFloat Rand_CenteredFloat
+#define Rand_ZeroFloat Rand_ZeroFloat
 #define func_80AFDE00 func_800001C0
 #define func_80AFDF60 func_80000320
 #define func_80AFDFB4 func_80000374

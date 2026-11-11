@@ -3,7 +3,7 @@
 #define MM_Z_BG_IKANA_MIRROR_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define AnimatedMat_Draw AnimatedMat_Draw
 #define BgIkanaMirror_Destroy BgIkanaMirror_Destroy
 #define BgIkanaMirror_Draw BgIkanaMirror_Draw
@@ -15,16 +15,16 @@
 #define BgIkanaMirror_Wait BgIkanaMirror_Wait
 #define Collider_DestroyQuad Collider_DestroyQuad
 #define Collider_DestroyTris Collider_DestroyTris
-#define Collider_InitQuad func_800E1BD8
-#define Collider_InitTris func_800E1490
-#define Collider_SetQuad func_800E1CE0
+#define Collider_InitQuad Collider_InitQuad
+#define Collider_InitTris Collider_InitTris
+#define Collider_SetQuad Collider_SetQuad
 #define Collider_SetQuadVertices func_800E7C1C
-#define Collider_SetTris func_800E1718
+#define Collider_SetTris Collider_SetTris
 #define Collider_SetTrisVertices func_800E7C8C
 #define CollisionCheck_SetAC CollisionCheck_SetAC
 #define CollisionCheck_SetAT CollisionCheck_SetAT
-#define DynaPolyActor_Init func_800CABA0
-#define DynaPolyActor_LoadMesh func_800CABC4
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
 #define Gfx_SetupDL25_Xlu func_8012C78C

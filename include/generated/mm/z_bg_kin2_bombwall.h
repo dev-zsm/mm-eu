@@ -14,10 +14,10 @@
 #define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCs func_800F1A08
 #define DynaPoly_DisableCollision DynaPoly_DisableCollision
-#define EffectSsKakera_Spawn func_800B2D30
+#define EffectSsKakera_Spawn EffectSsKakera_Spawn
 #define Flags_SetSwitch Flags_SetSwitch
-#define Matrix_MultVec3f func_80182B28
-#define Matrix_RotateYS func_80181A3C
+#define Matrix_MultVec3f Matrix_MultVec3f
+#define Matrix_RotateYS Matrix_RotateYS
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos

@@ -16,13 +16,13 @@ typedef struct Node {
     /* 0x5C */ s32 unk5C;
 } Node;
 
-void func_80196AD0(Node *, s32);
-void func_80196C14(Node *, Node *);
-Node *func_80197480(Node *);
-void func_80197ED8(Node *);
-void func_80197FC8(Node *);
+void AudioPlayback_SeqLayerNoteDecay(Node *, s32);
+void AudioPlayback_InitSyntheticWave(Node *, Node *);
+Node *AudioPlayback_AllocNote(Node *);
+void AudioEffects_InitVibrato(Node *);
+void AudioEffects_InitPortamento(Node *);
 
-s32 func_80198FEC(Node *arg0, s32 arg1) {
+s32 AudioScript_SeqLayerProcessScriptStep5(Node *arg0, s32 arg1) {
     Node *p;
 
     if (arg0->a == 1 && arg0->c == 1) {
@@ -30,21 +30,21 @@ s32 func_80198FEC(Node *arg0, s32 arg1) {
     }
     if (arg0->a == 1 && (p = arg0->unk3C) != NULL && arg0->b && arg1 == 1 && arg0 == p->unk48) {
         if (arg0->unk5C == 0) {
-            func_80196C14(p, arg0);
+            AudioPlayback_InitSyntheticWave(p, arg0);
         }
     } else {
         if (arg1 == 0) {
-            func_80196AD0(arg0, 1);
+            AudioPlayback_SeqLayerNoteDecay(arg0, 1);
         }
-        p = func_80197480(arg0);
+        p = AudioPlayback_AllocNote(arg0);
         arg0->unk3C = p;
         if (p != NULL && arg0 == p->unk48) {
-            func_80197ED8(p);
+            AudioEffects_InitVibrato(p);
         }
     }
     p = arg0->unk3C;
     if (p != NULL && arg0 == p->unk48) {
-        func_80197FC8(p);
+        AudioEffects_InitPortamento(p);
     }
     return 0;
 }

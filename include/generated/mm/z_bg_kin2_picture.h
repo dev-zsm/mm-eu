@@ -5,7 +5,7 @@
 /* names of ours that symbols of the reference stand for */
 #define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
-#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_SetFocus Actor_SetFocus
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
@@ -19,13 +19,13 @@
 #define BgKin2Picture_Shiver BgKin2Picture_Shiver
 #define BgKin2Picture_SpawnDust BgKin2Picture_SpawnDust
 #define BgKin2Picture_SpawnSkulltula BgKin2Picture_SpawnSkulltula
-#define Collider_InitTris func_800E1490
-#define Collider_SetTris func_800E1718
+#define Collider_InitTris Collider_InitTris
+#define Collider_SetTris Collider_SetTris
 #define Collider_SetTrisVertices func_800E7C8C
 #define CutsceneManager_Stop func_800F1D6C
-#define DynaPolyActor_Init func_800CABA0
-#define DynaPolyActor_LoadMesh func_800CABC4
-#define DynaPoly_DisableCollision func_800C604C
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
+#define DynaPoly_DisableCollision DynaPoly_DisableCollision
 #define DynaPoly_EnableCollision DynaPoly_EnableCollision
 #define Flags_GetTreasure Flags_GetTreasure
 #define Math_CosS Math_CosS
@@ -36,7 +36,7 @@
 #define Math_Vec3f_Sum Math_Vec3f_Sum
 #define Matrix_MultVec3f Matrix_MultVec3f
 #define Matrix_RotateYS Matrix_RotateYS
-#define Matrix_SetTranslateRotateYXZ func_801826E0
+#define Matrix_SetTranslateRotateYXZ Matrix_SetTranslateRotateYXZ
 #define Rand_ZeroOne func_8008704C
 #define gOceanSpiderHouseSkullkidPaintingCol D_6000798
 #define ref_func_800B1210 func_800B1730

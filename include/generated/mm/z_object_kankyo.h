@@ -14,8 +14,8 @@
 #define Math_Vec3f_Pitch Math_Vec3f_Pitch
 #define Math_Vec3f_Yaw Math_Vec3f_Yaw
 #define Matrix_Mult Matrix_Mult
-#define Matrix_RotateXS func_80181508
-#define Matrix_RotateYS func_80181A3C
+#define Matrix_RotateXS Matrix_RotateXS
+#define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_Scale Matrix_Scale
 #define Matrix_Translate Matrix_Translate
 #define ObjectKankyo_Draw ObjectKankyo_Draw

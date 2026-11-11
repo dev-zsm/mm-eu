@@ -4,13 +4,13 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
-#define Actor_ProcessInitChain func_800FF8DC
+#define Actor_ProcessInitChain Actor_ProcessInitChain
 #define BgCheck_GetWaterSurfaceNoBgId BgCheck_GetWaterSurfaceNoBgId
 #define BgIcefloe_Destroy BgIcefloe_Destroy
 #define BgIcefloe_Grow BgIcefloe_Grow
 #define BgIcefloe_Init BgIcefloe_Init
-#define DynaPolyActor_Init func_800CABA0
-#define DynaPolyActor_LoadMesh func_800CABC4
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
 #define EffectSsIceBlock_Spawn func_800B378C
 #define EffectSsIceSmoke_Spawn func_800B372C

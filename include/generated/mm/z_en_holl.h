@@ -3,8 +3,8 @@
 #define MM_Z_EN_HOLL_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_Kill func_800B6490
-#define Actor_PlaySfx_Flagged func_800B8D94
+#define Actor_Kill Actor_Kill
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define Actor_ProcessInitChain Actor_ProcessInitChain
 #define Actor_WorldToActorCoords Actor_WorldToActorCoords
 #define EnHoll_ChangeRooms EnHoll_ChangeRooms
@@ -23,7 +23,7 @@
 #define Matrix_RotateYF Matrix_RotateYF
 #define Room_FinishRoomChange Room_FinishRoomChange
 #define Room_RequestNewRoom Room_RequestNewRoom
-#define Scene_SetExitFade func_80130A44
+#define Scene_SetExitFade Scene_SetExitFade
 #define gDbgCamEnabled D_801C9630
 #define gEnHollCentralPlaneDL D_80899CB0
 #define gSaveContext D_801E6EF0

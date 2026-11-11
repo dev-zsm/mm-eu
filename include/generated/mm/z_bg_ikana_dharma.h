@@ -4,12 +4,12 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Actor_Kill Actor_Kill
-#define Actor_MoveWithGravity func_800B680C
+#define Actor_MoveWithGravity Actor_MoveWithGravity
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_ProcessInitChain Actor_ProcessInitChain
-#define Actor_SetFocus func_800B64E0
+#define Actor_SetFocus Actor_SetFocus
 #define Actor_SpawnAsChildAndCutscene Actor_SpawnAsChildAndCutscene
-#define Actor_UpdateBgCheckInfo func_800B763C
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define BgIkanaDharma_Destroy BgIkanaDharma_Destroy
 #define BgIkanaDharma_Init BgIkanaDharma_Init
 #define BgIkanaDharma_SetupStartCutscene func_80BD14F8
@@ -27,16 +27,16 @@
 #define DynaPolyActor_Init DynaPolyActor_Init
 #define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define DynaPoly_DeleteBgActor DynaPoly_DeleteBgActor
-#define DynaPoly_GetActor func_800C5FD8
+#define DynaPoly_GetActor DynaPoly_GetActor
 #define EffectSsKirakira_SpawnSmallYellow EffectSsKirakira_SpawnSmallYellow
 #define Flags_SetSwitch Flags_SetSwitch
 #define Math_CosS Math_CosS
 #define Math_SinS Math_SinS
 #define Math_StepToF Math_StepToF
-#define Quake_Request func_8012AF4C
-#define Quake_SetDuration func_8012ADA0
-#define Quake_SetPerturbations func_8012AE28
-#define Quake_SetSpeed func_8012AD58
+#define Quake_Request Quake_Request
+#define Quake_SetDuration Quake_SetDuration
+#define Quake_SetPerturbations Quake_SetPerturbations
+#define Quake_SetSpeed Quake_SetSpeed
 #define Rand_Next func_80087010
 #define Rand_ZeroOne func_8008704C
 #define gStoneTowerTemplePunchablePillarCol D_6000C50

@@ -19,7 +19,7 @@
 #define Actor_Spawn Actor_Spawn
 #define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
 #define Audio_PlaySfx_AtPosWithChannelIO Audio_PlaySfx_AtPosWithChannelIO
-#define BgCheck_EntityRaycastFloor1 func_800C3D30
+#define BgCheck_EntityRaycastFloor1 BgCheck_EntityRaycastFloor1
 #define BgCheck_EntityRaycastFloor3 BgCheck_EntityRaycastFloor3
 #define Camera_AddQuake Camera_AddQuake
 #define Collider_InitCylinder Collider_InitCylinder
@@ -29,7 +29,7 @@
 #define Collider_UpdateCylinder Collider_UpdateCylinder
 #define Collider_UpdateSpheres Collider_UpdateSpheres
 #define CollisionCheck_SetAC CollisionCheck_SetAC
-#define CollisionCheck_SetAT func_800E2318
+#define CollisionCheck_SetAT CollisionCheck_SetAT
 #define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EffectSsGRipple_Spawn EffectSsGRipple_Spawn
 #define EffectSsGSpk_SpawnFuse EffectSsGSpk_SpawnFuse
@@ -58,10 +58,10 @@
 #define Math_Vec3f_ToVec3s Math_Vec3f_ToVec3s
 #define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
 #define Matrix_MultVec3f Matrix_MultVec3f
-#define Matrix_MultVecZ func_80182CA0
+#define Matrix_MultVecZ Matrix_MultVecZ
 #define Matrix_ReplaceRotation Matrix_ReplaceRotation
 #define Matrix_RotateXS Matrix_RotateXS
-#define Matrix_RotateYF func_80181BD8
+#define Matrix_RotateYF Matrix_RotateYF
 #define Matrix_RotateYS Matrix_RotateYS
 #define Matrix_RotateZYX Matrix_RotateZYX
 #define Matrix_Scale Matrix_Scale
@@ -69,8 +69,8 @@
 #define Play_InCsMode Play_InCsMode
 #define Player_GetMask Player_GetMask
 #define Player_IsBurningStickInRange Player_IsBurningStickInRange
-#define Rand_ZeroFloat func_8017A844
-#define Rumble_Request func_8013F090
+#define Rand_ZeroFloat Rand_ZeroFloat
+#define Rumble_Request Rumble_Request
 #define SoundSource_PlaySfxAtFixedWorldPos SoundSource_PlaySfxAtFixedWorldPos
 #define SurfaceType_GetFloorEffect SurfaceType_GetFloorEffect
 #define SurfaceType_GetFloorType SurfaceType_GetFloorType
