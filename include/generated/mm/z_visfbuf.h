@@ -3,6 +3,12 @@
 #define MM_Z_VISFBUF_H
 
 /* names of ours that symbols of the reference stand for */
+#define SysUcode_GetUCode func_80183D4C
+#define SysUcode_GetUCodeData func_80183D5C
+#define gScreenHeight D_801C9E34
+#define gScreenWidth D_801C9E30
+#define gspS2DEX2_fifoDataStart D_801DB440
+#define gspS2DEX2_fifoTextStart D_801AC970
 #define gCfbWidth D_801F344C
 #define guS2DInitBg func_80092C20
 #define ref_D_0E000000 D_0E000000

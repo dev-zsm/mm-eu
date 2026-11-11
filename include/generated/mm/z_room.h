@@ -3,6 +3,10 @@
 #define MM_Z_ROOM_H
 
 /* names of ours that symbols of the reference stand for */
+#define SysUcode_GetUCode func_80183D4C
+#define SysUcode_GetUCodeData func_80183D5C
+#define gspS2DEX2_fifoDataStart D_801DB440
+#define gspS2DEX2_fifoTextStart D_801AC970
 #define DmaMgr_RequestAsync func_80080C54
 #define Gfx_SetupDL25_Xlu func_8012C78C
 #define Lib_SegmentedToVirtual func_80100304

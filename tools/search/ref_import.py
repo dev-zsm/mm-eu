@@ -222,7 +222,7 @@ def s16(v):
 
 
 def address_of(sym):
-    m = re.fullmatch(r"(?:func|D|jtbl)_([0-9A-F]{7,8})", sym)   # splat names a rodata table of code pointers jtbl_
+    m = re.fullmatch(r"(?:func|D|jtbl)_([0-9A-F]{6,8})", sym)   # splat names a rodata table of code pointers jtbl_; D_1DB440 is a ROM address (segment start)
     return int(m.group(1), 16) if m else None
 
 
@@ -259,17 +259,22 @@ def pair(seg, fn, relocs, blob):
         if typ == "R_MIPS_26":
             add = (word & 0x3FFFFFF) * 4
         elif typ == "R_MIPS_LO16":
+            if any(t == "R_MIPS_HI16" and y == sym for o, t, y in relocs[:i]):
+                continue   # the hi/lo pair is handled at its hi (the addend does not fit in the lo alone)
             add = s16(word & 0xFFFF)
         elif typ == "R_MIPS_HI16":
-            lo = next((o for o, t, y in relocs[i + 1:] if t == "R_MIPS_LO16" and y == sym), None)
-            if lo is None or lo + 4 > len(blob):
+            los = [o for o, t, y in relocs[i + 1:] if t == "R_MIPS_LO16" and y == sym and o + 4 <= len(blob)]
+            if not los:
                 continue
-            add = ((word & 0xFFFF) << 16) + s16(struct.unpack(">I", blob[lo:lo + 4])[0] & 0xFFFF)
+            # the first lo of the symbol usually pairs with this hi; when the symbol is used at several offsets and the first guess disagrees
+            # with an address already found, the hi pairs with a later lo
+            adds = [((word & 0xFFFF) << 16) + s16(struct.unpack(">I", blob[o:o + 4])[0] & 0xFFFF) for o in los]
+            add = next((a for a in adds if sym in bases and addr - a == bases[sym]), adds[0])
         else:
             continue
-        base = addr - add
+        base = (addr - add) & 0xFFFFFFFF   # a physical address taken from a KSEG0 symbol: the symbol is at +0x80000000
         if bases.setdefault(sym, base) != base:
-            raise PairError("a symbol at two addresses in one function")
+            raise PairError(f"a symbol at two addresses in one function ({sym}: {bases[sym]:#x}, {base:#x})")
         if add == 0:
             exact[base] = ours[off]
     return bases, exact
@@ -1092,6 +1097,8 @@ def alias_run():
                 continue
             token = exact.get(base)
             target = nm.get(token, token) if token is not None else f"D_{base:08X}"
+            if token is None:
+                new_bases.add(target)
             if sym != target and sym not in registered:
                 add[sym] = target
         if add:
@@ -1100,6 +1107,7 @@ def alias_run():
             lines[at:at] = [f"#define {a} {b}" for a, b in sorted(add.items())]
             header.write_text("\n".join(lines))
         print(fn, "aliases added:", add)
+    save_bases()
 
 
 def main():

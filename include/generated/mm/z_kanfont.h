@@ -3,6 +3,9 @@
 #define MM_Z_KANFONT_H
 
 /* names of ours that symbols of the reference stand for */
+#define DmaMgr_RequestSync func_80080CE0
+#define _nes_font_staticSegmentRomStart D_AA0000
+#define sFontOrdering D_801BE660
 
 /* names declared by the headers of the reference, prefixed while they are read */
 

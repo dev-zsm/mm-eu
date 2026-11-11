@@ -2,6 +2,7 @@
 #ifndef MM_GRAPH_H
 #define MM_GRAPH_H
 
+#define ref_D_0E000000 D_0E000000
 #define Fault_AddHungupAndCrashImpl func_80083E54
 #define Fault_SetFrameBuffer func_80083BD0
 #define Overlay_FreeGameState Overlay_FreeGameState
