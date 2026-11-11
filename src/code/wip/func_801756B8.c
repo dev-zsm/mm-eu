@@ -41,10 +41,10 @@ void Graph_ExecuteAndDraw(GraphicsContext* gfxCtx, GameState* gameState) {
         GfxPool* pool = &gGfxPools[gfxCtx->gfxPoolIdx % 2];
 
         if (pool->headMagic != GFXPOOL_HEAD_MAGIC) {
-            Fault_AddHungupAndCrash("../graph.c", LN1(1046, 1054));
+            Fault_AddHungupAndCrash("../graph.c", 1063);
         }
         if (pool->tailMagic != GFXPOOL_TAIL_MAGIC) {
-            Fault_AddHungupAndCrash("../graph.c", LN1(1058, 1066));
+            Fault_AddHungupAndCrash("../graph.c", 1075);
         }
     }
 
