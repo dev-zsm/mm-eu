@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "generated/code_funcs.h"
 
 typedef struct {
     u8 pad0[0x2860];
@@ -8,7 +9,6 @@ typedef struct {
 } SeqTbl;
 
 extern SeqTbl D_801F84B0;
-s32 AudioLoad_SyncLoadFont(s32 a0);
 
 s32 AudioLoad_SyncLoadSeqFonts(s32 seqId, u32 *outFontId) {
     s16 pad_h;

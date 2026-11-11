@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/overlays/0275.h"
 
 typedef struct {
     s32 x;

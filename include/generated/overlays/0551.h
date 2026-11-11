@@ -6,7 +6,7 @@
 #include "types.h"
 
 void func_80000000(s32 arg0, void *arg1);
-void func_8000011C(void *arg0, s32 arg1);
+void func_8000011C(u8 *arg0, s32 arg1);
 void func_80000210(s32 arg0, s32 arg1);
 void func_80000234(s32 arg0, s32 arg1);
 void func_800003DC(void *arg0, s32 arg1);
@@ -15,7 +15,6 @@ void func_80000C34(void *arg0, void *arg1);
 void func_80000CE8(u8 *arg0, s32 arg1);
 void func_80000D68(u8 *arg0, u8 *arg1);
 void func_80000E4C(void *arg0, s32 arg1);
-void func_8000105C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800010D0(void *arg0, s32 arg1);
 
 #endif

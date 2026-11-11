@@ -20,11 +20,10 @@ void func_80000B5C(Actor *thisx, s32 arg1);
 void func_80000D30(u8 *arg0);
 void func_80000D44(Actor *thisx, PlayState *play);
 void func_80000DEC(Actor *thisx);
-void func_80000E00(Actor *thisx, void *arg1);
+void func_80000E00(u8 *arg0, u8 *arg1);
 void func_80000EC0(s32 arg0, s32 arg1);
 void func_80000F98(s32 arg0, s32 arg1);
 void func_80001048(Actor *thisx, PlayState *play);
-void func_800010F4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800011C4(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void func_80001204(Actor *thisx, PlayState *play);
 

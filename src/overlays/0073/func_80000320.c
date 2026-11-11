@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0073.h"
 
 void func_800FEE3C(u8 *, f32, f32);
 

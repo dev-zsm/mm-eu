@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0541.h"
 
 void func_80002878(u8 *arg0) {
     switch ((M2C_FIELD(arg0, s16 *, 0x1C) & 0x7F)) {

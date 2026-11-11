@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0436.h"
 
 extern s32 D_80AD0CA0;
 s32 func_8000012C(s32 a, s32 b) {

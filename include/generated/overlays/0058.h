@@ -11,8 +11,8 @@ void EnGirlA_SetupAction(u8 *arg0, s32 arg1);  /* 80000000 */
 void EnGirlA_InitObjIndex(EnGirlA *this, PlayState *play);  /* 8000000C */
 void EnGirlA_Init(void);  /* 800000B0 */
 void EnGirlA_Destroy(Actor *thisx, PlayState *play);  /* 800000D0 */
-s32 EnGirlA_CanBuyPotionRed(PlayState *play, EnGirlA *this);  /* 800000E0 */
-s32 EnGirlA_CanBuyPotionGreen(PlayState *play, EnGirlA *this);  /* 80000140 */
+s32 EnGirlA_CanBuyPotionRed(u8 *arg0, s32 arg1);  /* 800000E0 */
+s32 EnGirlA_CanBuyPotionGreen(u8 *arg0, s32 arg1);  /* 80000140 */
 s32 EnGirlA_CanBuyPotionBlue(PlayState *play, EnGirlA *this);  /* 800001A0 */
 s32 EnGirlA_CanBuyArrows(PlayState *play, EnGirlA *this);  /* 8000023C */
 s32 EnGirlA_CanBuyNuts(PlayState *play, EnGirlA *this);  /* 800002DC */
@@ -27,7 +27,7 @@ s32 EnGirlA_CanBuyBombs(PlayState *play, EnGirlA *this);  /* 80000724 */
 s32 EnGirlA_CanBuyBottleStolen(PlayState *play, EnGirlA *this);  /* 800007C4 */
 s32 EnGirlA_CanBuySword(PlayState *play, EnGirlA *this);  /* 800007FC */
 s32 EnGirlA_CanBuyShieldMirror(PlayState *play, EnGirlA *this);  /* 80000834 */
-s32 EnGirlA_CanBuyFairy(PlayState *play, EnGirlA *this);  /* 80000898 */
+s32 EnGirlA_CanBuyFairy(u8 *arg0, s32 arg1);  /* 80000898 */
 void EnGirlA_BuyBottleItem(PlayState *play, EnGirlA *this);  /* 800008F8 */
 void EnGirlA_BuyArrows(PlayState *play, EnGirlA *this);  /* 800009A0 */
 void EnGirlA_BuyNuts(PlayState *play, EnGirlA *this);  /* 800009EC */

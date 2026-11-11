@@ -6,7 +6,7 @@
 #include "types.h"
 #include "actor.h"
 
-void func_80000000(Actor *thisx);
+void func_80000000(u8 *arg0);
 void func_8000010C(s32 arg0, s32 arg1, s32 arg2);
 void func_800001A8(Actor *thisx, PlayState *play);
 void func_80000588(Actor *thisx, PlayState *play);

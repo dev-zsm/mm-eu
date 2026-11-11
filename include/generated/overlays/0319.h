@@ -5,9 +5,10 @@
 
 #include "types.h"
 #include "actor.h"
+typedef struct ObjShutter ObjShutter;
 
-void ObjShutter_Init(Actor *thisx, PlayState *play);
-void ObjShutter_Destroy(Actor *thisx, PlayState *play);
+void ObjShutter_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void ObjShutter_Destroy(Actor *thisx, PlayState *play);  /* 80000010 */
 void ObjShutter_Update(Actor *thisx, PlayState *play);  /* 80000020 */
 void ObjShutter_Draw(Actor *thisx, PlayState *play);  /* 8000016C */
 

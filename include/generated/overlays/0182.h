@@ -32,7 +32,7 @@ void EnWeatherTag_Unused_80967250(EnWeatherTag *this, PlayState *play);  /* 8000
 void func_80000ECC(EnWeatherTag *this, void *arg1);
 void func_800010B8(EnWeatherTag *this, PlayState *play);
 void func_800011F8(EnWeatherTag *this, PlayState *play);
-void EnWeatherTag_Update(Actor *thisx, PlayState *play);
-void EnWeatherTag_Draw(Actor *thisx, PlayState *play);
+void EnWeatherTag_Update(Actor *thisx, PlayState *play);  /* 80001294 */
+void EnWeatherTag_Draw(Actor *thisx, PlayState *play);  /* 80001374 */
 
 #endif

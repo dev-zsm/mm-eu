@@ -5,9 +5,10 @@
 
 #include "types.h"
 #include "actor.h"
+typedef struct EnPart EnPart;
 
-void EnPart_Init(Actor *thisx, PlayState *play);
-void EnPart_Destroy(Actor *thisx, PlayState *play);
+void EnPart_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnPart_Destroy(Actor *thisx, PlayState *play);  /* 80000010 */
 void func_80000020(void *this, PlayState *play);
 void func_80000154(void *arg0, s32 arg1);
 void EnPart_Update(Actor *thisx, PlayState *play);  /* 80000430 */

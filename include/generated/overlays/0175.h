@@ -19,7 +19,7 @@ s32 func_80000BD0(u8 *arg0, s32 arg1);
 void func_80000C48(void *arg0, s32 arg1);
 void func_80000EA0(s32 arg0, s32 arg1);
 void func_80000ECC(u8 *arg0);
-void func_80000EE0(void *arg0, s32 arg1);
+void func_80000EE0(u8 *arg0, s32 arg1);
 void func_80000F6C(u8 *arg0);
 void func_80000F80(void *arg0, s32 arg1);
 void func_80001254(u8 *arg0);

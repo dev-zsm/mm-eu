@@ -15,7 +15,7 @@ void KaleidoScope_UpdateItemCursor(PlayState *play);  /* 800032E8 */
 void KaleidoScope_UpdateItemEquip(PlayState *play);  /* 80003CC4 */
 void KaleidoScope_DrawDungeonStrayFairyCount(PlayState *play);  /* 80004880 */
 void func_80004D1C(PlayState *play);
-void KaleidoScope_UpdateDungeonCursor(PlayState *play);
+void KaleidoScope_UpdateDungeonCursor(PlayState *play);  /* 8000576C */
 void func_80005E2C(void *arg0);
 void KaleidoScope_UpdateWorldMapCursor(PlayState *play);  /* 80007044 */
 void KaleidoScope_DrawMaskSelect(PlayState *play);  /* 800074B0 */

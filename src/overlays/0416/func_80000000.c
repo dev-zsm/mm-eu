@@ -1,5 +1,7 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "actor.h"
+#include "generated/overlays/0416.h"
 
 M2C_UNK func_800B6490(u8 *);                      /* extern */
 M2C_UNK func_800B6564(u8 *, M2C_UNK);             /* extern */
@@ -12,7 +14,7 @@ M2C_UNK func_80AB31E4(u8 *);                      /* extern */
 extern M2C_UNK D_60023D4;
 extern M2C_UNK D_80AB4340;
 
-void func_80000000(u8 *arg0, u8 *arg1) {
+void func_80000000(Actor *thisx, PlayState *play) {
     u8 *temp_a1;
     u8 *sp20;
     s32 sp2C;
@@ -20,20 +22,20 @@ void func_80000000(u8 *arg0, u8 *arg1) {
     u8 *var_s0;
 
     sp2C = 0;
-    var_s0 = M2C_FIELD(arg1, u8 **, 0x1CE4);
-    func_800CABA0(arg0, 3);
+    var_s0 = M2C_FIELD(play, u8 **, 0x1CE4);
+    func_800CABA0(thisx, 3);
     func_800C92F4(&D_60023D4, &sp2C);
-    M2C_FIELD(arg0, s32 *, 0x144) = func_800C5F18(arg1, arg1 + 0x880, arg0, sp2C);
-    func_800B6564(arg0, 0x3DCCCCCD);
-    temp_a1 = arg0 + 0x160;
+    M2C_FIELD(thisx, s32 *, 0x144) = func_800C5F18(play, (u8 *)play + 0x880, thisx, sp2C);
+    func_800B6564(thisx, 0x3DCCCCCD);
+    temp_a1 = (u8 *)thisx + 0x160;
     sp20 = temp_a1;
-    func_800E1F14(arg1, temp_a1);
-    func_800E1FB4(arg1, temp_a1, arg0, &D_80AB4340);
-    M2C_FIELD(arg0, s16 *, 0x1AE) = 0x14;
+    func_800E1F14(play, temp_a1);
+    func_800E1FB4(play, temp_a1, thisx, &D_80AB4340);
+    M2C_FIELD(thisx, s16 *, 0x1AE) = 0x14;
     if (var_s0 != NULL) {
         loop_2:
         if (M2C_FIELD(var_s0, s16 *, 0) == 0xB5) {
-            M2C_FIELD(arg0, u8 **, 0x120) = var_s0;
+            M2C_FIELD(thisx, u8 **, 0x120) = var_s0;
         } else {
             var_s0 = M2C_FIELD(var_s0, u8 **, 0x12C);
             if (var_s0 != NULL) {
@@ -42,20 +44,20 @@ void func_80000000(u8 *arg0, u8 *arg1) {
         }
     }
     if (var_s0 == NULL) {
-        func_800B6490(arg0);
+        func_800B6490(thisx);
         return;
     }
-    temp_v0 = M2C_FIELD(arg0, u8 **, 0x120);
+    temp_v0 = M2C_FIELD(thisx, u8 **, 0x120);
     if (M2C_FIELD(temp_v0, s16 *, 0x542) == 2) {
-        M2C_FIELD(arg0, s8 *, 0x18C) = 0;
-        M2C_FIELD(arg0, s16 *, 0x1AE) = 0x1E;
+        M2C_FIELD(thisx, s8 *, 0x18C) = 0;
+        M2C_FIELD(thisx, s16 *, 0x1AE) = 0x1E;
     } else {
-        M2C_FIELD(arg0, s16 *, 0x1AE) = 0x11;
-        M2C_FIELD(arg0, s32 *, 0x2F8) = (s32) M2C_FIELD(temp_v0, s32 *, 0x538);
-        M2C_FIELD(arg0, s32 *, 0x2F4) = (s32) M2C_FIELD(temp_v0, s32 *, 0x520);
-        M2C_FIELD(arg0, s32 *, 0x2F0) = (s32) M2C_FIELD(arg0, s16 *, 0x1C);
+        M2C_FIELD(thisx, s16 *, 0x1AE) = 0x11;
+        M2C_FIELD(thisx, s32 *, 0x2F8) = (s32) M2C_FIELD(temp_v0, s32 *, 0x538);
+        M2C_FIELD(thisx, s32 *, 0x2F4) = (s32) M2C_FIELD(temp_v0, s32 *, 0x520);
+        M2C_FIELD(thisx, s32 *, 0x2F0) = (s32) M2C_FIELD(thisx, s16 *, 0x1C);
     }
-    M2C_FIELD(arg0, s16 *, 0x302) = 0;
-    M2C_FIELD(arg0, s16 *, 0x304) = 0;
-    func_80AB31E4(arg0);
+    M2C_FIELD(thisx, s16 *, 0x302) = 0;
+    M2C_FIELD(thisx, s16 *, 0x304) = 0;
+    func_80AB31E4(thisx);
 }

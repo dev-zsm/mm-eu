@@ -5,9 +5,10 @@
 
 #include "types.h"
 #include "actor.h"
+typedef struct EnSda EnSda;
 
-void EnSda_Init(Actor *thisx, PlayState *play);
-void EnSda_Destroy(Actor *thisx, PlayState *play);
+void EnSda_Init(Actor *thisx, PlayState *play);  /* 80000000 */
+void EnSda_Destroy(Actor *thisx, PlayState *play);  /* 80000010 */
 void EnSda_Draw(Actor *thisx, PlayState *play);  /* 8000005C */
 void func_800000F0(void *player, u8 *shadowTexture, f32 arg2);
 void func_8000075C(void *this, u8 *shadowTexture, void *player, PlayState *play);

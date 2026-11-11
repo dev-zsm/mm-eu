@@ -10,7 +10,7 @@ void func_80000000(Actor *thisx, PlayState *play);
 void func_80000494(Actor *thisx, PlayState *play);
 void func_800004C0(void *arg0, s32 arg1);
 void func_80000644(void *arg0, s32 arg1);
-void func_800008D0(s32 arg0);
+void func_800008D0(u8 *arg0);
 void func_8000096C(Actor *thisx, s32 arg1);
 void func_80000CEC(Actor *thisx, s32 arg1);
 void func_80000DB8(void *arg0, s32 arg1);
@@ -34,7 +34,6 @@ void func_80001E08(Actor *thisx);
 void func_80001EC4(s32 arg0, s32 arg1);
 void func_80001ED4(u8 *arg0);
 void func_80001F04(Actor *thisx, s32 a1);
-void func_80001F28(Actor *thisx, s32 arg1, s32 arg2);
 void func_80002030(s32 arg0, s32 arg1);
 void func_800020B4(void *arg0, s32 arg1, s32 arg2);
 void func_8000217C(Actor *thisx, s32 arg1);
@@ -42,7 +41,6 @@ void func_80002450(Actor *thisx, PlayState *play);
 void func_8000268C(Actor *thisx, PlayState *play);
 void func_80002974(Actor *thisx, PlayState *play);
 void func_80002C18(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_80002DB0(Actor *thisx, PlayState *play);
 void func_80002E48(u8 *arg0, s32 *arg1);
 
 #endif

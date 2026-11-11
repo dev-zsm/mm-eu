@@ -1,5 +1,7 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "actor.h"
+#include "generated/overlays/0584.h"
 
 M2C_UNK func_800B3B14(s32, f32, M2C_UNK *, M2C_UNK); /* extern */
 M2C_UNK func_800B6564(u8 *, M2C_UNK);             /* extern */
@@ -13,25 +15,25 @@ extern M2C_UNK D_800B3F30;
 extern M2C_UNK D_80BC253C;
 extern M2C_UNK D_80BC2A90;
 
-void func_80000CB8(u8 *arg0, s32 arg1) {
+void func_80000CB8(Actor *thisx, PlayState *play) {
     u8 *sp34;
     u8 *temp_a1;
 
-    func_800B3B14(arg0 + 0xBC, 0, &D_800B3F30, 0x41A00000);
-    func_800B6564(arg0, 0x3C23D70A);
-    M2C_FIELD(arg0, M2C_UNK **, 0x618) = &D_80BC253C;
-    temp_a1 = arg0 + 0x144;
+    func_800B3B14((u8 *)thisx + 0xBC, 0, &D_800B3F30, 0x41A00000);
+    func_800B6564(thisx, 0x3C23D70A);
+    M2C_FIELD(thisx, M2C_UNK **, 0x618) = &D_80BC253C;
+    temp_a1 = (u8 *)thisx + 0x144;
     sp34 = temp_a1;
-    func_80136ED0(arg1, temp_a1, &D_600D208, &D_6004248, arg0 + 0x1D4, arg0 + 0x24C, 0x14);
+    func_80136ED0(play, temp_a1, &D_600D208, &D_6004248, (u8 *)thisx + 0x1D4, (u8 *)thisx + 0x24C, 0x14);
     func_801377D0(sp34, &D_6003610);
-    M2C_FIELD(arg0, s16 *, 0x2C8) = 1;
-    func_800E1134(arg1, arg0 + 0x188, arg0, &D_80BC2A90);
-    M2C_FIELD(arg0, s16 *, 0xC0) = 0;
-    M2C_FIELD(arg0, s16 *, 0x2CA) = 0;
-    M2C_FIELD(arg0, s16 *, 0x2CC) = 0;
-    M2C_FIELD(arg0, s16 *, 0x2CE) = 0;
-    M2C_FIELD(arg0, u8 *, 0xB6) = 0xFF;
-    M2C_FIELD(arg0, s16 *, 0x116) = 0;
-    M2C_FIELD(arg0, s16 *, 0x34) = (s16) M2C_FIELD(arg0, s16 *, 0xC0);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 4) & ~1);
+    M2C_FIELD(thisx, s16 *, 0x2C8) = 1;
+    func_800E1134(play, (u8 *)thisx + 0x188, thisx, &D_80BC2A90);
+    M2C_FIELD(thisx, s16 *, 0xC0) = 0;
+    M2C_FIELD(thisx, s16 *, 0x2CA) = 0;
+    M2C_FIELD(thisx, s16 *, 0x2CC) = 0;
+    M2C_FIELD(thisx, s16 *, 0x2CE) = 0;
+    M2C_FIELD(thisx, u8 *, 0xB6) = 0xFF;
+    M2C_FIELD(thisx, s16 *, 0x116) = 0;
+    M2C_FIELD(thisx, s16 *, 0x34) = (s16) M2C_FIELD(thisx, s16 *, 0xC0);
+    M2C_FIELD(thisx, s32 *, 4) = (s32) (M2C_FIELD(thisx, s32 *, 4) & ~1);
 }

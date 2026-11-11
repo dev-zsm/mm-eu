@@ -9,9 +9,9 @@
 void func_80000000(u8 *arg0);
 s32 func_8000002C(u8 *arg0, s32 arg1);
 void func_800000C4(Actor *thisx, PlayState *play);
-void func_80000154(s32 arg0);
+s32 func_80000154(s32 arg0);
 void func_8000021C(Actor *thisx);
-void func_80000304(Actor *thisx);
+s32 func_80000304(u8 *arg0);
 void func_800003DC(void *arg0, void *arg1);
 void func_80000610(Actor *thisx);
 void func_800006A4(Actor *thisx, PlayState *play);

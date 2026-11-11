@@ -34,7 +34,7 @@ s32 func_80000D9C(s32 a, s32 play);
 s32 func_80000DE0(u8 *arg0, s32 arg1);
 void func_80000E14(s32 arg0, s32 arg1);
 void func_80000E70(void *arg0, s32 arg1);
-void func_80001018(s32 arg0, s32 arg1);
+s32 func_80001018(s32 arg0, s32 arg1);
 s32 func_80001080(s32 arg0, u8 *arg1);
 void func_80001120(void *arg0, s32 arg1);
 s32 func_800012E4(u8 *arg0, s32 arg1);

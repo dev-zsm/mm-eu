@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/overlays/0285.h"
 
 typedef struct {
     u8 pad[0x454];

@@ -19,6 +19,6 @@ void func_800002F0(ObjMuPict *this, PlayState *play);
 void func_80000328(ObjMuPict *this, PlayState *play);
 void func_800003E8(ObjMuPict *this, PlayState *play);
 void ObjMuPict_Update(Actor *thisx);  /* 8000050C */
-void ObjMuPict_Draw(Actor *thisx, PlayState *play);
+void ObjMuPict_Draw(Actor *thisx, PlayState *play);  /* 80000530 */
 
 #endif

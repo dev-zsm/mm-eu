@@ -13,8 +13,8 @@ void ArrowLight_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
 void ArrowLight_Charge(ArrowLight *this, PlayState *play);  /* 800000AC */
 void ArrowLight_Lerp(Vec3f *firedPos, Vec3f *pos, f32 scale);  /* 800001A0 */
 void ArrowLight_Hit(ArrowLight *this, PlayState *play);  /* 800001F8 */
-void ArrowLight_Fly(void *arg0, s32 arg1);
-void ArrowLight_Update(u8 *arg0, u8 *arg1);
-void ArrowLight_Draw(void *arg0, void *arg1);
+void ArrowLight_Fly(void *arg0, s32 arg1);  /* 800003C4 */
+void ArrowLight_Update(u8 *arg0, u8 *arg1);  /* 80000518 */
+void ArrowLight_Draw(void *arg0, void *arg1);  /* 8000056C */
 
 #endif

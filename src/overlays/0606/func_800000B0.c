@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0606.h"
 void func_8013AB70(void *, s32);
 void func_800000B0(void *arg0, s32 arg1) {
     switch (arg1) {

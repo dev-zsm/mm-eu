@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/code_funcs.h"
 
 void SubS_TimePathing_FillKnots(f32 *arg0, s32 arg1, s32 arg2) {
     f32 f;

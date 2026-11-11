@@ -1,4 +1,5 @@
 #include "types.h"
+#include "generated/overlays/0543.h"
 
 typedef struct {
     u8 pad0[0xC];

@@ -11,7 +11,7 @@ void func_800002C8(Actor *thisx, PlayState *play);
 void func_80000320(Actor *thisx);
 void func_80000364(u8 *arg0, s32 arg1);
 void func_800003A4(u8 *arg0);
-void func_800003C0(void *arg0, s32 arg1);
+void func_800003C0(u8 *arg0, s32 arg1);
 void func_8000045C(u8 *arg0);
 void func_80000470(s32 arg0, s32 arg1);
 void func_80000480(Actor *thisx);

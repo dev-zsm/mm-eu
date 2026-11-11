@@ -25,7 +25,7 @@ void func_80000CBC(Actor *thisx);
 void func_80000D9C(void *arg0, s32 arg1);
 void func_80000E44(u8 *arg0, s32 arg1);
 void func_80000EC4(Actor *thisx, PlayState *play);
-void func_800010A4(void *arg0, s32 arg1, s32 arg2);
+s32 func_800010A4(u8 *arg0, s32 arg1, s32 arg2);
 s32 func_80001168(u8 *arg0, s32 arg1, u8 *arg2);
 void func_800011F0(void *arg0, s32 arg1, void *arg2);
 void func_80001274(void *arg0, s32 arg1);
@@ -37,7 +37,7 @@ void func_800015BC(Actor *thisx, PlayState *play);
 void func_800016A0(s32 arg0, s32 arg1);
 void func_800016CC(u8 *arg0, s32 arg1);
 s32 func_80001774(void *a0, s32 a1, s32 *a2, s32 a3);
-void func_800017B0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void func_800017B0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void func_80001894(s32 arg0, s32 arg1, void *arg2);
 void func_80001990(void *arg0, void *arg1);
 

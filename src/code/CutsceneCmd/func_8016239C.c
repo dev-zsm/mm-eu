@@ -1,6 +1,6 @@
 #include "types.h"
+#include "generated/code_funcs.h"
 
-void func_801622F0();
 void CutsceneCamera_Interp_None();
 void CutsceneCamera_Interp_Set();
 void CutsceneCamera_Interp_Linear();

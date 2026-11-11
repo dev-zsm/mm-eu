@@ -1,9 +1,9 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "generated/code_funcs.h"
 
 extern u8 D_801FC848[];
 
-extern s32 AudioLoad_GetRealTableIndex(s32 tableType, s32 id);
 
 s32 AudioLoad_IsFontLoadComplete(s32 fontId) {
     if (fontId == 0xFF) {

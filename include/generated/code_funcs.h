@@ -1490,7 +1490,6 @@ void Player_ReleaseLockOn(struct Player *player);  /* 80124254 */
 void Player_ClearZTargeting(struct Player *player);  /* 80124270 */
 s32 func_801243C4(u8 *arg0);
 s32 Player_SetBButtonAmmo(struct PlayState *play, s32 ammo);  /* 801243DC */
-void Player_IsBurningStickInRange(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801243F8 */
 u8 Player_GetStrength(void);  /* 801244D0 */
 u8 Player_GetMask(u8 *a0);  /* 801244EC */
 void Player_RemoveMask(u8 *this);  /* 801244FC */
