@@ -77,7 +77,7 @@ if [ -z "${NO_CLOSE:-}" ]; then
     for i in 0 1 2; do
         left=$(awk -v h="$hours" -v t0="$t0" -v now="$(date +%s)" -v n=$((3 - i)) 'BEGIN { l = (h * 3600 - (now - t0)) / n; print (l > 0 ? int(l) : 0) }')
         [ "$left" -ge 60 ] || break
-        timeout "$left" nice -n 19 python3 tools/search/close.py sweep "${specs[$i]}" --time 60 || echo "closer on ${specs[$i]}: stopped"
+        timeout "$left" nice -n 19 python3 tools/search/close.py sweep "${specs[$i]}" --time 25 --skip-tried || echo "closer on ${specs[$i]}: stopped"
     done
     python3 tools/search/close.py learn > /dev/null || true   # the wins of this round join config/search/close_stats.json
     checkpoint closer

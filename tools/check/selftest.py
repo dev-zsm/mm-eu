@@ -108,6 +108,10 @@ check(has("cmp_swap", "if (3 > a)") and has("if_swap", "if (a >= 3)") and has("t
 check(has("stmt_swap", "b = 4;\n    c = 1;") and has("decl_swap", "s32 c;\n    s32 b;") and has("pad", "s32 pad;"), "close_mut stmt_swap, decl_swap, pad")
 check(close_mut.negate("a < b") == "a >= b" and close_mut.negate("x") == "!x" and close_mut.negate("!x") == "x", "close_mut.negate")
 check(all(v[2].count("{") == v[2].count("}") for v in vs), "close_mut keeps the braces balanced")
+import close  # noqa: E402
+log = ["ovl0001 func_1 start 1.04 best 1.04  [v:aaaa1111]", "ovl0001 func_2 start 1.04 best 1.04  [v:bbbb2222]", "ovl0001 func_3 start 1.04 best 1.04",
+       "ovl0001 func_4 start 1.04 MATCH  callf32:f#1  promote: True x.c"]
+check(close.tried(log, "aaaa1111") == {("ovl0001", "func_1", "1.04")}, "close.tried keeps only the failures of the same mutators")
 
 import srcpath  # noqa: E402
 check(srcpath.path("overlays", "func_80000000").name == "func_80000000.c", "srcpath.path")

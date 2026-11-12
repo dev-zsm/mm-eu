@@ -501,6 +501,21 @@ def measure(job):
     return r
 
 
+def mutator_version() -> str:
+    """The mutators and their weights: a function that failed with other ones may win with these."""
+    return hashlib.sha1((ROOT / "tools/search/close_mut.py").read_bytes() + RECIPES.read_bytes()).hexdigest()[:8]
+
+
+def tried(lines, version) -> set:
+    """{(seg, fn, start score)} that the lines of a sweep log show as given up on (`best`) by these mutators (the `[v:...]` tag at the end)."""
+    out = set()
+    for l in lines:
+        f = l.split()
+        if len(f) >= 7 and f[2] == "start" and f[4] == "best" and f[-1] == f"[v:{version}]":
+            out.add((f[0], f[1], f[3]))
+    return out
+
+
 def cmd_sweep(a):
     spec = a.args[0]
     todo = drafts(spec)
@@ -516,19 +531,16 @@ def cmd_sweep(a):
     rows.sort(key=lambda x: (x[0], x[1], x[2]))
     stats, won, log = Stats(), 0, ROOT / "build/close"
     log.mkdir(parents=True, exist_ok=True)
-    if a.skip_tried:   # the functions an earlier sweep of this target gave up on (`best`), with the same start score
-        seen = set()
+    version = mutator_version()
+    if a.skip_tried:   # the functions an earlier sweep of this target gave up on (`best`), with the same start score and the same mutators
         old_log = log / f"sweep_{spec}.log"
-        for l in (old_log.read_text().splitlines() if old_log.exists() else []):
-            f = l.split()
-            if len(f) >= 6 and f[2] == "start" and f[4] == "best":
-                seen.add((f[0], f[1], f[3]))
+        seen = tried(old_log.read_text().splitlines() if old_log.exists() else [], version)
         rows = [r for r in rows if (r[1], r[2], f"{r[0]:.2f}") not in seen]
     print(f"{len(rows)} within {a.max_diff} instructions", flush=True)
     with (log / f"sweep_{spec}.log").open("a") as lf:
         for sc, seg, fn, path in rows:
             status, steps = run_target(seg, fn, path.read_text().replace("\r", ""), a, stats, log=lambda s: None)
-            line = f"{seg} {fn} start {sc:.2f} {status}" + (f"  {' > '.join(steps)}" if steps is not None else "")
+            line = f"{seg} {fn} start {sc:.2f} {status}" + (f"  {' > '.join(steps)}" if steps is not None else f"  [v:{version}]")
             if steps is not None and not a.no_promote:
                 line += "  promote: " + " ".join(map(str, promote(seg, fn, (WINS / seg / f"{fn}.c").read_text())))
             won += steps is not None
