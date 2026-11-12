@@ -58,6 +58,11 @@ check(retype.rewrite("void f(s32 a, s32 b) {\n}\n", "f", "x.h", "void f(s32 a);"
 once = retype.rewrite("void f(s32 a) {\n    a + 4;\n}\n", "f", "x.h", "void f(void *p);")[0]
 check(retype.rewrite(once, "f", "x.h", "void f(void *p);")[0].count("(u8 *)") == 1, "retype is idempotent on casts")
 
+ctx ="#define func_1 ref_func_1\n#define ref_func_1 func_2\n#undef func_1\nvoid func_1(void);\n"
+check(names.apply_keeping_prefixes(ctx, {"func_1": "Real_One", "func_2": "Real_Two"})
+      == "#define func_1 ref_func_1\n#define ref_func_1 Real_Two\n#undef func_1\nvoid Real_One(void);\n",
+      "names.apply_keeping_prefixes leaves the prefix lines of a context header alone")
+
 import sig_header  # noqa: E402
 check(sig_header.type_known("void", "s32 a, f32 *b") and not sig_header.type_known("void", "PlayState *play"), "sig_header.type_known")
 

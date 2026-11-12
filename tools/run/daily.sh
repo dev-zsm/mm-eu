@@ -83,7 +83,7 @@ if [ -z "${NO_CLOSE:-}" ]; then
     checkpoint closer
 fi
 
-bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks
+QUARANTINE=1 bash tools/search/wave_finish.sh   # fails here, so nothing below runs, if a segment differs from the ROM or a style rule breaks
 # (the checkpoints stay committed then: tools/run/forever.sh resets to HEAD, and tools/run/push.sh checks and pushes them)
 git reset -q --soft "$base"   # the check passed: one commit for the round, below
 

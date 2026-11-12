@@ -36,6 +36,23 @@ def apply(text: str, names: dict) -> str:
     return pat.sub(lambda m: names[m.group(0)], text)
 
 
+# the lines of a context header (include/generated/mm/) that keep the reference's own address names out of the way while its headers are read:
+# `#define func_800B8E1C ref_func_800B8E1C` ... `#undef func_800B8E1C`. They name what the reference spells, not what we call it.
+PREFIX_LINE = re.compile(r"^#(?:define \w+ ref_\w+|undef \w+)[ \t]*$", re.M)
+
+
+def apply_keeping_prefixes(text: str, names: dict) -> str:
+    """`apply`, except on the prefix lines of a context header: renamed, `#define Actor_X ref_func_800B8E1C` no longer prefixes the declaration
+    of func_800B8E1C in the reference's header, which then clashes with our own prototype (En_Bubble, the round of 2026-11-12)."""
+    kept = PREFIX_LINE.findall(text)
+    for i, line in enumerate(kept):
+        text = text.replace(line, f"@@KEEP{i}@@", 1)
+    text = apply(text, names)
+    for i, line in enumerate(kept):
+        text = text.replace(f"@@KEEP{i}@@", line, 1)
+    return text
+
+
 def check(seg: str):
     """Names must be valid C identifiers, unique, and must not collide with a splat-generated name."""
     names = load(seg)
@@ -69,7 +86,7 @@ def apply_sources(seg: str) -> int:
         hdrs = [gen / f"{seg}_funcs.h", *(gen / "mm").glob("*.h")] if seg == "code" else [gen / f"{seg}_funcs.h"]
     for f in [*sources, *[g for g in hdrs if g.exists()]]:
         old = f.read_text()
-        new = apply(old, names)
+        new = apply_keeping_prefixes(old, names)
         if new != old:
             f.write_text(new)
             n += 1
