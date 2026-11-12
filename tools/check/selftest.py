@@ -108,6 +108,10 @@ check(has("cmp_swap", "if (3 > a)") and has("if_swap", "if (a >= 3)") and has("t
 check(has("stmt_swap", "b = 4;\n    c = 1;") and has("decl_swap", "s32 c;\n    s32 b;") and has("pad", "s32 pad;"), "close_mut stmt_swap, decl_swap, pad")
 check(close_mut.negate("a < b") == "a >= b" and close_mut.negate("x") == "!x" and close_mut.negate("!x") == "x", "close_mut.negate")
 check(all(v[2].count("{") == v[2].count("}") for v in vs), "close_mut keeps the braces balanced")
+sv = close_mut.variants("// FLAGS: -O2 -g3 -mips2\nint f(int a, int b) {\n    if (a == b) {\n        return 1;\n    }\n    if ((a - b) != 0) {\n        return 2;\n    }\n    return 0;\n}\n", "f", only=["subcmp", "cc"])
+check(any(v[0] == "subcmp" and "if (!(a - b))" in v[2] for v in sv) and any(v[0] == "subcmp" and "if (a != b)" in v[2] for v in sv)
+      and any(v[0] == "cc" and v[2].startswith("// FLAGS: -O2 -g3 -mips2\n// COMPILER: ido53\n") for v in sv), "close_mut subcmp and cc")
+check(sum(1 for _ in close_mut.flag_grid("int f(void) {\n}\n")) == 383, "close_mut.flag_grid: every combination but the draft's own")
 import close  # noqa: E402
 log = ["ovl0001 func_1 start 1.04 best 1.04  [v:aaaa1111]", "ovl0001 func_2 start 1.04 best 1.04  [v:bbbb2222]", "ovl0001 func_3 start 1.04 best 1.04",
        "ovl0001 func_4 start 1.04 MATCH  callf32:f#1  promote: True x.c"]

@@ -949,12 +949,95 @@ def m_loop(t, name):
             yield f"while2for@{a}", t[:bs + m.start()] + f"for (; {t[a + 1:b].strip()}; )" + t[b + 1:]
 
 
+def sub_forms(c):
+    """The forms of a comparison of two values through a subtraction: `a == b`, `!(a - b)`, `(a - b) == 0`."""
+    s = c.strip()
+    if s.startswith("!"):
+        inner = strip_parens(s[1:].strip())
+        parts = split_top(inner, " - ") if inner is not None else []
+        if len(parts) == 2:
+            yield "unsub", f"{inner[:parts[0][1]].strip()} == {inner[parts[1][0]:parts[1][1]].strip()}"
+        return
+    cmp = find_cmp(s)
+    if not cmp or cmp[1] not in ("==", "!=") or top_positions(s, "&|?"):
+        return
+    left, op, right = cmp
+    if right == "0":
+        li = strip_parens(left) or left
+        parts = split_top(li, " - ")
+        if len(parts) == 2:
+            yield "unsub0", f"{li[:parts[0][1]].strip()} {op} {li[parts[1][0]:parts[1][1]].strip()}"
+    else:
+        yield "sub", f"!({left} - {right})" if op == "==" else f"({left} - {right})"
+        yield "sub0", f"({left} - {right}) {op} 0"
+
+
+def m_subcmp(t, name):
+    """`a == b` <-> `!(a - b)` <-> `(a - b) == 0`, and `a != b` <-> `(a - b)`: the ROM subtracts, then branches on the difference."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    for label, cs, ce in expr_sites(t, loc[2], loc[3]):
+        if label in ("if", "while", "for", "return"):
+            for tag, new in sub_forms(t[cs:ce]):
+                yield f"{tag}@{cs}", t[:cs] + new + t[ce:]
+
+
+def m_cc(t, name):
+    """Per file: the compiler (`// COMPILER: ido53` added or removed) together with the optimisation, `-g` and `-mips2` choices."""
+    lines = t.split("\n")
+    head = [l for l in lines[:3] if l.startswith(("// FLAGS:", "// COMPILER:"))]
+    body = "\n".join(lines[len(head):])
+    flags = next((l[len("// FLAGS:"):].split() for l in head if l.startswith("// FLAGS:")), ["-O2", "-g3", "-mips2"])
+    old53 = any(l.startswith("// COMPILER: ido53") for l in head)
+    base = [f for f in flags if f not in ("-O1", "-O2", "-g", "-g0", "-g3", "-mips2")]
+    toggled = [f for f in flags if f != "-mips2"] if "-mips2" in flags else flags + ["-mips2"]
+    seen = set()
+    for ido53 in (old53, not old53):
+        for new in (toggled, ["-g"] + base, ["-g0"] + base, ["-g3"] + base, ["-O2", "-g3"] + base, ["-O2", "-g3", "-mips2"] + base, base):
+            key = (ido53, tuple(new))
+            if key in seen or (ido53 == old53 and new == flags):
+                continue
+            seen.add(key)
+            text = (f"// FLAGS: {' '.join(new)}\n" if new else "") + ("// COMPILER: ido53\n" if ido53 else "") + body
+            yield f"{'53' if ido53 else '71'}{' '.join(new)}", text
+
+
+GRID_FAMILIES = ("-O0", "-O1", "-O2", "-O3", "-g", "-g0", "-g3", "-mips1", "-mips2", "-KPIC", "-non_shared", "-Wab,-r4300_mul", "-G", "0", "8")
+
+
+def flag_grid(t):
+    """(tag, new_text) for every combination of the compiler (IDO 7.1 / 5.3), -O0..-O3, -g/-g0/-g3, -mips1/-mips2, -G 0/8, -non_shared/-KPIC and
+    -Wab,-r4300_mul that the draft does not use already (the flags that are not of these families stay): what an optimiser-level difference
+    (an address hoisted into a register, a load merged or not) is made of."""
+    lines = t.split("\n")
+    head = [l for l in lines[:3] if l.startswith(("// FLAGS:", "// COMPILER:"))]
+    body = "\n".join(lines[len(head):])
+    flags = next((l[len("// FLAGS:"):].split() for l in head if l.startswith("// FLAGS:")), ["-O2", "-g3", "-mips2"])
+    old53 = any(l.startswith("// COMPILER: ido53") for l in head)
+    base = [f for f in flags if f not in GRID_FAMILIES]
+    cur = (old53, tuple(sorted(f for f in flags if f in GRID_FAMILIES)))
+    for ido53 in (False, True):
+        for o in ("-O0", "-O1", "-O2", "-O3"):
+            for g in ("-g", "-g0", "-g3"):
+                for mips in ("-mips1", "-mips2"):
+                    for gp in ((), ("-G", "8")):
+                        for pic in ("-non_shared", "-KPIC"):
+                            for mul in ((), ("-Wab,-r4300_mul",)):
+                                new = [o, g, mips, *gp, *mul, *([] if pic == "-non_shared" else [pic])] + base
+                                if (ido53, tuple(sorted(f for f in new if f in GRID_FAMILIES))) == cur:
+                                    continue
+                                text = f"// FLAGS: {' '.join(new)}\n" + ("// COMPILER: ido53\n" if ido53 else "") + body
+                                yield f"{'53' if ido53 else '71'} {' '.join(new[:len(new) - len(base)])}", text
+
+
 MUTATORS = {
     "flags": m_flags, "cmp_swap": m_cmp_swap, "not_form": m_not_form, "cmp_const": m_cmp_const, "bool_swap": m_bool_swap,
     "if_swap": m_if_swap, "dup_return": m_dup_return, "drop_else": m_drop_else, "add_else": m_add_else, "stmt_swap": m_stmt_swap, "decl_swap": m_decl_swap,
     "pad": m_pad, "local_type": m_local_type, "param": m_param, "alias": m_alias, "inline_local": m_inline_local,
     "extract": m_extract, "late_local": m_late_local, "chain_assign": m_chain_assign, "commute": m_commute, "float_lit": m_float_lit, "cast": m_cast,
     "addu": m_addu, "ternary": m_ternary, "loop": m_loop, "callf32": m_callf32, "fieldsign": m_fieldsign, "index": m_index, "symarr": m_symarr, "retfold": m_retfold, "dropsp": m_dropsp, "fwdarg": m_fwdarg,
+    "subcmp": m_subcmp, "cc": m_cc,
 }
 
 

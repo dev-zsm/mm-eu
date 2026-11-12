@@ -216,7 +216,14 @@ def mask(code: bytes, masks: dict) -> list[int]:
 def file_flags(cfile: Path) -> list[str]:
     """Optimisation flags from a first-line `// FLAGS: -O1 -g0` comment, else the default."""
     m = re.match(r"// FLAGS: (.*)", cfile.read_text().splitlines()[0])
-    return (m.group(1).split() + DEFAULT_FLAGS[3:]) if m else DEFAULT_FLAGS
+    if not m:
+        return DEFAULT_FLAGS
+    lead, tail = m.group(1).split(), DEFAULT_FLAGS[3:]
+    if "-G" in lead:   # the flag grid of tools/search/close.py: a file that sets its own -G / -KPIC replaces the default
+        tail = tail[2:]
+    if "-KPIC" in lead:
+        tail = [f for f in tail if f != "-non_shared"]
+    return lead + tail
 
 
 def main():

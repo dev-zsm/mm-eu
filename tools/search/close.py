@@ -237,6 +237,7 @@ def search(tg, text, a, stats, log=print):
     archive = [Node(start[0], text, [])]
     seen, sigs, ncand, best = {norm(text)}, {start[3]}, 0, archive[0]
     log(f"{tg.fn}: start {start[0]:.2f} {ctx}")
+    grid = [("grid", tag, new, archive[0]) for tag, new in mut.flag_grid(text)] if getattr(a, "grid", False) else []   # --grid: once, from the draft
     while time.time() < deadline and ncand < a.cands:
         live = sorted((n for n in archive if not n.dead), key=lambda n: (n.priority(), rng.random()))[:a.beam]
         if not live:
@@ -250,6 +251,7 @@ def search(tg, text, a, stats, log=print):
                 seen.add(norm(new))
                 kids.append((mname, site, new, n))
         kids = kids[:max(0, a.cands - ncand)]
+        kids, grid = grid + kids, []   # the flag grid goes with the first round, whatever the budget of candidates
         if not kids:
             continue
         res = tg.score_many([k[2] for k in kids], deadline)
@@ -605,6 +607,7 @@ def main():
     p.add_argument("--promote", action="store_true")
     p.add_argument("--no-promote", action="store_true")
     p.add_argument("--skip-tried", action="store_true")
+    p.add_argument("--grid", action="store_true", help="also try every combination of compiler, -O, -g, -mips, -G, -KPIC and -r4300_mul on the draft (about 380 compiles)")
     p.add_argument("--max-diff", type=float, default=8)
     p.add_argument("--max-size", type=lambda x: int(x, 0), default=0x300)
     p.add_argument("--limit", type=int, default=0)
