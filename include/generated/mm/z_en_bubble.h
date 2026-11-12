@@ -56,11 +56,11 @@
 #define sJntSphInit D_8089FE68
 
 /* names declared by the headers of the reference, prefixed while they are read */
-#define func_800B8E1C ref_func_800B8E1C
+#define Actor_PlaySeq_FlaggedMusicBoxHouse ref_func_800B8E1C
 
 #include "overlays/actors/ovl_En_Bubble/z_en_bubble.h"
 #include "z_en_item00.h"
-#undef func_800B8E1C
+#undef Actor_PlaySeq_FlaggedMusicBoxHouse
 #define FLAGS (ACTOR_FLAG_ATTENTION_ENABLED)
 void EnBubble_Init(Actor* thisx, PlayState* play);;
 void EnBubble_Destroy(Actor* thisx, PlayState* play);;
