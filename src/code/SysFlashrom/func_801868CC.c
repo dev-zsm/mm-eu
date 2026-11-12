@@ -1,13 +1,12 @@
 #include "types.h"
+#include "generated/code_funcs.h"
 
 extern u8 D_801D7AE8[];
 extern u8 D_801F3650[];
-extern s32 SysFlashrom_IsInit();
 extern void func_80083EAC();
 extern void func_8008A780();
 extern void func_8018819C();
 extern void func_80088070();
-extern s32 func_8018825C();
 s32 SysFlashrom_ExecWrite(s32 a0, s32 a1, s32 a2) {
     u8 sp40[0x18];
     s32 i;

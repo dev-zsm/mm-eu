@@ -1,5 +1,6 @@
 // FLAGS: -O2 -g0 -mips2
 #include "types.h"
+#include "generated/code_funcs.h"
 
 typedef struct {
     /* 0x00 */ u8 pad0[0x19];
@@ -21,10 +22,6 @@ extern struct {
     /* 0x287E */ s16 unk287E;
 } D_801F84B0;
 
-void func_801886B0(s32, s32, s32);
-void func_80188A44(s32);
-s32 AudioSynth_ProcessSamples(s32, s32, s32, s32);
-void AudioScript_ProcessSequences(s32);
 
 s32 func_80188ACC(s32 arg0, s32 *arg1, s32 arg2, s32 arg3) {
     s32 i;

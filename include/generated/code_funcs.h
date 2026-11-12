@@ -1490,6 +1490,7 @@ void Player_ReleaseLockOn(struct Player *player);  /* 80124254 */
 void Player_ClearZTargeting(struct Player *player);  /* 80124270 */
 s32 func_801243C4(u8 *arg0);
 s32 Player_SetBButtonAmmo(struct PlayState *play, s32 ammo);  /* 801243DC */
+void Player_IsBurningStickInRange(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801243F8 */
 u8 Player_GetStrength(void);  /* 801244D0 */
 u8 Player_GetMask(u8 *a0);  /* 801244EC */
 void Player_RemoveMask(u8 *this);  /* 801244FC */
@@ -2479,25 +2480,23 @@ s32 SysFlashrom_IsBusy(void);  /* 80186D64 */
 s32 SysFlashrom_AwaitResult(void);  /* 80186DA4 */
 void SysFlashrom_WriteSync(void);  /* 80186E04 */
 void func_80186E30(s32 arg0);
-s32 func_80187910(s32 arg0);
+s32 func_80187910(s32 value);
 void func_80187958(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_801879C8(void);
 void func_801879D8(s32 arg0);
 s32 func_80187A18();
-void func_80187B4C(s32 arg0);
-void func_80187C00(s32 arg0, s32 arg1);
-void func_80187D04();
-void func_80187D68();
-void func_80187EB8();
-void func_80187F20();
-s32 func_80187FC4(s32);
-void func_80188124(s32 arg0);
-void func_8018819C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 func_8018825C(s32 arg0);
-void func_801883CC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void func_80187B4C(u8 *arg0);
+void func_80187C00(u32 *arg0, u32 *arg1);
+void func_80187D04(void);
+s32 func_80187D68(void);
+void func_80187EB8(void);
+s32 func_80187F20(void);
+s32 func_80187FC4(u32 arg0);
+void func_80188124(u32 arg0);
+s32 func_8018825C(u32 arg0);
 void func_801886B0(s32 arg0, s32 arg1, s32 arg2);
 void func_80188A44(s32 arg0);
-void func_80188ACC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 func_80188ACC(s32 arg0, s32 *arg1, s32 arg2, s32 arg3);
 void func_80188CC8(s32 first, s32 column);
 void func_80188E90(void *arg0, s32 arg1, s32 arg2);
 void func_80188EB0(void);

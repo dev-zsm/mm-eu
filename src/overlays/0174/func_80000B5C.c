@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0174.h"
 
 s32 func_80000B5C(u8 *arg0) {
     f32 temp_f0;

@@ -1,6 +1,7 @@
 // FLAGS: -g
 // COMPILER: ido53
 #include "types.h"
+#include "generated/code_funcs.h"
 
 extern u8 D_801F48C0[];
 extern u32 D_801F48CC;

@@ -23,7 +23,7 @@ void func_80000A68(u8 *arg0, s32 arg1);
 void func_80000AC0(u8 *arg0);
 void func_80000B38(void *arg0, s32 arg1);
 void func_80000C34(void *arg0, s32 arg1);
-void func_80000CF8(u8 *arg0);
+void func_80000CF8(s32 arg0);
 void func_80000D78(void *arg0, s32 arg1);
 void func_80000DE0(u8 *arg0, s32 arg1);
 void func_80000E6C(void *arg0, s32 arg1);

@@ -1,6 +1,7 @@
 // FLAGS: -g
 // COMPILER: ido53
 #include "types.h"
+#include "generated/code_funcs.h"
 
 extern s32 D_801F4938;
 

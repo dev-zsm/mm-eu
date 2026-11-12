@@ -1,11 +1,12 @@
 // FLAGS: -O2 -g0 -mips2
+// COMPILER: ido53
 #include "types.h"
 
 s32 JpegUtils_ParseHuffmanCodesLengths(u8 *ptr, u8 *codesLengths) {
     u8 i = 1;
     s16 idx = 0;
     s16 count = 1;
-    u8 k = 1;
+    s32 k = 1;
 
     while (k < 17) {
         if (ptr[k - 1] > 0) {

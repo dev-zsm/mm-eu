@@ -33,7 +33,7 @@ void func_80000FD0(void *arg0, s32 arg1);
 void func_800010C0(u8 *arg0);
 void func_8000116C(void *arg0, s32 arg1);
 void func_80001354(Actor *thisx);
-void func_800014C4(void *arg0, s32 arg1);
+void func_800014C4(u8 *arg0, s32 arg1);
 void func_8000154C(u8 *arg0);
 void func_8000159C(void *arg0, s32 arg1);
 void func_8000168C(u8 *arg0);

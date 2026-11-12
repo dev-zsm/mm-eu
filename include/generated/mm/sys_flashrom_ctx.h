@@ -6,6 +6,7 @@
 #define bcmp func_800904A0
 #define free func_80086EC0
 #define malloc func_80086E40
+#define osFlashSectorErase func_80187FC4
 
 /* names declared by the headers of the reference, prefixed while they are read */
 

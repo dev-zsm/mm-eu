@@ -1,3 +1,4 @@
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
 extern u16 D_801D3DD0;

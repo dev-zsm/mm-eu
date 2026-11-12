@@ -19,7 +19,7 @@ extern struct {
     MemoryGameEntry e[1];
 } D_801CF974;
 
-u32 func_801954F8();
+u32 AudioThread_NextRandom();
 
 s32 AudioOcarina_MemoryGameNextNote(void) {
     u32 rnd;
@@ -29,7 +29,7 @@ s32 AudioOcarina_MemoryGameNextNote(void) {
     if (D_801CF96C == D_801CF968) {
         return 1;
     }
-    rnd = func_801954F8();
+    rnd = AudioThread_NextRandom();
     noteIndex = D_801CF960[rnd % 5];
     if (noteIndex == D_801CF974.e[D_801CF968].noteIndex) {
         noteIndex = D_801CF960[(rnd + 1) % 5];

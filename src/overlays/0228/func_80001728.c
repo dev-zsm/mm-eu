@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0228.h"
 
 f32 func_8017A844(f32);                         /* extern */
 M2C_UNK func_80968AFC(u8 *, s32);                 /* extern */

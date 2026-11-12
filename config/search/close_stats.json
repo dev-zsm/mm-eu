@@ -12,50 +12,55 @@
    "addu": 1,
    "alias": 1,
    "callf32": 25,
+   "cc": 1,
    "fieldsign": 1,
-   "flags": 4,
+   "flags": 9,
    "float_lit": 1,
-   "fwdarg": 13,
+   "fwdarg": 14,
    "late_local": 1,
-   "local_type": 5,
+   "local_type": 6,
    "pad": 2,
-   "stmt_swap": 15,
+   "stmt_swap": 16,
    "ternary": 1
   },
   "other": {
    "addu": 1,
    "alias": 4,
-   "callf32": 94,
+   "callf32": 110,
+   "cc": 2,
    "commute": 5,
    "decl_swap": 3,
-   "fieldsign": 21,
-   "flags": 5,
+   "dropsp": 1,
+   "fieldsign": 29,
+   "flags": 10,
    "float_lit": 2,
-   "fwdarg": 12,
+   "fwdarg": 13,
    "inline_local": 1,
    "late_local": 1,
-   "local_type": 9,
+   "local_type": 11,
    "pad": 2,
    "param": 1,
    "stmt_swap": 14,
    "symarr": 5
   },
   "reg": {
-   "addu": 3,
+   "addu": 4,
    "alias": 5,
    "callf32": 21,
+   "cc": 6,
    "commute": 14,
    "decl_swap": 2,
    "fieldsign": 1,
-   "flags": 1,
+   "flags": 5,
    "float_lit": 1,
-   "fwdarg": 4,
-   "index": 8,
+   "fwdarg": 5,
+   "index": 9,
    "inline_local": 1,
    "late_local": 1,
-   "local_type": 14,
+   "local_type": 18,
    "pad": 1,
-   "stmt_swap": 45,
+   "stmt_swap": 48,
+   "subcmp": 2,
    "symarr": 5
   },
   "size+": {
@@ -66,9 +71,9 @@
   },
   "size-": {
    "callf32": 8,
-   "flags": 2,
+   "flags": 4,
    "fwdarg": 1,
-   "local_type": 1,
+   "local_type": 2,
    "stmt_swap": 2
   },
   "stack": {
@@ -78,142 +83,147 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 53217,
+   "tried": 57718,
    "wins": 0
   },
   "addu": {
-   "helped": 915,
-   "tried": 85208,
-   "wins": 4
+   "helped": 1084,
+   "tried": 94521,
+   "wins": 5
   },
   "alias": {
-   "helped": 54,
-   "tried": 103400,
+   "helped": 58,
+   "tried": 113704,
    "wins": 5
   },
   "bool_swap": {
-   "helped": 222,
-   "tried": 58707,
+   "helped": 242,
+   "tried": 63877,
    "wins": 0
   },
   "callf32": {
-   "helped": 185,
-   "tried": 52792,
-   "wins": 94
+   "helped": 237,
+   "tried": 59652,
+   "wins": 110
   },
   "cast": {
-   "helped": 10,
-   "tried": 97993,
+   "helped": 11,
+   "tried": 107954,
    "wins": 0
   },
+  "cc": {
+   "helped": 76,
+   "tried": 95060,
+   "wins": 6
+  },
   "chain_assign": {
-   "helped": 34,
-   "tried": 28809,
+   "helped": 41,
+   "tried": 31353,
    "wins": 0
   },
   "cmp_const": {
-   "helped": 31,
-   "tried": 29787,
+   "helped": 37,
+   "tried": 32535,
    "wins": 0
   },
   "cmp_swap": {
-   "helped": 34,
-   "tried": 349684,
+   "helped": 44,
+   "tried": 379281,
    "wins": 0
   },
   "commute": {
-   "helped": 193,
-   "tried": 155527,
+   "helped": 244,
+   "tried": 169740,
    "wins": 17
   },
   "decl_swap": {
-   "helped": 85,
-   "tried": 169416,
+   "helped": 89,
+   "tried": 185196,
    "wins": 3
   },
   "drop_else": {
-   "helped": 12,
-   "tried": 1683,
+   "helped": 14,
+   "tried": 1861,
    "wins": 0
   },
   "dropsp": {
-   "helped": 5,
-   "tried": 1192,
-   "wins": 0
+   "helped": 11,
+   "tried": 1408,
+   "wins": 1
   },
   "dup_return": {
-   "helped": 12,
-   "tried": 2804,
+   "helped": 15,
+   "tried": 2972,
    "wins": 0
   },
   "extract": {
-   "helped": 27,
-   "tried": 48491,
+   "helped": 30,
+   "tried": 51736,
    "wins": 0
   },
   "fieldsign": {
-   "helped": 82,
-   "tried": 207115,
-   "wins": 21
+   "helped": 95,
+   "tried": 230840,
+   "wins": 29
   },
   "flags": {
-   "helped": 691,
-   "tried": 540653,
-   "wins": 12
+   "helped": 769,
+   "tried": 592597,
+   "wins": 19
   },
   "float_lit": {
-   "helped": 76,
-   "tried": 440598,
+   "helped": 80,
+   "tried": 483322,
    "wins": 2
   },
   "fwdarg": {
-   "helped": 976,
-   "tried": 316780,
-   "wins": 16
+   "helped": 1036,
+   "tried": 353401,
+   "wins": 18
   },
   "if_swap": {
-   "helped": 34,
-   "tried": 24269,
+   "helped": 40,
+   "tried": 26647,
    "wins": 0
   },
   "index": {
-   "helped": 2,
-   "tried": 274,
-   "wins": 8
+   "helped": 48,
+   "tried": 352,
+   "wins": 9
   },
   "inline_local": {
-   "helped": 28,
-   "tried": 15558,
+   "helped": 33,
+   "tried": 16985,
    "wins": 2
   },
   "late_local": {
    "helped": 2,
-   "tried": 2797,
+   "tried": 3015,
    "wins": 2
   },
   "local_type": {
-   "helped": 1089,
-   "tried": 1653844,
-   "wins": 25
+   "helped": 1265,
+   "tried": 1799842,
+   "wins": 30
   },
   "loop": {
-   "helped": 15,
-   "tried": 6055,
+   "helped": 16,
+   "tried": 6319,
    "wins": 0
   },
   "not_form": {
-   "helped": 620,
-   "tried": 522122,
+   "helped": 682,
+   "tried": 569868,
    "wins": 0
   },
   "pad": {
-   "helped": 198,
-   "tried": 764166,
+   "helped": 211,
+   "tried": 832867,
    "wins": 8
   },
   "param": {
-   "helped": 483,
-   "tried": 113288,
+   "helped": 524,
+   "tried": 124347,
    "wins": 1
   },
   "permuter": {
@@ -222,18 +232,23 @@
    "wins": 1
   },
   "stmt_swap": {
-   "helped": 992,
-   "tried": 533767,
-   "wins": 51
+   "helped": 1071,
+   "tried": 594151,
+   "wins": 55
+  },
+  "subcmp": {
+   "helped": 10,
+   "tried": 6428,
+   "wins": 2
   },
   "symarr": {
-   "helped": 12,
-   "tried": 119,
+   "helped": 15,
+   "tried": 167,
    "wins": 5
   },
   "ternary": {
    "helped": 1,
-   "tried": 8316,
+   "tried": 8971,
    "wins": 1
   }
  },
@@ -2985,6 +3000,255 @@
    "seg": "ovl0290",
    "seq": [
     "callf32:func_8017A870#0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_801AAD64",
+   "seg": "code",
+   "seq": [
+    "cc:53",
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_801AAA38",
+   "seg": "code",
+   "seq": [
+    "local_type:k:s32",
+    "cc:53",
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_801AAABC",
+   "seg": "code",
+   "seq": [
+    "cc:53-O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc",
+    "flags:-O2 -g0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001FB4",
+   "seg": "ovl0437",
+   "seq": [
+    "subcmp:sub0@412"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000296C",
+   "seg": "ovl0509",
+   "seq": [
+    "subcmp:sub@304"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000220",
+   "seg": "ovl0076",
+   "seq": [
+    "cc:53"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800005D0",
+   "seg": "ovl0239",
+   "seq": [
+    "cc:53"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000D80",
+   "seg": "ovl0610",
+   "seq": [
+    "stmt_swap:@514"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800000CC",
+   "seg": "ovl0618",
+   "seq": [
+    "local_type:temp_v0:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80003C50",
+   "seg": "ovl0489",
+   "seq": [
+    "local_type:temp_v0:s16",
+    "local_type:temp_v0_2:s16"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000010C",
+   "seg": "ovl0632",
+   "seq": [
+    "cc:53"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0634",
+   "seq": [
+    "callf32:func_800B3B14#1",
+    "fieldsign:@1002"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0650",
+   "seq": [
+    "callf32:func_800B3B14#1",
+    "fieldsign:@464"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0656",
+   "seq": [
+    "fieldsign:@468",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0657",
+   "seq": [
+    "fieldsign:@468",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0658",
+   "seq": [
+    "fieldsign:@468",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0659",
+   "seq": [
+    "fieldsign:@468",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "order"
+   ],
+   "fn": "func_80002038",
+   "seg": "ovl0489",
+   "seq": [
+    "stmt_swap:@225<151"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000272C",
+   "seg": "ovl0496",
+   "seq": [
+    "stmt_swap:@308",
+    "stmt_swap:@383"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000834",
+   "seg": "ovl0524",
+   "seq": [
+    "local_type:var_v0:u32",
+    "addu:@357p"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001F48",
+   "seg": "ovl0517",
+   "seq": [
+    "stmt_swap:@1029<855",
+    "stmt_swap:@1058<855"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80007DB8",
+   "seg": "ovl0489",
+   "seq": [
+    "dropsp:sp2C",
+    "callf32:func_800FEE3C#1"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80000BBC",
+   "seg": "ovl0538",
+   "seq": [
+    "fwdarg:func_800B8254+arg0@0"
    ]
   }
  ]

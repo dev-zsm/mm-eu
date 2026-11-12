@@ -1,7 +1,7 @@
 // FLAGS: -O2 -g3 -mips2
 #include "types.h"
+#include "generated/code_funcs.h"
 
-s32 SysFlashrom_IsInit(void);
 void func_8008F490(s32, s32);
 void func_801883CC(void *, s32, s32, s32, s32, void *);
 void func_80088070(void *, s32, s32);

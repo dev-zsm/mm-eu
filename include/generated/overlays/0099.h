@@ -21,7 +21,7 @@ void func_80000ABC(u8 *arg0);
 void func_80000B10(u8 *arg0);
 void func_80000B74(void *arg0, s32 arg1);
 void func_80000C9C(Actor *thisx);
-void func_80000D18(void *arg0, s32 arg1);
+void func_80000D18(u8 *arg0, s32 arg1);
 void func_80000D80(u8 *arg0);
 void func_80000DD8(Actor *thisx, s32 arg1);
 void func_80000FEC(Actor *thisx);

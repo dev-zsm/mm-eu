@@ -13,7 +13,7 @@ void func_80000524(void *arg0, s32 arg1);
 void func_800008EC(void *arg0, s32 arg1);
 void func_80000B98(u8 *arg0);
 void func_80000BF4(void *arg0, s32 arg1);
-void func_80000D0C(void *arg0);
+void func_80000D0C(u8 *arg0);
 void func_80000D8C(void *arg0, s32 arg1);
 void func_80000EB4(void *arg0, void *arg1);
 void func_80000F4C(void *arg0, PlayState *play);

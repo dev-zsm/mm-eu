@@ -1,3 +1,4 @@
+// FLAGS: -O2 -g0 -mips2
 #include "types.h"
 
 typedef struct {
@@ -11,7 +12,7 @@ typedef struct {
 
 extern Struct_801F4DE0 D_801F4DE0;
 
-void func_801A62B8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u16 arg4) {
+void func_801A62B8(u16 arg0, u16 arg1, u16 arg2, u16 arg3, u16 arg4) {
     D_801F4DE0.unkC = arg0;
     D_801F4DE0.unkE = arg1;
     D_801F4DE0.unk10 = arg2;

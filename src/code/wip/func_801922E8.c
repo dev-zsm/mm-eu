@@ -39,8 +39,8 @@ extern struct {
     /* 0x2864 */ u16 unk2864;
 } D_801F84B0;
 
-s32 func_801910E4(s32, s32, s32);
-SeqTableHeader *func_80191174(s32);
+s32 AudioLoad_GetRealTableIndex(s32, s32, s32);
+SeqTableHeader *AudioLoad_GetLoadTable(s32);
 
 s32 AudioLoad_SlowLoadSeq(s32 arg0, s32 arg1, s8 *arg2) {
     SlowLoad *slow;
@@ -52,8 +52,8 @@ s32 AudioLoad_SlowLoadSeq(s32 arg0, s32 arg1, s8 *arg2) {
         *arg2 = 0;
         return -1;
     }
-    arg0 = func_801910E4(0, arg0, arg0);
-    table = func_80191174(0);
+    arg0 = AudioLoad_GetRealTableIndex(0, arg0, arg0);
+    table = AudioLoad_GetLoadTable(0);
     slow = &D_801F84B0.unk1D70[D_801F84B0.unk1D6C];
     if (slow->unk14 == 3) {
         slow->unk14 = 0;
