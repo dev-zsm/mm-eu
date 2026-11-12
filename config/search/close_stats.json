@@ -55,142 +55,142 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 27218,
+   "tried": 35235,
    "wins": 0
   },
   "addu": {
-   "helped": 566,
-   "tried": 46371,
+   "helped": 668,
+   "tried": 58803,
    "wins": 3
   },
   "alias": {
-   "helped": 20,
-   "tried": 54982,
+   "helped": 26,
+   "tried": 70079,
    "wins": 0
   },
   "bool_swap": {
-   "helped": 118,
-   "tried": 29952,
+   "helped": 152,
+   "tried": 38795,
    "wins": 0
   },
   "callf32": {
-   "helped": 44,
-   "tried": 26409,
+   "helped": 53,
+   "tried": 34318,
    "wins": 60
   },
   "cast": {
-   "helped": 5,
-   "tried": 52189,
+   "helped": 6,
+   "tried": 66297,
    "wins": 0
   },
   "chain_assign": {
    "helped": 11,
-   "tried": 15455,
+   "tried": 19640,
    "wins": 0
   },
   "cmp_const": {
-   "helped": 16,
-   "tried": 14626,
+   "helped": 17,
+   "tried": 19254,
    "wins": 0
   },
   "cmp_swap": {
-   "helped": 18,
-   "tried": 180599,
+   "helped": 23,
+   "tried": 234878,
    "wins": 0
   },
   "commute": {
-   "helped": 97,
-   "tried": 80151,
+   "helped": 122,
+   "tried": 103358,
    "wins": 15
   },
   "decl_swap": {
-   "helped": 34,
-   "tried": 84516,
+   "helped": 42,
+   "tried": 110164,
    "wins": 0
   },
   "drop_else": {
-   "helped": 6,
-   "tried": 848,
+   "helped": 8,
+   "tried": 1107,
    "wins": 0
   },
   "dropsp": {
    "helped": 0,
-   "tried": 596,
+   "tried": 783,
    "wins": 0
   },
   "dup_return": {
-   "helped": 5,
-   "tried": 1335,
+   "helped": 6,
+   "tried": 1744,
    "wins": 0
   },
   "extract": {
-   "helped": 13,
-   "tried": 23538,
+   "helped": 17,
+   "tried": 30014,
    "wins": 0
   },
   "fieldsign": {
-   "helped": 40,
-   "tried": 103460,
+   "helped": 49,
+   "tried": 137446,
    "wins": 19
   },
   "flags": {
-   "helped": 364,
-   "tried": 277978,
+   "helped": 453,
+   "tried": 360257,
    "wins": 12
   },
   "float_lit": {
-   "helped": 51,
-   "tried": 230905,
+   "helped": 58,
+   "tried": 297012,
    "wins": 1
   },
   "fwdarg": {
-   "helped": 441,
-   "tried": 156467,
+   "helped": 581,
+   "tried": 209777,
    "wins": 9
   },
   "if_swap": {
-   "helped": 16,
-   "tried": 12541,
+   "helped": 18,
+   "tried": 16357,
    "wins": 0
   },
   "index": {
    "helped": 2,
-   "tried": 141,
+   "tried": 188,
    "wins": 8
   },
   "inline_local": {
-   "helped": 8,
-   "tried": 7696,
+   "helped": 11,
+   "tried": 10107,
    "wins": 1
   },
   "late_local": {
    "helped": 0,
-   "tried": 1334,
+   "tried": 1776,
    "wins": 0
   },
   "local_type": {
-   "helped": 509,
-   "tried": 842255,
+   "helped": 633,
+   "tried": 1093396,
    "wins": 17
   },
   "loop": {
-   "helped": 6,
-   "tried": 2858,
+   "helped": 9,
+   "tried": 3763,
    "wins": 0
   },
   "not_form": {
-   "helped": 306,
-   "tried": 264938,
+   "helped": 382,
+   "tried": 342699,
    "wins": 0
   },
   "pad": {
-   "helped": 98,
-   "tried": 395132,
+   "helped": 120,
+   "tried": 511110,
    "wins": 6
   },
   "param": {
-   "helped": 253,
-   "tried": 59469,
+   "helped": 314,
+   "tried": 76637,
    "wins": 1
   },
   "permuter": {
@@ -199,8 +199,8 @@
    "wins": 1
   },
   "stmt_swap": {
-   "helped": 432,
-   "tried": 277507,
+   "helped": 539,
+   "tried": 354389,
    "wins": 33
   },
   "symarr": {
@@ -210,7 +210,7 @@
   },
   "ternary": {
    "helped": 1,
-   "tried": 4174,
+   "tried": 5397,
    "wins": 1
   }
  },
