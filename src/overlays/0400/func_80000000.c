@@ -1,0 +1,73 @@
+typedef signed char s8;
+typedef unsigned char u8;
+typedef signed short s16;
+typedef unsigned short u16;
+typedef signed int s32;
+typedef unsigned int u32;
+typedef signed long long s64;
+typedef unsigned long long u64;
+typedef float f32;
+typedef double f64;
+typedef s32 M2C_UNK;
+typedef struct {
+    u8 pad0[0xC];
+    f32 unkC;
+    u8 pad10[0x6];
+    s16 unk16;
+    u8 pad18[0x4];
+    s16 unk1C;
+    u8 pad1E[0x6];
+    f32 unk24;
+    f32 unk28;
+    f32 unk2C;
+    u8 pad30[0x8];
+    s8 unk38;
+    u8 pad39[0x10B];
+    void *unk144;
+    u8 pad148[0x4E];
+    s16 unk196;
+    u8 pad198[0x114];
+    f32 unk2AC;
+    f32 unk2B0;
+    f32 unk2B4;
+} S_arg0;
+s32 func_800B5B20(s32, s16);
+M2C_UNK func_800B6490(u8 *);
+M2C_UNK func_800E1134(s32, u8 *, u8 *, M2C_UNK *);
+M2C_UNK func_800E72F0(u8 *, M2C_UNK, M2C_UNK *);
+s16 func_800F1E68(s8);
+f32 func_800FEB44(s16);
+f32 func_800FEB84(s16);
+M2C_UNK func_800FF8DC(u8 *, M2C_UNK *);
+M2C_UNK func_80136ED0(s32, u8 *, M2C_UNK *, M2C_UNK *, u8 *, u8 *, s32);
+M2C_UNK func_80AA79B4(u8 *);
+extern M2C_UNK D_60014B8;
+extern M2C_UNK D_6006BC0;
+extern u8 D_801E7DFC;
+extern M2C_UNK D_80AA787C;
+extern M2C_UNK D_80AA9260;
+extern M2C_UNK D_80AA928C;
+extern M2C_UNK D_80AA92B8;
+extern M2C_UNK D_80AA92C0;
+extern f32 D_80AA9340;
+void func_80000000(S_arg0 *arg0, s32 arg1) {
+    f32 temp_f6;
+    s16 temp_a1;
+    func_800FF8DC(arg0, &D_80AA92C0);
+    func_80136ED0(arg1, ((u8 *) arg0) + 0x148, &D_6006BC0, &D_60014B8, ((u8 *) arg0) + 0x198, ((u8 *) arg0) + 0x210, 0x14);
+    func_800E1134(arg1, ((u8 *) arg0) + 0x360, arg0, &D_80AA9260);
+    func_800E1134(arg1, ((u8 *) arg0) + 0x3AC, arg0, &D_80AA928C);
+    func_800E72F0(((u8 *) arg0) + 0xA0, 0, &D_80AA92B8);
+    arg0->unk196 = func_800F1E68(arg0->unk38);
+    if ((D_801E7DFC & 2) || (((temp_a1 = arg0->unk1C, temp_a1 != 0xFF)) && (func_800B5B20(arg1, temp_a1) != 0))) {
+        func_800B6490(arg0);
+    } else {
+        arg0->unk28 = (f32) (arg0->unk28 - 99.0f);
+        func_80AA79B4(arg0);
+    }
+    arg0->unk2AC = (f32) ((func_800FEB84(arg0->unk16) * 66.0f) + arg0->unk24);
+    arg0->unk2B0 = (f32) ((arg0->unkC - 49.5f) + D_80AA9340);
+    temp_f6 = func_800FEB44(arg0->unk16) * 66.0f;
+    arg0->unk144 = &D_80AA787C;
+    arg0->unk2B4 = (f32) ((temp_f6 * 1.0f) + arg0->unk2C);
+}
