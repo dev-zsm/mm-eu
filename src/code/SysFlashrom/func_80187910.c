@@ -1,4 +1,5 @@
-// FLAGS: -O0 -g3 -mips2
+// FLAGS: -g
+// COMPILER: ido53
 #include "types.h"
 
 extern s32 D_801F4938;

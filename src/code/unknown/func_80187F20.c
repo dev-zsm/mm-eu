@@ -1,4 +1,5 @@
-// FLAGS: -O1 -g3 -mips2
+// FLAGS: -g
+// COMPILER: ido53
 #include "types.h"
 s32 func_80187B4C(u8 *);
 s32 func_80187D04(void);
