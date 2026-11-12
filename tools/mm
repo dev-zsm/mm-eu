@@ -4,12 +4,17 @@
 #   tools/mm m2c   <seg> <fn>              first-draft C from m2c (often wrong: always verify)
 #   tools/mm match <seg> <fn> <file.c>     compile with IDO 7.1 and compare with the ROM bytes
 #   tools/mm diff  <seg> <fn> <file.c>     show original vs our disassembly side by side
+#   tools/mm push                          THE way to push: selftest + fastcheck, rebase on origin/main if it moved, git push origin HEAD:main
 #   tools/mm fast  match|batch|sync|stats ...   the persistent match server (tools/fast/client.py), milliseconds per call
 set -e
 cmd=$1; seg=$2; fn=$3; file=$4
 root=$(cd "$(dirname "$0")/.." && pwd)                       # e.g. /c/Users/me/Projets/mm-eu
 case "$root" in /[a-z]/*) wslroot="/mnt/${root:1:1}/${root:3}" ;; *) wslroot="$root" ;; esac
 bash "$root/tools/check/preflight.sh" "$root" || exit 1   # a full drive crashed WSL: no work under 15 GB free (MM_MIN_FREE_GB)
+if [ "$cmd" = push ]; then   # tools/mm push: selftest + fastcheck in WSL, rebase and push with the git of Windows (tools/check/push.sh); from any worktree
+  MSYS_NO_PATHCONV=1 WSLENV="MM_JOBS:MM_WORK:MM_FULL:MM_CACHE_MAX:$WSLENV" wsl.exe -d Ubuntu --cd "$wslroot" -- bash tools/check/push.sh 2>&1 | tr -d '\0'
+  exit ${PIPESTATUS[0]}
+fi
 if [ "$cmd" = fast ]; then   # the match server: tools/mm fast match|batch|sync|stats ... (arguments passed as they are)
   # no shell on the Linux side (--exec): the arguments reach python untouched; MM_JOBS and MM_CACHE are handed over when set
   MSYS_NO_PATHCONV=1 WSLENV="MM_JOBS:MM_CACHE:MM_FAST_HOME:$WSLENV" wsl.exe -d Ubuntu --cd "$wslroot" --exec python3 tools/fast/client.py "${@:2}" 2>&1 | tr -d '\0'

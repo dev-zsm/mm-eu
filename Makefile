@@ -19,7 +19,7 @@ check:            ## run before every commit: verify boot, code and the overlays
 fastcheck:        ## same as check, 3-4 times faster when the repository is on the Windows disk (mirrors it to the WSL disk)
 	bash tools/check/fastcheck.sh
 
-push:             ## THE way to push: selftest + fastcheck, then git push origin HEAD:main (rebase on origin/main first)
+push:             ## THE way to push, from any worktree: selftest + fastcheck, rebase on origin/main if it moved, git push origin HEAD:main (git.exe of Windows)
 	bash tools/check/push.sh
 
 selfcheck:        ## a minute: the incremental checks agree with a full run on deliberately broken trees (on the Windows disk: tools/check/fastcheck.sh selfcheck)
