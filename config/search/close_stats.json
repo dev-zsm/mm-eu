@@ -10,69 +10,72 @@
   },
   "order": {
    "addu": 1,
-   "alias": 1,
-   "callf32": 25,
+   "alias": 2,
+   "callf32": 52,
    "cc": 1,
-   "fieldsign": 1,
-   "flags": 9,
+   "commute": 2,
+   "fieldsign": 3,
+   "flags": 10,
    "float_lit": 1,
-   "fwdarg": 14,
+   "fwdarg": 20,
    "late_local": 1,
-   "local_type": 6,
+   "local_type": 10,
    "pad": 2,
-   "stmt_swap": 16,
+   "param": 1,
+   "stmt_swap": 22,
+   "symarr": 2,
    "ternary": 1
   },
   "other": {
    "addu": 1,
-   "alias": 4,
-   "callf32": 110,
+   "alias": 5,
+   "callf32": 140,
    "cc": 2,
-   "commute": 5,
-   "decl_swap": 3,
-   "dropsp": 1,
-   "fieldsign": 29,
-   "flags": 10,
-   "float_lit": 2,
-   "fwdarg": 13,
-   "inline_local": 1,
+   "commute": 9,
+   "decl_swap": 8,
+   "dropsp": 2,
+   "fieldsign": 34,
+   "flags": 11,
+   "float_lit": 3,
+   "fwdarg": 19,
+   "inline_local": 2,
    "late_local": 1,
-   "local_type": 11,
-   "pad": 2,
-   "param": 1,
-   "stmt_swap": 14,
-   "symarr": 5
+   "local_type": 15,
+   "pad": 4,
+   "param": 2,
+   "stmt_swap": 22,
+   "symarr": 9
   },
   "reg": {
    "addu": 4,
-   "alias": 5,
-   "callf32": 21,
+   "alias": 8,
+   "callf32": 47,
    "cc": 6,
-   "commute": 14,
-   "decl_swap": 2,
-   "fieldsign": 1,
-   "flags": 5,
-   "float_lit": 1,
-   "fwdarg": 5,
+   "commute": 17,
+   "decl_swap": 4,
+   "fieldsign": 5,
+   "flags": 6,
+   "float_lit": 2,
+   "fwdarg": 6,
    "index": 9,
    "inline_local": 1,
    "late_local": 1,
-   "local_type": 18,
-   "pad": 1,
-   "stmt_swap": 48,
+   "local_type": 21,
+   "pad": 2,
+   "stmt_swap": 58,
    "subcmp": 2,
-   "symarr": 5
+   "symarr": 8
   },
   "size+": {
    "fieldsign": 1,
    "fwdarg": 1,
    "late_local": 1,
-   "local_type": 2
+   "local_type": 3
   },
   "size-": {
-   "callf32": 8,
+   "callf32": 12,
    "flags": 4,
-   "fwdarg": 1,
+   "fwdarg": 2,
    "local_type": 2,
    "stmt_swap": 2
   },
@@ -83,128 +86,128 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 57718,
+   "tried": 60948,
    "wins": 0
   },
   "addu": {
-   "helped": 1084,
-   "tried": 94521,
+   "helped": 1215,
+   "tried": 103110,
    "wins": 5
   },
   "alias": {
-   "helped": 58,
-   "tried": 113704,
-   "wins": 5
+   "helped": 91,
+   "tried": 121347,
+   "wins": 8
   },
   "bool_swap": {
-   "helped": 242,
-   "tried": 63877,
+   "helped": 248,
+   "tried": 66999,
    "wins": 0
   },
   "callf32": {
-   "helped": 237,
-   "tried": 59652,
-   "wins": 110
+   "helped": 389,
+   "tried": 65031,
+   "wins": 140
   },
   "cast": {
    "helped": 11,
-   "tried": 107954,
+   "tried": 117778,
    "wins": 0
   },
   "cc": {
-   "helped": 76,
-   "tried": 95060,
+   "helped": 131,
+   "tried": 161397,
    "wins": 6
   },
   "chain_assign": {
-   "helped": 41,
-   "tried": 31353,
+   "helped": 44,
+   "tried": 32413,
    "wins": 0
   },
   "cmp_const": {
    "helped": 37,
-   "tried": 32535,
+   "tried": 33691,
    "wins": 0
   },
   "cmp_swap": {
-   "helped": 44,
-   "tried": 379281,
+   "helped": 45,
+   "tried": 399826,
    "wins": 0
   },
   "commute": {
-   "helped": 244,
-   "tried": 169740,
-   "wins": 17
+   "helped": 427,
+   "tried": 183154,
+   "wins": 21
   },
   "decl_swap": {
-   "helped": 89,
-   "tried": 185196,
-   "wins": 3
+   "helped": 163,
+   "tried": 202132,
+   "wins": 8
   },
   "drop_else": {
    "helped": 14,
-   "tried": 1861,
+   "tried": 1914,
    "wins": 0
   },
   "dropsp": {
-   "helped": 11,
-   "tried": 1408,
-   "wins": 1
+   "helped": 37,
+   "tried": 2058,
+   "wins": 2
   },
   "dup_return": {
    "helped": 15,
-   "tried": 2972,
+   "tried": 3022,
    "wins": 0
   },
   "extract": {
-   "helped": 30,
-   "tried": 51736,
+   "helped": 31,
+   "tried": 51810,
    "wins": 0
   },
   "fieldsign": {
-   "helped": 95,
-   "tried": 230840,
-   "wins": 29
+   "helped": 132,
+   "tried": 260097,
+   "wins": 34
   },
   "flags": {
-   "helped": 769,
-   "tried": 592597,
-   "wins": 19
+   "helped": 801,
+   "tried": 628882,
+   "wins": 20
   },
   "float_lit": {
-   "helped": 80,
-   "tried": 483322,
-   "wins": 2
+   "helped": 85,
+   "tried": 515679,
+   "wins": 3
   },
   "fwdarg": {
-   "helped": 1036,
-   "tried": 353401,
-   "wins": 18
+   "helped": 1140,
+   "tried": 390057,
+   "wins": 24
   },
   "if_swap": {
-   "helped": 40,
-   "tried": 26647,
+   "helped": 41,
+   "tried": 28375,
    "wins": 0
   },
   "index": {
-   "helped": 48,
-   "tried": 352,
+   "helped": 51,
+   "tried": 387,
    "wins": 9
   },
   "inline_local": {
-   "helped": 33,
-   "tried": 16985,
-   "wins": 2
+   "helped": 62,
+   "tried": 18392,
+   "wins": 3
   },
   "late_local": {
-   "helped": 2,
-   "tried": 3015,
+   "helped": 3,
+   "tried": 3230,
    "wins": 2
   },
   "local_type": {
-   "helped": 1265,
-   "tried": 1799842,
-   "wins": 30
+   "helped": 1410,
+   "tried": 1925657,
+   "wins": 34
   },
   "loop": {
    "helped": 16,
@@ -212,19 +215,19 @@
    "wins": 0
   },
   "not_form": {
-   "helped": 682,
-   "tried": 569868,
+   "helped": 756,
+   "tried": 602812,
    "wins": 0
   },
   "pad": {
-   "helped": 211,
-   "tried": 832867,
-   "wins": 8
+   "helped": 270,
+   "tried": 880508,
+   "wins": 10
   },
   "param": {
-   "helped": 524,
-   "tried": 124347,
-   "wins": 1
+   "helped": 565,
+   "tried": 131691,
+   "wins": 2
   },
   "permuter": {
    "helped": 0,
@@ -232,23 +235,23 @@
    "wins": 1
   },
   "stmt_swap": {
-   "helped": 1071,
-   "tried": 594151,
-   "wins": 55
+   "helped": 1267,
+   "tried": 660060,
+   "wins": 65
   },
   "subcmp": {
-   "helped": 10,
-   "tried": 6428,
+   "helped": 23,
+   "tried": 11597,
    "wins": 2
   },
   "symarr": {
-   "helped": 15,
-   "tried": 167,
-   "wins": 5
+   "helped": 52,
+   "tried": 931,
+   "wins": 9
   },
   "ternary": {
    "helped": 1,
-   "tried": 8971,
+   "tried": 9236,
    "wins": 1
   }
  },
@@ -3249,6 +3252,727 @@
    "seg": "ovl0538",
    "seq": [
     "fwdarg:func_800B8254+arg0@0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000F14",
+   "seg": "ovl0496",
+   "seq": [
+    "stmt_swap:@891<542",
+    "stmt_swap:@890<542"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_800000D0",
+   "seg": "ovl0660",
+   "seq": [
+    "symarr:D_80C08FC4:u32",
+    "symarr:D_80C08FC4:u32",
+    "callf32:func_80137788#3",
+    "float_lit:0.0f"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0617",
+   "seq": [
+    "commute:paren@1156",
+    "fieldsign:@734",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800010A0",
+   "seg": "ovl0127",
+   "seq": [
+    "alias:arg1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000A0C",
+   "seg": "ovl0110",
+   "seq": [
+    "decl_swap:last@412"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000568",
+   "seg": "ovl0074",
+   "seq": [
+    "callf32:func_80137788#2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000718",
+   "seg": "ovl0074",
+   "seq": [
+    "callf32:func_80137788#2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_8000118C",
+   "seg": "ovl0126",
+   "seq": [
+    "callf32:func_80137788#2",
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_800028D8",
+   "seg": "ovl0604",
+   "seq": [
+    "fwdarg:func_800B8254+first2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_800015E8",
+   "seg": "ovl0506",
+   "seq": [
+    "local_type:temp_v0:s32",
+    "callf32:func_800FFAD8#1"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000C70",
+   "seg": "ovl0111",
+   "seq": [
+    "stmt_swap:@647<437",
+    "stmt_swap:@634<539"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0651",
+   "seq": [
+    "callf32:func_800B763C#2",
+    "callf32:func_800B763C#3",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80000EF8",
+   "seg": "ovl0152",
+   "seq": [
+    "pad:first:s16 pad_h;",
+    "stmt_swap:@818"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80000624",
+   "seg": "ovl0485",
+   "seq": [
+    "decl_swap:first@226",
+    "stmt_swap:@965",
+    "fieldsign:@578"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_8002DE08",
+   "seg": "ovl0056",
+   "seq": [
+    "decl_swap:first@380"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800005E0",
+   "seg": "ovl0127",
+   "seq": [
+    "pad:last:s32 pad2[2];"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000C54",
+   "seg": "ovl0483",
+   "seq": [
+    "decl_swap:first@221"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80008634",
+   "seg": "ovl0069",
+   "seq": [
+    "callf32:func_80137788#2",
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000E80",
+   "seg": "ovl0100",
+   "seq": [
+    "callf32:func_800FFAD8#1"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80008BE4",
+   "seg": "ovl0069",
+   "seq": [
+    "callf32:func_80137788#3",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80008D14",
+   "seg": "ovl0069",
+   "seq": [
+    "callf32:func_80137788#3",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80001084",
+   "seg": "ovl0616",
+   "seq": [
+    "alias:arg5",
+    "commute:paren@368",
+    "commute:paren@265"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_800030D0",
+   "seg": "ovl0489",
+   "seq": [
+    "dropsp:sp20",
+    "fieldsign:@985",
+    "callf32:func_800B3B14#1"
+   ]
+  },
+  {
+   "ctx": [
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0655",
+   "seq": [
+    "inline_local:sp30"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80005A44",
+   "seg": "ovl0056",
+   "seq": [
+    "decl_swap:first@495",
+    "symarr:D_8085C648:u32",
+    "symarr:D_8085C640:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001944",
+   "seg": "ovl0076",
+   "seq": [
+    "stmt_swap:@802<677",
+    "stmt_swap:@725"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_800014EC",
+   "seg": "ovl0174",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_8000140C",
+   "seg": "ovl0528",
+   "seq": [
+    "fwdarg:func_80B7BB7C+arg0@0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_800010B8",
+   "seg": "ovl0063",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80001AD4",
+   "seg": "ovl0063",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000F38",
+   "seg": "ovl0084",
+   "seq": [
+    "callf32:func_800B8284#2",
+    "callf32:func_800B8284#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000D84",
+   "seg": "ovl0499",
+   "seq": [
+    "callf32:func_800B8284#2",
+    "callf32:func_800B8284#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_800020F8",
+   "seg": "ovl0111",
+   "seq": [
+    "flags:-Wab,-r4300_mul",
+    "commute:paren@816"
+   ]
+  },
+  {
+   "ctx": [
+    "size-",
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_800014BC",
+   "seg": "ovl0488",
+   "seq": [
+    "callf32:func_800B8284#3",
+    "callf32:func_800B8284#2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001ECC",
+   "seg": "ovl0528",
+   "seq": [
+    "callf32:func_800B8284#3",
+    "callf32:func_800B8284#2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001E40",
+   "seg": "ovl0092",
+   "seq": [
+    "stmt_swap:@425"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000DDC",
+   "seg": "ovl0102",
+   "seq": [
+    "callf32:func_800FFAD8#1"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80001A94",
+   "seg": "ovl0056",
+   "seq": [
+    "symarr:D_8085C08C:u8"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80002A3C",
+   "seg": "ovl0076",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000C8C",
+   "seg": "ovl0105",
+   "seq": [
+    "callf32:func_80137788#2",
+    "callf32:func_80137788#3",
+    "stmt_swap:@579"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001AA4",
+   "seg": "ovl0491",
+   "seq": [
+    "stmt_swap:@1025",
+    "fieldsign:@690"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80002E10",
+   "seg": "ovl0604",
+   "seq": [
+    "callf32:func_800FFBF8#3",
+    "commute:paren@401",
+    "callf32:func_800FFBF8#1"
+   ]
+  },
+  {
+   "ctx": [
+    "size-",
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000768",
+   "seg": "ovl0610",
+   "seq": [
+    "callf32:func_800B8284#3",
+    "callf32:func_800B8284#2"
+   ]
+  },
+  {
+   "ctx": [
+    "size-",
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000A4C",
+   "seg": "ovl0610",
+   "seq": [
+    "callf32:func_800B8284#3",
+    "callf32:func_800B8284#2"
+   ]
+  },
+  {
+   "ctx": [
+    "size-",
+    "order",
+    "other"
+   ],
+   "fn": "func_800006A0",
+   "seg": "ovl0108",
+   "seq": [
+    "fwdarg:func_800B6564+arg0@0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order"
+   ],
+   "fn": "func_80000160",
+   "seg": "ovl0503",
+   "seq": [
+    "alias:arg0"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80026950",
+   "seg": "ovl0056",
+   "seq": [
+    "param:add2",
+    "fwdarg:func_80136480+arg2x@2"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001290",
+   "seg": "ovl0056",
+   "seq": [
+    "local_type:temp_v0:s16",
+    "symarr:D_8085B574:s32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000B74",
+   "seg": "ovl0496",
+   "seq": [
+    "fwdarg:func_800B8C4C+arg0@0",
+    "fieldsign:@469"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0102",
+   "seq": [
+    "stmt_swap:@1167"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80005294",
+   "seg": "ovl0125",
+   "seq": [
+    "stmt_swap:@426<289",
+    "stmt_swap:@467<289"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001CBC",
+   "seg": "ovl0633",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001954",
+   "seg": "ovl0110",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001E04",
+   "seg": "ovl0110",
+   "seq": [
+    "callf32:func_80137788#3"
+   ]
+  },
+  {
+   "ctx": [
+    "size-",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000AF0",
+   "seg": "ovl0610",
+   "seq": [
+    "callf32:func_800B8284#2",
+    "callf32:func_800B8284#3"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_80008EF8",
+   "seg": "ovl0056",
+   "seq": [
+    "fwdarg:func_801238D0+arg0@0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001C1C",
+   "seg": "ovl0490",
+   "seq": [
+    "local_type:temp_v0:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "size+",
+    "order",
+    "other"
+   ],
+   "fn": "func_80001654",
+   "seg": "ovl0056",
+   "seq": [
+    "local_type:param arg3:s32",
+    "local_type:param arg2:u32"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "order",
+    "other"
+   ],
+   "fn": "func_80000ECC",
+   "seg": "ovl0174",
+   "seq": [
+    "callf32:func_80137788#3"
    ]
   }
  ]

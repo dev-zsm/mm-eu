@@ -10,7 +10,7 @@ typedef struct EnBombal EnBombal;
 void EnBombal_Init(Actor *thisx, PlayState *play);  /* 80000000 */
 void EnBombal_Destroy(Actor *thisx, PlayState *play);  /* 80000088 */
 void func_800000B4(u8 *arg0);
-void func_800000CC(void *arg0, s32 arg1);
+void func_800000CC(u8 *arg0, u8 *arg1);
 void func_800001D4(EnBombal *this, PlayState *play);
 void func_80000378(EnBombal *this, PlayState *play);
 void EnBombal_Update(Actor *thisx, PlayState *play);  /* 8000040C */

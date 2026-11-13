@@ -1490,7 +1490,6 @@ void Player_ReleaseLockOn(struct Player *player);  /* 80124254 */
 void Player_ClearZTargeting(struct Player *player);  /* 80124270 */
 s32 func_801243C4(u8 *arg0);
 s32 Player_SetBButtonAmmo(struct PlayState *play, s32 ammo);  /* 801243DC */
-void Player_IsBurningStickInRange(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801243F8 */
 u8 Player_GetStrength(void);  /* 801244D0 */
 u8 Player_GetMask(u8 *a0);  /* 801244EC */
 void Player_RemoveMask(u8 *this);  /* 801244FC */
@@ -3013,12 +3012,12 @@ s32 AudioSeq_ResetReverb();  /* 801AA6EC */
 void AudioSeq_ResetActiveSequences(void);  /* 801AA878 */
 void AudioSeq_ResetActiveSequencesAndVolume(void);  /* 801AA934 */
 void JpegUtils_ProcessQuantizationTable(u8 *dqt, struct JpegQuantizationTable *qt, u8 count);  /* 801AA9D0 */
-s32 JpegUtils_ParseHuffmanCodesLengths(s32 arg0, s32 arg1);  /* 801AAA38 */
+s32 JpegUtils_ParseHuffmanCodesLengths(u8 *ptr, u8 *codesLengths);  /* 801AAA38 */
 s32 JpegUtils_GetHuffmanCodes(void *arg0, s32 arg1);  /* 801AAABC */
 s32 JpegUtils_SetHuffmanTable(s32 arg0, s32 arg1, s32 arg2);  /* 801AAB28 */
 s32 JpegUtils_ProcessHuffmanTableImpl(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AABD0 */
 u32 JpegUtils_ProcessHuffmanTable(u8 *dht, struct JpegHuffmanTable *ht, u8 *codesLengths, u16 *codes, u8 count);  /* 801AAC8C */
-void JpegUtils_SetHuffmanTableOld(s32 arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AAD64 */
+void JpegUtils_SetHuffmanTableOld(u8 *codeOffs, u8 *dst, u8 *vals, u16 *codes, s16 count, u8 flag);  /* 801AAD64 */
 void JpegUtils_ProcessHuffmanTableImplOld(void *arg0, s32 arg1, s32 arg2, s32 arg3);  /* 801AAE0C */
 s32 JpegDecoder_Decode(struct JpegDecoder *decoder, u16 *mcuBuff, s32 count, u8 isFollowing, struct JpegDecoderState *state);  /* 801AAEE0 */
 s32 JpegDecoder_ProcessMcu(s32 arg0, s32 arg1, void *arg2, void *arg3);  /* 801AB108 */

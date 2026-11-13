@@ -1,6 +1,7 @@
 // COMPILER: ido53
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0632.h"
 
 f32 func_8008704C();                                /* extern */
 extern f32 D_80BF5470;

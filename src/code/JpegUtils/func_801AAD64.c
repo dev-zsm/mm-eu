@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 #include "types.h"
+#include "generated/code_funcs.h"
 
 void JpegUtils_SetHuffmanTableOld(u8 *codeOffs, u8 *dst, u8 *vals, u16 *codes, s16 count, u8 flag) {
     s16 i;

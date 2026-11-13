@@ -1,6 +1,7 @@
 // FLAGS: -O2 -g0 -mips2
 // COMPILER: ido53
 #include "types.h"
+#include "generated/code_funcs.h"
 
 s32 JpegUtils_ParseHuffmanCodesLengths(u8 *ptr, u8 *codesLengths) {
     u8 i = 1;
