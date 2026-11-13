@@ -1,15 +1,17 @@
 #include "types.h"
+#include "actor.h"
+#include "generated/overlays/0172.h"
 
-void func_80000134(u8 *a0, s32 a1) {
+void func_80000134(Actor *thisx, PlayState *play) {
     u8 *v1;
     u8 *v0;
     s16 t;
-    v1 = *((u8 **) (a0 + 0x120));
+    v1 = *((u8 **) ((u8 *)thisx + 0x120));
     v0 = v1;
     if (!v1) {
         return;
     }
-    if ((*((s32 *) ((*((u8 **) (a0 + 0x120))) + 0x138))) == 0) {
+    if ((*((s32 *) ((*((u8 **) ((u8 *)thisx + 0x120))) + 0x138))) == 0) {
         return;
     }
     t = *((s16 *) (v1 + 0x290));
