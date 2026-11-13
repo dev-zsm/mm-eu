@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0056.h"
 
 extern M2C_UNK D_400D0B0;
 extern M2C_UNK D_400E260;

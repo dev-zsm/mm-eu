@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0616.h"
 
 s32 func_80001084(s32 arg0, s32 arg1, s32 *arg2, M2C_UNK arg3, u8 *arg4, u8 *arg5) {
     u8 *this = arg5;
