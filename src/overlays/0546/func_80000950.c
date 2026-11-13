@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0546.h"
 typedef struct { s32 w; u8 pad[0x40]; } Stride44_s32;
 
 M2C_UNK func_8013C01C(u8 *, M2C_UNK *, s32, u8 *); /* extern */

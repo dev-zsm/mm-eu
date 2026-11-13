@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0088.h"
 
 M2C_UNK func_80151E7C(s32, u16);                    /* extern */
 M2C_UNK func_8019FF78(M2C_UNK);                     /* extern */

@@ -18,7 +18,7 @@ void func_80000650(u8 *arg0, s32 arg1);
 void func_800006B0(u8 *arg0, s32 arg1);
 void func_80000704(void *arg0, void *arg1);
 void func_80000874(void *arg0);
-void func_800008E8(void *arg0, s32 arg1);
+void func_800008E8(u8 *arg0, u8 *arg1);
 void func_80000A48(Actor *thisx, s32 arg1);
 void func_80000AD8(Actor *thisx, s32 arg1);
 void func_80000C44(Actor *thisx, s32 arg1);
