@@ -547,9 +547,11 @@ def m_inline_local(t, name):
         if len(assigns) != 1 or uses < 1:
             continue
         simple = bool(re.fullmatch(r"[\w.>\[\]*&-]+|\([\w ]+\*?\)\s*[\w.>\[\]-]+", rhs))
-        if not simple and uses != 1:
+        # a read of one field (`M2C_FIELD(p, s16 *, 0x16)`, no call): every use becomes the read again, as the ROM loads it again each time
+        field = rhs.startswith("M2C_FIELD(") and match_close(rhs, 9) == len(rhs) - 1 and set(re.findall(r"([A-Za-z_]\w*)\s*\(", rhs)) == {"M2C_FIELD"}
+        if not simple and not field and uses != 1:
             continue
-        sub = rhs if simple else f"({rhs})"
+        sub = rhs if simple or field else f"({rhs})"
         rest = re.sub(r"\b" + var + r"\b", lambda _: sub, t[b:be]) + t[be:]
         ls = line_start(t, a)
         new = (t[:ls] + rest.lstrip(" ").lstrip("\n")) if t[ls:a].strip() == "" else t[:a] + rest

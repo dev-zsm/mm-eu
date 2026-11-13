@@ -9,6 +9,7 @@
 #   MM_WORK=<dir>   where the mirror lives (default: ~/.cache/mm-eu-work)
 set -e
 root=$(cd "$(dirname "$0")/../.." && pwd)
+case "${MM_WORK:-}" in "~" | "~/"*) MM_WORK="$HOME${MM_WORK#\~}" ;; esac   # a ~ the shell did not expand: the home of WSL
 bash "$root/tools/check/preflight.sh" "$root" "$HOME" || exit 1
 # One fastcheck at a time on the machine, whatever the checkout: WSL has a few GB and several mirrors and compile jobs at once killed it.
 # flock on a file of the home directory: the system releases it when the run ends or is killed.

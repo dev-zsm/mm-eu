@@ -112,6 +112,8 @@ sv = close_mut.variants("// FLAGS: -O2 -g3 -mips2\nint f(int a, int b) {\n    if
 check(any(v[0] == "subcmp" and "if (!(a - b))" in v[2] for v in sv) and any(v[0] == "subcmp" and "if (a != b)" in v[2] for v in sv)
       and any(v[0] == "cc" and v[2].startswith("// FLAGS: -O2 -g3 -mips2\n// COMPILER: ido53\n") for v in sv), "close_mut subcmp and cc")
 check(sum(1 for _ in close_mut.flag_grid("int f(void) {\n}\n")) == 383, "close_mut.flag_grid: every combination but the draft's own")
+iv = close_mut.variants("void f(u8 *arg0) {\n    s16 temp_a1;\n\n    temp_a1 = M2C_FIELD(arg0, s16 *, 0x16);\n    if (temp_a1 != 0) {\n        g(temp_a1);\n    }\n}\n", "f", only=["inline_local"])
+check(len(iv) == 1 and iv[0][2].count("M2C_FIELD(arg0, s16 *, 0x16)") == 2 and "temp_a1" not in iv[0][2], "close_mut inline_local: a field read used twice is read again at each use")
 import close  # noqa: E402
 log = ["ovl0001 func_1 start 1.04 best 1.04  [v:aaaa1111]", "ovl0001 func_2 start 1.04 best 1.04  [v:bbbb2222]", "ovl0001 func_3 start 1.04 best 1.04",
        "ovl0001 func_4 start 1.04 MATCH  callf32:f#1  promote: True x.c"]
