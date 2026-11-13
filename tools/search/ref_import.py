@@ -6,6 +6,8 @@ usage: ref_import.py vendor                 copy the headers of the reference cl
        ref_import.py run [overlays] [--only file.c]   compile every reference file of src/code (or of src/overlays), keep the functions that are byte-identical to
                                             ours and that we do not have in C yet, write them to src/code/ and register their names
        ref_import.py alias fn...                 add the aliases a matching draft needs to its header (it then links)
+       ref_import.py near --overlays [--only 0080,0081] [--first N] [--max-score N]   the same for the overlays, paired with the files of the actor of the
+                                            same name by position and size (the overlay folders carry the actor's name)
        ref_import.py near [--seg boot] [--max-score N] [--min-size HEX]   the other functions that can be paired with one of the reference by
                                             name (config/<seg>/names.txt): compile the reference source, score it against the ROM (tools/lib/score.py)
                                             and write the ones below N (default 40) to src/<seg>/wip/ as drafts tagged with their score
@@ -1110,6 +1112,135 @@ def alias_run():
     save_bases()
 
 
+def align_sizes(a, b):
+    """Needleman-Wunsch of two size lists (ours, reference): [(i, j)] of the aligned pairs. Equal functions cost 0, a size ratio far from 1 costs
+    up to 2, a function without a partner 0.8: the functions of one file keep their order from one version to the next."""
+    n, m = len(a), len(b)
+    gap = 0.8
+    cost = lambda x, y: 2.0 * abs(x - y) / (x + y)
+    dp = [[0.0] * (m + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        dp[i][0] = i * gap
+    for j in range(1, m + 1):
+        dp[0][j] = j * gap
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            dp[i][j] = min(dp[i - 1][j - 1] + cost(a[i - 1], b[j - 1]), dp[i - 1][j] + gap, dp[i][j - 1] + gap)
+    out, i, j = [], n, m
+    while i > 0 and j > 0:
+        if abs(dp[i][j] - (dp[i - 1][j - 1] + cost(a[i - 1], b[j - 1]))) < 1e-9:
+            out.append((i - 1, j - 1))
+            i, j = i - 1, j - 1
+        elif abs(dp[i][j] - (dp[i - 1][j] + gap)) < 1e-9:
+            i -= 1
+        else:
+            j -= 1
+    return out[::-1]
+
+
+def near_overlays():
+    """`near --overlays [--only 0080,0081] [--first N] [--max-score N]`: the overlays carry the name of their actor in the folder of src/overlays
+    (0080_En_Bubble); the reference has the files of that actor in ovl_En_Bubble. The functions of one file keep their order, so ours (in address
+    order, the C ones included as anchors) are aligned with the reference's by size; every pair of an unmatched function is compiled with our
+    headers, scored, and the close ones are written to the wip folder of the overlay as drafts that define our name for the function."""
+    arg = lambda k, d: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+    limit = float(arg("--max-score", 10))
+    only = set(arg("--only", "").split(",")) - {""}
+    first = int(arg("--first", 0))
+    refdirs = {}
+    for d in (REF / "src" / "overlays").glob("*/ovl_*"):
+        refdirs[re.sub(r"[\W_]", "", d.name[4:]).lower()] = d
+    overlays = []
+    for line in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines():
+        if line.strip() and not line.startswith("#"):
+            idx = line.split()[0]
+            folder = srcpath.overlay_dir(idx)
+            if "_" not in folder.name or (only and idx not in only):
+                continue
+            ref = refdirs.get(re.sub(r"[\W_]", "", folder.name.split("_", 1)[1]).lower())
+            if ref:
+                overlays.append((idx, folder, ref))
+    if first:
+        overlays = overlays[:first]
+    files = sorted(f for _, _, d in overlays for f in d.glob("*.c") if not f.name.endswith(".inc.c"))
+    stub_loop(files)
+    vendor()
+
+    def scan(f):
+        obj, _ = ref_compile(f)
+        return (f, ref_functions(obj)) if obj else (f, None)
+
+    with ThreadPoolExecutor(objcache.JOBS) as ex:
+        scanned = {f: fns for f, fns in ex.map(scan, files) if fns}
+    stats = collections.Counter()
+    rows = []
+    for idx, folder, ref in overlays:
+        seg = f"ovl{idx}"
+        sizes = match._sizes(seg)
+        ours = sorted(sizes, key=lambda fn: int(fn[-8:], 16))
+        refs = []   # (file, name, size)
+        for f in sorted(ref.glob("*.c"), key=lambda f: (f.name.endswith(".inc.c"), f.name)):
+            fns = scanned.get(f)
+            if fns:
+                refs += [(f, nm, len(v[1])) for nm, v in sorted(fns.items(), key=lambda kv: kv[1][0])]
+        if not refs:
+            stats["overlays without a compiled reference file"] += 1
+            continue
+        have = {fn for fn in ours if source_path(seg, fn).exists() and "wip" not in source_path(seg, fn).parts}
+        pairs = align_sizes([sizes[fn] for fn in ours], [r[2] for r in refs])
+        stats["overlays"] += 1
+        chunk_cache = {}
+        for i, j in pairs:
+            fn = ours[i]
+            if fn in have:
+                continue
+            f, real, _ = refs[j]
+            stats["pairs"] += 1
+            if f not in chunk_cache:
+                chunk_cache[f] = chunks_of(f)
+            stem = f.stem
+            hname = ctx_name(stem)
+            text = function_file(hname, chunk_cache[f], real)
+            if text is None:
+                stats["not written in the file"] += 1
+                continue
+            header = INC / f"{hname}.h"
+            header.parent.mkdir(parents=True, exist_ok=True)
+            if not header.exists():
+                header.write_text(build_header(stem, chunk_cache[f], {}, relkey(f).rsplit("/", 1)[0]))
+            text = re.sub(r"\b" + re.escape(real) + r"(\s*\()", fn + r"\1", text, count=1)
+            want, _ = match.original(seg, fn)
+            with tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "src" / "overlays" / folder.name / f"{fn}.c"
+                path.parent.mkdir(parents=True)
+                path.write_text(text)
+                try:
+                    got, masks = match.compiled(path, fn, match.file_flags(path), len(want))
+                except Exception:
+                    stats["does not compile"] += 1
+                    continue
+            r = score.score(match.mask(want, masks), match.mask(got, masks))
+            stats["compiled"] += 1
+            rows.append((r["score"], seg, fn, real))
+            if r["score"] > limit:
+                continue
+            stats["close"] += 1
+            if r["score"] <= 8:
+                stats["within 8"] += 1
+            dst = folder / "wip" / f"{fn}.c"
+            dst.parent.mkdir(exist_ok=True)
+            if dst.exists():
+                continue   # an earlier draft stays (a hand draft or an earlier run)
+            first_line, rest = text.split("\n", 1)
+            dst.write_text(first_line + f"\n// STATUS: reference draft ({real}), score {r['score']:.2f} ({r['diff']} differ, size {r['size']:+d})\n" + rest)
+            stats["drafts written"] += 1
+    rows.sort()
+    for sc, seg, fn, real in rows[:40]:
+        print(f"  {sc:6.2f} {seg} {fn} {real}")
+    for k, v in stats.items():
+        print(f"{v:6d} {k}")
+
+
 def main():
     if sys.argv[1:2] == ["vendor"]:
         return vendor()
@@ -1117,7 +1248,7 @@ def main():
         return link_guard()
     only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
     if sys.argv[1:2] == ["near"]:
-        return near_run()
+        return near_overlays() if "--overlays" in sys.argv else near_run()
     if sys.argv[1:2] == ["alias"]:
         return alias_run()
     if sys.argv[1:2] == ["run"] and sys.argv[2:3] == ["names"]:
