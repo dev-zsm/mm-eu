@@ -43,9 +43,9 @@
    "local_type": 18,
    "pad": 4,
    "param": 2,
+   "permuter": 2,
    "stmt_swap": 27,
-   "symarr": 9,
-   "permuter": 2
+   "symarr": 9
   },
   "reg": {
    "addu": 4,
@@ -54,6 +54,7 @@
    "cc": 6,
    "commute": 17,
    "decl_swap": 4,
+   "dropsp": 1,
    "fieldsign": 9,
    "flags": 6,
    "float_lit": 2,
@@ -63,11 +64,10 @@
    "late_local": 1,
    "local_type": 25,
    "pad": 2,
+   "permuter": 3,
    "stmt_swap": 64,
    "subcmp": 3,
-   "symarr": 8,
-   "dropsp": 1,
-   "permuter": 3
+   "symarr": 8
   },
   "size+": {
    "fieldsign": 1,
