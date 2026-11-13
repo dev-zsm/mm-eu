@@ -808,7 +808,7 @@ def m_index(t, name):
         if len(cuts) != 3:
             continue
         base, ty, off = (inner[s:e].strip() for s, e in cuts)
-        tm = re.fullmatch(r"(s8|u8|s16|u16|s32|u32|f32) \*", ty)
+        tm = re.fullmatch(r"(s8|u8|s16|u16|s32|u32|f32) \*", ty) or re.fullmatch(r"(\w+ \*+)\*", ty)   # a pointer element (`u8 **`) is 4 bytes
         if not tm:
             continue
         bb = strip_parens(base) or base
@@ -821,9 +821,9 @@ def m_index(t, name):
         if len(mul) != 2:
             continue
         idx, n = (p1[s:e].strip() for s, e in mul)
-        if not n.isdigit() or int(n) != size[tm.group(1)]:
+        if not n.isdigit() or int(n) != size.get(tm.group(1), 4):
             continue
-        yield f"@{a}", t[:bs + m.start()] + f"(({tm.group(1)} *)({p0} + {off}))[{idx}]" + t[b + 1:]
+        yield f"@{a}", t[:bs + m.start()] + f"(({ty})({p0} + {off}))[{idx}]" + t[b + 1:]
 
 
 def m_symarr(t, name):
@@ -1033,13 +1033,102 @@ def flag_grid(t):
                                 yield f"{'53' if ido53 else '71'} {' '.join(new[:len(new) - len(base)])}", text
 
 
+
+def add_typedef(t, line):
+    """`line` (a typedef) after the last #include of the text, unless it is already there."""
+    if line in t:
+        return t
+    inc = list(re.finditer(r"^#include [^\n]*\n", t, re.M))
+    pos = inc[-1].end() if inc else 0
+    return t[:pos] + line + "\n" + t[pos:]
+
+
+def m_stride(t, name):
+    """`M2C_FIELD((p + (i * 0x44)), s32 *, 0x17D98)`: an element of an array of structures whose size is not that of the field. It becomes
+    `((Elem *)(p + 0x17D98))[i].w` with `typedef struct { s32 w; u8 pad[0x40]; } Elem;`: IDO then adds the base and the scaled index in the
+    order of the ROM (`addu t0, s1, t8` against `addu t0, t8, s1`)."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    size = {"s8": 1, "u8": 1, "s16": 2, "u16": 2, "s32": 4, "u32": 4, "f32": 4}
+    for m in re.finditer(r"M2C_FIELD\(", t[bs:be]):
+        a = bs + m.end() - 1
+        b = match_close(t, a)
+        if b < 0:
+            continue
+        inner = t[a + 1:b]
+        cuts = split_top(inner, ",")
+        if len(cuts) != 3:
+            continue
+        base, ty, off = (inner[s:e].strip() for s, e in cuts)
+        tm = re.fullmatch(r"(s8|u8|s16|u16|s32|u32|f32) \*", ty)
+        bb = strip_parens(base) or base
+        parts = split_top(bb, " + ")
+        if not tm or len(parts) != 2:
+            continue
+        sides = [(bb[s:e].strip()) for s, e in parts]
+        for k in (0, 1):
+            p0, term = sides[k], strip_parens(sides[1 - k]) or sides[1 - k]
+            mul = split_top(term, " * ")
+            if len(mul) != 2:
+                continue
+            x, y = (term[s:e].strip() for s, e in mul)
+            idx, n = (x, y) if y.lower().startswith(("0x",)) or y.isdigit() else (y, x)
+            if not (n.lower().startswith("0x") or n.isdigit()) or int(n, 0) <= size[tm.group(1)]:
+                continue
+            n = int(n, 0)
+            if n == size[tm.group(1)]:
+                continue
+            elem = f"Stride{n:X}_{tm.group(1)}"
+            td = f"typedef struct {{ {tm.group(1)} w; u8 pad[0x{n - size[tm.group(1)]:X}]; }} {elem};"
+            new = t[:bs + m.start()] + f"(({elem} *)({p0} + {off}))[{idx}].w" + t[b + 1:]
+            yield f"@{a}", add_typedef(new, td)
+
+
+def m_split(t, name):
+    """The temporary the ROM keeps in another register: `x = E;` -> `T tmp = E; x = tmp;`, also with the first use of x that follows turned into tmp
+    (`lw a0, ..; or s1, a0, zero` against `lw s1, ..; or a0, s1, zero`); `x = E + C;` with E the read of a field -> `tmp = E; x = tmp + C;`."""
+    loc = locate(t, name)
+    if not loc:
+        return
+    bs, be = loc[2], loc[3]
+    sts = statements(t, bs, be)
+    declared = {m.group("name") for a, b, k in sts if k == "decl" for m in [DECL.match(t[a:b])] if m}
+    first_stmt = next((s for s in sts if s[2] != "decl"), None)
+    if not first_stmt:
+        return
+    for n, (a, b, k) in enumerate(sts):
+        if k != "stmt":
+            continue
+        m = re.fullmatch(r"(?P<v>[A-Za-z_]\w*) = (?P<e>M2C_FIELD\([^;]*\)|[A-Za-z_]\w*\[[^;]*\])(?P<op> [-+] [^;]+)?;", t[a:b], re.S)
+        if not m or m.group("v") not in declared:
+            continue
+        v, e, op = m.group("v"), m.group("e"), m.group("op") or ""
+        ty = "s32"
+        fm = re.match(r"M2C_FIELD\(.*, ([\w ]+ \**)\*, [^,]+\)$", e, re.S)
+        if fm:
+            ty = fm.group(1).strip() if not fm.group(1).startswith("M2C_UNK") else "s32"
+        tmp = f"{v}_t"
+        decl = f"{ty}{'' if ty.endswith('*') else ' '}{tmp};\n{indent_of(t, first_stmt[0])}"
+        stmt_new = f"{tmp} = {e};\n{indent_of(t, a)}{v} = {tmp}{op};"
+        base = t[:a] + stmt_new + t[b:]
+        yield f"{v}@{a}", base[:first_stmt[0]] + decl + base[first_stmt[0]:]
+        if not op and n + 1 < len(sts):   # the first use of v in the following statement reads the temporary
+            ns, ne = sts[n + 1][0], sts[n + 1][1]
+            nxt = re.sub(r"\b" + v + r"\b", tmp, t[ns:ne], count=1)
+            if nxt != t[ns:ne]:
+                both = t[:a] + stmt_new + t[b:ns] + nxt + t[ne:]
+                yield f"{v}@{a}+use", both[:first_stmt[0]] + decl + both[first_stmt[0]:]
+
+
 MUTATORS = {
     "flags": m_flags, "cmp_swap": m_cmp_swap, "not_form": m_not_form, "cmp_const": m_cmp_const, "bool_swap": m_bool_swap,
     "if_swap": m_if_swap, "dup_return": m_dup_return, "drop_else": m_drop_else, "add_else": m_add_else, "stmt_swap": m_stmt_swap, "decl_swap": m_decl_swap,
     "pad": m_pad, "local_type": m_local_type, "param": m_param, "alias": m_alias, "inline_local": m_inline_local,
     "extract": m_extract, "late_local": m_late_local, "chain_assign": m_chain_assign, "commute": m_commute, "float_lit": m_float_lit, "cast": m_cast,
     "addu": m_addu, "ternary": m_ternary, "loop": m_loop, "callf32": m_callf32, "fieldsign": m_fieldsign, "index": m_index, "symarr": m_symarr, "retfold": m_retfold, "dropsp": m_dropsp, "fwdarg": m_fwdarg,
-    "subcmp": m_subcmp, "cc": m_cc,
+    "subcmp": m_subcmp, "cc": m_cc, "stride": m_stride, "split": m_split,
 }
 
 

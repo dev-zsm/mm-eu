@@ -112,6 +112,11 @@ sv = close_mut.variants("// FLAGS: -O2 -g3 -mips2\nint f(int a, int b) {\n    if
 check(any(v[0] == "subcmp" and "if (!(a - b))" in v[2] for v in sv) and any(v[0] == "subcmp" and "if (a != b)" in v[2] for v in sv)
       and any(v[0] == "cc" and v[2].startswith("// FLAGS: -O2 -g3 -mips2\n// COMPILER: ido53\n") for v in sv), "close_mut subcmp and cc")
 check(sum(1 for _ in close_mut.flag_grid("int f(void) {\n}\n")) == 383, "close_mut.flag_grid: every combination but the draft's own")
+stv = close_mut.variants("#include \"types.h\"\nvoid f(u8 *a, u8 *b) {\n    g(M2C_FIELD((b + (M2C_FIELD(a, s32 *, 0x1F4) * 0x44)), s32 *, 0x17D98));\n    h(M2C_FIELD((a + (M2C_FIELD(a, u8 *, 0x322) * 4)), u8 **, 0x2EC));\n}\n", "f", only=["stride", "index"])
+check(any(v[0] == "stride" and "((Stride44_s32 *)(b + 0x17D98))[M2C_FIELD(a, s32 *, 0x1F4)].w" in v[2] and "typedef struct { s32 w; u8 pad[0x40]; } Stride44_s32;" in v[2] for v in stv)
+      and any(v[0] == "index" and "((u8 **)(a + 0x2EC))[M2C_FIELD(a, u8 *, 0x322)]" in v[2] for v in stv), "close_mut stride and index (array of structures, array of pointers)")
+sp = close_mut.variants("void f(u8 *a) {\n    s32 temp_s2;\n    s32 other;\n\n    other = 1;\n    temp_s2 = M2C_FIELD(a, s32 *, 0x1C);\n    g(temp_s2);\n}\n", "f", only=["split"])
+check(any("temp_s2_t = M2C_FIELD(a, s32 *, 0x1C);" in v[2] and "temp_s2 = temp_s2_t;" in v[2] for v in sp) and any("g(temp_s2_t);" in v[2] for v in sp), "close_mut split: a temporary between the read and the variable")
 iv = close_mut.variants("void f(u8 *arg0) {\n    s16 temp_a1;\n\n    temp_a1 = M2C_FIELD(arg0, s16 *, 0x16);\n    if (temp_a1 != 0) {\n        g(temp_a1);\n    }\n}\n", "f", only=["inline_local"])
 check(len(iv) == 1 and iv[0][2].count("M2C_FIELD(arg0, s16 *, 0x16)") == 2 and "temp_a1" not in iv[0][2], "close_mut inline_local: a field read used twice is read again at each use")
 import close  # noqa: E402
