@@ -31,7 +31,7 @@ void func_80000FCC(Actor *thisx, s32 arg1);
 void func_800011D0(s32 arg0, void *arg1);
 void func_80001288(u8 *arg0);
 void func_8000131C(u8 *arg0, s32 arg1);
-void func_80001378(void *arg0);
+void func_80001378(u8 *arg0);
 void func_800013DC(Actor *thisx, s32 arg1, s32 arg2);
 void func_80001578(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_80001638(s32 arg0, s32 arg1, Vec3f *arg2, s32 arg3);

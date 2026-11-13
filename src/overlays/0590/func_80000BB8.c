@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0590.h"
 
 extern f32 D_80BC87CC;
 extern f32 D_80BC87D0;

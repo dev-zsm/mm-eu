@@ -59,7 +59,7 @@ void func_80002E34(void *arg0);
 void func_80003004(u8 *arg0);
 void func_8000302C(u8 *arg0);
 void func_800030C0(u8 *arg0);
-void func_80003120(void *arg0);
+void func_80003120(u8 *arg0);
 void func_800031AC(u8 *arg0);
 void func_800031BC();
 void func_800031DC(u8 *arg0);

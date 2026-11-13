@@ -1,5 +1,6 @@
 #include "types.h"
 #include "m2c_compat.h"
+#include "generated/overlays/0420.h"
 
 extern f32 D_80ABA6C4;
 extern f32 D_80ABA6C8;

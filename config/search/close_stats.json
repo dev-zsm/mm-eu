@@ -18,7 +18,7 @@
    "flags": 10,
    "float_lit": 1,
    "fwdarg": 22,
-   "inline_local": 13,
+   "inline_local": 14,
    "late_local": 1,
    "local_type": 13,
    "pad": 2,
@@ -30,7 +30,7 @@
   "other": {
    "addu": 1,
    "alias": 5,
-   "callf32": 153,
+   "callf32": 154,
    "cc": 2,
    "commute": 10,
    "decl_swap": 9,
@@ -39,7 +39,8 @@
    "flags": 11,
    "float_lit": 3,
    "fwdarg": 21,
-   "inline_local": 6,
+   "index": 2,
+   "inline_local": 8,
    "late_local": 1,
    "local_type": 18,
    "pad": 4,
@@ -51,22 +52,24 @@
   "reg": {
    "addu": 4,
    "alias": 9,
-   "callf32": 52,
+   "callf32": 53,
    "cc": 6,
    "commute": 19,
    "decl_swap": 4,
    "dropsp": 1,
-   "fieldsign": 9,
+   "fieldsign": 10,
    "flags": 6,
    "float_lit": 2,
    "fwdarg": 7,
-   "index": 9,
-   "inline_local": 17,
+   "index": 23,
+   "inline_local": 19,
    "late_local": 1,
-   "local_type": 25,
+   "local_type": 26,
    "pad": 2,
    "permuter": 3,
+   "split": 3,
    "stmt_swap": 66,
+   "stride": 2,
    "subcmp": 3,
    "symarr": 8
   },
@@ -90,102 +93,102 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 70351,
+   "tried": 74267,
    "wins": 0
   },
   "addu": {
-   "helped": 1431,
-   "tried": 118312,
+   "helped": 1602,
+   "tried": 125964,
    "wins": 5
   },
   "alias": {
-   "helped": 101,
-   "tried": 140049,
+   "helped": 105,
+   "tried": 149364,
    "wins": 9
   },
   "bool_swap": {
-   "helped": 263,
-   "tried": 75751,
+   "helped": 278,
+   "tried": 79979,
    "wins": 0
   },
   "callf32": {
-   "helped": 500,
-   "tried": 78026,
-   "wins": 153
+   "helped": 535,
+   "tried": 84556,
+   "wins": 154
   },
   "cast": {
-   "helped": 13,
-   "tried": 139595,
+   "helped": 14,
+   "tried": 148888,
    "wins": 0
   },
   "cc": {
-   "helped": 215,
-   "tried": 331357,
+   "helped": 291,
+   "tried": 419713,
    "wins": 6
   },
   "chain_assign": {
-   "helped": 51,
-   "tried": 35579,
+   "helped": 58,
+   "tried": 37351,
    "wins": 0
   },
   "cmp_const": {
-   "helped": 43,
-   "tried": 37520,
+   "helped": 49,
+   "tried": 39922,
    "wins": 0
   },
   "cmp_swap": {
-   "helped": 56,
-   "tried": 449839,
+   "helped": 66,
+   "tried": 474551,
    "wins": 0
   },
   "commute": {
-   "helped": 573,
-   "tried": 214588,
+   "helped": 655,
+   "tried": 227786,
    "wins": 23
   },
   "decl_swap": {
-   "helped": 168,
-   "tried": 231603,
+   "helped": 170,
+   "tried": 246335,
    "wins": 9
   },
   "drop_else": {
-   "helped": 16,
-   "tried": 2054,
+   "helped": 18,
+   "tried": 2239,
    "wins": 0
   },
   "dropsp": {
-   "helped": 59,
-   "tried": 2472,
+   "helped": 68,
+   "tried": 2744,
    "wins": 5
   },
   "dup_return": {
-   "helped": 18,
-   "tried": 3178,
+   "helped": 21,
+   "tried": 3330,
    "wins": 0
   },
   "extract": {
-   "helped": 35,
-   "tried": 56336,
+   "helped": 38,
+   "tried": 59304,
    "wins": 0
   },
   "fieldsign": {
-   "helped": 154,
-   "tried": 314516,
-   "wins": 41
+   "helped": 158,
+   "tried": 337195,
+   "wins": 42
   },
   "flags": {
-   "helped": 919,
-   "tried": 720965,
+   "helped": 993,
+   "tried": 769067,
    "wins": 20
   },
   "float_lit": {
-   "helped": 94,
-   "tried": 593249,
+   "helped": 98,
+   "tried": 631538,
    "wins": 3
   },
   "fwdarg": {
-   "helped": 1269,
-   "tried": 468045,
+   "helped": 1317,
+   "tried": 501419,
    "wins": 26
   },
   "grid": {
@@ -194,48 +197,48 @@
    "wins": 0
   },
   "if_swap": {
-   "helped": 50,
-   "tried": 32204,
+   "helped": 57,
+   "tried": 34746,
    "wins": 0
   },
   "index": {
-   "helped": 92,
-   "tried": 450,
-   "wins": 9
+   "helped": 173,
+   "tried": 551,
+   "wins": 23
   },
   "inline_local": {
-   "helped": 132,
-   "tried": 22415,
-   "wins": 30
+   "helped": 158,
+   "tried": 25019,
+   "wins": 33
   },
   "late_local": {
    "helped": 3,
-   "tried": 3514,
+   "tried": 3664,
    "wins": 2
   },
   "local_type": {
-   "helped": 1597,
-   "tried": 2183468,
-   "wins": 39
+   "helped": 1709,
+   "tried": 2314406,
+   "wins": 40
   },
   "loop": {
-   "helped": 17,
-   "tried": 6557,
+   "helped": 18,
+   "tried": 6791,
    "wins": 0
   },
   "not_form": {
-   "helped": 870,
-   "tried": 688626,
+   "helped": 922,
+   "tried": 731408,
    "wins": 0
   },
   "pad": {
-   "helped": 291,
-   "tried": 1000458,
+   "helped": 305,
+   "tried": 1062022,
    "wins": 10
   },
   "param": {
-   "helped": 650,
-   "tried": 151142,
+   "helped": 694,
+   "tried": 161460,
    "wins": 2
   },
   "permuter": {
@@ -243,24 +246,34 @@
    "tried": 0,
    "wins": 5
   },
+  "split": {
+   "helped": 9,
+   "tried": 3142,
+   "wins": 3
+  },
   "stmt_swap": {
-   "helped": 1432,
-   "tried": 765918,
+   "helped": 1511,
+   "tried": 820113,
    "wins": 76
   },
+  "stride": {
+   "helped": 4,
+   "tried": 4,
+   "wins": 2
+  },
   "subcmp": {
-   "helped": 34,
-   "tried": 22322,
+   "helped": 42,
+   "tried": 28295,
    "wins": 3
   },
   "symarr": {
-   "helped": 77,
-   "tried": 1098,
+   "helped": 80,
+   "tried": 1136,
    "wins": 9
   },
   "ternary": {
    "helped": 1,
-   "tried": 10405,
+   "tried": 11009,
    "wins": 1
   }
  },
@@ -4392,6 +4405,221 @@
    "seq": [
     "stmt_swap:@743",
     "inline_local:temp_v0"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800023B0",
+   "seg": "ovl0293",
+   "seq": [
+    "index:@677"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800012BC",
+   "seg": "ovl0371",
+   "seq": [
+    "index:@468"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800027B0",
+   "seg": "ovl0371",
+   "seq": [
+    "index:@604"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800006C8",
+   "seg": "ovl0380",
+   "seq": [
+    "index:@407"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002744",
+   "seg": "ovl0554",
+   "seq": [
+    "stride:@654"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_8000176C",
+   "seg": "ovl0088",
+   "seq": [
+    "index:@813",
+    "index:@468"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80002184",
+   "seg": "ovl0088",
+   "seq": [
+    "index:@541",
+    "index:@786"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000000",
+   "seg": "ovl0169",
+   "seq": [
+    "split:temp_s2@221"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800008E8",
+   "seg": "ovl0283",
+   "seq": [
+    "fieldsign:@1377",
+    "split:temp_s0@685",
+    "fieldsign:@1423"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80001A48",
+   "seg": "ovl0293",
+   "seq": [
+    "index:@813",
+    "index:@468"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800021D0",
+   "seg": "ovl0293",
+   "seq": [
+    "index:@801",
+    "index:@541"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000A40",
+   "seg": "ovl0453",
+   "seq": [
+    "index:@803",
+    "index:@935"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000B48",
+   "seg": "ovl0453",
+   "seq": [
+    "index:@1031",
+    "index:@884"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_800007B4",
+   "seg": "ovl0537",
+   "seq": [
+    "index:@487"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000E40",
+   "seg": "ovl0380",
+   "seq": [
+    "index:@353"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000A2C",
+   "seg": "ovl0124",
+   "seq": [
+    "local_type:temp_v1_2:s16",
+    "split:temp_v1_2@525+use",
+    "inline_local:temp_v1_2_t"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_800014F8",
+   "seg": "ovl0478",
+   "seq": [
+    "callf32:func_80B16A94#3",
+    "index:@384"
+   ]
+  },
+  {
+   "ctx": [
+    "reg"
+   ],
+   "fn": "func_80000950",
+   "seg": "ovl0546",
+   "seq": [
+    "stride:@226"
+   ]
+  },
+  {
+   "ctx": [
+    "reg",
+    "other"
+   ],
+   "fn": "func_80000EBC",
+   "seg": "ovl0291",
+   "seq": [
+    "inline_local:sp34",
+    "index:@754"
+   ]
+  },
+  {
+   "ctx": [
+    "order",
+    "other"
+   ],
+   "fn": "func_800003C8",
+   "seg": "ovl0110",
+   "seq": [
+    "inline_local:temp_f0"
    ]
   }
  ]
