@@ -136,7 +136,17 @@ def stub_loop(files):
     if kept.exists():
         have = syms.read_text().splitlines()
         syms.write_text("\n".join(have + [l for l in kept.read_text().splitlines() if l not in set(have)]) + "\n")
-    known =set(re.findall(r"extern u8 (\w+)\[\];", syms.read_text()))
+    # the generated asset headers (include/mm/generated/assets, written by the asset generator) declare the real thing: a stand-in of the same
+    # name would be a redeclaration, so the stand-ins that a generated header now covers go
+    real = set()
+    for d in (MM / "generated" / "assets", REF / "generated" / "assets"):
+        if d.is_dir():
+            for h in d.glob("*.h"):
+                real |= set(re.findall(r"\b(\w+)\b\s*(?:\[[^\]]*\])?\s*(?:=[^;,]*)?[;,]", h.read_text(errors="ignore")))
+    if real:
+        text = syms.read_text().splitlines()
+        syms.write_text("\n".join(l for l in text if not (m := re.fullmatch(r"extern u8 (\w+)\[\];", l)) or m.group(1) not in real) + "\n")
+    known = set(re.findall(r"extern u8 (\w+)\[\];", syms.read_text()))
     todo = list(files)
     for _ in range(14):
         _FP[0] = stand_state()
@@ -1150,19 +1160,7 @@ def near_overlays():
     refdirs = {}
     for d in (REF / "src" / "overlays").glob("*/ovl_*"):
         refdirs[re.sub(r"[\W_]", "", d.name[4:]).lower()] = d
-    overlays = []
-    for line in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines():
-        if line.strip() and not line.startswith("#"):
-            idx = line.split()[0]
-            folder = srcpath.overlay_dir(idx)
-            if "_" not in folder.name or (only and idx not in only):
-                continue
-            ref = refdirs.get(re.sub(r"[\W_]", "", folder.name.split("_", 1)[1]).lower())
-            if ref:
-                overlays.append((idx, folder, ref))
-    if first:
-        overlays = overlays[:first]
-    files = sorted(f for _, _, d in overlays for f in d.glob("*.c") if not f.name.endswith(".inc.c"))
+    files = sorted(f for d in refdirs.values() for f in d.glob("*.c") if not f.name.endswith(".inc.c"))
     stub_loop(files)
     vendor()
 
@@ -1172,20 +1170,55 @@ def near_overlays():
 
     with ThreadPoolExecutor(objcache.JOBS) as ex:
         scanned = {f: fns for f, fns in ex.map(scan, files) if fns}
+    seqs = {}   # reference folder -> [(file, name, size)] in file and source order
+    for d in refdirs.values():
+        seq = []
+        for f in sorted(d.glob("*.c"), key=lambda f: (f.name.endswith(".inc.c"), f.name)):
+            fns = scanned.get(f)
+            if fns:
+                seq += [(f, nm, len(v[1])) for nm, v in sorted(fns.items(), key=lambda kv: kv[1][0])]
+        if seq:
+            seqs[d] = seq
+
+    def guess_folder(osizes):
+        """The reference folder whose functions line up with ours (same count and total size within a third, most pairs of nearly the same size),
+        for an overlay whose folder carries no name; None when no folder is clearly the best."""
+        best = []
+        for d, seq in seqs.items():
+            rs = [x[2] for x in seq]
+            if not 0.6 <= len(rs) / len(osizes) <= 1.67 or not 0.75 <= sum(rs) / sum(osizes) <= 1.33:
+                continue
+            pr = align_sizes(osizes, rs)
+            good = sum(1 for i, j in pr if abs(osizes[i] - rs[j]) <= 0.12 * max(osizes[i], rs[j]))
+            best.append((good / max(len(osizes), len(rs)), d))
+        best.sort(key=lambda t: t[0], reverse=True)
+        if best and best[0][0] >= 0.5 and (len(best) == 1 or best[0][0] - best[1][0] >= 0.1):
+            return best[0][1]
+        return None
+
+    overlays = []
+    for line in (ROOT / "config" / "overlays" / "list.txt").read_text().splitlines():
+        if line.strip() and not line.startswith("#"):
+            idx = line.split()[0]
+            folder = srcpath.overlay_dir(idx)
+            if only and idx not in only:
+                continue
+            ref = refdirs.get(re.sub(r"[\W_]", "", folder.name.split("_", 1)[1]).lower()) if "_" in folder.name else None
+            overlays.append((idx, folder, ref))
+    if first:
+        overlays = overlays[:first]
     stats = collections.Counter()
     rows = []
     for idx, folder, ref in overlays:
         seg = f"ovl{idx}"
         sizes = match._sizes(seg)
         ours = sorted(sizes, key=lambda fn: int(fn[-8:], 16))
-        refs = []   # (file, name, size)
-        for f in sorted(ref.glob("*.c"), key=lambda f: (f.name.endswith(".inc.c"), f.name)):
-            fns = scanned.get(f)
-            if fns:
-                refs += [(f, nm, len(v[1])) for nm, v in sorted(fns.items(), key=lambda kv: kv[1][0])]
-        if not refs:
-            stats["overlays without a compiled reference file"] += 1
-            continue
+        if ref is None or ref not in seqs:
+            ref = guess_folder([sizes[fn] for fn in ours]) if len(ours) >= 3 else None
+            stats["overlays paired with a folder by their sizes" if ref else "overlays without a reference folder"] += 1
+            if ref is None:
+                continue
+        refs = seqs[ref]
         have = {fn for fn in ours if source_path(seg, fn).exists() and "wip" not in source_path(seg, fn).parts}
         pairs = align_sizes([sizes[fn] for fn in ours], [r[2] for r in refs])
         stats["overlays"] += 1
@@ -1228,7 +1261,7 @@ def near_overlays():
             if r["score"] <= 8:
                 stats["within 8"] += 1
             dst = folder / "wip" / f"{fn}.c"
-            dst.parent.mkdir(exist_ok=True)
+            dst.parent.mkdir(parents=True, exist_ok=True)
             if dst.exists():
                 continue   # an earlier draft stays (a hand draft or an earlier run)
             first_line, rest = text.split("\n", 1)
