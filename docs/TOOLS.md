@@ -202,3 +202,6 @@ External tools used (fetched by `make setup` into `tools/vendor/`, or installed 
 | boot libm `floorf floor ceilf ceil truncf trunc roundf round lnearbyintf lnearbyint` and the float-to-int forms (`func_80086CE0` to `func_80086DB0`) | the result stays in the FPU (`floor.w.s $f12; cvt.s.w $f0,$f12`). The C form `return (f32)(s32)x;` gives `trunc.w.s $f4; mfc1; ...; cvt` (0x20 bytes against the ROM's 0xC), measured with the match server; IDO has no source form for `floor.w.*`, `ceil.w.*`, `round.w.*` |
 
 Not proven, so a C todo: `func_8008942C` (list unlink, 0.5 away: `t9` instead of `t6`), `func_80088440` (guScale) and the other `asm_only.txt` boot entries without an instruction above (`hard_hand.py` prints them as `listed-only`). `func_8008943C` was listed but is an empty function: it matches as C and was taken out of the list.
+
+**The rebase of the rounds.** `tools/run/rebase_ours.py` and `tools/run/clear_untracked.py` are used by `push.sh` and the start of `daily.sh`: the rebase onto origin/main settles a file modified on one side and deleted on the other (the other side wins), and untracked files that origin/main has are deleted first; before, one such conflict made every round's push fail (`rebase failed, local commits dropped`, rc=1) while the checks passed. `heal` failing no longer stops a round.
+

@@ -21,11 +21,11 @@ hours="${1:-3}"
 t0=$(date +%s)
 python3 tools/check/selftest.py   # a broken tool stops the round before it spends hours
 
-git fetch -q && { git rebase -q -X ours origin/main 2>/dev/null || git rebase --abort 2>/dev/null; } || true   # another machine may have pushed
+git fetch -q && { python3 tools/run/clear_untracked.py origin/main; python3 tools/run/rebase_ours.py origin/main; } || true   # another machine may have pushed
 python3 tools/lib/names.py code --apply-src > /dev/null
 python3 tools/check/quarantine.py code
 python3 tools/check/quarantine.py boot
-python3 tools/search/ref_import.py heal > /dev/null   # links the code segment, and deletes the untracked files (left by a failed import) that keep it from linking
+python3 tools/search/ref_import.py heal > /dev/null || echo "heal failed: the round goes on (an import must never stop it)"   # links the code segment, and deletes the untracked files (left by a failed import) that keep it from linking
 python3 tools/lib/build_seg.py boot build/boot.bin > /dev/null
 
 base=$(git rev-parse HEAD)

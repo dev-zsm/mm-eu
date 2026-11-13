@@ -8,7 +8,8 @@ cd "$(dirname "$0")/../.."
 for try in 1 2 3; do
     git push -q 2>/dev/null && exit 0
     git fetch -q || exit 1
-    if ! git rebase -q -X ours origin/main 2>/dev/null; then
+    python3 tools/run/clear_untracked.py origin/main   # files a failed round left untracked that origin/main has now stop the rebase
+    if ! python3 tools/run/rebase_ours.py origin/main; then
         git rebase --abort 2>/dev/null
         git reset -q --hard origin/main
         echo "rebase failed, local commits dropped"; exit 1

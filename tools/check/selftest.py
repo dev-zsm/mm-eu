@@ -132,8 +132,63 @@ check(sc["reg"] == 1 and sc["hard"] == 0 and sc["score"] == 0.25, f"score.score 
 sc = score.score([1, 2, 3, 4, 5], [1, 9, 2, 3, 4, 5])   # one inserted instruction: the aligned tail is not a diff of its own
 check(sc["size"] == 1 and sc["edit"] == 1 and sc["score"] == 1, f"score.score insertion {sc}")
 
-import objcache  # noqa: E402
+import clear_untracked  # noqa: E402
+check(clear_untracked.clashing(["src/a.c", "src/b.c", "include/h.h"], ["src/b.c", "src/c.c"]) == ["src/b.c"], "clear_untracked.clashing")
 import tempfile  # noqa: E402
+with tempfile.TemporaryDirectory() as td:   # a rebase onto a commit that adds a file the working tree has untracked: the daily rounds lost every push to it
+    def g(*a):
+        return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *a], cwd=td, capture_output=True, text=True)
+    if g("init", "-q").returncode == 0:
+        Path(td, "f").write_text("1")
+        g("add", "f")
+        g("commit", "-qm", "base")
+        base = g("rev-parse", "HEAD").stdout.strip()
+        Path(td, "src").mkdir()
+        Path(td, "src/x.h").write_text("theirs")
+        g("add", "src/x.h")
+        g("commit", "-qm", "origin adds x.h")
+        g("branch", "-f", "up")
+        g("reset", "-q", "--hard", base)
+        Path(td, "f").write_text("2")
+        g("commit", "-qam", "local")
+        Path(td, "src").mkdir(exist_ok=True)
+        Path(td, "src/x.h").write_text("ours, untracked")
+        check(g("rebase", "-q", "up").returncode != 0, "selftest premise: the rebase is stopped by the untracked file")
+        g("rebase", "--abort")
+        bad = clear_untracked.clashing(g("ls-files", "-o", "--exclude-standard").stdout.split(), g("ls-tree", "-r", "--name-only", "up").stdout.split())
+        for p in bad:
+            Path(td, p).unlink()
+        check(g("rebase", "-q", "up").returncode == 0, f"rebase onto a commit that adds a file the tree has untracked works once clear_untracked removed {bad}")
+
+import rebase_ours  # noqa: E402
+with tempfile.TemporaryDirectory() as td:   # a file the round modified and origin deleted (a draft promoted meanwhile): -X ours alone stops there
+    def g2(*a):
+        return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *a], cwd=td, capture_output=True, text=True)
+    if g2("init", "-q").returncode == 0:
+        g2("config", "user.name", "t")   # the rebase commits with the identity of the repository
+        g2("config", "user.email", "t@t")
+        Path(td, "wip.c").write_text("a\nb\n")
+        Path(td, "keep.c").write_text("k\n")
+        g2("add", "-A")
+        g2("commit", "-qm", "base")
+        base = g2("rev-parse", "HEAD").stdout.strip()
+        g2("rm", "-q", "wip.c")
+        Path(td, "new.c").write_text("n\n")
+        g2("add", "-A")
+        g2("commit", "-qm", "origin deletes wip.c")
+        g2("branch", "-f", "up")
+        g2("reset", "-q", "--hard", base)
+        Path(td, "wip.c").write_text("a\nB\n")
+        Path(td, "mine.c").write_text("m\n")
+        g2("add", "-A")
+        g2("commit", "-qm", "round: modifies wip.c, adds mine.c")
+        check(g2("rebase", "-q", "-X", "ours", "up").returncode != 0, "selftest premise: -X ours stops on modify/delete")
+        g2("rebase", "--abort")
+        ok = rebase_ours.rebase_ours("up", td)
+        check(ok and not Path(td, "wip.c").exists() and Path(td, "mine.c").exists() and Path(td, "new.c").exists()
+              and g2("merge-base", "--is-ancestor", "up", "HEAD").returncode == 0, f"rebase_ours settles modify/delete for the ref ({ok})")
+
+import objcache  # noqa: E402
 with tempfile.TemporaryDirectory() as td:
     empty, full = Path(td, "e.o"), Path(td, "f.o")
     empty.write_bytes(b"")
