@@ -29,6 +29,7 @@ while true; do
     bash tools/run/push.sh > /dev/null 2>&1 || true   # sends what an earlier round committed while the push was not possible
     pushed=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo "?")
     echo "$(date -Is) rc=$rc seconds=$(( $(date +%s) - start )) head=$(git rev-parse --short HEAD) unpushed=$pushed $(grep -m1 '^| `code`' docs/PROGRESS.md | tr -s ' ' | cut -c1-60)" >> build/rounds.log
+    bash tools/run/alert.sh > /dev/null   # build/ALERT and the system log when nothing passed for 24 hours
     if [ $rc -eq 0 ]; then
         same=0
     else
