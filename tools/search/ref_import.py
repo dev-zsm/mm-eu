@@ -114,14 +114,24 @@ def vendor():
     stamp = MM / "REFERENCE_COMMIT"
     # the stamp is written after the copy: with the same version of the reference, include/ src/ and assets/ are already in include/mm
     # (the copy of ~1500 small files took a minute on the Windows disk); the stand-ins grow from run to run, so they are always looked at
-    done = stamp.exists() and stamp.read_text().strip() == commit
+    # an include/mm stamped with another version of the reference (a newer clone elsewhere wrote it) is left alone: copying this clone over it
+    # would put older headers in its place (`--revendor` forces the copy)
+    done = stamp.exists() and (stamp.read_text().strip() == commit or "--revendor" not in sys.argv)
     # additive: the stand-ins of earlier runs stay
     for base, dst_base in (((REF / "extracted" / "n64-us", MM),) if done else
                            ((REF / "include", MM), (REF / "src", MM), (REF / "assets", MM / "assets"), (REF / "extracted" / "n64-us", MM))):
         for h in base.rglob("*"):   # the last base holds only the stand-ins written by stub_loop
             if h.is_file() and (base != REF / "src" and base != REF / "assets" or h.suffix == ".h"):
-                copy_new(h, dst_base / h.relative_to(base))
-    stamp.write_text(commit + "\n")   # the import can be redone exactly
+                dst = dst_base / h.relative_to(base)
+                if h.name == "_syms.h" and dst.exists():   # the stand-ins only grow: stub_loop drops the ones a generated header covers, the repository keeps them
+                    have = dst.read_text().splitlines()
+                    new = [l for l in h.read_text().splitlines() if l not in set(have)]
+                    if new:
+                        dst.write_text("\n".join(have + new) + "\n")
+                    continue
+                copy_new(h, dst)
+    if not done or not stamp.exists():
+        stamp.write_text(commit + "\n")   # the import can be redone exactly
     print(f"include/mm: reference {commit[:8]}" + (" (headers already copied)" if done else ""))
 
 
