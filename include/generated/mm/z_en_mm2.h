@@ -3,8 +3,8 @@
 #define MM_Z_EN_MM2_H
 
 /* names of ours that symbols of the reference stand for */
-#define Gfx_SetupDL25_Opa func_8012C73C
-#define Matrix_Finalize func_80182AD0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_Finalize Matrix_Finalize
 #define sEnMm2DL D_80987718
 
 /* names declared by the headers of the reference, prefixed while they are read */

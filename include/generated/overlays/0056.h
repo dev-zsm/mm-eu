@@ -208,7 +208,7 @@ void func_8000AF54(s32 arg0, u8 *arg1);
 void func_8000AFB8(s32 arg0, s32 arg1);
 void func_8000B028(void *arg0, s32 arg1);
 void func_8000B770(void *arg0, s32 arg1);
-void func_8000BAB0(void *arg0);
+s32 func_8000BAB0(u8 *arg0, s32 arg1);
 void func_8000BB88(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 s32 func_8000BC50(s32 arg0, u8 *arg1);
 void func_8000BD08(s32 arg0, PlayState *play);

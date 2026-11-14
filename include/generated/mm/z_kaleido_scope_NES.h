@@ -3,7 +3,7 @@
 #define MM_Z_KALEIDO_SCOPE_NES_H
 
 /* names of ours that symbols of the reference stand for */
-#define Gfx_SetupDL39_Opa func_8012CAD8
+#define Gfx_SetupDL39_Opa Gfx_SetupDL39_Opa
 #define gGameOverMaskTex D_C001800
 #define gGameOverP1Tex D_C000000
 #define gGameOverP2Tex D_C000800
@@ -16,8 +16,8 @@
 #define sGameOverPrimG D_8082B374
 #define sGameOverPrimR D_8082B370
 #define sGameOverRectPosY D_8082B434
-#define Matrix_Pop func_8018125C
-#define Matrix_Push func_8018122C
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
 #define gPauseMenuCursorTex D_8064340
 #define sCursorEnvB D_8082B394
 #define sCursorEnvG D_8082B390
@@ -25,8 +25,8 @@
 #define sCursorPrimB D_8082B388
 #define sCursorPrimG D_8082B384
 #define sCursorPrimR D_8082B380
-#define Math_CosS func_800FEB44
-#define Math_SinS func_800FEB84
+#define Math_CosS Math_CosS
+#define Math_SinS Math_SinS
 #define gRegEditor D_801EB7E0
 #define sCursorCirclesX D_8082D110
 #define sCursorCirclesY D_8082D120
@@ -53,9 +53,9 @@
 #define sVtxPageQuadsX D_8082B6F0
 #define sVtxPageQuadsY D_8082B720
 #define Gfx_DrawTexQuad4b func_8010DC38
-#define Matrix_Finalize func_80182AD0
-#define Matrix_Scale func_8018142C
-#define Matrix_Translate func_8018132C
+#define Matrix_Finalize Matrix_Finalize
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define gItemNamePanelDL D_B000000
 #define ref_D_8082B920 D_8082B410
 #define sPauseCursorLeftX D_8082B408

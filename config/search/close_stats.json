@@ -94,7 +94,7 @@
  "mut": {
   "add_else": {
    "helped": 0,
-   "tried": 76627,
+   "tried": 76651,
    "wins": 0
   },
   "addu": {
@@ -104,12 +104,12 @@
   },
   "alias": {
    "helped": 135,
-   "tried": 155225,
+   "tried": 155231,
    "wins": 9
   },
   "bool_swap": {
    "helped": 285,
-   "tried": 82603,
+   "tried": 82678,
    "wins": 0
   },
   "callf32": {
@@ -124,32 +124,32 @@
   },
   "cc": {
    "helped": 338,
-   "tried": 468908,
+   "tried": 469536,
    "wins": 6
   },
   "chain_assign": {
    "helped": 62,
-   "tried": 38259,
+   "tried": 38265,
    "wins": 0
   },
   "cmp_const": {
    "helped": 49,
-   "tried": 40855,
+   "tried": 40872,
    "wins": 0
   },
   "cmp_swap": {
    "helped": 68,
-   "tried": 490285,
+   "tried": 490528,
    "wins": 0
   },
   "commute": {
    "helped": 804,
-   "tried": 237444,
+   "tried": 237469,
    "wins": 23
   },
   "decl_swap": {
    "helped": 224,
-   "tried": 260113,
+   "tried": 260131,
    "wins": 9
   },
   "drop_else": {
@@ -169,7 +169,7 @@
   },
   "extract": {
    "helped": 39,
-   "tried": 59329,
+   "tried": 59503,
    "wins": 0
   },
   "fieldsign": {
@@ -178,13 +178,13 @@
    "wins": 42
   },
   "flags": {
-   "helped": 1015,
-   "tried": 795936,
+   "helped": 1016,
+   "tried": 796255,
    "wins": 20
   },
   "float_lit": {
    "helped": 101,
-   "tried": 656142,
+   "tried": 656458,
    "wins": 3
   },
   "fwdarg": {
@@ -199,7 +199,7 @@
   },
   "if_swap": {
    "helped": 57,
-   "tried": 35600,
+   "tried": 35629,
    "wins": 0
   },
   "index": {
@@ -209,7 +209,7 @@
   },
   "inline_local": {
    "helped": 218,
-   "tried": 27545,
+   "tried": 27552,
    "wins": 36
   },
   "late_local": {
@@ -219,7 +219,7 @@
   },
   "local_type": {
    "helped": 1847,
-   "tried": 2414212,
+   "tried": 2414509,
    "wins": 40
   },
   "loop": {
@@ -228,18 +228,18 @@
    "wins": 0
   },
   "not_form": {
-   "helped": 990,
-   "tried": 755830,
+   "helped": 991,
+   "tried": 756147,
    "wins": 0
   },
   "pad": {
    "helped": 358,
-   "tried": 1098044,
+   "tried": 1098408,
    "wins": 10
   },
   "param": {
-   "helped": 728,
-   "tried": 166700,
+   "helped": 729,
+   "tried": 166769,
    "wins": 2
   },
   "permuter": {
@@ -254,7 +254,7 @@
   },
   "stmt_swap": {
    "helped": 1655,
-   "tried": 877320,
+   "tried": 878355,
    "wins": 76
   },
   "stride": {
@@ -264,7 +264,7 @@
   },
   "subcmp": {
    "helped": 55,
-   "tried": 31855,
+   "tried": 31944,
    "wins": 3
   },
   "symarr": {
@@ -4652,6 +4652,474 @@
     "index:@760",
     "index:@1102"
    ]
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000820",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000A28",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001004",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001398",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001940",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001E60",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001EDC",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000227C",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002568",
+   "seg": "ovl0189",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000188",
+   "seg": "ovl0252",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000097C",
+   "seg": "ovl0315",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000000",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000011C",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000248",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800002CC",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000660",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800007B4",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800009F8",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000A78",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000D18",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000DF4",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000EDC",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000FDC",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001130",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000121C",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800015BC",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001924",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001C10",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001E58",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002110",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000225C",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000244C",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800025F0",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000274C",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002BC0",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002C5C",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002CE8",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002D68",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80002E34",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80003234",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80003468",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800035CC",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80003888",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80003AF8",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80004154",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80004290",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80004570",
+   "seg": "ovl0371",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000038C",
+   "seg": "ovl0395",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800000E4",
+   "seg": "ovl0402",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000052C",
+   "seg": "ovl0402",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800001A0",
+   "seg": "ovl0412",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000000",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000080",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000168",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800001F4",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000280",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000308",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800005E0",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800008CC",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000B68",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000C98",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000122C",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80001498",
+   "seg": "ovl0418",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800005F4",
+   "seg": "ovl0419",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000000",
+   "seg": "ovl0420",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800013DC",
+   "seg": "ovl0420",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000004C",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000019C",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800002E4",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000085C",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_80000FE8",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000113C",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800013E0",
+   "seg": "ovl0430",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000009C",
+   "seg": "ovl0601",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800001F0",
+   "seg": "ovl0625",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000003C",
+   "seg": "ovl0643",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_800000F8",
+   "seg": "ovl0665",
+   "seq": []
+  },
+  {
+   "ctx": [],
+   "fn": "func_8000020C",
+   "seg": "ovl0665",
+   "seq": []
   }
  ]
 }

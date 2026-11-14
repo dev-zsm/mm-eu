@@ -7,11 +7,11 @@
 #define EnRsn_PostLimbDraw D_80C0AC90
 #define Gfx_SetupDL37_Opa func_8012CA60
 #define Lib_SegmentedToVirtual func_80100304
-#define SkelAnime_DrawFlexOpa func_801342C8
+#define SkelAnime_DrawFlexOpa SkelAnime_DrawFlexOpa
 #define gBombShopkeeperEyeTex D_6005458
-#define Actor_MoveWithGravity func_800B680C
-#define Actor_TrackPlayer func_800E8FC0
-#define SkelAnime_Update func_80137070
+#define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_TrackPlayer Actor_TrackPlayer
+#define SkelAnime_Update SkelAnime_Update
 
 /* names declared by the headers of the reference, prefixed while they are read */
 

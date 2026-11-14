@@ -6,9 +6,9 @@
 #define Lib_SegmentedToVirtual func_80100304
 #define Math3D_RotateXZPlane func_8017C87C
 #define Math_FAtan2F func_80086BA0
-#define Math_Vec3s_ToVec3f func_800FF34C
-#define Animation_Change func_80137788
-#define Animation_GetLastFrame func_80134AE8
+#define Math_Vec3s_ToVec3f Math_Vec3s_ToVec3f
+#define Animation_Change Animation_Change
+#define Animation_GetLastFrame Animation_GetLastFrame
 
 /* names declared by the headers of the reference, prefixed while they are read */
 #define D_80AD5904 ref_D_80AD5904

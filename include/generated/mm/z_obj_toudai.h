@@ -3,9 +3,9 @@
 #define MM_Z_OBJ_TOUDAI_H
 
 /* names of ours that symbols of the reference stand for */
-#define Math_ApproachF func_800FFBF8
-#define Math_SinS func_800FEB84
-#define Rand_S16Offset func_800FF250
+#define Math_ApproachF Math_ApproachF
+#define Math_SinS Math_SinS
+#define Rand_S16Offset Rand_S16Offset
 #define ref_func_80A342F4 func_80A19024
 
 /* names declared by the headers of the reference, prefixed while they are read */

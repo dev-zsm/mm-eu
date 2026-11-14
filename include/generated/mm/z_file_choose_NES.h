@@ -10,10 +10,10 @@
 #define FileSelect_SetWindowContentVtx func_8080EBC0
 #define FileSelect_SetWindowVtx func_8080E8F8
 #define Gfx_SetupDL42_Opa func_8012CD5C
-#define Matrix_Finalize func_80182AD0
-#define Matrix_RotateXFApply func_80181848
-#define Matrix_Scale func_8018142C
-#define Matrix_Translate func_8018132C
+#define Matrix_Finalize Matrix_Finalize
+#define Matrix_RotateXFApply Matrix_RotateXFApply
+#define Matrix_Scale Matrix_Scale
+#define Matrix_Translate Matrix_Translate
 #define gFileSelWindow1DL D_1055ED0
 #define gFileSelWindow2DL D_10560E8
 #define gFileSelWindow3DL D_10562F8

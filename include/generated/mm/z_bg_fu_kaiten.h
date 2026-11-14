@@ -3,8 +3,8 @@
 #define MM_Z_BG_FU_KAITEN_H
 
 /* names of ours that symbols of the reference stand for */
-#define Gfx_SetupDL25_Opa func_8012C73C
-#define Matrix_Finalize func_80182AD0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_Finalize Matrix_Finalize
 #define object_fu_kaiten_DL_0005D0 D_60005D0
 #define Audio_PlaySfx_AtPosWithFreq Audio_PlaySfx_AtPosWithFreq
 #define BgFuKaiten_Draw BgFuKaiten_Draw

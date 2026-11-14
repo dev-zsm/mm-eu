@@ -3,12 +3,12 @@
 #define MM_Z_EN_OSN_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_ChangeAnimationByInfo func_800BD9E0
-#define Animation_GetLastFrame func_80134AE8
+#define Actor_ChangeAnimationByInfo Actor_ChangeAnimationByInfo
+#define Animation_GetLastFrame Animation_GetLastFrame
 #define sAnimationInfo D_80AB6FF0
-#define Player_GetMask func_801244EC
-#define CollisionCheck_SetAC func_800E2500
-#define CollisionCheck_SetOC func_800E26E8
+#define Player_GetMask Player_GetMask
+#define CollisionCheck_SetAC CollisionCheck_SetAC
+#define CollisionCheck_SetOC CollisionCheck_SetOC
 
 /* names declared by the headers of the reference, prefixed while they are read */
 

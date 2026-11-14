@@ -13,7 +13,7 @@ void func_8000071C(Actor *thisx);
 void func_80000938(void *arg0, s32 arg1, s32 arg2);
 void func_80000AA8(Actor *thisx, s32 arg1);
 void func_80000B9C(Actor *thisx);
-void func_80000C7C(Actor *thisx);
+void func_80000C7C(u8 *arg0);
 void func_80000D2C(Actor *thisx);
 void func_80000D7C(void *arg0, s32 arg1);
 void func_80000ED8(Actor *thisx, void *arg1);

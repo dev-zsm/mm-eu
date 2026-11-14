@@ -4,11 +4,11 @@
 
 /* names of ours that symbols of the reference stand for */
 #define Gfx_SetupDL25_Xlu func_8012C78C
-#define Matrix_Finalize func_80182AD0
-#define Matrix_Mult func_801812D4
-#define Matrix_Pop func_8018125C
-#define Matrix_Push func_8018122C
-#define Matrix_RotateZS func_80181D88
+#define Matrix_Finalize Matrix_Finalize
+#define Matrix_Mult Matrix_Mult
+#define Matrix_Pop Matrix_Pop
+#define Matrix_Push Matrix_Push
+#define Matrix_RotateZS Matrix_RotateZS
 #define gCustomLensFlare1On D_801EC6BA
 #define gCustomLensFlare1Pos D_801EC6C0
 #define gEffFlash2DL D_4023288
@@ -16,31 +16,31 @@
 #define ref_D_801F4E48 D_801EC6D0
 #define ref_D_801F4E4C D_801EC6D4
 #define DemoEffect_OverrideLimbDrawTimewarp D_808CD548
-#define Gfx_SetupDL func_8012C428
-#define Matrix_Scale func_8018142C
-#define SkelCurve_Draw func_800F2A88
+#define Gfx_SetupDL Gfx_SetupDL
+#define Matrix_Scale Matrix_Scale
+#define SkelCurve_Draw SkelCurve_Draw
 #define DemoEffect_FinishTimewarp D_808CD2AC
-#define Actor_Kill func_800B6490
-#define Actor_PlaySfx_FlaggedCentered2 func_800B8D6C
+#define Actor_Kill Actor_Kill
+#define Actor_PlaySfx_FlaggedCentered2 Actor_PlaySfx_FlaggedCentered2
 #define DemoEffect_SetPerVertexAlpha func_808CD1A0
 #define Lib_SegmentedToVirtual func_80100304
 #define gTimewarpVtx D_6000060
 #define DemoEffect_StartTimewarp D_808CD3BC
-#define SkelCurve_Init func_800F2400
-#define SkelCurve_SetAnim func_800F24A0
-#define SkelCurve_Update func_800F24D8
+#define SkelCurve_Init SkelCurve_Init
+#define SkelCurve_SetAnim SkelCurve_SetAnim
+#define SkelCurve_Update SkelCurve_Update
 #define gTimewarpAnim D_6000050
 #define gTimewarpSkel D_60012E8
-#define SkelCurve_Destroy func_800F2470
-#define ActorShape_Init func_800B3B14
-#define Actor_SetScale func_800B6564
+#define SkelCurve_Destroy SkelCurve_Destroy
+#define ActorShape_Init ActorShape_Init
+#define Actor_SetScale Actor_SetScale
 #define DemoEffect_DrawLight D_808CD748
 #define DemoEffect_DrawTimewarp D_808CD6C8
 #define DemoEffect_ExpandLight D_808CD4B0
 #define DemoEffect_SetupTimewarp D_808CD068
 #define DemoEffect_WaitForObject D_808CD010
-#define Object_GetSlot func_8012F9A8
-#define SkelCurve_Clear func_800F23D0
+#define Object_GetSlot Object_GetSlot
+#define SkelCurve_Clear SkelCurve_Clear
 
 /* names declared by the headers of the reference, prefixed while they are read */
 #define D_801F4E44 ref_D_801F4E44

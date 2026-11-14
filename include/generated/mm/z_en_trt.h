@@ -3,11 +3,11 @@
 #define MM_Z_EN_TRT_H
 
 /* names of ours that symbols of the reference stand for */
-#define Gfx_SetupDL39_Overlay func_8012CB04
+#define Gfx_SetupDL39_Overlay Gfx_SetupDL39_Overlay
 #define gSelectionCursorTex D_401F740
 #define ActorShadow_DrawCircle D_800B3F30
-#define ActorShape_Init func_800B3B14
-#define Actor_SetScale func_800B6564
+#define ActorShape_Init ActorShape_Init
+#define Actor_SetScale Actor_SetScale
 #define EnTrt_GetCutscenes func_80A73C24
 #define EnTrt_InitShopkeeper func_80A73924
 #define EnTrt_ShopkeeperGone D_80A729E0
@@ -20,7 +20,7 @@
 #define ref_func_80123810 func_80123CC0
 #define EnTrt_CannotBuy D_80A72B3C
 #define EnTrt_PositionSelectedItem func_80A72EEC
-#define Math_ApproachF func_800FFBF8
+#define Math_ApproachF Math_ApproachF
 #define EnTrt_ResetItemPosition func_80A72F8C
 #define EnTrt_Blink D_80A7341C
 #define EnTrt_EndConversation D_80A712CC
@@ -28,7 +28,7 @@
 #define Inventory_HasEmptyBottle func_80114D8C
 #define EnTrt_OpenEyes2 D_80A735AC
 #define EnTrt_TryToGiveRedPotionAfterSurprised D_80A7264C
-#define Actor_PlaySfx func_800B8C4C
+#define Actor_PlaySfx Actor_PlaySfx
 #define EnTrt_FaceShopkeeper D_80A713CC
 #define EnTrt_Hello D_80A70BA4
 #define EnTrt_OpenEyesThenSetToBlink D_80A735CC
@@ -38,17 +38,17 @@
 #define gKotakeWakeUpAnim D_60030EC
 #define EnTrt_EyesClosed D_80A7359C
 #define EnTrt_IdleSleeping D_80A71D14
-#define Rand_S16Offset func_800FF250
-#define Actor_OfferTalk func_800B8398
-#define Actor_PlaySfx_Flagged func_800B8D94
-#define Actor_TalkOfferAccepted func_800B8254
+#define Rand_S16Offset Rand_S16Offset
+#define Actor_OfferTalk Actor_OfferTalk
+#define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
+#define Actor_TalkOfferAccepted Actor_TalkOfferAccepted
 #define EnTrt_BeginInteraction D_80A72248
 #define EnTrt_ChangeAnim func_80A703F0
 #define EnTrt_IdleAwake D_80A72000
 #define EnTrt_OpenThenCloseEyes D_80A73510
-#define Player_GetMask func_801244EC
+#define Player_GetMask Player_GetMask
 #define sAnimationInfo D_80A74A90
-#define Audio_PlaySfx_MessageDecide func_801A00B8
+#define Audio_PlaySfx_MessageDecide Audio_PlaySfx_MessageDecide
 #define EnTrt_SetupBuyItemWithFanfare func_80A7187C
 #define EnTrt_SetupCanBuy func_80A71970
 #define EnTrt_SetupCannotBuy func_80A71934
@@ -63,31 +63,31 @@
 #define EnTrt_LookToShelf D_80A71520
 #define EnTrt_SetCursorIndexFromNeutral func_80A70B74
 #define Interface_SetAButtonDoAction func_80115540
-#define Actor_OfferTalkExchangeEquiCylinder func_800B8364
+#define Actor_OfferTalkExchangeEquiCylinder Actor_OfferTalkExchangeEquiCylinder
 #define EnTrt_ContinueShopping D_80A72D50
 #define EnTrt_ItemGiven D_80A7283C
 #define EnTrt_GivenRedPotionForKoume D_80A711E4
 #define gSaveContext D_801E6EF0
 #define EnTrt_EndInteraction func_80A7080C
 #define Message_ContinueTextbox func_80151E7C
-#define Actor_HasParent func_800B877C
-#define Actor_OfferGetItem func_800B87A0
+#define Actor_HasParent Actor_HasParent
+#define Actor_OfferGetItem Actor_OfferGetItem
 #define EnTrt_SetupItemGiven D_80A72CAC
-#define Player_UpdateBottleHeld func_80124200
-#define Audio_PlaySfx func_8019FF78
+#define Player_UpdateBottleHeld Player_UpdateBottleHeld
+#define Audio_PlaySfx Audio_PlaySfx
 #define EnTrt_StartShopping func_80A709FC
 #define EnTrt_TestEndInteraction func_80A7090C
 #define Message_GetState func_801529DC
 #define Message_ShouldAdvance func_80147B34
 #define CutsceneManager_GetCurrentCsId func_800F1E2C
-#define CutsceneManager_IsNext func_800F1984
-#define CutsceneManager_Queue func_800F1944
+#define CutsceneManager_IsNext CutsceneManager_IsNext
+#define CutsceneManager_Queue CutsceneManager_Queue
 #define CutsceneManager_StartWithPlayerCsAndSetFlag func_800F1A80
 #define CutsceneManager_Stop func_800F1D6C
-#define Actor_GetScreenPos func_800B861C
-#define Actor_Spawn func_800BA9E4
-#define Animation_Change func_80137788
-#define Animation_GetLastFrame func_80134AE8
+#define Actor_GetScreenPos Actor_GetScreenPos
+#define Actor_Spawn Actor_Spawn
+#define Animation_Change Animation_Change
+#define Animation_GetLastFrame Animation_GetLastFrame
 
 /* names declared by the headers of the reference, prefixed while they are read */
 #define func_80123810 ref_func_80123810

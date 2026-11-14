@@ -3,10 +3,10 @@
 #define MM_Z_OBJ_DANPEILIFT_H
 
 /* names of ours that symbols of the reference stand for */
-#define Actor_Kill func_800B6490
-#define Actor_ProcessInitChain func_800FF8DC
-#define DynaPolyActor_Init func_800CABA0
-#define DynaPolyActor_LoadMesh func_800CABC4
+#define Actor_Kill Actor_Kill
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define DynaPolyActor_Init DynaPolyActor_Init
+#define DynaPolyActor_LoadMesh DynaPolyActor_LoadMesh
 #define Lib_SegmentedToVirtual func_80100304
 #define ObjDanpeilift_DoNothing D_80BFFD24
 #define object_obj_danpeilift_Colheader_000BA0 D_6000BA0

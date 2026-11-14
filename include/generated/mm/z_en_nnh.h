@@ -3,8 +3,8 @@
 #define MM_Z_EN_NNH_H
 
 /* names of ours that symbols of the reference stand for */
-#define Gfx_SetupDL25_Opa func_8012C73C
-#define Matrix_Finalize func_80182AD0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_Finalize Matrix_Finalize
 #define gButlerSonMainBodyDL D_6001510
 #define Actor_OfferTalk Actor_OfferTalk
 #define Actor_SetScale Actor_SetScale

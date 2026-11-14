@@ -3,8 +3,8 @@
 #define MM_Z_OBJ_DINNER_H
 
 /* names of ours that symbols of the reference stand for */
-#define Gfx_SetupDL25_Opa func_8012C73C
-#define Matrix_Finalize func_80182AD0
+#define Gfx_SetupDL25_Opa Gfx_SetupDL25_Opa
+#define Matrix_Finalize Matrix_Finalize
 #define object_obj_dinner_DL_0011E0 D_60011E0
 
 /* names declared by the headers of the reference, prefixed while they are read */

@@ -3,39 +3,39 @@
 #define MM_Z_EN_HORSE_LINK_CHILD_H
 
 /* names of ours that symbols of the reference stand for */
-#define Skin_GetLimbPos func_801386B0
-#define Actor_MoveWithGravity func_800B680C
-#define Actor_UpdateBgCheckInfo func_800B763C
-#define Collider_UpdateCylinder func_800E7BB8
-#define CollisionCheck_SetOC func_800E26E8
+#define Skin_GetLimbPos Skin_GetLimbPos
+#define Actor_MoveWithGravity Actor_MoveWithGravity
+#define Actor_UpdateBgCheckInfo Actor_UpdateBgCheckInfo
+#define Collider_UpdateCylinder Collider_UpdateCylinder
+#define CollisionCheck_SetOC CollisionCheck_SetOC
 #define EnHorseLinkChild_PlaySound func_808DDD30
 #define sActionFuncs D_808DF600
 #define EnHorseLinkChild_SetupActionFunc4 func_808DEE58
 #define EnHorseLinkChild_SetupActionFunc5 func_808DEC30
-#define Horse_RotateToPoint func_800F3F0C
-#define Math_CosS func_800FEB44
+#define Horse_RotateToPoint Horse_RotateToPoint
+#define Math_CosS Math_CosS
 #define gHorsePlayedEponasSong D_801BE5D4
 #define Math3D_Vec3f_DistXYZ func_8017B9D0
 #define ref_func_808DF088 func_808DE758
-#define Actor_WorldYawTowardActor func_800B6A58
+#define Actor_WorldYawTowardActor Actor_WorldYawTowardActor
 #define EnHorseLinkChild_SetupWaitForPlayer func_808DE124
-#define Actor_WorldDistXZToActor func_800B6BA0
+#define Actor_WorldDistXZToActor Actor_WorldDistXZToActor
 #define EnHorseLinkChild_SetupGreetPlayer func_808DE370
-#define SkelAnime_Update func_80137070
-#define Animation_Change func_80137788
-#define Animation_GetLastFrame func_80134AE8
+#define SkelAnime_Update SkelAnime_Update
+#define Animation_Change Animation_Change
+#define Animation_GetLastFrame Animation_GetLastFrame
 #define EnHorseLinkChild_GetAnimSpeed func_808DDDF8
 #define ActorShadow_DrawHorse D_800B4028
-#define ActorShape_Init func_800B3B14
-#define Actor_ProcessInitChain func_800FF8DC
-#define Actor_SetScale func_800B6564
-#define Animation_PlayOnce func_801377D0
-#define Collider_InitCylinder func_800E0F5C
-#define Collider_InitJntSph func_800E090C
-#define Collider_SetJntSph func_800E0C20
-#define CollisionCheck_SetInfo func_800E72F0
+#define ActorShape_Init ActorShape_Init
+#define Actor_ProcessInitChain Actor_ProcessInitChain
+#define Actor_SetScale Actor_SetScale
+#define Animation_PlayOnce Animation_PlayOnce
+#define Collider_InitCylinder Collider_InitCylinder
+#define Collider_InitJntSph Collider_InitJntSph
+#define Collider_SetJntSph Collider_SetJntSph
+#define CollisionCheck_SetInfo CollisionCheck_SetInfo
 #define EnHorseLinkChild_SetupLonLonIdle func_808DE6B8
-#define Skin_Init func_8013894C
+#define Skin_Init Skin_Init
 #define gEponaGallopAnim D_6002F98
 #define gEponaSkel D_600A480
 #define gSaveContext D_801E6EF0
@@ -46,7 +46,7 @@
 #define sAnimPlaySpeeds D_808DF5E8
 #define EnHorseLinkChild_PlayWalkingSound func_808DDC90
 #define Rand_ZeroOne func_8008704C
-#define Audio_PlaySfx_AtPos func_801A0070
+#define Audio_PlaySfx_AtPos Audio_PlaySfx_AtPos
 #define sAnimSoundFrames D_808DF5E0
 
 /* names declared by the headers of the reference, prefixed while they are read */

@@ -16,12 +16,12 @@ same byte-for-byte check.
 ## Progress
 
 <!-- progress:start -->
-Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-11-13):
+Matching C verified byte-for-byte against the ROM (refreshed by `make progress`, last update 2026-11-14):
 
 ```
 boot     ████████████████████████████░░  93.8 %  (394 / 420)
 code     █████████████████████████░░░░░  82.2 %  (2931 / 3565)
-overlays █████████████████░░░░░░░░░░░░░  58.0 %  (7551 / 13011)
+overlays ██████████████████░░░░░░░░░░░░  59.1 %  (7693 / 13011)
 ```
 <!-- progress:end -->
 
