@@ -1092,13 +1092,15 @@ def alias_run():
     global SEG
     if "--seg" in sys.argv:
         SEG = sys.argv[sys.argv.index("--seg") + 1]
-    fns = [a for a in sys.argv[2:] if not a.startswith("--") and a != SEG]
-    nm = names.load(SEG)
-    registered = set(nm.values())
-    for fn in fns:
-        path = source_path(SEG, fn)
+    fns = [a for a in sys.argv[2:] if not a.startswith("--") and a != SEG]   # fn, or ovlNNNN:fn for the overlays
+    for item in fns:
+        seg, _, fn = item.rpartition(":")
+        seg = seg or SEG
+        nm = {} if seg.startswith("ovl") else names.load(seg)   # the overlays call the code by its address names
+        registered = set(nm.values())
+        path = source_path(seg, fn)
         if not path.exists():
-            path = ROOT / "src" / SEG / "wip" / f"{fn}.c"
+            path = (srcpath.overlay_dir(seg[3:]) if seg.startswith("ovl") else ROOT / "src" / seg) / "wip" / f"{fn}.c"
         text = path.read_text()
         m = re.search(r'#include "generated/mm/(\w+)\.h"', text)
         if not m:
@@ -1107,9 +1109,9 @@ def alias_run():
         header = INC / f"{m.group(1)}.h"
         known = read_aliases(header)
         try:
-            want, _ = match.original(SEG, fn)
+            want, _ = match.original(seg, fn)
             got, _ = match.compiled(path, fn, match.file_flags(path), len(want))
-            bases, exact = pair(SEG, fn, match.last_relocs(), got)
+            bases, exact = pair(seg, fn, match.last_relocs(), got)
         except Exception as e:
             print(fn, "no pairing:", str(e)[:80])
             continue
@@ -1119,7 +1121,7 @@ def alias_run():
                 continue
             token = exact.get(base)
             target = nm.get(token, token) if token is not None else f"D_{base:08X}"
-            if token is None:
+            if token is None and not seg.startswith("ovl"):
                 new_bases.add(target)
             if sym != target and sym not in registered:
                 add[sym] = target

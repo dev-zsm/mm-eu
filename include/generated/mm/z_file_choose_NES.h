@@ -3,6 +3,32 @@
 #define MM_Z_FILE_CHOOSE_NES_H
 
 /* names of ours that symbols of the reference stand for */
+#define FileSelect_DrawNameEntry func_80808DC8
+#define FileSelect_DrawOptions func_8080C2D0
+#define FileSelect_DrawWindowContents func_80811DF8
+#define FileSelect_SetView func_8080D3A8
+#define FileSelect_SetWindowContentVtx func_8080EBC0
+#define FileSelect_SetWindowVtx func_8080E8F8
+#define Gfx_SetupDL42_Opa func_8012CD5C
+#define Matrix_Finalize func_80182AD0
+#define Matrix_RotateXFApply func_80181848
+#define Matrix_Scale func_8018142C
+#define Matrix_Translate func_8018132C
+#define gFileSelWindow1DL D_1055ED0
+#define gFileSelWindow2DL D_10560E8
+#define gFileSelWindow3DL D_10562F8
+#define FileSelect_SplitNumber func_8080D7F4
+#define gSaveContext D_801E6EF0
+#define ref_D_80814280 D_80815B90
+#define ref_D_80814620 D_80816140
+#define ref_D_80814628 D_80816148
+#define ref_D_80814630 D_80816150
+#define ref_D_80814638 D_80816158
+#define ref_D_80814644 D_80816164
+#define ref_D_8081464C D_8081616C
+#define ref_D_80814650 D_80816170
+#define sFileInfoBoxPartWidths D_80816058
+#define sWalletFirstDigit D_80816074
 
 /* names declared by the headers of the reference, prefixed while they are read */
 #define D_0E000000 ref_D_0E000000

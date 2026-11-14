@@ -3,6 +3,14 @@
 #define MM_Z_OBJ_DANPEILIFT_H
 
 /* names of ours that symbols of the reference stand for */
+#define Actor_Kill func_800B6490
+#define Actor_ProcessInitChain func_800FF8DC
+#define DynaPolyActor_Init func_800CABA0
+#define DynaPolyActor_LoadMesh func_800CABC4
+#define Lib_SegmentedToVirtual func_80100304
+#define ObjDanpeilift_DoNothing D_80BFFD24
+#define object_obj_danpeilift_Colheader_000BA0 D_6000BA0
+#define sInitChain D_80C002E0
 #define Actor_SetFocus Actor_SetFocus
 #define CutsceneManager_Stop func_800F1D6C
 #define DynaPolyActor_IsPlayerOnTop DynaPolyActor_IsPlayerOnTop

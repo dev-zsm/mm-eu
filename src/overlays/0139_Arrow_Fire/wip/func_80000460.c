@@ -1,0 +1,39 @@
+// FLAGS: -O2 -g3 -mips2 -nostdinc -Wab,-r4300_mul -D_MIPS_SZLONG=32 -DF3DEX_GBI_2 -DF3DEX_GBI_PL -DGBI_DOWHILE -DMM_VERSION=N64_US -D_LANGUAGE_C -Iinclude/mm -Iinclude/mm/libc
+// STATUS: reference draft (FireArrow_Fly), score 6.00 (6 differ, size +3)
+#include "generated/mm/z_arrow_fire.h"
+
+void func_80000460(ArrowFire* this, PlayState* play) {
+    EnArrow* arrow = (EnArrow*)this->actor.parent;
+    s32 pad;
+    s32 pad2;
+
+    if ((arrow == NULL) || (arrow->actor.update == NULL)) {
+        Actor_Kill(&this->actor);
+        return;
+    }
+
+    this->actor.world.pos = arrow->actor.world.pos;
+    this->actor.shape.rot = arrow->actor.shape.rot;
+
+    this->height = Math_Vec3f_DistXYZ(&this->firedPos, &this->actor.world.pos) * (1.0f / 24.0f);
+
+    if (this->height < 1.0f) {
+        this->height = 1.0f;
+    }
+
+    FireArrow_Lerp(&this->firedPos, &this->actor.world.pos, 0.05f);
+    if (arrow->unk_261 & 1) {
+        Actor_PlaySfx(&this->actor, NA_SE_IT_EXPLOSION_FRAME);
+        ArrowFire_SetupAction(this, FireArrow_Hit);
+        this->timer = 32;
+        this->alpha = 255;
+        return;
+    }
+    if (arrow->unk_260 < 34) {
+        if (this->alpha < 35) {
+            Actor_Kill(&this->actor);
+            return;
+        }
+        this->alpha -= 25;
+    }
+}

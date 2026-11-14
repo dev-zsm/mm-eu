@@ -3,6 +3,64 @@
 #define MM_Z_KALEIDO_SCOPE_NES_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL39_Opa func_8012CAD8
+#define gGameOverMaskTex D_C001800
+#define gGameOverP1Tex D_C000000
+#define gGameOverP2Tex D_C000800
+#define gGameOverP3Tex D_C001000
+#define sGameOverEnvB D_8082B3A0
+#define sGameOverEnvG D_8082B39C
+#define sGameOverEnvR D_8082B398
+#define sGameOverPrimAlpha D_8082B37C
+#define sGameOverPrimB D_8082B378
+#define sGameOverPrimG D_8082B374
+#define sGameOverPrimR D_8082B370
+#define sGameOverRectPosY D_8082B434
+#define Matrix_Pop func_8018125C
+#define Matrix_Push func_8018122C
+#define gPauseMenuCursorTex D_8064340
+#define sCursorEnvB D_8082B394
+#define sCursorEnvG D_8082B390
+#define sCursorEnvR D_8082B38C
+#define sCursorPrimB D_8082B388
+#define sCursorPrimG D_8082B384
+#define sCursorPrimR D_8082B380
+#define Math_CosS func_800FEB44
+#define Math_SinS func_800FEB84
+#define gRegEditor D_801EB7E0
+#define sCursorCirclesX D_8082D110
+#define sCursorCirclesY D_8082D120
+#define sDungeonMapCursorsX D_8082B96C
+#define sDungeonMapCursorsY D_8082B990
+#define sItemMaskCursorsX D_8082B89C
+#define sItemMaskCursorsY D_8082B8B4
+#define sOwlWarpWorldMapCursorsX D_8082B91C
+#define sOwlWarpWorldMapCursorsY D_8082B944
+#define sQuestStatusCursorsX D_8082B9B4
+#define sQuestStatusCursorsY D_8082BA10
+#define sWorldMapCursorsX D_8082B8C4
+#define sWorldMapCursorsY D_8082B8F0
+#define KaleidoScope_SetPageVertices func_80825338
+#define gSaveContext D_801E6EF0
+#define sInDungeonScene D_8082B3A4
+#define sQuestVtxHeights D_8082B84C
+#define sQuestVtxRectLeft D_8082B75C
+#define sQuestVtxRectTop D_8082B7AC
+#define sQuestVtxWidths D_8082B7FC
+#define sVtxPageGameOverSaveQuadsY D_8082B750
+#define sVtxPageQuadsHeight D_8082B738
+#define sVtxPageQuadsWidth D_8082B708
+#define sVtxPageQuadsX D_8082B6F0
+#define sVtxPageQuadsY D_8082B720
+#define Gfx_DrawTexQuad4b func_8010DC38
+#define Matrix_Finalize func_80182AD0
+#define Matrix_Scale func_8018142C
+#define Matrix_Translate func_8018132C
+#define gItemNamePanelDL D_B000000
+#define ref_D_8082B920 D_8082B410
+#define sPauseCursorLeftX D_8082B408
+#define sPauseCursorRightX D_8082B40C
+#define sPauseZRCursorColorTimerInits D_8082B414
 
 /* names declared by the headers of the reference, prefixed while they are read */
 #define func_8014546C ref_func_8014546C

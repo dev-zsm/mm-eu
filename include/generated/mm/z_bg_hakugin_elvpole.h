@@ -3,6 +3,9 @@
 #define MM_Z_BG_HAKUGIN_ELVPOLE_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL25_Opa func_8012C73C
+#define Matrix_Finalize func_80182AD0
+#define object_hakugin_obj_DL_00ACB8 D_600ACB8
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
 #define BgHakuginElvpole_Draw BgHakuginElvpole_Draw

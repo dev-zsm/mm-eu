@@ -3,6 +3,11 @@
 #define MM_Z_BG_CTOWER_GEAR_H
 
 /* names of ours that symbols of the reference stand for */
+#define Gfx_SetupDL25_Opa func_8012C73C
+#define Gfx_SetupDL25_Xlu func_8012C78C
+#define Matrix_Finalize func_80182AD0
+#define gClockTowerOrganDL D_60160A0
+#define gClockTowerOrganPipesDL D_6015F30
 #define Actor_Kill Actor_Kill
 #define Actor_PlaySfx Actor_PlaySfx
 #define Actor_PlaySfx_Flagged Actor_PlaySfx_Flagged
